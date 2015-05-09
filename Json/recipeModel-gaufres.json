@@ -1,0 +1,177 @@
+{
+    "Id": 2,
+    "Title": "Gaufres",
+    "OriginalUrl": "http://www.ricardocuisine.com/recettes/3892-gaufres",
+    "Language": "fr", 
+    "Summary": "",
+    "OriginalYield": 8,
+    "Durations": [
+        {
+            "Title": "Préparation",
+            "Time": "PT0H10M"
+        },
+        {
+            "Title": "Cuisson",
+            "Time": "PT0H20M"
+        }
+    ],
+    "Groupings": [
+        {
+            "Title": "Préparation",
+            "Timers": [
+                {
+                    "Id": 1,
+                    "Time": "PT0H05M"
+                },
+                {
+                    "Id": 2,
+                    "Time": "PT0H10M"
+                },
+                {
+                    "Id": 3,
+                    "Time": "PT0H05M"
+                }
+            ],
+            "Ingredients": [
+                {
+                    "Id": 1,
+                    "Name": "Lait de beurre",
+                    "Quantity": {
+                        "Value": 250,
+                        "OriginalMeasureUnit": "ml"
+                    },
+					"Replacement": {
+						"Name": "Lait",
+						"Quantity": {
+	                        "Value": 250,
+	                        "OriginalMeasureUnit": "ml"
+						}
+					}
+                },
+                {
+                    "Id": 2,
+                    "Name": "Farine tout usage non blanchie",
+                    "Quantity": {
+                        "Value": 250,
+                        "OriginalMeasureUnit": "ml"
+                    }
+                },
+                {
+                    "Id": 3,
+                    "Name": "Fécule de maïs",
+                    "Quantity": {
+                        "Value": 60,
+                        "OriginalMeasureUnit": "ml"
+                    }
+                },
+                {
+                    "Id": 4,
+                    "Name": "Huile de canola",
+                    "Quantity": {
+                        "Value": 60,
+                        "OriginalMeasureUnit": "ml"
+                    }
+                },
+                {
+                    "Id": 5,
+                    "Name": "Cassonade",
+                    "Quantity": {
+                        "Value": 45,
+                        "OriginalMeasureUnit": "ml"
+                    }
+                },
+                {
+                    "Id": 6,
+                    "Name": "Poudre à pâte",
+                    "Quantity": {
+                        "Value": 2.5,
+                        "OriginalMeasureUnit": "ml"
+                    }
+                },
+                {
+                    "Id": 7,
+                    "Name": "Bicarbonate de soude",
+                    "Quantity": {
+                        "Value": 1,
+                        "OriginalMeasureUnit": "ml"
+                    }
+                },
+                {
+                    "Id": 8,
+                    "Name": "Sel",
+                    "Quantity": {
+                        "Value": 1,
+                        "OriginalMeasureUnit": "ml"
+                    }
+                },
+                {
+                    "Id": 9,
+                    "Name": "Oeufs",
+                    "Quantity": {
+                        "Value": 2,
+                        "OriginalMeasureUnit": "units"
+                    }
+                }
+            ],
+            "Actions": [
+                {
+                    "Id": 1,
+                    "Verb": "Mélanger"
+                },
+                {
+                    "Id": 2,
+                    "Verb": "Réserver"
+                },
+                {
+                    "Id": 3,
+                    "Verb": "Fouetter"
+                },
+                {
+                    "Id": 4,
+                    "Verb": "Ajouter"
+                },
+                {
+                    "Id": 5,
+                    "Verb": "Incorporer"
+                },
+                {
+                    "Id": 6,
+                    "Verb": "Laisser reposer"
+                },
+                {
+                    "Id": 7,
+                    "Verb": "Préchauffer"
+                },
+                {
+                    "Id": 8,
+                    "Verb": "Verser"
+                },
+                {
+                    "Id": 9,
+                    "Verb": "Refermer"
+                },
+                {
+                    "Id": 10,
+                    "Verb": "Cuire"
+                },
+                {
+                    "Id": 11,
+                    "Verb": "Réserver"
+                },
+                {
+                    "Id": 12,
+                    "Verb": "Répéter"
+                },
+                {
+                    "Id": 13,
+                    "Verb": "Servir"
+                }
+            ],
+            "Steps": [
+				"Dans un bol, {verbId:1} {ingredientId:2}, {ingredientId:3}, {ingredientId:6}, {ingredientId:7} et {ingredientId:8}. {verbId:2}.",
+				"Dans un autre bol, {verbId:3} {ingredientId:9} et {ingredientId:5} environ {timerId:1} jusqu'à ce qu'ils blanchissent, forment un ruban et triplent de volume. {verbId:4} {ingredientId:4} graduellement en fouettant. À l'aide dune spatule, {verbId:5} les ingrédients secs en alternant avec {ingredientId:1} jusqu'à ce que le mélange soit humecté (il restera quelques grumeaux de farine). {verbId:6} {timerId:2}.", 
+				"{verbId:7} le gaufrier. {verbId:8} environ 250 ml (1 tasse) de pâte à la fois (pour deux gaufres) et {verbId:9} l'appareil (ou selon les recommandations du fabricant). {verbId:10} environ {timerId:3} ou jusqu'à ce qu'elles soient dorées. {verbId:11} au chaud. {verbId:12} l'opération avec le reste de la pâte. {verbId:13} avec le coulis de fraises en trempette."
+            ]
+        }
+    ]
+}

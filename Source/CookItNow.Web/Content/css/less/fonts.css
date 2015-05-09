@@ -1,0 +1,72 @@
+@font-face {
+  font-family: "Roboto Thin";
+  src: url('/CookItNowUITest/fonts/roboto-thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto Thin Italic";
+  src: url('/CookItNowUITest/fonts/roboto-thinitalic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto Light";
+  src: url('/CookItNowUITest/fonts/roboto-light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto Light Italic";
+  src: url('/CookItNowUITest/fonts/roboto-lightitalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url('/CookItNowUITest/fonts/Roboto-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto Italic";
+  src: url('/CookItNowUITest/fonts/roboto-italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto Medium";
+  src: url('/CookItNowUITest/fonts/roboto-medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto Medium Italic";
+  src: url('/CookItNowUITest/fonts/roboto-mediumitalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto Bold";
+  src: url('/CookItNowUITest/fonts/roboto-bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto Bold Italic";
+  src: url('/CookItNowUITest/fonts/roboto-bolditalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto Black";
+  src: url('/CookItNowUITest/fonts/roboto-blac.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto Black Italic";
+  src: url('/CookItNowUITest/fonts/roboto-blackitalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
