@@ -2,9 +2,8 @@
     "Id": 1,
     "Title": "Pouding au chocolat",
     "OriginalUrl": "http://www.ricardocuisine.com/recettes/5409-pouding-au-chocolat",
-    "Language": "fr", 
     "Summary": "Sommaire de la recette, un bon pouding au chocolat mi-amer avec ben des calories.",
-    "OriginalYield": 10,
+    "OriginalServings": 10,
     "Durations": [
         {
             "Title": "Preparation",
@@ -14,234 +13,173 @@
             "Title": "Cuisson",
             "Time": "PT1H00M"
         }
-    ],
-    "Groupings": [
+    ], 
+    "Subrecipes": [
         {
-            "Title": "Sauce",
-            "Timers": [ ],
-            "Ingredients": [
-                {
-                    "Id": 1,
-                    "Name": "Cassonade",
-                    "Quantity": {
-                        "Value": 3,
-                        "OriginalMeasureUnit": "cups"
-                    }
-                },
-                {
-                    "Id": 2,
-                    "Name": "Eau",
-                    "Quantity": {
-                        "Value": 625,
-                        "OriginalMeasureUnit": "ml"
-                    }
-                }, 
-                {
-                    "Id": 3,
-                    "Name": "Cacao",
-                    "Quantity": {
-                        "Value": 180,
-                        "OriginalMeasureUnit": "ml"
-                    },
-                    "Requirements": [
-                        "Tamisé"
-                    ]
-                },
-                {
-                    "Id": 4,
-                    "Name": "Crème 35%",
-                    "Quantity": {
-                        "Value": 125,
-                        "OriginalMeasureUnit": "ml"
-                    }
-                },
-                {
-                    "Id": 5,
-                    "Name": "Fécule de maïs",
-                    "Quantity": {
-                        "Value": 10,
-                        "OriginalMeasureUnit": "ml"
-                    }
-                },
-                {
-                    "Id": 6,
-                    "Name": "Extrait de vanille",
-                    "Quantity": {
-                        "Value": 2.5,
-                        "OriginalMeasureUnit": "ml"
-                    }
-                }
-            ],
-            "Actions": [
-                {
-                    "Id": 1,
-                    "Verb": "Mélanger"
-                },
-                {
-                    "Id": 2,
-                    "Verb": "Ajouter"
-                },
-                {
-                    "Id": 3,
-                    "Verb": "Ajouter"
-                },
-                {
-                    "Id": 4,
-                    "Verb": "Porter à ébullition"
-                },
-                {
-                    "Id": 5,
-                    "Verb": "Incorporer"
-                },
-                {
-                    "Id": 6,
-                    "Verb": "Réserver"
-                }
-            ], 
-            "Steps": [
-                "Dans une casserole, {verbId:1} {ingredientId:1} et {ingredientId:3}. {verbId:2} {ingredientId:5}. {verbId:3} {ingredientId:2} et {ingredientId:4}. {verbId:4} en remuant à l'aide d'un fouet. {verbId:5} {ingredientId:6}. {verbId:6}"
+            "Id": 1, 
+            "Title": "Sauce"
+        },
+        {
+            "Id": 2, 
+            "Title": "Gâteau"
+        }
+    ],
+    "Ingredients": [
+        {
+            "Id": 1,
+            "SubrecipeId": 1, 
+            "Name": "Cassonade",
+            "Quantity": {
+                "Value": 3,
+                "OriginalMeasureUnit": "cups"
+            }
+        },
+        {
+            "Id": 2,
+            "SubrecipeId": 1, 
+            "Name": "Eau",
+            "Quantity": {
+                "Value": 625,
+                "OriginalMeasureUnit": "ml"
+            }
+        }, 
+        {
+            "Id": 3,
+            "SubrecipeId": 1, 
+            "Name": "Cacao",
+            "Quantity": {
+                "Value": 180,
+                "OriginalMeasureUnit": "ml"
+            },
+            "Requirements": [
+                "Tamisé"
             ]
         },
         {
-            "Title": "Gâteau",
-            "Timers": [
-                {
-                    "Id": 1,
-                    "Time": "PT0H02M"
-                },
-                {
-                    "Id": 2,
-                    "Time": "PT0H45M"
-                }
-            ],
-            "Ingredients": [
-                {
-                    "Id": 7,
-                    "Name": "Farine tout usage non blanchie",
-                    "Quantity": {
-                        "Value": 375,
-                        "OriginalMeasureUnit": "ml"
-                    }
-                },
-                {
-                    "Id": 8,
-                    "Name": "Sucre",
-                    "Quantity": {
-                        "Value": 375,
-                        "OriginalMeasureUnit": "ml"
-                    }
-                },
-                {
-                    "Id": 9,
-                    "Name": "Lait",
-                    "Quantity": {
-                        "Value": 1,
-                        "OriginalMeasureUnit": "cups"
-                    }
-                },
-                {
-                    "Id": 10,
-                    "Name": "Cacao",
-                    "Quantity": {
-                        "Value": 125,
-                        "OriginalMeasureUnit": "ml"
-                    },
-                    "Requirement": "Tamisé"
-                },
-                {
-                    "Id": 11,
-                    "Name": "Beurre non salé",
-                    "Quantity": {
-                        "Value": 125,
-                        "OriginalMeasureUnit": "ml"
-                    },
-                    "Requirement": "Ramolli"
-                },
-                {
-                    "Id": 12,
-                    "Name": "Bicarbonate de soude",
-                    "Quantity": {
-                        "Value": 5,
-                        "OriginalMeasureUnit": "ml"
-                    }
-                },
-                {
-                    "Id": 13,
-                    "Name": "Sel",
-                    "Quantity": {
-                        "Value": 1,
-                        "OriginalMeasureUnit": "pinch"
-                    }
-                },
-                {
-                    "Id": 14,
-                    "Name": "Oeufs",
-                    "Quantity": {
-                        "Value": 2,
-                        "OriginalMeasureUnit": "units"
-                    }
-                }
-            ],
-            "Actions": [
-                {
-                    "Id": 7,
-                    "Verb": "Porter à ébullition"
-                },
-                {
-                    "Id": 8,
-                    "Verb": "Laisser tiédir"
-                },
-                {
-                    "Id": 9,
-                    "Verb": "Gosser"
-                },
-                {
-                    "Id": 10,
-                    "Verb": "Mélanger"
-                },
-                {
-                    "Id": 11,
-                    "Verb": "Réserver"
-                },
-                {
-                    "Id": 12,
-                    "Verb": "Mélanger"
-                },
-                {
-                    "Id": 13,
-                    "Verb": "Ajouter"
-                },
-                {
-                    "Id": 14,
-                    "Verb": "Battre"
-                },
-                {
-                    "Id": 15,
-                    "Verb": "Incorporer"
-                },
-                {
-                    "Id": 16,
-                    "Verb": "Répartir"
-                },
-                {
-                    "Id": 17,
-                    "Verb": "Verser"
-                },
-                {
-                    "Id": 18,
-                    "Verb": "Cuire"
-                },
-                {
-                    "Id": 19,
-                    "Verb": "Servir"
-                }
-            ],
-            "Steps": [
-                "Dans une petite casserole, {verbId:7} {ingredientId:9} et {ingredientId:10} en remuant à l’aide d’un fouet. {verbId:8}. {verbId:9} {timerId:1}.",
-                "Dans un bol, {verbId:10} {ingredientId:7}, {ingredientId:12} et {ingredientId:13}. {verbId:11}.",
-                "Dans un autre bol, {verbId:12} {ingredientId:11} et {ingredientId:8} au batteur électrique jusqu’à ce que le mélange prenne une texture granuleuse. {verbId:13} les oeufs, un à la fois, et {verbId:14} jusqu’à ce que la préparation soit homogène. À basse vitesse, {verbId:15} les ingrédients secs en alternant avec le mélange de cacao. {verbId:16} la pâte dans le plat.", 
-                "{verbId:17} la sauce chaude délicatement sur la pâte. {verbId:18} au four environ {timerId:2} ou jusqu’à ce qu’un cure-dent inséré au centre du gâteau en ressorte propre. {verbId:19} chaud ou tempéré."
-            ]
+            "Id": 4,
+            "SubrecipeId": 1, 
+            "Name": "Crème 35%",
+            "Quantity": {
+                "Value": 125,
+                "OriginalMeasureUnit": "ml"
+            }
+        },
+        {
+            "Id": 5,
+            "SubrecipeId": 1, 
+            "Name": "Fécule de maïs",
+            "Quantity": {
+                "Value": 10,
+                "OriginalMeasureUnit": "ml"
+            }
+        },
+        {
+            "Id": 6,
+            "SubrecipeId": 1, 
+            "Name": "Extrait de vanille",
+            "Quantity": {
+                "Value": 2.5,
+                "OriginalMeasureUnit": "ml"
+            }
+        },
+        {
+            "Id": 7,
+            "SubrecipeId": 2,  
+            "Name": "Farine tout usage non blanchie",
+            "Quantity": {
+                "Value": 375,
+                "OriginalMeasureUnit": "ml"
+            }
+        },
+        {
+            "Id": 8,
+            "SubrecipeId": 2,
+            "Name": "Sucre",
+            "Quantity": {
+                "Value": 375,
+                "OriginalMeasureUnit": "ml"
+            }
+        },
+        {
+            "Id": 9,
+            "SubrecipeId": 2,
+            "Name": "Lait",
+            "Quantity": {
+                "Value": 1,
+                "OriginalMeasureUnit": "cups"
+            }
+        },
+        {
+            "Id": 10,
+            "SubrecipeId": 2,
+            "Name": "Cacao",
+            "Quantity": {
+                "Value": 125,
+                "OriginalMeasureUnit": "ml"
+            },
+            "Requirement": "Tamisé"
+        },
+        {
+            "Id": 11,
+            "SubrecipeId": 2,
+            "Name": "Beurre non salé",
+            "Quantity": {
+                "Value": 125,
+                "OriginalMeasureUnit": "ml"
+            },
+            "Requirement": "Ramolli"
+        },
+        {
+            "Id": 12,
+            "SubrecipeId": 2,
+            "Name": "Bicarbonate de soude",
+            "Quantity": {
+                "Value": 5,
+                "OriginalMeasureUnit": "ml"
+            }
+        },
+        {
+            "Id": 13,
+            "SubrecipeId": 2,
+            "Name": "Sel",
+            "Quantity": {
+                "Value": 1,
+                "OriginalMeasureUnit": "pinch"
+            }
+        },
+        {
+            "Id": 14,
+            "SubrecipeId": 2,
+            "Name": "Oeufs",
+            "Quantity": {
+                "Value": 2,
+                "OriginalMeasureUnit": "units"
+            }
+        }
+    ],
+    "Steps": [
+        {
+            "SubrecipeId": 1, 
+            "Description": "Dans une casserole, {action:'Mélanger'} {ingredientId:1} et {ingredientId:3}. {action:'Ajouter'} {ingredientId:5}. {action:'Ajouter'} {ingredientId:2} et {ingredientId:4}. {action:'Porter à ébullition'} en remuant à l'aide d'un fouet. {action:'Incorporer'} {ingredientId:6}. {action:'Réserver'}"
+        },
+        {
+            "SubrecipeId": 2, 
+            "Description": "Dans une petite casserole, {action:'Porter à ébullition'} {ingredientId:9} et {ingredientId:10} en remuant à l’aide d’un fouet. {action:'Laisser tiédir'}. {action:'Gosser'} {timer:'PT0H02M'}." 
+        },
+        {
+            "SubrecipeId": 2,
+            "Description": "Dans un bol, {action:'Mélanger'} {ingredientId:7}, {ingredientId:12} et {ingredientId:13}. {action:'Réserver'}." 
+        },
+        {
+            "SubrecipeId": 2,
+            "Description": "Dans un autre bol, {action:'Mélanger'} {ingredientId:11} et {ingredientId:8} au batteur électrique jusqu’à ce que le mélange prenne une texture granuleuse. {action:'Ajouter'} les oeufs, un à la fois, et {action:'Battre'} jusqu’à ce que la préparation soit homogène. À basse vitesse, {action:'Incorporer'} les ingrédients secs en alternant avec le mélange de cacao. {action:'Répartir'} la pâte dans le plat." 
+        },
+        {
+            "SubrecipeId": 2,
+            "Description": "{action:'Verser'} la sauce chaude délicatement sur la pâte. {action:'Cuire'} au four environ {timer:'PT0H45M'} ou jusqu’à ce qu’un cure-dent inséré au centre du gâteau en ressorte propre.", 
+            "PostStep": {
+                "Description": "{action:'Servir'} chaud ou tempéré."
+            } 
         }
     ]
 }
