@@ -2,9 +2,9 @@
     "version": "0.0.1",
     "name": "GulpTypeScript",
     "devDependencies": {
-        "gulp": "^3.8.5", 
-        "gulp-tsc": "^0.9.1", 
-        "gulp-shell": "^0.2.5",
-        "gulp-less": "^3.0.3"
+        "gulp": "3.8.5", 
+        "gulp-tsc": "0.9.1", 
+        "gulp-shell": "0.2.5",
+        "gulp-less": "3.0.3"
     }
 }

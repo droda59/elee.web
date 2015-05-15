@@ -85,3 +85,4 @@ crashlytics-build.properties
 
 #.settings/
 #tsconfig.json
+/Source/CookItNow.Web/node_modules/
