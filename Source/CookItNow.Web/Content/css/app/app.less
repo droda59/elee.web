@@ -1,0 +1,306 @@
+@import "theme-og";
+
+.cook-it-now {
+  body {
+    padding-top: 70px;
+    font-family: @font-regular;
+    color: @font-color;
+  }
+
+  .main {
+    padding-bottom: 60px;
+  }
+
+  form {
+    margin-bottom: 30px;
+  }
+
+  .full-height {
+    height: 100%;
+  }
+
+  .overflow-hidden {
+    overflow: hidden;
+  }
+
+  #how-it-works {
+    margin: 60px 0;
+  }
+  #how-it-works h2 {
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    font-family: @font-thin;
+    font-size: 38px;
+  }
+  #how-it-works h2:before,
+  #how-it-works h2:after {
+    content: " - ";
+  }
+  #how-it-works .step {
+    margin: 60px 0;
+  }
+  #how-it-works .step .description {
+    padding: 10px 10px 20px 10px;
+  }
+  #how-it-works .step .description h3 {
+    text-transform: uppercase;
+    font-family: @font-regular;
+  }
+  #how-it-works .step .description p {
+    font-size: 18px;
+    font-family: @font-light;
+  }
+
+  #more-to-come h2 {
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    font-family: @font-thin;
+    font-size: 38px;
+  }
+  #more-to-come p {
+    font-size: 18px;
+    font-family: @font-light;
+  }
+
+  .background-black {
+    background-color: rgba(0, 0, 0, 0.8);
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+  }
+
+
+  @media (max-width: 767px) {
+    .background-black {
+      z-index: 1050;
+    }
+    .quick-recipe {
+      z-index: 2000;
+      top: 0;
+      margin: 10px;
+    }
+    .quick-recipe,
+    .quick-recipe.panel .panel-side {
+      height: 97%;
+    }
+    .quick-recipe .instructions > section {
+      padding: 20px 0;
+    }
+    .quick-recipe .instructions > section .navigation {
+      right: 0px;
+      bottom: 10px;
+    }
+    .quick-recipe .instructions > section .navigation .btn-lg {
+      padding: 6px 12px;
+      font-size: 14px;
+      line-height: 1.42857143;
+      border-radius: 4px;
+    }
+  }
+  @media (min-width: 768px) {
+    .cook-it-now .background-black {
+      z-index: 5;
+    }
+    .quick-recipe {
+      top: 50px;
+      margin: 10px;
+    }
+    .quick-recipe,
+    .quick-recipe.panel .panel-side {
+      height: 91%;
+    }
+    .quick-recipe .instructions > section {
+      padding: 20px 0;
+    }
+    .quick-recipe .instructions > section .navigation {
+      right: 0px;
+      bottom: 10px;
+    }
+  }
+  @media (min-width: 992px) {
+    .quick-recipe {
+      top: 100px;
+      margin: 20px 80px;
+    }
+    .quick-recipe,
+    .quick-recipe.panel .panel-side {
+      height: 70%;
+    }
+    .quick-recipe .instructions > section {
+      padding: 40px 20px;
+    }
+    .quick-recipe .instructions > section .navigation {
+      right: 20px;
+      bottom: 20px;
+    }
+  }
+  @media (min-width: 1200px) {
+  }
+
+  .quick-recipe {
+    position: fixed;
+    left: 0;
+    background-color: transparent;
+    border: none;
+  }
+  .quick-recipe.panel .panel-body {
+    background-color: @quick-recipe-background;
+    color: @quick-recipe-font-color;
+    border: 1px solid transparent;
+    border-radius: 0 4px 4px 0;
+    height: 100%;
+    overflow: hidden;
+    padding: 0 15px;
+    margin-left: 35px;
+  }
+  .quick-recipe.panel .panel-side {
+    position: fixed;
+    z-index: 2;
+  }
+  .quick-recipe.panel .panel-side .sidenav {
+    height: 100%;
+    width: 35px;
+    opacity: 0.6;
+    overflow: hidden;
+  }
+  .quick-recipe.panel .panel-side .sidenav:hover {
+    width: 165px;
+    opacity: 1;
+    transition:
+      width 0.2s ease-in-out,
+      opacity 0.2s ease-in-out,
+      background-color 0.2s ease-in-out;
+    background-color: @quick-recipe-sidenav-hover-color;
+  }
+  .quick-recipe.panel .panel-side .sidenav ul {
+    padding: 0 10px;
+    width: 165px;
+    position: relative;
+    left: 0;
+    top: 100px;
+  }
+  .quick-recipe.panel .panel-side .sidenav ul > li > a {
+    color: @quick-recipe-sidenav-link-color;
+  }
+  .quick-recipe.panel .panel-side .sidenav ul > li > a:hover {
+    color: darken(@quick-recipe-sidenav-link-color, 20%);
+    text-decoration: none;
+  }
+  .quick-recipe.panel .panel-side .sidenav ul > li > a.done {
+    text-decoration: line-through;
+    opacity: 0.5;
+  }
+  .quick-recipe.panel .panel-side .sidenav ul > li > a .glyphicon {
+    margin-right: 10px;
+    width: 15px;
+    text-align: right;
+  }
+
+  .quick-recipe .ingredients section > h2 {
+    margin-top: 0;
+  }
+  .quick-recipe .ingredients section > h2 small {
+    text-transform: lowercase;
+    font-size: 70%;
+    font-family: @font-light;
+  }
+  .quick-recipe .ingredients ul > li {
+    border: none;
+    padding: 1px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .quick-recipe .instructions > section {
+    height: 100%;
+    position: relative;
+  }
+  .quick-recipe .instructions > section > h1 {
+    text-transform: uppercase;
+    font-family: @font-thin;
+    font-size: 40px;
+    margin: 10px 0 20px 0;
+  }
+  .quick-recipe .instructions > section.step.done > h1 {
+    color: @quick-recipe-step-done-color;
+  }
+  .quick-recipe .instructions > section > h1 small {
+    text-transform: lowercase;
+    font-size: 50%;
+    font-family: @font-light;
+  }
+  .quick-recipe .instructions > section .navigation {
+    position: absolute;
+  }
+  .quick-recipe .instructions .step .duration {
+    font-size: 1.25em;
+  }
+  .quick-recipe .instructions .step .duration .value-title {
+    cursor: pointer;
+  }
+  .quick-recipe .instructions .instruction {
+    font-size: 1.5em;
+  }
+  .quick-recipe .instructions .ingredient > .value {
+    color: @quick-recipe-ingredient-value-color;
+  }
+  .quick-recipe .instructions .ingredient > .type {
+    color: @quick-recipe-ingredient-unit-color;
+  }
+  .quick-recipe .instructions .ingredient > .name {
+    color: @quick-recipe-ingredient-color-color;
+  }
+
+  .quick-recipe .active-timers {
+    border: 1px solid @quick-recipe-list-border-color;
+    padding: 4px 10px;
+    margin: 10px 0 20px 0;
+  }
+  .quick-recipe .active-timers > .active-timer {
+    padding: 6px 0;
+    border-bottom: 1px solid @quick-recipe-list-border-color;
+  }
+  .quick-recipe .active-timers > .active-timer:last-of-type {
+    border-bottom: none;
+  }
+
+  .hidden-input {
+    display: inline;
+    margin: 0 4px;
+    border-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 3px 6px;
+    -webkit-appearance: none;
+  }
+  .hidden-input:hover,
+  .hidden-input:focus {
+    border: 1px solid @quick-recipe-list-border-color;
+    -webkit-appearance: textfield;
+    transition: border-color ease-in-out .4s, -webkit-appearance ease-in-out .4s;
+  }
+  input.hidden-input:hover,
+  input.hidden-input:focus {
+    -webkit-appearance: textfield;
+  }
+  select.hidden-input:hover,
+  select.hidden-input:focus {
+    -webkit-appearance: menulist;
+  }
+
+  input.yield {
+    width: 60px;
+  }
+
+  .glyphicon.glyphicon-check {
+    margin-right: 8px;
+  }
+  .glyphicon.glyphicon-time {
+    margin-right: 4px;
+  }
+  #width_tmp {
+    display: none;
+  }
+}
