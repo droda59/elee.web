@@ -1,10 +1,30 @@
 {
-    "version": "0.0.1",
-    "name": "GulpTypeScript",
+  "version": "0.0.1",
+  "name": "GulpTypeScript",
+  "devDependencies": {
+    "gulp": "3.8.5",
+    "gulp-tsc": "0.9.1",
+    "gulp-shell": "0.2.5",
+    "gulp-less": "3.0.3"
+  },
+  "jspm": {
+    "main": "index",
+    "format": "register",
+    "directories": {
+      "lib": "dist/system"
+    },
+    "dependencies": {
+      "aurelia-path": "github:aurelia/path@^0.6.0"
+    },
     "devDependencies": {
-        "gulp": "3.8.5", 
-        "gulp-tsc": "0.9.1", 
-        "gulp-shell": "0.2.5",
-        "gulp-less": "3.0.3"
+      "aurelia-animator-css": "github:aurelia/animator-css@^0.2.0",
+      "aurelia-bootstrapper": "github:aurelia/bootstrapper@^0.12.0",
+      "aurelia-dependency-injection": "github:aurelia/dependency-injection@^0.7.0",
+      "aurelia-framework": "github:aurelia/framework@^0.11.0",
+      "aurelia-http-client": "github:aurelia/http-client@^0.8.1",
+      "aurelia-router": "github:aurelia/router@^0.8.0",
+      "traceur": "github:jmcriffey/bower-traceur@0.0.89",
+      "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.89"
     }
+  }
 }
