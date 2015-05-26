@@ -90,3 +90,7 @@ crashlytics-build.properties
 /Source/CookItNow.Web/Content/css/app/**/*.css
 /Source/CookItNow.Web/Scripts/app/**/*.js
 /Source/CookItNow.Web/Scripts/app/**/*.js.map
+
+/Source/**/obj/
+/Source/**/*.suo
+/Source/**/*.csproj.user

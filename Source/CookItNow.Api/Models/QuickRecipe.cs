@@ -1,4 +1,7 @@
-namespace CookItNow.Api
+using System;
+using System.Collections.Generic;
+
+namespace CookItNow.Api.Models
 {
 	public class Duration 
 	{
@@ -27,12 +30,20 @@ namespace CookItNow.Api
 	
 	public enum MeasureUnit
 	{
-		
+		Ounce, 
+
+        Millilitre, 
+
+        Litre, 
+
+        Units
 	}
 	
 	public class RecipeStep  
 	{
-		
+	    public string Description { get; set; }
+
+	    public RecipeStep PostStep { get; set; }
 	}
 	
 	public class QuickRecipe
