@@ -1,4 +1,3 @@
-declare module 'aurelia-logging-console/index' {
 	export class ConsoleAppender {
 	    constructor();
 	    debug(logger: any, message: any, ...rest: any[]): void;
