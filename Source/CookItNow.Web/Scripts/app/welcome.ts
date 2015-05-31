@@ -1,19 +1,27 @@
-export class Welcome {
-    public heading: string;
-    public firstName: string;
-    public lastName: string;
+/// <reference path="../typings/aurelia/aurelia-framework.d.ts"/>
 
-    constructor() {
-        this.heading = "Welcome to the Aurelia Navigation App (VS/TS)!";
-        this.firstName = "John";
-        this.lastName = "Doe";
-    }
+import {computedFrom} from 'aurelia-framework';
 
-    get fullName() {
-        return this.firstName + " " + this.lastName;
-    }
+export class Welcome{
+  heading = 'Welcome to the Aurelia Navigation App!';
+  firstName = 'John';
+  lastName = 'Doe';
 
-    welcome() {
-        alert("Welcome, " + this.fullName + "!");
-    }
+  //Getters can't be observed with Object.observe, so they must be dirty checked.
+  //However, if you tell Aurelia the dependencies, it no longer needs to dirty check the property.
+  //To optimize by declaring the properties that this getter is computed from, uncomment the line below.
+  //@computedFrom('firstName', 'lastName')
+  get fullName(){
+    return `${this.firstName} ${this.lastName}`;
+  }
+
+  welcome(){
+    alert(`Welcome, ${this.fullName}!`);
+  }
+}
+
+export class UpperValueConverter {
+  toView(value){
+    return value && value.toUpperCase();
+  }
 }

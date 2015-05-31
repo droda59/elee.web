@@ -1,18 +1,18 @@
-/// <reference path="../typings/aurelia/aurelia-router.d.ts" />
+/// <reference path="../typings/aurelia/aurelia-router.d.ts"/>
 
-import aur = require("aurelia-router");
+import {Router} from 'aurelia-router';
 
-export class Welcome{
-    static inject = [aur.Router];
-    heading: string;
-    constructor(private router: aur.Router){
-        this.heading = "Child Router";
-        router.configure(config => {
-            config.map([
-              { route: ["","welcome"],  moduleId: "welcome",      nav: true, title:"Welcome" },
-              { route: "flickr",        moduleId: "flickr",       nav: true },
-              { route: "child-router",  moduleId: "child-router", nav: true, title:"Child Router" }
-            ]);
-    });
-}
+export class ChildRouter{
+  heading = 'Child Router';
+  router:Router;
+
+  configureRouter(config, router:Router){
+    config.map([
+      { route: ['','welcome'],  moduleId: './welcome',      nav: true, title:'Welcome' },
+      { route: 'flickr',        moduleId: './flickr',       nav: true },
+      { route: 'child-router',  moduleId: './child-router', nav: true, title:'Child Router' }
+    ]);
+
+    this.router = router;
+  }
 }

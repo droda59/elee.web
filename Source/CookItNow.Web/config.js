@@ -1,7 +1,8 @@
 System.config({
   "transpiler": "traceur",
   "paths": {
-    "*": "*.js",
+    "*": "Scripts/app/*.js",
+    "*.html": "Views/*.html", 
     "github:*": "jspm_packages/github/*.js",
     "npm:*": "jspm_packages/npm/*.js"
   }
@@ -14,9 +15,13 @@ System.config({
     "aurelia-dependency-injection": "github:aurelia/dependency-injection@0.7.1",
     "aurelia-framework": "github:aurelia/framework@0.11.0",
     "aurelia-http-client": "github:aurelia/http-client@0.8.1",
-    "aurelia-path": "github:aurelia/path@0.6.1",
     "aurelia-router": "github:aurelia/router@0.8.1",
-    "bootstrap": "github:smajl/bootstrap@master",
+    "babel": "npm:babel-core@5.4.7",
+    "babel-runtime": "npm:babel-runtime@5.4.7",
+    "bootstrap": "github:twbs/bootstrap@3.3.4",
+    "core-js": "npm:core-js@0.9.13",
+    "css": "github:systemjs/plugin-css@0.1.11",
+    "font-awesome": "npm:font-awesome@4.3.0",
     "traceur": "github:jmcriffey/bower-traceur@0.0.89",
     "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.89",
     "github:aurelia/animator-css@0.2.0": {
@@ -74,7 +79,7 @@ System.config({
       "aurelia-html-template-element": "github:aurelia/html-template-element@0.2.0",
       "aurelia-path": "github:aurelia/path@0.6.1",
       "core-js": "npm:core-js@0.9.13",
-      "webcomponentsjs": "github:webcomponents/webcomponentsjs@0.6.2"
+      "webcomponentsjs": "github:webcomponents/webcomponentsjs@0.6.3"
     },
     "github:aurelia/metadata@0.5.0": {
       "core-js": "npm:core-js@0.9.13"
@@ -159,14 +164,13 @@ System.config({
     "github:jspm/nodelibs-util@0.1.0": {
       "util": "npm:util@0.10.3"
     },
-    "github:smajl/bootstrap@master": {
-      "css": "github:systemjs/plugin-css@0.1.11",
-      "jquery": "github:components/jquery@2.1.4"
-    },
     "github:systemjs/plugin-css@0.1.11": {
       "clean-css": "npm:clean-css@3.1.9",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "path": "github:jspm/nodelibs-path@0.1.0"
+    },
+    "github:twbs/bootstrap@3.3.4": {
+      "jquery": "github:components/jquery@2.1.4"
     },
     "npm:amdefine@0.1.0": {
       "fs": "github:jspm/nodelibs-fs@0.1.2",
@@ -208,6 +212,9 @@ System.config({
     },
     "npm:core-util-is@1.0.1": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0"
+    },
+    "npm:font-awesome@4.3.0": {
+      "css": "github:systemjs/plugin-css@0.1.11"
     },
     "npm:https-browserify@0.0.0": {
       "http": "github:jspm/nodelibs-http@1.7.1"

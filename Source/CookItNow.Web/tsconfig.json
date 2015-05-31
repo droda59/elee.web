@@ -3,8 +3,7 @@
 		"target": "ES5",
 		"module": "amd",
 		"removeComments": true,
-		"sourceMap": true,
-		"outDir": "Source/CookItNow.Web/Scripts/app",
+		"sourceMap": false,
         "emitDecoratorMetadata": true
 	}, 
     "files": [

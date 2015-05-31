@@ -41,14 +41,13 @@
 	"tasks": [
 		{
 			"taskName": "build",
-			"args": [], 
+			"args": ["--module"], 
 			// Make this the default build command.
 			"isBuildCommand": true,
 			// Use the standard less compilation problem matcher.
 			"problemMatcher": [
 				"$lessCompile", 
-				"$tsc",
-				"$jshint"
+				"$gulp-tsc"
 			]
 		}
 	]
