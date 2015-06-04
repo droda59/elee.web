@@ -10,6 +10,7 @@ export class ChildRouter{
     config.map([
       { route: ['','welcome'],  moduleId: './welcome',      nav: true, title:'Welcome' },
       { route: 'flickr',        moduleId: './flickr',       nav: true },
+      { route: "quick-recipe",  moduleId: "./quick-recipe", nav: true, title: "Quick Recipe" },
       { route: 'child-router',  moduleId: './child-router', nav: true, title:'Child Router' }
     ]);
 

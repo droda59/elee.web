@@ -41,7 +41,7 @@
         "./Scripts/typings/esri/esri.d.ts",
         "./Scripts/typings/nprogress.d.ts",
         "./Scripts/typings/reflect-metadata.d.ts", 
-        "./Scripts/app/recipeProvider.ts", 
-        "./Scripts/app/quickRecipe.ts"
+        "./Scripts/app/recipes.ts", 
+        "./Scripts/app/quick-recipe.ts"
     ]
 }
