@@ -15,14 +15,14 @@ class Pouding extends QuickRecipe {
             "durations": [
                 {
                     "title": "Preparation",
-                    "time": "PT0H30M"
+                    "time": "PT00H30M"
                 },
                 {
                     "title": "Cuisson",
-                    "time": "PT1H00M"
+                    "time": "PT01H00M"
                 }
             ], 
-            "Subrecipes": [
+            "subrecipes": [
                 {
                     "id": 1, 
                     "title": "Sauce"
@@ -168,23 +168,23 @@ class Pouding extends QuickRecipe {
             "steps": [
                 {
                     "subrecipeId": 1, 
-                    "description": "Dans une casserole, {action:'Mélanger'} {ingredientId:1} et {ingredientId:3}. {action:'Ajouter'} {ingredientId:5}. {action:'Ajouter'} {ingredientId:2} et {ingredientId:4}. {action:'Porter à ébullition'} en remuant à l'aide d'un fouet. {action:'Incorporer'} {ingredientId:6}. {action:'Réserver'}"
+                    "description": "Dans une casserole, {action:'Mélanger'} {ingredient:1} et {ingredient:3}. {action:'Ajouter'} {ingredient:5}. {action:'Ajouter'} {ingredient:2} et {ingredient:4}. {action:'Porter à ébullition'} en remuant à l'aide d'un fouet. {action:'Incorporer'} {ingredient:6}. {action:'Réserver'}"
                 },
                 {
                     "subrecipeId": 2, 
-                    "description": "Dans une petite casserole, {action:'Porter à ébullition'} {ingredientId:9} et {ingredientId:10} en remuant à l’aide d’un fouet. {action:'Laisser tiédir'}. {action:'Gosser'} {timer:'PT0H02M'}." 
+                    "description": "Dans une petite casserole, {action:'Porter à ébullition'} {ingredient:9} et {ingredient:10} en remuant à l’aide d’un fouet. {action:'Laisser tiédir'}. {action:'Gosser'} {timer:'PT00H02M'}." 
                 },
                 {
                     "subrecipeId": 2,
-                    "description": "Dans un bol, {action:'Mélanger'} {ingredientId:7}, {ingredientId:12} et {ingredientId:13}. {action:'Réserver'}." 
+                    "description": "Dans un bol, {action:'Mélanger'} {ingredient:7}, {ingredient:12} et {ingredient:13}. {action:'Réserver'}." 
                 },
                 {
                     "subrecipeId": 2,
-                    "description": "Dans un autre bol, {action:'Mélanger'} {ingredientId:11} et {ingredientId:8} au batteur électrique jusqu’à ce que le mélange prenne une texture granuleuse. {action:'Ajouter'} les oeufs, un à la fois, et {action:'Battre'} jusqu’à ce que la préparation soit homogène. À basse vitesse, {action:'Incorporer'} les ingrédients secs en alternant avec le mélange de cacao. {action:'Répartir'} la pâte dans le plat." 
+                    "description": "Dans un autre bol, {action:'Mélanger'} {ingredient:11} et {ingredient:8} au batteur électrique jusqu’à ce que le mélange prenne une texture granuleuse. {action:'Ajouter'} les oeufs, un à la fois, et {action:'Battre'} jusqu’à ce que la préparation soit homogène. À basse vitesse, {action:'Incorporer'} les ingrédients secs en alternant avec le mélange de cacao. {action:'Répartir'} la pâte dans le plat." 
                 },
                 {
                     "subrecipeId": 2,
-                    "description": "{action:'Verser'} la sauce chaude délicatement sur la pâte. {action:'Cuire'} au four environ {timer:'PT0H45M'} ou jusqu’à ce qu’un cure-dent inséré au centre du gâteau en ressorte propre.", 
+                    "description": "{action:'Verser'} la sauce chaude délicatement sur la pâte. {action:'Cuire'} au four environ {timer:'PT00H45M'} ou jusqu’à ce qu’un cure-dent inséré au centre du gâteau en ressorte propre.", 
                     "postStep": {
                         "description": "{action:'Servir'} chaud ou tempéré."
                     } 
@@ -205,11 +205,11 @@ class Gaufres extends QuickRecipe {
             "durations": [
                 {
                     "title": "Préparation",
-                    "time": "PT0H10M"
+                    "time": "PT00H10M"
                 },
                 {
                     "title": "Cuisson",
-                    "time": "PT0H20M"
+                    "time": "PT00H20M"
                 }
             ],
             "ingredients": [
@@ -297,17 +297,17 @@ class Gaufres extends QuickRecipe {
             ],
             "steps": [
                 {
-                    "description": "Dans un bol, {action:'Mélanger'} {ingredientId:2}, {ingredientId:3}, {ingredientId:6}, {ingredientId:7} et {ingredientId:8}. {action:'Réserver'}."
+                    "description": "Dans un bol, {action:'Mélanger'} {ingredient:2}, {ingredient:3}, {ingredient:6}, {ingredient:7} et {ingredient:8}. {action:'Réserver'}."
                 },
                 {
-                    "description": "Dans un autre bol, {action:'Fouetter'} {ingredientId:9} et {ingredientId:5} environ {timer:'PT0H05M'} jusqu'à ce qu'ils blanchissent, forment un ruban et triplent de volume.",
+                    "description": "Dans un autre bol, {action:'Fouetter'} {ingredient:9} et {ingredient:5} environ {timer:'PT0H05M'} jusqu'à ce qu'ils blanchissent, forment un ruban et triplent de volume.",
                     "postStep": 
                     {
-                        "description": "{action:'Ajouter'} {ingredientId:4} graduellement en fouettant. À l'aide dune spatule, {action:'Incorporer'} les ingrédients secs en alternant avec {ingredientId:1} jusqu'à ce que le mélange soit humecté (il restera quelques grumeaux de farine). {action:'Laisser reposer'} {timer:'PT0H10M'}."
+                        "description": "{action:'Ajouter'} {ingredient:4} graduellement en fouettant. À l'aide dune spatule, {action:'Incorporer'} les ingrédients secs en alternant avec {ingredient:1} jusqu'à ce que le mélange soit humecté (il restera quelques grumeaux de farine). {action:'Laisser reposer'} {timer:'PT00H10M'}."
                     }
                 },
                 {
-                    "description": "{action:'Préchauffer'} le gaufrier. {action:'Verser'} environ 250 ml (1 tasse) de pâte à la fois (pour deux gaufres) et {action:'Refermer'} l'appareil (ou selon les recommandations du fabricant). {action:'Cuire'} environ {timer:'PT0H05M'} ou jusqu'à ce qu'elles soient dorées.",
+                    "description": "{action:'Préchauffer'} le gaufrier. {action:'Verser'} environ 250 ml (1 tasse) de pâte à la fois (pour deux gaufres) et {action:'Refermer'} l'appareil (ou selon les recommandations du fabricant). {action:'Cuire'} environ {timer:'PT00H05M'} ou jusqu'à ce qu'elles soient dorées.",
                     "postStep":
                     {
                         "description": "{action:'Réserver'} au chaud. {action:'Répéter'} l'opération avec le reste de la pâte. {action:'Servir'} avec le coulis de fraises en trempette."
