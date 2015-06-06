@@ -1,3 +1,7 @@
+/// <reference path="../typings/moment.d.ts"/>
+
+import * as moment from "moment";
+
 export class FilterOnPropertyValueConverter {
 	toView(array: {}[], property: string, exp: string) {
 		if (array === undefined || array === null || property === undefined || exp === undefined) {
@@ -18,13 +22,13 @@ export class DurationFormatValueConverter {
 			return value;
 		}
 		
-		var hours = /\d\dH/.exec(value)[0];
-		hours = hours.replace("H", " heures ");
+		var match = regex.exec(value);
+		var hours = match[0].slice(2, 4);
+		var minutes = match[0].slice(5, 7);
 		
-		var minutes = /\d\dM/.exec(value)[0];
-		minutes = minutes.replace("M", " minutes ");
+		var duration = moment.duration({ hours: hours, minutes: minutes }).humanize();
 		
-		return hours + minutes;
+		return duration;
 	}
 }
 
@@ -50,16 +54,16 @@ export class StepItemValueConverter {
 		};
 		
 		while (match = /{timer:'PT\d\dH\d\dM'}/.exec(value)) {
-			var hours = /\d\dH/.exec(match[0])[0];
-			hours = hours.replace("H", " heures ");
+			var regex = /PT\d\dH\d\dM/;
 			
-			var minutes = /\d\dM/.exec(match[0])[0];
-			minutes = minutes.replace("M", " minutes ");
+			var timerMatch = regex.exec(value);
+			var hours = timerMatch[0].slice(2, 4);
+			var minutes = timerMatch[0].slice(5, 7);
 			
-			var originalTime = /PT\d\dH\d\dM/.exec(match[0])[0];
-			var cleanStep = match[0].replace(originalTime, "").replace("{timer:'", "<span class='timer'>" + hours + minutes).replace("'}", "</span>");
+			var duration = moment.duration({ hours: hours, minutes: minutes }).humanize();
+			var durationHtml = "<span class='timer'>" + duration + "</span>";
 			
-			value = value.replace(match[0], cleanStep);
+			value = value.replace(match[0], durationHtml);
 		};
 		
 		while (match = /\./.exec(value)) {
