@@ -1,5 +1,3 @@
-/// <reference path="../typings/aurelia/aurelia-templating.d.ts"/>
-
 import {ConventionalViewStrategy} from "aurelia-templating";
  
 export function configure(aurelia) {

@@ -1,6 +1,3 @@
-/// <reference path="../../typings/aurelia/aurelia-templating-resources.d.ts"/>
-/// <reference path="./duration-format.ts" />
-
 import {DurationFormatValueConverter} from "ValueConverters/duration-format";
 import {SanitizeHtmlValueConverter} from "aurelia-templating-resources/sanitize-html";
 

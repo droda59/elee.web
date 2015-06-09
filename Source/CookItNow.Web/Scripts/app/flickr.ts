@@ -1,5 +1,3 @@
-/// <reference path="../typings/aurelia/aurelia-http-client.d.ts"/>
-
 import {HttpClient} from 'aurelia-http-client';
 
 export class Flickr{

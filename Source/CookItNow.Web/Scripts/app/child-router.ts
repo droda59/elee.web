@@ -1,5 +1,3 @@
-/// <reference path="../typings/aurelia/aurelia-router.d.ts"/>
-
 import {Router} from 'aurelia-router';
 
 export class ChildRouter{

@@ -14,9 +14,9 @@ var path = {
     html: "Views/*.html",
     typescript: 
     {
-        src: "Scripts/app/**/*.ts",
-        dest: "Scripts/app/",
-        js: "Scripts/app/**/*.js"
+        src: "Scripts/**/*.ts",
+        dest: "Scripts/",
+        js: "Scripts/**/*.js"
     }, 
     less: {
         src: "Content/css/app/*.less",
@@ -37,8 +37,7 @@ gulp.task('build-ts', function () {
             module: "amd",
             sourceMap: false, 
             emitError: false, 
-            target: "ES5",
-            noLib: true
+            target: "ES5"
         }))
         .pipe(gulp.dest(path.typescript.dest))
         .pipe(browserSync.reload({ stream: true }));

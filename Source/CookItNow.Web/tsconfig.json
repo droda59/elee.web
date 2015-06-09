@@ -6,6 +6,11 @@
 		"sourceMap": false,
         "emitDecoratorMetadata": true
 	}, 
+    // "filesGlob": [
+    //     "./**/*.ts",
+    //     "./Scripts/typings/**/*.d.ts",
+    //     "!./nodule_modules/**/*.ts"
+    // ],
     "files": [
         "./Scripts/typings/aurelia-amd/aurelia-amd.d.ts",
         "./Scripts/typings/aurelia/aurelia-animator-css.d.ts",
@@ -35,13 +40,19 @@
         "./Scripts/typings/aurelia/aurelia-templating.d.ts",
         "./Scripts/typings/core-js.d.ts",
         "./Scripts/typings/core-js/core-js.d.ts",
-        "./Scripts/typings/dojo/dojo.d.ts",
         "./Scripts/typings/es6.d.ts",
-        "./Scripts/typings/es6-promise.d.ts",
-        "./Scripts/typings/esri/esri.d.ts",
-        "./Scripts/typings/nprogress.d.ts",
-        "./Scripts/typings/reflect-metadata.d.ts", 
+        "./Scripts/typings/moment-node.d.ts", 
+        "./Scripts/typings/moment.d.ts", 
+        "./Scripts/app/animation-main.ts",
+        "./Scripts/app/app.ts", 
+        "./Scripts/app/child-router.ts", 
+        "./Scripts/app/flickr.ts",
+        "./Scripts/app/main.ts",
+        "./Scripts/app/nav-bar.ts",
+        "./Scripts/app/welcome.ts",     
         "./Scripts/app/recipes.ts", 
-        "./Scripts/app/quick-recipe.ts"
+        "./Scripts/app/quick-recipe.ts",
+        "./Scripts/app/ValueConverters/duration-format.ts",
+        "./Scripts/app/ValueConverters/step-item.ts"
     ]
 }
