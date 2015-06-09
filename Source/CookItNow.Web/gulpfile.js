@@ -19,9 +19,9 @@ var path = {
         js: "Scripts/**/*.js"
     }, 
     less: {
-        src: "Content/css/app/*.less",
-        dest: "Content/css/app",
-        css: "Content/css/app/*.css"
+        src: "Content/css/app/**/*.less",
+        dest: "Content/css/app/",
+        css: "Content/css/app/**/*.css"
     }
 };
 
@@ -88,7 +88,7 @@ gulp.task("serve", ["build"], function (done) {
 
 gulp.task("watch", ["serve"], function () {
     gulp
-        .watch([path.typescript.dest, path.less.dest, path.html], ["build"])
+        .watch([path.typescript.src, path.less.src, path.html], ["build"])
         .on("change", function (event) {
             console.log("File " + event.path + " was " + event.type + ", running tasks...");
         });

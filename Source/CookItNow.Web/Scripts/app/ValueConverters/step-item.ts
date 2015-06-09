@@ -17,8 +17,14 @@ export class StepItemValueConverter {
 				(item) => item["id"] == ingredientId
 			)[0];
 			
-			var ingredient = referencedIngredient["quantity"]["value"] + " " + referencedIngredient["quantity"]["originalMeasureUnit"] + " de " + referencedIngredient["name"] + " ";
-			var ingredientHtml = "<span class='ingredient'>" + ingredient.toLowerCase() + "</span>";
+			var ingredientHtml = 
+				"<span class='ingredient'>" + 
+					"<span class='value'>" + referencedIngredient["quantity"]["value"] + "</span>" + 
+					"<span class='type'>" + referencedIngredient["quantity"]["originalMeasureUnit"] + "</span>" +
+					" de " + 
+					"<span class='value'>" + referencedIngredient["name"].toLowerCase() + "</span>" +
+				"</span>";
+			
 			value = value.replace(match[0], ingredientHtml);
 		};
 		

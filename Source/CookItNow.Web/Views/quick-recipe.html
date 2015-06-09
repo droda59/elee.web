@@ -6,9 +6,11 @@
 	<section>
 		<h2>${recipe.title}</h2>
 		<a href.bind="recipe.originalUrl"><small>Original recipe: ${recipe.originalUrl}</small></a>
-		
-		<p>${recipe.summary}</p>
-		
+	
+		<summary>
+			<p>${recipe.summary}</p>
+		</summary>
+	
 		<p>Servings : ${recipe.originalServings}</p>
 		
 		<section>
@@ -25,8 +27,8 @@
 			<div>
 				<div repeat.for="subrecipe of recipe.subrecipes">
 					<h4>${subrecipe.title}</h4>
-					<ul>
-						<li repeat.for="ingredient of $parent.recipe.ingredients | filterOnProperty:'subrecipeId':subrecipe.id">
+					<ul class="list-group">
+						<li repeat.for="ingredient of $parent.recipe.ingredients | filterOnProperty:'subrecipeId':subrecipe.id" class="list-group-item">
 							<span>${ingredient.quantity.value} ${ingredient.quantity.originalMeasureUnit} ${ingredient.name}</span>
 						</li>
 					</ul>
