@@ -1,10 +1,10 @@
-class QuickRecipe {  
+export class QuickRecipe {  
     get() {
         return {}; 
     }
 }
 
-class Pouding extends QuickRecipe {  
+export class Pouding extends QuickRecipe {  
     get() {
         return {
             "id": 1,
@@ -194,7 +194,7 @@ class Pouding extends QuickRecipe {
     }
 }
 
-class Gaufres extends QuickRecipe {  
+export class Gaufres extends QuickRecipe {  
     get() {
         return {
             "id": 2,

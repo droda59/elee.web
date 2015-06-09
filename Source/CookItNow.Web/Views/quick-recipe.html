@@ -1,5 +1,7 @@
 <template>
-	<require from="value-converters"></require>
+	<require from="ValueConverters/duration-format"></require>
+	<require from="ValueConverters/filter-on-property"></require>
+	<require from="ValueConverters/step-item"></require>
 		
 	<section>
 		<h2>${recipe.title}</h2>
@@ -39,7 +41,7 @@
 					<h4>${subrecipe.title}</h4>
 					<ol>
 						<li repeat.for="step of $parent.recipe.steps | filterOnProperty:'subrecipeId':subrecipe.id">
-							<div innerhtml.bind="step.description | stepItem:$parent.$parent.recipe.ingredients | sanitizeHtml"></div>
+							<div innerhtml.bind="step.description | stepItem:$parent.$parent.recipe.ingredients"></div>
 						</li>
 					</ol>
 				</div>

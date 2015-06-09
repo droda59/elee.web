@@ -1,36 +1,8 @@
-/// <reference path="../typings/moment.d.ts"/>
+/// <reference path="../../typings/aurelia/aurelia-templating-resources.d.ts"/>
+/// <reference path="./duration-format.ts" />
 
-import * as moment from "moment";
-
-export class FilterOnPropertyValueConverter {
-	toView(array: {}[], property: string, exp: string) {
-		if (array === undefined || array === null || property === undefined || exp === undefined) {
-			return array;
-		}
-		
-		return array.filter(
-			(item) => item[property] === exp
-		);
-	}
-}
-
-export class DurationFormatValueConverter {
-	toView(value) {
-		var regex = /PT\d\dH\d\dM/;
-		
-		if (!regex.test(value)){
-			return value;
-		}
-		
-		var match = regex.exec(value);
-		var hours = match[0].slice(2, 4);
-		var minutes = match[0].slice(5, 7);
-		
-		var duration = moment.duration({ hours: hours, minutes: minutes }).humanize();
-		
-		return duration;
-	}
-}
+import {DurationFormatValueConverter} from "ValueConverters/duration-format";
+import {SanitizeHtmlValueConverter} from "aurelia-templating-resources/sanitize-html";
 
 export class StepItemValueConverter {
 	toView(value, ingredients: {}[]) {
@@ -54,14 +26,8 @@ export class StepItemValueConverter {
 		};
 		
 		while (match = /{timer:'PT\d\dH\d\dM'}/.exec(value)) {
-			var regex = /PT\d\dH\d\dM/;
-			
-			var timerMatch = regex.exec(value);
-			var hours = timerMatch[0].slice(2, 4);
-			var minutes = timerMatch[0].slice(5, 7);
-			
-			var duration = moment.duration({ hours: hours, minutes: minutes }).humanize();
-			var durationHtml = "<span class='timer'>" + duration + "</span>";
+			var formattedDuration = new DurationFormatValueConverter().toView(match[0]);
+			var durationHtml = "<span class='timer'>" + formattedDuration + "</span>";
 			
 			value = value.replace(match[0], durationHtml);
 		};
@@ -71,6 +37,8 @@ export class StepItemValueConverter {
 			value = value.replace(match[0], lineBreak);
 		};
 		
-		return value;
+		var sanitizedValue = new SanitizeHtmlValueConverter().toView(value);
+		
+		return sanitizedValue;
 	}
 }

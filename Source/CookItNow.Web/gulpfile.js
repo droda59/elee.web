@@ -11,13 +11,12 @@ var less = require('gulp-less');
 
 var path = {
     package: "./package.json", 
-    source: "Scripts/app/*.js",
     html: "Views/*.html",
     typescript: 
     {
-        src: "Scripts/app/*.ts",
-        dest: "Scripts/app",
-        js: "Scripts/app/*.js"
+        src: "Scripts/app/**/*.ts",
+        dest: "Scripts/app/",
+        js: "Scripts/app/**/*.js"
     }, 
     less: {
         src: "Content/css/app/*.less",
@@ -36,9 +35,10 @@ gulp.task('build-ts', function () {
         .pipe(changed(path.typescript.src, { extension: ".ts" }))
         .pipe(ts({
             module: "amd",
-            sourcemap: false, 
+            sourceMap: false, 
             emitError: false, 
-            target: "ES5"
+            target: "ES5",
+            noLib: true
         }))
         .pipe(gulp.dest(path.typescript.dest))
         .pipe(browserSync.reload({ stream: true }));
