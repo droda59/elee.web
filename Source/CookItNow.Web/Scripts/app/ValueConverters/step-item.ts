@@ -27,14 +27,18 @@ export class StepItemValueConverter {
 				|| ingredientNameFirstLetter === "u"
 				|| ingredientNameFirstLetter === "y"
 				|| ingredientNameFirstLetter === "h"
-				? "d' "
+				? "d'"
 				: "de ";
+				
+			var measureUnit = referencedIngredient["quantity"]["originalMeasureUnit"];
+			var quantity = referencedIngredient["quantity"]["value"];
+			var localizedMeasureUnit = this._getLocalizedMeasureUnit(measureUnit, quantity);
 			
 			var ingredientHtml = 
 				"<span class='ingredient'>" + 
-					"<span class='value'>" + referencedIngredient["quantity"]["value"].toString().replace(".", ",") + "</span>" + 
-					"<span class='type'>" + referencedIngredient["quantity"]["originalMeasureUnit"] + "</span>" +
-					" " + nextWord + "" + 
+					"<span class='value'>" + quantity.toString().replace(".", ",") + "</span>" + 
+					"<span class='type'>" + localizedMeasureUnit + "</span>" +
+					" " + nextWord + 
 					"<span class='value'>" + ingredientName + "</span>" +
 				"</span>";
 			
@@ -46,7 +50,8 @@ export class StepItemValueConverter {
 			
 			var durationHtml = 
 				"<span class='timer'>" +
-					"<a class='glyphicon glyphicon-time'>" + 
+					"<a>" +
+						"<span class='glyphicon glyphicon-time'></span>" +  
 						formattedDuration + 
 					"</a>" + 
 				"</span>";
@@ -57,8 +62,7 @@ export class StepItemValueConverter {
 		var splits = value.split(".");
 		splits.forEach(function(split) {
 			if (split !== "") {
-				var newSplit = split.trim();
-				newSplit += ".<br />";
+				var newSplit = split.trim() + ".<br />";
 				value = value.replace(split + ".", newSplit);
 			}
 		}, this);
@@ -66,5 +70,29 @@ export class StepItemValueConverter {
 		var sanitizedValue = new SanitizeHtmlValueConverter().toView(value);
 		
 		return sanitizedValue;
+	}
+	
+	_getLocalizedMeasureUnit(originalMeasureUnit:string, quantity:number):string {
+		switch (originalMeasureUnit) {
+			case "cups":
+				return " tasse" + (quantity > 1 ? "s" : "");
+				break;
+				
+			case "ml":
+				return "ml";
+				break;
+				
+			case "pinch":
+				return " pincée" + (quantity > 1 ? "s" : "");
+				break;
+		
+			case "units":
+				return "";
+				break;
+				
+			default:
+				return "";
+				break;
+		};
 	}
 }

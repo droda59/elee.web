@@ -1,5 +1,6 @@
 <template>
 	<require from="ValueConverters/duration-format"></require>
+	<require from="ValueConverters/ingredient-format"></require>
 	<require from="ValueConverters/filter-on-property"></require>
 	<require from="ValueConverters/step-item"></require>
 		
@@ -29,7 +30,7 @@
 					<h4>${subrecipe.title}</h4>
 					<ul class="list-group">
 						<li repeat.for="ingredient of $parent.recipe.ingredients | filterOnProperty:'subrecipeId':subrecipe.id" class="list-group-item">
-							<span>${ingredient.quantity.value} ${ingredient.quantity.originalMeasureUnit} ${ingredient.name}</span>
+							<span>${ingredient | ingredientFormat:ingredient}</span>
 						</li>
 					</ul>
 				</div>

@@ -52,7 +52,9 @@
         "./Scripts/app/welcome.ts",     
         "./Scripts/app/recipes.ts", 
         "./Scripts/app/quick-recipe.ts",
+        "./Scripts/app/ValueConverters/filter-on-property.ts", 
         "./Scripts/app/ValueConverters/duration-format.ts",
+        "./Scripts/app/ValueConverters/ingredient-format",
         "./Scripts/app/ValueConverters/step-item.ts"
     ]
 }
