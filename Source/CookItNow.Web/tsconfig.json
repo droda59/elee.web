@@ -6,11 +6,6 @@
 		"sourceMap": false,
         "emitDecoratorMetadata": true
 	}, 
-    // "filesGlob": [
-    //     "./**/*.ts",
-    //     "./Scripts/typings/**/*.d.ts",
-    //     "!./nodule_modules/**/*.ts"
-    // ],
     "files": [
         "./Scripts/typings/aurelia-amd/aurelia-amd.d.ts",
         "./Scripts/typings/aurelia/aurelia-animator-css.d.ts",
@@ -43,6 +38,7 @@
         "./Scripts/typings/es6.d.ts",
         "./Scripts/typings/moment-node.d.ts", 
         "./Scripts/typings/moment.d.ts", 
+        "./Scripts/app/interfaces/quick-recipe.ts", 
         "./Scripts/app/animation-main.ts",
         "./Scripts/app/app.ts", 
         "./Scripts/app/child-router.ts", 
@@ -50,11 +46,10 @@
         "./Scripts/app/main.ts",
         "./Scripts/app/nav-bar.ts",
         "./Scripts/app/welcome.ts",     
-        "./Scripts/app/recipes.ts", 
         "./Scripts/app/quick-recipe.ts",
-        "./Scripts/app/ValueConverters/filter-on-property.ts", 
-        "./Scripts/app/ValueConverters/duration-format.ts",
-        "./Scripts/app/ValueConverters/ingredient-format",
-        "./Scripts/app/ValueConverters/step-item.ts"
+        "./Scripts/app/value-converters/filter-on-property.ts", 
+        "./Scripts/app/value-converters/duration-format.ts",
+        "./Scripts/app/value-converters/ingredient-format",
+        "./Scripts/app/value-converters/step-item.ts"
     ]
 }

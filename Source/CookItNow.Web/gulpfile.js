@@ -37,7 +37,8 @@ gulp.task('build-ts', function () {
             module: "amd",
             sourceMap: false, 
             emitError: false, 
-            target: "ES5"
+            target: "ES5",
+            emitDecoratorMetadata: true
         }))
         .pipe(gulp.dest(path.typescript.dest))
         .pipe(browserSync.reload({ stream: true }));

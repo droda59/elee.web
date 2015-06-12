@@ -1,7 +1,7 @@
 import * as moment from "moment";
 
 export class DurationFormatValueConverter {
-	toView(value) {
+	toView(value: string) {
 		var regex = /PT\d\dH\d\dM/;
 		
 		if (!regex.test(value)){
