@@ -25,7 +25,6 @@ export class StepItemValueConverter {
 				|| ingredientNameFirstLetter === "i"
 				|| ingredientNameFirstLetter === "o"
 				|| ingredientNameFirstLetter === "u"
-				|| ingredientNameFirstLetter === "y"
 				|| ingredientNameFirstLetter === "h"
 				? "d'"
 				: "de ";

@@ -1,13 +1,13 @@
 export class IngredientFormatValueConverter {
-	toView(value:string, ingredient:{}) {
-		var ingredientName = ingredient["name"].toLowerCase();
+	toView(value:{}) {
+		var ingredientName = value["name"].toLowerCase();
 		var nextWord = this._isVowell(ingredientName[0]) ? " d'" : " de ";
 			
-		var measureUnit = ingredient["quantity"]["originalMeasureUnit"];
-		var quantity = ingredient["quantity"]["value"];
+		var measureUnit = value["quantity"]["originalMeasureUnit"];
+		var quantity = value["quantity"]["value"];
 		var localizedMeasureUnit = this._getLocalizedMeasureUnit(measureUnit, quantity);
 		
-		var requirements = ingredient["requirements"];
+		var requirements = value["requirements"];
 		if (requirements) {
 			for (var i = 0; i < requirements.length; i++) {
 				requirements[i] = requirements[i].toLowerCase();
@@ -27,7 +27,6 @@ export class IngredientFormatValueConverter {
 			|| letter === "i"
 			|| letter === "o"
 			|| letter === "u"
-			|| letter === "y"
 			|| letter === "h";
 	}
 	

@@ -115,7 +115,23 @@ export class Pouding extends QuickRecipe {
                     "quantity": {
                         "value": 1,
                         "originalMeasureUnit": "cups"
-                    }
+                    },
+        			"replacements": [
+                        {
+        					"name": "Lait de beurre",
+        					"quantity": {
+                                "value": 1,
+                                "originalMeasureUnit": "cups"
+        				      }
+                        },
+                        {
+        					"name": "Yogourt nature",
+        					"quantity": {
+                                "value": 2,
+                                "originalMeasureUnit": "cups"
+        				      }
+                        }
+                    ]
                 },
                 {
                     "id": 10,
@@ -125,7 +141,9 @@ export class Pouding extends QuickRecipe {
                         "value": 125,
                         "originalMeasureUnit": "ml"
                     },
-                    "requirement": "Tamisé"
+                    "requirements": [
+                        "Tamisé"
+                    ]
                 },
                 {
                     "id": 11,
