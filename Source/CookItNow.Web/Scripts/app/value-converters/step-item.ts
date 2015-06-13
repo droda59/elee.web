@@ -1,10 +1,10 @@
-import {IStep} from "interfaces/quick-recipe";
-import {IIngredient} from "interfaces/quick-recipe";
+import {Step} from "interfaces/quick-recipe";
+import {Ingredient} from "interfaces/quick-recipe";
 import {DurationFormatValueConverter} from "value-converters/duration-format";
 import {SanitizeHtmlValueConverter} from "aurelia-templating-resources/sanitize-html";
 
 export class StepItemValueConverter {
-	toView(value: IStep, ingredients: IIngredient[]) {
+	toView(value: Step, ingredients: Ingredient[]) {
 		var output = value.description;
 		var match;
 		while (match = /{action:'\D+'}/.exec(output)) {
@@ -34,7 +34,7 @@ export class StepItemValueConverter {
 				
 			var measureUnit = referencedIngredient.quantity.originalMeasureUnit;
 			var quantity = referencedIngredient.quantity.value;
-			var localizedMeasureUnit = this._getLocalizedMeasureUnit(measureUnit, quantity);
+			var localizedMeasureUnit = this.getLocalizedMeasureUnit(measureUnit, quantity);
 			
 			var ingredientHtml = 
 				"<span class='ingredient'>" + 
@@ -74,7 +74,7 @@ export class StepItemValueConverter {
 		return output;
 	}
 	
-	_getLocalizedMeasureUnit(originalMeasureUnit:string, quantity:number):string {
+	getLocalizedMeasureUnit(originalMeasureUnit:string, quantity:number):string {
 		switch (originalMeasureUnit) {
 			case "cups":
 				return " tasse" + (quantity > 1 ? "s" : "");

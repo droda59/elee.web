@@ -1,41 +1,41 @@
-export interface IQuickRecipe {
+export interface QuickRecipe {
     id : number;
     title : string;
     originalUrl : string;
     summary : string;
     originalServings : number;
-    duration : IDuration[];
-    subrecipes : ISubRecipe[];
-    ingredients : IIngredient[];
-    steps: IStep[];
+    duration : Duration[];
+    subrecipes : SubRecipe[];
+    ingredients : Ingredient[];
+    steps: Step[];
 }
 
-export interface IDuration {
+export interface Duration {
     title: string;
     time: string;
 }
 
-export interface ISubRecipe {
+export interface SubRecipe {
     id: number;
     title: string;
 }
 
-export interface IIngredient {
+export interface Ingredient {
     id: number;
     subrecipeId: number;
     name: string;
-    quantity: IQuantity;
+    quantity: Quantity;
     requirements: string[];
-    replacements: IIngredient[];
+    replacements: Ingredient[];
 }
 
-export interface IQuantity {
+export interface Quantity {
     value: number;
     originalMeasureUnit: string;
 }
 
-export interface IStep {
+export interface Step {
     subrecipeId: number;
     description: string;
-    postStep: IStep;
+    postStep: Step;
 }

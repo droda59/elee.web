@@ -6,10 +6,10 @@ export class ChildRouter{
 
   configureRouter(config, router:Router){
     config.map([
-      { route: ['','welcome'],  moduleId: './welcome',      nav: true, title:'Welcome' },
-      { route: 'flickr',        moduleId: './flickr',       nav: true },
-      { route: "quick-recipe",  moduleId: "./quick-recipe", nav: true, title: "Quick Recipe" },
-      { route: 'child-router',  moduleId: './child-router', nav: true, title:'Child Router' }
+      { route: ['','welcome'],  moduleId: 'welcome',      nav: true, title:'Welcome' },
+      { route: 'flickr',        moduleId: 'flickr',       nav: true },
+      { route: "quick-recipe-page",  moduleId: "quick-recipe-page", nav: true, title: "Quick Recipe" },
+      { route: 'child-router',  moduleId: 'child-router', nav: true, title:'Child Router' }
     ]);
 
     this.router = router;

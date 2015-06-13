@@ -1,12 +1,12 @@
-import {IQuickRecipe} from "interfaces/quick-recipe";
+import {QuickRecipe} from "interfaces/quick-recipe";
 import {inject} from "aurelia-framework";
 import {HttpClient} from "aurelia-http-client";
 
 @inject (HttpClient)
-export class QuickRecipe {
+export class QuickRecipePage {
     http:HttpClient;
     url:string = "../../Json/recipeModel-pouding.json";
-    recipe:IQuickRecipe;
+    recipe:QuickRecipe;
 	
 	constructor(http:HttpClient) {
 		this.http = http;

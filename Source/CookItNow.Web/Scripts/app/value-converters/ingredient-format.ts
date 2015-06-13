@@ -1,13 +1,13 @@
-import {IIngredient} from "interfaces/quick-recipe";
+import {Ingredient} from "interfaces/quick-recipe";
 
 export class IngredientFormatValueConverter {
-	toView(value: IIngredient) {
+	toView(value: Ingredient) {
 		var ingredientName = value.name.toLowerCase();
-		var nextWord = this._isVowell(ingredientName[0]) ? " d'" : " de ";
+		var nextWord = this.isVowell(ingredientName[0]) ? " d'" : " de ";
 			
 		var measureUnit = value.quantity.originalMeasureUnit;
 		var quantity = value.quantity.value;
-		var localizedMeasureUnit = this._getLocalizedMeasureUnit(measureUnit, quantity);
+		var localizedMeasureUnit = this.getLocalizedMeasureUnit(measureUnit, quantity);
 		
 		var requirements = value.requirements;
 		if (requirements) {
@@ -23,7 +23,7 @@ export class IngredientFormatValueConverter {
 			+ (requirements ? ", " + requirements.join(" et ") : "");
 	}
 	
-	_isVowell(letter: string):boolean {
+	isVowell(letter: string):boolean {
 		return letter === "a" 
 			|| letter === "e"
 			|| letter === "i"
@@ -32,7 +32,7 @@ export class IngredientFormatValueConverter {
 			|| letter === "h";
 	}
 	
-	_getLocalizedMeasureUnit(originalMeasureUnit: string, quantity: number):string {
+	getLocalizedMeasureUnit(originalMeasureUnit: string, quantity: number):string {
 		switch (originalMeasureUnit) {
 			case "cups":
 				return " tasse" + (quantity > 1 ? "s" : "");
