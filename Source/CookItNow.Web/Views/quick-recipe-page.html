@@ -3,6 +3,12 @@
 	<require from="value-converters/ingredient-format"></require>
 	<require from="value-converters/filter-on-property"></require>
 	<require from="value-converters/step-item"></require>
+	
+	<!--
+	<require from="widgets/step-action"></require>
+	<require from="widgets/step-ingredient"></require>
+	<require from="widgets/step-timer"></require>
+	-->
 		
 	<section>
 		<h2>${recipe.title}</h2>
@@ -40,15 +46,21 @@
 				</div>
 			</div>
 		</section>
-		
 		<section>
 			<h3>Étapes</h3>
 			<div>
 				<div repeat.for="subrecipe of recipe.subrecipes">
 					<h4>${subrecipe.title}</h4>
 					<ol>
-						<li repeat.for="step of $parent.recipe.steps | filterOnProperty:'subrecipeId':subrecipe.id">
-							<div innerhtml.bind="step | stepItem:$parent.$parent.recipe.ingredients"></div>
+						<li repeat.for="step of $parent.recipe.steps | filterOnProperty:'subrecipeId':subrecipe.id"
+							innerhtml.bind="step | stepItem:$parent.$parent.recipe.ingredients">
+							<!--Dans un grand bol, 
+							<compose model.bind="'melanger'" view-model='widgets/step-action'></compose>
+							les affaires avec 
+							<compose model.bind='$parent.$parent.recipe.ingredients[0]' view-model='widgets/step-ingredient'></compose>
+							très rapidement pendant
+							<compose model.bind="'PT00H02M'" view-model='widgets/step-timer'></compose>
+							.-->
 						</li>
 					</ol>
 				</div>

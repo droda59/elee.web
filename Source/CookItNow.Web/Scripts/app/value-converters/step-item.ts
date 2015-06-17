@@ -1,15 +1,19 @@
 import {Step} from "interfaces/quick-recipe";
 import {Ingredient} from "interfaces/quick-recipe";
+import {IngredientFormatValueConverter} from "value-converters/ingredient-format";
 import {DurationFormatValueConverter} from "value-converters/duration-format";
 import {SanitizeHtmlValueConverter} from "aurelia-templating-resources/sanitize-html";
 
 export class StepItemValueConverter {
 	toView(value: Step, ingredients: Ingredient[]) {
+		var ingredientValueConverter = new IngredientFormatValueConverter();
 		var output = value.description;
 		var match;
+		
 		while (match = /{action:'\D+'}/.exec(output)) {
 			var action = match[0].replace("{action:'", "").replace("'}", "");
 			var actionHtml = "<span class='action'>" + action + "</span>";
+			// var actionHtml = "<compose model.bind='\"" + action + "\"' view-model='widgets/step-action'></compose>";
 			output = output.replace(match[0], actionHtml);
 		}
 		
@@ -21,20 +25,11 @@ export class StepItemValueConverter {
 			)[0];
 			
 			var ingredientName = referencedIngredient.name.toLowerCase();
-			var ingredientNameFirstLetter = ingredientName[0];
-			var nextWord = 
-				ingredientNameFirstLetter === "a" 
-				|| ingredientNameFirstLetter === "e"
-				|| ingredientNameFirstLetter === "i"
-				|| ingredientNameFirstLetter === "o"
-				|| ingredientNameFirstLetter === "u"
-				|| ingredientNameFirstLetter === "h"
-				? "d'"
-				: "de ";
+			var nextWord = ingredientValueConverter.isVowell(ingredientName[0]) ? "d'" : "de ";
 				
 			var measureUnit = referencedIngredient.quantity.originalMeasureUnit;
 			var quantity = referencedIngredient.quantity.value;
-			var localizedMeasureUnit = this.getLocalizedMeasureUnit(measureUnit, quantity);
+			var localizedMeasureUnit = ingredientValueConverter.getLocalizedMeasureUnit(measureUnit, quantity);
 			
 			var ingredientHtml = 
 				"<span class='ingredient'>" + 
@@ -44,10 +39,13 @@ export class StepItemValueConverter {
 					"<span class='value'>" + ingredientName + "</span>" +
 				"</span>";
 			
+			// var ingredientHtml = "<compose model.bind='" + referencedIngredient + "' view-model='widgets/step-ingredient'></compose>";
+			
 			output = output.replace(match[0], ingredientHtml);
 		}
 		
 		while (match = /{timer:'PT\d\dH\d\dM'}/.exec(output)) {
+			var timer = match[0].replace("{timer:", "").replace("}", "");
 			var formattedDuration = new DurationFormatValueConverter().toView(match[0]);
 			
 			var durationHtml = 
@@ -57,6 +55,8 @@ export class StepItemValueConverter {
 						formattedDuration + 
 					"</a>" + 
 				"</span>";
+			
+			// var durationHtml = "<compose model.bind='\"" + timer + "\"' view-model='widgets/step-timer'></compose>";
 			
 			output = output.replace(match[0], durationHtml);
 		}
@@ -72,29 +72,5 @@ export class StepItemValueConverter {
 		output = new SanitizeHtmlValueConverter().toView(output);
 		
 		return output;
-	}
-	
-	getLocalizedMeasureUnit(originalMeasureUnit:string, quantity:number):string {
-		switch (originalMeasureUnit) {
-			case "cups":
-				return " tasse" + (quantity > 1 ? "s" : "");
-				break;
-				
-			case "ml":
-				return "ml";
-				break;
-				
-			case "pinch":
-				return " pincée" + (quantity > 1 ? "s" : "");
-				break;
-		
-			case "units":
-				return "";
-				break;
-				
-			default:
-				return "";
-				break;
-		};
 	}
 }

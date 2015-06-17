@@ -24,12 +24,12 @@ export class IngredientFormatValueConverter {
 	}
 	
 	isVowell(letter: string):boolean {
-		return letter === "a" 
-			|| letter === "e"
-			|| letter === "i"
-			|| letter === "o"
-			|| letter === "u"
-			|| letter === "h";
+		return letter === "a" || letter === "A"
+			|| letter === "e" || letter === "e"
+			|| letter === "i" || letter === "I"
+			|| letter === "o" || letter === "O"
+			|| letter === "u" || letter === "U"
+			|| letter === "h" || letter === "H";
 	}
 	
 	getLocalizedMeasureUnit(originalMeasureUnit: string, quantity: number):string {
