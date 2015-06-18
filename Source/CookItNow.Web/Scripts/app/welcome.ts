@@ -1,6 +1,4 @@
-/// <reference path="../typings/jquery.d.ts" />
-
-import {jQuery} from "jquery";
+import {jquery} from "jquery";
 
 export class Welcome {
 	attached() {
