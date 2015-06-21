@@ -26,6 +26,7 @@ System.config({
     "font-awesome": "npm:font-awesome@4.3.0",
     "jquery": "github:components/jquery@2.1.4",
     "materialize": "github:Dogfalo/materialize@0.96.1",
+    "materialize-css": "npm:materialize-css@0.96.1",
     "moment": "github:moment/moment@2.10.3",
     "traceur": "github:jmcriffey/bower-traceur@0.0.89",
     "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.89",
@@ -328,6 +329,9 @@ System.config({
     },
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"
+    },
+    "npm:materialize-css@0.96.1": {
+      "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:os-browserify@0.1.2": {
       "os": "github:jspm/nodelibs-os@0.1.0"

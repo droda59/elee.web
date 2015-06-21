@@ -87,10 +87,28 @@ gulp.task("serve", ["build"], function (done) {
     }, done);
 });
 
-gulp.task("watch", ["serve"], function () {
+gulp.task("watch-ts", ["serve"], function () {
     gulp
-        .watch([path.typescript.src, path.less.src, path.html], ["build"])
+        .watch([path.typescript.src], ["build-ts"])
         .on("change", function (event) {
             console.log("File " + event.path + " was " + event.type + ", running tasks...");
         });
 });
+
+gulp.task("watch-html", ["serve"], function () {
+    gulp
+        .watch([path.html], ["build-html"])
+        .on("change", function (event) {
+            console.log("File " + event.path + " was " + event.type + ", running tasks...");
+        });
+});
+
+gulp.task("watch-less", ["serve"], function () {
+    gulp
+        .watch([path.less.src], ["build-less"])
+        .on("change", function (event) {
+            console.log("File " + event.path + " was " + event.type + ", running tasks...");
+        });
+});
+
+gulp.task("watch", ["watch-ts", "watch-html", "watch-less"]);
