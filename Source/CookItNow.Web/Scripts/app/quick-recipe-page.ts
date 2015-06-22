@@ -24,7 +24,7 @@ export class QuickRecipePage {
     
     attached() {
 		$(".step .compose").toArray().forEach(function(element) {
-			this.compiler.compile(element, null, null, element);
+			this.compiler.compile(element, this, null, element);
 		}, this);
     }
 }

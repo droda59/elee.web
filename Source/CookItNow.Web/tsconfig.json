@@ -49,6 +49,7 @@
         "./Scripts/app/form.ts",   
         "./Scripts/app/welcome.ts",     
         "./Scripts/app/quick-recipe-page.ts",
+        "./Scripts/app/value-converters/compose.ts", 
         "./Scripts/app/value-converters/filter-on-property.ts", 
         "./Scripts/app/value-converters/duration-format.ts",
         "./Scripts/app/value-converters/ingredient-format",

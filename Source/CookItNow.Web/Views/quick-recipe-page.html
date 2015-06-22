@@ -60,13 +60,6 @@
 							<li repeat.for="step of $parent.recipe.steps | filterOnProperty:'subrecipeId':subrecipe.id"
 								innerhtml.bind="step | stepItem:$parent.$parent.recipe.ingredients"
 								class="step">
-								<!--Dans un grand bol, 
-								<compose model.bind="'melanger'" view-model='widgets/step-action'></compose>
-								les affaires avec 
-								<compose model.bind='$parent.$parent.recipe.ingredients[0]' view-model='widgets/step-ingredient'></compose>
-								très rapidement pendant
-								<compose model.bind="'PT00H02M'" view-model='widgets/step-timer'></compose>
-								.-->
 							</li>
 						</ol>
 					</div>
