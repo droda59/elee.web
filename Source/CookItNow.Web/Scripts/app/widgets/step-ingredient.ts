@@ -13,7 +13,7 @@ export class StepIngredient {
 		
 		var ingredientValueConverter = new IngredientFormatValueConverter();
 		this.ingredientName = model.name.toLowerCase();
-		this.nextWord = ingredientValueConverter.isVowell(this.ingredientName[0]) ? " d'" : " de ";
+		this.nextWord = ingredientValueConverter.isVowel(this.ingredientName[0]) ? " d'" : " de ";
 			
 		var measureUnit = model.quantity.originalMeasureUnit;
 		this.quantity = model.quantity.value;

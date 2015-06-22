@@ -3,7 +3,7 @@ import {Ingredient} from "interfaces/quick-recipe";
 export class IngredientFormatValueConverter {
 	toView(value: Ingredient) {
 		var ingredientName = value.name.toLowerCase();
-		var nextWord = this.isVowell(ingredientName[0]) ? " d'" : " de ";
+		var nextWord = this.isVowel(ingredientName[0]) ? " d'" : " de ";
 			
 		var measureUnit = value.quantity.originalMeasureUnit;
 		var quantity = value.quantity.value;
@@ -23,7 +23,7 @@ export class IngredientFormatValueConverter {
 			+ (requirements ? ", " + requirements.join(" et ") : "");
 	}
 	
-	isVowell(letter: string):boolean {
+	isVowel(letter: string):boolean {
 		return letter === "a" || letter === "A"
 			|| letter === "e" || letter === "e"
 			|| letter === "i" || letter === "I"

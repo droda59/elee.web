@@ -1,73 +1,49 @@
 import {Step} from "interfaces/quick-recipe";
 import {Ingredient} from "interfaces/quick-recipe";
-import {IngredientFormatValueConverter} from "value-converters/ingredient-format";
 import {DurationFormatValueConverter} from "value-converters/duration-format";
+import {ComposeValueConverter} from "value-converters/compose";
 import {SanitizeHtmlValueConverter} from "aurelia-templating-resources/sanitize-html";
 
 export class StepItemValueConverter {
 	toView(value: Step, ingredients: Ingredient[]) {
-		var ingredientValueConverter = new IngredientFormatValueConverter();
+		var composeValueConverter = new ComposeValueConverter();
 		var output = value.description;
-		var match;
+		var matches;
 		
-		while (match = /{action:'\D+'}/.exec(output)) {
-			var action = match[0].replace("{action:'", "").replace("'}", "");
-			var actionHtml = "<span class='action'>" + action + "</span>";
-			// var actionHtml = "<compose model.bind='\"" + action + "\"' view-model='widgets/step-action'></compose>";
-			output = output.replace(match[0], actionHtml);
-		}
+		matches = output.match(/{action:'[a-zA-Z0-9\u00E0-\u00FC' ']+'}/g);
+		(matches ? matches : []).forEach(function(match) {
+			var action = match.replace("{action:'", "").replace("'}", "");
+			var compose = composeValueConverter.toView("'" + action + "'", "widgets/step-action");
+			output = output.replace(match, compose);
+		}, this);
 		
-		while (match = /{ingredient:\d+}/.exec(output)) {
-			var ingredientId = match[0].replace("{ingredient:", "").replace("}", "");
+		matches = output.match(/{ingredient:[a-zA-Z0-9\u00E0-\u00FC' ']+}/g);
+		(matches ? matches : []).forEach(function(match) {
+			var ingredientId = match.replace("{ingredient:", "").replace("}", "");
 			
 			var referencedIngredient = ingredients.filter(
 				(item) => item.id == ingredientId
 			)[0];
 			
-			var ingredientName = referencedIngredient.name.toLowerCase();
-			var nextWord = ingredientValueConverter.isVowell(ingredientName[0]) ? "d'" : "de ";
-				
-			var measureUnit = referencedIngredient.quantity.originalMeasureUnit;
-			var quantity = referencedIngredient.quantity.value;
-			var localizedMeasureUnit = ingredientValueConverter.getLocalizedMeasureUnit(measureUnit, quantity);
-			
-			var ingredientHtml = 
-				"<span class='ingredient'>" + 
-					"<span class='value'>" + quantity.toString().replace(".", ",") + "</span>" + 
-					"<span class='type'>" + localizedMeasureUnit + "</span>" +
-					" " + nextWord + 
-					"<span class='value'>" + ingredientName + "</span>" +
-				"</span>";
-			
-			// var ingredientHtml = "<compose model.bind='" + referencedIngredient + "' view-model='widgets/step-ingredient'></compose>";
-			
-			output = output.replace(match[0], ingredientHtml);
-		}
-		
-		while (match = /{timer:'PT\d\dH\d\dM'}/.exec(output)) {
-			var timer = match[0].replace("{timer:", "").replace("}", "");
-			var formattedDuration = new DurationFormatValueConverter().toView(match[0]);
-			
-			var durationHtml = 
-				"<span class='timer'>" +
-					"<a>" +
-						"<span class='glyphicon glyphicon-time'></span>" +  
-						formattedDuration + 
-					"</a>" + 
-				"</span>";
-			
-			// var durationHtml = "<compose model.bind='\"" + timer + "\"' view-model='widgets/step-timer'></compose>";
-			
-			output = output.replace(match[0], durationHtml);
-		}
-		
-		var splits = output.split(".");
-		splits.forEach(function(split) {
-			if (split !== "") {
-				var newSplit = split.trim() + ".<br />";
-				output = output.replace(split + ".", newSplit);
-			}
+			// var compose = composeValueConverter.toView(referencedIngredient, "widgets/step-ingredient");
+			// output = output.replace(match, compose);
 		}, this);
+		
+		matches = output.match(/{timer:'PT\d\dH\d\dM'}/g);
+		(matches ? matches : []).forEach(function(match) {
+			var timer = match.replace("{timer:", "").replace("}", "");
+			var formattedDuration = new DurationFormatValueConverter().toView(match);
+			var compose = composeValueConverter.toView(timer, "widgets/step-timer");
+			output = output.replace(match, compose);
+		}, this);
+		
+		// var splits = output.split(".");
+		// splits.forEach(function(split) {
+		// 	if (split !== "") {
+		// 		var newSplit = split.trim() + ".<br />";
+		// 		output = output.replace(split + ".", newSplit);
+		// 	}
+		// }, this);
 		
 		output = new SanitizeHtmlValueConverter().toView(output);
 		

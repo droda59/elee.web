@@ -3,12 +3,11 @@
 	<require from="value-converters/ingredient-format"></require>
 	<require from="value-converters/filter-on-property"></require>
 	<require from="value-converters/step-item"></require>
+	<require from="value-converters/compose"></require>
 	
-	<!--
 	<require from="widgets/step-action"></require>
 	<require from="widgets/step-ingredient"></require>
 	<require from="widgets/step-timer"></require>
-	-->
 	
 	<div class="container">
 		<section class="section">
@@ -59,7 +58,8 @@
 						<h4>${subrecipe.title}</h4>
 						<ol>
 							<li repeat.for="step of $parent.recipe.steps | filterOnProperty:'subrecipeId':subrecipe.id"
-								innerhtml.bind="step | stepItem:$parent.$parent.recipe.ingredients">
+								innerhtml.bind="step | stepItem:$parent.$parent.recipe.ingredients"
+								class="step">
 								<!--Dans un grand bol, 
 								<compose model.bind="'melanger'" view-model='widgets/step-action'></compose>
 								les affaires avec 
