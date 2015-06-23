@@ -75,7 +75,7 @@
 						<h4>${subrecipe.title}</h4>
 						<ol>
 							<li repeat.for="step of $parent.recipe.steps | filterOnProperty:'subrecipeId':subrecipe.id"
-								innerhtml.bind="step | stepItem:$parent.$parent.recipe.ingredients"
+								innerhtml.bind="step | stepItem:$parent.$parent.recipe.ingredients:$parent.$parent.timers"
 								class="step">
 							</li>
 						</ol>

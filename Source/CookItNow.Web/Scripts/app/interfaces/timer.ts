@@ -10,10 +10,11 @@ export class Timer {
 		this.eventAggregator = eventAggregator;
         this.duration = duration;
         this.action = action;
-        this.isPaused = false;
+        this.isPaused = true;
     }
     
     start() {
+        this.play();
         this.eventAggregator.publish("TIMERSTARTED", this);
     }
     

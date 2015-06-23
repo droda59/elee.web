@@ -1,10 +1,19 @@
-import {Step} from "interfaces/quick-recipe";
-import {Ingredient} from "interfaces/quick-recipe";
+import {Step, Ingredient} from "interfaces/quick-recipe";
+import {Timer} from "interfaces/timer";
 import {ComposeValueConverter} from "value-converters/compose";
+import {inject} from "aurelia-framework";
 import {SanitizeHtmlValueConverter} from "aurelia-templating-resources/sanitize-html";
+import {EventAggregator} from "aurelia-event-aggregator";
 
+@inject (EventAggregator)
 export class StepItemValueConverter {
-	toView(value: Step, ingredients: Ingredient[]) {
+	eventAggregator: EventAggregator;
+	
+    constructor(eventAggregator: EventAggregator) {
+		this.eventAggregator = eventAggregator;
+    }
+	
+	toView(value: Step, ingredients: Ingredient[], timers: Timer[]) {
 		var composeValueConverter = new ComposeValueConverter();
 		var output = value.description;
 		var matches;
@@ -15,6 +24,20 @@ export class StepItemValueConverter {
 				var newSplit = split.trim() + ".<br />";
 				output = output.replace(split + ".", newSplit);
 			}
+		}, this);
+		
+		matches = output.match(/{timer:'PT\d\dH\d\dM'}/g);
+		(matches || []).forEach(function(match) {
+			var timer = match.replace("{timer:", "").replace("}", "");
+			
+			var reg = new RegExp("({action:'[a-zA-Z0-9\u00E0-\u00FC' ']+'}*)(?=[^\}]*?" + match + ")");
+			var action = reg.exec(output)[0];
+			var actionVerb = action.replace("{action:'", "").replace("'}", "").toLowerCase();
+			
+			timers.push(new Timer(this.eventAggregator, timer, actionVerb));
+			
+			var compose = composeValueConverter.toView("timers[" + (timers.length - 1) + "]", "widgets/step-timer");
+			output = output.replace(match, compose);
 		}, this);
 		
 		matches = output.match(/{action:'[a-zA-Z0-9\u00E0-\u00FC' ']+'}/g);
@@ -36,13 +59,6 @@ export class StepItemValueConverter {
 			}
 			
 			var compose = composeValueConverter.toView("recipe.ingredients[" + ingredientIndex + "]", "widgets/step-ingredient");
-			output = output.replace(match, compose);
-		}, this);
-		
-		matches = output.match(/{timer:'PT\d\dH\d\dM'}/g);
-		(matches || []).forEach(function(match) {
-			var timer = match.replace("{timer:", "").replace("}", "");
-			var compose = composeValueConverter.toView(timer, "widgets/step-timer");
 			output = output.replace(match, compose);
 		}, this);
 		

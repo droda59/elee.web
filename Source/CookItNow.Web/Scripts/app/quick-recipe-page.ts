@@ -13,6 +13,7 @@ export class QuickRecipePage {
 	compiler: Compiler;
 	eventAggregator: EventAggregator;
 	activeTimers: Array<Timer> = new Array();
+	timers: Array<Timer> = new Array();
 	
 	constructor(http: HttpClient, compiler: Compiler, eventAggregator: EventAggregator) {
 		this.http = http;
