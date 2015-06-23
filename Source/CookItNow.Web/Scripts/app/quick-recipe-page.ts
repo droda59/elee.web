@@ -31,7 +31,7 @@ export class QuickRecipePage {
 		this.eventAggregator.subscribe("TIMERSTARTED", payload => {
 			this.activeTimers.push(payload);
 		
-			$(".active-timers").pushpin({ top: $(".active-timers").offset().top });
+			$(".active-timers").pushpin({ top: 0 });
 		});
 		
 		this.eventAggregator.subscribe("TIMERDELETED", payload => {

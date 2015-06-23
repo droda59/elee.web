@@ -4,7 +4,8 @@
 	<span class="timer"> 
 		<a click.trigger="timer.start()"> 
 			<span class="glyphicon glyphicon-time"></span>   
-			<span>${timer.duration | durationFormat}<span>
+			<span show.bind="timer.isPaused">${timer.duration | durationFormat}</span>
+			<span show.bind="!timer.isPaused">${timer.remaining}</span>
 		</a>  
 	</span>
 </template>

@@ -51,22 +51,24 @@
 			
 			<div class="divider"></div>
 			
-			<section class="section active-timers card-panel z-depth-2 teal lighten-2" show.bind="activeTimers.length">
-				<h4>Active timers</h4>
-				<ul class="collection">
-					<li repeat.for="timer of activeTimers"
-						class="collection-item avatar">
-						<i class="material-icons circle green">av_timer</i>
-						<span class="title">${timer.action}</span>
-						<p>${timer.duration | durationFormat}</p>
-						<span class="secondary-content">
-							<a click.trigger="timer.pause()" show.bind="!timer.isPaused"><i class="material-icons">pause</i></a>
-							<a click.trigger="timer.play()" show.bind="timer.isPaused"><i class="material-icons">play_arrow</i></a>
-							<a click.trigger="timer.delete()"><i class="material-icons">delete</i></a>
-						</span>							
-					</li>
-				</ul>
-			</section>
+			<div class="row">
+				<section class="section active-timers card-panel z-depth-2 teal lighten-2 col m6" show.bind="activeTimers.length">
+					<h4>Active timers</h4>
+					<ul class="collection">
+						<li repeat.for="timer of activeTimers"
+							class="collection-item avatar">
+							<i class="material-icons circle green ${timer.isAlmostDone ? 'yellow' : ''} ${timer.isAlmosterDone ? 'red' : ''}">av_timer</i>
+							<span class="title">${timer.action}</span>
+							<p class="green-text ${timer.isAlmostDone ? 'yellow-text' : ''} ${timer.isAlmosterDone ? 'red-text' : ''}">${timer.remaining} of ${timer.duration | durationFormat}</p>
+							<span class="secondary-content">
+								<a click.trigger="timer.pause()" show.bind="!timer.isPaused"><i class="material-icons">pause</i></a>
+								<a click.trigger="timer.play()" show.bind="timer.isPaused"><i class="material-icons">play_arrow</i></a>
+								<a click.trigger="timer.delete()"><i class="material-icons">delete</i></a>
+							</span>							
+						</li>
+					</ul>
+				</section>
+			</div>
 			
 			<section class="section">
 				<h3>Étapes</h3>
