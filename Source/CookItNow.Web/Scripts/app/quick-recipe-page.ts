@@ -1,19 +1,23 @@
-import {QuickRecipe} from "interfaces/quick-recipe";
+import {QuickRecipe, Timer} from "interfaces/quick-recipe";
 import {inject} from "aurelia-framework";
 import {HttpClient} from "aurelia-http-client";
+import {EventAggregator} from "aurelia-event-aggregator";
 import {Compiler} from "gooy/aurelia-compiler";
-import {jquery} from "jquery";
+import {jQuery} from "jquery";
 
-@inject (HttpClient, Compiler)
+@inject (HttpClient, Compiler, EventAggregator)
 export class QuickRecipePage {
-    http:HttpClient;
-    url:string = "../../Json/recipeModel-pouding.json";
-    recipe:QuickRecipe;
+    http: HttpClient;
+    url: string = "../../Json/recipeModel-pouding.json";
+    recipe: QuickRecipe;
 	compiler: Compiler;
+	eventAggregator: EventAggregator;
+	activeTimers: Array<Timer> = new Array();
 	
-	constructor(http:HttpClient, compiler: Compiler) {
+	constructor(http: HttpClient, compiler: Compiler, eventAggregator: EventAggregator) {
 		this.http = http;
 		this.compiler = compiler;
+		this.eventAggregator = eventAggregator;
 	}
 	
 	activate() {
@@ -23,8 +27,16 @@ export class QuickRecipePage {
 	}
     
     attached() {
+		this.eventAggregator.subscribe("TIMERSTARTED", payload => {
+			this.activeTimers.push(payload);
+		})
+		
 		$(".step .compose").toArray().forEach(function(element) {
 			this.compiler.compile(element, this, null, element);
 		}, this);
     }
+	
+	startTimer(timer: Timer) {
+		this.activeTimers.push(timer);
+	}
 }

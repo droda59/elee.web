@@ -2,7 +2,7 @@
 	<require from="value-converters/duration-format"></require>
 	
 	<span class="timer"> 
-		<a> 
+		<a click.trigger="timer.start()"> 
 			<span class="glyphicon glyphicon-time"></span>   
 			<span>${duration | durationFormat}<span>
 		</a>  

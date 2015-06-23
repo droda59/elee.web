@@ -1,6 +1,5 @@
 import {Step} from "interfaces/quick-recipe";
 import {Ingredient} from "interfaces/quick-recipe";
-import {DurationFormatValueConverter} from "value-converters/duration-format";
 import {ComposeValueConverter} from "value-converters/compose";
 import {SanitizeHtmlValueConverter} from "aurelia-templating-resources/sanitize-html";
 
@@ -43,7 +42,6 @@ export class StepItemValueConverter {
 		matches = output.match(/{timer:'PT\d\dH\d\dM'}/g);
 		(matches || []).forEach(function(match) {
 			var timer = match.replace("{timer:", "").replace("}", "");
-			var formattedDuration = new DurationFormatValueConverter().toView(match);
 			var compose = composeValueConverter.toView(timer, "widgets/step-timer");
 			output = output.replace(match, compose);
 		}, this);

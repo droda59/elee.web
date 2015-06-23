@@ -51,6 +51,15 @@
 			
 			<div class="divider"></div>
 			
+			<section class="section" show.bind="activeTimers.length">
+				<h4>Active timers</h4>
+				<ul>
+					<li repeat.for="timer of activeTimers">
+						${timer.duration}
+					</li>
+				</ul>
+			</section>
+			
 			<section class="section">
 				<h3>Étapes</h3>
 				<div>
