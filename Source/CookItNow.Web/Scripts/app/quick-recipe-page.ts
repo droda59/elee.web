@@ -1,4 +1,5 @@
-import {QuickRecipe, Timer} from "interfaces/quick-recipe";
+import {QuickRecipe} from "interfaces/quick-recipe";
+import {Timer} from "interfaces/timer";
 import {inject} from "aurelia-framework";
 import {HttpClient} from "aurelia-http-client";
 import {EventAggregator} from "aurelia-event-aggregator";
@@ -12,8 +13,8 @@ export class QuickRecipePage {
     recipe: QuickRecipe;
 	compiler: Compiler;
 	eventAggregator: EventAggregator;
-	activeTimers: Array<Timer> = new Array();
-	timers: Array<Timer> = new Array();
+	activeTimers: Timer[] = [];
+	timers: Timer[] = [];
 	
 	constructor(http: HttpClient, compiler: Compiler, eventAggregator: EventAggregator) {
 		this.http = http;
