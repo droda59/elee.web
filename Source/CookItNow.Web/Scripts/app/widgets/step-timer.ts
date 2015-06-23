@@ -14,6 +14,6 @@ export class StepTimer {
 	
 	activate(model: string) {
 		this.duration = model;
-		this.timer = new Timer(this.eventAggregator, this.duration);
+		this.timer = new Timer(this.eventAggregator, this.duration, "action");
 	}
 }

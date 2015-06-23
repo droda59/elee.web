@@ -29,7 +29,14 @@ export class QuickRecipePage {
     attached() {
 		this.eventAggregator.subscribe("TIMERSTARTED", payload => {
 			this.activeTimers.push(payload);
-		})
+		
+			$(".active-timers").pushpin({ top: $(".active-timers").offset().top });
+		});
+		
+		this.eventAggregator.subscribe("TIMERDELETED", payload => {
+			var index = this.activeTimers.indexOf(payload);
+			this.activeTimers.splice(index, 1);
+		});
 		
 		$(".step .compose").toArray().forEach(function(element) {
 			this.compiler.compile(element, this, null, element);
