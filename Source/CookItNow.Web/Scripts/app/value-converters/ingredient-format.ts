@@ -1,4 +1,4 @@
-import {Ingredient} from "interfaces/quick-recipe";
+import {Ingredient} from "models/quick-recipe";
 
 export class IngredientFormatValueConverter {
 	toView(value: Ingredient) {

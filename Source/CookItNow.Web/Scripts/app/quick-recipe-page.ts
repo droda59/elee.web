@@ -1,5 +1,5 @@
-import {QuickRecipe} from "interfaces/quick-recipe";
-import {Timer} from "interfaces/timer";
+import {QuickRecipe} from "models/quick-recipe";
+import {Timer} from "models/timer";
 import {inject} from "aurelia-framework";
 import {HttpClient} from "aurelia-http-client";
 import {EventAggregator} from "aurelia-event-aggregator";

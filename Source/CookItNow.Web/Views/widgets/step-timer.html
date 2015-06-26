@@ -3,9 +3,8 @@
 	
 	<span class="timer"> 
 		<a click.trigger="timer.start()"> 
-			<span class="glyphicon glyphicon-time"></span>   
-			<span show.bind="timer.isPaused">${timer.duration | durationFormat}</span>
-			<span show.bind="!timer.isPaused">${timer.remaining}</span>
+			<i class="material-icons">av_timer</i>   
+			<span>${timer.remainingTime}</span>
 		</a>  
 	</span>
 </template>

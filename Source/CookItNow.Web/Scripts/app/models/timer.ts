@@ -1,13 +1,13 @@
 import {EventAggregator} from "aurelia-event-aggregator";
+import * as moment from "moment";
 
 export class Timer {
     duration: string;
     action: string;
     isPaused: boolean;
-    isAlmostDone: boolean;
-    isAlmosterDone: boolean;
-    original: number;
-    remaining: number;
+    state: string;
+    original: moment.Duration;
+    remaining: moment.Duration;
     timer: number;
 	eventAggregator: EventAggregator;
 	
@@ -16,10 +16,14 @@ export class Timer {
         this.duration = duration;
         this.action = action;
         this.isPaused = true;
-        this.original = 30;
+        this.state = "original";
+        
+		var match = /PT\d\dH\d\dM/.exec(duration);
+		var hours = match[0].slice(2, 4);
+		var minutes = match[0].slice(5, 7);
+		
+		this.original = moment.duration({ seconds: (minutes * 60) + (hours * 60 * 60) });
         this.remaining = this.original;
-        this.isAlmostDone = false;
-        this.isAlmosterDone = false;
     }
     
     start() {
@@ -37,12 +41,15 @@ export class Timer {
         
         this.timer = setInterval(function(){
             if (!that.isPaused) {
-                that.remaining--;
+                that.remaining.add(-1, "seconds");
                 
-                that.isAlmostDone = that.remaining < ((that.original / 100) * 20);
-                that.isAlmosterDone = that.remaining < ((that.original / 100) * 10);
+                that.state = that.remaining.seconds < ((that.original.seconds() / 100) * 20) 
+                    ? that.remaining.seconds < ((that.remaining.seconds() / 100) * 10)
+                        ? "isAlmosterDone"
+                        : "isAlmostDone"
+                    : "original";
                 
-                if (that.remaining <= 0) {
+                if (that.remaining.seconds() <= 0) {
                     that.isPaused = true;
                 }
             }
@@ -52,5 +59,9 @@ export class Timer {
     delete() {
         clearInterval(this.timer);
         this.eventAggregator.publish("TIMERDELETED", this);
+    }
+    
+    get remainingTime() {
+        return this.remaining.toISOString();
     }
 }

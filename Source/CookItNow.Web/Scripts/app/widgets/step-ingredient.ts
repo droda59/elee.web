@@ -1,4 +1,4 @@
-import {Ingredient} from "interfaces/quick-recipe";
+import {Ingredient} from "models/quick-recipe";
 import {IngredientFormatValueConverter} from "value-converters/ingredient-format";
 
 export class StepIngredient {

@@ -65,7 +65,7 @@
 							class="collection-item avatar">
 							<i class="material-icons circle green ${timer.isAlmostDone ? 'yellow' : ''} ${timer.isAlmosterDone ? 'red' : ''}">av_timer</i>
 							<span class="title">${timer.action}</span>
-							<p class="green-text ${timer.isAlmostDone ? 'yellow-text' : ''} ${timer.isAlmosterDone ? 'red-text' : ''}">${timer.remaining} of ${timer.duration | durationFormat}</p>
+							<p class="green-text ${timer.isAlmostDone ? 'yellow-text' : ''} ${timer.isAlmosterDone ? 'red-text' : ''}">${timer.remainingTime} of ${timer.duration | durationFormat}</p>
 							<span class="secondary-content">
 								<a click.trigger="timer.pause()" show.bind="!timer.isPaused"><i class="material-icons">pause</i></a>
 								<a click.trigger="timer.play()" show.bind="timer.isPaused"><i class="material-icons">play_arrow</i></a>

@@ -1,5 +1,5 @@
-import {Step, Ingredient} from "interfaces/quick-recipe";
-import {Timer} from "interfaces/timer";
+import {Step, Ingredient} from "models/quick-recipe";
+import {Timer} from "models/timer";
 import {ComposeValueConverter} from "value-converters/compose";
 import {inject} from "aurelia-framework";
 import {SanitizeHtmlValueConverter} from "aurelia-templating-resources/sanitize-html";
@@ -30,9 +30,9 @@ export class StepItemValueConverter {
 		(matches || []).forEach(function(match) {
 			var timer = match.replace("{timer:", "").replace("}", "");
 			
-			var reg = new RegExp("({action:'[a-zA-Z0-9\u00E0-\u00FC' ']+'}*)(?=[^\}]*?" + match + ")");
-			var action = reg.exec(output)[0];
-			var actionVerb = action.replace("{action:'", "").replace("'}", "").toLowerCase();
+			var previousActionRegExp = new RegExp("({action:'[a-zA-Z0-9\u00E0-\u00FC' ']+'}*)(?=[^\}]*?" + match + ")");
+			var previousAction = previousActionRegExp.exec(output)[0];
+			var actionVerb = previousAction.replace("{action:'", "").replace("'}", "").toLowerCase();
 			
 			timers.push(new Timer(this.eventAggregator, timer, actionVerb));
 			

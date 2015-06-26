@@ -1,4 +1,4 @@
-import {Timer} from "interfaces/timer";
+import {Timer} from "models/timer";
 
 export class StepTimer {
 	timer: Timer;
