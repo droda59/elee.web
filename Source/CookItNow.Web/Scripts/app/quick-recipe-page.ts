@@ -8,11 +8,12 @@ import {jQuery} from "jquery";
 
 @inject (HttpClient, Compiler, EventAggregator)
 export class QuickRecipePage {
-    http: HttpClient;
-    url: string = "../../Json/recipeModel-pouding.json";
+    private http: HttpClient;
+	private compiler: Compiler;
+	private eventAggregator: EventAggregator;
+    private url: string = "../../Json/recipeModel-pouding.json";
     recipe: QuickRecipe;
-	compiler: Compiler;
-	eventAggregator: EventAggregator;
+	minimized: boolean = false;
 	activeTimers: Timer[] = [];
 	timers: Timer[] = [];
 	
@@ -47,5 +48,9 @@ export class QuickRecipePage {
 	
 	startTimer(timer: Timer) {
 		this.activeTimers.push(timer);
+	}
+	
+	toggleMinimizeActiveTimers() {
+		this.minimized = !this.minimized; 
 	}
 }

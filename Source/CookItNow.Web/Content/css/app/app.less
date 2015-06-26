@@ -60,3 +60,44 @@ footer.page-footer {
 .step .timer {
   color: dodgerblue;
 }
+
+.active-timers {
+  position: fixed;
+}
+.active-timers .trigger-minimized {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.active-timers.minimized {
+  position: fixed;
+  
+  h4 {
+      display: none;
+  }
+  .collection {
+    margin: 0.5rem 40px 0.5rem 0.5rem;
+  }
+  .collection .collection-item.avatar {
+    padding-left: 46px;
+    height: inherit;
+  }
+  .collection .collection-item.avatar .circle {
+    height: 20px;
+    width: 20px;
+  }
+  .collection .collection-item.avatar i.circle {
+    font-size: 22px;
+    line-height: 20px;
+    border-radius: 0;
+    background: none !important;
+    color: black;
+  }
+  .collection .collection-item.avatar .title {
+    font-size: inherit;
+  }
+  .collection .collection-item.avatar p {
+    display: inline-block;
+  }
+}

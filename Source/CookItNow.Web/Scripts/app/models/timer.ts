@@ -19,8 +19,8 @@ export class Timer {
         this.state = "original";
         
 		var match = /PT\d\dH\d\dM/.exec(duration);
-		var hours = match[0].slice(2, 4);
-		var minutes = match[0].slice(5, 7);
+		var hours = parseInt(match[0].slice(2, 4));
+		var minutes = parseInt(match[0].slice(5, 7));
 		
 		this.original = moment.duration({ seconds: (minutes * 60) + (hours * 60 * 60) });
         this.remaining = this.original;
