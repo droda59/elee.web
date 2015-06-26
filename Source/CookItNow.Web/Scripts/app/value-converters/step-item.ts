@@ -7,7 +7,7 @@ import {EventAggregator} from "aurelia-event-aggregator";
 
 @inject (EventAggregator)
 export class StepItemValueConverter {
-	eventAggregator: EventAggregator;
+	private eventAggregator: EventAggregator;
 	
     constructor(eventAggregator: EventAggregator) {
 		this.eventAggregator = eventAggregator;

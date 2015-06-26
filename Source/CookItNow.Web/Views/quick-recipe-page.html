@@ -62,11 +62,10 @@
 					<h4 class="white-text">Active timers</h4>
 					<a click.trigger="toggleMinimizeActiveTimers()" class="trigger-minimized"><i class="material-icons small white-text">list</i></a>
 					<ul class="collection">
-						<li repeat.for="timer of activeTimers"
-							class="collection-item avatar">
-							<i class="material-icons circle green ${timer.isAlmostDone ? 'yellow' : ''} ${timer.isAlmosterDone ? 'red' : ''}">av_timer</i>
+						<li repeat.for="timer of activeTimers" class="collection-item avatar">
+							<i class="material-icons circle ${timer.state == 'isAlmostDone' ? 'yellow' : timer.state == 'isAlmosterDone' ? 'red' : 'green'}">av_timer</i>
 							<span class="title">${timer.action}</span>
-							<p class="green-text ${timer.isAlmostDone ? 'yellow-text' : ''} ${timer.isAlmosterDone ? 'red-text' : ''}">${timer.remainingTime} of ${timer.duration | durationFormat}</p>
+							<p class="${timer.state == 'isAlmostDone' ? 'yellow-text' : timer.state == 'isAlmosterDone' ? 'red-text' : 'green-text'}">${timer.remainingTime} of ${timer.duration | durationFormat}</p>
 							<span class="secondary-content">
 								<a click.trigger="timer.pause()" show.bind="!timer.isPaused"><i class="material-icons">pause</i></a>
 								<a click.trigger="timer.play()" show.bind="timer.isPaused"><i class="material-icons">play_arrow</i></a>

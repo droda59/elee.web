@@ -2,6 +2,7 @@ import {EventAggregator} from "aurelia-event-aggregator";
 import * as moment from "moment";
 
 export class Timer {
+	private eventAggregator: EventAggregator;
     duration: string;
     action: string;
     isPaused: boolean;
@@ -9,7 +10,6 @@ export class Timer {
     original: moment.Duration;
     remaining: moment.Duration;
     timer: number;
-	eventAggregator: EventAggregator;
 	
     constructor(eventAggregator: EventAggregator, duration: string, action: string) {
 		this.eventAggregator = eventAggregator;
@@ -22,8 +22,8 @@ export class Timer {
 		var hours = parseInt(match[0].slice(2, 4));
 		var minutes = parseInt(match[0].slice(5, 7));
 		
-		this.original = moment.duration({ seconds: (minutes * 60) + (hours * 60 * 60) });
-        this.remaining = this.original;
+		this.original = moment.duration({ minutes: minutes, hours: hours });
+        this.remaining = moment.duration(this.original);
     }
     
     start() {
@@ -43,13 +43,13 @@ export class Timer {
             if (!that.isPaused) {
                 that.remaining.add(-1, "seconds");
                 
-                that.state = that.remaining.seconds < ((that.original.seconds() / 100) * 20) 
-                    ? that.remaining.seconds < ((that.remaining.seconds() / 100) * 10)
+                that.state = that.remaining.asSeconds() < ((that.original.asSeconds() / 100) * 20) 
+                    ? that.remaining.asSeconds() < ((that.original.asSeconds() / 100) * 10)
                         ? "isAlmosterDone"
                         : "isAlmostDone"
                     : "original";
                 
-                if (that.remaining.seconds() <= 0) {
+                if (that.remaining.asSeconds() <= 0) {
                     that.isPaused = true;
                 }
             }
