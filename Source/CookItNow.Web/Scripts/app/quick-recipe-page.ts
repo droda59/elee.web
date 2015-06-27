@@ -3,7 +3,7 @@ import {Timer} from "models/timer";
 import {inject} from "aurelia-framework";
 import {HttpClient} from "aurelia-http-client";
 import {EventAggregator} from "aurelia-event-aggregator";
-import {Compiler} from "gooy/aurelia-compiler";
+import {Compiler} from "aurelia-compiler";
 import {jQuery} from "jquery";
 
 @inject (HttpClient, Compiler, EventAggregator)
@@ -31,9 +31,13 @@ export class QuickRecipePage {
     
     attached() {
 		this.eventAggregator.subscribe("TIMERSTARTED", payload => {
-			this.activeTimers.push(payload);
-		
-			$(".active-timers").pushpin({ top: 0 });
+			if (!this.activeTimers.length) {
+				$(".active-timers").pushpin({ top: 0 });
+			}
+			
+			if (this.activeTimers.indexOf(payload) === -1) {
+				this.activeTimers.push(payload);
+			}
 		});
 		
 		this.eventAggregator.subscribe("TIMERDELETED", payload => {

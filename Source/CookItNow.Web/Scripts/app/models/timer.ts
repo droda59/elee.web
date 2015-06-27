@@ -3,6 +3,7 @@ import * as moment from "moment";
 
 export class Timer {
 	private eventAggregator: EventAggregator;
+    private originalSeconds: number;
     duration: string;
     action: string;
     isPaused: boolean;
@@ -18,17 +19,17 @@ export class Timer {
         this.isPaused = true;
         this.state = "original";
         
-		var match = /PT\d\dH\d\dM/.exec(duration);
-		var hours = parseInt(match[0].slice(2, 4));
-		var minutes = parseInt(match[0].slice(5, 7));
-		
-		this.original = moment.duration({ minutes: minutes, hours: hours });
+		this.original = moment.duration(duration);
         this.remaining = moment.duration(this.original);
+        
+        this.originalSeconds = this.original.asSeconds();
     }
     
     start() {
-        this.eventAggregator.publish("TIMERSTARTED", this);
-        this.play();
+        if (!this.timer) {
+            this.eventAggregator.publish("TIMERSTARTED", this);
+            this.play();
+        }
     }
     
     pause() {
@@ -37,31 +38,43 @@ export class Timer {
     
     play() {
         this.isPaused = false;
-        var that = this;
         
-        this.timer = setInterval(function(){
-            if (!that.isPaused) {
-                that.remaining.add(-1, "seconds");
-                
-                that.state = that.remaining.asSeconds() < ((that.original.asSeconds() / 100) * 20) 
-                    ? that.remaining.asSeconds() < ((that.original.asSeconds() / 100) * 10)
-                        ? "isAlmosterDone"
-                        : "isAlmostDone"
-                    : "original";
-                
-                if (that.remaining.asSeconds() <= 0) {
-                    that.isPaused = true;
+        if (!this.timer) {
+            var that = this;
+            this.timer = setInterval(function(){
+                if (!that.isPaused) {
+                    that.remaining.add(-1, "seconds");
+                    
+                    var remainingSeconds = that.remaining.asSeconds();
+                    
+                    that.state = remainingSeconds < ((that.originalSeconds / 100) * 20) 
+                        ? remainingSeconds < ((that.originalSeconds / 100) * 10)
+                            ? "isAlmosterDone"
+                            : "isAlmostDone"
+                        : "original";
+                    
+                    if (remainingSeconds <= 0) {
+                        that.isPaused = true;
+                    }
                 }
-            }
-        }, 1000);
+            }, 1000);
+        }
     }
     
     delete() {
         clearInterval(this.timer);
+        this.timer = null;
         this.eventAggregator.publish("TIMERDELETED", this);
     }
     
     get remainingTime() {
-        return this.remaining.toISOString();
+        var sec_num = this.remaining.asSeconds();
+        var hours   = Math.floor(sec_num / 3600);
+        var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+        var seconds = sec_num - (hours * 3600) - (minutes * 60);
+    
+        return (hours ? (hours < 10 ? "0" + hours : hours) + ":" : "") 
+            + (minutes < 10 ? "0" + minutes : minutes) + ":" 
+            + (seconds < 10 ? "0" + seconds : seconds);
     }
 }

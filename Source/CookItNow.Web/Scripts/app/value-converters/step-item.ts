@@ -28,7 +28,7 @@ export class StepItemValueConverter {
 		
 		matches = output.match(/{timer:'PT\d\dH\d\dM'}/g);
 		(matches || []).forEach(function(match) {
-			var timer = match.replace("{timer:", "").replace("}", "");
+			var timer = match.replace("{timer:'", "").replace("'}", "");
 			
 			var previousActionRegExp = new RegExp("({action:'[a-zA-Z0-9\u00E0-\u00FC' ']+'}*)(?=[^\}]*?" + match + ")");
 			var previousAction = previousActionRegExp.exec(output)[0];

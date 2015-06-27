@@ -2,18 +2,10 @@ import * as moment from "moment";
 
 export class DurationFormatValueConverter {
 	toView(value: string) {
-		var regex = /PT\d\dH\d\dM/;
-		
-		if (!regex.test(value)){
+		if (!/PT\d\dH\d\dM/.test(value)){
 			return value;
 		}
 		
-		var match = regex.exec(value);
-		var hours = match[0].slice(2, 4);
-		var minutes = match[0].slice(5, 7);
-		
-		var duration = moment.duration({ hours: hours, minutes: minutes }).humanize();
-		
-		return duration;
+		return moment.duration(value).humanize();
 	}
 }
