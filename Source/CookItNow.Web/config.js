@@ -13,6 +13,7 @@ System.config({
     "aurelia-animator-css": "github:aurelia/animator-css@0.2.0",
     "aurelia-bootstrapper": "github:aurelia/bootstrapper@0.13.1",
     "aurelia-compiler": "github:gooy/aurelia-compiler@0.0.4",
+    "aurelia-computed": "github:jdanyow/aurelia-computed@0.2.0",
     "aurelia-dependency-injection": "github:aurelia/dependency-injection@0.7.1",
     "aurelia-framework": "github:aurelia/framework@0.11.0",
     "aurelia-http-client": "github:aurelia/http-client@0.8.1",
@@ -224,6 +225,11 @@ System.config({
       "aurelia-loader": "github:aurelia/loader@0.7.0",
       "aurelia-loader-default": "github:aurelia/loader-default@0.8.0",
       "aurelia-templating": "github:aurelia/templating@0.12.1"
+    },
+    "github:jdanyow/aurelia-computed@0.2.0": {
+      "aurelia-binding": "github:aurelia/binding@0.7.3",
+      "aurelia-logging": "github:aurelia/logging@0.5.0",
+      "core-js": "npm:core-js@0.9.18"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"

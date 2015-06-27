@@ -3,7 +3,8 @@ import {ConventionalViewStrategy} from "aurelia-templating";
 export function configure(aurelia) {
     aurelia.use
         .standardConfiguration()
-        .developmentLogging();
+        .developmentLogging()
+        .plugin('aurelia-animator-css');
  
     ConventionalViewStrategy.convertModuleIdToViewUrl = function(moduleId){
         var moduleName = moduleId.replace("Scripts/app/", "");

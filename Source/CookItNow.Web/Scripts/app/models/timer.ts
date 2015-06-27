@@ -1,15 +1,15 @@
 import {EventAggregator} from "aurelia-event-aggregator";
+import {computedFrom} from "aurelia-framework"; 
 import * as moment from "moment";
 
 export class Timer {
 	private eventAggregator: EventAggregator;
     private originalSeconds: number;
+    private remainingSeconds: number;
     duration: string;
     action: string;
     isPaused: boolean;
     state: string;
-    original: moment.Duration;
-    remaining: moment.Duration;
     timer: number;
 	
     constructor(eventAggregator: EventAggregator, duration: string, action: string) {
@@ -19,10 +19,9 @@ export class Timer {
         this.isPaused = true;
         this.state = "original";
         
-		this.original = moment.duration(duration);
-        this.remaining = moment.duration(this.original);
-        
-        this.originalSeconds = this.original.asSeconds();
+		var original = moment.duration(duration);
+        this.remainingSeconds = moment.duration(original).asSeconds();
+        this.originalSeconds = original.asSeconds();
     }
     
     start() {
@@ -43,17 +42,15 @@ export class Timer {
             var that = this;
             this.timer = setInterval(function(){
                 if (!that.isPaused) {
-                    that.remaining.add(-1, "seconds");
+                    that.remainingSeconds--;
                     
-                    var remainingSeconds = that.remaining.asSeconds();
-                    
-                    that.state = remainingSeconds < ((that.originalSeconds / 100) * 20) 
-                        ? remainingSeconds < ((that.originalSeconds / 100) * 10)
+                    that.state = that.remainingSeconds < ((that.originalSeconds / 100) * 20) 
+                        ? that.remainingSeconds < ((that.originalSeconds / 100) * 10)
                             ? "isAlmosterDone"
                             : "isAlmostDone"
                         : "original";
                     
-                    if (remainingSeconds <= 0) {
+                    if (that.remainingSeconds <= 0) {
                         that.isPaused = true;
                     }
                 }
@@ -67,8 +64,9 @@ export class Timer {
         this.eventAggregator.publish("TIMERDELETED", this);
     }
     
+    @computedFrom("remainingSeconds")
     get remainingTime() {
-        var sec_num = this.remaining.asSeconds();
+        var sec_num = this.remainingSeconds;
         var hours   = Math.floor(sec_num / 3600);
         var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
         var seconds = sec_num - (hours * 3600) - (minutes * 60);
