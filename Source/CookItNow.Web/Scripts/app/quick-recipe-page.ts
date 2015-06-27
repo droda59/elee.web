@@ -11,7 +11,7 @@ export class QuickRecipePage {
     private http: HttpClient;
 	private compiler: Compiler;
 	private eventAggregator: EventAggregator;
-    private url: string = "../../Json/recipeModel-pouding.json";
+    private url: string;
     recipe: QuickRecipe;
 	minimized: boolean = false;
 	activeTimers: Timer[] = [];
@@ -23,7 +23,18 @@ export class QuickRecipePage {
 		this.eventAggregator = eventAggregator;
 	}
 	
-	activate() {
+	activate(route) {
+		switch (route.id) {
+			case "1":
+				this.url = "../../Json/recipeModel-pouding.json";
+				break;
+			case "2": 
+				this.url = "../../Json/recipeModel-gaufres.json";
+				break;
+			default:
+				break;
+		}
+		
         return this.http.get(this.url).then(response => {
             this.recipe = response.content;
         });

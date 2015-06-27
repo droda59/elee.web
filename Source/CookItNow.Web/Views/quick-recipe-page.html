@@ -38,19 +38,28 @@
 			<div class="row">
 				<section class="section">
 					<h3>Ingrédients</h3>
-					<div>
-						<div repeat.for="subrecipe of recipe.subrecipes">
-							<h4>${subrecipe.title}</h4>
-							<ul class="collection">
-								<li repeat.for="ingredient of $parent.recipe.ingredients | filterOnProperty:'subrecipeId':subrecipe.id" class="collection-item">
-									${ingredient | ingredientFormat}
-									<div if.bind="ingredient.replacements" repeat.for="replacement of ingredient.replacements">
-										<div>ou</div>
-										<small>${replacement | ingredientFormat}</small>
-									</div>
-								</li>
-							</ul>
-						</div>
+					<div if.bind="recipe.subrecipes" repeat.for="subrecipe of recipe.subrecipes">
+						<h4>${subrecipe.title}</h4>
+						<ul class="collection">
+							<li repeat.for="ingredient of $parent.recipe.ingredients | filterOnProperty:'subrecipeId':subrecipe.id" class="collection-item">
+								${ingredient | ingredientFormat}
+								<div if.bind="ingredient.replacements" repeat.for="replacement of ingredient.replacements">
+									<div>ou</div>
+									<small>${replacement | ingredientFormat}</small>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div if.bind="!recipe.subrecipes">
+						<ul class="collection">
+							<li repeat.for="ingredient of recipe.ingredients" class="collection-item">
+								${ingredient | ingredientFormat}
+								<div if.bind="ingredient.replacements" repeat.for="replacement of ingredient.replacements">
+									<div>ou</div>
+									<small>${replacement | ingredientFormat}</small>
+								</div>
+							</li>
+						</ul>
 					</div>
 				</section>
 			</div>
@@ -79,16 +88,22 @@
 			<div class="row">
 				<section class="section">
 					<h3>Étapes</h3>
-					<div>
-						<div repeat.for="subrecipe of recipe.subrecipes">
-							<h4>${subrecipe.title}</h4>
-							<ol>
-								<li repeat.for="step of $parent.recipe.steps | filterOnProperty:'subrecipeId':subrecipe.id"
-									innerhtml.bind="step | stepItem:$parent.$parent.recipe.ingredients:$parent.$parent.timers"
-									class="step">
-								</li>
-							</ol>
-						</div>
+					<div if.bind="recipe.subrecipes" repeat.for="subrecipe of recipe.subrecipes">
+						<h4>${subrecipe.title}</h4>
+						<ol>
+							<li repeat.for="step of $parent.recipe.steps | filterOnProperty:'subrecipeId':subrecipe.id"
+								innerhtml.bind="step | stepItem:$parent.$parent.recipe.ingredients:$parent.$parent.timers"
+								class="step">
+							</li>
+						</ol>
+					</div>
+					<div if.bind="!recipe.subrecipes">
+						<ol>
+							<li repeat.for="step of recipe.steps"
+								innerhtml.bind="step | stepItem:$parent.recipe.ingredients:$parent.timers"
+								class="step">
+							</li>
+						</ol>
 					</div>
 				</section>
 			</div>

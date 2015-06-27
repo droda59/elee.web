@@ -19,7 +19,7 @@ export class StepItemValueConverter {
 		var matches;
 		
 		var splits = output.split(".");
-		splits.forEach(function(split) {
+		(splits || []).forEach(function(split) {
 			if (split !== "") {
 				var newSplit = split.trim() + ".<br />";
 				output = output.replace(split + ".", newSplit);
@@ -30,7 +30,7 @@ export class StepItemValueConverter {
 		(matches || []).forEach(function(match) {
 			var timer = match.replace("{timer:'", "").replace("'}", "");
 			
-			var previousActionRegExp = new RegExp("({action:'[a-zA-Z0-9\u00E0-\u00FC' ']+'}*)(?=[^\}]*?" + match + ")");
+			var previousActionRegExp = new RegExp("({action:'[a-zA-Z0-9\u00E0-\u00FC' ']+'}*)(?=[^]*?" + match + ")");
 			var previousAction = previousActionRegExp.exec(output)[0];
 			var actionVerb = previousAction.replace("{action:'", "").replace("'}", "").toLowerCase();
 			
