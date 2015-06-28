@@ -8,7 +8,13 @@
   					<h5 class="header col s12 light">A modern, easy-to-use recipe application based on real-world needs</h5>
   				</div>
   				<div class="row center">
-  				<a href="#" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
+  				  <!--<a href="#" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>-->
+            <div class="input-field">
+              <select value.bind="selectedRecipeId">
+                <option>Select a recipe</option>
+                <option repeat.for="recipe of recipes" value.bind="id">${title}</option>
+              </select>
+            </div>
   				</div>
   				<br><br>
   			</div>
