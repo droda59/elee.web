@@ -26,7 +26,7 @@ var path = {
 };
 
 gulp.task("clean", function () {
-    return gulp.src([path.typescript.js, path.less.css])
+    return gulp.src([path.typescript.js, path.less.css, "!Scripts/**/app-bundle.js"])
        .pipe(vinylPaths(del));
 });
 
