@@ -5,8 +5,7 @@ export function configure(aurelia) {
     aurelia.use
         .standardConfiguration()
         .developmentLogging()
-        .plugin('./resources/index')
-        .plugin('aurelia-animator-css');
+        .plugin('./resources/index');
  
     ConventionalViewStrategy.convertModuleIdToViewUrl = function(moduleId){
         var moduleName = moduleId.replace("Scripts/app/", "");

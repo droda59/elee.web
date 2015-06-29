@@ -1,3 +1,3 @@
 export function configure(aurelia) {
-  aurelia.globalizeResources("./materialize");
+    aurelia.globalizeResources("./materialize");
 }

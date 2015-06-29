@@ -42,10 +42,6 @@ export class QuickRecipePage {
     
     attached() {
 		this.eventAggregator.subscribe("TIMERSTARTED", payload => {
-			if (!this.activeTimers.length) {
-				$(".active-timers").pushpin({ top: 0 });
-			}
-			
 			if (this.activeTimers.indexOf(payload) === -1) {
 				this.activeTimers.push(payload);
 			}

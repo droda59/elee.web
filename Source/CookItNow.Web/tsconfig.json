@@ -43,7 +43,6 @@
         "./Scripts/app/models/timer.ts", 
         "./Scripts/app/app.ts", 
         "./Scripts/app/child-router.ts", 
-        "./Scripts/app/flickr.ts",
         "./Scripts/app/main.ts",
         "./Scripts/app/nav-bar.ts",
         "./Scripts/app/form.ts",   
@@ -54,6 +53,8 @@
         "./Scripts/app/value-converters/duration-format.ts",
         "./Scripts/app/value-converters/ingredient-format",
         "./Scripts/app/value-converters/step-item.ts",
+        "./Scripts/app/resources/index.ts",
+        "./Scripts/app/resources/materialize.ts",
         "./Scripts/app/widgets/step-action.ts",
         "./Scripts/app/widgets/step-ingredient.ts",
         "./Scripts/app/widgets/step-timer.ts"

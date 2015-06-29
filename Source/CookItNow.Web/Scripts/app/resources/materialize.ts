@@ -57,6 +57,14 @@ export class Materialize {
       case "label":
         this.taskQueue.queueMicroTask({ call: () => this.fixLabelOverlap() });
         break;
+        
+      case "parallax":
+        setTimeout(() => $(this.element).parallax(), 10);
+        break;
+        
+      case "pushpin":
+        setTimeout(() => $(this.element).pushpin({ top: 0 }), 10);
+        break;
 
       default:
         throw new Error(`Unrecognized materialize attribute value: "${this.value}"`);

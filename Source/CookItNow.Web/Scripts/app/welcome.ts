@@ -1,4 +1,3 @@
-import {jQuery} from "jquery";
 import {Router} from "aurelia-router";
 import {inject} from "aurelia-framework";
 
@@ -15,11 +14,7 @@ export class Welcome {
 		this.recipes.push({ id: "2", title: "Gaufres" });
 	}
 	
-	attached() {
-	    $(".parallax").parallax();
-	}
-	
 	loadRecipe() {
-		this.router.navigate("#/recipe/" + this.selectedRecipeId);
+		this.router.navigate("#/recipe/" + this.selectedRecipeId, null);
 	}
 }
