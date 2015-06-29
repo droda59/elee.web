@@ -8,13 +8,19 @@
   					<h5 class="header col s12 light">A modern, easy-to-use recipe application based on real-world needs</h5>
   				</div>
   				<div class="row center">
-  				  <!--<a href="#" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>-->
-            <div class="input-field">
-              <select value.bind="selectedRecipeId">
-                <option>Select a recipe</option>
-                <option repeat.for="recipe of recipes" value.bind="id">${title}</option>
-              </select>
-            </div>
+            <form class="col s12" submit.delegate="loadRecipe()" novalidate>
+              <div class="input-field center col s6">
+                <select value.bind="selectedRecipeId" materialize="select">
+                  <option>Select a recipe</option>
+                  <option repeat.for="recipe of recipes" value.bind="recipe.id">${recipe.title}</option>
+                </select>
+                <label>Materialize Select</label>
+              </div>
+              <button class="btn waves-effect waves-light" type="submit" name="action">
+                Cook it now!
+                <i class="material-icons">send</i>
+              </button>
+            </form>
   				</div>
   				<br><br>
   			</div>

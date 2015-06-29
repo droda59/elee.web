@@ -1,9 +1,11 @@
 import {ConventionalViewStrategy} from "aurelia-templating";
+import {Materialize} from "resources/materialize"; // ensure the materialize jquery plugins are installed.
  
 export function configure(aurelia) {
     aurelia.use
         .standardConfiguration()
         .developmentLogging()
+        .plugin('./resources/index')
         .plugin('aurelia-animator-css');
  
     ConventionalViewStrategy.convertModuleIdToViewUrl = function(moduleId){

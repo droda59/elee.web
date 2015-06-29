@@ -1,15 +1,25 @@
 import {jQuery} from "jquery";
+import {Router} from "aurelia-router";
+import {inject} from "aurelia-framework";
 
+@inject (Router)
 export class Welcome {
-	selectedRecipeId: number;
+	private router: Router;
+	selectedRecipeId: string;
 	recipes: {}[] = [];
 	
-	constructor() {
-		this.recipes.push({ id: 1, title: "Pouding au chocolat" });
-		this.recipes.push({ id: 2, title: "Gaufres" });
+	constructor(router: Router) {
+		this.router = router;
+		
+		this.recipes.push({ id: "1", title: "Pouding au chocolat" });
+		this.recipes.push({ id: "2", title: "Gaufres" });
 	}
 	
 	attached() {
-	    $('.parallax').parallax();
+	    $(".parallax").parallax();
+	}
+	
+	loadRecipe() {
+		this.router.navigate("#/recipe/" + this.selectedRecipeId);
 	}
 }

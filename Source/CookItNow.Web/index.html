@@ -2,14 +2,26 @@
 <html>
     <head>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href="node_modules/materialize-css/bin/materialize.css" rel="stylesheet" type="text/css">
+        <link href="jspm_packages/github/Dogfalo/materialize@0.96.1/bin/materialize.css" rel="stylesheet" type="text/css">
         <link href="Content/css/app/app.css" rel="stylesheet" type="text/css">
     </head>
     <body aurelia-app="main">
+        <div class="splash center-align">
+          <h1>Cook it now</h1>
+          <h5>with <span class="purple-text darken-2">Aurelia</span></h5>
+    
+          <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div>
+            <div class="spinner-layer spinner-red"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div>
+            <div class="spinner-layer spinner-yellow"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div>
+            <div class="spinner-layer spinner-green"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div>
+          </div>
+        </div>
+    
         <script src="jspm_packages/system.src.js"></script>
-        <script src="jspm_packages/github/components/jquery@2.1.4/jquery.js"></script>
-        <script src="node_modules/materialize-css/bin/materialize.js"></script>
         <script src="config.js"></script>
+        <script src="jspm_packages/github/components/jquery@2.1.4/jquery.js"></script>
+        <script src="jspm_packages/github/Dogfalo/materialize@0.96.1/bin/materialize.js"></script>
         <script>
             System.import('aurelia-bootstrapper');
         </script>
