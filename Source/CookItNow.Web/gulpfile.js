@@ -4,7 +4,7 @@ var runSequence = require("run-sequence");
 var del = require("del");
 var vinylPaths = require("vinyl-paths");
 var bump = require("gulp-bump");
-var browserSync = require("browser-sync");
+var browserSync = require("browser-sync").create();
 var changed = require("gulp-changed");
 var ts = require('gulp-tsc');
 var less = require('gulp-less');
@@ -74,7 +74,7 @@ gulp.task("build", function (callback) {
 });
 
 gulp.task("serve", ["build"], function (done) {
-    browserSync({
+    browserSync.init({
         open: false,
         port: 9000,
         server: {
