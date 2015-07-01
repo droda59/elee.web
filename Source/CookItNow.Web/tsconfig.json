@@ -41,6 +41,7 @@
         "./Scripts/typings/jquery.d.ts", 
         "./Scripts/app/models/quick-recipe.ts", 
         "./Scripts/app/models/timer.ts", 
+        "./Scripts/app/models/quantity", 
         "./Scripts/app/app.ts", 
         "./Scripts/app/child-router.ts", 
         "./Scripts/app/main.ts",

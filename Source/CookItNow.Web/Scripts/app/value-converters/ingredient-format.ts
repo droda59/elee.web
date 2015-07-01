@@ -25,7 +25,7 @@ export class IngredientFormatValueConverter {
 	
 	isVowel(letter: string):boolean {
 		return letter === "a" || letter === "A"
-			|| letter === "e" || letter === "e"
+			|| letter === "e" || letter === "E"
 			|| letter === "i" || letter === "I"
 			|| letter === "o" || letter === "O"
 			|| letter === "u" || letter === "U"
@@ -36,23 +36,18 @@ export class IngredientFormatValueConverter {
 		switch (originalMeasureUnit) {
 			case "cups":
 				return " tasse" + (quantity > 1 ? "s" : "");
-				break;
 				
 			case "ml":
 				return "ml";
-				break;
 				
 			case "pinch":
 				return " pincée" + (quantity > 1 ? "s" : "");
-				break;
 		
 			case "units":
 				return "";
-				break;
 				
 			default:
 				return "";
-				break;
 		};
 	}
 }

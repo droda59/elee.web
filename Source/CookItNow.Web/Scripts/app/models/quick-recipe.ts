@@ -1,3 +1,5 @@
+import {Quantity} from "models/quantity"; 
+
 export interface QuickRecipe {
     id : number;
     title : string;
@@ -27,11 +29,6 @@ export interface Ingredient {
     quantity: Quantity;
     requirements: string[];
     replacements: Ingredient[];
-}
-
-export interface Quantity {
-    value: number;
-    originalMeasureUnit: string;
 }
 
 export interface Step {
