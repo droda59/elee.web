@@ -1,136 +1,143 @@
 p {
-  line-height: 2rem;
+    line-height: 2rem;
 }
 
 a {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .button-collapse {
-  color: #26a69a;
+    color: #26a69a;
 }
 
 .parallax-container {
-  min-height: 380px;
-  line-height: 0;
-  height: auto;
-  color: rgba(255,255,255,.9);
+    min-height: 380px;
+    line-height: 0;
+    height: auto;
+    color: rgba(255,255,255,.9);
+    
+    .section {
+        width: 100%;
+    }
 }
-  .parallax-container .section {
-    width: 100%;
-  }
 
 @media only screen and (max-width : 992px) {
-  .parallax-container .section {
-    position: absolute;
-    top: 40%;
-  }
-  #index-banner .section {
-    top: 10%;
-  }
+    .parallax-container .section {
+        position: absolute;
+        top: 40%;
+    }
+    #index-banner .section {
+        top: 10%;
+    }
 }
 
 @media only screen and (max-width : 600px) {
-  #index-banner .section {
-    top: 0;
-  }
+    #index-banner .section {
+        top: 0;
+    }
 }
 
-
 .icon-block {
-  padding: 0 15px;
+    padding: 0 15px;
 }
 
 footer.page-footer {
-  margin: 0;
+    margin: 0;
 }
 
 .step {
-  line-height: 2.5rem;
-}
-.step .action {
-  color: green;
-}
-.step .ingredient .value {
-  color: lightpink;
-}
-.step .ingredient .unit {
-  color: hotpink;
-}
-.step .ingredient .type {
-  color: deeppink;
-}
-.step .timer {
-  color: dodgerblue;
+    line-height: 2.5rem;
+    
+    .action {
+        color: green;
+    }
+    .ingredient {
+        .value {
+            color: lightpink;
+        }
+        .unit {
+            color: hotpink;
+        }
+        .type {
+            color: deeppink;
+        }
+    }
+    .timer {
+        color: dodgerblue;
+    }
 }
 
 .active-timers {
-  position: fixed;
-  z-index: 10;
+    position: fixed;
+    z-index: 10;
+    
+    .trigger-minimized {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
 }
-.active-timers .trigger-minimized {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-
 .active-timers.minimized {
-  position: fixed;
-  
-  h4 {
-      display: none;
-  }
-  .collection {
-    margin: 0.5rem 40px 0.5rem 0.5rem;
-  }
-  .collection .collection-item.avatar {
-    padding-left: 46px;
-    height: inherit;
-  }
-  .collection .collection-item.avatar .circle {
-    height: 20px;
-    width: 20px;
-  }
-  .collection .collection-item.avatar i.circle {
-    font-size: 22px;
-    line-height: 20px;
-    border-radius: 0;
-    background: none !important;
-    color: black;
-  }
-  .collection .collection-item.avatar .title {
-    font-size: inherit;
-  }
-  .collection .collection-item.avatar p {
-    display: inline-block;
-  }
+    position: fixed;
+    
+    h4 {
+        display: none;
+    }
+    
+    .collection {
+        margin: 0.5rem 40px 0.5rem 0.5rem;
+        
+        .collection-item.avatar {
+            padding-left: 46px;
+            height: inherit;
+            
+            .circle {
+                height: 20px;
+                width: 20px;
+            }
+            i.circle {
+                font-size: 22px;
+                line-height: 20px;
+                border-radius: 0;
+                background: none !important;
+                color: black;
+            }
+            .title {
+                font-size: inherit;
+            }
+            p {
+                display: inline-block;
+            }
+        }
+    }
 }
 
 .dropdown-content.select-dropdown {
-  z-index: 10;
+    z-index: 10;
 }
 
 .select-wrapper .mdi-navigation-arrow-drop-down {
-  vertical-align: middle;
-  line-height: 3rem;
-  color: white;
+    vertical-align: middle;
+    line-height: 3rem;
+    color: white;
 }
 
 .ingredient .value .select-wrapper {
     display: inline-block;
     margin-top: inherit;
-}
-.ingredient .value .select-wrapper .mdi-navigation-arrow-drop-down {
-    display: none;
-}
-.ingredient .value .select-wrapper input.select-dropdown {
-    height: inherit;
-    line-height: inherit;
-    max-width: 100px;
-    text-align: right;
-    margin: 0;
-}
-.ingredient .value .select-wrapper .dropdown-content li {
-    text-align: right;
-    line-height: 1rem;
+        
+    .mdi-navigation-arrow-drop-down {
+        display: none;
+    }
+    input.select-dropdown {
+        height: inherit;
+        line-height: inherit;
+        max-width: 100px;
+        text-align: right;
+        margin: 0;
+    }
+    .dropdown-content li {
+        text-align: right;
+        line-height: 1rem;
+    }
 }
