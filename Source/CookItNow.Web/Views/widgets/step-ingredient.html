@@ -3,12 +3,12 @@
 		<span>
 			<span class="value" if.bind="quantity.isConvertible()" >
 				<select class="input-field" value.bind="measureUnit" materialize="select">
-		            <option repeat.for="measureUnit of quantity.convertibleMeasureUnits" value.bind="measureUnit">${$parent.quantity.getQuantity(measureUnit)}${$parent.localizedMeasureUnitFor(measureUnit)}</option>
+		            <option repeat.for="measureUnit of quantity.getValidConvertibleMeasureUnits()" value.bind="measureUnit.value">${measureUnit.value}${$parent.localizedMeasureUnitFor(measureUnit.unit)}</option>
 		        </select> 
 			</span>
 			<span if.bind="!quantity.isConvertible()">
 				<span class="value">${quantity.value}</span>
-				<span class="unit">${localizedMeasureUnit}</span>
+				<span class="unit">${localizedMeasureUnitFor(measureUnit)}</span>
 			</span>
 		</span> 
 		${nextWord}  

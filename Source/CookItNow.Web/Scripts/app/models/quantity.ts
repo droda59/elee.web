@@ -1,7 +1,7 @@
 export class Quantity {
-    convertibleMeasureUnits: string[] = [ "ml", "cl", "dl", "l", "oz", "cups" ];
-    value: number;
+    private _convertibleMeasureUnits: string[] = [ "ml", "cl", "dl", "l", "oz", "cups" ];
     originalMeasureUnit: string;
+    value: number;
     
     constructor(model) {
         for (var prop in model) {
@@ -10,11 +10,54 @@ export class Quantity {
     }
     
     isConvertible(): boolean {
-        return this.convertibleMeasureUnits.indexOf(this.originalMeasureUnit) > -1;
+        return this._convertibleMeasureUnits.indexOf(this.originalMeasureUnit) > -1;
+    }
+    
+    getValidConvertibleMeasureUnits() {
+        var _this = this;
+        var validConvertibleMeasureUnits = [];
+        
+        this._convertibleMeasureUnits.forEach(function(unit) {
+            var value = this.getQuantity(unit);
+            var finalValue = value;
+            var isValid = unit === _this.originalMeasureUnit 
+                || this.isValidConvertibleMeasureUnit(finalValue, unit);
+                
+                if (isValid) {
+                    validConvertibleMeasureUnits.push({ value: finalValue, unit: unit});
+                }
+        }, this); 
+        
+        return validConvertibleMeasureUnits;
     }
     
     getQuantity(measureUnit: string): number {
         return this.value * this.getQuantityConversion(this.originalMeasureUnit, measureUnit);
+    }
+    
+    private isValidConvertibleMeasureUnit(value: number, unit: string) {
+        switch(unit) {
+            case "ml": 
+                return value > 1;
+                
+            case "cl": 
+                return value > 1;
+                
+            case "dl": 
+                return value > 1;
+                
+            case "l": 
+                return value > 0.1;
+                
+            case "oz": 
+                return value > 1;
+                
+            case "cups":
+                return value === 0.125 || value === 0.25 || value === 0.3 
+                    || value === 0.375 || value === 0.5 || value === 0.6 
+                    || value === 0.625 || value === 0.75 || value === 0.875
+                    || value === 0.9 || value === 1;
+        }
     }
     
     private getQuantityConversion(fromUnit: string, toUnit: string): number {
