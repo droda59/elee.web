@@ -45,6 +45,9 @@ footer.page-footer {
   margin: 0;
 }
 
+.step {
+  line-height: 2.5rem;
+}
 .step .action {
   color: green;
 }
@@ -63,6 +66,7 @@ footer.page-footer {
 
 .active-timers {
   position: fixed;
+  z-index: 10;
 }
 .active-timers .trigger-minimized {
   position: absolute;
@@ -114,7 +118,19 @@ footer.page-footer {
 
 .ingredient .value .select-wrapper {
     display: inline-block;
+    margin-top: inherit;
 }
 .ingredient .value .select-wrapper .mdi-navigation-arrow-drop-down {
-  display: none;
+    display: none;
+}
+.ingredient .value .select-wrapper input.select-dropdown {
+    height: inherit;
+    line-height: inherit;
+    max-width: 100px;
+    text-align: right;
+    margin: 0;
+}
+.ingredient .value .select-wrapper .dropdown-content li {
+    text-align: right;
+    line-height: 1rem;
 }

@@ -4,33 +4,35 @@ import {IngredientFormatValueConverter} from "value-converters/ingredient-format
 import {computedFrom} from "aurelia-framework"; 
 
 export class StepIngredient {
-	quantity: Quantity;
+	private _ingredientValueConverter: IngredientFormatValueConverter;
 	measureUnit: string;
+	quantity: Quantity;
 	nextWord: string;
 	ingredientName: string;
 	ingredient: Ingredient;
-	private ingredientValueConverter: IngredientFormatValueConverter;
 	
 	constructor() {
-		this.ingredientValueConverter = new IngredientFormatValueConverter();
+		this._ingredientValueConverter = new IngredientFormatValueConverter();
 	}
 	
 	activate(model: Ingredient) {
         this.ingredient = model;
 		
 		this.ingredientName = model.name.toLowerCase();
-		this.nextWord = this.ingredientValueConverter.isVowel(this.ingredientName[0]) ? " d'" : " de ";
+		this.nextWord = this._ingredientValueConverter.isVowel(this.ingredientName[0]) ? " d'" : " de ";
 			
 		this.measureUnit = model.quantity.originalMeasureUnit;
-		this.quantity = new Quantity();
-		this.quantity.originalMeasureUnit = model.quantity.originalMeasureUnit;
-		this.quantity.value = model.quantity.value;
+		this.quantity = new Quantity(model.quantity);
+	}
+	
+	localizedMeasureUnitFor(unit: string) {
+		return this._ingredientValueConverter.getLocalizedMeasureUnit(unit, this.quantity.getQuantity(unit));
 	}
     
-    @computedFrom("measureUnit")
-    get localizedMeasureUnit() {
+	@computedFrom("measureUnit")
+    get localizedMeasureUnit():string {
 		var value = this.quantity.getQuantity(this.measureUnit);
-		var unit = this.ingredientValueConverter.getLocalizedMeasureUnit(this.measureUnit, value);
+		var unit = this._ingredientValueConverter.getLocalizedMeasureUnit(this.measureUnit, value);
 		
 		return unit;
     }

@@ -1,7 +1,15 @@
 export class Quantity {
+    private _convertibleMeasureUnits: string[];
     value: number;
     originalMeasureUnit: string;
-    convertibleMeasureUnits: string[] = [ "ml", "cl", "dl", "l", "oz", "cups" ];
+    
+    constructor(model) {
+        this._convertibleMeasureUnits = [ "ml", "cl", "dl", "l", "oz", "cups" ];
+        
+        for (var prop in model) {
+            this[prop] = model[prop]
+        };
+    }
     
     isConvertible(): boolean {
         return this.convertibleMeasureUnits.indexOf(this.originalMeasureUnit) > -1;
@@ -9,6 +17,10 @@ export class Quantity {
     
     getQuantity(measureUnit: string): number {
         return this.value * this.getQuantityConversion(this.originalMeasureUnit, measureUnit);
+    }
+    
+    get convertibleMeasureUnits() {
+        return this._convertibleMeasureUnits;
     }
     
     private getQuantityConversion(fromUnit: string, toUnit: string): number {

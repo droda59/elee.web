@@ -7,10 +7,10 @@ import {EventAggregator} from "aurelia-event-aggregator";
 
 @inject (EventAggregator)
 export class StepItemValueConverter {
-	private eventAggregator: EventAggregator;
+	private _eventAggregator: EventAggregator;
 	
     constructor(eventAggregator: EventAggregator) {
-		this.eventAggregator = eventAggregator;
+		this._eventAggregator = eventAggregator;
     }
 	
 	toView(value: Step, ingredients: Ingredient[], timers: Timer[]) {
@@ -34,7 +34,7 @@ export class StepItemValueConverter {
 			var previousAction = previousActionRegExp.exec(output)[0];
 			var actionVerb = previousAction.replace("{action:'", "").replace("'}", "").toLowerCase();
 			
-			timers.push(new Timer(this.eventAggregator, timer, actionVerb));
+			timers.push(new Timer(this._eventAggregator, timer, actionVerb));
 			
 			var compose = composeValueConverter.toView("timers[" + (timers.length - 1) + "]", "widgets/step-timer");
 			output = output.replace(match, compose);

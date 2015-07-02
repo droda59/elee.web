@@ -40,8 +40,20 @@ export class IngredientFormatValueConverter {
 			case "ml":
 				return "ml";
 				
+			case "cl":
+				return "cl";
+				
+			case "dl":
+				return "dl";
+				
+			case "l":
+				return "l";
+				
 			case "pinch":
 				return " pincée" + (quantity > 1 ? "s" : "");
+				
+			case "oz":
+				return " once" + (quantity > 1 ? "s" : "");
 		
 			case "units":
 				return "";

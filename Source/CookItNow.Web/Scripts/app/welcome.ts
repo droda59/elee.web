@@ -15,6 +15,6 @@ export class Welcome {
 	}
 	
 	loadRecipe() {
-		this.router.navigate("#/recipe/" + this.selectedRecipeId, null);
+		this.router.navigateToRoute("quick-recipe", { "id": this.selectedRecipeId }, null);
 	}
 }

@@ -3,9 +3,9 @@ import {computedFrom} from "aurelia-framework";
 import * as moment from "moment";
 
 export class Timer {
-	private eventAggregator: EventAggregator;
-    private originalSeconds: number;
-    private remainingSeconds: number;
+	private _eventAggregator: EventAggregator;
+    private _originalSeconds: number;
+    private _remainingSeconds: number;
     duration: string;
     action: string;
     isPaused: boolean;
@@ -13,20 +13,20 @@ export class Timer {
     timer: number;
 	
     constructor(eventAggregator: EventAggregator, duration: string, action: string) {
-		this.eventAggregator = eventAggregator;
+		this._eventAggregator = eventAggregator;
         this.duration = duration;
         this.action = action;
         this.isPaused = true;
         this.state = "original";
         
 		var original = moment.duration(duration);
-        this.remainingSeconds = moment.duration(original).asSeconds();
-        this.originalSeconds = original.asSeconds();
+        this._remainingSeconds = moment.duration(original).asSeconds();
+        this._originalSeconds = original.asSeconds();
     }
     
     start() {
         if (!this.timer) {
-            this.eventAggregator.publish("TIMERSTARTED", this);
+            this._eventAggregator.publish("TIMERSTARTED", this);
             this.play();
         }
     }
@@ -42,15 +42,15 @@ export class Timer {
             var that = this;
             this.timer = setInterval(function(){
                 if (!that.isPaused) {
-                    that.remainingSeconds--;
+                    that._remainingSeconds--;
                     
-                    that.state = that.remainingSeconds < ((that.originalSeconds / 100) * 20) 
-                        ? that.remainingSeconds < ((that.originalSeconds / 100) * 10)
+                    that.state = that._remainingSeconds < ((that._originalSeconds / 100) * 20) 
+                        ? that._remainingSeconds < ((that._originalSeconds / 100) * 10)
                             ? "isAlmosterDone"
                             : "isAlmostDone"
                         : "original";
                     
-                    if (that.remainingSeconds <= 0) {
+                    if (that._remainingSeconds <= 0) {
                         that.isPaused = true;
                     }
                 }
@@ -61,12 +61,12 @@ export class Timer {
     delete() {
         clearInterval(this.timer);
         this.timer = null;
-        this.eventAggregator.publish("TIMERDELETED", this);
+        this._eventAggregator.publish("TIMERDELETED", this);
     }
     
-    @computedFrom("remainingSeconds")
+    @computedFrom("_remainingSeconds")
     get remainingTime() {
-        var sec_num = this.remainingSeconds;
+        var sec_num = this._remainingSeconds;
         var hours   = Math.floor(sec_num / 3600);
         var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
         var seconds = sec_num - (hours * 3600) - (minutes * 60);
