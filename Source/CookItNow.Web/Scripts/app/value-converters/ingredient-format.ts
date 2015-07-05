@@ -38,26 +38,30 @@ export class IngredientFormatValueConverter {
 				return " tasse" + (quantity > 1 ? "s" : "");
 				
 			case "ml":
-				return "ml";
+				return " ml";
 				
 			case "cl":
-				return "cl";
+				return " cl";
 				
 			case "dl":
-				return "dl";
+				return " dl";
 				
 			case "l":
-				return "l";
+				return " l";
 				
 			case "pinch":
 				return " pincée" + (quantity > 1 ? "s" : "");
 				
 			case "oz":
 				return " once" + (quantity > 1 ? "s" : "");
+                    
+            case "tsp": 
+                return " c. à thé";
+                    
+            case "tbsp": 
+                return " c. à soupe";
 		
 			case "units":
-				return "";
-				
 			default:
 				return "";
 		};
