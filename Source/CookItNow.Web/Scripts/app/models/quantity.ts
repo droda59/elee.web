@@ -172,20 +172,20 @@ export class Quantity {
             {
                 var thirdDecimalPlaceRound = Math.round(value * 1000) / 1000;
                 if (thirdDecimalPlaceRound >= 0.120 && thirdDecimalPlaceRound <= 0.130) { return 0.125; }
+                else if (thirdDecimalPlaceRound >= 0.330 && thirdDecimalPlaceRound <= 0.340) { return 0.333; }
                 else if (thirdDecimalPlaceRound >= 0.370 && thirdDecimalPlaceRound <= 0.380) { return 0.375; }
                 else if (thirdDecimalPlaceRound >= 0.620 && thirdDecimalPlaceRound <= 0.630) { return 0.625; }
+                else if (thirdDecimalPlaceRound >= 0.660 && thirdDecimalPlaceRound <= 0.670) { return 0.666; }
                 else if (thirdDecimalPlaceRound >= 0.870 && thirdDecimalPlaceRound <= 0.880) { return 0.875; }
+                else if (thirdDecimalPlaceRound >= 0.990 && thirdDecimalPlaceRound <= 1.000) { return 1; }
                 
                 var secondDecimalPlaceRound = Math.round(value * 100) / 100;
                 if (secondDecimalPlaceRound >= 0.24 && secondDecimalPlaceRound <= 0.26) { return 0.25; }
                 else if (secondDecimalPlaceRound >= 0.74 && secondDecimalPlaceRound <= 0.76) { return 0.75; }
                 
                 var firstDecimalPlaceRound = Math.round(value * 10) / 10;
-                if (firstDecimalPlaceRound === 0.3) { return 0.3; }
-                else if (firstDecimalPlaceRound === 0.5) { return 0.5; }
-                else if (firstDecimalPlaceRound === 0.6) { return 0.6; }
-                else if (firstDecimalPlaceRound === 0.9) { return 0.9; }
-                else if (firstDecimalPlaceRound >= 1 && Math.trunc(firstDecimalPlaceRound) % 1 === 0) { return Math.trunc(firstDecimalPlaceRound); }
+                if (firstDecimalPlaceRound === 0.5) { return 0.5; }
+                else if (firstDecimalPlaceRound >= 1 && (Math.round(firstDecimalPlaceRound * 10) / 10) % 1 === 0) { return Math.round(firstDecimalPlaceRound * 10) / 10; }
                 
                 return value;
             }
@@ -221,10 +221,10 @@ export class Quantity {
                 return value > 1;
                 
             case "cups":
-                return value === 0.125 || value === 0.25 || value === 0.3 
-                    || value === 0.375 || value === 0.5 || value === 0.6 
+                return value === 0.125 || value === 0.25 || value === 0.333 
+                    || value === 0.375 || value === 0.5 || value === 0.666 
                     || value === 0.625 || value === 0.75 || value === 0.875
-                    || value === 0.9 || (value >= 1 && Math.trunc(value) % 1 === 0);
+                    || (value >= 1 && (Math.round(value * 10) / 10) % 1 === 0);
         }
     }
 }
