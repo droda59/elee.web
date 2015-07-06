@@ -23,8 +23,4 @@ export class StepIngredient {
 		this.measureUnit = model.quantity.originalMeasureUnit;
 		this.quantity = new Quantity(model.quantity);
 	}
-	
-	localizedMeasureUnitFor(unit: string) {
-		return this._ingredientValueConverter.getLocalizedMeasureUnit(unit, this.quantity.getQuantity(unit));
-	}
 }

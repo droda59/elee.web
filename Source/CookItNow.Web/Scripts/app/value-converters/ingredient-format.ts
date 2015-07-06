@@ -1,13 +1,15 @@
 import {Ingredient} from "models/quick-recipe";
+import {QuantityPluralFormatValueConverter} from "value-converters/quantity-plural-format";
 
 export class IngredientFormatValueConverter {
 	toView(value: Ingredient) {
+		var quantityPluralFormatConverter = new QuantityPluralFormatValueConverter();
 		var ingredientName = value.name.toLowerCase();
 		var nextWord = this.isVowel(ingredientName[0]) ? " d'" : " de ";
 			
 		var measureUnit = value.quantity.originalMeasureUnit;
 		var quantity = value.quantity.value;
-		var localizedMeasureUnit = this.getLocalizedMeasureUnit(measureUnit, quantity);
+		var localizedMeasureUnit = quantityPluralFormatConverter.toView(measureUnit, quantity);
 		
 		var requirements = value.requirements;
 		if (requirements) {
@@ -30,40 +32,5 @@ export class IngredientFormatValueConverter {
 			|| letter === "o" || letter === "O"
 			|| letter === "u" || letter === "U"
 			|| letter === "h" || letter === "H";
-	}
-	
-	getLocalizedMeasureUnit(originalMeasureUnit: string, quantity: number):string {
-		switch (originalMeasureUnit) {
-			case "cups":
-				return " tasse" + (quantity > 1 ? "s" : "");
-				
-			case "ml":
-				return " ml";
-				
-			case "cl":
-				return " cl";
-				
-			case "dl":
-				return " dl";
-				
-			case "l":
-				return " l";
-				
-			case "pinch":
-				return " pincée" + (quantity > 1 ? "s" : "");
-				
-			case "oz":
-				return " once" + (quantity > 1 ? "s" : "");
-                    
-            case "tsp": 
-                return " c. à thé";
-                    
-            case "tbsp": 
-                return " c. à soupe";
-		
-			case "units":
-			default:
-				return "";
-		};
 	}
 }

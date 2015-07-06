@@ -55,6 +55,8 @@
         "./Scripts/app/value-converters/filter-on-property.ts", 
         "./Scripts/app/value-converters/duration-format.ts",
         "./Scripts/app/value-converters/ingredient-format",
+        "./Scripts/app/value-converters/quantity-plural-format",
+        "./Scripts/app/value-converters/quantity-human-format",
         "./Scripts/app/value-converters/step-item.ts",
         "./Scripts/app/resources/index.ts",
         "./Scripts/app/resources/materialize.ts",

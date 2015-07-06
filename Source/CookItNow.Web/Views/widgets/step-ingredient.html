@@ -1,14 +1,17 @@
 <template>
+	<require from="value-converters/quantity-plural-format"></require>
+	<require from="value-converters/quantity-human-format"></require>
+	
 	<span class="ingredient">
 		<span>
 			<span class="value" if.bind="quantity.isConvertible() && quantity.getValidConvertibleMeasureUnits().length > 1" >
 				<select class="input-field" value.bind="measureUnit" materialize="select">
-		            <option repeat.for="measureUnit of quantity.getValidConvertibleMeasureUnits()" value.bind="measureUnit.value">${measureUnit.value}${$parent.localizedMeasureUnitFor(measureUnit.unit)}</option>
+		            <option repeat.for="measureUnit of quantity.getValidConvertibleMeasureUnits()" value.bind="measureUnit.value">${measureUnit.value | quantityHumanFormat}${measureUnit.unit | quantityPluralFormat:measureUnit.value}</option>
 		        </select> 
 			</span>
 			<span if.bind="!quantity.isConvertible() || quantity.getValidConvertibleMeasureUnits().length == 1">
-				<span class="value">${quantity.value}</span>
-				<span class="unit">${localizedMeasureUnitFor(measureUnit)}</span>
+				<span class="value">${quantity.value | quantityHumanFormat}</span>
+				<span class="unit">${measureUnit.unit | quantityPluralFormat:quantity.value}</span>
 			</span>
 		</span> 
 		${nextWord}  

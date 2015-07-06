@@ -21,12 +21,11 @@ export class Quantity {
             
             this._convertibleMeasureUnits.forEach(function(unit) {
                 var value = this.getQuantity(unit);
-                var approximatedValue = this.getApproximatedValue(value, unit);
                 var isValid = unit === _this.originalMeasureUnit 
-                    || this.isValidConvertibleMeasureUnit(approximatedValue, unit);
+                    || this.isValidConvertibleMeasureUnit(value, unit);
                     
                     if (isValid) {
-                        _this._validConvertibleMeasureUnits.push({ value: approximatedValue, unit: unit});
+                        _this._validConvertibleMeasureUnits.push({ value: value, unit: unit});
                     }
             }, this); 
         }
@@ -35,7 +34,10 @@ export class Quantity {
     }
     
     getQuantity(measureUnit: string): number {
-        return this.value * this.getQuantityConversion(this.originalMeasureUnit, measureUnit);
+        var value = this.value * this.getQuantityConversion(this.originalMeasureUnit, measureUnit);
+        var approximatedValue = this.getApproximatedValue(value, measureUnit);
+        
+        return approximatedValue;
     }
     
     private getQuantityConversion(fromUnit: string, toUnit: string): number {
@@ -149,7 +151,7 @@ export class Quantity {
                 
                 var firstDecimalPlaceRound = Math.round(value * 10) / 10;
                 if (firstDecimalPlaceRound === 0.5) { return 0.5; }
-                else if (firstDecimalPlaceRound >= 1 && firstDecimalPlaceRound % 1 >= 0 && firstDecimalPlaceRound % 1 <= 0.1) { return Math.round(firstDecimalPlaceRound); }
+                else if (firstDecimalPlaceRound >= 1 && Math.trunc(firstDecimalPlaceRound) % 1 === 0) { return Math.trunc(firstDecimalPlaceRound); }
                 
                 return value;
             }
@@ -158,7 +160,7 @@ export class Quantity {
             {
                 var firstDecimalPlaceRound = Math.round(value * 10) / 10;
                 if (firstDecimalPlaceRound === 0.5) { return 0.5; }
-                else if (firstDecimalPlaceRound >= 1 && firstDecimalPlaceRound % 1 >= 0 && firstDecimalPlaceRound % 1 <= 0.1) { return Math.round(firstDecimalPlaceRound); }
+                else if (firstDecimalPlaceRound >= 1 && Math.trunc(firstDecimalPlaceRound) % 1 === 0) { return Math.trunc(firstDecimalPlaceRound); }
                 
                 return value;
             }
@@ -183,7 +185,7 @@ export class Quantity {
                 else if (firstDecimalPlaceRound === 0.5) { return 0.5; }
                 else if (firstDecimalPlaceRound === 0.6) { return 0.6; }
                 else if (firstDecimalPlaceRound === 0.9) { return 0.9; }
-                else if (firstDecimalPlaceRound >= 1 && parseInt((firstDecimalPlaceRound % 1).toString()) === 0) { return Math.round(firstDecimalPlaceRound); }
+                else if (firstDecimalPlaceRound >= 1 && Math.trunc(firstDecimalPlaceRound) % 1 === 0) { return Math.trunc(firstDecimalPlaceRound); }
                 
                 return value;
             }
@@ -222,7 +224,7 @@ export class Quantity {
                 return value === 0.125 || value === 0.25 || value === 0.3 
                     || value === 0.375 || value === 0.5 || value === 0.6 
                     || value === 0.625 || value === 0.75 || value === 0.875
-                    || value === 0.9 || (value >= 1 && value % 1 >= 0 && value % 1 <= 0.1);
+                    || value === 0.9 || (value >= 1 && Math.trunc(value) % 1 === 0);
         }
     }
 }
