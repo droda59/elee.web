@@ -1,8 +1,7 @@
 import {Step, Ingredient} from "models/quick-recipe";
 import {Timer} from "models/timer";
-import {ComposeValueConverter} from "value-converters/compose";
+import {ComposeFactory} from "resources/compose-factory";
 import {inject} from "aurelia-framework";
-import {SanitizeHtmlValueConverter} from "aurelia-templating-resources/sanitize-html";
 import {EventAggregator} from "aurelia-event-aggregator";
 
 @inject (EventAggregator)
@@ -14,7 +13,7 @@ export class StepItemValueConverter {
     }
 	
 	toView(value: Step, ingredients: Ingredient[], timers: Timer[]) {
-		var composeValueConverter = new ComposeValueConverter();
+		var composeFactory = new ComposeFactory();
 		var output = value.description;
 		var matches;
 		
@@ -36,14 +35,14 @@ export class StepItemValueConverter {
 			
 			timers.push(new Timer(this._eventAggregator, timer, actionVerb));
 			
-			var compose = composeValueConverter.toView("timers[" + (timers.length - 1) + "]", "widgets/step-timer");
+			var compose = composeFactory.create("timers[" + (timers.length - 1) + "]", "widgets/step-timer");
 			output = output.replace(match, compose);
 		}, this);
 		
 		matches = output.match(/{action:'[a-zA-Z0-9\u00E0-\u00FC' ']+'}/g);
 		(matches || []).forEach(function(match) {
 			var action = match.replace("{action:'", "").replace("'}", "");
-			var compose = composeValueConverter.toView("'" + action + "'", "widgets/step-action");
+			var compose = composeFactory.create("'" + action + "'", "widgets/step-action");
 			output = output.replace(match, compose);
 		}, this);
 		
@@ -58,11 +57,9 @@ export class StepItemValueConverter {
 				}
 			}
 			
-			var compose = composeValueConverter.toView("recipe.ingredients[" + ingredientIndex + "]", "widgets/step-ingredient");
+			var compose = composeFactory.create("recipe.ingredients[" + ingredientIndex + "]", "widgets/step-ingredient");
 			output = output.replace(match, compose);
 		}, this);
-		
-		output = new SanitizeHtmlValueConverter().toView(output);
 		
 		return output;
 	}

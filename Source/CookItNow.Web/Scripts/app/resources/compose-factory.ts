@@ -1,5 +1,5 @@
-export class ComposeValueConverter {
-	toView(value, view: string) {
+export class ComposeFactory {
+	create(value, view: string) {
 		var composeElement = document.createElement("compose");
 		composeElement.setAttribute("model.bind", value);
 		composeElement.setAttribute("view-model", view);
