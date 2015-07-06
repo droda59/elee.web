@@ -1,6 +1,5 @@
 <template>
 	<require from="value-converters/duration-format"></require>
-	<require from="value-converters/ingredient-format"></require>
 	<require from="value-converters/filter-on-property"></require>
 	<require from="value-converters/step-item"></require>
 	<require from="value-converters/compose"></require>
@@ -42,10 +41,10 @@
 						<h4>${subrecipe.title}</h4>
 						<ul class="collection">
 							<li repeat.for="ingredient of $parent.recipe.ingredients | filterOnProperty:'subrecipeId':subrecipe.id" class="collection-item">
-								${ingredient | ingredientFormat}
+								<compose view-model="widgets/step-ingredient" model.bind="ingredient"></compose>
 								<div if.bind="ingredient.replacements" repeat.for="replacement of ingredient.replacements">
 									<div>ou</div>
-									<small>${replacement | ingredientFormat}</small>
+									<compose view-model="widgets/step-ingredient" model.bind="replacement"></compose>
 								</div>
 							</li>
 						</ul>
@@ -53,14 +52,28 @@
 					<div if.bind="!recipe.subrecipes">
 						<ul class="collection">
 							<li repeat.for="ingredient of recipe.ingredients" class="collection-item">
-								${ingredient | ingredientFormat}
+								<compose view-model="widgets/step-ingredient" model.bind="ingredient"></compose>
 								<div if.bind="ingredient.replacements" repeat.for="replacement of ingredient.replacements">
 									<div>ou</div>
-									<small>${replacement | ingredientFormat}</small>
+									<compose view-model="widgets/step-ingredient" model.bind="replacement"></compose>
 								</div>
 							</li>
 						</ul>
 					</div>
+				</section>
+			</div>
+			
+			<div class="divider"></div>
+			
+			<div class="row">
+				<section class="section">
+					<h3>Préparation</h3>
+					<ul class="collection">
+						<li repeat.for="requirement of recipe.requirements" class="collection-item">
+							<span class="action">${requirement.action}</span>
+							<compose view-model="widgets/step-ingredient" model.bind="$parent.recipe.ingredients | filterSingleOnProperty:'id':requirement.ingredientId"></compose>
+						</li>
+					</ul>
 				</section>
 			</div>
 			

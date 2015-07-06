@@ -9,6 +9,7 @@ export interface QuickRecipe {
     duration : Duration[];
     subrecipes : SubRecipe[];
     ingredients : Ingredient[];
+    requirements: Requirement[];
     steps: Step[];
 }
 
@@ -29,6 +30,11 @@ export interface Ingredient {
     quantity: Quantity;
     requirements: string[];
     replacements: Ingredient[];
+}
+
+export interface Requirement {
+    action: string;
+    ingredientId: number;
 }
 
 export interface Step {

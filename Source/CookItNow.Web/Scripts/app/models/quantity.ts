@@ -112,10 +112,10 @@ export class Quantity {
             else if (toUnit === "tbsp") { return 2; }
         } 
         else if (fromUnit === "cups") {
-            if (toUnit === "ml") { return 236.588236; }
-            else if (toUnit === "cl") { return 23.658823; }
-            else if (toUnit === "dl") { return 2.365882; }
-            else if (toUnit === "l") { return 0.236588; }
+            if (toUnit === "ml") { return 250; } // 236.588236; }
+            else if (toUnit === "cl") { return 25; } // 23.658823; }
+            else if (toUnit === "dl") { return 2.5; } // 2.365882; }
+            else if (toUnit === "l") { return 0.25; } // 0.236588; }
             else if (toUnit === "oz") { return 8; }
             else if (toUnit === "cups") { return 1; }
             else if (toUnit === "tsp") { return 48; }

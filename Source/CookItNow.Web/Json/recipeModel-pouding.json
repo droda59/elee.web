@@ -52,7 +52,7 @@
                 "originalMeasureUnit": "ml"
             },
             "requirements": [
-                "Tamisé"
+                "tamisé"
             ]
         },
         {
@@ -118,7 +118,7 @@
                 "originalMeasureUnit": "ml"
             },
             "requirements": [
-                "Tamisé"
+                "tamisé"
             ]
         },
         {
@@ -130,7 +130,7 @@
                 "originalMeasureUnit": "ml"
             },
             "requirements": [
-                "Ramolli"
+                "ramolli"
             ]
         },
         {
@@ -161,6 +161,20 @@
             }
         }
     ],
+    "requirements": [
+        {
+            "action": "Tamiser",
+            "ingredientId": 3
+        },
+        {
+            "action": "Tamiser",
+            "ingredientId": 10
+        },
+        {
+            "action": "Ramollir",
+            "ingredientId": 11
+        }
+    ], 
     "steps": [
         {
             "subrecipeId": 1, 

@@ -9,3 +9,10 @@ export class FilterOnPropertyValueConverter {
 		);
 	}
 }
+
+export class FilterSingleOnPropertyValueConverter {
+	toView(array: {}[], property: string, exp: string) {
+		var filter = new FilterOnPropertyValueConverter();
+		return filter.toView(array, property, exp)[0];
+	}
+}
