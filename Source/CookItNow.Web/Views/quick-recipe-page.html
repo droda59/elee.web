@@ -62,18 +62,20 @@
 				</section>
 			</div>
 			
-			<div class="divider"></div>
-			
-			<div class="row">
-				<section class="section">
-					<h3>Préparation</h3>
-					<ul class="collection">
-						<li repeat.for="requirement of recipe.requirements" class="collection-item">
-							<span class="action">${requirement.action}</span>
-							<compose view-model="widgets/step-ingredient" model.bind="$parent.recipe.ingredients | filterSingleOnProperty:'id':requirement.ingredientId"></compose>
-						</li>
-					</ul>
-				</section>
+			<div if.bind="recipe.requirements">
+				<div class="divider"></div>
+				
+				<div class="row">
+					<section class="section">
+						<h3>Préparation</h3>
+						<ul class="collection">
+							<li repeat.for="requirement of recipe.requirements" class="collection-item">
+								<span class="action">${requirement.action}</span>
+								<compose view-model="widgets/step-ingredient" model.bind="$parent.recipe.ingredients | filterSingleOnProperty:'id':requirement.ingredientId"></compose>
+							</li>
+						</ul>
+					</section>
+				</div>
 			</div>
 			
 			<div class="divider"></div>

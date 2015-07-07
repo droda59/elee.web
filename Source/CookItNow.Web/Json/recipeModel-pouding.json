@@ -190,13 +190,16 @@
         },
         {
             "subrecipeId": 2,
-            "description": "Dans un autre bol, {action:'mélanger'} {ingredient:11} et {ingredient:8} au batteur électrique jusqu’à ce que le mélange prenne une texture granuleuse. {action:'Ajouter'} les oeufs, un à la fois, et {action:'battre'} jusqu’à ce que la préparation soit homogène. À basse vitesse, {action:'Incorporer'} les ingrédients secs en alternant avec le mélange de cacao. {action:'Répartir'} la pâte dans le plat." 
+            "description": "Dans un autre bol, {action:'mélanger'} {ingredient:11} et {ingredient:8} au batteur électrique jusqu’à ce que le mélange prenne une texture granuleuse. {action:'Ajouter'} {ingredient:14}, un à la fois, et {action:'battre'} jusqu’à ce que la préparation soit homogène. À basse vitesse, {action:'Incorporer'} les ingrédients secs en alternant avec le mélange de cacao. {action:'Répartir'} la pâte dans le plat." 
         },
         {
             "subrecipeId": 2,
             "description": "{action:'Verser'} la sauce chaude délicatement sur la pâte. {action:'Cuire'} au four environ {timer:'PT00H45M'} ou jusqu’à ce qu’un cure-dent inséré au centre du gâteau en ressorte propre.", 
             "postStep": {
-                "description": "{action:'Servir'} chaud ou tempéré."
+                "description": "{action:'Servir'} chaud ou tempéré. {action:'Attendre'} {timer:'PT00H01M'}.",
+                "postStep": {
+                    "description": "{action:'Manger'} comme un cochon." 
+                }
             } 
         }
     ]

@@ -61,6 +61,10 @@ export class StepItemValueConverter {
 			output = output.replace(match, compose);
 		}, this);
 		
+		if (value.postStep) {
+			output += this.toView(value.postStep, ingredients, timers);
+		} 
+		
 		return output;
 	}
 }
