@@ -28,6 +28,15 @@ export class QuantityPluralFormatValueConverter {
 				
 			case "cups":
 				return " tasse" + (value > 1 ? "s" : "");
+                    
+            case "g": 
+                return " g";
+                    
+            case "kg": 
+                return " kg";
+				
+			case "lbs":
+				return " livre" + (value > 1 ? "s" : "");
 				
 			case "pinch":
 				return " pincée" + (value > 1 ? "s" : "");
