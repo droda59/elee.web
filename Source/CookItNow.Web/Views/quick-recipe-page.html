@@ -41,10 +41,10 @@
 						<ul class="collection">
 							<li repeat.for="ingredient of $parent.recipe.ingredients | filterOnProperty:'subrecipeId':subrecipe.id" class="collection-item">
 								<compose view-model="widgets/step-ingredient" model.bind="ingredient"></compose>
-								<div if.bind="ingredient.replacements" repeat.for="replacement of ingredient.replacements">
+								<small if.bind="ingredient.replacements" repeat.for="replacement of ingredient.replacements">
 									<div>ou</div>
 									<compose view-model="widgets/step-ingredient" model.bind="replacement"></compose>
-								</div>
+								</small>
 							</li>
 						</ul>
 					</div>
@@ -52,10 +52,10 @@
 						<ul class="collection">
 							<li repeat.for="ingredient of recipe.ingredients" class="collection-item">
 								<compose view-model="widgets/step-ingredient" model.bind="ingredient"></compose>
-								<div if.bind="ingredient.replacements" repeat.for="replacement of ingredient.replacements">
+								<small if.bind="ingredient.replacements" repeat.for="replacement of ingredient.replacements">
 									<div>ou</div>
 									<compose view-model="widgets/step-ingredient" model.bind="replacement"></compose>
-								</div>
+								</small>
 							</li>
 						</ul>
 					</div>
