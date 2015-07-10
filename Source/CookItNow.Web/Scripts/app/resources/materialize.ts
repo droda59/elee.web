@@ -50,6 +50,10 @@ export class Materialize {
         setTimeout(() => this.bindSelect(), 10);
         break;
 
+      case "dropdown":
+        setTimeout(() => $(this.element).dropdown({ hover: false}), 10);
+        break;
+
       case "sidenav":
         setTimeout(() => $(this.element).sideNav(), 10);
         break;

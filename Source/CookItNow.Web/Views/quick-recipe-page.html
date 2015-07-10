@@ -8,37 +8,53 @@
 	<require from="widgets/ingredient"></require>
 	<require from="widgets/step"></require>
 	
-	<div class="container">
-		<section class="section">
-			<div class="row">
-				<h2>${recipe.title}</h2>
-				<a href.bind="recipe.originalUrl"><small>Original recipe: ${recipe.originalUrl}</small></a>
-			
-				<summary>
-					<p>${recipe.summary}</p>
-				</summary>
-		
-				<p>Servings : ${recipe.originalServings}</p>
-			</div>
-			
+    <header>
+	    <div class="navbar-fixed">
+	        <nav role="navigation">
+	            <div class="nav-wrapper">
+	                <div class="row">
+	                    <div class="col m4">
+	                        <a class="brand-logo" data-activates="slide-out" materialize="sidenav">
+	                            Cook It Now
+	                        </a>
+	                    </div>
+						<h7 class="col m8 offset-m4">
+							<a class="dropdown-button" href="#!" data-activates="recipe-info-dropdown" materialize="dropdown">
+								<i class="material-icons left">arrow_drop_down</i>
+								${recipe.title}
+							</a>
+						</h7>
+							
+						<div id="recipe-info-dropdown" class="dropdown-content black-text">
+							<div class="row">
+								<h2>${recipe.title}</h2>
+								<div>Servings : ${recipe.originalServings}</div>
+							</div>
+							
+							<div class="row">
+								<section class="section">
+									<h5>Durées</h5>
+									<ul>
+								        <li repeat.for="duration of recipe.durations">
+											<span>${duration.title} : ${duration.time | durationFormat}</span>
+								        </li>
+									</ul>
+								</section>
+							</div>
+						</div>
+	                </div>
+	            </div>
+	        </nav>
+	    </div>
+    </header>
+	
+	<div class="row">
+		<nav id="slide-out" class="z-depth-1 side-nav black-text">
 			<div class="row">
 				<section class="section">
-					<h3>Durées</h3>
-					<ul>
-				        <li repeat.for="duration of recipe.durations">
-							<span>${duration.title} : ${duration.time | durationFormat}</span>
-				        </li>
-					</ul>
-				</section>
-			</div>
-			
-			<div class="divider"></div>
-			
-			<div class="row">
-				<section class="section">
-					<h3>Ingrédients</h3>
+					<h4>Ingrédients</h4>
 					<div if.bind="recipe.subrecipes" repeat.for="subrecipe of recipe.subrecipes">
-						<h4>${subrecipe.title}</h4>
+						<h5>${subrecipe.title}</h5>
 						<ul class="collection">
 							<li repeat.for="ingredient of $parent.recipe.ingredients | filterOnProperty:'subrecipeId':subrecipe.id" class="collection-item">
 								<compose view-model="widgets/ingredient" model.bind="ingredient"></compose>
@@ -48,6 +64,8 @@
 								</small>
 							</li>
 						</ul>
+						
+						<div class="divider col m10 offset-m1"></div>
 					</div>
 					<div if.bind="!recipe.subrecipes">
 						<ul class="collection">
@@ -62,66 +80,102 @@
 					</div>
 				</section>
 			</div>
+		</nav>
+		
+		<div class="col m8 offset-m4">
+			<section class="section">
+				<div class="row">
+					<h2>${recipe.title}</h2>
+					<a href.bind="recipe.originalUrl"><small>Original recipe: ${recipe.originalUrl}</small></a>
+				
+					<summary>
+						<p>${recipe.summary}</p>
+					</summary>
 			
-			<div if.bind="recipe.requirements">
-				<div class="divider"></div>
+					<p>Servings : ${recipe.originalServings}</p>
+				</div>
 				
 				<div class="row">
 					<section class="section">
-						<h3>Préparation</h3>
+						<h3>Durées</h3>
+						<ul>
+					        <li repeat.for="duration of recipe.durations">
+								<span>${duration.title} : ${duration.time | durationFormat}</span>
+					        </li>
+						</ul>
+					</section>
+				</div>
+				
+				<div class="divider"></div>
+				
+				<div class="row">
+					<section class="section active-timers card-panel z-depth-2 teal lighten-2 col m6 ${minimized ? 'minimized' : ''}" show.bind="activeTimers.length" materialize="pushpin">
+						<h4 class="white-text">Active timers</h4>
+						<a click.trigger="toggleMinimizeActiveTimers()" class="trigger-minimized"><i class="material-icons small white-text">list</i></a>
 						<ul class="collection">
-							<li repeat.for="requirement of recipe.requirements" class="collection-item">
-								<span class="action">${requirement.action}</span>
-								<compose view-model="widgets/ingredient" model.bind="$parent.recipe.ingredients | filterSingleOnProperty:'id':requirement.ingredientId"></compose>
+							<li repeat.for="timer of activeTimers" class="collection-item avatar">
+								<i class="material-icons circle ${timer.state == 'isAlmostDone' ? 'yellow' : timer.state == 'isAlmosterDone' ? 'red' : 'green'}">av_timer</i>
+								<span class="title">${timer.action}</span>
+								<p class="${timer.state == 'isAlmostDone' ? 'yellow-text' : timer.state == 'isAlmosterDone' ? 'red-text' : 'green-text'}">${timer.remainingTime} of ${timer.duration | durationFormat}</p>
+								<span class="secondary-content">
+									<a click.trigger="timer.pause()" show.bind="!timer.isPaused"><i class="material-icons">pause</i></a>
+									<a click.trigger="timer.play()" show.bind="timer.isPaused"><i class="material-icons">play_arrow</i></a>
+									<a click.trigger="timer.delete()"><i class="material-icons">delete</i></a>
+								</span>							
 							</li>
 						</ul>
 					</section>
 				</div>
-			</div>
-			
-			<div class="divider"></div>
-			
-			<div class="row">
-				<section class="section active-timers card-panel z-depth-2 teal lighten-2 col m6 ${minimized ? 'minimized' : ''}" show.bind="activeTimers.length" materialize="pushpin">
-					<h4 class="white-text">Active timers</h4>
-					<a click.trigger="toggleMinimizeActiveTimers()" class="trigger-minimized"><i class="material-icons small white-text">list</i></a>
-					<ul class="collection">
-						<li repeat.for="timer of activeTimers" class="collection-item avatar">
-							<i class="material-icons circle ${timer.state == 'isAlmostDone' ? 'yellow' : timer.state == 'isAlmosterDone' ? 'red' : 'green'}">av_timer</i>
-							<span class="title">${timer.action}</span>
-							<p class="${timer.state == 'isAlmostDone' ? 'yellow-text' : timer.state == 'isAlmosterDone' ? 'red-text' : 'green-text'}">${timer.remainingTime} of ${timer.duration | durationFormat}</p>
-							<span class="secondary-content">
-								<a click.trigger="timer.pause()" show.bind="!timer.isPaused"><i class="material-icons">pause</i></a>
-								<a click.trigger="timer.play()" show.bind="timer.isPaused"><i class="material-icons">play_arrow</i></a>
-								<a click.trigger="timer.delete()"><i class="material-icons">delete</i></a>
-							</span>							
-						</li>
-					</ul>
-				</section>
-			</div>
-			
-			<div class="row">
-				<section class="section">
-					<h3>Étapes</h3>
-					<div if.bind="recipe.subrecipes" repeat.for="subrecipe of recipe.subrecipes">
-						<h4>${subrecipe.title}</h4>
-						<ol>
-							<li repeat.for="step of $parent.recipe.steps | filterOnProperty:'subrecipeId':subrecipe.id"
-								class="step">
-								<compose model.bind="step" view-model="widgets/step"></compose>
-							</li>
-						</ol>
-					</div>
-					<div if.bind="!recipe.subrecipes">
-						<ol>
-							<li repeat.for="step of recipe.steps"
-								class="step">
-								<compose model.bind="step" view-model="widgets/step"></compose>
-							</li>
-						</ol>
-					</div>
-				</section>
-			</div>
-		</section>
+				
+				<div class="row">
+					<section class="section">
+						<h3>Étapes</h3>
+						<div if.bind="recipe.requirements">
+							<h4>Préparation</h3>
+							<ol>
+								<li repeat.for="requirement of recipe.requirements" class="step">
+									<span class="action">${requirement.action}</span>
+									<compose view-model="widgets/ingredient" model.bind="$parent.recipe.ingredients | filterSingleOnProperty:'id':requirement.ingredientId"></compose>
+								</li>
+							</ol>
+						</div>
+						
+						<div if.bind="recipe.subrecipes" repeat.for="subrecipe of recipe.subrecipes">
+							<h4>${subrecipe.title}</h4>
+							<ol>
+								<li repeat.for="step of $parent.recipe.steps | filterOnProperty:'subrecipeId':subrecipe.id" class="step">
+									<compose model.bind="step" view-model="widgets/step"></compose>
+								</li>
+							</ol>
+						</div>
+						<div if.bind="!recipe.subrecipes">
+							<ol>
+								<li repeat.for="step of recipe.steps" class="step">
+									<compose model.bind="step" view-model="widgets/step"></compose>
+								</li>
+							</ol>
+						</div>
+					</section>
+				</div>
+			</section>
+		</div>
 	</div>
+			
+	<footer class="page-footer fixed">
+    	<div class="row">
+      		<div class="col m8 offset-m4">
+    			<h5 class="white-text">Recette originale</h5>
+        		<p class="grey-text text-lighten-4">
+					<a href.bind="recipe.originalUrl" target="_blank" class="grey-text text-lighten-3">${recipe.originalUrl}</a>
+				</p>
+      		</div>
+		</div>
+		<div class="footer-copyright">
+            <div class="container">
+            	© 2014 Copyright GentleMotherlovingChef
+            	<a class="grey-text text-lighten-4 right" href="#">About us</a>
+            	<a class="grey-text text-lighten-4 right" href="#">Home</a>
+            </div>
+		</div>
+    </footer>
 </template>

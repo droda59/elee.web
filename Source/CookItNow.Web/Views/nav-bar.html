@@ -1,18 +1,15 @@
 <template>
-    <nav role="navigation">
-        <div class="nav-wrapper">
-            <div class="row">
-                <div class="col s12">
-                    <a class="brand-logo" href="#">
-                        <span>${router.title}</span>
-                    </a>
-                    <ul id="nav-mobile" class="right hide-on-med-and-down">
-                        <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
-                            <a href.bind="row.href">${row.title}</a>
-                        </li>
-                    </ul>
+    <div class="navbar-fixed">
+        <nav role="navigation">
+            <div class="nav-wrapper">
+                <div class="row">
+                    <div class="col s12">
+                        <a class="brand-logo" href="#">
+                            <span>${router.title}</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </div>
 </template>
