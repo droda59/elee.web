@@ -1,0 +1,8 @@
+<template>
+	<span repeat.for="part of step.parts">
+		<compose model.bind="part" view-model="widgets/${part.type}"></compose>
+	</span>
+	<div if.bind="step.postStep">
+		<compose model.bind="step.postStep" view-model="widgets/step"></compose>
+	</div>
+</template>

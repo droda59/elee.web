@@ -39,6 +39,27 @@ export interface Requirement {
 
 export interface Step {
     subrecipeId: number;
-    description: string;
+    parts: Part[];
     postStep: Step;
+}
+
+export interface Part {
+    type: string;
+}
+
+export interface IngredientPart extends Part {
+    ingredient: Ingredient;
+}
+
+export interface TextPart extends Part {
+    value: string;
+}
+
+export interface ActionPart extends Part {
+    value: string;
+}
+
+export interface TimerPart extends Part {
+    value: string;
+    action: string;
 }

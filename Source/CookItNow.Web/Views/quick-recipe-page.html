@@ -1,11 +1,12 @@
 <template>
 	<require from="value-converters/duration-format"></require>
 	<require from="value-converters/filter-on-property"></require>
-	<require from="value-converters/step-item"></require>
 	
-	<require from="widgets/step-action"></require>
-	<require from="widgets/step-ingredient"></require>
-	<require from="widgets/step-timer"></require>
+	<require from="widgets/text"></require>
+	<require from="widgets/action"></require>
+	<require from="widgets/timer"></require>
+	<require from="widgets/ingredient"></require>
+	<require from="widgets/step"></require>
 	
 	<div class="container">
 		<section class="section">
@@ -40,10 +41,10 @@
 						<h4>${subrecipe.title}</h4>
 						<ul class="collection">
 							<li repeat.for="ingredient of $parent.recipe.ingredients | filterOnProperty:'subrecipeId':subrecipe.id" class="collection-item">
-								<compose view-model="widgets/step-ingredient" model.bind="ingredient"></compose>
+								<compose view-model="widgets/ingredient" model.bind="ingredient"></compose>
 								<small if.bind="ingredient.replacements" repeat.for="replacement of ingredient.replacements">
 									<div>ou</div>
-									<compose view-model="widgets/step-ingredient" model.bind="replacement"></compose>
+									<compose view-model="widgets/ingredient" model.bind="replacement"></compose>
 								</small>
 							</li>
 						</ul>
@@ -51,10 +52,10 @@
 					<div if.bind="!recipe.subrecipes">
 						<ul class="collection">
 							<li repeat.for="ingredient of recipe.ingredients" class="collection-item">
-								<compose view-model="widgets/step-ingredient" model.bind="ingredient"></compose>
+								<compose view-model="widgets/ingredient" model.bind="ingredient"></compose>
 								<small if.bind="ingredient.replacements" repeat.for="replacement of ingredient.replacements">
 									<div>ou</div>
-									<compose view-model="widgets/step-ingredient" model.bind="replacement"></compose>
+									<compose view-model="widgets/ingredient" model.bind="replacement"></compose>
 								</small>
 							</li>
 						</ul>
@@ -71,7 +72,7 @@
 						<ul class="collection">
 							<li repeat.for="requirement of recipe.requirements" class="collection-item">
 								<span class="action">${requirement.action}</span>
-								<compose view-model="widgets/step-ingredient" model.bind="$parent.recipe.ingredients | filterSingleOnProperty:'id':requirement.ingredientId"></compose>
+								<compose view-model="widgets/ingredient" model.bind="$parent.recipe.ingredients | filterSingleOnProperty:'id':requirement.ingredientId"></compose>
 							</li>
 						</ul>
 					</section>
@@ -106,16 +107,16 @@
 						<h4>${subrecipe.title}</h4>
 						<ol>
 							<li repeat.for="step of $parent.recipe.steps | filterOnProperty:'subrecipeId':subrecipe.id"
-								innerhtml.bind="step | stepItem:$parent.$parent.recipe.ingredients:$parent.$parent.timers | sanitizeHtml"
 								class="step">
+								<compose model.bind="step" view-model="widgets/step"></compose>
 							</li>
 						</ol>
 					</div>
 					<div if.bind="!recipe.subrecipes">
 						<ol>
 							<li repeat.for="step of recipe.steps"
-								innerhtml.bind="step | stepItem:$parent.recipe.ingredients:$parent.timers | sanitizeHtml"
 								class="step">
+								<compose model.bind="step" view-model="widgets/step"></compose>
 							</li>
 						</ol>
 					</div>

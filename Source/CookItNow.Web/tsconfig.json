@@ -55,10 +55,11 @@
         "./Scripts/app/value-converters/quantity-human-format",
         "./Scripts/app/value-converters/step-item.ts",
         "./Scripts/app/resources/index.ts",
-        "./Scripts/app/resources/compose-factory.ts",
         "./Scripts/app/resources/materialize.ts",
-        "./Scripts/app/widgets/step-action.ts",
-        "./Scripts/app/widgets/step-ingredient.ts",
-        "./Scripts/app/widgets/step-timer.ts"
+        "./Scripts/app/widgets/action.ts",
+        "./Scripts/app/widgets/text.ts",
+        "./Scripts/app/widgets/timer.ts",
+        "./Scripts/app/widgets/ingredient.ts",
+        "./Scripts/app/widgets/step.ts"
     ]
 }
