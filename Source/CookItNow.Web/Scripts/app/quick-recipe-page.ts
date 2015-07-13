@@ -1,8 +1,18 @@
-import {QuickRecipe, Ingredient} from "models/quick-recipe";
+import {QuickRecipe, Ingredient, Step} from "models/quick-recipe";
 import {Timer} from "models/timer";
 import {inject} from "aurelia-framework";
 import {HttpClient} from "aurelia-http-client";
 import {EventAggregator} from "aurelia-event-aggregator";
+
+class QuickRecipeSubrecipeIngredient {
+	subrecipeTitle: string;
+	ingredients: Ingredient[];
+}
+
+class QuickRecipeSubrecipeStep {
+	subrecipeTitle: string;
+	steps: Step[];
+}
 
 @inject (HttpClient, EventAggregator)
 export class QuickRecipePage {
@@ -13,6 +23,8 @@ export class QuickRecipePage {
 	minimized: boolean = false;
 	activeTimers: Timer[] = [];
 	timers: Timer[] = [];
+	subrecipeIngredients: QuickRecipeSubrecipeIngredient[] = [];
+	subrecipeSteps: QuickRecipeSubrecipeStep[] = [];
 	
 	constructor(http: HttpClient, eventAggregator: EventAggregator) {
 		this._http = http;
@@ -33,6 +45,42 @@ export class QuickRecipePage {
 		
         return this._http.get(this._url).then(response => {
             this.recipe = response.content;
+			
+			var subrecipeIngredient = new QuickRecipeSubrecipeIngredient();
+			subrecipeIngredient.ingredients = this.recipe.ingredients.filter(
+				(ingredient) => !ingredient.subrecipeId || ingredient.subrecipeId === 0
+			);
+			this.subrecipeIngredients.push(subrecipeIngredient);
+			
+			(this.recipe.subrecipes || []).forEach(
+				(subrecipe) => {
+					var subrecipeIngredient = new QuickRecipeSubrecipeIngredient();
+					subrecipeIngredient.subrecipeTitle = subrecipe.title;
+					subrecipeIngredient.ingredients = this.recipe.ingredients.filter(
+						(ingredient) => ingredient.subrecipeId === subrecipe.id
+					);
+					 
+					this.subrecipeIngredients.push(subrecipeIngredient);
+				} 
+			);
+			
+			var subrecipeStep = new QuickRecipeSubrecipeStep();
+			subrecipeStep.steps = this.recipe.steps.filter(
+				(step) => !step.subrecipeId || step.subrecipeId === 0
+			);
+			this.subrecipeSteps.push(subrecipeStep);
+			
+			(this.recipe.subrecipes || []).forEach(
+				(subrecipe) => {
+					var subrecipeStep = new QuickRecipeSubrecipeStep();
+					subrecipeStep.subrecipeTitle = subrecipe.title;
+					subrecipeStep.steps = this.recipe.steps.filter(
+						(step) => step.subrecipeId === subrecipe.id
+					);
+					 
+					this.subrecipeSteps.push(subrecipeStep);
+				} 
+			);
         });
 	}
     
@@ -48,6 +96,10 @@ export class QuickRecipePage {
 			this.activeTimers.splice(index, 1);
 		});
     }
+
+	canDeactivate(){
+		return confirm('Are you sure you want to leave?');
+	}
 	
 	startTimer(timer: Timer) {
 		this.activeTimers.push(timer);
