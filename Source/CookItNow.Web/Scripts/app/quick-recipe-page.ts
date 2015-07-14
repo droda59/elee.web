@@ -46,11 +46,14 @@ export class QuickRecipePage {
         return this._http.get(this._url).then(response => {
             this.recipe = response.content;
 			
-			var subrecipeIngredient = new QuickRecipeSubrecipeIngredient();
-			subrecipeIngredient.ingredients = this.recipe.ingredients.filter(
+			var floatingIngredients = this.recipe.ingredients.filter(
 				(ingredient) => !ingredient.subrecipeId || ingredient.subrecipeId === 0
 			);
-			this.subrecipeIngredients.push(subrecipeIngredient);
+			if (floatingIngredients.length) {
+				var subrecipeIngredient = new QuickRecipeSubrecipeIngredient();
+				subrecipeIngredient.ingredients = floatingIngredients;
+				this.subrecipeIngredients.push(subrecipeIngredient);
+			}
 			
 			(this.recipe.subrecipes || []).forEach(
 				(subrecipe) => {
@@ -64,10 +67,11 @@ export class QuickRecipePage {
 				} 
 			);
 			
-			var subrecipeStep = new QuickRecipeSubrecipeStep();
-			subrecipeStep.steps = this.recipe.steps.filter(
+			var floatingSteps = this.recipe.steps.filter(
 				(step) => !step.subrecipeId || step.subrecipeId === 0
 			);
+			var subrecipeStep = new QuickRecipeSubrecipeStep();
+			subrecipeStep.steps = floatingSteps;
 			this.subrecipeSteps.push(subrecipeStep);
 			
 			(this.recipe.subrecipes || []).forEach(
