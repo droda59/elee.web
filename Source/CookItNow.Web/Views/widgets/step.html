@@ -1,8 +1,11 @@
 <template>
-	<span repeat.for="part of step.parts">
-		<compose model.bind="part" view-model="widgets/${part.type}"></compose>
-	</span>
-	<div if.bind="step.postStep">
-		<compose model.bind="step.postStep" view-model="widgets/step"></compose>
-	</div>
+	<require from="widgets/step-text"></require>
+	<require from="widgets/step-action"></require>
+	<require from="widgets/step-timer"></require>
+	<require from="widgets/step-ingredient"></require>
+	
+	<p repeat.for="phrase of step.phrases">
+		<compose repeat.for="part of phrase.parts" model.bind="part" view-model="widgets/step-${part.type}"></compose>
+	</p>
+	<compose if.bind="step.postStep" model.bind="step.postStep" view-model="widgets/step"></compose>
 </template>

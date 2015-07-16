@@ -178,417 +178,497 @@
     "steps": [
         {
             "subrecipeId": 1,
-            "parts": [
-               {
-                   "type": "text",
-                   "value": "Dans une casserole, "
-               }, 
-               {
-                   "type": "action",
-                   "value": "mélanger" 
-               },
-               {
-                   "type": "ingredient", 
-                   "ingredient": {
-                        "name": "Cassonade",
-                        "quantity": {
-                            "value": 3,
-                            "originalMeasureUnit": "cups"
-                        }
-                    }
-               },
-               {
-                   "type": "text",
-                   "value": " et "
-               },
-               {
-                   "type": "ingredient", 
-                   "ingredient": {
-                        "name": "Cacao",
-                        "quantity": {
-                            "value": 180,
-                            "originalMeasureUnit": "ml"
-                        },
-                        "requirements": [
-                            "tamisé"
-                        ]
-                    }
-               },
-               {
-                   "type": "text",
-                   "value": ". "
-               },
-               {
-                   "type": "action",
-                   "value": "Ajouter" 
-               },
-               {
-                   "type": "ingredient", 
-                   "ingredient": {
-                        "name": "Fécule de maïs",
-                        "quantity": {
-                            "value": 10,
-                            "originalMeasureUnit": "ml"
-                        }
-                    }
-               },
-               {
-                   "type": "text",
-                   "value": ". "
-               },
-               {
-                   "type": "action",
-                   "value": "Ajouter" 
-               },
-               {
-                   "type": "ingredient", 
-                   "ingredient": {
-                        "name": "Cacao",
-                        "quantity": {
-                            "value": 180,
-                            "originalMeasureUnit": "ml"
-                        },
-                        "requirements": [
-                            "tamisé"
-                        ]
-                    }
-               },
-               {
-                   "type": "text",
-                   "value": " et "
-               },
-               {
-                   "type": "ingredient", 
-                   "ingredient": {
-                        "name": "Crème 35%",
-                        "quantity": {
-                            "value": 125,
-                            "originalMeasureUnit": "ml"
-                        }
-                    }
-               },
-               {
-                   "type": "text",
-                   "value": ". "
-               },
-               {
-                   "type": "action",
-                   "value": "Porter à ébullition" 
-               },
-               {
-                   "type": "text",
-                   "value": " en remuant à l'aide d'un fouet. "
-               },
-               {
-                   "type": "action",
-                   "value": "Incorporer" 
-               },
-               {
-                   "type": "ingredient", 
-                   "ingredient": {
-                        "name": "Extrait de vanille",
-                        "quantity": {
-                            "value": 2.5,
-                            "originalMeasureUnit": "ml"
-                        }
-                    }
-               },
-               {
-                   "type": "text",
-                   "value": ". "
-               },
-               {
-                   "type": "action",
-                   "value": "Réserver" 
-               },
-               {
-                   "type": "text",
-                   "value": ". "
-               }
+            "phrases": [
+                {
+                    "parts": [
+                       {
+                           "type": "text",
+                           "value": "Dans une casserole, "
+                       }, 
+                       {
+                           "type": "action",
+                           "value": "mélanger" 
+                       },
+                       {
+                           "type": "ingredient", 
+                           "ingredient": {
+                                "name": "Cassonade",
+                                "quantity": {
+                                    "value": 3,
+                                    "originalMeasureUnit": "cups"
+                                }
+                            }
+                       },
+                       {
+                           "type": "text",
+                           "value": " et "
+                       },
+                       {
+                           "type": "ingredient", 
+                           "ingredient": {
+                                "name": "Cacao",
+                                "quantity": {
+                                    "value": 180,
+                                    "originalMeasureUnit": "ml"
+                                },
+                                "requirements": [
+                                    "tamisé"
+                                ]
+                            }
+                       },
+                       {
+                           "type": "text",
+                           "value": ". "
+                       }
+                    ]
+                },
+                {
+                    "parts": [
+                       {
+                           "type": "action",
+                           "value": "Ajouter" 
+                       },
+                       {
+                           "type": "ingredient", 
+                           "ingredient": {
+                                "name": "Fécule de maïs",
+                                "quantity": {
+                                    "value": 10,
+                                    "originalMeasureUnit": "ml"
+                                }
+                            }
+                       },
+                       {
+                           "type": "text",
+                           "value": ". "
+                       }
+                    ]
+                },
+                {
+                    "parts": [
+                       {
+                           "type": "action",
+                           "value": "Ajouter" 
+                       },
+                       {
+                           "type": "ingredient", 
+                           "ingredient": {
+                                "name": "Cacao",
+                                "quantity": {
+                                    "value": 180,
+                                    "originalMeasureUnit": "ml"
+                                },
+                                "requirements": [
+                                    "tamisé"
+                                ]
+                            }
+                       },
+                       {
+                           "type": "text",
+                           "value": " et "
+                       },
+                       {
+                           "type": "ingredient", 
+                           "ingredient": {
+                                "name": "Crème 35%",
+                                "quantity": {
+                                    "value": 125,
+                                    "originalMeasureUnit": "ml"
+                                }
+                            }
+                       },
+                       {
+                           "type": "text",
+                           "value": ". "
+                       }
+                    ]
+                },
+                {
+                    "parts": [
+                       {
+                           "type": "action",
+                           "value": "Porter à ébullition" 
+                       },
+                       {
+                           "type": "text",
+                           "value": " en remuant à l'aide d'un fouet. "
+                       }
+                    ]
+                },
+                {
+                    "parts": [
+                       {
+                           "type": "action",
+                           "value": "Incorporer" 
+                       },
+                       {
+                           "type": "ingredient", 
+                           "ingredient": {
+                                "name": "Extrait de vanille",
+                                "quantity": {
+                                    "value": 2.5,
+                                    "originalMeasureUnit": "ml"
+                                }
+                            }
+                       },
+                       {
+                           "type": "text",
+                           "value": ". "
+                       }
+                    ]
+                },
+                {
+                    "parts": [
+                       {
+                           "type": "action",
+                           "value": "Réserver" 
+                       },
+                       {
+                           "type": "text",
+                           "value": ". "
+                       }
+                    ]
+                }
             ]
         },
         {
             "subrecipeId": 2, 
-            "parts": [
-               {
-                   "type": "text",
-                   "value": "Dans une petite casserole, " 
-               },
-               {
-                   "type": "action",
-                   "value": "porter à ébullition"
-               }, 
-               {
-                   "type": "ingredient", 
-                   "ingredient": {
-                        "name": "Lait",
-                        "quantity": {
-                            "value": 1,
-                            "originalMeasureUnit": "cups"
-                        }
-                    }
-               },
-               {
-                   "type": "text",
-                   "value": " et " 
-               },
-               {
-                   "type": "ingredient", 
-                   "ingredient": {
-                        "name": "Cacao",
-                        "quantity": {
-                            "value": 125,
-                            "originalMeasureUnit": "ml"
-                        },
-                        "requirements": [
-                            "tamisé"
-                        ]
-                    }
-               },
-               {
-                   "type": "text",
-                   "value": " en remuant à l’aide d’un fouet." 
-               },
-               {
-                   "type": "action",
-                   "value": "Laisser tiédir"
-               }, 
-               {
-                   "type": "text",
-                   "value": "." 
-               },
-               {
-                   "type": "action",
-                   "value": "Gosser"
-               }, 
-               {
-                   "type": "timer",
-                   "value": "PT00H02M",
-                   "action": "gosser"
-               }, 
-               {
-                   "type": "text",
-                   "value": "." 
-               }
-            ]
-        },
-        {
-            "subrecipeId": 2,
-            "parts": [
-               {
-                   "type": "text",
-                   "value": "Dans un bol, " 
-               },
-               {
-                   "type": "action",
-                   "value": "mélanger"
-               }, 
-               {
-                   "type": "ingredient", 
-                   "ingredient": {
-                        "name": "Farine tout usage non blanchie",
-                        "quantity": {
-                            "value": 375,
-                            "originalMeasureUnit": "ml"
-                        }
-                    }
-               },
-               {
-                   "type": "text",
-                   "value": ", " 
-               },
-               {
-                   "type": "ingredient", 
-                   "ingredient": {
-                        "name": "Bicarbonate de soude",
-                        "quantity": {
-                            "value": 5,
-                            "originalMeasureUnit": "ml"
-                        }
-                    }
-               },
-               {
-                   "type": "text",
-                   "value": " et " 
-               },
-               {
-                   "type": "ingredient", 
-                   "ingredient": {
-                        "name": "Sel",
-                        "quantity": {
-                            "value": 1,
-                            "originalMeasureUnit": "pinch"
-                        }
-                    }
-               },
-               {
-                   "type": "text",
-                   "value": "." 
-               },
-               {
-                   "type": "action",
-                   "value": "Réserver"
-               }, 
-               {
-                   "type": "text",
-                   "value": "." 
-               }
-            ]
-        },
-        {
-            "subrecipeId": 2,
-            "parts": [
-               {
-                   "type": "text",
-                   "value": "Dans un autre bol, " 
-               },
-               {
-                   "type": "action",
-                   "value": "mélanger"
-               }, 
-               {
-                   "type": "ingredient", 
-                   "ingredient": {
-                        "name": "Beurre non salé",
-                        "quantity": {
-                            "value": 125,
-                            "originalMeasureUnit": "ml"
-                        },
-                        "requirements": [
-                            "ramolli"
-                        ]
-                    }
-               },
-               {
-                   "type": "text",
-                   "value": " et " 
-               },
-               {
-                   "type": "ingredient", 
-                   "ingredient": {
-                        "name": "Sucre",
-                        "quantity": {
-                            "value": 375,
-                            "originalMeasureUnit": "ml"
-                        }
-                    }
-               },
-               {
-                   "type": "text",
-                   "value": "au batteur électrique jusqu'à ce que le mélange prenne une texture granuleuse. " 
-               },
-               {
-                   "type": "action",
-                   "value": "Ajouter"
-               }, 
-               {
-                   "type": "ingredient", 
-                   "ingredient": {
-                        "name": "Oeufs",
-                        "quantity": {
-                            "value": 2,
-                            "originalMeasureUnit": "units"
-                        }
-                    }
-               },
-               {
-                   "type": "text",
-                   "value": ", un à la fois, et " 
-               },
-               {
-                   "type": "action",
-                   "value": "battre"
-               },
-               {
-                   "type": "text",
-                   "value": " jusqu’à ce que la préparation soit homogène."
-               }, 
-               {
-                   "type": "text",
-                   "value": "À basse vitesse, "
-               },
-               {
-                   "type": "action",
-                   "value": "incorporer"
-               },
-               {
-                   "type": "text",
-                   "value": " les ingrédients secs en alternant avec le mélange de cacao."
-               },
-               {
-                   "type": "action",
-                   "value": "Répartir"
-               },
-               {
-                   "type": "text",
-                   "value": " la pâte dans le plat."
-               }
-            ]
-        },
-        {
-            "subrecipeId": 2,
-            "parts": [
-               {
-                   "type": "action",
-                   "value": "Verser"
-               },
-               {
-                   "type": "text",
-                   "value": " la sauce chaude délicatement sur la pâte."
-               },
-               {
-                   "type": "action",
-                   "value": "Cuire"
-               },
-               {
-                   "type": "text",
-                   "value": " au four environ "
-               },
-               {
-                   "type": "timer",
-                   "value": "PT00H45M",
-                   "action": "cuire"
-               },
-               {
-                   "type": "text",
-                   "value": " ou jusqu’à ce qu’un cure-dent inséré au centre du gâteau en ressorte propre."
-               }
-            ], 
-            "postStep": {
-                "parts": [
-                   {
-                       "type": "action",
-                       "value": "Servir"
-                   },
-                   {
-                       "type": "text",
-                       "value": " chaud ou tempéré."
-                   },
-                   {
-                       "type": "action",
-                       "value": "Attendre"
-                   },
-                   {
-                       "type": "timer",
-                       "value": "PT00H01M",
-                       "action": "attendre"
-                   },
-                   {
-                       "type": "text",
-                       "value": "."
-                   }
-                ], 
-                "postStep": {
+            "phrases": [
+                {
                     "parts": [
                        {
+                           "type": "text",
+                           "value": "Dans une petite casserole, " 
+                       },
+                       {
                            "type": "action",
-                           "value": "Manger"
+                           "value": "porter à ébullition"
+                       }, 
+                       {
+                           "type": "ingredient", 
+                           "ingredient": {
+                                "name": "Lait",
+                                "quantity": {
+                                    "value": 1,
+                                    "originalMeasureUnit": "cups"
+                                }
+                            }
                        },
                        {
                            "type": "text",
-                           "value": " comme un cochon."
+                           "value": " et " 
+                       },
+                       {
+                           "type": "ingredient", 
+                           "ingredient": {
+                                "name": "Cacao",
+                                "quantity": {
+                                    "value": 125,
+                                    "originalMeasureUnit": "ml"
+                                },
+                                "requirements": [
+                                    "tamisé"
+                                ]
+                            }
+                       },
+                       {
+                           "type": "text",
+                           "value": " en remuant à l’aide d’un fouet." 
                        }
-                   ]
+                    ]
+                },
+                {
+                    "parts": [
+                       {
+                           "type": "action",
+                           "value": "Laisser tiédir"
+                       }, 
+                       {
+                           "type": "text",
+                           "value": "." 
+                       }
+                    ]
+                },
+                {
+                    "parts": [
+                       {
+                           "type": "action",
+                           "value": "Gosser"
+                       }, 
+                       {
+                           "type": "timer",
+                           "value": "PT00H02M",
+                           "action": "gosser"
+                       }, 
+                       {
+                           "type": "text",
+                           "value": "." 
+                       }
+                    ]
+                }
+            ]
+        },
+        {
+            "subrecipeId": 2,
+            "phrases": [
+                {
+                    "parts": [
+                       {
+                           "type": "text",
+                           "value": "Dans un bol, " 
+                       },
+                       {
+                           "type": "action",
+                           "value": "mélanger"
+                       }, 
+                       {
+                           "type": "ingredient", 
+                           "ingredient": {
+                                "name": "Farine tout usage non blanchie",
+                                "quantity": {
+                                    "value": 375,
+                                    "originalMeasureUnit": "ml"
+                                }
+                            }
+                       },
+                       {
+                           "type": "text",
+                           "value": ", " 
+                       },
+                       {
+                           "type": "ingredient", 
+                           "ingredient": {
+                                "name": "Bicarbonate de soude",
+                                "quantity": {
+                                    "value": 5,
+                                    "originalMeasureUnit": "ml"
+                                }
+                            }
+                       },
+                       {
+                           "type": "text",
+                           "value": " et " 
+                       },
+                       {
+                           "type": "ingredient", 
+                           "ingredient": {
+                                "name": "Sel",
+                                "quantity": {
+                                    "value": 1,
+                                    "originalMeasureUnit": "pinch"
+                                }
+                            }
+                       },
+                       {
+                           "type": "text",
+                           "value": "." 
+                       }
+                    ]
+                },
+                {
+                    "parts": [
+                       {
+                           "type": "action",
+                           "value": "Réserver"
+                       }, 
+                       {
+                           "type": "text",
+                           "value": "." 
+                       }
+                    ]
+                }
+            ]
+        },
+        {
+            "subrecipeId": 2,
+            "phrases": [
+                {
+                    "parts": [
+                       {
+                           "type": "text",
+                           "value": "Dans un autre bol, " 
+                       },
+                       {
+                           "type": "action",
+                           "value": "mélanger"
+                       }, 
+                       {
+                           "type": "ingredient", 
+                           "ingredient": {
+                                "name": "Beurre non salé",
+                                "quantity": {
+                                    "value": 125,
+                                    "originalMeasureUnit": "ml"
+                                },
+                                "requirements": [
+                                    "ramolli"
+                                ]
+                            }
+                       },
+                       {
+                           "type": "text",
+                           "value": " et " 
+                       },
+                       {
+                           "type": "ingredient", 
+                           "ingredient": {
+                                "name": "Sucre",
+                                "quantity": {
+                                    "value": 375,
+                                    "originalMeasureUnit": "ml"
+                                }
+                            }
+                       },
+                       {
+                           "type": "text",
+                           "value": "au batteur électrique jusqu'à ce que le mélange prenne une texture étrangement granuleuse. " 
+                       }
+                    ]
+                },
+                {
+                    "parts": [
+                       {
+                           "type": "action",
+                           "value": "Ajouter"
+                       }, 
+                       {
+                           "type": "ingredient", 
+                           "ingredient": {
+                                "name": "Oeufs",
+                                "quantity": {
+                                    "value": 2,
+                                    "originalMeasureUnit": "units"
+                                }
+                            }
+                       },
+                       {
+                           "type": "text",
+                           "value": ", un à la fois, et " 
+                       },
+                       {
+                           "type": "action",
+                           "value": "battre"
+                       },
+                       {
+                           "type": "text",
+                           "value": " jusqu’à ce que la préparation soit homogène."
+                       }
+                    ]
+                },
+                {
+                    "parts": [
+                        {
+                            "type": "text",
+                            "value": "À basse vitesse, "
+                        },
+                        {
+                            "type": "action",
+                            "value": "incorporer"
+                        },
+                        {
+                            "type": "text",
+                            "value": " les ingrédients secs en alternant avec le mélange de cacao."
+                        }
+                    ]
+                },
+                {
+                    "parts": [
+                       {
+                           "type": "action",
+                           "value": "Répartir"
+                       },
+                       {
+                           "type": "text",
+                           "value": " la pâte dans le plat."
+                       }
+                    ]
+                }
+            ]
+        },
+        {
+            "subrecipeId": 2,
+            "phrases": [
+                {
+                    "parts": [
+                       {
+                           "type": "action",
+                           "value": "Verser"
+                       },
+                       {
+                           "type": "text",
+                           "value": " la sauce chaude délicatement sur la pâte."
+                       }
+                    ]
+                },
+                {
+                    "parts": [
+                       {
+                           "type": "action",
+                           "value": "Cuire"
+                       },
+                       {
+                           "type": "text",
+                           "value": " au four environ "
+                       },
+                       {
+                           "type": "timer",
+                           "value": "PT00H45M",
+                           "action": "cuire"
+                       },
+                       {
+                           "type": "text",
+                           "value": " ou jusqu’à ce qu’un cure-dent inséré au centre du gâteau en ressorte propre."
+                       }
+                    ]
+                }
+            ],
+            "postStep": {
+                "phrases": [
+                    {
+                        "parts": [
+                           {
+                               "type": "action",
+                               "value": "Servir"
+                           },
+                           {
+                               "type": "text",
+                               "value": " chaud ou tempéré."
+                           }
+                        ]
+                    },
+                    {
+                        "parts": [
+                           {
+                               "type": "action",
+                               "value": "Attendre"
+                           },
+                           {
+                               "type": "timer",
+                               "value": "PT00H01M",
+                               "action": "attendre"
+                           },
+                           {
+                               "type": "text",
+                               "value": "."
+                           }
+                        ]
+                    }
+                ], 
+                "postStep": {
+                    "phrases": [
+                        {
+                            "parts": [
+                               {
+                                   "type": "action",
+                                   "value": "Manger"
+                               },
+                               {
+                                   "type": "text",
+                                   "value": " comme un cochon."
+                               }
+                           ]
+                        }
+                    ]
                 }
             } 
         }

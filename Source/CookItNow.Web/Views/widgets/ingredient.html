@@ -3,17 +3,15 @@
 	<require from="value-converters/quantity-human-format"></require>
 	
 	<span class="ingredient">
-		<span>
-			<span class="value" if.bind="quantity.isConvertible && quantity.getValidConvertibleMeasureUnits().length > 1" >
-				<select class="input-field" value.bind="measureUnit" materialize="select">
-		            <option repeat.for="measureUnit of quantity.getValidConvertibleMeasureUnits()" value.bind="measureUnit.unit">${measureUnit.value | quantityHumanFormat}${measureUnit.unit | quantityPluralFormat:measureUnit.value}</option>
-		        </select> 
-			</span>
-			<span if.bind="!quantity.isConvertible || quantity.getValidConvertibleMeasureUnits().length == 1">
-				<span class="value">${quantity.value | quantityHumanFormat}</span>
-				<span class="unit">${measureUnit | quantityPluralFormat:quantity.value}</span>
-			</span>
-		</span> 
+		<span class="value" if.bind="quantity.isConvertible && quantity.getValidConvertibleMeasureUnits().length > 1" >
+			<select class="input-field" value.bind="measureUnit" materialize="select">
+	            <option repeat.for="measureUnit of quantity.getValidConvertibleMeasureUnits()" value.bind="measureUnit.unit">${measureUnit.value | quantityHumanFormat}${measureUnit.unit | quantityPluralFormat:measureUnit.value}</option>
+	        </select> 
+		</span>
+		<span if.bind="!quantity.isConvertible || quantity.getValidConvertibleMeasureUnits().length == 1">
+			<span class="value">${quantity.value | quantityHumanFormat}</span>
+			<span class="unit">${measureUnit | quantityPluralFormat:quantity.value}</span>
+		</span>
 		${nextWord}  
 		<span class="type">${ingredientName} <span if.bind="requirements" class="requirements">(${requirements})</span></span> 
 	</span>

@@ -1,7 +1,7 @@
-import {Ingredient} from "models/quick-recipe";
+import {IngredientPart, Ingredient} from "models/quick-recipe";
 import {Quantity} from "models/quantity";
 
-export class IngredientWidget {
+export class StepIngredient {
 	private _ingredient: Ingredient;
 	measureUnit: string;
 	quantity: Quantity;
@@ -9,8 +9,8 @@ export class IngredientWidget {
 	ingredientName: string;
 	requirements: string;
 	
-	activate(model: Ingredient) {
-		this._ingredient = model
+	activate(model: IngredientPart) {
+    	this._ingredient = model.ingredient;
 		
 		this.ingredientName = this._ingredient.name.toLowerCase();
 		this.nextWord = (this._ingredient.quantity.originalMeasureUnit !== "units" ? this.isVowel(this.ingredientName[0]) ? " d'" : " de " : " ");

@@ -39,8 +39,12 @@ export interface Requirement {
 
 export interface Step {
     subrecipeId: number;
-    parts: Part[];
+    phrases: Phrase[];
     postStep: Step;
+}
+
+export interface Phrase {
+    parts: Part[];
 }
 
 export interface Part {
