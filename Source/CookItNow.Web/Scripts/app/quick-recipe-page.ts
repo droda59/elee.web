@@ -20,7 +20,8 @@ export class QuickRecipePage {
 	private _eventAggregator: EventAggregator;
     private _url: string;
     recipe: QuickRecipe;
-	minimized: boolean = false;
+	activeTimersSectionActive: boolean = false;
+	recipeInfoSectionActive: boolean = false;
 	activeTimers: Timer[] = [];
 	timers: Timer[] = [];
 	subrecipeIngredients: QuickRecipeSubrecipeIngredient[] = [];
@@ -110,6 +111,10 @@ export class QuickRecipePage {
 	}
 	
 	toggleMinimizeActiveTimers() {
-		this.minimized = !this.minimized; 
+		this.activeTimersSectionActive = !this.activeTimersSectionActive; 
+	}
+	
+	toggleMinimizeRecipeInfo() {
+		this.recipeInfoSectionActive = !this.recipeInfoSectionActive; 
 	}
 }
