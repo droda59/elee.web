@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using CookItNow.Api.Models;
+using CookItNow.Business.Models;
 
 namespace CookItNow.Api
 {

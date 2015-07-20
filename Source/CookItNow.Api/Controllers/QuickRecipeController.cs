@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Web.Http;
 
-using CookItNow.Api.Models;
+using CookItNow.Business.Models;
 
 namespace CookItNow.Api.Controllers
 {
