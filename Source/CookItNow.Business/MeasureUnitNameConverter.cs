@@ -1,7 +1,5 @@
 ﻿using System;
 
-using CookItNow.Business.Models;
-
 namespace CookItNow.Business
 {
     public static class MeasureUnitNameConverter

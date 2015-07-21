@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MeasureUnit.cs" />
+    <Compile Include="MeasureUnitCreator.cs" />
     <Compile Include="MeasureUnitNameConverter.cs" />
     <Compile Include="Models\ActionPart.cs" />
     <Compile Include="Models\Duration.cs" />
@@ -55,6 +56,9 @@
     <Compile Include="Models\TextPart.cs" />
     <Compile Include="Models\TimerPart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
