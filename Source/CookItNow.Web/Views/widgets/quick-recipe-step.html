@@ -7,5 +7,5 @@
 	<p repeat.for="phrase of step.phrases">
 		<compose repeat.for="part of phrase.parts" model.bind="part" view-model="widgets/step-${part.type}"></compose>
 	</p>
-	<compose if.bind="step.postStep" model.bind="step.postStep" view-model="widgets/step"></compose>
+	<quick-recipe-step if.bind="step.postStep" step.bind="step.postStep"></quick-recipe-step>
 </template>

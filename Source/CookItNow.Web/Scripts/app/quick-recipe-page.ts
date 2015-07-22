@@ -1,8 +1,6 @@
-import {QuickRecipe, Ingredient, Step} from "models/quick-recipe";
-import {Timer} from "models/timer";
 import {inject} from "aurelia-framework";
 import {HttpClient} from "aurelia-http-client";
-import {EventAggregator} from "aurelia-event-aggregator";
+import {QuickRecipe, Ingredient, Step} from "models/quick-recipe";
 
 class QuickRecipeSubrecipeIngredient {
 	subrecipeTitle: string;
@@ -14,37 +12,31 @@ class QuickRecipeSubrecipeStep {
 	steps: Step[];
 }
 
-@inject (HttpClient, EventAggregator)
+@inject (HttpClient)
 export class QuickRecipePage {
     private _http: HttpClient;
-	private _eventAggregator: EventAggregator;
-    private _url: string;
     recipe: QuickRecipe;
-	activeTimersSectionActive: boolean = false;
-	recipeInfoSectionActive: boolean = false;
-	activeTimers: Timer[] = [];
-	timers: Timer[] = [];
 	subrecipeIngredients: QuickRecipeSubrecipeIngredient[] = [];
 	subrecipeSteps: QuickRecipeSubrecipeStep[] = [];
 	
-	constructor(http: HttpClient, eventAggregator: EventAggregator) {
+	constructor(http: HttpClient) {
 		this._http = http;
-		this._eventAggregator = eventAggregator;
 	}
 	
 	activate(route) {
+		var url;
 		switch (route.id) {
 			case "1":
-				this._url = "../../Json/recipeModel-pouding.json";
+				url = "../../Json/recipeModel-pouding.json";
 				break;
 			case "2": 
-				this._url = "../../Json/recipeModel-gaufres.json";
+				url = "../../Json/recipeModel-gaufres.json";
 				break;
 			default:
 				break;
 		}
 		
-        return this._http.get(this._url).then(response => {
+        return this._http.get(url).then(response => {
             this.recipe = response.content;
 			
 			var floatingIngredients = this.recipe.ingredients.filter(
@@ -88,33 +80,8 @@ export class QuickRecipePage {
 			);
         });
 	}
-    
-    attached() {
-		this._eventAggregator.subscribe("TIMERSTARTED", payload => {
-			if (this.activeTimers.indexOf(payload) === -1) {
-				this.activeTimers.push(payload);
-			}
-		});
-		
-		this._eventAggregator.subscribe("TIMERDELETED", payload => {
-			var index = this.activeTimers.indexOf(payload);
-			this.activeTimers.splice(index, 1);
-		});
-    }
 
 	canDeactivate(){
 		return confirm('Are you sure you want to leave?');
-	}
-	
-	startTimer(timer: Timer) {
-		this.activeTimers.push(timer);
-	}
-	
-	toggleMinimizeActiveTimers() {
-		this.activeTimersSectionActive = !this.activeTimersSectionActive; 
-	}
-	
-	toggleMinimizeRecipeInfo() {
-		this.recipeInfoSectionActive = !this.recipeInfoSectionActive; 
 	}
 }

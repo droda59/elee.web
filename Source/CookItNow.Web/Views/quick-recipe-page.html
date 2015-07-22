@@ -1,66 +1,14 @@
 <template>
-	<require from="value-converters/duration-format"></require>
-	<require from="value-converters/filter-on-property"></require>
-	<require from="widgets/step"></require>
-	<require from="widgets/ingredient"></require>
+	<require from="widgets/quick-recipe-header"></require>
+	<require from="widgets/quick-recipe-step"></require>
 	<require from="widgets/quick-recipe-footer"></require>
+	<require from="widgets/measurable-ingredient"></require>
+	
+	<require from="value-converters/filter-on-property"></require>
 	
 	<div class="quick-recipe">
 	    <header class="row">
-		    <div class="navbar-fixed">
-		        <nav role="navigation">
-		            <div class="nav-wrapper">
-		                <div class="row">
-		                    <div class="col m4">
-		                        <a class="brand-logo left" href="#">
-		                            Cook It Now
-		                        </a>
-		                    </div>
-							<h3 class="col m8 offset-m4">
-								<div class="header-dropdown recipe-info left">
-									<a class="dropdown-button ${recipeInfoSectionActive ? 'active' : ''}" click.trigger="toggleMinimizeRecipeInfo()">
-										<i class="material-icons left">arrow_drop_down</i>
-										${recipe.title}
-									</a>
-									<div class="dropdown-content black-text" show.bind="recipeInfoSectionActive">
-										<div class="row">
-											<div>Servings : ${recipe.originalServings}</div>
-										</div>
-										
-										<div class="row">
-											<ul>
-										        <li repeat.for="duration of recipe.durations">
-													<span>${duration.title} : ${duration.time | durationFormat}</span>
-										        </li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							
-								<div class="header-dropdown active-timers right">
-									<a class="dropdown-button ${activeTimersSectionActive ? 'active' : ''}" click.trigger="toggleMinimizeActiveTimers()" show.bind="activeTimers.length">
-										<i class="material-icons small white-text">av_timer</i>
-									</a>
-									<div class="dropdown-content black-text" show.bind="activeTimersSectionActive">
-										<ul class="collection">
-											<li repeat.for="timer of activeTimers" class="collection-item avatar">
-												<i class="material-icons circle ${timer.state == 'isAlmostDone' ? 'yellow' : timer.state == 'isAlmosterDone' ? 'red' : 'green'}">av_timer</i>
-												<span class="title">${timer.action}</span>
-												<p class="${timer.state == 'isAlmostDone' ? 'yellow-text' : timer.state == 'isAlmosterDone' ? 'red-text' : 'green-text'}">${timer.remainingTime} of ${timer.duration | durationFormat}</p>
-												<span class="secondary-content">
-													<a click.trigger="timer.pause()" show.bind="!timer.isPaused"><i class="material-icons">pause</i></a>
-													<a click.trigger="timer.play()" show.bind="timer.isPaused"><i class="material-icons">play_arrow</i></a>
-													<a click.trigger="timer.delete()"><i class="material-icons">delete</i></a>
-												</span>							
-											</li>
-										</ul>
-									</div>
-								</div>
-							</h3>
-		                </div>
-		            </div>
-		        </nav>
-		    </div>
+			<quick-recipe-header recipe.bind="recipe"></quick-recipe-header>
 	    </header>
 		
 		<main class="row">
@@ -84,10 +32,10 @@
 							<h5 if.bind="subrecipe.subrecipeTitle" class="center">${subrecipe.subrecipeTitle}</h5>
 							<ul class="ingredient-list collection">
 								<li repeat.for="ingredient of subrecipe.ingredients" class="collection-item ingredient-item">
-									<compose view-model="widgets/ingredient" model.bind="ingredient"></compose>
+									<measurable-ingredient ingredient.bind="ingredient"></measurable-ingredient>
 									<small if.bind="ingredient.replacements" repeat.for="replacement of ingredient.replacements">
 										<div>ou</div>
-										<compose view-model="widgets/ingredient" model.bind="replacement"></compose>
+										<measurable-ingredient ingredient.bind="replacement"></measurable-ingredient>
 									</small>
 								</li>
 							</ul>
@@ -100,11 +48,11 @@
 			
 			<div class="main section col right">
 				<div if.bind="recipe.requirements">
-					<h4>Préparation</h4>
+					<h2 class="center">Préparation</h2>
 					<ol>
 						<li repeat.for="requirement of recipe.requirements" class="step">
 							<span class="action">${requirement.action}</span>
-							<compose view-model="widgets/ingredient" model.bind="$parent.recipe.ingredients | filterSingleOnProperty:'id':requirement.ingredientId"></compose>
+							<measurable-ingredient ingredient.bind="$parent.recipe.ingredients | filterSingleOnProperty:'id':requirement.ingredientId"></measurable-ingredient>
 						</li>
 					</ol>
 				</div>
@@ -113,13 +61,15 @@
 					<h2 if.bind="subrecipe.subrecipeTitle" class="center">${subrecipe.subrecipeTitle}</h2>
 					<ol>
 						<li repeat.for="step of subrecipe.steps" class="step">
-							<compose model.bind="step" view-model="widgets/step"></compose>
+							<quick-recipe-step step.bind="step"></quick-recipe-step>
 						</li>
 					</ol>
 				</div>
 			</div>
 		</main>
 				
-		<quick-recipe-footer url.bind="recipe.originalUrl"></quick-recipe-footer>
+		<footer class="row page-footer fixed">
+			<quick-recipe-footer url.bind="recipe.originalUrl"></quick-recipe-footer>
+		</footer>
 	</div>
 </template>

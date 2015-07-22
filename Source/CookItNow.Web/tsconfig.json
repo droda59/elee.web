@@ -61,8 +61,9 @@
         "./Scripts/app/widgets/step-text.ts",
         "./Scripts/app/widgets/step-timer.ts",
         "./Scripts/app/widgets/step-ingredient.ts",
-        "./Scripts/app/widgets/step.ts",
-        "./Scripts/app/widgets/ingredient.ts",
+        "./Scripts/app/widgets/measurable-ingredient.ts",
+        "./Scripts/app/widgets/quick-recipe-header.ts",
+        "./Scripts/app/widgets/quick-recipe-step.ts",
         "./Scripts/app/widgets/quick-recipe-footer.ts"
     ]
 }
