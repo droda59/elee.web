@@ -4,7 +4,8 @@
 		"module": "amd",
 		"removeComments": true,
 		"sourceMap": false,
-        "emitDecoratorMetadata": true
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true
 	}, 
     "files": [
         "./Scripts/typings/aurelia-amd/aurelia-amd.d.ts",
@@ -61,6 +62,7 @@
         "./Scripts/app/widgets/step-timer.ts",
         "./Scripts/app/widgets/step-ingredient.ts",
         "./Scripts/app/widgets/step.ts",
-        "./Scripts/app/widgets/ingredient.ts"
+        "./Scripts/app/widgets/ingredient.ts",
+        "./Scripts/app/widgets/quick-recipe-footer.ts"
     ]
 }

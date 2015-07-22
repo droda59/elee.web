@@ -3,6 +3,7 @@
 	<require from="value-converters/filter-on-property"></require>
 	<require from="widgets/step"></require>
 	<require from="widgets/ingredient"></require>
+	<require from="widgets/quick-recipe-footer"></require>
 	
 	<div class="quick-recipe">
 	    <header class="row">
@@ -119,18 +120,6 @@
 			</div>
 		</main>
 				
-		<footer class="row page-footer fixed">
-	    	<div class="row">
-				<div class="col m4 left">
-					<span class="grey-text text-lighten-3">© 2015 Copyright GentleMotherlovingChef</span>
-				</div>
-	      		<div class="col m8 right">
-					<span class="right">
-		    			<small class="white-text">Recette originale: </small>
-						<a href.bind="recipe.originalUrl" target="_blank" class="grey-text text-lighten-4">${recipe.originalUrl}</a>
-					</span>
-	      		</div>
-			</div>
-	    </footer>
+		<quick-recipe-footer url.bind="recipe.originalUrl"></quick-recipe-footer>
 	</div>
 </template>
