@@ -1,8 +1,6 @@
 System.config({
   "transpiler": "traceur",
   "paths": {
-    // FOR BUNDLING: "*": "*.js",
-    // FOR BUNDLING: "*.js": "Scripts/app/*.js",
     "*": "Scripts/app/*.js",
     "*.html": "*.html",
     "app-bundle*": "app-bundle.js",
@@ -1410,12 +1408,16 @@ System.config({
     "font-awesome": "npm:font-awesome@4.3.0",
     "gooy/aurelia-compiler": "github:gooy/aurelia-compiler@0.0.4",
     "jquery": "github:components/jquery@2.1.4",
-    "materialize": "github:Dogfalo/materialize@0.96.1",
+    "materialize": "github:Dogfalo/materialize@0.97.0",
     "materialize-css": "npm:materialize-css@0.96.1",
     "moment": "npm:moment@2.10.3",
     "traceur": "github:jmcriffey/bower-traceur@0.0.88",
     "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.88",
     "github:Dogfalo/materialize@0.96.1": {
+      "css": "github:systemjs/plugin-css@0.1.13",
+      "jquery": "github:components/jquery@2.1.4"
+    },
+    "github:Dogfalo/materialize@0.97.0": {
       "css": "github:systemjs/plugin-css@0.1.13",
       "jquery": "github:components/jquery@2.1.4"
     },
