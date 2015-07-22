@@ -13,7 +13,7 @@ export class MeasurableIngredient {
 	
 	bind() {
 		this.ingredientName = this.ingredient.name.toLowerCase();
-		this.nextWord = (this.ingredient.quantity.originalMeasureUnit !== "units" ? this.isVowel(this.ingredientName[0]) ? " d'" : " de " : " ");
+		this.nextWord = (this.ingredient.quantity.originalMeasureUnit !== "unit" ? this.isVowel(this.ingredientName[0]) ? " d'" : " de " : " ");
 			
 		this.measureUnit = this.ingredient.quantity.originalMeasureUnit;
 		this.quantity = new Quantity(this.ingredient.quantity);

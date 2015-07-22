@@ -31,7 +31,7 @@
             "name": "Cassonade",
             "quantity": {
                 "value": 3,
-                "originalMeasureUnit": "cups"
+                "originalMeasureUnit": "cup"
             }
         },
         {
@@ -106,7 +106,7 @@
             "name": "Lait",
             "quantity": {
                 "value": 1,
-                "originalMeasureUnit": "cups"
+                "originalMeasureUnit": "cup"
             }
         },
         {
@@ -157,7 +157,7 @@
             "name": "Oeufs",
             "quantity": {
                 "value": 2,
-                "originalMeasureUnit": "units"
+                "originalMeasureUnit": "unit"
             }
         }
     ],
@@ -195,7 +195,7 @@
                                 "name": "Cassonade",
                                 "quantity": {
                                     "value": 3,
-                                    "originalMeasureUnit": "cups"
+                                    "originalMeasureUnit": "cup"
                                 }
                             }
                        },
@@ -350,7 +350,7 @@
                                 "name": "Lait",
                                 "quantity": {
                                     "value": 1,
-                                    "originalMeasureUnit": "cups"
+                                    "originalMeasureUnit": "cup"
                                 }
                             }
                        },
@@ -537,7 +537,7 @@
                                 "name": "Oeufs",
                                 "quantity": {
                                     "value": 2,
-                                    "originalMeasureUnit": "units"
+                                    "originalMeasureUnit": "unit"
                                 }
                             }
                        },

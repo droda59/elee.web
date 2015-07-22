@@ -1,6 +1,6 @@
 export class Quantity {
-    private _convertibleVolumeMeasureUnits: string[] = [ "ml", "cl", "dl", "l", "tbsp", "tsp", "oz", "cups" ];
-    private _convertibleWeightMeasureUnits: string[] = [ "g", "kg", "lbs" ];
+    private _convertibleVolumeMeasureUnits: string[] = [ "ml", "cl", "dl", "l", "tbsp", "tsp", "oz", "cup" ];
+    private _convertibleWeightMeasureUnits: string[] = [ "g", "kg", "lb" ];
     private _validConvertibleMeasureUnits: {}[];
     isConvertible: boolean;
     originalMeasureUnit: string;
@@ -55,7 +55,7 @@ export class Quantity {
                 case "tsp": return 0.202884;
                 case "tbsp": return 0.067628;
                 case "oz": return 0.033814;
-                case "cups": return 0.004226;
+                case "cup": return 0.004226;
             }
         } 
         else if (fromUnit === "cl") {
@@ -67,7 +67,7 @@ export class Quantity {
                 case "tsp": return 2.028841;
                 case "tbsp": return 0.676280;
                 case "oz": return 0.33814;
-                case "cups": return 0.042267;
+                case "cup": return 0.042267;
             }
         } 
         else if (fromUnit === "dl") {
@@ -79,7 +79,7 @@ export class Quantity {
                 case "tsp": return 20.288413;
                 case "tbsp": return 6.762804;
                 case "oz": return 3.3814;
-                case "cups": return 0.422675;
+                case "cup": return 0.422675;
             }
         } 
         else if (fromUnit === "l") {
@@ -91,7 +91,7 @@ export class Quantity {
                 case "tsp": return 202.884136;
                 case "tbsp": return 67.628045;
                 case "oz": return 33.814;
-                case "cups": return 4.226752;
+                case "cup": return 4.226752;
             }
         } 
         else if (fromUnit === "tsp") {
@@ -103,7 +103,7 @@ export class Quantity {
                 case "tsp": return 1;
                 case "tbsp": return 0.333333;
                 case "oz": return 0.166667;
-                case "cups": return 0.0208333;
+                case "cup": return 0.0208333;
             }
         }
         else if (fromUnit === "tbsp") {
@@ -115,7 +115,7 @@ export class Quantity {
                 case "tsp": return 3;
                 case "tbsp": return 1;
                 case "oz": return 0.5;
-                case "cups": return 0.0625;
+                case "cup": return 0.0625;
             }
         }
         else if (fromUnit === "oz") {
@@ -127,10 +127,10 @@ export class Quantity {
                 case "tsp": return 6;
                 case "tbsp": return 2;
                 case "oz": return 1;
-                case "cups": return 0.125;
+                case "cup": return 0.125;
             }
         } 
-        else if (fromUnit === "cups") {
+        else if (fromUnit === "cup") {
             switch (toUnit) {
                 case "ml": return 250; // 236.588236; 
                 case "cl": return 25; // 23.658823;
@@ -139,28 +139,28 @@ export class Quantity {
                 case "tsp": return 48;
                 case "tbsp": return 16;
                 case "oz": return 8;
-                case "cups": return 1;
+                case "cup": return 1;
             }
         } 
         else if (fromUnit === "g") {
             switch (toUnit) {
                 case "g": return 1;
                 case "kg": return 0.001;
-                case "lbs": return 0.0022;
+                case "lb": return 0.0022;
             }
         }
         else if (fromUnit === "kg") {
             switch (toUnit) {
                 case "g": return 1000;
                 case "kg": return 1;
-                case "lbs": return 2.20264;
+                case "lb": return 2.20264;
             }
         }
-        else if (fromUnit === "lbs") {
+        else if (fromUnit === "lb") {
             switch (toUnit) {
                 case "g": return 454;
                 case "kg": return 0.454;
-                case "lbs": return 1;
+                case "lb": return 1;
             }
         }
         
@@ -212,7 +212,7 @@ export class Quantity {
             case "oz": 
                 return Math.round(value * 10) / 10;
                 
-            case "cups":
+            case "cup":
             {
                 var thirdDecimalPlaceRound = Math.round(value * 1000) / 1000;
                 if (thirdDecimalPlaceRound >= 0.120 && thirdDecimalPlaceRound <= 0.130) { return 0.125; }
@@ -240,7 +240,7 @@ export class Quantity {
             case "kg": 
                 return Math.round(value * 10) / 10;
                 
-            case "lbs": 
+            case "lb": 
             {
                 var thirdDecimalPlaceRound = Math.round(value * 1000) / 1000;
                 if (thirdDecimalPlaceRound >= 0.330 && thirdDecimalPlaceRound <= 0.340) { return 0.333; }
@@ -290,7 +290,7 @@ export class Quantity {
             case "oz": 
                 return value > 1;
                 
-            case "cups":
+            case "cup":
                 return value === 0.125 || value === 0.25 || value === 0.333 
                     || value === 0.375 || value === 0.5 || value === 0.666 
                     || value === 0.625 || value === 0.75 || value === 0.875
@@ -302,7 +302,7 @@ export class Quantity {
             case "kg": 
                 return value > 0.1;
                 
-            case "lbs": 
+            case "lb": 
                 return value === 0.25 || value === 0.333
                     || value === 0.5 || value === 0.666 
                     || value === 0.75

@@ -26,7 +26,7 @@ export class QuantityPluralFormatValueConverter {
             case "tbsp": 
                 return " c. à soupe";
 				
-			case "cups":
+			case "cup":
 				return " tasse" + (value > 1 ? "s" : "");
                     
             case "g": 
@@ -35,13 +35,13 @@ export class QuantityPluralFormatValueConverter {
             case "kg": 
                 return " kg";
 				
-			case "lbs":
+			case "lb":
 				return " livre" + (value > 1 ? "s" : "");
 				
 			case "pinch":
 				return " pincée" + (value > 1 ? "s" : "");
 		
-			case "units":
+			case "unit":
 			default:
 				return "";
 		};
