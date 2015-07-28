@@ -1,28 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 using CookItNow.Business;
 using CookItNow.Business.Models;
+using CookItNow.Parser.Utils;
 
 using HtmlAgilityPack;
+
+using Microsoft.Practices.Unity;
 
 namespace CookItNow.Parser
 {
     internal class RicardoParser : HtmlParser
     {
+        private readonly IUnityContainer _container;
         private readonly Regex _quantityExpression;
         private readonly Regex _ingredientExpression;
         private readonly Regex _wordExpression;
 
-        public RicardoParser(IHtmlLoader htmlLoader) 
+        private IActionDetector _actionDetector;
+
+        public RicardoParser(IHtmlLoader htmlLoader, IUnityContainer container) 
             : base(htmlLoader, "www.ricardocuisine.com")
         {
-            this._wordExpression = new Regex("\\w+ ", RegexOptions.Compiled);
+            this._container = container;
+
+            this._wordExpression = new Regex("[a-zA-Z0-9\\u00C0-\\u017F\\(\\),']+ ", RegexOptions.Compiled);
             this._quantityExpression = new Regex("\\w+", RegexOptions.Compiled);
             this._ingredientExpression = new Regex("(?<=[a-zA-Z0-9\\u00C0-\\u017F\\s\\(\\)] de |d')[a-zA-Z0-9\\u00C0-\\u017F\\s]+(?=[,\\w\\s]*)", RegexOptions.Compiled);
         }
@@ -39,6 +46,8 @@ namespace CookItNow.Parser
             document.LoadHtml(content);
 
             var language = document.DocumentNode.SelectSingleNode("//html").Attributes["lang"].Value.Trim();
+
+            this._actionDetector = this._container.Resolve<IActionDetector>(new DependencyOverride<IActionDetector>(language));
 
             var titleNode = document.DocumentNode.SelectSingleNode("//meta[@name='description']");
             recipe.Title = titleNode.Attributes["content"].Value.Trim();
@@ -85,7 +94,8 @@ namespace CookItNow.Parser
                         requirements = splitRequirements.Skip(1).Select(x => x.Trim()).ToList();
                         foreach (var requirement in requirements)
                         {
-                            recipe.Requirements.Add(new Requirement { Action = requirement + "er", IngredientId = ingredientId });
+                            var requirementAction = this._actionDetector.Actionify(requirement);
+                            recipe.Requirements.Add(new Requirement { Action = requirementAction, IngredientId = ingredientId });
                         }
                     }
 
@@ -138,7 +148,7 @@ namespace CookItNow.Parser
                     foreach (var splitPhrase in splitPhrases)
                     {
                         var phrase = new Phrase();
-                        var words = this._quantityExpression.Matches(splitPhrase);
+                        var words = this._wordExpression.Matches(splitPhrase);
                         var wordCount = 0;
                         var phraseBuilder = new StringBuilder();
                         Type previouslyReadType = null;
@@ -148,11 +158,7 @@ namespace CookItNow.Parser
                             var word = words[wordCount];
                             previouslyReadType = currentlyReadType;
 
-                            //// TODO Intelligent verb detection
-                            if (word.Value.EndsWith("er")
-                                || word.Value.EndsWith("ir")
-                                || word.Value.EndsWith("ire")
-                                || word.Value.EndsWith("tre"))
+                            if (this._actionDetector.IsAction(word.Value.Trim()))
                             {
                                 currentlyReadType = typeof(ActionPart);
                             }

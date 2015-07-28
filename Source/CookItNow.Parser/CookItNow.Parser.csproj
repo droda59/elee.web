@@ -55,7 +55,10 @@
     <Compile Include="ParserFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RicardoParser.cs" />
+    <Compile Include="StringIgnoreCaseComparer.cs" />
     <Compile Include="UnityConfig.cs" />
+    <Compile Include="Utils\FrenchActionDetector.cs" />
+    <Compile Include="Utils\IActionDetector.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
