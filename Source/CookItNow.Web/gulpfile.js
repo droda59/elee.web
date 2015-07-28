@@ -11,7 +11,7 @@ var less = require('gulp-less');
 
 var path = {
     package: "./package.json", 
-    html: "Views/**/*.html",
+    html: "app/**/*.html",
     typescript: 
     {
         src: "app/**/*.ts",

@@ -9,7 +9,7 @@ export class App {
       { route: ["","welcome"],  moduleId: "./components/welcome/welcome", nav: true, title:"Welcome" },
       { route: "recipe/:id", name: "quick-recipe", moduleId: "./components/quick-recipe-page/quick-recipe-page" }, 
     ]);
-
+    
     this.router = router;
   }
 }
