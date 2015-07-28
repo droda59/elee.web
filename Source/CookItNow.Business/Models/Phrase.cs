@@ -5,6 +5,11 @@ namespace CookItNow.Business.Models
 {
     public class Phrase
     {
-        public IEnumerable<Part> Parts { get; set; } 
+        public Phrase()
+        {
+            this.Parts = new List<Part>();
+        }
+
+        public IList<Part> Parts { get; set; } 
     }
 }

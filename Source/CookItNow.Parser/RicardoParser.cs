@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -15,10 +17,12 @@ namespace CookItNow.Parser
     {
         private readonly Regex _quantityExpression;
         private readonly Regex _ingredientExpression;
+        private readonly Regex _wordExpression;
 
         public RicardoParser(IHtmlLoader htmlLoader) 
             : base(htmlLoader, "www.ricardocuisine.com")
         {
+            this._wordExpression = new Regex("\\w+ ", RegexOptions.Compiled);
             this._quantityExpression = new Regex("\\w+", RegexOptions.Compiled);
             this._ingredientExpression = new Regex("(?<=[a-zA-Z0-9\\u00C0-\\u017F\\s\\(\\)] de |d')[a-zA-Z0-9\\u00C0-\\u017F\\s]+(?=[,\\w\\s]*)", RegexOptions.Compiled);
         }
@@ -79,6 +83,10 @@ namespace CookItNow.Parser
                     if (splitRequirements.Length > 1)
                     {
                         requirements = splitRequirements.Skip(1).Select(x => x.Trim()).ToList();
+                        foreach (var requirement in requirements)
+                        {
+                            recipe.Requirements.Add(new Requirement { Action = requirement + "er", IngredientId = ingredientId });
+                        }
                     }
 
                     var matches = this._quantityExpression.Matches(name);
@@ -113,7 +121,85 @@ namespace CookItNow.Parser
                 }
             }
 
+            var stepSubrecipeNodes = document.DocumentNode.SelectNodes("//section[@itemprop='recipeInstructions']//h3");
+            foreach (var stepSubrecipeNode in stepSubrecipeNodes)
+            {
+                var subRecipe = recipe.SubRecipes.SingleOrDefault(x => x.Title == stepSubrecipeNode.InnerText.Trim());
+                var subRecipeId = subRecipe != null ? subRecipe.Id : (int?)null;
+
+                var stepNodes = stepSubrecipeNode.NextSibling.NextSibling.SelectNodes(".//li//span");
+
+                foreach (var stepNode in stepNodes)
+                {
+                    var step = new Step { SubRecipeId = subRecipeId };
+
+                    var stepText = stepNode.InnerText.Trim();
+                    var splitPhrases = stepText.Split('.').Select(x => x.Trim()).Where(x => !string.IsNullOrWhiteSpace(x)).ToList();
+                    foreach (var splitPhrase in splitPhrases)
+                    {
+                        var phrase = new Phrase();
+                        var words = this._quantityExpression.Matches(splitPhrase);
+                        var wordCount = 0;
+                        var phraseBuilder = new StringBuilder();
+                        Type previouslyReadType = null;
+                        Type currentlyReadType = null;
+                        while (wordCount < words.Count)
+                        {
+                            var word = words[wordCount];
+                            previouslyReadType = currentlyReadType;
+
+                            //// TODO Intelligent verb detection
+                            if (word.Value.EndsWith("er")
+                                || word.Value.EndsWith("ir")
+                                || word.Value.EndsWith("ire")
+                                || word.Value.EndsWith("tre"))
+                            {
+                                currentlyReadType = typeof(ActionPart);
+                            }
+                            else
+                            {
+                                currentlyReadType = typeof(TextPart);
+                            }
+
+                            if (previouslyReadType != null && previouslyReadType != currentlyReadType)
+                            {
+                                phrase.Parts.Add(this.FlushPhrasePart(phraseBuilder, previouslyReadType));
+                            }
+
+                            phraseBuilder.AppendFormat("{0} ", word.Value);
+
+                            wordCount++;
+                        }
+
+                        phrase.Parts.Add(this.FlushPhrasePart(phraseBuilder, previouslyReadType));
+                        step.Phrases.Add(phrase);   
+                    }
+
+                    recipe.Steps.Add(step);
+                }
+            }
+
             return recipe;
+        }
+
+        private Part FlushPhrasePart(StringBuilder phraseBuilder, Type readType)
+        {
+            if (phraseBuilder.Length > 0)
+            {
+                var value = phraseBuilder.ToString().Trim();
+                phraseBuilder.Clear();
+
+                if (readType == typeof(ActionPart))
+                {
+                    return new ActionPart { Value = value };
+                }
+                else if (readType == typeof(TextPart))
+                {
+                    return new TextPart { Value = value };
+                }
+            }
+
+            return null;
         }
 
         private Task<string> GetOfflineHtmlContent()
