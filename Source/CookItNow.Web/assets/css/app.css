@@ -1,0 +1,65 @@
+p {
+  line-height: 2rem;
+}
+a {
+  cursor: pointer;
+}
+.button-collapse {
+  color: #26a69a;
+}
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255, 255, 255, 0.9);
+}
+.parallax-container .section {
+  width: 100%;
+}
+@media only screen and (max-width: 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+.icon-block {
+  padding: 0 15px;
+}
+footer.page-footer {
+  margin: 0;
+}
+.collection {
+  overflow: visible;
+}
+.dropdown-content.select-dropdown {
+  z-index: 10;
+}
+.select-wrapper .mdi-navigation-arrow-drop-down {
+  vertical-align: middle;
+  line-height: 3rem;
+  color: white;
+}
+.ingredient .value .select-wrapper {
+  display: inline-block;
+  margin-top: inherit;
+}
+.ingredient .value .select-wrapper .mdi-navigation-arrow-drop-down {
+  display: none;
+}
+.ingredient .value .select-wrapper input.select-dropdown {
+  height: inherit;
+  line-height: inherit;
+  margin: 0;
+}
+.ingredient .value .select-wrapper .dropdown-content li {
+  text-align: right;
+  line-height: 1rem;
+}

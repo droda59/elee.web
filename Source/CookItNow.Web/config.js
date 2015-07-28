@@ -1,9 +1,9 @@
 System.config({
   "transpiler": "traceur",
   "paths": {
-    "*": "Scripts/app/*.js",
-    "*.html": "*.html",
-    "app-bundle*": "app-bundle.js",
+    "*": "app/*.js",
+    "*.html": "app/*.html",
+    "app-bundle": "app-bundle.js",
     "github:*": "jspm_packages/github/*.js",
     "npm:*": "jspm_packages/npm/*.js"
   },

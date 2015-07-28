@@ -19,13 +19,13 @@ var aurelia = require('aurelia-cli');
           minify: true
         }
       }
-    },
+    }/*,
     template: {
       "app-bundle": {
-        pattern: "Views/**/*.html",
+        pattern: "app/xx/x.html",
         options: {
           inject: true
         }
       }
-    }
+    }*/
   });

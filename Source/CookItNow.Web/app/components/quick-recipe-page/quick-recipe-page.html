@@ -1,0 +1,75 @@
+<template>
+	<require from="../quick-recipe-header/quick-recipe-header"></require>
+	<require from="../quick-recipe-step/quick-recipe-step"></require>
+	<require from="../quick-recipe-footer/quick-recipe-footer"></require>
+	<require from="../measurable-ingredient/measurable-ingredient"></require>
+	
+	<require from="../../value-converters/filter-on-property"></require>
+	
+	<div class="quick-recipe">
+	    <header class="row">
+			<quick-recipe-header recipe.bind="recipe"></quick-recipe-header>
+	    </header>
+		
+		<main class="row">
+			<aside class="ingredients col left z-depth-2">
+				<div class="border-box">
+					<div class="content">
+						<div class="title parallax-container valign-wrapper">
+							<div class="section no-pad-bot">
+								<div class="container">
+									<div class="row center">
+										<h5 class="header col s12 light">Ingrédients</h5>
+									</div>
+								</div>
+							</div>
+							<div class="parallax" materialize="parallax">
+								<img src="assets/images/pouding.jpg" alt.bind="recipe.title">
+							</div>
+						</div>
+						
+						<div repeat.for="subrecipe of subrecipeIngredients" class="section">
+							<h5 if.bind="subrecipe.subrecipeTitle" class="center">${subrecipe.subrecipeTitle}</h5>
+							<ul class="ingredient-list collection">
+								<li repeat.for="ingredient of subrecipe.ingredients" class="collection-item ingredient-item">
+									<measurable-ingredient ingredient.bind="ingredient"></measurable-ingredient>
+									<small if.bind="ingredient.replacements" repeat.for="replacement of ingredient.replacements">
+										<div>ou</div>
+										<measurable-ingredient ingredient.bind="replacement"></measurable-ingredient>
+									</small>
+								</li>
+							</ul>
+							
+							<div class="divider col m10 offset-m1"></div>
+						</div>
+					</div>
+				</div>
+			</aside>
+			
+			<div class="main section col right">
+				<div if.bind="recipe.requirements">
+					<h2 class="center">Préparation</h2>
+					<ol>
+						<li repeat.for="requirement of recipe.requirements" class="step">
+							<span class="action">${requirement.action}</span>
+							<measurable-ingredient ingredient.bind="$parent.recipe.ingredients | filterSingleOnProperty:'id':requirement.ingredientId"></measurable-ingredient>
+						</li>
+					</ol>
+				</div>
+				
+				<div repeat.for="subrecipe of subrecipeSteps">
+					<h2 if.bind="subrecipe.subrecipeTitle" class="center">${subrecipe.subrecipeTitle}</h2>
+					<ol>
+						<li repeat.for="step of subrecipe.steps" class="step">
+							<quick-recipe-step step.bind="step"></quick-recipe-step>
+						</li>
+					</ol>
+				</div>
+			</div>
+		</main>
+				
+		<footer class="row page-footer fixed">
+			<quick-recipe-footer url.bind="recipe.originalUrl"></quick-recipe-footer>
+		</footer>
+	</div>
+</template>
