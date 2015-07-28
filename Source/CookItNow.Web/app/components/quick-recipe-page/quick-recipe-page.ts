@@ -23,7 +23,7 @@ export class QuickRecipePage {
 		this._http = http;
 	}
 	
-	activate(route) {
+	activate(route, routeConfig) {
 		var url;
 		switch (route.id) {
 			case "1":
@@ -38,6 +38,8 @@ export class QuickRecipePage {
 		
         return this._http.get(url).then(response => {
             this.recipe = response.content;
+			
+			routeConfig.navModel.title = this.recipe.title;
 			
 			var floatingIngredients = this.recipe.ingredients.filter(
 				(ingredient) => !ingredient.subrecipeId || ingredient.subrecipeId === 0
