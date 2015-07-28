@@ -17,17 +17,17 @@ namespace CookItNow.Parser
 {
     internal class RicardoParser : HtmlParser
     {
-        private readonly IUnityContainer _container;
+        private readonly Func<string, IActionDetector> _actionDetectorFactory;
         private readonly Regex _quantityExpression;
         private readonly Regex _ingredientExpression;
         private readonly Regex _wordExpression;
 
         private IActionDetector _actionDetector;
 
-        public RicardoParser(IHtmlLoader htmlLoader, IUnityContainer container) 
+        public RicardoParser(IHtmlLoader htmlLoader, Func<string, IActionDetector> actionDetectorFactory) 
             : base(htmlLoader, "www.ricardocuisine.com")
         {
-            this._container = container;
+            this._actionDetectorFactory = actionDetectorFactory;
 
             this._wordExpression = new Regex("[a-zA-Z0-9\\u00C0-\\u017F\\(\\),']+ ", RegexOptions.Compiled);
             this._quantityExpression = new Regex("\\w+", RegexOptions.Compiled);
@@ -47,7 +47,7 @@ namespace CookItNow.Parser
 
             var language = document.DocumentNode.SelectSingleNode("//html").Attributes["lang"].Value.Trim();
 
-            this._actionDetector = this._container.Resolve<IActionDetector>(new DependencyOverride<IActionDetector>(language));
+            this._actionDetector = this._actionDetectorFactory(language);
 
             var titleNode = document.DocumentNode.SelectSingleNode("//meta[@name='description']");
             recipe.Title = titleNode.Attributes["content"].Value.Trim();

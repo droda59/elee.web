@@ -12,21 +12,16 @@ namespace CookItNow.Parser
         {
             container.RegisterType<IHtmlLoader, HtmlLoader>(new ContainerControlledLifetimeManager());
             container.RegisterType<IParserFactory, ParserFactory>(new ContainerControlledLifetimeManager());
-            
-            container.RegisterType<FrenchActionDetector>(new ContainerControlledLifetimeManager());
 
-            container.RegisterType<IActionDetector>(new InjectionFactory(
-                (x, y, z) =>
-                    {
-                        if (z == "fr")
-                        {
-                            return x.Resolve<FrenchActionDetector>();
-                        }
+            container.RegisterType<IActionDetector, FrenchActionDetector>(typeof(FrenchActionDetector).Name, new ContainerControlledLifetimeManager());
+            container.RegisterType<IActionDetector, ActionDetector>(typeof(ActionDetector).Name, new ContainerControlledLifetimeManager());
 
-                        return x.Resolve<FrenchActionDetector>();
-                    }));
+            container.RegisterType<Func<string, IActionDetector>>(
+                new ContainerControlledLifetimeManager(), 
+                new InjectionFactory(FactoryResolver.ResolveByLanguage));
 
             container.RegisterType<IHtmlParser, RicardoParser>(typeof(RicardoParser).Name, new ContainerControlledLifetimeManager());
         }
+
     }
 }
