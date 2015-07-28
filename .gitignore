@@ -85,14 +85,22 @@ crashlytics.properties
 crashlytics-build.properties
 
 #.settings/
+<<<<<<< HEAD
 #tsconfig.json
 /Source/CookItNow.Web/node_modules/
 /Source/CookItNow.Web/jspm_packages
 /Source/CookItNow.Web/Content/css/app/**/*.css/
 /Source/CookItNow.Web/Scripts/app/**/*.js
 /Source/CookItNow.Web/Scripts/app/**/*.js.map
+=======
+/Source/CookItNow.Web/node_modules/
+/Source/CookItNow.Web/jspm_packages/
+/Source/CookItNow.Web/app/**/*.js
+/Source/CookItNow.Web/app/**/*.js.map
+/Source/CookItNow.Web/assets/css/**/*.css
+>>>>>>> folder_struct
 
+/Source/**/bin/
 /Source/**/obj/
-/Source/**/bin/**
 /Source/**/*.suo
 /Source/**/*.csproj.user

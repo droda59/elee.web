@@ -1,6 +1,6 @@
 import {bindable} from "aurelia-framework"; 
-import {Ingredient} from "models/quick-recipe";
-import {Quantity} from "models/quantity";
+import {Ingredient} from "../../models/quick-recipe";
+import {Quantity} from "../../models/quantity";
 
 export class MeasurableIngredient {
 	@bindable ingredient: Ingredient = null;

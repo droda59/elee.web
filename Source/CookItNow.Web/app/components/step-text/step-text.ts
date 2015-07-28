@@ -1,4 +1,4 @@
-import {TextPart} from "models/quick-recipe";
+import {TextPart} from "../../models/quick-recipe";
 
 export class StepText {
 	value: string;

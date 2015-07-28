@@ -1,6 +1,6 @@
 import {inject} from "aurelia-framework";
 import {HttpClient} from "aurelia-http-client";
-import {QuickRecipe, Ingredient, Step} from "models/quick-recipe";
+import {QuickRecipe, Ingredient, Step} from "../../models/quick-recipe";
 
 class QuickRecipeSubrecipeIngredient {
 	subrecipeTitle: string;
@@ -27,10 +27,10 @@ export class QuickRecipePage {
 		var url;
 		switch (route.id) {
 			case "1":
-				url = "../../Json/recipeModel-pouding.json";
+				url = "../assets/json/recipeModel-pouding.json";
 				break;
 			case "2": 
-				url = "../../Json/recipeModel-gaufres.json";
+				url = "../assets/json/recipeModel-gaufres.json";
 				break;
 			default:
 				break;

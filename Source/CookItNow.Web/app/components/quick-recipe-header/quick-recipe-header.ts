@@ -1,7 +1,7 @@
 import {bindable, inject} from "aurelia-framework";
 import {EventAggregator} from "aurelia-event-aggregator";
-import {QuickRecipe, Ingredient, Step} from "models/quick-recipe";
-import {Timer} from "models/timer";
+import {QuickRecipe, Ingredient, Step} from "../../models/quick-recipe";
+import {Timer} from "../../models/timer";
 
 @inject (EventAggregator)
 export class QuickRecipeHeader {

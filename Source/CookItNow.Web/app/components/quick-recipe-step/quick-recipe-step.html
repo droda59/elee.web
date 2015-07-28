@@ -1,0 +1,11 @@
+<template>
+	<require from="../step-text/step-text"></require>
+	<require from="../step-action/step-action"></require>
+	<require from="../step-timer/step-timer"></require>
+	<require from="../step-ingredient/step-ingredient"></require>
+	
+	<p repeat.for="phrase of step.phrases">
+		<compose repeat.for="part of phrase.parts" model.bind="part" view-model="../step-${part.type}/step-${part.type}"></compose>
+	</p>
+	<quick-recipe-step if.bind="step.postStep" step.bind="step.postStep"></quick-recipe-step>
+</template>
