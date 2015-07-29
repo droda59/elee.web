@@ -1,4 +1,4 @@
-import {ActionPart} from "../../models/quick-recipe";
+import {ActionPart} from "models/quick-recipe";
 
 export class StepAction {
 	action: string;

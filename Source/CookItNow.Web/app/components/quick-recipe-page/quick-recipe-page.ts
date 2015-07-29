@@ -1,6 +1,6 @@
 import {inject} from "aurelia-framework";
 import {HttpClient} from "aurelia-http-client";
-import {QuickRecipe, Ingredient, Step} from "../../models/quick-recipe";
+import {QuickRecipe, Ingredient, Step} from "models/quick-recipe";
 
 class QuickRecipeSubrecipeIngredient {
 	subrecipeTitle: string;

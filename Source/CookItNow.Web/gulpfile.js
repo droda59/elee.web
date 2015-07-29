@@ -26,7 +26,7 @@ var path = {
 };
 
 gulp.task("clean", function () {
-    return gulp.src([path.typescript.js, path.less.css, "!Scripts/**/app-bundle.js"])
+    return gulp.src([path.typescript.js, path.less.css, "!app-bundle.js"])
        .pipe(vinylPaths(del));
 });
 
@@ -38,7 +38,8 @@ gulp.task('build-ts', function () {
             sourceMap: false, 
             emitError: false, 
             target: "ES5",
-            emitDecoratorMetadata: true
+            emitDecoratorMetadata: true,
+            experimentalDecorators : true
         }))
         .pipe(gulp.dest(path.typescript.dest))
         .pipe(browserSync.reload({ stream: true }));

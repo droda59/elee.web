@@ -1,4 +1,4 @@
-import {Quantity} from "quantity"; 
+import {Quantity} from "models/quantity"; 
 
 export interface QuickRecipe {
     id : number;

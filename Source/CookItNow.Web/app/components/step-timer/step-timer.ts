@@ -1,5 +1,5 @@
-import {Timer} from "../../models/timer";
-import {TimerPart} from "../../models/quick-recipe";
+import {Timer} from "models/timer";
+import {TimerPart} from "models/quick-recipe";
 import {inject} from "aurelia-framework";
 import {EventAggregator} from "aurelia-event-aggregator";
 

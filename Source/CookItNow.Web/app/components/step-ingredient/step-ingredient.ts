@@ -1,5 +1,5 @@
-import {IngredientPart, Ingredient} from "../../models/quick-recipe";
-import {Quantity} from "../../models/quantity";
+import {IngredientPart, Ingredient} from "models/quick-recipe";
+import {Quantity} from "models/quantity";
 
 export class StepIngredient {
 	private _ingredient: Ingredient;
