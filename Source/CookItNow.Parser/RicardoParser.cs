@@ -11,8 +11,6 @@ using CookItNow.Parser.Utils;
 
 using HtmlAgilityPack;
 
-using Microsoft.Practices.Unity;
-
 namespace CookItNow.Parser
 {
     internal class RicardoParser : HtmlParser
@@ -29,7 +27,7 @@ namespace CookItNow.Parser
         {
             this._actionDetectorFactory = actionDetectorFactory;
 
-            this._wordExpression = new Regex("[a-zA-Z0-9\\u00C0-\\u017F\\(\\),']+ ", RegexOptions.Compiled);
+            this._wordExpression = new Regex("[\\S)]+|[\\)]\\b", RegexOptions.Compiled);
             this._quantityExpression = new Regex("\\w+", RegexOptions.Compiled);
             this._ingredientExpression = new Regex("(?<=[a-zA-Z0-9\\u00C0-\\u017F\\s\\(\\)] de |d')[a-zA-Z0-9\\u00C0-\\u017F\\s]+(?=[,\\w\\s]*)", RegexOptions.Compiled);
         }
@@ -151,12 +149,11 @@ namespace CookItNow.Parser
                         var words = this._wordExpression.Matches(splitPhrase);
                         var wordCount = 0;
                         var phraseBuilder = new StringBuilder();
-                        Type previouslyReadType = null;
                         Type currentlyReadType = null;
                         while (wordCount < words.Count)
                         {
                             var word = words[wordCount];
-                            previouslyReadType = currentlyReadType;
+                            var previouslyReadType = currentlyReadType;
 
                             if (this._actionDetector.IsAction(word.Value.Trim()))
                             {
@@ -177,7 +174,7 @@ namespace CookItNow.Parser
                             wordCount++;
                         }
 
-                        phrase.Parts.Add(this.FlushPhrasePart(phraseBuilder, previouslyReadType));
+                        phrase.Parts.Add(this.FlushPhrasePart(phraseBuilder, currentlyReadType));
                         step.Phrases.Add(phrase);   
                     }
 

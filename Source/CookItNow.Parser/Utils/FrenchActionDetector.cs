@@ -27,6 +27,7 @@ namespace CookItNow.Parser.Utils
             this._acceptedActions.Add("mélanger");
             this._acceptedActions.Add("parsemer");
             this._acceptedActions.Add("placer");
+            this._acceptedActions.Add("porter");
             this._acceptedActions.Add("préchauffer");
             this._acceptedActions.Add("réchauffer");
             this._acceptedActions.Add("refermer");
