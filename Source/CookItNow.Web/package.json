@@ -22,7 +22,7 @@
   },
   "jspm": {
     "dependencies": {
-      "aurelia-animator-css": "github:aurelia/animator-css@0.2.0",
+      "aurelia-animator-css": "github:aurelia/animator-css@0.13.0",
       "aurelia-binding": "github:aurelia/binding@0.7.3",
       "aurelia-bootstrapper": "github:aurelia/bootstrapper@0.13.1",
       "aurelia-computed": "github:jdanyow/aurelia-computed@0.2.0",

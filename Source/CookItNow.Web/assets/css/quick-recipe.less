@@ -192,27 +192,99 @@
             .step {
                 line-height: 2.5rem;
                 
-                .action {
-                    font-size: 2.5rem;
-                    font-weight: 500;
+                .phrase {
+                    .action {
+                        font-size: 2.5rem;
+                        font-weight: 500;
+                    }
+                    .ingredient {
+                        .value {
+                            font-size: 2rem;
+                        }
+                        .unit {
+                            font-size: 2rem;
+                        }
+                        .type {
+                            font-size: 2rem;
+                        }
+                        .requirements {
+                            font-size: 1.7rem;
+                        }
+                    }
+                    .timer {
+                        color: dodgerblue;
+                        font-size: 1.5rem;
+                    }
                 }
-                .ingredient {
-                    .value {
-                        font-size: 2rem;
-                    }
-                    .unit {
-                        font-size: 2rem;
-                    }
-                    .type {
-                        font-size: 2rem;
-                    }
-                    .requirements {
-                        font-size: 1.7rem;
+                
+                .phrase.previousest-step,
+                .phrase.nextest-step {
+                    opacity: 0.3;
+                    
+                    .complete-button {
+                        visibility: hidden;
                     }
                 }
-                .timer {
-                    color: dodgerblue;
-                    font-size: 1.5rem;
+                .phrase.previous-step,
+                .phrase.next-step {
+                    opacity: 0.6;
+                    
+                    .complete-button {
+                        visibility: hidden;
+                    }
+                }
+                .phrase.current-step {
+                    color: firebrick;
+                    
+                    .complete-button {
+                        visibility: visible;
+                    }
+                }
+                
+                .phrase.current-step-animation-add {
+                    -webkit-animation: changeBack 2s;
+                    animation: changeBack 2s;
+                }
+                
+                .phrase.current-step-animation-remove {
+                    -webkit-animation: fadeIn 2s;
+                    animation: fadeIn 2s;
+                }
+                
+                @-webkit-keyframes fadeIn {
+                    0%   { opacity: 0; }
+                    100% { opacity: 1; }
+                }
+                
+                @keyframes fadeIn {
+                    0%   { opacity: 0; }
+                    100% { opacity: 1; }
+                }
+                
+                @-webkit-keyframes fadeOut {
+                    0%   { opacity: 1; }
+                    100% { opacity: 0; }
+                }
+                
+                @keyframes fadeOut {
+                    0%   { opacity: 1; }
+                    100% { opacity: 0; }
+                }
+                
+                @-webkit-keyframes changeBack {
+                    0% { background-color: green; }
+                    25% { background-color: red; }
+                    50% { background-color: blue; }
+                    75% { background-color: violet; }
+                    100% { background-color: yellow; }
+                }
+                
+                @keyframes changeBack {
+                    0% { background-color: green; }
+                    25% { background-color: red; }
+                    50% { background-color: blue; }
+                    75% { background-color: violet; }
+                    100% { background-color: yellow; }
                 }
             }
         }

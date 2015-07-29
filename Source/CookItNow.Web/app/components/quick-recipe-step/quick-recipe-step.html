@@ -1,11 +1,12 @@
 <template>
-	<require from="../step-text/step-text"></require>
-	<require from="../step-action/step-action"></require>
-	<require from="../step-timer/step-timer"></require>
-	<require from="../step-ingredient/step-ingredient"></require>
+	<require from="components/step-text/step-text"></require>
+	<require from="components/step-action/step-action"></require>
+	<require from="components/step-timer/step-timer"></require>
+	<require from="components/step-ingredient/step-ingredient"></require>
 	
-	<p repeat.for="phrase of step.phrases">
-		<compose repeat.for="part of phrase.parts" model.bind="part" view-model="../step-${part.type}/step-${part.type}"></compose>
+	<p repeat.for="phrase of step.phrases" class="phrase">
+		<compose repeat.for="part of phrase.parts" model.bind="part" view-model="components/step-${part.type}/step-${part.type}"></compose>
+		<a class="complete-button waves-effect waves-light btn" click.delegate="$parent.completeStep($event)">Done</a>
 	</p>
 	<quick-recipe-step if.bind="step.postStep" step.bind="step.postStep"></quick-recipe-step>
 </template>

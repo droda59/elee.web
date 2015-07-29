@@ -1,4 +1,6 @@
+import {CssAnimator} from 'aurelia-animator-css';
 import {inject} from "aurelia-framework";
+import {EventAggregator} from "aurelia-event-aggregator";
 import {HttpClient} from "aurelia-http-client";
 import {QuickRecipe, Ingredient, Step} from "models/quick-recipe";
 
@@ -12,15 +14,20 @@ class QuickRecipeSubrecipeStep {
 	steps: Step[];
 }
 
-@inject (HttpClient)
+@inject (HttpClient, EventAggregator, CssAnimator)
 export class QuickRecipePage {
     private _http: HttpClient;
+	private _animator: CssAnimator;
+	private _eventAggregator: EventAggregator;
+	
     recipe: QuickRecipe;
 	subrecipeIngredients: QuickRecipeSubrecipeIngredient[] = [];
 	subrecipeSteps: QuickRecipeSubrecipeStep[] = [];
 	
-	constructor(http: HttpClient) {
+	constructor(http: HttpClient, eventAggregator: EventAggregator, animator: CssAnimator) {
 		this._http = http;
+		this._animator = animator;
+		this._eventAggregator = eventAggregator;
 	}
 	
 	activate(route, routeConfig) {
@@ -41,6 +48,7 @@ export class QuickRecipePage {
 			
 			routeConfig.navModel.title = this.recipe.title;
 			
+			// TODO Ugly-ass code; maybe it can be done server-side, we don't need that shit here
 			var floatingIngredients = this.recipe.ingredients.filter(
 				(ingredient) => !ingredient.subrecipeId || ingredient.subrecipeId === 0
 			);
@@ -82,6 +90,39 @@ export class QuickRecipePage {
 			);
         });
 	}
+	
+    attached() {
+		var that = this;
+		this._eventAggregator.subscribe("STEPCOMPLETED", element => {
+			that._animator.removeClass(element, "current-step");
+			that._animator.addClass(element, "previous-step");
+			that._animator.animate(element, "current-step-animation");
+			
+			// TODO Find those more intelligently: currently they just search for other phrases in step
+			var previous = element.previousElementSibling;
+			if (previous) {
+				that._animator.removeClass(previous, "previous-step");
+				that._animator.addClass(previous, "previousest-step");
+			}
+			
+			var newCurrent = element.nextElementSibling;
+			if (newCurrent) {
+				that._animator.removeClass(newCurrent, "next-step");
+				that._animator.addClass(newCurrent, "current-step");
+				
+				var next = newCurrent.nextElementSibling;
+				if (next) {
+					that._animator.removeClass(next, "nextest-step");
+					that._animator.addClass(next, "next-step");
+					
+					var nextest = next.nextElementSibling;
+					if (nextest) {
+						that._animator.addClass(nextest, "nextest-step");
+					}
+				}
+			}
+		});
+    }
 
 	canDeactivate(){
 		return confirm('Are you sure you want to leave?');
