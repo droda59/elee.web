@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -28,8 +29,8 @@ namespace CookItNow.Parser
             this._actionDetectorFactory = actionDetectorFactory;
 
             this._wordExpression = new Regex("[\\S)]+|[\\)]\\b", RegexOptions.Compiled);
-            this._quantityExpression = new Regex("\\w+", RegexOptions.Compiled);
-            this._ingredientExpression = new Regex("(?<=[a-zA-Z0-9\\u00C0-\\u017F\\s\\(\\)] de |d')[a-zA-Z0-9\\u00C0-\\u017F\\s]+(?=[,\\w\\s]*)", RegexOptions.Compiled);
+            this._quantityExpression = new Regex("\\w+[\\w,./]*", RegexOptions.Compiled);
+            this._ingredientExpression = new Regex("(?<=[a-zA-Z0-9\\u00C0-\\u017F\\s()/%] de | d'| d’)([a-zA-Z0-9\\u00C0-\\u017F\\s()/%]+)(, [,\\w\\s]+)*", RegexOptions.Compiled);
         }
 
         public override async Task<QuickRecipe> ParseHtmlAsync(Uri uri)
@@ -44,6 +45,7 @@ namespace CookItNow.Parser
             document.LoadHtml(content);
 
             var language = document.DocumentNode.SelectSingleNode("//html").Attributes["lang"].Value.Trim();
+            var cultureInfoFromLanguage = CultureInfo.GetCultureInfoByIetfLanguageTag(language);
 
             this._actionDetector = this._actionDetectorFactory(language);
 
@@ -84,36 +86,34 @@ namespace CookItNow.Parser
                 var ingredientNodes = subrecipeNode.NextSibling.NextSibling.SelectNodes(".//li//label[@itemprop='ingredients']//span");
                 foreach (var ingredientNode in ingredientNodes)
                 {
-                    List<string> requirements = null;
                     var name = ingredientNode.InnerText.Trim();
-                    var splitRequirements = name.Split(',');
-                    if (splitRequirements.Length > 1)
-                    {
-                        requirements = splitRequirements.Skip(1).Select(x => x.Trim()).ToList();
-                        foreach (var requirement in requirements)
-                        {
-                            var requirementAction = this._actionDetector.Actionify(requirement);
-                            recipe.Requirements.Add(new Requirement { Action = requirementAction, IngredientId = ingredientId });
-                        }
-                    }
 
                     var matches = this._quantityExpression.Matches(name);
 
                     var readQuantity = matches[0].Value;
-                    var quantity = double.Parse(readQuantity);
+                    var quantity = double.Parse(readQuantity, cultureInfoFromLanguage);
 
                     var readMeasureUnit = matches[1].Value;
                     var measureUnitEnum = MeasureUnitCreator.GetMeasureUnit(readMeasureUnit, language);
                     var measureUnit = MeasureUnitNameConverter.Convert(measureUnitEnum);
 
                     string readIngredientName;
+                    var readValue = this._ingredientExpression.Match(name);
+                    var splitRequirements = readValue.Value.Split(',');
                     if (measureUnitEnum == MeasureUnit.Unit)
                     {
                         readIngredientName = matches[1].Value;
                     }
                     else
                     {
-                        readIngredientName = this._ingredientExpression.Match(name).Value;
+                        readIngredientName = splitRequirements[0];
+                    }
+
+                    var requirements = splitRequirements.Skip(1).Select(x => x.Trim()).ToList();
+                    foreach (var requirement in requirements)
+                    {
+                        var requirementAction = this._actionDetector.Actionify(requirement);
+                        recipe.Requirements.Add(new Requirement { Action = requirementAction, IngredientId = ingredientId });
                     }
 
                     recipe.Ingredients.Add(new Ingredient
@@ -122,7 +122,7 @@ namespace CookItNow.Parser
                         Quantity = new Quantity { Value = quantity, OriginalMeasureUnit = measureUnit },
                         Name = readIngredientName,
                         SubRecipeId = i,
-                        Requirements = requirements
+                        Requirements = requirements.Any() ? requirements : null
                     });
 
                     ingredientId++;
