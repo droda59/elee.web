@@ -57,7 +57,23 @@ namespace CookItNow.Parser.Utils
 
         public string Actionify(string word)
         {
-            return word + "er";
+            // TODO Prendre en considération le féminin
+            // TODO Prendre en considération qu'on ne recevrait pas toujours un seul mot
+            string action = null;
+            if (word.EndsWith("é", StringComparison.OrdinalIgnoreCase))
+            {
+                action = word.Substring(0, word.Length - 1) + "er";
+            }
+            else if (word.EndsWith("i", StringComparison.OrdinalIgnoreCase))
+            {
+                action = word.Substring(0, word.Length - 1) + "ir";
+            }
+            else if (word.EndsWith("u", StringComparison.OrdinalIgnoreCase))
+            {
+                action = word.Substring(0, word.Length - 1) + "re";
+            }
+
+            return action;
         }
     }
 }
