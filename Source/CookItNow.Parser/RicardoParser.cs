@@ -16,16 +16,20 @@ namespace CookItNow.Parser
     internal class RicardoParser : HtmlParser
     {
         private readonly Func<string, IActionDetector> _actionDetectorFactory;
+        private readonly Func<string, ITimerDetector> _timerDetectorFactory;
+
         private readonly Regex _quantityExpression;
         private readonly Regex _ingredientExpression;
         private readonly Regex _wordExpression;
 
         private IActionDetector _actionDetector;
+        private ITimerDetector _timerDetector;
 
-        public RicardoParser(IHtmlLoader htmlLoader, Func<string, IActionDetector> actionDetectorFactory) 
+        public RicardoParser(IHtmlLoader htmlLoader, Func<string, IActionDetector> actionDetectorFactory, Func<string, ITimerDetector> timerDetectorFactory) 
             : base(htmlLoader, "www.ricardocuisine.com")
         {
             this._actionDetectorFactory = actionDetectorFactory;
+            this._timerDetectorFactory = timerDetectorFactory;
 
             this._wordExpression = new Regex("[\\S)]+|[\\)]\\b", RegexOptions.Compiled);
             this._quantityExpression = new Regex("\\w+[\\w,./]*", RegexOptions.Compiled);
@@ -47,6 +51,7 @@ namespace CookItNow.Parser
             var cultureInfoFromLanguage = CultureInfo.GetCultureInfoByIetfLanguageTag(language);
 
             this._actionDetector = this._actionDetectorFactory(language);
+            this._timerDetector = this._timerDetectorFactory(language);
 
             var titleNode = document.DocumentNode.SelectSingleNode("//meta[@name='description']");
             recipe.Title = titleNode.Attributes["content"].Value.Trim();
@@ -57,7 +62,10 @@ namespace CookItNow.Parser
                 .SelectSingleNode(".//dl");
 
             var yieldNode = recipeInfo.SelectSingleNode(".//dd[@itemprop='recipeYield']");
-            recipe.OriginalServings = int.Parse(yieldNode.InnerText);
+            if (yieldNode != null)
+            {
+                recipe.OriginalServings = int.Parse(yieldNode.InnerText);   
+            }
 
             var nodes = recipeInfo.ChildNodes;
             var node = nodes.First();
@@ -67,65 +75,35 @@ namespace CookItNow.Parser
                 {
                     var nextSibling = node.NextSibling.NextSibling;
                     var title = node.InnerText.Trim();
-                    var time = nextSibling.SelectSingleNode(".//meta[@itemprop]").Attributes["content"].Value;
-
-                    recipe.Durations.Add(new Duration { Title = title, Time = time });
+                    var infoContent = nextSibling.SelectSingleNode(".//meta[@itemprop]");
+                    if (infoContent != null)
+                    {
+                        var time = infoContent.Attributes["content"].Value;
+                        recipe.Durations.Add(new Duration { Title = title, Time = time });
+                    }
                 }
 
                 node = node.NextSibling;
             }
 
             var ingredientId = 0;
-            var subrecipeNodes = document.DocumentNode.SelectNodes("//section[@class='ingredients']//div[@class='frmInnerWrap']//h3");
-            for (var i = 0; i < subrecipeNodes.Count; i++)
+            var ingredientsSection = document.DocumentNode.SelectSingleNode("//section[@class='ingredients']//div[@class='frmInnerWrap']");
+            var subrecipeNodes = ingredientsSection.SelectNodes(".//h3");
+            if (subrecipeNodes != null && subrecipeNodes.Any())
             {
-                var subrecipeNode = subrecipeNodes[i];
-                recipe.SubRecipes.Add(new SubRecipe { Id = i, Title = subrecipeNode.InnerText.Trim() });
-
-                var ingredientNodes = subrecipeNode.NextSibling.NextSibling.SelectNodes(".//li//label[@itemprop='ingredients']//span");
-                foreach (var ingredientNode in ingredientNodes)
+                for (var subrecipeId = 0; subrecipeId < subrecipeNodes.Count; subrecipeId++)
                 {
-                    var name = ingredientNode.InnerText.Trim();
+                    var subrecipeNode = subrecipeNodes[subrecipeId];
+                    recipe.SubRecipes.Add(new SubRecipe { Id = subrecipeId, Title = subrecipeNode.InnerText.Trim() });
 
-                    var matches = this._quantityExpression.Matches(name);
-
-                    var readQuantity = matches[0].Value;
-                    var quantity = double.Parse(readQuantity, cultureInfoFromLanguage);
-
-                    var readMeasureUnit = matches[1].Value;
-                    var measureUnitEnum = MeasureUnitCreator.GetMeasureUnit(readMeasureUnit, language);
-                    var measureUnit = MeasureUnitNameConverter.Convert(measureUnitEnum);
-
-                    string readIngredientName;
-                    var readValue = this._ingredientExpression.Match(name);
-                    var splitRequirements = readValue.Value.Split(',');
-                    if (measureUnitEnum == MeasureUnit.Unit)
-                    {
-                        readIngredientName = matches[1].Value;
-                    }
-                    else
-                    {
-                        readIngredientName = splitRequirements[0];
-                    }
-
-                    var requirements = splitRequirements.Skip(1).Select(x => x.Trim()).ToList();
-                    foreach (var requirement in requirements)
-                    {
-                        var requirementAction = this._actionDetector.Actionify(requirement);
-                        recipe.Requirements.Add(new Requirement { Action = requirementAction, IngredientId = ingredientId });
-                    }
-
-                    recipe.Ingredients.Add(new Ingredient
-                    {
-                        Id = ingredientId,
-                        Quantity = new Quantity { Value = quantity, OriginalMeasureUnit = measureUnit },
-                        Name = readIngredientName,
-                        SubRecipeId = i,
-                        Requirements = requirements.Any() ? requirements : null
-                    });
-
-                    ingredientId++;
+                    var subrecipeIngredientNodes = subrecipeNode.NextSibling.NextSibling.SelectNodes(".//li//label[@itemprop='ingredients']//span");
+                    this.ParseIngredients(subrecipeIngredientNodes, cultureInfoFromLanguage, language, recipe, ref ingredientId, subrecipeId);
                 }
+            }
+            else
+            {
+                var orphanIngredientNodes = ingredientsSection.SelectNodes(".//li//label[@itemprop='ingredients']//span");
+                this.ParseIngredients(orphanIngredientNodes, cultureInfoFromLanguage, language, recipe, ref ingredientId);
             }
 
             var stepSubrecipeNodes = document.DocumentNode.SelectNodes("//section[@itemprop='recipeInstructions']//h3");
@@ -147,16 +125,39 @@ namespace CookItNow.Parser
                         var phrase = new Phrase();
                         var words = this._wordExpression.Matches(splitPhrase);
                         var wordCount = 0;
+                        var skipNextWord = false;
                         var phraseBuilder = new StringBuilder();
                         Type currentlyReadType = null;
                         while (wordCount < words.Count)
                         {
-                            var word = words[wordCount];
+                            if (skipNextWord)
+                            {
+                                wordCount++;
+                                skipNextWord = false;
+                                continue;
+                            }
+
+                            var word = words[wordCount].Value;
                             var previouslyReadType = currentlyReadType;
 
-                            if (this._actionDetector.IsAction(word.Value.Trim()))
+                            int time;
+                            if (int.TryParse(word, out time) && wordCount + 1 < words.Count)
+                            {
+                                var nextWord = words[wordCount + 1].Value.Trim();
+                                if (this._timerDetector.IsTimeQualifier(nextWord))
+                                {
+                                    word = this._timerDetector.Timerify(time, nextWord);
+                                    skipNextWord = true;
+                                }
+                            }
+
+                            if (this._actionDetector.IsAction(word.Trim()))
                             {
                                 currentlyReadType = typeof(ActionPart);
+                            }
+                            else if (this._timerDetector.IsTimer(word.Trim()))
+                            {
+                                currentlyReadType = typeof(TimerPart);
                             }
                             else
                             {
@@ -165,15 +166,15 @@ namespace CookItNow.Parser
 
                             if (previouslyReadType != null && previouslyReadType != currentlyReadType)
                             {
-                                phrase.Parts.Add(this.FlushPhrasePart(phraseBuilder, previouslyReadType));
+                                this.FlushPhrasePart(phrase, phraseBuilder, previouslyReadType);
                             }
 
-                            phraseBuilder.AppendFormat("{0} ", word.Value);
+                            phraseBuilder.AppendFormat("{0} ", word);
 
                             wordCount++;
                         }
 
-                        phrase.Parts.Add(this.FlushPhrasePart(phraseBuilder, currentlyReadType));
+                        this.FlushPhrasePart(phrase, phraseBuilder, currentlyReadType);
                         step.Phrases.Add(phrase);   
                     }
 
@@ -184,7 +185,61 @@ namespace CookItNow.Parser
             return recipe;
         }
 
-        private Part FlushPhrasePart(StringBuilder phraseBuilder, Type readType)
+        private void ParseIngredients(
+            HtmlNodeCollection ingredientNodes,
+            CultureInfo culture,
+            string language,
+            QuickRecipe recipe,
+            ref int ingredientId,
+            int? subrecipeId = null)
+        {
+            foreach (var ingredientNode in ingredientNodes)
+            {
+                var name = ingredientNode.InnerText.Trim();
+
+                var matches = this._quantityExpression.Matches(name);
+
+                var readQuantity = matches[0].Value;
+                var quantity = double.Parse(readQuantity, culture);
+
+                var readMeasureUnit = matches[1].Value;
+                var measureUnitEnum = MeasureUnitCreator.GetMeasureUnit(readMeasureUnit, language);
+                var measureUnit = MeasureUnitNameConverter.Convert(measureUnitEnum);
+
+                string readIngredientName;
+                var readValue = this._ingredientExpression.Match(name);
+                var splitRequirements = readValue.Value.Split(',');
+                if (measureUnitEnum == MeasureUnit.Unit)
+                {
+                    readIngredientName = matches[1].Value;
+                }
+                else
+                {
+                    readIngredientName = splitRequirements[0];
+                }
+
+                var requirements = splitRequirements.Skip(1).Select(x => x.Trim()).ToList();
+                foreach (var requirement in requirements)
+                {
+                    var requirementAction = this._actionDetector.Actionify(requirement);
+                    recipe.Requirements.Add(new Requirement { Action = requirementAction, IngredientId = ingredientId });
+                }
+
+                recipe.Ingredients.Add(
+                    new Ingredient
+                        {
+                            Id = ingredientId,
+                            Quantity = new Quantity { Value = quantity, OriginalMeasureUnit = measureUnit },
+                            Name = readIngredientName,
+                            SubRecipeId = subrecipeId,
+                            Requirements = requirements.Any() ? requirements : null
+                        });
+
+                ingredientId++;
+            }
+        }
+
+        private void FlushPhrasePart(Phrase phrase, StringBuilder phraseBuilder, Type readType)
         {
             if (phraseBuilder.Length > 0)
             {
@@ -193,15 +248,18 @@ namespace CookItNow.Parser
 
                 if (readType == typeof(ActionPart))
                 {
-                    return new ActionPart { Value = value };
+                    phrase.Parts.Add(new ActionPart { Value = value });
+                }
+                else if (readType == typeof(TimerPart))
+                {
+                    var previousAction = phrase.Parts.Last(x => x is ActionPart) as ActionPart;
+                    phrase.Parts.Add(new TimerPart { Action = previousAction.Value, Value = value });
                 }
                 else if (readType == typeof(TextPart))
                 {
-                    return new TextPart { Value = value };
+                    phrase.Parts.Add(new TextPart { Value = value });
                 }
             }
-
-            return null;
         }
 
         private Task<string> GetOfflineHtmlContent()

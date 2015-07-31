@@ -1,6 +1,6 @@
 namespace CookItNow.Parser.Utils
 {
-    public interface IActionDetector
+    internal interface IActionDetector
     {
         bool IsAction(string part);
 

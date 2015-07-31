@@ -60,7 +60,10 @@
     <Compile Include="UnityConfig.cs" />
     <Compile Include="Utils\ActionDetector.cs" />
     <Compile Include="Utils\FrenchActionDetector.cs" />
+    <Compile Include="Utils\FrenchTimerDetector.cs" />
     <Compile Include="Utils\IActionDetector.cs" />
+    <Compile Include="Utils\ITimerDetector.cs" />
+    <Compile Include="Utils\TimerDetector.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
