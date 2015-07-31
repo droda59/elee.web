@@ -187,10 +187,13 @@
             // color: white;
             width: calc(~'100% - 396px');
             height: calc(~'100vh - 165px');
-            overflow-y: auto;
+            // overflow-y: auto;
+            overflow: hidden;
+            position: relative;
             
             .step {
                 line-height: 2.5rem;
+                list-style-type: none;
                 
                 .phrase {
                     .action {
@@ -218,6 +221,11 @@
                 }
                 
                 .phrase {
+                    visibility: hidden;
+                    position: absolute;
+                    bottom: 0;
+                    height: 100%;
+                    
                     .complete-button {
                         visibility: hidden;
                     }
@@ -225,28 +233,34 @@
                 .phrase.completed-step {
                     text-decoration: line-through;
                 }
-                .phrase.previousest-step,
-                .phrase.nextest-step {
-                    opacity: 0.3;
-                    
-                    .complete-button {
-                        visibility: hidden;
-                    }
+                .phrase.previousest-step {
+                    opacity: 0.2;
+                    top: 10%;
+                    visibility: visible;
                 }
-                .phrase.previous-step,
-                .phrase.next-step {
+                .phrase.previous-step {
+                    top: 30%;
                     opacity: 0.6;
-                    
-                    .complete-button {
-                        visibility: hidden;
-                    }
+                    visibility: visible;
                 }
                 .phrase.current-step {
                     color: firebrick;
+                    top: 50%;
+                    visibility: visible;
                     
                     .complete-button {
                         visibility: visible;
                     }
+                }
+                .phrase.next-step {
+                    top: 70%;
+                    opacity: 0.6;
+                    visibility: visible;
+                }
+                .phrase.nextest-step {
+                    top: 90%;
+                    opacity: 0.2;
+                    visibility: visible;
                 }
                 
                 .phrase.current-step-animation-add {

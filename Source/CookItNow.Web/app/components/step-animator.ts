@@ -31,6 +31,10 @@ export class StepAnimator {
 	}
 
 	private completeStep(element: Element): void {
+		if (this._previousestStep) {
+			this._animator.removeClass(this._previousStep, "previousest-step");
+		}
+		
 		if (this._previousStep) {
 			this._animator.removeClass(this._previousStep, "previous-step")
 				.then(this.previousestStep = this._previousStep);
