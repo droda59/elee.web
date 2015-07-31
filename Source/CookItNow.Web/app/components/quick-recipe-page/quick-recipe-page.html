@@ -57,7 +57,7 @@
 					</ol>
 				</div>
 				
-				<div repeat.for="subrecipe of subrecipeSteps">
+				<div repeat.for="subrecipe of subrecipeSteps" class="subrecipe">
 					<h2 if.bind="subrecipe.subrecipeTitle" class="center">${subrecipe.subrecipeTitle}</h2>
 					<ol>
 						<li repeat.for="step of subrecipe.steps" class="step">

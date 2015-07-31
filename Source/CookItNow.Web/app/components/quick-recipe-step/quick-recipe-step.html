@@ -8,5 +8,5 @@
 		<compose repeat.for="part of phrase.parts" model.bind="part" view-model="components/step-${part.type}/step-${part.type}"></compose>
 		<a class="complete-button waves-effect waves-light btn" click.delegate="$parent.completeStep($event)">Done</a>
 	</p>
-	<quick-recipe-step if.bind="step.postStep" step.bind="step.postStep"></quick-recipe-step>
+	<quick-recipe-step if.bind="step.postStep" step.bind="step.postStep" class="postStep"></quick-recipe-step>
 </template>
