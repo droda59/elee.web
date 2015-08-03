@@ -32,7 +32,7 @@ export class StepAnimator {
 
 	private completeStep(element: Element): void {
 		if (this._previousestStep) {
-			this._animator.removeClass(this._previousStep, "previousest-step");
+			this._animator.removeClass(this._previousestStep, "previousest-step");
 		}
 		
 		if (this._previousStep) {
@@ -83,6 +83,9 @@ export class StepAnimator {
 			else {
 				var nextSubrecipe: Element = $(element).parents(".subrecipe")[0].nextElementSibling;
 				if (nextSubrecipe && nextSubrecipe.classList.contains("subrecipe")) {
+					var nextSubrecipeTitle = $(nextSubrecipe).find("h2")[0];
+					this._animator.animate(nextSubrecipeTitle, "show-subrecipe-title-animation");
+					
 					return this.findFirstStep(nextSubrecipe);
 				}
 			}

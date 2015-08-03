@@ -50,18 +50,20 @@
 			</aside>
 			
 			<div class="main section col right">
-				<div if.bind="recipe.requirements">
-					<h2 class="center">Préparation</h2>
+				<!--<div if.bind="recipe.requirements" class="subrecipe">
+					<h2 class="center subrecipe-title">Préparation</h2>
 					<ol>
 						<li repeat.for="requirement of recipe.requirements" class="step">
-							<span class="action">${requirement.action}</span>
-							<measurable-ingredient ingredient.bind="$parent.recipe.ingredients | filterSingleOnProperty:'id':requirement.ingredientId"></measurable-ingredient>
+							<div class="phrase">
+								<span class="action">${requirement.action}</span>
+								<measurable-ingredient ingredient.bind="$parent.recipe.ingredients | filterSingleOnProperty:'id':requirement.ingredientId"></measurable-ingredient>
+							</div>
 						</li>
 					</ol>
 				</div>
-				
+				-->
 				<div repeat.for="subrecipe of subrecipeSteps" class="subrecipe">
-					<h2 if.bind="subrecipe.subrecipeTitle" class="center">${subrecipe.subrecipeTitle}</h2>
+					<h2 if.bind="subrecipe.subrecipeTitle" class="center subrecipe-title au-animate">${subrecipe.subrecipeTitle}</h2>
 					<ol>
 						<li repeat.for="step of subrecipe.steps" class="step">
 							<quick-recipe-step step.bind="step"></quick-recipe-step>

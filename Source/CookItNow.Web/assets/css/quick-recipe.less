@@ -191,6 +191,21 @@
             overflow: hidden;
             position: relative;
             
+            .subrecipe-title {
+                visibility: hidden;
+                position: absolute;
+                background-color: white;
+                height: 100%;
+                width: 100%;
+                z-index: 1;
+            }
+            .show-subrecipe-title-animation-add {
+                animation: slideIn 2s;
+            }
+            .show-subrecipe-title-animation-remove {
+                animation: slideAway 2s;
+            }
+            
             .step {
                 line-height: 2.5rem;
                 list-style-type: none;
@@ -273,9 +288,26 @@
                     animation: fadeIn 2s;
                 }
                 
-                @-webkit-keyframes fadeIn {
-                    0%   { opacity: 0; }
-                    100% { opacity: 1; }
+                @keyframes slideIn {
+                    0%   { 
+                        top: 90%;
+                        visibility: hidden; 
+                    }
+                    100% { 
+                        top: 50%;
+                        visibility: visible; 
+                    }
+                }
+                
+                @keyframes slideAway {
+                    0%   { 
+                        top: 50%; 
+                        visibility: visible; 
+                    }
+                    100% { 
+                        top: 10%; 
+                        visibility: hidden; 
+                    }
                 }
                 
                 @keyframes fadeIn {
@@ -283,22 +315,9 @@
                     100% { opacity: 1; }
                 }
                 
-                @-webkit-keyframes fadeOut {
-                    0%   { opacity: 1; }
-                    100% { opacity: 0; }
-                }
-                
                 @keyframes fadeOut {
                     0%   { opacity: 1; }
                     100% { opacity: 0; }
-                }
-                
-                @-webkit-keyframes changeBack {
-                    0% { background-color: green; }
-                    25% { background-color: red; }
-                    50% { background-color: blue; }
-                    75% { background-color: violet; }
-                    100% { background-color: yellow; }
                 }
                 
                 @keyframes changeBack {
