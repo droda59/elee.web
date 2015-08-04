@@ -40,7 +40,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MeasureUnit.cs" />
-    <Compile Include="MeasureUnitCreator.cs" />
     <Compile Include="MeasureUnitNameConverter.cs" />
     <Compile Include="Models\ActionPart.cs" />
     <Compile Include="Models\Duration.cs" />

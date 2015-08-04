@@ -2,21 +2,21 @@
 
 namespace CookItNow.Parser.Utils
 {
-    internal class TimerDetector : ITimerDetector
+    internal class EnglishTimerDetector : ITimerDetector
     {
         public bool IsTimer(string word)
         {
-            return false;
+            throw new NotImplementedException();
         }
 
         public bool IsTimeQualifier(string part)
         {
-            return false;
+            throw new NotImplementedException();
         }
 
         public string Timerify(int time, string word)
         {
-            return word;
+            throw new NotImplementedException();
         }
     }
 }

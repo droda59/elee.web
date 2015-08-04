@@ -2,16 +2,16 @@
 
 namespace CookItNow.Parser.Utils
 {
-    internal class ActionDetector : IActionDetector
+    internal class EnglishActionDetector : IActionDetector
     {
         public bool IsAction(string part)
         {
-            return false;
+            throw new NotImplementedException();
         }
 
         public string Actionify(string word)
         {
-            return word;
+            throw new NotImplementedException();
         }
     }
 }

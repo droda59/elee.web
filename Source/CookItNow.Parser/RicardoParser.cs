@@ -15,8 +15,10 @@ namespace CookItNow.Parser
 {
     internal class RicardoParser : HtmlParser
     {
-        private readonly Func<string, IActionDetector> _actionDetectorFactory;
-        private readonly Func<string, ITimerDetector> _timerDetectorFactory;
+        private readonly Func<CultureInfo, IActionDetector> _actionDetectorFactory;
+        private readonly Func<CultureInfo, ITimerDetector> _timerDetectorFactory;
+        private readonly Func<CultureInfo, IIngredientDetector> _ingredientDetectorFactory;
+        private readonly Func<CultureInfo, IMeasureUnitDetector> _measureUnitDetectorFactory;
 
         private readonly Regex _quantityExpression;
         private readonly Regex _ingredientExpression;
@@ -24,22 +26,30 @@ namespace CookItNow.Parser
 
         private IActionDetector _actionDetector;
         private ITimerDetector _timerDetector;
+        private IIngredientDetector _ingredientDetector;
+        private IMeasureUnitDetector _measureUnitDetector;
 
-        public RicardoParser(IHtmlLoader htmlLoader, Func<string, IActionDetector> actionDetectorFactory, Func<string, ITimerDetector> timerDetectorFactory) 
+        public RicardoParser(IHtmlLoader htmlLoader, 
+            Func<CultureInfo, IActionDetector> actionDetectorFactory, 
+            Func<CultureInfo, ITimerDetector> timerDetectorFactory,
+            Func<CultureInfo, IIngredientDetector> ingredientDetectorFactory, 
+            Func<CultureInfo, IMeasureUnitDetector> measureUnitDetectorFactory) 
             : base(htmlLoader, "www.ricardocuisine.com")
         {
             this._actionDetectorFactory = actionDetectorFactory;
             this._timerDetectorFactory = timerDetectorFactory;
+            this._ingredientDetectorFactory = ingredientDetectorFactory;
+            this._measureUnitDetectorFactory = measureUnitDetectorFactory;
 
-            this._wordExpression = new Regex("[\\S)]+|[\\)]\\b", RegexOptions.Compiled);
+            this._wordExpression = new Regex("[\\w)]+['’]*|[,]|[\\)]\\b", RegexOptions.Compiled);
             this._quantityExpression = new Regex("\\w+[\\w,./]*", RegexOptions.Compiled);
             this._ingredientExpression = new Regex("(?<=[a-zA-Z0-9\\u00C0-\\u017F\\s()/%] de | d'| d’)([a-zA-Z0-9\\u00C0-\\u017F\\s()/%]+)(, [,\\w\\s]+)*", RegexOptions.Compiled);
         }
 
         public override async Task<QuickRecipe> ParseHtmlAsync(Uri uri)
         {
-            //var content = await this.LoadHtmlAsync(uri);
-            var content = await this.GetOfflineHtmlContent();
+            var content = await this.LoadHtmlAsync(uri);
+            //var content = await this.GetOfflineHtmlContent();
 
             var recipe = new QuickRecipe();
             recipe.OriginalUrl = uri.AbsoluteUri;
@@ -50,8 +60,10 @@ namespace CookItNow.Parser
             var language = document.DocumentNode.SelectSingleNode("//html").Attributes["lang"].Value.Trim();
             var cultureInfoFromLanguage = CultureInfo.GetCultureInfoByIetfLanguageTag(language);
 
-            this._actionDetector = this._actionDetectorFactory(language);
-            this._timerDetector = this._timerDetectorFactory(language);
+            this._actionDetector = this._actionDetectorFactory(cultureInfoFromLanguage);
+            this._timerDetector = this._timerDetectorFactory(cultureInfoFromLanguage);
+            this._ingredientDetector = this._ingredientDetectorFactory(cultureInfoFromLanguage);
+            this._measureUnitDetector = this._measureUnitDetectorFactory(cultureInfoFromLanguage);
 
             var titleNode = document.DocumentNode.SelectSingleNode("//meta[@name='description']");
             recipe.Title = titleNode.Attributes["content"].Value.Trim();
@@ -97,13 +109,13 @@ namespace CookItNow.Parser
                     recipe.SubRecipes.Add(new SubRecipe { Id = subrecipeId, Title = subrecipeNode.InnerText.Trim() });
 
                     var subrecipeIngredientNodes = subrecipeNode.NextSibling.NextSibling.SelectNodes(".//li//label[@itemprop='ingredients']//span");
-                    this.ParseIngredients(subrecipeIngredientNodes, cultureInfoFromLanguage, language, recipe, ref ingredientId, subrecipeId);
+                    this.ParseIngredients(subrecipeIngredientNodes, cultureInfoFromLanguage, recipe, ref ingredientId, subrecipeId);
                 }
             }
             else
             {
                 var orphanIngredientNodes = ingredientsSection.SelectNodes(".//li//label[@itemprop='ingredients']//span");
-                this.ParseIngredients(orphanIngredientNodes, cultureInfoFromLanguage, language, recipe, ref ingredientId);
+                this.ParseIngredients(orphanIngredientNodes, cultureInfoFromLanguage, recipe, ref ingredientId);
             }
 
             var stepSubrecipeNodes = document.DocumentNode.SelectNodes("//section[@itemprop='recipeInstructions']//h3");
@@ -140,14 +152,31 @@ namespace CookItNow.Parser
                             var word = words[wordCount].Value;
                             var previouslyReadType = currentlyReadType;
 
-                            int time;
-                            if (int.TryParse(word, out time) && wordCount + 1 < words.Count)
+                            var hasNextWord = wordCount + 1 < words.Count;
+                            var isIngredientReference = false;
+                            if (hasNextWord)
                             {
                                 var nextWord = words[wordCount + 1].Value.Trim();
-                                if (this._timerDetector.IsTimeQualifier(nextWord))
+
+                                int time; 
+                                if (int.TryParse(word, out time))
                                 {
-                                    word = this._timerDetector.Timerify(time, nextWord);
-                                    skipNextWord = true;
+                                    if (this._timerDetector.IsTimeQualifier(nextWord))
+                                    {
+                                        word = this._timerDetector.Timerify(time, nextWord);
+                                        skipNextWord = true;
+                                    }
+                                }
+
+                                if (this._ingredientDetector.IsDeterminant(word))
+                                {
+                                    var referencedIngredient = recipe.Ingredients.FirstOrDefault(x => x.Name.Contains(nextWord));
+                                    if (referencedIngredient != null)
+                                    {
+                                        word = referencedIngredient.Name;
+                                        skipNextWord = true;
+                                        isIngredientReference = true;
+                                    }
                                 }
                             }
 
@@ -159,6 +188,10 @@ namespace CookItNow.Parser
                             {
                                 currentlyReadType = typeof(TimerPart);
                             }
+                            else if (isIngredientReference)
+                            {
+                                currentlyReadType = typeof(IngredientPart);
+                            }
                             else
                             {
                                 currentlyReadType = typeof(TextPart);
@@ -166,7 +199,7 @@ namespace CookItNow.Parser
 
                             if (previouslyReadType != null && previouslyReadType != currentlyReadType)
                             {
-                                this.FlushPhrasePart(phrase, phraseBuilder, previouslyReadType);
+                                this.FlushPhrasePart(recipe, phrase, phraseBuilder, previouslyReadType);
                             }
 
                             phraseBuilder.AppendFormat("{0} ", word);
@@ -174,7 +207,7 @@ namespace CookItNow.Parser
                             wordCount++;
                         }
 
-                        this.FlushPhrasePart(phrase, phraseBuilder, currentlyReadType);
+                        this.FlushPhrasePart(recipe, phrase, phraseBuilder, currentlyReadType);
                         step.Phrases.Add(phrase);   
                     }
 
@@ -187,8 +220,7 @@ namespace CookItNow.Parser
 
         private void ParseIngredients(
             HtmlNodeCollection ingredientNodes,
-            CultureInfo culture,
-            string language,
+            IFormatProvider culture,
             QuickRecipe recipe,
             ref int ingredientId,
             int? subrecipeId = null)
@@ -203,7 +235,7 @@ namespace CookItNow.Parser
                 var quantity = double.Parse(readQuantity, culture);
 
                 var readMeasureUnit = matches[1].Value;
-                var measureUnitEnum = MeasureUnitCreator.GetMeasureUnit(readMeasureUnit, language);
+                var measureUnitEnum = this._measureUnitDetector.GetMeasureUnit(readMeasureUnit);
                 var measureUnit = MeasureUnitNameConverter.Convert(measureUnitEnum);
 
                 string readIngredientName;
@@ -239,7 +271,7 @@ namespace CookItNow.Parser
             }
         }
 
-        private void FlushPhrasePart(Phrase phrase, StringBuilder phraseBuilder, Type readType)
+        private void FlushPhrasePart(QuickRecipe recipe, Phrase phrase, StringBuilder phraseBuilder, Type readType)
         {
             if (phraseBuilder.Length > 0)
             {
@@ -258,6 +290,11 @@ namespace CookItNow.Parser
                 else if (readType == typeof(TextPart))
                 {
                     phrase.Parts.Add(new TextPart { Value = value });
+                }
+                else if (readType == typeof(IngredientPart))
+                {
+                    var referencedIngredient = recipe.Ingredients.First(x => x.Name == value);
+                    phrase.Parts.Add(new IngredientPart { Ingredient = referencedIngredient });
                 }
             }
         }

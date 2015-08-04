@@ -4,6 +4,7 @@ namespace CookItNow.Business
 {
     public static class MeasureUnitNameConverter
     {
+        // TODO Change for automatic deserialization utility
         public static string Convert(MeasureUnit measureUnit)
         {
             switch (measureUnit)

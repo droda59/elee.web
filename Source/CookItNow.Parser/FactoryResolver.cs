@@ -1,6 +1,5 @@
 using System;
-
-using CookItNow.Parser.Utils;
+using System.Globalization;
 
 using Microsoft.Practices.Unity;
 
@@ -8,20 +7,11 @@ namespace CookItNow.Parser
 {
     internal static class FactoryResolver
     {
-        public static Func<string, IActionDetector> ResolveActionDetectorByLanguage(IUnityContainer x)
+        public static Func<CultureInfo, TDetector> ResolveDetectorByLanguage<TDetector>(IUnityContainer x)
         {
-            // TODO Use CultureInfo object instead of string
-            return language => language == "fr"
-                ? x.Resolve<IActionDetector>(typeof(FrenchActionDetector).Name)
-                : x.Resolve<IActionDetector>(typeof(ActionDetector).Name);
-        }
+            var baseName = typeof(TDetector).Name.Remove(0, 1);
 
-        public static Func<string, ITimerDetector> ResolveTimerDetectorByLanguage(IUnityContainer x)
-        {
-            // TODO Use CultureInfo object instead of string
-            return language => language == "fr"
-                ? x.Resolve<ITimerDetector>(typeof(FrenchTimerDetector).Name)
-                : x.Resolve<ITimerDetector>(typeof(TimerDetector).Name);
-        }   
+            return language => x.Resolve<TDetector>(language.EnglishName + baseName);
+        }
     }
 }
