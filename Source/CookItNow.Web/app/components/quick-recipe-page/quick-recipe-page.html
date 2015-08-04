@@ -5,8 +5,6 @@
 	<require from="components/measurable-ingredient/measurable-ingredient"></require>
 	<require from="components/step-animator"></require>
 	
-	<require from="value-converters/filter-on-property"></require>
-	
 	<step-animator element.bind="element"></step-animator>
 	
 	<div class="quick-recipe" class.bind="backgroundClass">
@@ -50,17 +48,14 @@
 			</aside>
 			
 			<div class="main section col right">
-				<!--<div if.bind="recipe.requirements" class="subrecipe">
+				<div if.bind="recipe.requirements" class="subrecipe">
 					<h2 class="center subrecipe-title">Préparation</h2>
 					<ol>
 						<li repeat.for="requirement of recipe.requirements" class="step">
-							<div class="phrase">
-								<span class="action">${requirement.action}</span>
-								<measurable-ingredient ingredient.bind="$parent.recipe.ingredients | filterSingleOnProperty:'id':requirement.ingredientId"></measurable-ingredient>
-							</div>
+							<quick-recipe-step step.bind="requirement"></quick-recipe-step>
 						</li>
 					</ol>
-				</div>-->
+				</div>
 				<div repeat.for="subrecipe of subrecipeSteps" class="subrecipe">
 					<h2 if.bind="subrecipe.subrecipeTitle" class="center subrecipe-title au-animate">${subrecipe.subrecipeTitle}</h2>
 					<ol>

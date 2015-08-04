@@ -60,7 +60,6 @@
         "./app/models/timer.ts", 
         "./app/models/quantity.ts", 
         "./app/resources/aurelia-materialize.ts", 
-        "./app/value-converters/filter-on-property.ts", 
         "./app/value-converters/duration-format.ts",
         "./app/value-converters/quantity-plural-format.ts",
         "./app/value-converters/quantity-human-format.ts"

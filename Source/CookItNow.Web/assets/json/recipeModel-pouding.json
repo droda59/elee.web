@@ -163,16 +163,85 @@
     ],
     "requirements": [
         {
-            "action": "Tamiser",
-            "ingredientId": 3
+            "phrases": [
+                {
+                    "parts": [
+                        {
+                           "type": "action",
+                           "value": "Tamiser" 
+                        },
+                        {
+                           "type": "ingredient", 
+                           "ingredient": {
+                                "id": 3,
+                                "subrecipeId": 1, 
+                                "name": "Cacao",
+                                "quantity": {
+                                    "value": 180,
+                                    "originalMeasureUnit": "ml"
+                                },
+                                "requirements": [
+                                    "tamisé"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
         },
         {
-            "action": "Tamiser",
-            "ingredientId": 10
+            "phrases": [
+                {
+                    "parts": [
+                        {
+                           "type": "action",
+                           "value": "Tamiser" 
+                        },
+                        {
+                           "type": "ingredient", 
+                           "ingredient": {
+                                "id": 10,
+                                "subrecipeId": 2,
+                                "name": "Cacao",
+                                "quantity": {
+                                    "value": 125,
+                                    "originalMeasureUnit": "ml"
+                                },
+                                "requirements": [
+                                    "tamisé"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
         },
         {
-            "action": "Ramollir",
-            "ingredientId": 11
+            "phrases": [
+                {
+                    "parts": [
+                        {
+                           "type": "action",
+                           "value": "Ramollir" 
+                        },
+                        {
+                           "type": "ingredient", 
+                           "ingredient": {
+                                "id": 11,
+                                "subrecipeId": 2,
+                                "name": "Beurre non salé",
+                                "quantity": {
+                                    "value": 125,
+                                    "originalMeasureUnit": "ml"
+                                },
+                                "requirements": [
+                                    "ramolli"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
         }
     ], 
     "steps": [
