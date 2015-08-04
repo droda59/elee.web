@@ -20,6 +20,7 @@ export class QuickRecipePage {
 	subrecipeIngredients: QuickRecipeSubrecipeIngredient[] = [];
 	subrecipeSteps: QuickRecipeSubrecipeStep[] = [];
 	element: Element;
+	backgroundClass: string;
 	
 	constructor(http: HttpClient, element: Element) {
 		this._http = http;
@@ -36,6 +37,20 @@ export class QuickRecipePage {
 				url = "../assets/json/recipeModel-gaufres.json";
 				break;
 			default:
+				break;
+		}
+		
+		// TODO Ugly-ass code; used to decide randomly which background to pick. this should go somewhere else
+		var backgroundId = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+		switch (backgroundId) {
+			case 1:
+				this.backgroundClass = "chalkboard";
+				break;
+			case 2: 
+				this.backgroundClass = "wood";
+				break;
+			default:
+				this.backgroundClass = "stone";
 				break;
 		}
 		

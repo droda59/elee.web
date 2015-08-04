@@ -1,6 +1,9 @@
+@import "theme-og";
+@import "quick-recipe-theme-wood";
+@import "quick-recipe-theme-stone";
+@import "quick-recipe-theme-chalkboard";
+
 .quick-recipe {
-    // background-color: saddlebrown;
-            
     .row {
         margin: 0;
     }
@@ -17,70 +20,77 @@
         }
         
         height: 102px;
-                
-        .dropdown-button {
-            height: 102px;
-            cursor: pointer;
-            
-            > * {
-                line-height: 102px;
-                height: 102px;
-            }
-        }
-        .dropdown-button.active {
-            background-color: rgba(51, 51, 51, 0.08);
-        }
         
         nav {
             box-shadow: none;
-            // background-color: rgba(29, 30, 34, 0.7);
+            background-color: rgba(29, 30, 34, 0.5);
             height: 102px;
             border-bottom: 1px solid rgb(102, 103, 111);
             
             a {
-                // color: rgb(213, 217, 225);
+                color: rgb(213, 217, 225);
             }
             
             .header-dropdown {
-                position: relative;
+                position: absolute;
+                height: 100%;
+                top: 0;
+                
+                .dropdown-button {
+                    height: 100%;
+                    display: block;
+                    cursor: pointer;
+                    line-height: 102px; 
+                                        
+                    i {
+                        height: 100%;
+                        line-height: 102px;
+                    }
+                }
+                .dropdown-button:hover,
+                .dropdown-button.active {
+                    background-color: rgba(226, 225, 221, 0.1);
+                }
+                
+                .dropdown-content {
+                    display: block;
+                    border: 1px solid #66676f;
+                    background-color: rgba(29, 30, 34, 0.3);
+                    opacity: 1;
+                    min-width: 400px;
+                    color: white;
+                    
+                    li > span {
+                        color: white;
+                    }
+                }
             }
             
             .recipe-info {
                 .dropdown-content {
-                    position: fixed;
-                    z-index: 10;
-                    top: 101px;
-                    left: 0;
-                    position: absolute;
-                    top: calc(101px - 1.46rem);
-                    display: block;
-                    border: 1px solid #66676f;
-                    opacity: 1;
-                    width: 400px;
+                    padding: 10px 20px 0;
                 }
             }
 
             .active-timers {
+                right: 0;
+                
+                .dropdown-button {
+                    width: 102px;
+                    text-align: center;
+                }
+                
                 .dropdown-content {
-                    position: fixed;
-                    z-index: 10;
                     right: -1px;
-                    position: absolute;
                     top: calc(102px - 1.46rem);
-                    display: block;
-                    border: 1px solid #66676f;
-                    opacity: 1;
-                    width: 400px;
+                    padding: 10px;
                     
                     .collection {
                         border: none;
                         margin: 0;
-                        padding: 10px;
-                        overflow: inherit;
                         
                         .collection-item {
                             background: none;
-                            height: inherit;
                             padding: 0;
                             
                             .circle {
@@ -92,7 +102,6 @@
                                 line-height: 20px;
                                 border-radius: 0;
                                 background: none !important;
-                                color: black;
                                 display: inline-block;
                             }
                             .title {
@@ -107,30 +116,17 @@
                             
                             .secondary-content {
                                   font-size: 0.3rem;
-                                  color: black;
                                   display: inline-block;
                                   padding: 0;
                                       
                                 a {
                                       font-size: 0.3rem;
-                                      color: black;
                                       display: inline-block;
                                       padding: 0;
                                 }
                             }
                         }
                     }
-                }
-                
-                .dropdown-button {
-                    position: absolute;
-                    width: 102px;
-                    text-align: center;
-                    top: 0;
-                    right: 0;
-                }
-                .dropdown-button.active {
-                    background-color: rgba(51, 51, 51, 0.08);
                 }
             }
         }
@@ -140,14 +136,13 @@
         padding: 10px;
         
         .ingredients {
-            // background-color: rgb(216, 216, 212);
             padding: 10px;
             width: 396px;
             margin-bottom: 42px;
             
             .border-box {
-                // background-color: #e9e9e9;
-                // border: 1px solid #9e9fa4;
+                background-color: #e9e9e9;
+                border: 1px solid #9e9fa4;
                 padding: 8px;
                 height: calc(~'100vh - 184px'); // Empêche le parallax de fonctionner
                 overflow-y: auto;
@@ -184,7 +179,7 @@
         }
         
         .main {
-            // color: white;
+            color: white;
             width: calc(~'100% - 396px');
             height: calc(~'100vh - 165px');
             // overflow-y: auto;
@@ -194,7 +189,7 @@
             .subrecipe-title {
                 visibility: hidden;
                 position: absolute;
-                background-color: white;
+                background-color: rgba(29, 30, 34, 0.8);
                 height: 100%;
                 width: 100%;
                 z-index: 1;
@@ -249,17 +244,16 @@
                     text-decoration: line-through;
                 }
                 .phrase.previousest-step {
-                    opacity: 0.2;
+                    opacity: 0.1;
                     top: 10%;
                     visibility: visible;
                 }
                 .phrase.previous-step {
                     top: 30%;
-                    opacity: 0.6;
+                    opacity: 0.3;
                     visibility: visible;
                 }
                 .phrase.current-step {
-                    color: firebrick;
                     top: 50%;
                     visibility: visible;
                     
@@ -269,22 +263,20 @@
                 }
                 .phrase.next-step {
                     top: 70%;
-                    opacity: 0.6;
+                    opacity: 0.3;
                     visibility: visible;
                 }
                 .phrase.nextest-step {
                     top: 90%;
-                    opacity: 0.2;
+                    opacity: 0.1;
                     visibility: visible;
                 }
                 
                 .phrase.current-step-animation-add {
-                    -webkit-animation: changeBack 2s;
                     animation: changeBack 2s;
                 }
                 
                 .phrase.current-step-animation-remove {
-                    -webkit-animation: fadeIn 2s;
                     animation: fadeIn 2s;
                 }
                 
@@ -309,29 +301,11 @@
                         visibility: hidden; 
                     }
                 }
-                
-                @keyframes fadeIn {
-                    0%   { opacity: 0; }
-                    100% { opacity: 1; }
-                }
-                
-                @keyframes fadeOut {
-                    0%   { opacity: 1; }
-                    100% { opacity: 0; }
-                }
-                
-                @keyframes changeBack {
-                    0% { background-color: green; }
-                    25% { background-color: red; }
-                    50% { background-color: blue; }
-                    75% { background-color: violet; }
-                    100% { background-color: yellow; }
-                }
             }
         }
     }
     
     footer {
-        // background-color: rgba(29, 30, 34, 0.7);
+        background-color: rgba(29, 30, 34, 0.7);
     }
 }

@@ -9,7 +9,7 @@
 	
 	<step-animator element.bind="element"></step-animator>
 	
-	<div class="quick-recipe">
+	<div class="quick-recipe" class.bind="backgroundClass">
 	    <header class="row">
 			<quick-recipe-header recipe.bind="recipe"></quick-recipe-header>
 	    </header>
@@ -60,8 +60,7 @@
 							</div>
 						</li>
 					</ol>
-				</div>
-				-->
+				</div>-->
 				<div repeat.for="subrecipe of subrecipeSteps" class="subrecipe">
 					<h2 if.bind="subrecipe.subrecipeTitle" class="center subrecipe-title au-animate">${subrecipe.subrecipeTitle}</h2>
 					<ol>
