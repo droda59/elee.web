@@ -193,6 +193,7 @@
                 height: 100%;
                 width: 100%;
                 z-index: 1;
+                margin: 0;
             }
             .show-subrecipe-title-animation-add {
                 animation: slideIn 2s;
@@ -201,11 +202,23 @@
                 animation: slideAway 2s;
             }
             
+            .step-list {
+                padding: 0;
+                margin: 0;
+            }
+            
             .step {
                 line-height: 2.5rem;
                 list-style-type: none;
+                animation-delay: 500ms;
                 
                 .phrase {
+                    padding: 0 20px;
+                    margin: 0;
+                    width: 100%;
+                    display: none;
+                    position: relative;
+  
                     .action {
                         font-size: 2.5rem;
                         font-weight: 500;
@@ -228,48 +241,49 @@
                         color: dodgerblue;
                         font-size: 1.5rem;
                     }
-                }
-                
-                .phrase {
-                    visibility: hidden;
-                    position: absolute;
-                    bottom: 0;
-                    height: 100%;
                     
                     .complete-button {
                         visibility: hidden;
+                        position: absolute;
+                        right: -20%;
+                        top: 20%;
                     }
+                }
+                .phrase.au-enter {
+                    animation: fadeIn 2s;
                 }
                 .phrase.completed-step {
                     text-decoration: line-through;
                 }
-                .phrase.previousest-step {
-                    opacity: 0.1;
-                    top: 10%;
-                    visibility: visible;
+                .phrase.previousest-step, 
+                .phrase.previous-step, 
+                .phrase.current-step, 
+                .phrase.next-step, 
+                .phrase.nextest-step {
+                    display: table;
                 }
-                .phrase.previous-step {
-                    top: 30%;
-                    opacity: 0.3;
-                    visibility: visible;
+                .phrase.previousest-step,
+                .phrase.nextest-step {
+                    opacity: @quick-recipe-second-level-opacity;
+                    margin-top: @quick-recipe-second-level-vmargin;
+                    margin-bottom: @quick-recipe-second-level-vmargin;
+                    padding-left: @quick-recipe-second-level-padding;
+                }
+                .phrase.previous-step,
+                .phrase.next-step {
+                    opacity: @quick-recipe-first-level-opacity;
+                    margin-top: @quick-recipe-first-level-vmargin;
+                    margin-bottom: @quick-recipe-first-level-vmargin;
+                    padding-left: @quick-recipe-first-level-padding;
                 }
                 .phrase.current-step {
-                    top: 50%;
-                    visibility: visible;
+                    width: 80%;
+                    margin-top: @quick-recipe-current-level-vmargin;
+                    margin-bottom: @quick-recipe-current-level-vmargin;
                     
                     .complete-button {
                         visibility: visible;
                     }
-                }
-                .phrase.next-step {
-                    top: 70%;
-                    opacity: 0.3;
-                    visibility: visible;
-                }
-                .phrase.nextest-step {
-                    top: 90%;
-                    opacity: 0.1;
-                    visibility: visible;
                 }
                 
                 .phrase.current-step-animation-add {
@@ -280,9 +294,18 @@
                     animation: fadeIn 2s;
                 }
                 
+                @keyframes fadeIn {
+                    0% { opacity: 0%; }
+                    100% { opacity: 100%; }
+                }
+                @keyframes fadeOut {
+                    0% { opacity: 100%; }
+                    100% { opacity: 0%; }
+                }
+                
                 @keyframes slideIn {
                     0%   { 
-                        top: 90%;
+                        top: 100%;
                         visibility: hidden; 
                     }
                     100% { 
@@ -290,14 +313,13 @@
                         visibility: visible; 
                     }
                 }
-                
                 @keyframes slideAway {
                     0%   { 
                         top: 50%; 
                         visibility: visible; 
                     }
                     100% { 
-                        top: 10%; 
+                        top: 0; 
                         visibility: hidden; 
                     }
                 }

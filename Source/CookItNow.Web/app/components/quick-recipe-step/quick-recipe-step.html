@@ -4,7 +4,7 @@
 	<require from="components/step-timer/step-timer"></require>
 	<require from="components/step-ingredient/step-ingredient"></require>
 	
-	<p repeat.for="phrase of step.phrases" class="phrase">
+	<p repeat.for="phrase of step.phrases" class="phrase au-animate">
 		<compose repeat.for="part of phrase.parts" model.bind="part" view-model="components/step-${part.type}/step-${part.type}"></compose>
 		<a class="complete-button waves-light btn" click.delegate="$parent.completeStep($event)">Done</a>
 	</p>
