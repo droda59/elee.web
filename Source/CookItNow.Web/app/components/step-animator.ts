@@ -83,10 +83,22 @@ export class StepAnimator {
 			else {
 				var nextSubrecipe: Element = $(element).parents(".subrecipe")[0].nextElementSibling;
 				if (nextSubrecipe && nextSubrecipe.classList.contains("subrecipe")) {
-					var nextSubrecipeTitle = $(nextSubrecipe).find("h2")[0];
-					this._animator.animate(nextSubrecipeTitle, "show-subrecipe-title-animation");
+					var firstStep = this.findFirstStep(nextSubrecipe);
+					while (!firstStep) {
+						nextSubrecipe = nextSubrecipe.nextElementSibling;
+						if (nextSubrecipe && nextSubrecipe.classList.contains("subrecipe")) {
+							firstStep = this.findFirstStep(nextSubrecipe.nextElementSibling);
+						} else {
+							break;
+						}
+					}
 					
-					return this.findFirstStep(nextSubrecipe);
+					if (firstStep) {
+						var nextSubrecipeTitle = $(nextSubrecipe).find("h2")[0];
+						this._animator.animate(nextSubrecipeTitle, "show-subrecipe-title-animation");
+					}
+					
+					return firstStep;
 				}
 			}
 		}

@@ -64,7 +64,7 @@ export class QuickRecipePage {
 			
 			// TODO Ugly-ass code; maybe it can be done server-side, we don't need that shit here
 			var floatingIngredients = this.recipe.ingredients.filter(
-				(ingredient) => !ingredient.subrecipeId || ingredient.subrecipeId === 0
+				(ingredient) => ingredient.subrecipeId === undefined || ingredient.subrecipeId < 0
 			);
 			if (floatingIngredients.length) {
 				var subrecipeIngredient = new QuickRecipeSubrecipeIngredient();
@@ -85,7 +85,7 @@ export class QuickRecipePage {
 			);
 			
 			var floatingSteps = this.recipe.steps.filter(
-				(step) => !step.subrecipeId || step.subrecipeId === 0
+				(step) => step.subrecipeId === undefined || step.subrecipeId < 0
 			);
 			if (floatingSteps.length) {
 				var subrecipeStep = new QuickRecipeSubrecipeStep();
