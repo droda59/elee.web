@@ -12,22 +12,19 @@ var less = require('gulp-less');
 
 var path = {
     package: "./package.json", 
-    html: 
+    views: 
     {
         src: "app/**/*.html",
-        dest: "dist/",
-        html: "dist/**/*.html"
+        dest: "dist/"
     },
     typescript: 
     {
         src: "app/**/*.ts",
-        dest: "dist/",
-        js: "dist/**/*.js"
+        dest: "dist/"
     }, 
     less: {
         src: "app/**/*.less",
-        dest: "dist/",
-        css: "dist/**/*.css"
+        dest: "dist/"
     }
 };
 
@@ -38,7 +35,7 @@ gulp.task("typedef", function () {
 });
 
 gulp.task("clean", function () {
-    return gulp.src([path.typescript.js, path.less.css, path.html.html, "!dist/app-bundle.js"])
+    return gulp.src(["dist/*", "!dist/app-bundle.js"])
        .pipe(vinylPaths(del));
 });
 
@@ -58,9 +55,9 @@ gulp.task('build-ts', function () {
 });
 
 gulp.task("build-html", function () {
-    return gulp.src(path.html.src)
-        .pipe(changed(path.html.src, { extension: ".html" }))
-        .pipe(gulp.dest(path.html.dest))
+    return gulp.src(path.views.src)
+        .pipe(changed(path.views.src, { extension: ".html" }))
+        .pipe(gulp.dest(path.views.dest))
         .pipe(browserSync.reload({ stream: true }));
 });
 
@@ -111,7 +108,7 @@ gulp.task("watch-ts", ["serve"], function () {
 
 gulp.task("watch-html", ["serve"], function () {
     gulp
-        .watch([path.html], ["build-html"])
+        .watch([path.views.src], ["build-html"])
         .on("change", function (event) {
             console.log("File " + event.path + " was " + event.type + ", running tasks...");
         });
