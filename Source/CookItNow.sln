@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookItNow.Parser", "CookItN
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookItNow.Business", "CookItNow.Business\CookItNow.Business.csproj", "{2E50B56A-EDAA-48D8-9021-6C71B4997C42}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CookItNow.Infrastructure", "CookItNow.Infrastructure\CookItNow.Infrastructure.csproj", "{77D84014-39DC-4E69-B9DE-F97AE2463596}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{2E50B56A-EDAA-48D8-9021-6C71B4997C42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E50B56A-EDAA-48D8-9021-6C71B4997C42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E50B56A-EDAA-48D8-9021-6C71B4997C42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77D84014-39DC-4E69-B9DE-F97AE2463596}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77D84014-39DC-4E69-B9DE-F97AE2463596}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77D84014-39DC-4E69-B9DE-F97AE2463596}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77D84014-39DC-4E69-B9DE-F97AE2463596}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

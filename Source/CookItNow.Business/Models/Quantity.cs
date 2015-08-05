@@ -6,6 +6,6 @@ namespace CookItNow.Business.Models
     {
         public double Value { get; set; }
 		
-        public string OriginalMeasureUnit { get; set; }
+        public MeasureUnit OriginalMeasureUnit { get; set; }
     }
 }

@@ -258,7 +258,6 @@ namespace CookItNow.Parser
 
                 var readMeasureUnit = matches[1].Value;
                 var measureUnitEnum = this._measureUnitDetector.GetMeasureUnit(readMeasureUnit);
-                var measureUnit = MeasureUnitNameConverter.Convert(measureUnitEnum);
 
                 Match ingredientMatch;
                 if (measureUnitEnum == MeasureUnit.Unit)
@@ -283,7 +282,7 @@ namespace CookItNow.Parser
                 var ingredient = new Ingredient
                 {
                     Id = ingredientId,
-                    Quantity = new Quantity { Value = quantity, OriginalMeasureUnit = measureUnit },
+                    Quantity = new Quantity { Value = quantity, OriginalMeasureUnit = measureUnitEnum },
                     Name = readIngredientName,
                     SubrecipeId = subrecipeId
                 };
