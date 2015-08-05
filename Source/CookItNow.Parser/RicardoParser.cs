@@ -22,6 +22,7 @@ namespace CookItNow.Parser
 
         private readonly Regex _quantityExpression;
         private readonly Regex _ingredientExpression;
+        private readonly Regex _ingredientFullExpression;
         private readonly Regex _ingredientUnitExpression;
         private readonly Regex _wordExpression;
 
@@ -42,10 +43,11 @@ namespace CookItNow.Parser
             this._ingredientDetectorFactory = ingredientDetectorFactory;
             this._measureUnitDetectorFactory = measureUnitDetectorFactory;
 
-            this._wordExpression = new Regex(@"[\w)]+['’]*|[,]|[\)]\b", RegexOptions.Compiled);
+            this._wordExpression = new Regex(@"[\w()]+['’]*|[,]|[\)]\b", RegexOptions.Compiled);
             this._quantityExpression = new Regex(@"[\xbc-\xbe\w]+[\xbc-\xbe\w'’,./]*", RegexOptions.Compiled);
-            this._ingredientExpression = new Regex(@"(?<=[a-zA-Z0-9\u00C0-\u017F\s()'’/%] de | d'| d’)([a-zA-Z0-9\u00C0-\u017F\s()'’/%]+)(, [,\w\s]+)*", RegexOptions.Compiled);
-            this._ingredientUnitExpression = new Regex(@"(?<=[a-zA-Z0-9\u00C0-\u017F\s()'’/%])([a-zA-Z0-9\u00C0-\u017F\s()'’/%]+)(, [,\w\s]+)*", RegexOptions.Compiled);
+            this._ingredientExpression = new Regex(@"(?<=[a-zA-Z0-9\u00C0-\u017F\s()'’\-\/%] de | d'| d’)([a-zA-Z0-9\u00C0-\u017F\s()'’\-\/%]+)(, [,\w\s]+)*", RegexOptions.Compiled);
+            this._ingredientFullExpression = new Regex(@"([a-zA-Z0-9\u00C0-\u017F\s()'’\-\/%]+)(, [,\w\s]+)*", RegexOptions.Compiled);
+            this._ingredientUnitExpression = new Regex(@"(?<=[a-zA-Z0-9\u00C0-\u017F\s()'’\-\/%])([a-zA-Z0-9\u00C0-\u017F\s()'’\-\/%]+)(, [,\w\s]+)*", RegexOptions.Compiled);
         }
 
         public override async Task<QuickRecipe> ParseHtmlAsync(Uri uri)
@@ -133,7 +135,7 @@ namespace CookItNow.Parser
                     var step = new Step { SubRecipeId = subRecipeId };
 
                     var stepText = stepNode.InnerText.Trim();
-                    var splitPhrases = stepText.Split('.').Select(x => x.Trim()).Where(x => !string.IsNullOrWhiteSpace(x)).ToList();
+                    var splitPhrases = stepText.Replace("c. à", "c à").Split('.').Select(x => x.Trim()).Where(x => !string.IsNullOrWhiteSpace(x)).ToList();
                     foreach (var splitPhrase in splitPhrases)
                     {
                         var phrase = new Phrase();
@@ -247,7 +249,12 @@ namespace CookItNow.Parser
                         break;
                 }
 
-                var quantity = double.Parse(readQuantity, culture);
+                double quantity;
+                var hasQuantity = double.TryParse(readQuantity, NumberStyles.Any, culture, out quantity);
+                if (!hasQuantity)
+                {
+                    quantity = 1;
+                }
 
                 var readMeasureUnit = matches[1].Value;
                 var measureUnitEnum = this._measureUnitDetector.GetMeasureUnit(readMeasureUnit);
@@ -256,7 +263,14 @@ namespace CookItNow.Parser
                 Match ingredientMatch;
                 if (measureUnitEnum == MeasureUnit.Unit)
                 {
-                    ingredientMatch = this._ingredientUnitExpression.Match(name);
+                    if (hasQuantity)
+                    {
+                        ingredientMatch = this._ingredientUnitExpression.Match(name);                        
+                    }
+                    else
+                    {
+                        ingredientMatch = this._ingredientFullExpression.Match(name);
+                    }
                 }
                 else
                 {

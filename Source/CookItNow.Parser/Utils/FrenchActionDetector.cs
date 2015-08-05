@@ -16,23 +16,32 @@ namespace CookItNow.Parser.Utils
             this._acceptedActions = new HashSet<string>();
             this._acceptedActions.Add("accompagner");
             this._acceptedActions.Add("ajouter");
+            this._acceptedActions.Add("attendrir");
             this._acceptedActions.Add("battre");
             this._acceptedActions.Add("beurrer");
             this._acceptedActions.Add("bouillir");
+            this._acceptedActions.Add("concasser");
             this._acceptedActions.Add("couvrir");
             this._acceptedActions.Add("cuire");
+            this._acceptedActions.Add("défaire");
             this._acceptedActions.Add("déguster");
             this._acceptedActions.Add("déposer");
+            this._acceptedActions.Add("dorer");
+            this._acceptedActions.Add("égoutter");
             this._acceptedActions.Add("enrober");
             this._acceptedActions.Add("faire");
+            this._acceptedActions.Add("fondre");
             this._acceptedActions.Add("fouetter");
             this._acceptedActions.Add("garnir");
             this._acceptedActions.Add("huiler");
             this._acceptedActions.Add("incorporer");
             this._acceptedActions.Add("laisser");
             this._acceptedActions.Add("mélanger");
+            this._acceptedActions.Add("mijoter");
+            this._acceptedActions.Add("napper");
             this._acceptedActions.Add("parsemer");
             this._acceptedActions.Add("placer");
+            this._acceptedActions.Add("plonger");
             this._acceptedActions.Add("poivrer");
             this._acceptedActions.Add("porter");
             this._acceptedActions.Add("poursuivre");
@@ -41,6 +50,7 @@ namespace CookItNow.Parser.Utils
             this._acceptedActions.Add("réduire");
             this._acceptedActions.Add("refermer");
             this._acceptedActions.Add("réfrigérer");
+            this._acceptedActions.Add("refroidir");
             this._acceptedActions.Add("remuer");
             this._acceptedActions.Add("répartir");
             this._acceptedActions.Add("répéter");
@@ -50,6 +60,7 @@ namespace CookItNow.Parser.Utils
             this._acceptedActions.Add("saler");
             this._acceptedActions.Add("servir");
             this._acceptedActions.Add("tiédir");
+            this._acceptedActions.Add("tremper");
             this._acceptedActions.Add("verser");
         }
 
