@@ -1,6 +1,7 @@
 @import "quick-recipe-theme-wood";
 @import "quick-recipe-theme-stone";
 @import "quick-recipe-theme-chalkboard";
+@import "animations";
 
 .quick-recipe {
     .row {
@@ -195,12 +196,6 @@
                 z-index: 1;
                 margin: 0;
             }
-            .show-subrecipe-title-animation-add {
-                animation: slideIn 2s;
-            }
-            .show-subrecipe-title-animation-remove {
-                animation: slideAway 2s;
-            }
             
             .step-list {
                 padding: 0;
@@ -210,7 +205,6 @@
             .step {
                 line-height: 2.5rem;
                 list-style-type: none;
-                animation-delay: 500ms;
                 
                 .phrase {
                     padding: 0 20px;
@@ -249,9 +243,6 @@
                         top: 20%;
                     }
                 }
-                .phrase.au-enter {
-                    animation: fadeIn 2s;
-                }
                 .phrase.completed-step {
                     text-decoration: line-through;
                 }
@@ -283,44 +274,6 @@
                     
                     .complete-button {
                         visibility: visible;
-                    }
-                }
-                
-                .phrase.current-step-animation-add {
-                    animation: changeBack 2s;
-                }
-                
-                .phrase.current-step-animation-remove {
-                    animation: fadeIn 2s;
-                }
-                
-                @keyframes fadeIn {
-                    0% { opacity: 0%; }
-                    100% { opacity: 100%; }
-                }
-                @keyframes fadeOut {
-                    0% { opacity: 100%; }
-                    100% { opacity: 0%; }
-                }
-                
-                @keyframes slideIn {
-                    0%   { 
-                        top: 100%;
-                        visibility: hidden; 
-                    }
-                    100% { 
-                        top: 50%;
-                        visibility: visible; 
-                    }
-                }
-                @keyframes slideAway {
-                    0%   { 
-                        top: 50%; 
-                        visibility: visible; 
-                    }
-                    100% { 
-                        top: 0; 
-                        visibility: hidden; 
                     }
                 }
             }

@@ -1,0 +1,55 @@
+.quick-recipe {
+    .show-subrecipe-title-animation-add {
+        animation: slideIn 2s;
+    }
+    .show-subrecipe-title-animation-remove {
+        animation: slideAway 2s;
+    }
+    
+    .step {
+        .phrase.au-enter {
+            opacity: 0!important;
+        }
+        
+        .phrase.au-enter-active {
+            animation: fadeIn 2s;
+        }
+        
+        .phrase.au-leave-active {
+            animation: fadeOut 2s;
+        }
+    }
+    .step.au-stagger {
+        animation-delay:50ms;
+    }
+
+    @keyframes fadeIn {
+        0%   { opacity: 0; }
+        100% { opacity: 1; }
+    }
+    @keyframes fadeOut {
+        0%   { opacity: 1; }
+        100% { opacity: 0; }
+    }
+    
+    @keyframes slideIn {
+        0%   { 
+            top: 100%;
+            visibility: hidden; 
+        }
+        100% { 
+            top: 50%;
+            visibility: visible; 
+        }
+    }
+    @keyframes slideAway {
+        0%   { 
+            top: 50%; 
+            visibility: visible; 
+        }
+        100% { 
+            top: 0; 
+            visibility: hidden; 
+        }
+    }
+}
