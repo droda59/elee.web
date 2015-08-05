@@ -2,7 +2,7 @@ using System;
 
 namespace CookItNow.Business.Models
 {
-    public class SubRecipe
+    public class Subrecipe
     {
         public int Id { get; set; }
 		

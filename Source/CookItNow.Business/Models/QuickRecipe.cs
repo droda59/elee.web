@@ -8,7 +8,7 @@ namespace CookItNow.Business.Models
         public QuickRecipe()
         {
             this.Durations = new List<Duration>();
-            this.SubRecipes = new List<SubRecipe>();
+            this.Subrecipes = new List<Subrecipe>();
             this.Ingredients = new List<Ingredient>();
             this.Requirements = new List<Step>();
             this.Steps = new List<Step>();
@@ -26,7 +26,7 @@ namespace CookItNow.Business.Models
 		
 		public IList<Duration> Durations { get; set; }
 
-        public IList<SubRecipe> SubRecipes { get; set; }
+        public IList<Subrecipe> Subrecipes { get; set; }
 
         public IList<Ingredient> Ingredients { get; set; }
 

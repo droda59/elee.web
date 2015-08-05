@@ -110,7 +110,7 @@ namespace CookItNow.Parser
                 for (var subrecipeId = 0; subrecipeId < subrecipeNodes.Count; subrecipeId++)
                 {
                     var subrecipeNode = subrecipeNodes[subrecipeId];
-                    recipe.SubRecipes.Add(new SubRecipe { Id = subrecipeId, Title = subrecipeNode.InnerText.Trim() });
+                    recipe.Subrecipes.Add(new Subrecipe { Id = subrecipeId, Title = subrecipeNode.InnerText.Trim() });
 
                     var subrecipeIngredientNodes = subrecipeNode.NextSibling.NextSibling.SelectNodes(".//li//label[@itemprop='ingredients']//span");
                     this.ParseIngredients(subrecipeIngredientNodes, cultureInfoFromLanguage, recipe, ref ingredientId, subrecipeId);
@@ -125,14 +125,14 @@ namespace CookItNow.Parser
             var stepSubrecipeNodes = document.DocumentNode.SelectNodes("//section[@itemprop='recipeInstructions']//h3");
             foreach (var stepSubrecipeNode in stepSubrecipeNodes)
             {
-                var subRecipe = recipe.SubRecipes.SingleOrDefault(x => x.Title == stepSubrecipeNode.InnerText.Trim());
-                var subRecipeId = subRecipe != null ? subRecipe.Id : (int?)null;
+                var subrecipe = recipe.Subrecipes.SingleOrDefault(x => x.Title == stepSubrecipeNode.InnerText.Trim());
+                var subrecipeId = subrecipe != null ? subrecipe.Id : (int?)null;
 
                 var stepNodes = stepSubrecipeNode.NextSibling.NextSibling.SelectNodes(".//li//span");
 
                 foreach (var stepNode in stepNodes)
                 {
-                    var step = new Step { SubRecipeId = subRecipeId };
+                    var step = new Step { SubrecipeId = subrecipeId };
 
                     var stepText = stepNode.InnerText.Trim();
                     var splitPhrases = stepText.Replace("c. à", "c à").Split('.').Select(x => x.Trim()).Where(x => !string.IsNullOrWhiteSpace(x)).ToList();
@@ -285,7 +285,7 @@ namespace CookItNow.Parser
                     Id = ingredientId,
                     Quantity = new Quantity { Value = quantity, OriginalMeasureUnit = measureUnit },
                     Name = readIngredientName,
-                    SubRecipeId = subrecipeId
+                    SubrecipeId = subrecipeId
                 };
 
                 var requirements = splitRequirements.Skip(1).Select(x => x.Trim()).ToList();
