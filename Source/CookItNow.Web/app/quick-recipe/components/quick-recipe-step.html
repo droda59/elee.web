@@ -1,0 +1,12 @@
+<template>
+	<require from="quick-recipe/components/step-text"></require>
+	<require from="quick-recipe/components/step-action"></require>
+	<require from="quick-recipe/components/step-timer"></require>
+	<require from="quick-recipe/components/step-ingredient"></require>
+	
+	<p repeat.for="phrase of step.phrases" class="phrase au-animate">
+		<compose repeat.for="part of phrase.parts" model.bind="part" view-model="quick-recipe/components/step-${part.type}"></compose>
+		<a class="complete-button waves-light btn" click.delegate="$parent.completeStep($event)">Done</a>
+	</p>
+	<quick-recipe-step if.bind="step.postStep" step.bind="step.postStep" class="postStep"></quick-recipe-step>
+</template>

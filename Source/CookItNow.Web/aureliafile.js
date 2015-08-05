@@ -2,7 +2,7 @@ var aurelia = require("aurelia-cli");
 
   aurelia.command("bundle", {
     js: {
-      "app-bundle": {
+      "dist/app-bundle": {
         modules: [
           "aurelia-bootstrapper",
           "aurelia-http-client",
@@ -22,7 +22,7 @@ var aurelia = require("aurelia-cli");
     }
     /*,
     template: {
-      "app-bundle": {
+      "dist/app-bundle": {
         pattern: "app/xx/x.html",
         options: {
           inject: true

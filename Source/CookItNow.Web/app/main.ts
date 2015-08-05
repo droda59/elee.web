@@ -5,6 +5,6 @@ export function configure(aurelia) {
         .standardConfiguration()
         .developmentLogging();
 
-	aurelia.globalizeResources("resources/aurelia-materialize");
+	aurelia.globalizeResources("shared/aurelia-materialize");
     aurelia.start().then(a => a.setRoot());
 }

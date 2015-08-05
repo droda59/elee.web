@@ -3,6 +3,7 @@ var gulp = require("gulp");
 var runSequence = require("run-sequence");
 var del = require("del");
 var vinylPaths = require("vinyl-paths");
+var flatten = require("gulp-flatten");
 var bump = require("gulp-bump");
 var browserSync = require("browser-sync").create();
 var changed = require("gulp-changed");
@@ -11,22 +12,33 @@ var less = require('gulp-less');
 
 var path = {
     package: "./package.json", 
-    html: "app/**/*.html",
+    html: 
+    {
+        src: "app/**/*.html",
+        dest: "dist/",
+        html: "dist/**/*.html"
+    },
     typescript: 
     {
         src: "app/**/*.ts",
-        dest: "app/",
-        js: "app/**/*.js"
+        dest: "dist/",
+        js: "dist/**/*.js"
     }, 
     less: {
-        src: "assets/**/*.less",
-        dest: "assets/",
-        css: "assets/**/*.css"
+        src: "app/**/*.less",
+        dest: "dist/",
+        css: "dist/**/*.css"
     }
 };
 
+gulp.task("typedef", function () {
+    return gulp.src("jspm_packages/github/aurelia/**/*.d.ts")
+        .pipe(flatten())
+        .pipe(gulp.dest("typings/aurelia"));
+});
+
 gulp.task("clean", function () {
-    return gulp.src([path.typescript.js, path.less.css, "!app-bundle.js"])
+    return gulp.src([path.typescript.js, path.less.css, path.html.html, "!dist/app-bundle.js"])
        .pipe(vinylPaths(del));
 });
 
@@ -46,8 +58,9 @@ gulp.task('build-ts', function () {
 });
 
 gulp.task("build-html", function () {
-    return gulp.src(path.html)
-        .pipe(changed(path.html, { extension: ".html" }))
+    return gulp.src(path.html.src)
+        .pipe(changed(path.html.src, { extension: ".html" }))
+        .pipe(gulp.dest(path.html.dest))
         .pipe(browserSync.reload({ stream: true }));
 });
 
