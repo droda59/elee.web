@@ -49,7 +49,6 @@
     <Compile Include="Models\Phrase.cs" />
     <Compile Include="Models\Quantity.cs" />
     <Compile Include="Models\QuickRecipe.cs" />
-    <Compile Include="Models\Requirement.cs" />
     <Compile Include="Models\Step.cs" />
     <Compile Include="Models\SubRecipe.cs" />
     <Compile Include="Models\TextPart.cs" />

@@ -266,22 +266,35 @@ namespace CookItNow.Parser
                 var splitRequirements = ingredientMatch.Value.Split(',');
                 var readIngredientName = splitRequirements[0].Trim();
 
+                var ingredient = new Ingredient
+                {
+                    Id = ingredientId,
+                    Quantity = new Quantity { Value = quantity, OriginalMeasureUnit = measureUnit },
+                    Name = readIngredientName,
+                    SubRecipeId = subrecipeId
+                };
+
                 var requirements = splitRequirements.Skip(1).Select(x => x.Trim()).ToList();
                 foreach (var requirement in requirements)
                 {
                     var requirementAction = this._actionDetector.Actionify(requirement);
-                    recipe.Requirements.Add(new Requirement { Action = requirementAction, IngredientId = ingredientId });
+
+                    var phrase = new Phrase();
+                    phrase.Parts.Add(new ActionPart { Value = requirementAction });
+                    phrase.Parts.Add(new IngredientPart { Ingredient = ingredient });
+
+                    var step = new Step();
+                    step.Phrases.Add(phrase);
+
+                    recipe.Requirements.Add(step);
                 }
 
-                recipe.Ingredients.Add(
-                    new Ingredient
-                        {
-                            Id = ingredientId,
-                            Quantity = new Quantity { Value = quantity, OriginalMeasureUnit = measureUnit },
-                            Name = readIngredientName,
-                            SubRecipeId = subrecipeId,
-                            Requirements = requirements.Any() ? requirements : null
-                        });
+                if (requirements.Any())
+                {
+                    ingredient.Requirements = requirements;
+                }
+
+                recipe.Ingredients.Add(ingredient);
 
                 ingredientId++;
             }

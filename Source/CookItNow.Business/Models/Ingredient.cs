@@ -5,11 +5,6 @@ namespace CookItNow.Business.Models
 {
     public class Ingredient 
     {
-        public Ingredient()
-        {
-            this.Requirements = new List<string>();
-        }
-
         public long Id { get; set; }
 		
         public int? SubRecipeId { get; set; }

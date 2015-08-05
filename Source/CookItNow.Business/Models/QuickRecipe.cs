@@ -10,7 +10,7 @@ namespace CookItNow.Business.Models
             this.Durations = new List<Duration>();
             this.SubRecipes = new List<SubRecipe>();
             this.Ingredients = new List<Ingredient>();
-            this.Requirements = new List<Requirement>();
+            this.Requirements = new List<Step>();
             this.Steps = new List<Step>();
         }
 
@@ -30,7 +30,7 @@ namespace CookItNow.Business.Models
 
         public IList<Ingredient> Ingredients { get; set; }
 
-        public IList<Requirement> Requirements { get; set; }
+        public IList<Step> Requirements { get; set; }
 
         public IList<Step> Steps { get; set; }
 	}
