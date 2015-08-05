@@ -14,28 +14,40 @@ namespace CookItNow.Parser.Utils
             this._stringIgnoreCaseComparer = new StringIgnoreCaseComparer();
 
             this._acceptedActions = new HashSet<string>();
+            this._acceptedActions.Add("accompagner");
             this._acceptedActions.Add("ajouter");
             this._acceptedActions.Add("battre");
             this._acceptedActions.Add("beurrer");
             this._acceptedActions.Add("bouillir");
+            this._acceptedActions.Add("couvrir");
             this._acceptedActions.Add("cuire");
             this._acceptedActions.Add("déguster");
+            this._acceptedActions.Add("déposer");
+            this._acceptedActions.Add("enrober");
             this._acceptedActions.Add("faire");
             this._acceptedActions.Add("fouetter");
+            this._acceptedActions.Add("garnir");
+            this._acceptedActions.Add("huiler");
             this._acceptedActions.Add("incorporer");
             this._acceptedActions.Add("laisser");
             this._acceptedActions.Add("mélanger");
             this._acceptedActions.Add("parsemer");
             this._acceptedActions.Add("placer");
+            this._acceptedActions.Add("poivrer");
             this._acceptedActions.Add("porter");
+            this._acceptedActions.Add("poursuivre");
             this._acceptedActions.Add("préchauffer");
             this._acceptedActions.Add("réchauffer");
+            this._acceptedActions.Add("réduire");
             this._acceptedActions.Add("refermer");
+            this._acceptedActions.Add("réfrigérer");
             this._acceptedActions.Add("remuer");
             this._acceptedActions.Add("répartir");
             this._acceptedActions.Add("répéter");
             this._acceptedActions.Add("reposer");
             this._acceptedActions.Add("réserver");
+            this._acceptedActions.Add("retourner");
+            this._acceptedActions.Add("saler");
             this._acceptedActions.Add("servir");
             this._acceptedActions.Add("tiédir");
             this._acceptedActions.Add("verser");
@@ -47,6 +59,7 @@ namespace CookItNow.Parser.Utils
                 || part.EndsWith("ir", StringComparison.OrdinalIgnoreCase)
                 || part.EndsWith("ire", StringComparison.OrdinalIgnoreCase)
                 || part.EndsWith("tre", StringComparison.OrdinalIgnoreCase)
+                || part.EndsWith("vre", StringComparison.OrdinalIgnoreCase)
                 || part.EndsWith("dre", StringComparison.OrdinalIgnoreCase))
             {
                 return this._acceptedActions.Contains(part, this._stringIgnoreCaseComparer);

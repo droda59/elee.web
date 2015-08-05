@@ -22,6 +22,7 @@ namespace CookItNow.Parser
 
         private readonly Regex _quantityExpression;
         private readonly Regex _ingredientExpression;
+        private readonly Regex _ingredientUnitExpression;
         private readonly Regex _wordExpression;
 
         private IActionDetector _actionDetector;
@@ -41,9 +42,10 @@ namespace CookItNow.Parser
             this._ingredientDetectorFactory = ingredientDetectorFactory;
             this._measureUnitDetectorFactory = measureUnitDetectorFactory;
 
-            this._wordExpression = new Regex("[\\w)]+['’]*|[,]|[\\)]\\b", RegexOptions.Compiled);
-            this._quantityExpression = new Regex("\\w+[\\w,./]*", RegexOptions.Compiled);
-            this._ingredientExpression = new Regex("(?<=[a-zA-Z0-9\\u00C0-\\u017F\\s()/%] de | d'| d’)([a-zA-Z0-9\\u00C0-\\u017F\\s()/%]+)(, [,\\w\\s]+)*", RegexOptions.Compiled);
+            this._wordExpression = new Regex(@"[\w)]+['’]*|[,]|[\)]\b", RegexOptions.Compiled);
+            this._quantityExpression = new Regex(@"[\xbc-\xbe\w]+[\xbc-\xbe\w'’,./]*", RegexOptions.Compiled);
+            this._ingredientExpression = new Regex(@"(?<=[a-zA-Z0-9\u00C0-\u017F\s()'’/%] de | d'| d’)([a-zA-Z0-9\u00C0-\u017F\s()'’/%]+)(, [,\w\s]+)*", RegexOptions.Compiled);
+            this._ingredientUnitExpression = new Regex(@"(?<=[a-zA-Z0-9\u00C0-\u017F\s()'’/%])([a-zA-Z0-9\u00C0-\u017F\s()'’/%]+)(, [,\w\s]+)*", RegexOptions.Compiled);
         }
 
         public override async Task<QuickRecipe> ParseHtmlAsync(Uri uri)
@@ -232,23 +234,37 @@ namespace CookItNow.Parser
                 var matches = this._quantityExpression.Matches(name);
 
                 var readQuantity = matches[0].Value;
+                switch (readQuantity)
+                {
+                    case "½":
+                        readQuantity = 0.5.ToString(culture);
+                        break;
+                    case "¼":
+                        readQuantity = 0.25.ToString(culture);
+                        break;
+                    case "¾":
+                        readQuantity = 0.75.ToString(culture);
+                        break;
+                }
+
                 var quantity = double.Parse(readQuantity, culture);
 
                 var readMeasureUnit = matches[1].Value;
                 var measureUnitEnum = this._measureUnitDetector.GetMeasureUnit(readMeasureUnit);
                 var measureUnit = MeasureUnitNameConverter.Convert(measureUnitEnum);
 
-                string readIngredientName;
-                var readValue = this._ingredientExpression.Match(name);
-                var splitRequirements = readValue.Value.Split(',');
+                Match ingredientMatch;
                 if (measureUnitEnum == MeasureUnit.Unit)
                 {
-                    readIngredientName = matches[1].Value;
+                    ingredientMatch = this._ingredientUnitExpression.Match(name);
                 }
                 else
                 {
-                    readIngredientName = splitRequirements[0];
+                    ingredientMatch = this._ingredientExpression.Match(name);
                 }
+
+                var splitRequirements = ingredientMatch.Value.Split(',');
+                var readIngredientName = splitRequirements[0].Trim();
 
                 var requirements = splitRequirements.Skip(1).Select(x => x.Trim()).ToList();
                 foreach (var requirement in requirements)
