@@ -12,6 +12,7 @@ export class Welcome {
 		
 		this.recipes.push({ id: "1", title: "Pouding au chocolat" });
 		this.recipes.push({ id: "2", title: "Gaufres" });
+		this.recipes.push({ id: "3", title: "Chèvre croustillant aux pêches et aux amandes caramélisées" });
 	}
 	
 	loadRecipe() {

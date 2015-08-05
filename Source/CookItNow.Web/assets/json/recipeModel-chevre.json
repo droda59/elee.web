@@ -13,7 +13,7 @@
       "time": "PT5M"
     }
   ],
-  "subRecipes": [
+  "subrecipes": [
     {
       "id": 0,
       "title": "Amandes caramélisées"
@@ -30,7 +30,7 @@
   "ingredients": [
     {
       "id": 0,
-      "subRecipeId": 0,
+      "subrecipeId": 0,
       "name": "sucre",
       "quantity": {
         "value": 15.0,
@@ -39,7 +39,7 @@
     },
     {
       "id": 1,
-      "subRecipeId": 0,
+      "subrecipeId": 0,
       "name": "beurre",
       "quantity": {
         "value": 5.0,
@@ -48,7 +48,7 @@
     },
     {
       "id": 2,
-      "subRecipeId": 0,
+      "subrecipeId": 0,
       "name": "amandes effilées",
       "quantity": {
         "value": 60.0,
@@ -57,7 +57,7 @@
     },
     {
       "id": 3,
-      "subRecipeId": 1,
+      "subrecipeId": 1,
       "name": "huile végétale",
       "quantity": {
         "value": 30.0,
@@ -66,7 +66,7 @@
     },
     {
       "id": 4,
-      "subRecipeId": 1,
+      "subrecipeId": 1,
       "name": "mirin",
       "quantity": {
         "value": 15.0,
@@ -75,7 +75,7 @@
     },
     {
       "id": 5,
-      "subRecipeId": 1,
+      "subrecipeId": 1,
       "name": "moutarde de Dijon",
       "quantity": {
         "value": 15.0,
@@ -84,7 +84,7 @@
     },
     {
       "id": 6,
-      "subRecipeId": 1,
+      "subrecipeId": 1,
       "name": "jus de citron",
       "quantity": {
         "value": 15.0,
@@ -93,7 +93,7 @@
     },
     {
       "id": 7,
-      "subRecipeId": 1,
+      "subrecipeId": 1,
       "name": "vinaigre de riz",
       "quantity": {
         "value": 15.0,
@@ -102,16 +102,16 @@
     },
     {
       "id": 8,
-      "subRecipeId": 1,
+      "subrecipeId": 1,
       "name": "Sel et poivre",
       "quantity": {
         "value": 1.0,
-        "originalMeasureUnit": "units"
+        "originalMeasureUnit": "unit"
       }
     },
     {
       "id": 9,
-      "subRecipeId": 2,
+      "subrecipeId": 2,
       "name": "farine tout usage non blanchie",
       "quantity": {
         "value": 60.0,
@@ -120,11 +120,11 @@
     },
     {
       "id": 10,
-      "subRecipeId": 2,
+      "subrecipeId": 2,
       "name": "oeufs",
       "quantity": {
         "value": 2.0,
-        "originalMeasureUnit": "units"
+        "originalMeasureUnit": "unit"
       },
       "requirements": [
         "légèrement battus"
@@ -132,7 +132,7 @@
     },
     {
       "id": 11,
-      "subRecipeId": 2,
+      "subrecipeId": 2,
       "name": "chapelure",
       "quantity": {
         "value": 125.0,
@@ -141,16 +141,16 @@
     },
     {
       "id": 12,
-      "subRecipeId": 2,
+      "subrecipeId": 2,
       "name": "bûchette de fromage de chèvre affiné  d’environ 200 g coupé en 8 tranches (voir note)",
       "quantity": {
         "value": 1.0,
-        "originalMeasureUnit": "units"
+        "originalMeasureUnit": "unit"
       }
     },
     {
       "id": 13,
-      "subRecipeId": 2,
+      "subrecipeId": 2,
       "name": "huile d’olive",
       "quantity": {
         "value": 60.0,
@@ -159,7 +159,7 @@
     },
     {
       "id": 14,
-      "subRecipeId": 2,
+      "subrecipeId": 2,
       "name": "mini-roquette",
       "quantity": {
         "value": 500.0,
@@ -168,11 +168,11 @@
     },
     {
       "id": 15,
-      "subRecipeId": 2,
+      "subrecipeId": 2,
       "name": "pêches mûres mais fermes",
       "quantity": {
         "value": 2.0,
-        "originalMeasureUnit": "units"
+        "originalMeasureUnit": "unit"
       },
       "requirements": [
         "tranchées en fines lamelles à la mandoline"
@@ -191,11 +191,11 @@
               "type": "ingredient",
               "ingredient": {
                 "id": 10,
-                "subRecipeId": 2,
+                "subrecipeId": 2,
                 "name": "oeufs",
                 "quantity": {
                   "value": 2.0,
-                  "originalMeasureUnit": "units"
+                  "originalMeasureUnit": "unit"
                 },
                 "requirements": [
                   "légèrement battus"
@@ -217,11 +217,11 @@
               "type": "ingredient",
               "ingredient": {
                 "id": 15,
-                "subRecipeId": 2,
+                "subrecipeId": 2,
                 "name": "pêches mûres mais fermes",
                 "quantity": {
                   "value": 2.0,
-                  "originalMeasureUnit": "units"
+                  "originalMeasureUnit": "unit"
                 },
                 "requirements": [
                   "tranchées en fines lamelles à la mandoline"
@@ -250,7 +250,7 @@
               "type": "ingredient",
               "ingredient": {
                 "id": 0,
-                "subRecipeId": 0,
+                "subrecipeId": 0,
                 "name": "sucre",
                 "quantity": {
                   "value": 15.0,
@@ -266,7 +266,7 @@
               "type": "ingredient",
               "ingredient": {
                 "id": 1,
-                "subRecipeId": 0,
+                "subrecipeId": 0,
                 "name": "beurre",
                 "quantity": {
                   "value": 5.0,
@@ -290,7 +290,7 @@
               "type": "ingredient",
               "ingredient": {
                 "id": 2,
-                "subRecipeId": 0,
+                "subrecipeId": 0,
                 "name": "amandes effilées",
                 "quantity": {
                   "value": 60.0,
@@ -336,7 +336,7 @@
       ]
     },
     {
-      "subRecipeId": 1,
+      "subrecipeId": 1,
       "phrases": [
         {
           "parts": [
@@ -381,7 +381,7 @@
       ]
     },
     {
-      "subRecipeId": 2,
+      "subrecipeId": 2,
       "phrases": [
         {
           "parts": [
@@ -393,7 +393,7 @@
               "type": "ingredient",
               "ingredient": {
                 "id": 9,
-                "subRecipeId": 2,
+                "subrecipeId": 2,
                 "name": "farine tout usage non blanchie",
                 "quantity": {
                   "value": 60.0,
@@ -409,11 +409,11 @@
               "type": "ingredient",
               "ingredient": {
                 "id": 10,
-                "subRecipeId": 2,
+                "subrecipeId": 2,
                 "name": "oeufs",
                 "quantity": {
                   "value": 2.0,
-                  "originalMeasureUnit": "units"
+                  "originalMeasureUnit": "unit"
                 },
                 "requirements": [
                   "légèrement battus"
@@ -428,7 +428,7 @@
               "type": "ingredient",
               "ingredient": {
                 "id": 11,
-                "subRecipeId": 2,
+                "subrecipeId": 2,
                 "name": "chapelure",
                 "quantity": {
                   "value": 125.0,
@@ -445,7 +445,7 @@
       ]
     },
     {
-      "subRecipeId": 2,
+      "subrecipeId": 2,
       "phrases": [
         {
           "parts": [
@@ -461,7 +461,7 @@
               "type": "ingredient",
               "ingredient": {
                 "id": 9,
-                "subRecipeId": 2,
+                "subrecipeId": 2,
                 "name": "farine tout usage non blanchie",
                 "quantity": {
                   "value": 60.0,
@@ -477,11 +477,11 @@
               "type": "ingredient",
               "ingredient": {
                 "id": 10,
-                "subRecipeId": 2,
+                "subrecipeId": 2,
                 "name": "oeufs",
                 "quantity": {
                   "value": 2.0,
-                  "originalMeasureUnit": "units"
+                  "originalMeasureUnit": "unit"
                 },
                 "requirements": [
                   "légèrement battus"
@@ -496,7 +496,7 @@
               "type": "ingredient",
               "ingredient": {
                 "id": 11,
-                "subRecipeId": 2,
+                "subrecipeId": 2,
                 "name": "chapelure",
                 "quantity": {
                   "value": 125.0,
@@ -520,11 +520,11 @@
               "type": "ingredient",
               "ingredient": {
                 "id": 10,
-                "subRecipeId": 2,
+                "subrecipeId": 2,
                 "name": "oeufs",
                 "quantity": {
                   "value": 2.0,
-                  "originalMeasureUnit": "units"
+                  "originalMeasureUnit": "unit"
                 },
                 "requirements": [
                   "légèrement battus"
@@ -539,7 +539,7 @@
               "type": "ingredient",
               "ingredient": {
                 "id": 11,
-                "subRecipeId": 2,
+                "subrecipeId": 2,
                 "name": "chapelure",
                 "quantity": {
                   "value": 125.0,
@@ -564,7 +564,7 @@
       ]
     },
     {
-      "subRecipeId": 2,
+      "subrecipeId": 2,
       "phrases": [
         {
           "parts": [
@@ -580,11 +580,11 @@
               "type": "ingredient",
               "ingredient": {
                 "id": 12,
-                "subRecipeId": 2,
+                "subrecipeId": 2,
                 "name": "bûchette de fromage de chèvre affiné  d’environ 200 g coupé en 8 tranches (voir note)",
                 "quantity": {
                   "value": 1.0,
-                  "originalMeasureUnit": "units"
+                  "originalMeasureUnit": "unit"
                 }
               }
             },
@@ -614,7 +614,7 @@
               "type": "ingredient",
               "ingredient": {
                 "id": 3,
-                "subRecipeId": 1,
+                "subrecipeId": 1,
                 "name": "huile végétale",
                 "quantity": {
                   "value": 30.0,
@@ -643,7 +643,7 @@
       ]
     },
     {
-      "subRecipeId": 2,
+      "subrecipeId": 2,
       "phrases": [
         {
           "parts": [
@@ -655,7 +655,7 @@
               "type": "ingredient",
               "ingredient": {
                 "id": 14,
-                "subRecipeId": 2,
+                "subrecipeId": 2,
                 "name": "mini-roquette",
                 "quantity": {
                   "value": 500.0,
@@ -671,11 +671,11 @@
               "type": "ingredient",
               "ingredient": {
                 "id": 15,
-                "subRecipeId": 2,
+                "subrecipeId": 2,
                 "name": "pêches mûres mais fermes",
                 "quantity": {
                   "value": 2.0,
-                  "originalMeasureUnit": "units"
+                  "originalMeasureUnit": "unit"
                 },
                 "requirements": [
                   "tranchées en fines lamelles à la mandoline"

@@ -36,6 +36,9 @@ export class QuickRecipePage {
 			case "2": 
 				url = "../assets/json/recipeModel-gaufres.json";
 				break;
+			case "3": 
+				url = "../assets/json/recipeModel-chevre.json";
+				break;
 			default:
 				break;
 		}
