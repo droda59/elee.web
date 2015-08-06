@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web.Http;
 
-using CookItNow.Infrastructure;
+using CookItNow.Api.Infrastucture;
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;

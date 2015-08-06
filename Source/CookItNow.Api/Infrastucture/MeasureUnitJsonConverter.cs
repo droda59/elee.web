@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 
 using CookItNow.Business;
 
 using Newtonsoft.Json;
 
-namespace CookItNow.Infrastructure
+namespace CookItNow.Api.Infrastucture
 {
     public class MeasureUnitJsonConverter : JsonConverter
     {
