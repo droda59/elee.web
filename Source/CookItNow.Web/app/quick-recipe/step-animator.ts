@@ -72,7 +72,7 @@ export class StepAnimator {
 		if (nextPhrase && nextPhrase.classList.contains("phrase")) {
 			return nextPhrase; 
 		}
-		else if (nextPhrase && nextPhrase.classList.contains("postStep")) {
+		else if (nextPhrase && nextPhrase.classList.contains("post-step")) {
 			return this.findFirstStep(nextPhrase);
 		}
 		else {

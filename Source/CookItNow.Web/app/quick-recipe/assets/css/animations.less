@@ -6,21 +6,11 @@
         animation: slideAway 2s;
     }
     
-    .step {
-        .phrase.au-enter {
-            opacity: 0!important;
-        }
-        
-        .phrase.au-enter-active {
-            animation: fadeIn 2s;
-        }
-        
-        .phrase.au-leave-active {
-            animation: fadeOut 2s;
-        }
+    .step.au-enter {
+        opacity: 0!important;
     }
-    .step.au-stagger {
-        animation-delay:50ms;
+    .step.au-enter-active {
+        animation: fadeIn 3s;
     }
 
     @keyframes fadeIn {
