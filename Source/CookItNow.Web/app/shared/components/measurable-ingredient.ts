@@ -21,6 +21,7 @@ export class MeasurableIngredient {
 		this.requirements = (this.ingredient.requirements || []).join(" et ");
 	}
 	
+	// TODO Move this in a common utils place
 	private isVowel(letter: string):boolean {
 		return letter === "a" || letter === "A"
 			|| letter === "e" || letter === "E"

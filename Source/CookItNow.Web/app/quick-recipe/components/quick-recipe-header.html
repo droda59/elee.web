@@ -5,14 +5,14 @@
         <nav role="navigation">
             <div class="nav-wrapper">
                 <div class="row">
-                    <div class="col m4">
+                    <div class="col left logo">
                         <a class="brand-logo left" href="#">
                             Cook It Now
                         </a>
                     </div>
-					<div class="col m8 offset-m4">
+					<div class="col right info">
 						<h3>
-							<div class="header-dropdown recipe-info">
+							<div class="header-dropdown recipe-info left">
 								<a class="dropdown-button ${recipeInfoSectionActive ? 'active' : ''}" click.trigger="toggleMinimizeRecipeInfo()">
 									<i class="material-icons left">arrow_drop_down</i>
 									${recipe.title}
@@ -32,13 +32,13 @@
 								</div>
 							</div>
 						
-							<div class="header-dropdown active-timers">
-								<a class="dropdown-button ${activeTimersSectionActive ? 'active' : ''}" click.trigger="toggleMinimizeActiveTimers()" show.bind="activeTimers.length">
+							<div class="header-dropdown active-timers right">
+								<a if.bind="activeTimers.length" click.trigger="toggleMinimizeActiveTimers()" class="dropdown-button ${activeTimersSectionActive ? 'active' : ''} au-animate">
 									<i class="material-icons small white-text">av_timer</i>
 								</a>
-								<div class="dropdown-content black-text" show.bind="activeTimersSectionActive">
+								<div class="dropdown-content" show.bind="activeTimersSectionActive">
 									<ul class="collection">
-										<li repeat.for="timer of activeTimers" class="collection-item avatar">
+										<li repeat.for="timer of activeTimers" class="collection-item avatar valign-wrapper">
 											<i class="material-icons circle ${timer.state == 'isAlmostDone' ? 'yellow' : timer.state == 'isAlmosterDone' ? 'red' : 'green'}">av_timer</i>
 											<span class="title">${timer.action}</span>
 											<p class="${timer.state == 'isAlmostDone' ? 'yellow-text' : timer.state == 'isAlmosterDone' ? 'red-text' : 'green-text'}">${timer.remainingTime} of ${timer.duration | durationFormat}</p>

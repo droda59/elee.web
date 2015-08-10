@@ -251,6 +251,23 @@
                 {
                     "parts": [
                        {
+                           "type": "action",
+                           "value": "Gosser"
+                       }, 
+                       {
+                           "type": "timer",
+                           "value": "PT00H02M",
+                           "action": "gosser"
+                       }, 
+                       {
+                           "type": "text",
+                           "value": "." 
+                       }
+                    ]
+                }, 
+                {
+                    "parts": [
+                       {
                            "type": "text",
                            "value": "Dans une casserole, "
                        }, 
@@ -451,23 +468,6 @@
                        {
                            "type": "action",
                            "value": "Laisser tiédir"
-                       }, 
-                       {
-                           "type": "text",
-                           "value": "." 
-                       }
-                    ]
-                },
-                {
-                    "parts": [
-                       {
-                           "type": "action",
-                           "value": "Gosser"
-                       }, 
-                       {
-                           "type": "timer",
-                           "value": "PT00H02M",
-                           "action": "gosser"
                        }, 
                        {
                            "type": "text",

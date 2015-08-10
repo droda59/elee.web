@@ -8,8 +8,8 @@ export class QuickRecipeHeader {
 	@bindable recipe: QuickRecipe = null;
 	
 	activeTimers: Timer[] = [];
+	recipeInfoSectionActive: boolean = false;	
 	activeTimersSectionActive: boolean = false;
-	recipeInfoSectionActive: boolean = false;
 	
 	private _eventAggregator: EventAggregator;
 	
@@ -27,11 +27,14 @@ export class QuickRecipeHeader {
 		this._eventAggregator.subscribe("TIMERDELETED", payload => {
 			var index = this.activeTimers.indexOf(payload);
 			this.activeTimers.splice(index, 1);
+			if (!this.activeTimers.length) {
+				this.activeTimersSectionActive = false;
+			}
 		});
     }
 	
 	toggleMinimizeActiveTimers() {
-		this.activeTimersSectionActive = !this.activeTimersSectionActive; 
+			this.activeTimersSectionActive = !this.activeTimersSectionActive; 
 	}
 	
 	toggleMinimizeRecipeInfo() {
