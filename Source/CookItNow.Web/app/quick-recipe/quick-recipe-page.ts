@@ -15,13 +15,13 @@ class QuickRecipeSubrecipeStep {
 
 @inject (HttpClient, Element)
 export class QuickRecipePage {
-    private _http: HttpClient;
-	
     recipe: QuickRecipe;
 	subrecipeIngredients: QuickRecipeSubrecipeIngredient[] = [];
 	subrecipeSteps: QuickRecipeSubrecipeStep[] = [];
 	element: Element;
 	backgroundClass: string;
+	
+    private _http: HttpClient;
 	
 	constructor(http: HttpClient, element: Element) {
 		this._http = http;

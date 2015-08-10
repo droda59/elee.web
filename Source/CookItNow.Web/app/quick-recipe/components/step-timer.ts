@@ -5,8 +5,9 @@ import {EventAggregator} from "aurelia-event-aggregator";
 
 @inject (EventAggregator)
 export class StepTimer {
-	private _eventAggregator: EventAggregator;
 	timer: Timer;
+	
+	private _eventAggregator: EventAggregator;
 	
 	constructor(eventAggregator: EventAggregator) {
 		this._eventAggregator = eventAggregator;

@@ -66,10 +66,9 @@ export class Timer {
     
     @computedFrom("_remainingSeconds")
     get remainingTime() {
-        var sec_num = this._remainingSeconds;
-        var hours   = Math.floor(sec_num / 3600);
-        var minutes = Math.floor((sec_num - (hours * 3600)) / 60);
-        var seconds = sec_num - (hours * 3600) - (minutes * 60);
+        var hours   = Math.floor(this._remainingSeconds / 3600);
+        var minutes = Math.floor((this._remainingSeconds - (hours * 3600)) / 60);
+        var seconds = this._remainingSeconds - (hours * 3600) - (minutes * 60);
     
         return (hours ? (hours < 10 ? "0" + hours : hours) + ":" : "") 
             + (minutes < 10 ? "0" + minutes : minutes) + ":" 
