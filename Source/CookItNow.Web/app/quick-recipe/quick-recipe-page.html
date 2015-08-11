@@ -48,14 +48,6 @@
 			</aside>
 			
 			<div class="main section col right">
-				<div if.bind="recipe.requirements" class="subrecipe">
-					<h2 class="center subrecipe-title">Préparation</h2>
-					<ol class="step-list">
-						<li repeat.for="requirement of recipe.requirements" class="step au-animate">
-							<quick-recipe-step step.bind="requirement"></quick-recipe-step>
-						</li>
-					</ol>
-				</div>
 				<div repeat.for="subrecipe of subrecipeSteps" class="subrecipe">
 					<h2 if.bind="subrecipe.subrecipeTitle" class="center subrecipe-title au-animate">${subrecipe.subrecipeTitle}</h2>
 					<ol class="step-list">

@@ -63,16 +63,6 @@ export class QuickRecipePage {
 			
 			routeConfig.navModel.title = this.recipe.title;
 			
-			// TODO Ugly-ass code; maybe it can be done server-side, we don't need that shit here
-			var floatingIngredients = this.recipe.ingredients.filter(
-				(ingredient) => ingredient.subrecipeId === undefined || ingredient.subrecipeId < 0
-			);
-			if (floatingIngredients.length) {
-				var subrecipeIngredient = new QuickRecipeSubrecipeIngredient();
-				subrecipeIngredient.ingredients = floatingIngredients;
-				this.subrecipeIngredients.push(subrecipeIngredient);
-			}
-			
 			(this.recipe.subrecipes || []).forEach(
 				(subrecipe) => {
 					var subrecipeIngredient = new QuickRecipeSubrecipeIngredient();
@@ -81,18 +71,11 @@ export class QuickRecipePage {
 						(ingredient) => ingredient.subrecipeId === subrecipe.id
 					);
 					 
-					this.subrecipeIngredients.push(subrecipeIngredient);
+					if (subrecipeIngredient.ingredients.length) {
+						this.subrecipeIngredients.push(subrecipeIngredient);
+					}
 				} 
 			);
-			
-			var floatingSteps = this.recipe.steps.filter(
-				(step) => step.subrecipeId === undefined || step.subrecipeId < 0
-			);
-			if (floatingSteps.length) {
-				var subrecipeStep = new QuickRecipeSubrecipeStep();
-				subrecipeStep.steps = floatingSteps;
-				this.subrecipeSteps.push(subrecipeStep);
-			}
 			
 			(this.recipe.subrecipes || []).forEach(
 				(subrecipe) => {
@@ -102,7 +85,9 @@ export class QuickRecipePage {
 						(step) => step.subrecipeId === subrecipe.id
 					);
 					 
-					this.subrecipeSteps.push(subrecipeStep);
+					if (subrecipeStep.steps.length) {
+						this.subrecipeSteps.push(subrecipeStep);
+					}
 				} 
 			);
         });

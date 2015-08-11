@@ -9,7 +9,6 @@ export interface QuickRecipe {
     duration : Duration[];
     subrecipes : SubRecipe[];
     ingredients : Ingredient[];
-    requirements: Step[];
     steps: Step[];
 }
 
