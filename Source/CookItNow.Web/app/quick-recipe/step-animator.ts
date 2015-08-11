@@ -25,6 +25,9 @@ export class StepAnimator {
 		var that = this;
 		this._eventAggregator.subscribe("STEPCOMPLETED", element => this.completeStep(element));
 		
+		var nextSubrecipeTitle = $(this.element).find(".subrecipe-title-wrapper")[0];
+		this._animator.animate(nextSubrecipeTitle, "show-subrecipe-title-animation");
+		
 		this.currentStep = this.findFirstStep(this.element);
 		this.nextStep = this.findNextStep(this._currentStep);
 		this.nextestStep = this.findNextStep(this._nextStep);
@@ -94,7 +97,7 @@ export class StepAnimator {
 					}
 					
 					if (firstStep) {
-						var nextSubrecipeTitle = $(nextSubrecipe).find("h2")[0];
+						var nextSubrecipeTitle = $(nextSubrecipe).find(".subrecipe-title-wrapper")[0];
 						this._animator.animate(nextSubrecipeTitle, "show-subrecipe-title-animation");
 					}
 					

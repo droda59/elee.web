@@ -49,7 +49,9 @@
 			
 			<div class="main section col right">
 				<div repeat.for="subrecipe of subrecipeSteps" class="subrecipe">
-					<h2 if.bind="subrecipe.subrecipeTitle" class="center subrecipe-title au-animate">${subrecipe.subrecipeTitle}</h2>
+					<div class="valign-wrapper subrecipe-title-wrapper">
+						<h2 class="valign subrecipe-title au-animate">${subrecipe.subrecipeTitle}</h2>
+					</div>
 					<ol class="step-list">
 						<li repeat.for="step of subrecipe.steps" class="step au-animate">
 							<quick-recipe-step step.bind="step"></quick-recipe-step>

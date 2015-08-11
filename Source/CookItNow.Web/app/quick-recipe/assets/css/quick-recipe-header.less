@@ -1,0 +1,155 @@
+.quick-recipe {
+    header {
+        @media only screen and (min-width: 601px) {
+            nav {
+                line-height: 102px;
+            }
+            
+            .navbar-fixed {
+                height: 100%;
+            }
+        }
+        
+        height: 102px;
+        
+        nav {
+            box-shadow: none;
+            background-color: rgba(29, 30, 34, 0.5);
+            height: 102px;
+            border-bottom: 1px solid rgb(102, 103, 111);
+            
+            a {
+                color: rgb(213, 217, 225);
+            }
+            
+            h3 {
+                margin: 0;
+            }
+            
+            .logo {
+                width: calc(396px + 20px);
+                padding-left: 100px;
+            }
+            .info {
+                width: calc(~'100% - (396px + 20px)');
+            }
+            
+            .header-dropdown {
+                height: 100%;
+                top: 0;
+                
+                .dropdown-button {
+                    height: 100%;
+                    display: block;
+                    cursor: pointer;
+                    line-height: 102px; 
+                    overflow-x: hidden;
+                                        
+                    i {
+                        height: 100%;
+                        line-height: 102px;
+                    }
+                }
+                .dropdown-button:hover,
+                .dropdown-button.active {
+                    background-color: rgba(226, 225, 221, 0.1);
+                }
+                
+                .dropdown-content {
+                    display: block;
+                    border: 1px solid #66676f;
+                    background-color: rgba(29, 30, 34, 0.3);
+                    opacity: 1;
+                    min-width: 400px;
+                    color: white;
+                    
+                    li > span {
+                        color: white;
+                    }
+                }
+            }
+            
+            .recipe-info {
+                font-family: "Times New Roman";
+                
+                .dropdown-button {
+                    padding-right: 20px;
+                }
+                
+                .dropdown-content {
+                    padding: 10px 20px 0;
+                    top: calc(102px - 1.46rem);
+                }
+            }
+
+            .active-timers {
+                right: 0;
+                
+                .dropdown-button {
+                    width: 102px;
+                    text-align: center;
+                }
+                
+                .dropdown-content {
+                    right: -1px;
+                    top: calc(102px - 1.46rem);
+                    padding: 0 10px;
+                    
+                    .collection {
+                        border: none;
+                        margin: 0;
+                        
+                        .collection-item {
+                            background: none;
+                            padding: 10px 0;
+                            min-height: inherit;
+                            
+                            .circle {
+                                height: 20px;
+                                width: 30px;
+                                position: initial;
+                                padding-right: 10px;
+                            }
+                            i.circle {
+                                font-size: 22px;
+                                line-height: 20px;
+                                border-radius: 0;
+                                background: none !important;
+                                display: inline-block;
+                            }
+                            .title {
+                                font-size: 1rem;
+                                padding: 0 10px;
+                                display: inline-block;
+                            }
+                            p {
+                                display: inline-block;
+                                font-size: 1.2rem;
+                            }
+                            
+                            .secondary-content {
+                                  font-size: 0.3rem;
+                                  display: inline-block;
+                                  padding: 0;
+                                  top: 10px;
+                                  right: 0;
+                                  line-height: initial;
+                                      
+                                a {
+                                      font-size: 0.3rem;
+                                      display: inline-block;
+                                      padding: 0;
+                                      
+                                      i {
+                                          height: inherit;
+                                          line-height: inherit;
+                                      }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
