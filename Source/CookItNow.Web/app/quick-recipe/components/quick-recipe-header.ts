@@ -1,6 +1,6 @@
 import {bindable, inject} from "aurelia-framework";
 import {EventAggregator} from "aurelia-event-aggregator";
-import {QuickRecipe, Ingredient, Step} from "quick-recipe/models/quick-recipe";
+import {QuickRecipe} from "quick-recipe/models/quick-recipe";
 import {Timer} from "shared/models/timer";
 
 @inject (EventAggregator)

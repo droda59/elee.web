@@ -37,13 +37,13 @@
             
             .logo {
                 width: calc(396px + 20px);
+                padding-left: 100px;
             }
             .info {
                 width: calc(~'100% - (396px + 20px)');
             }
             
             .header-dropdown {
-                // position: absolute;
                 height: 100%;
                 top: 0;
                 
@@ -67,7 +67,7 @@
                 .dropdown-content {
                     display: block;
                     border: 1px solid #66676f;
-                    background-color: rgba(29, 30, 34, 0.3);
+                    background-color: rgba(226, 225, 221, 0.1);
                     opacity: 1;
                     min-width: 400px;
                     color: white;
@@ -79,8 +79,15 @@
             }
             
             .recipe-info {
+                font-family: "Times New Roman";
+                
+                .dropdown-button {
+                    padding-right: 20px;
+                }
+                
                 .dropdown-content {
                     padding: 10px 20px 0;
+                    top: calc(102px - 1.46rem);
                 }
             }
 
@@ -95,7 +102,7 @@
                 .dropdown-content {
                     right: -1px;
                     top: calc(102px - 1.46rem);
-                    padding: 10px;
+                    padding: 0 10px;
                     
                     .collection {
                         border: none;
@@ -103,12 +110,14 @@
                         
                         .collection-item {
                             background: none;
-                            padding: 0;
+                            padding: 10px 0;
                             min-height: inherit;
                             
                             .circle {
                                 height: 20px;
-                                width: 20px;
+                                width: 30px;
+                                position: initial;
+                                padding-right: 10px;
                             }
                             i.circle {
                                 font-size: 22px;
@@ -119,7 +128,7 @@
                             }
                             .title {
                                 font-size: 1rem;
-                                padding: 0;
+                                padding: 0 10px;
                                 display: inline-block;
                             }
                             p {
@@ -131,8 +140,9 @@
                                   font-size: 0.3rem;
                                   display: inline-block;
                                   padding: 0;
-                                  top: 0;
+                                  top: 10px;
                                   right: 0;
+                                  line-height: initial;
                                       
                                 a {
                                       font-size: 0.3rem;
@@ -159,6 +169,7 @@
             padding: 10px;
             width: @quick-recipe-ingredients-side-width;
             margin-bottom: 42px;
+            position: relative;
             
             .border-box {
                 background-color: #e9e9e9;
@@ -168,6 +179,11 @@
                 overflow-y: auto;
                 
                 .content {
+                    h3, 
+                    h4 {
+                        font-family: @font-fancy-decorative;
+                    }
+                    
                     .title {
                         width: 358px;
                         height: 125px;
@@ -178,7 +194,7 @@
                     }
                     
                     .ingredient-list {
-                        padding: 20px 40px;
+                        padding: 10px 30px;
                         border: none;
                         
                         .ingredient-item {
@@ -197,12 +213,21 @@
                 }
             }
         }
+        .ingredients::after {
+            content: "";
+            height: 50px;
+            width: calc(~'100% - 22px');
+            background: linear-gradient(to top, rgba(233, 233, 233, 1) 0%, rgba(233, 233, 233, 0.1) 100%);
+            left: 11px;
+            bottom: 11px;
+            display: block;
+            position: absolute;
+        }
         
         .main {
             color: white;
             width: calc(~'100% - 396px');
             height: calc(~'100vh - 165px');
-            // overflow-y: auto;
             overflow: hidden;
             position: relative;
             

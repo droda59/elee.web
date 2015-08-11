@@ -9,7 +9,7 @@
 	
 	<div class="quick-recipe" class.bind="backgroundClass">
 	    <header class="row">
-			<quick-recipe-header recipe.bind="recipe"></quick-recipe-header>
+			<quick-recipe-header containerless recipe.bind="recipe"></quick-recipe-header>
 	    </header>
 		
 		<main class="row">
@@ -20,7 +20,7 @@
 							<div class="section no-pad-bot">
 								<div class="container">
 									<div class="row center">
-										<h5 class="header col s12 light">Ingrédients</h5>
+										<h3 class="header col s12">Ingredients</h3>
 									</div>
 								</div>
 							</div>
@@ -30,13 +30,13 @@
 						</div>
 						
 						<div repeat.for="subrecipe of subrecipeIngredients" class="section">
-							<h5 if.bind="subrecipe.subrecipeTitle" class="center">${subrecipe.subrecipeTitle}</h5>
+							<h4 if.bind="subrecipe.subrecipeTitle" class="center">${subrecipe.subrecipeTitle}</h4>
 							<ul class="ingredient-list collection">
 								<li repeat.for="ingredient of subrecipe.ingredients" class="collection-item ingredient-item">
-									<measurable-ingredient ingredient.bind="ingredient"></measurable-ingredient>
+									<measurable-ingredient containerless ingredient.bind="ingredient"></measurable-ingredient>
 									<small if.bind="ingredient.replacements" repeat.for="replacement of ingredient.replacements">
 										<div>ou</div>
-										<measurable-ingredient ingredient.bind="replacement"></measurable-ingredient>
+										<measurable-ingredient containerless ingredient.bind="replacement"></measurable-ingredient>
 									</small>
 								</li>
 							</ul>
@@ -68,7 +68,7 @@
 		</main>
 				
 		<footer class="row page-footer fixed">
-			<quick-recipe-footer url.bind="recipe.originalUrl"></quick-recipe-footer>
+			<quick-recipe-footer containerless url.bind="recipe.originalUrl"></quick-recipe-footer>
 		</footer>
 	</div>
 </template>
