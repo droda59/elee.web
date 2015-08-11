@@ -15,6 +15,9 @@ namespace CookItNow.Parser
 {
     internal class RicardoParser : HtmlParser
     {
+        private const int RequirementsSubrecipeId = -2;
+        private const int PreparationSubrecipeId = -1;
+
         private readonly Func<CultureInfo, IActionDetector> _actionDetectorFactory;
         private readonly Func<CultureInfo, ITimerDetector> _timerDetectorFactory;
         private readonly Func<CultureInfo, IIngredientDetector> _ingredientDetectorFactory;
@@ -52,8 +55,8 @@ namespace CookItNow.Parser
 
         public override async Task<QuickRecipe> ParseHtmlAsync(Uri uri)
         {
-            var content = await this.LoadHtmlAsync(uri);
-            //var content = await this.GetOfflineHtmlContent();
+            //var content = await this.LoadHtmlAsync(uri);
+            var content = await this.GetOfflineHtmlContent();
 
             var recipe = new QuickRecipe();
             recipe.OriginalUrl = uri.AbsoluteUri;
@@ -103,6 +106,10 @@ namespace CookItNow.Parser
             }
 
             var ingredientId = 0;
+
+            recipe.Subrecipes.Add(new Subrecipe { Id = RequirementsSubrecipeId, Title = "Requis" });
+            recipe.Subrecipes.Add(new Subrecipe { Id = PreparationSubrecipeId, Title = "Préparation" });
+
             var ingredientsSection = document.DocumentNode.SelectSingleNode("//section[@class='ingredients']//div[@class='frmInnerWrap']");
             var subrecipeNodes = ingredientsSection.SelectNodes(".//h3");
             if (subrecipeNodes != null && subrecipeNodes.Any())
@@ -113,20 +120,20 @@ namespace CookItNow.Parser
                     recipe.Subrecipes.Add(new Subrecipe { Id = subrecipeId, Title = subrecipeNode.InnerText.Trim() });
 
                     var subrecipeIngredientNodes = subrecipeNode.NextSibling.NextSibling.SelectNodes(".//li//label[@itemprop='ingredients']//span");
-                    this.ParseIngredients(subrecipeIngredientNodes, cultureInfoFromLanguage, recipe, ref ingredientId, subrecipeId);
+                    this.ParseIngredients(subrecipeIngredientNodes, cultureInfoFromLanguage, recipe, subrecipeId, ref ingredientId);
                 }
             }
             else
             {
                 var orphanIngredientNodes = ingredientsSection.SelectNodes(".//li//label[@itemprop='ingredients']//span");
-                this.ParseIngredients(orphanIngredientNodes, cultureInfoFromLanguage, recipe, ref ingredientId);
+                this.ParseIngredients(orphanIngredientNodes, cultureInfoFromLanguage, recipe, PreparationSubrecipeId, ref ingredientId);
             }
 
             var stepSubrecipeNodes = document.DocumentNode.SelectNodes("//section[@itemprop='recipeInstructions']//h3");
             foreach (var stepSubrecipeNode in stepSubrecipeNodes)
             {
                 var subrecipe = recipe.Subrecipes.SingleOrDefault(x => x.Title == stepSubrecipeNode.InnerText.Trim());
-                var subrecipeId = subrecipe != null ? subrecipe.Id : (int?)null;
+                var subrecipeId = subrecipe != null ? subrecipe.Id : PreparationSubrecipeId;
 
                 var stepNodes = stepSubrecipeNode.NextSibling.NextSibling.SelectNodes(".//li//span");
 
@@ -219,15 +226,27 @@ namespace CookItNow.Parser
                 }
             }
 
+            ClearUnusedSubrecipe(recipe, RequirementsSubrecipeId);
+            ClearUnusedSubrecipe(recipe, PreparationSubrecipeId);
+
             return recipe;
         }
 
+        private static void ClearUnusedSubrecipe(QuickRecipe recipe, int subrecipeId)
+        {
+            var subrecipe = recipe.Subrecipes.Single(x => x.Id == subrecipeId);
+            if (recipe.Steps.All(x => x.SubrecipeId != subrecipeId))
+            {
+                recipe.Subrecipes.RemoveAt(recipe.Subrecipes.IndexOf(subrecipe));
+            }
+        }
+
         private void ParseIngredients(
-            HtmlNodeCollection ingredientNodes,
-            IFormatProvider culture,
-            QuickRecipe recipe,
-            ref int ingredientId,
-            int? subrecipeId = null)
+            HtmlNodeCollection ingredientNodes, 
+            IFormatProvider culture, 
+            QuickRecipe recipe, 
+            int subrecipeId, 
+            ref int ingredientId)
         {
             foreach (var ingredientNode in ingredientNodes)
             {
@@ -262,14 +281,9 @@ namespace CookItNow.Parser
                 Match ingredientMatch;
                 if (measureUnitEnum == MeasureUnit.Unit)
                 {
-                    if (hasQuantity)
-                    {
-                        ingredientMatch = this._ingredientUnitExpression.Match(name);                        
-                    }
-                    else
-                    {
-                        ingredientMatch = this._ingredientFullExpression.Match(name);
-                    }
+                    ingredientMatch = hasQuantity 
+                        ? this._ingredientUnitExpression.Match(name) 
+                        : this._ingredientFullExpression.Match(name);
                 }
                 else
                 {
@@ -288,6 +302,16 @@ namespace CookItNow.Parser
                 };
 
                 var requirements = splitRequirements.Skip(1).Select(x => x.Trim()).ToList();
+                Step requirementsStep = null;
+                if (requirements.Any())
+                {
+                    ingredient.Requirements = requirements;
+
+                    requirementsStep = new Step();
+                    requirementsStep.SubrecipeId = RequirementsSubrecipeId;
+                    recipe.Steps.Add(requirementsStep);
+                }
+
                 foreach (var requirement in requirements)
                 {
                     var requirementAction = this._actionDetector.Actionify(requirement);
@@ -296,15 +320,7 @@ namespace CookItNow.Parser
                     phrase.Parts.Add(new ActionPart { Value = requirementAction });
                     phrase.Parts.Add(new IngredientPart { Ingredient = ingredient });
 
-                    var step = new Step();
-                    step.Phrases.Add(phrase);
-
-                    recipe.Requirements.Add(step);
-                }
-
-                if (requirements.Any())
-                {
-                    ingredient.Requirements = requirements;
+                    requirementsStep.Phrases.Add(phrase);
                 }
 
                 recipe.Ingredients.Add(ingredient);

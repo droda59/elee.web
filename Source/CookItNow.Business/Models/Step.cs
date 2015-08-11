@@ -10,7 +10,7 @@ namespace CookItNow.Business.Models
             this.Phrases = new List<Phrase>();
         }
 
-        public int? SubrecipeId { get; set; }
+        public int SubrecipeId { get; set; }
 
         public IList<Phrase> Phrases { get; set; }
 

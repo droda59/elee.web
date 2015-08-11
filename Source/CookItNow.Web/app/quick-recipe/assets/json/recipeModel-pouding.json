@@ -1,251 +1,577 @@
 ﻿{
-    "id": 1,
-    "title": "Pouding au chocolat",
-    "originalUrl": "http://www.ricardocuisine.com/recettes/5409-pouding-au-chocolat",
-    "summary": "Sommaire de la recette, un bon pouding au chocolat mi-amer avec ben des calories.",
-    "originalServings": 10,
-    "durations": [
+  "id": 1,
+  "title": "Pouding au chocolat",
+  "originalUrl": "http://www.ricardocuisine.com/recettes/5409-pouding-au-chocolat",
+  "originalServings": 10,
+  "durations": [
+    {
+      "title": "Préparation",
+      "time": "PT30M"
+    },
+    {
+      "title": "Cuisson",
+      "time": "PT1H"
+    }
+  ],
+  "subrecipes": [
+    {
+      "id": -2,
+      "title": "Requis"
+    },
+    {
+      "id": -1,
+      "title": "Préparation"
+    },
+    {
+      "id": 0,
+      "title": "Sauce"
+    },
+    {
+      "id": 1,
+      "title": "Gâteau"
+    }
+  ],
+  "ingredients": [
+    {
+      "id": 0,
+      "subrecipeId": 0,
+      "name": "cassonade",
+      "quantity": {
+        "value": 750.0,
+        "originalMeasureUnit": "ml"
+      }
+    },
+    {
+      "id": 1,
+      "subrecipeId": 0,
+      "name": "cacao",
+      "quantity": {
+        "value": 180.0,
+        "originalMeasureUnit": "ml"
+      },
+      "requirements": [
+        "tamisé"
+      ]
+    },
+    {
+      "id": 2,
+      "subrecipeId": 0,
+      "name": "fécule de maïs",
+      "quantity": {
+        "value": 10.0,
+        "originalMeasureUnit": "ml"
+      }
+    },
+    {
+      "id": 3,
+      "subrecipeId": 0,
+      "name": "eau",
+      "quantity": {
+        "value": 625.0,
+        "originalMeasureUnit": "ml"
+      }
+    },
+    {
+      "id": 4,
+      "subrecipeId": 0,
+      "name": "crème 35 %",
+      "quantity": {
+        "value": 125.0,
+        "originalMeasureUnit": "ml"
+      }
+    },
+    {
+      "id": 5,
+      "subrecipeId": 0,
+      "name": "extrait de vanille",
+      "quantity": {
+        "value": 2.5,
+        "originalMeasureUnit": "ml"
+      }
+    },
+    {
+      "id": 6,
+      "subrecipeId": 1,
+      "name": "lait",
+      "quantity": {
+        "value": 250.0,
+        "originalMeasureUnit": "ml"
+      }
+    },
+    {
+      "id": 7,
+      "subrecipeId": 1,
+      "name": "cacao",
+      "quantity": {
+        "value": 125.0,
+        "originalMeasureUnit": "ml"
+      },
+      "requirements": [
+        "tamisé"
+      ]
+    },
+    {
+      "id": 8,
+      "subrecipeId": 1,
+      "name": "farine tout usage non blanchie",
+      "quantity": {
+        "value": 375.0,
+        "originalMeasureUnit": "ml"
+      }
+    },
+    {
+      "id": 9,
+      "subrecipeId": 1,
+      "name": "bicarbonate de soude",
+      "quantity": {
+        "value": 5.0,
+        "originalMeasureUnit": "ml"
+      }
+    },
+    {
+      "id": 10,
+      "subrecipeId": 1,
+      "name": "sel",
+      "quantity": {
+        "value": 1.0,
+        "originalMeasureUnit": "pinch"
+      }
+    },
+    {
+      "id": 11,
+      "subrecipeId": 1,
+      "name": "beurre non salé",
+      "quantity": {
+        "value": 125.0,
+        "originalMeasureUnit": "ml"
+      },
+      "requirements": [
+        "ramolli"
+      ]
+    },
+    {
+      "id": 12,
+      "subrecipeId": 1,
+      "name": "sucre",
+      "quantity": {
+        "value": 375.0,
+        "originalMeasureUnit": "ml"
+      }
+    },
+    {
+      "id": 13,
+      "subrecipeId": 1,
+      "name": "oeufs",
+      "quantity": {
+        "value": 2.0,
+        "originalMeasureUnit": "unit"
+      }
+    }
+  ],
+  "steps": [
+    {
+      "subrecipeId": -2,
+      "phrases": [
         {
-            "title": "Preparation",
-            "time": "PT00H30M"
-        },
-        {
-            "title": "Cuisson",
-            "time": "PT01H00M"
-        }
-    ], 
-    "subrecipes": [
-        {
-            "id": 1, 
-            "title": "Sauce"
-        },
-        {
-            "id": 2, 
-            "title": "Gâteau"
-        }
-    ],
-    "ingredients": [
-        {
-            "id": 1,
-            "subrecipeId": 1, 
-            "name": "Cassonade",
-            "quantity": {
-                "value": 3,
-                "originalMeasureUnit": "cup"
-            }
-        },
-        {
-            "id": 2,
-            "subrecipeId": 1, 
-            "name": "Eau",
-            "quantity": {
-                "value": 625,
-                "originalMeasureUnit": "ml"
-            }
-        }, 
-        {
-            "id": 3,
-            "subrecipeId": 1, 
-            "name": "Cacao",
-            "quantity": {
-                "value": 180,
-                "originalMeasureUnit": "ml"
+          "parts": [
+            {
+              "type": "action",
+              "value": "tamiser"
             },
-            "requirements": [
-                "tamisé"
-            ]
-        },
-        {
-            "id": 4,
-            "subrecipeId": 1, 
-            "name": "Crème 35%",
-            "quantity": {
-                "value": 125,
-                "originalMeasureUnit": "ml"
+            {
+              "type": "ingredient",
+              "ingredient": {
+                "id": 1,
+                "subrecipeId": 0,
+                "name": "cacao",
+                "quantity": {
+                  "value": 180.0,
+                  "originalMeasureUnit": "ml"
+                },
+                "requirements": [
+                  "tamisé"
+                ]
+              }
             }
-        },
-        {
-            "id": 5,
-            "subrecipeId": 1, 
-            "name": "Fécule de maïs",
-            "quantity": {
-                "value": 10,
-                "originalMeasureUnit": "ml"
-            }
-        },
-        {
-            "id": 6,
-            "subrecipeId": 1, 
-            "name": "Extrait de vanille",
-            "quantity": {
-                "value": 2.5,
-                "originalMeasureUnit": "ml"
-            }
-        },
-        {
-            "id": 7,
-            "subrecipeId": 2,  
-            "name": "Farine tout usage non blanchie",
-            "quantity": {
-                "value": 375,
-                "originalMeasureUnit": "ml"
-            }
-        },
-        {
-            "id": 8,
-            "subrecipeId": 2,
-            "name": "Sucre",
-            "quantity": {
-                "value": 375,
-                "originalMeasureUnit": "ml"
-            }
-        },
-        {
-            "id": 9,
-            "subrecipeId": 2,
-            "name": "Lait",
-            "quantity": {
-                "value": 1,
-                "originalMeasureUnit": "cup"
-            }
-        },
-        {
-            "id": 10,
-            "subrecipeId": 2,
-            "name": "Cacao",
-            "quantity": {
-                "value": 125,
-                "originalMeasureUnit": "ml"
-            },
-            "requirements": [
-                "tamisé"
-            ]
-        },
-        {
-            "id": 11,
-            "subrecipeId": 2,
-            "name": "Beurre non salé",
-            "quantity": {
-                "value": 125,
-                "originalMeasureUnit": "ml"
-            },
-            "requirements": [
-                "ramolli"
-            ]
-        },
-        {
-            "id": 12,
-            "subrecipeId": 2,
-            "name": "Bicarbonate de soude",
-            "quantity": {
-                "value": 5,
-                "originalMeasureUnit": "ml"
-            }
-        },
-        {
-            "id": 13,
-            "subrecipeId": 2,
-            "name": "Sel",
-            "quantity": {
-                "value": 1,
-                "originalMeasureUnit": "pinch"
-            }
-        },
-        {
-            "id": 14,
-            "subrecipeId": 2,
-            "name": "Oeufs",
-            "quantity": {
-                "value": 2,
-                "originalMeasureUnit": "unit"
-            }
+          ]
         }
-    ],
-    "requirements": [
+      ]
+    },
+    {
+      "subrecipeId": -2,
+      "phrases": [
         {
-            "phrases": [
-                {
-                    "parts": [
-                        {
-                           "type": "action",
-                           "value": "Tamiser" 
-                        },
-                        {
-                           "type": "ingredient", 
-                           "ingredient": {
-                                "id": 3,
-                                "subrecipeId": 1, 
-                                "name": "Cacao",
-                                "quantity": {
-                                    "value": 180,
-                                    "originalMeasureUnit": "ml"
-                                },
-                                "requirements": [
-                                    "tamisé"
-                                ]
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "phrases": [
-                {
-                    "parts": [
-                        {
-                           "type": "action",
-                           "value": "Tamiser" 
-                        },
-                        {
-                           "type": "ingredient", 
-                           "ingredient": {
-                                "id": 10,
-                                "subrecipeId": 2,
-                                "name": "Cacao",
-                                "quantity": {
-                                    "value": 125,
-                                    "originalMeasureUnit": "ml"
-                                },
-                                "requirements": [
-                                    "tamisé"
-                                ]
-                            }
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "phrases": [
-                {
-                    "parts": [
-                        {
-                           "type": "action",
-                           "value": "Ramollir" 
-                        },
-                        {
-                           "type": "ingredient", 
-                           "ingredient": {
-                                "id": 11,
-                                "subrecipeId": 2,
-                                "name": "Beurre non salé",
-                                "quantity": {
-                                    "value": 125,
-                                    "originalMeasureUnit": "ml"
-                                },
-                                "requirements": [
-                                    "ramolli"
-                                ]
-                            }
-                        }
-                    ]
-                }
-            ]
+          "parts": [
+            {
+              "type": "action",
+              "value": "tamiser"
+            },
+            {
+              "type": "ingredient",
+              "ingredient": {
+                "id": 7,
+                "subrecipeId": 1,
+                "name": "cacao",
+                "quantity": {
+                  "value": 125.0,
+                  "originalMeasureUnit": "ml"
+                },
+                "requirements": [
+                  "tamisé"
+                ]
+              }
+            }
+          ]
         }
-    ], 
-    "steps": [
+      ]
+    },
+    {
+      "subrecipeId": -2,
+      "phrases": [
         {
+          "parts": [
+            {
+              "type": "action",
+              "value": "ramollir"
+            },
+            {
+              "type": "ingredient",
+              "ingredient": {
+                "id": 11,
+                "subrecipeId": 1,
+                "name": "beurre non salé",
+                "quantity": {
+                  "value": 125.0,
+                  "originalMeasureUnit": "ml"
+                },
+                "requirements": [
+                  "ramolli"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subrecipeId": -1,
+      "phrases": [
+        {
+          "parts": [
+            {
+              "type": "action",
+              "value": "Placer"
+            },
+            {
+              "type": "text",
+              "value": "la grille au centre du four"
+            }
+          ]
+        },
+        {
+          "parts": [
+            {
+              "type": "action",
+              "value": "Préchauffer"
+            },
+            {
+              "type": "text",
+              "value": "le four à 180 C (350 F)"
+            }
+          ]
+        },
+        {
+          "parts": [
+            {
+              "type": "action",
+              "value": "Beurrer"
+            },
+            {
+              "type": "text",
+              "value": "un plat de cuisson de 33 x 23 cm (13 x 9 po)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subrecipeId": 0,
+      "phrases": [
+        {
+          "parts": [
+            {
+              "type": "text",
+              "value": "Dans une casserole ,"
+            },
+            {
+              "type": "action",
+              "value": "mélanger"
+            },
+            {
+              "type": "ingredient",
+              "ingredient": {
+                "id": 0,
+                "subrecipeId": 0,
+                "name": "cassonade",
+                "quantity": {
+                  "value": 750.0,
+                  "originalMeasureUnit": "ml"
+                }
+              }
+            },
+            {
+              "type": "text",
+              "value": ","
+            },
+            {
+              "type": "ingredient",
+              "ingredient": {
+                "id": 1,
+                "subrecipeId": 0,
+                "name": "cacao",
+                "quantity": {
+                  "value": 180.0,
+                  "originalMeasureUnit": "ml"
+                },
+                "requirements": [
+                  "tamisé"
+                ]
+              }
+            },
+            {
+              "type": "text",
+              "value": "et"
+            },
+            {
+              "type": "ingredient",
+              "ingredient": {
+                "id": 2,
+                "subrecipeId": 0,
+                "name": "fécule de maïs",
+                "quantity": {
+                  "value": 10.0,
+                  "originalMeasureUnit": "ml"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "parts": [
+            {
+              "type": "action",
+              "value": "Ajouter"
+            },
+            {
+              "type": "ingredient",
+              "ingredient": {
+                "id": 3,
+                "subrecipeId": 0,
+                "name": "eau",
+                "quantity": {
+                  "value": 625.0,
+                  "originalMeasureUnit": "ml"
+                }
+              }
+            },
+            {
+              "type": "text",
+              "value": ","
+            },
+            {
+              "type": "ingredient",
+              "ingredient": {
+                "id": 4,
+                "subrecipeId": 0,
+                "name": "crème 35 %",
+                "quantity": {
+                  "value": 125.0,
+                  "originalMeasureUnit": "ml"
+                }
+              }
+            },
+            {
+              "type": "text",
+              "value": "et"
+            },
+            {
+              "type": "action",
+              "value": "porter"
+            },
+            {
+              "type": "text",
+              "value": "à ébullition en remuant à l’ aide d’ un fouet"
+            }
+          ]
+        },
+        {
+          "parts": [
+            {
+              "type": "action",
+              "value": "Incorporer"
+            },
+            {
+              "type": "ingredient",
+              "ingredient": {
+                "id": 5,
+                "subrecipeId": 0,
+                "name": "extrait de vanille",
+                "quantity": {
+                  "value": 2.5,
+                  "originalMeasureUnit": "ml"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "parts": [
+            {
+              "type": "action",
+              "value": "Réserver"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subrecipeId": 1,
+      "phrases": [
+        {
+          "parts": [
+            {
+              "type": "text",
+              "value": "Dans une petite casserole ,"
+            },
+            {
+              "type": "action",
+              "value": "porter"
+            },
+            {
+              "type": "text",
+              "value": "à ébullition"
+            },
+            {
+              "type": "ingredient",
+              "ingredient": {
+                "id": 6,
+                "subrecipeId": 1,
+                "name": "lait",
+                "quantity": {
+                  "value": 250.0,
+                  "originalMeasureUnit": "ml"
+                }
+              }
+            },
+            {
+              "type": "text",
+              "value": "et"
+            },
+            {
+              "type": "ingredient",
+              "ingredient": {
+                "id": 1,
+                "subrecipeId": 0,
+                "name": "cacao",
+                "quantity": {
+                  "value": 180.0,
+                  "originalMeasureUnit": "ml"
+                },
+                "requirements": [
+                  "tamisé"
+                ]
+              }
+            },
+            {
+              "type": "text",
+              "value": "en remuant à l’ aide d’ un fouet"
+            }
+          ]
+        },
+        {
+          "parts": [
+            {
+              "type": "action",
+              "value": "Laisser tiédir"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subrecipeId": 1,
+      "phrases": [
+        {
+          "parts": [
+            {
+              "type": "text",
+              "value": "Dans un bol ,"
+            },
+            {
+              "type": "action",
+              "value": "mélanger"
+            },
+            {
+              "type": "ingredient",
+              "ingredient": {
+                "id": 8,
+                "subrecipeId": 1,
+                "name": "farine tout usage non blanchie",
+                "quantity": {
+                  "value": 375.0,
+                  "originalMeasureUnit": "ml"
+                }
+              }
+            },
+            {
+              "type": "text",
+              "value": ","
+            },
+            {
+              "type": "ingredient",
+              "ingredient": {
+                "id": 9,
+                "subrecipeId": 1,
+                "name": "bicarbonate de soude",
+                "quantity": {
+                  "value": 5.0,
+                  "originalMeasureUnit": "ml"
+                }
+              }
+            },
+            {
+              "type": "text",
+              "value": "et"
+            },
+            {
+              "type": "ingredient",
+              "ingredient": {
+                "id": 10,
+                "subrecipeId": 1,
+                "name": "sel",
+                "quantity": {
+                  "value": 1.0,
+                  "originalMeasureUnit": "pinch"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "parts": [
+            {
+              "type": "action",
+              "value": "Réserver"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subrecipeId": 1,
+      "phrases": [
+        {
+<<<<<<< HEAD
             "subrecipeId": 1,
             "phrases": [
                 {
@@ -419,22 +745,56 @@
                            "value": ". "
                        }
                     ]
+=======
+          "parts": [
+            {
+              "type": "text",
+              "value": "Dans un autre bol ,"
+            },
+            {
+              "type": "action",
+              "value": "mélanger"
+            },
+            {
+              "type": "ingredient",
+              "ingredient": {
+                "id": 11,
+                "subrecipeId": 1,
+                "name": "beurre non salé",
+                "quantity": {
+                  "value": 125.0,
+                  "originalMeasureUnit": "ml"
+>>>>>>> Removed floating shit and requirements list
                 },
-                {
-                    "parts": [
-                       {
-                           "type": "action",
-                           "value": "Réserver" 
-                       },
-                       {
-                           "type": "text",
-                           "value": ". "
-                       }
-                    ]
+                "requirements": [
+                  "ramolli"
+                ]
+              }
+            },
+            {
+              "type": "text",
+              "value": "et"
+            },
+            {
+              "type": "ingredient",
+              "ingredient": {
+                "id": 12,
+                "subrecipeId": 1,
+                "name": "sucre",
+                "quantity": {
+                  "value": 375.0,
+                  "originalMeasureUnit": "ml"
                 }
-            ]
+              }
+            },
+            {
+              "type": "text",
+              "value": "au batteur électrique jusqu’ à ce que le mélange prenne une texture granuleuse"
+            }
+          ]
         },
         {
+<<<<<<< HEAD
             "subrecipeId": 2, 
             "phrases": [
                 {
@@ -491,272 +851,118 @@
                            "value": "." 
                        }
                     ]
+=======
+          "parts": [
+            {
+              "type": "action",
+              "value": "Ajouter"
+            },
+            {
+              "type": "ingredient",
+              "ingredient": {
+                "id": 13,
+                "subrecipeId": 1,
+                "name": "oeufs",
+                "quantity": {
+                  "value": 2.0,
+                  "originalMeasureUnit": "unit"
+>>>>>>> Removed floating shit and requirements list
                 }
-            ]
+              }
+            },
+            {
+              "type": "text",
+              "value": ", un à la fois , et"
+            },
+            {
+              "type": "action",
+              "value": "battre"
+            },
+            {
+              "type": "text",
+              "value": "jusqu’ à ce que la préparation soit homogène"
+            }
+          ]
         },
         {
-            "subrecipeId": 2,
-            "phrases": [
-                {
-                    "parts": [
-                       {
-                           "type": "text",
-                           "value": "Dans un bol, " 
-                       },
-                       {
-                           "type": "action",
-                           "value": "mélanger"
-                       }, 
-                       {
-                           "type": "ingredient", 
-                           "ingredient": {
-                                "name": "Farine tout usage non blanchie",
-                                "quantity": {
-                                    "value": 375,
-                                    "originalMeasureUnit": "ml"
-                                }
-                            }
-                       },
-                       {
-                           "type": "text",
-                           "value": ", " 
-                       },
-                       {
-                           "type": "ingredient", 
-                           "ingredient": {
-                                "name": "Bicarbonate de soude",
-                                "quantity": {
-                                    "value": 5,
-                                    "originalMeasureUnit": "ml"
-                                }
-                            }
-                       },
-                       {
-                           "type": "text",
-                           "value": " et " 
-                       },
-                       {
-                           "type": "ingredient", 
-                           "ingredient": {
-                                "name": "Sel",
-                                "quantity": {
-                                    "value": 1,
-                                    "originalMeasureUnit": "pinch"
-                                }
-                            }
-                       },
-                       {
-                           "type": "text",
-                           "value": "." 
-                       }
-                    ]
-                },
-                {
-                    "parts": [
-                       {
-                           "type": "action",
-                           "value": "Réserver"
-                       }, 
-                       {
-                           "type": "text",
-                           "value": "." 
-                       }
-                    ]
-                }
-            ]
+          "parts": [
+            {
+              "type": "text",
+              "value": "À basse vitesse ,"
+            },
+            {
+              "type": "action",
+              "value": "incorporer"
+            },
+            {
+              "type": "text",
+              "value": "les ingrédients secs en alternant avec le mélange de cacao"
+            }
+          ]
         },
         {
-            "subrecipeId": 2,
-            "phrases": [
-                {
-                    "parts": [
-                       {
-                           "type": "text",
-                           "value": "Dans un autre bol, " 
-                       },
-                       {
-                           "type": "action",
-                           "value": "mélanger"
-                       }, 
-                       {
-                           "type": "ingredient", 
-                           "ingredient": {
-                                "name": "Beurre non salé",
-                                "quantity": {
-                                    "value": 125,
-                                    "originalMeasureUnit": "ml"
-                                },
-                                "requirements": [
-                                    "ramolli"
-                                ]
-                            }
-                       },
-                       {
-                           "type": "text",
-                           "value": " et " 
-                       },
-                       {
-                           "type": "ingredient", 
-                           "ingredient": {
-                                "name": "Sucre",
-                                "quantity": {
-                                    "value": 375,
-                                    "originalMeasureUnit": "ml"
-                                }
-                            }
-                       },
-                       {
-                           "type": "text",
-                           "value": "au batteur électrique jusqu'à ce que le mélange prenne une texture étrangement granuleuse. " 
-                       }
-                    ]
-                },
-                {
-                    "parts": [
-                       {
-                           "type": "action",
-                           "value": "Ajouter"
-                       }, 
-                       {
-                           "type": "ingredient", 
-                           "ingredient": {
-                                "name": "Oeufs",
-                                "quantity": {
-                                    "value": 2,
-                                    "originalMeasureUnit": "unit"
-                                }
-                            }
-                       },
-                       {
-                           "type": "text",
-                           "value": ", un à la fois, et " 
-                       },
-                       {
-                           "type": "action",
-                           "value": "battre"
-                       },
-                       {
-                           "type": "text",
-                           "value": " jusqu’à ce que la préparation soit homogène."
-                       }
-                    ]
-                },
-                {
-                    "parts": [
-                        {
-                            "type": "text",
-                            "value": "À basse vitesse, "
-                        },
-                        {
-                            "type": "action",
-                            "value": "incorporer"
-                        },
-                        {
-                            "type": "text",
-                            "value": " les ingrédients secs en alternant avec le mélange de cacao."
-                        }
-                    ]
-                },
-                {
-                    "parts": [
-                       {
-                           "type": "action",
-                           "value": "Répartir"
-                       },
-                       {
-                           "type": "text",
-                           "value": " la pâte dans le plat."
-                       }
-                    ]
-                }
-            ]
-        },
-        {
-            "subrecipeId": 2,
-            "phrases": [
-                {
-                    "parts": [
-                       {
-                           "type": "action",
-                           "value": "Verser"
-                       },
-                       {
-                           "type": "text",
-                           "value": " la sauce chaude délicatement sur la pâte."
-                       }
-                    ]
-                },
-                {
-                    "parts": [
-                       {
-                           "type": "action",
-                           "value": "Cuire"
-                       },
-                       {
-                           "type": "text",
-                           "value": " au four environ "
-                       },
-                       {
-                           "type": "timer",
-                           "value": "PT00H45M",
-                           "action": "cuire"
-                       },
-                       {
-                           "type": "text",
-                           "value": " ou jusqu’à ce qu’un cure-dent inséré au centre du gâteau en ressorte propre."
-                       }
-                    ]
-                }
-            ],
-            "postStep": {
-                "phrases": [
-                    {
-                        "parts": [
-                           {
-                               "type": "action",
-                               "value": "Servir"
-                           },
-                           {
-                               "type": "text",
-                               "value": " chaud ou tempéré."
-                           }
-                        ]
-                    },
-                    {
-                        "parts": [
-                           {
-                               "type": "action",
-                               "value": "Attendre"
-                           },
-                           {
-                               "type": "timer",
-                               "value": "PT00H01M",
-                               "action": "attendre"
-                           },
-                           {
-                               "type": "text",
-                               "value": "."
-                           }
-                        ]
-                    }
-                ], 
-                "postStep": {
-                    "phrases": [
-                        {
-                            "parts": [
-                               {
-                                   "type": "action",
-                                   "value": "Manger"
-                               },
-                               {
-                                   "type": "text",
-                                   "value": " comme un cochon."
-                               }
-                           ]
-                        }
-                    ]
-                }
-            } 
+          "parts": [
+            {
+              "type": "action",
+              "value": "Répartir"
+            },
+            {
+              "type": "text",
+              "value": "la pâte dans le plat"
+            }
+          ]
         }
-    ]
+      ]
+    },
+    {
+      "subrecipeId": 1,
+      "phrases": [
+        {
+          "parts": [
+            {
+              "type": "action",
+              "value": "Verser"
+            },
+            {
+              "type": "text",
+              "value": "la sauce chaude délicatement sur la pâte"
+            }
+          ]
+        },
+        {
+          "parts": [
+            {
+              "type": "action",
+              "value": "Cuire"
+            },
+            {
+              "type": "text",
+              "value": "au four environ"
+            },
+            {
+              "type": "timer",
+              "value": "PT45M",
+              "action": "Cuire"
+            },
+            {
+              "type": "text",
+              "value": "ou jusqu’ à ce qu’ un cure dent inséré au centre du gâteau en ressorte propre"
+            }
+          ]
+        },
+        {
+          "parts": [
+            {
+              "type": "action",
+              "value": "Servir"
+            },
+            {
+              "type": "text",
+              "value": "chaud ou tempéré"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
