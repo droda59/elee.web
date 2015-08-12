@@ -1,40 +1,34 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Net;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 
-using CookItNow.Business.Models;
-using CookItNow.Parser;
-
 namespace CookItNow.Api.Controllers
 {
+    // TEMP For test purposes only
+    // TODO Put a localhost attribute on this
     public class ParserTestController : ApiController
     {
-        private readonly IParserFactory _parserFactory;
+        private readonly IQuickRecipeRepository _repo;
 
-        public ParserTestController(IParserFactory parserFactory)
+        public ParserTestController(IQuickRecipeRepository repo)
         {
-            this._parserFactory = parserFactory;
+            this._repo = repo;
         }
 
-        public async Task<IHttpActionResult> Get(string url)
+        public async Task<IHttpActionResult> Put(string url)
         {
-            var uri = new Uri(url);
-            IHtmlParser parser;
+            var result = await this._repo.Update(url);
 
-            try
+            if (result)
             {
-                parser = this._parserFactory.CreateParser(url);
-            }
-            catch (KeyNotFoundException)
-            {
-                return this.StatusCode(HttpStatusCode.NotImplemented);
+                var recipeId = this._repo.Search("").Single(x => x.OriginalUrl == url).Id;
+                var recipe = this._repo.Get(recipeId);
+
+                return this.Ok(recipe);
             }
 
-            var parsedContent = await parser.ParseHtmlAsync(uri);
-
-            return this.Ok(parsedContent);
+            return this.BadRequest();
         }
     }
 }

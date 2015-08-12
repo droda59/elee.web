@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
+using CookItNow.Api.Models;
 using CookItNow.Business.Models;
 
 namespace CookItNow.Api
 {
     public interface IQuickRecipeRepository
     {
-        IEnumerable<QuickRecipe> All { get; }
+        QuickRecipe Get(long id);
 
-        QuickRecipe FindQuickRecipe(long id);
+        Task<bool> Update(string url);
+
+        IEnumerable<QuickRecipeSearchResult> Search(string query);
     }
 }
