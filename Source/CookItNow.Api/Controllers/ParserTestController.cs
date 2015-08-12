@@ -3,10 +3,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 
+using CookItNow.Api.Infrastucture;
+
 namespace CookItNow.Api.Controllers
 {
-    // TEMP For test purposes only
-    // TODO Put a localhost attribute on this
+    [LocalAuthorizationOnly]
     public class ParserTestController : ApiController
     {
         private readonly IQuickRecipeRepository _repo;

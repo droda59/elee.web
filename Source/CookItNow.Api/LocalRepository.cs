@@ -9,7 +9,7 @@ using CookItNow.Parser;
 
 namespace CookItNow.Api
 {
-    public class LocalRepository : IQuickRecipeRepository
+    internal class LocalRepository : IQuickRecipeRepository
     {
         private readonly static IDictionary<long, QuickRecipe> _knownRecipes = new Dictionary<long, QuickRecipe>(); 
 
