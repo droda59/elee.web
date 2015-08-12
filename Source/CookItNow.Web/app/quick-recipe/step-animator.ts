@@ -16,6 +16,14 @@ export class StepAnimator {
 	private _nextStep: Element;
 	private _nextestStep: Element;
 	
+	private _nextSubrecipeElement: Element;
+	
+	private PreviousestStepClass: string = "previousest-step";
+	private PreviousStepClass: string = "previous-step";
+	private CurrentStepClass: string = "current-step";
+	private NextStepClass: string = "next-step";
+	private NextestStepClass: string = "nextest-step";
+	
 	constructor(eventAggregator: EventAggregator, animator: CssAnimator) {
 		this._animator = animator;
 		this._eventAggregator = eventAggregator;
@@ -25,35 +33,35 @@ export class StepAnimator {
 		var that = this;
 		this._eventAggregator.subscribe("STEPCOMPLETED", element => this.completeStep(element));
 		
-		var nextSubrecipeTitle = $(this.element).find(".subrecipe-title-wrapper")[0];
-		this._animator.animate(nextSubrecipeTitle, "show-subrecipe-title-animation");
+		var firstStep = this.findFirstStep(this.element);
+		this._nextSubrecipeElement = firstStep;
 		
-		this.currentStep = this.findFirstStep(this.element);
+		this.currentStep = firstStep;
 		this.nextStep = this.findNextStep(this._currentStep);
 		this.nextestStep = this.findNextStep(this._nextStep);
 	}
 
 	private completeStep(element: Element): void {
 		if (this._previousestStep) {
-			this._animator.removeClass(this._previousestStep, "previousest-step");
+			this._animator.removeClass(this._previousestStep, this.PreviousestStepClass);
 		}
 		
 		if (this._previousStep) {
-			this._animator.removeClass(this._previousStep, "previous-step")
+			this._animator.removeClass(this._previousStep, this.PreviousStepClass)
 				.then(this.previousestStep = this._previousStep);
 		}
 		
-		this._animator.removeClass(element, "current-step")
+		this._animator.removeClass(element, this.CurrentStepClass)
 			.then(this.previousStep = element);
 		
 		var newCurrent = this._nextStep || this.findNextStep(element); 
 		if (newCurrent) {
-			this._animator.removeClass(newCurrent, "next-step")
+			this._animator.removeClass(newCurrent, this.NextStepClass)
 				.then(this.currentStep = newCurrent);
 			
 			var next = this._nextestStep || this.findNextStep(newCurrent); 
 			if (next) {
-				this._animator.removeClass(next, "nextest-step")
+				this._animator.removeClass(next, this.NextestStepClass)
 					.then(this.nextStep = next);
 				
 				var nextest = this.findNextStep(next); 
@@ -96,11 +104,7 @@ export class StepAnimator {
 						}
 					}
 					
-					if (firstStep) {
-						var nextSubrecipeTitle = $(nextSubrecipe).find(".subrecipe-title-wrapper")[0];
-						this._animator.animate(nextSubrecipeTitle, "show-subrecipe-title-animation");
-					}
-					
+					this._nextSubrecipeElement = firstStep;
 					return firstStep;
 				}
 			}
@@ -111,27 +115,35 @@ export class StepAnimator {
 	
 	private set previousestStep(element: Element) {
 		this._previousestStep = element;
-		this._animator.addClass(element, "previousest-step");
+		this._animator.addClass(element, this.PreviousestStepClass);
 	}
 	
 	private set previousStep(element: Element) {
 		this._previousStep = element;
 		this._animator.addClass(element, "completed-step");
-		this._animator.addClass(element, "previous-step");
+		this._animator.addClass(element, this.PreviousStepClass);
 	}
 	
 	private set currentStep(element: Element) {
 		this._currentStep = element;
-		this._animator.addClass(element, "current-step");
+		this._animator.addClass(element, this.CurrentStepClass);
+		
+		if (this._nextSubrecipeElement === element) {
+			this._nextSubrecipeElement = undefined;
+			
+			var subrecipe: Element = $(element).parents(".subrecipe")[0];
+			var subrecipeTitle = $(subrecipe).find(".subrecipe-title-wrapper")[0];
+			this._animator.animate(subrecipeTitle, "show-subrecipe-title-animation");
+		}
 	}
 	
 	private set nextStep(element: Element) {
 		this._nextStep = element;
-		this._animator.addClass(element, "next-step");
+		this._animator.addClass(element, this.NextStepClass);
 	}
 	
 	private set nextestStep(element: Element) {
 		this._nextestStep = element;
-		this._animator.addClass(element, "nextest-step");
+		this._animator.addClass(element, this.NextestStepClass);
 	}
 }
