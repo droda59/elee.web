@@ -55,7 +55,7 @@ export class Quantity {
                 case "tsp": return 0.202884;
                 case "tbsp": return 0.067628;
                 case "oz": return 0.033814;
-                case "cup": return 0.004226;
+                case "cup": return 0.004; // 0.004226;
             }
         } 
         else if (fromUnit === "cl") {
@@ -67,7 +67,7 @@ export class Quantity {
                 case "tsp": return 2.028841;
                 case "tbsp": return 0.676280;
                 case "oz": return 0.33814;
-                case "cup": return 0.042267;
+                case "cup": return 0.04; // 0.042267;
             }
         } 
         else if (fromUnit === "dl") {
@@ -79,7 +79,7 @@ export class Quantity {
                 case "tsp": return 20.288413;
                 case "tbsp": return 6.762804;
                 case "oz": return 3.3814;
-                case "cup": return 0.422675;
+                case "cup": return 0.4; // 0.422675;
             }
         } 
         else if (fromUnit === "l") {
@@ -91,7 +91,7 @@ export class Quantity {
                 case "tsp": return 202.884136;
                 case "tbsp": return 67.628045;
                 case "oz": return 33.814;
-                case "cup": return 4.226752;
+                case "cup": return 4; // 4.226752;
             }
         } 
         else if (fromUnit === "tsp") {
@@ -224,8 +224,8 @@ export class Quantity {
                 else if (thirdDecimalPlaceRound >= 0.990 && thirdDecimalPlaceRound <= 1.000) { return 1; }
                 
                 var secondDecimalPlaceRound = Math.round(value * 100) / 100;
-                if (secondDecimalPlaceRound >= 0.24 && secondDecimalPlaceRound <= 0.26) { return 0.25; }
-                else if (secondDecimalPlaceRound >= 0.74 && secondDecimalPlaceRound <= 0.76) { return 0.75; }
+                if (secondDecimalPlaceRound >= 0.22 && secondDecimalPlaceRound <= 0.28) { return 0.25; }
+                else if (secondDecimalPlaceRound >= 0.72 && secondDecimalPlaceRound <= 0.78) { return 0.75; }
                 
                 var firstDecimalPlaceRound = Math.round(value * 10) / 10;
                 if (firstDecimalPlaceRound === 0.5) { return 0.5; }
