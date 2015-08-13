@@ -21,20 +21,18 @@ namespace CookItNow.Api
             this._parserFactory = parserFactory;
         }
 
-        // TODO Async this
-        public QuickRecipe Get(long id)
+        public async Task<QuickRecipe> GetAsync(string id)
         {
             var client = new MongoClient("mongodb://localhost"); 
             var database = client.GetDatabase("cookitnow"); 
             var collection = database.GetCollection<QuickRecipe>("quickrecipe");
 
-            var documentsTask = collection.Find(x => x.Id == id).FirstAsync();
-            documentsTask.Wait();
+            var documentsTask = await collection.Find(x => x.Id == id).FirstAsync();
 
-            return documentsTask.Result;
+            return documentsTask;
         }
 
-        public async Task<bool> Update(string url)
+        public async Task<bool> UpdateAsync(string url)
         {
             var uri = new Uri(url);
             IHtmlParser parser;
@@ -49,16 +47,12 @@ namespace CookItNow.Api
             }
 
             var parsedContent = await parser.ParseHtmlAsync(uri);
+            parsedContent.Id = MongoDB.Bson.ObjectId.GenerateNewId().ToString();
 
             var document = parsedContent.ToBsonDocument();
 
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("cookitnow");
-
-            // TODO Évidemment, do not drop the collection
-            await database.DropCollectionAsync("quickrecipe");
-            await database.CreateCollectionAsync("quickrecipe");
-
             var collection = database.GetCollection<BsonDocument>("quickrecipe");
 
             await collection.InsertOneAsync(document);
@@ -66,17 +60,15 @@ namespace CookItNow.Api
             return true;
         }
 
-        public IEnumerable<QuickRecipeSearchResult> Search(string query)
+        public async Task<IEnumerable<QuickRecipeSearchResult>> SearchAsync(string query)
         {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("cookitnow");
             var collection = database.GetCollection<QuickRecipe>("quickrecipe");
 
-            var listAsync = collection.Find(new BsonDocument()).ToListAsync();
-            listAsync.Wait();
+            var results = await collection.Find(new BsonDocument()).ToListAsync();
 
-            return listAsync
-                .Result
+            return results
                 .Select(x => new QuickRecipeSearchResult { Id = x.Id, Title = x.Title, OriginalUrl = x.OriginalUrl })
                 .ToList();
         }

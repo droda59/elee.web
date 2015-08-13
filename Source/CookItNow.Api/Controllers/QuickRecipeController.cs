@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 using CookItNow.Business.Models;
@@ -14,9 +15,9 @@ namespace CookItNow.Api.Controllers
             this._repo = repo;
         }
 
-        public QuickRecipe Get(long id)
+        public async Task<QuickRecipe> Get(string id)
         {
-            return this._repo.Get(id);
+            return await this._repo.GetAsync(id);
         }
     }
 }

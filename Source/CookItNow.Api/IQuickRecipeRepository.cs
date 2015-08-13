@@ -9,10 +9,10 @@ namespace CookItNow.Api
 {
     public interface IQuickRecipeRepository
     {
-        QuickRecipe Get(long id);
+        Task<QuickRecipe> GetAsync(string id);
 
-        Task<bool> Update(string url);
+        Task<bool> UpdateAsync(string url);
 
-        IEnumerable<QuickRecipeSearchResult> Search(string query);
+        Task<IEnumerable<QuickRecipeSearchResult>> SearchAsync(string query);
     }
 }

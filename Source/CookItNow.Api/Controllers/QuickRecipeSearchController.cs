@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 using CookItNow.Api.Models;
@@ -15,9 +16,9 @@ namespace CookItNow.Api.Controllers
             this._repo = repo;
         }
 
-        public IEnumerable<QuickRecipeSearchResult> Get(string query)
+        public async Task<IEnumerable<QuickRecipeSearchResult>> Get(string query)
         {
-            return this._repo.Search(query);
+            return await this._repo.SearchAsync(query);
         }
     }
 }

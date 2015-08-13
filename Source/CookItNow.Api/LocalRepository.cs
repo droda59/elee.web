@@ -11,7 +11,7 @@ namespace CookItNow.Api
 {
     internal class LocalRepository : IQuickRecipeRepository
     {
-        private readonly static IDictionary<long, QuickRecipe> _knownRecipes = new Dictionary<long, QuickRecipe>(); 
+        private readonly static IDictionary<string, QuickRecipe> _knownRecipes = new Dictionary<string, QuickRecipe>(); 
 
         private readonly IParserFactory _parserFactory;
 
@@ -20,12 +20,15 @@ namespace CookItNow.Api
             this._parserFactory = parserFactory;
         }
 
-        public QuickRecipe Get(long id)
+        public Task<QuickRecipe> GetAsync(string id)
         {
-            return _knownRecipes[id];
+            var task = Task.Run(() => _knownRecipes[id]);
+            task.Wait();
+
+            return task;
         }
 
-        public async Task<bool> Update(string url)
+        public async Task<bool> UpdateAsync(string url)
         {
             var uri = new Uri(url);
             IHtmlParser parser;
@@ -40,19 +43,18 @@ namespace CookItNow.Api
             }
 
             var parsedContent = await parser.ParseHtmlAsync(uri);
-            _knownRecipes.Add(parsedContent.Id, parsedContent);
+            _knownRecipes[parsedContent.Id] = parsedContent;
 
             return true;
         }
 
-        public IEnumerable<QuickRecipeSearchResult> Search(string query)
+        public Task<IEnumerable<QuickRecipeSearchResult>> SearchAsync(string query)
         {
-            var results = 
-                _knownRecipes.Values
-                    .Select(x => new QuickRecipeSearchResult { Id = x.Id, Title = x.Title, OriginalUrl = x.OriginalUrl })
-                    .ToList();
+            var task = Task.Run(() =>
+                _knownRecipes.Values.Select(x => new QuickRecipeSearchResult { Id = x.Id, Title = x.Title, OriginalUrl = x.OriginalUrl }));
+            task.Wait();
 
-            return results;
+            return task;
         }
     }
 }

@@ -1,6 +1,10 @@
 using System;
 using System.Collections.Generic;
 
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson.Serialization.IdGenerators;
+
 namespace CookItNow.Business.Models
 {
     public class QuickRecipe
@@ -13,11 +17,11 @@ namespace CookItNow.Business.Models
             this.Steps = new List<Step>();
         }
 
-		public long Id { get; set; }
+		public string Id { get; set; }
 		
 		public string Title { get; set; }
-		
-		public string OriginalUrl { get; set; }
+
+        public string OriginalUrl { get; set; }
 		
 		public string Summary { get; set; }
 		
