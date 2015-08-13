@@ -12,12 +12,12 @@ Preparation
 To be able to run the client app, you need to do the following: 
 
 - Install Node globally
-	npm install -g
+	https://nodejs.org/download/
 
 - Install jspm globally
 	! The latest Aurelia version uses the latest jspm beta version. However, there are 
 	stll known bugs in that version. So install the current release version of jspm. 
-	jspm install -g
+	npm install jspm -g
 
 - Install app packages
 	navigate to solution folder /Source/CookItNow.Web/
@@ -28,7 +28,7 @@ You will want to be able to bundle the Aurelia script files and the project view
 eventually. For this, you need to install the following: 
 
 - Install Aurelia-cli globally
-	jspm install aurelia-cli -g
+	npm install aurelia-cli -g
 
 
 Executing the app
