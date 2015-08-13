@@ -3,7 +3,7 @@
 	<require from="shared/value-converters/quantity-human-format"></require>
 	
 	<span class="ingredient">
-		<span class="value">${quantity.value | quantityHumanFormat}</span>
+		<span class="value">${quantity.value | quantityHumanFormat:measureUnit}</span>
 		<span class="unit">${measureUnit | quantityPluralFormat:quantity.value}</span>
 		${nextWord}  
 		<span class="type">${ingredientName}<span if.bind="requirements" class="requirements"> (${requirements})</span></span> 

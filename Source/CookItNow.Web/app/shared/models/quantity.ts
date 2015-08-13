@@ -291,10 +291,11 @@ export class Quantity {
                 return value > 1;
                 
             case "cup":
-                return value === 0.125 || value === 0.25 || value === 0.333 
-                    || value === 0.375 || value === 0.5 || value === 0.666 
-                    || value === 0.625 || value === 0.75 || value === 0.875
-                    || (value >= 1 && (Math.round(value * 10) / 10) % 1 === 0);
+                var decimal = value % 1;
+                return decimal === 0
+                    || decimal === 0.125 || decimal === 0.25 || decimal === 0.333 
+                    || decimal === 0.375 || decimal === 0.5 || decimal === 0.666 
+                    || decimal === 0.625 || decimal === 0.75 || decimal === 0.875;
                 
             case "g": 
                 return value > 1;
@@ -303,10 +304,11 @@ export class Quantity {
                 return value > 0.1;
                 
             case "lb": 
-                return value === 0.25 || value === 0.333
-                    || value === 0.5 || value === 0.666 
-                    || value === 0.75
-                    || (value >= 1 && (Math.round(value * 10) / 10) % 1 === 0);
+                var decimal = value % 1;
+                return decimal === 0
+                    || decimal === 0.25 || decimal === 0.333
+                    || decimal === 0.5 || decimal === 0.666 
+                    || decimal === 0.75;
         }
         
         return false;
