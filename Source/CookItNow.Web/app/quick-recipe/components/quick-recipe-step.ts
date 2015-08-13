@@ -1,7 +1,7 @@
 import {EventAggregator} from "aurelia-event-aggregator"; 
 import {bindable} from "aurelia-framework";
 import {inject} from 'aurelia-framework';
-import {Step} from "quick-recipe/models/quick-recipe";
+import {Step, Phrase} from "quick-recipe/models/quick-recipe";
 
 @inject(EventAggregator)
 export class QuickRecipeStep {
@@ -18,5 +18,13 @@ export class QuickRecipeStep {
 		var parent = event.target.parentElement;
 		
         this._eventAggregator.publish("STEPCOMPLETED", parent);
+	}
+	
+	isTechnicalPhrase(phrase: Phrase) {
+		var ingredientParts = phrase.parts.filter(
+			(part) => part.type == "ingredient"
+		);
+			
+		return ingredientParts.length === 0;
 	}
 }

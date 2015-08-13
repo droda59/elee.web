@@ -4,7 +4,7 @@
 	<require from="quick-recipe/components/step-timer"></require>
 	<require from="quick-recipe/components/step-ingredient"></require>
 	
-	<p repeat.for="phrase of step.phrases" class="phrase">
+	<p repeat.for="phrase of step.phrases" class="phrase ${$parent.isTechnicalPhrase(phrase) ? 'technical' : ''}">
 		<compose repeat.for="part of phrase.parts" model.bind="part" view-model="quick-recipe/components/step-${part.type}" containerless></compose>
 		<a class="complete-button waves-light btn" click.delegate="$parent.completeStep($event)">Done</a>
 	</p>
