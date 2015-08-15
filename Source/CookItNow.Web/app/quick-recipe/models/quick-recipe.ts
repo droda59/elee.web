@@ -52,3 +52,7 @@ export interface TimerPart extends Part {
     value: string;
     action: string;
 }
+
+export interface IngredientEnumerationPart extends Part {
+    ingredients: Ingredient[];
+}

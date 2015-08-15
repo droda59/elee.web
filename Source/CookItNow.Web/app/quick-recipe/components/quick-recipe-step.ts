@@ -22,7 +22,7 @@ export class QuickRecipeStep {
 	
 	isTechnicalPhrase(phrase: Phrase) {
 		var ingredientParts = phrase.parts.filter(
-			(part) => part.type == "ingredient"
+			(part) => part.type == "ingredient" || part.type == "enumeration"
 		);
 			
 		return ingredientParts.length === 0;
