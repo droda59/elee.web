@@ -19,9 +19,7 @@ export class Timer {
         this.isPaused = true;
         this.state = "original";
         
-		var original = moment.duration(duration);
-        this._remainingSeconds = moment.duration(original).asSeconds();
-        this._originalSeconds = original.asSeconds();
+        this.initialize();
     }
     
     start() {
@@ -29,6 +27,11 @@ export class Timer {
             this._eventAggregator.publish("TIMERSTARTED", this);
             this.play();
         }
+    }
+    
+    replay() {
+        this.initialize();
+        this.play();
     }
     
     pause() {
@@ -73,5 +76,11 @@ export class Timer {
         return (hours ? (hours < 10 ? "0" + hours : hours) + ":" : "") 
             + (minutes < 10 ? "0" + minutes : minutes) + ":" 
             + (seconds < 10 ? "0" + seconds : seconds);
+    }
+    
+    private initialize() {
+		var original = moment.duration(this.duration);
+        this._remainingSeconds = moment.duration(original).asSeconds();
+        this._originalSeconds = original.asSeconds();
     }
 }

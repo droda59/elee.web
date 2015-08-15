@@ -659,7 +659,16 @@
             },
             {
               "type": "text",
-              "value": "au four environ PT45M minutes ou jusqu’ à ce qu’ un cure dent inséré au centre du gâteau en ressorte propre"
+              "value": "au four environ"
+            },
+            {
+              "type": "timer",
+              "value": "PT45M",
+              "action": "Cuire"
+            },
+            {
+              "type": "text",
+              "value": "ou jusqu’ à ce qu’ un cure dent inséré au centre du gâteau en ressorte propre"
             }
           ]
         },
