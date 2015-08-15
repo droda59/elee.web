@@ -46,6 +46,7 @@
     <Compile Include="Models\ActionPart.cs" />
     <Compile Include="Models\Duration.cs" />
     <Compile Include="Models\Ingredient.cs" />
+    <Compile Include="Models\IngredientEnumerationPart.cs" />
     <Compile Include="Models\IngredientPart.cs" />
     <Compile Include="Models\Part.cs" />
     <Compile Include="Models\Phrase.cs" />

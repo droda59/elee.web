@@ -4,11 +4,6 @@ namespace CookItNow.Parser.Utils
 {
     internal class EnglishTimerDetector : ITimerDetector
     {
-        public bool IsTimer(string word)
-        {
-            throw new NotImplementedException();
-        }
-
         public bool IsTimeQualifier(string part)
         {
             throw new NotImplementedException();

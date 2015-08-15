@@ -10,7 +10,7 @@ namespace CookItNow.Api
         {
 			var container = new UnityContainer();
             
-            container.RegisterType<IQuickRecipeRepository, QuickRecipeRepository>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IQuickRecipeRepository, LocalRepository>(new ContainerControlledLifetimeManager());
 
             CookItNow.Parser.UnityConfig.RegisterComponents(container);
             

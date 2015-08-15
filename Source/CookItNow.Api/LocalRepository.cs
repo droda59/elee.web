@@ -43,6 +43,7 @@ namespace CookItNow.Api
             }
 
             var parsedContent = await parser.ParseHtmlAsync(uri);
+            parsedContent.Id = Guid.NewGuid().ToString();
             _knownRecipes[parsedContent.Id] = parsedContent;
 
             return true;

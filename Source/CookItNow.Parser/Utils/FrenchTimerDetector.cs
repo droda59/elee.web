@@ -4,11 +4,6 @@ namespace CookItNow.Parser.Utils
 {
     internal class FrenchTimerDetector : ITimerDetector
     {
-        public bool IsTimer(string word)
-        {
-            return word.StartsWith("PT", StringComparison.OrdinalIgnoreCase);
-        }
-
         public bool IsTimeQualifier(string part)
         {
             if (part.StartsWith("seconde", StringComparison.OrdinalIgnoreCase) 

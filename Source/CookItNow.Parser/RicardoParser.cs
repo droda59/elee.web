@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -55,8 +56,8 @@ namespace CookItNow.Parser
 
         public override async Task<QuickRecipe> ParseHtmlAsync(Uri uri)
         {
-            var content = await this.LoadHtmlAsync(uri);
-            //var content = await this.GetOfflineHtmlContent();
+            //var content = await this.LoadHtmlAsync(uri);
+            var content = await this.GetOfflineHtmlContent();
 
             var recipe = new QuickRecipe();
             recipe.OriginalUrl = uri.AbsoluteUri;
@@ -147,61 +148,39 @@ namespace CookItNow.Parser
                     {
                         var phrase = new Phrase();
                         var words = this._wordExpression.Matches(splitPhrase);
-                        var wordCount = 0;
-                        var skipNextWord = false;
+                        var index = 0;
+                        var skippedIndexes = new List<int>();
                         var phraseBuilder = new StringBuilder();
                         Type currentlyReadType = null;
-                        while (wordCount < words.Count)
+                        while (index < words.Count)
                         {
-                            if (skipNextWord)
+                            if (skippedIndexes.Contains(index))
                             {
-                                wordCount++;
-                                skipNextWord = false;
+                                skippedIndexes.Remove(index);
+                                index++;
                                 continue;
                             }
 
-                            var word = words[wordCount].Value;
+                            var word = words[index].Value;
                             var previouslyReadType = currentlyReadType;
 
-                            var hasNextWord = wordCount + 1 < words.Count;
-                            var isIngredientReference = false;
-                            if (hasNextWord)
+                            if (this.LookAheadIngredientEnumeration(words, index, recipe, subrecipeId, skippedIndexes, ref word))
                             {
-                                var nextWord = words[wordCount + 1].Value.Trim();
-
-                                int time; 
-                                if (int.TryParse(word, out time))
-                                {
-                                    if (this._timerDetector.IsTimeQualifier(nextWord))
-                                    {
-                                        word = this._timerDetector.Timerify(time, nextWord);
-                                        skipNextWord = true;
-                                    }
-                                }
-
-                                if (this._ingredientDetector.IsDeterminant(word))
-                                {
-                                    var referencedIngredient = recipe.Ingredients.FirstOrDefault(x => x.Name.Contains(nextWord));
-                                    if (referencedIngredient != null)
-                                    {
-                                        word = referencedIngredient.Name;
-                                        skipNextWord = true;
-                                        isIngredientReference = true;
-                                    }
-                                }
+                                currentlyReadType = typeof(IngredientEnumerationPart);
                             }
-
-                            if (this._actionDetector.IsAction(word.Trim()))
-                            {
-                                currentlyReadType = typeof(ActionPart);
-                            }
-                            else if (this._timerDetector.IsTimer(word.Trim()))
-                            {
-                                currentlyReadType = typeof(TimerPart);
-                            }
-                            else if (isIngredientReference)
+                            else if (this.TryParseIngredient(words, index, recipe, subrecipeId, ref word))
                             {
                                 currentlyReadType = typeof(IngredientPart);
+                                skippedIndexes.Add(index + 1);
+                            }
+                            else if (this.TryParseTimer(words, index, ref word))
+                            {
+                                currentlyReadType = typeof(TimerPart);
+                                skippedIndexes.Add(index + 1);
+                            }
+                            else if (this._actionDetector.IsAction(word.Trim()))
+                            {
+                                currentlyReadType = typeof(ActionPart);
                             }
                             else
                             {
@@ -215,7 +194,7 @@ namespace CookItNow.Parser
 
                             phraseBuilder.AppendFormat("{0} ", word);
 
-                            wordCount++;
+                            index++;
                         }
 
                         this.FlushPhrasePart(recipe, phrase, phraseBuilder, currentlyReadType);
@@ -230,6 +209,94 @@ namespace CookItNow.Parser
             ClearUnusedSubrecipe(recipe, PreparationSubrecipeId);
 
             return recipe;
+        }
+
+        private bool LookAheadIngredientEnumeration(MatchCollection words, int index, QuickRecipe recipe, int subrecipeId, IList<int> skippedIndexes, ref string word)
+        {
+            var ingredientIds = new List<string>();
+
+            var readWord = words[index].Value.Trim();
+            if (this.TryParseIngredient(words, index, recipe, subrecipeId, ref readWord))
+            {
+                ingredientIds.Add(readWord);
+                skippedIndexes.Add(index + 1);
+                index++;
+                while (index < words.Count)
+                {
+                    if (skippedIndexes.Contains(index))
+                    {
+                        index++;
+                        continue;
+                    }
+                    
+                    readWord = words[index].Value.Trim();
+                    // TODO Localize this
+                    // TODO Verify future next word, because the rest of the sentence could start with this
+                    if (readWord == "," || readWord == "et")
+                    {
+                        skippedIndexes.Add(index);
+                    }
+                    else if (this.TryParseIngredient(words, index, recipe, subrecipeId, ref readWord))
+                    {
+                        ingredientIds.Add(readWord);
+                        skippedIndexes.Add(index);
+                        skippedIndexes.Add(index + 1);
+                    }
+                    else
+                    {
+                        break;
+                    }
+
+                    index++;
+                }
+            }
+
+            var isEnumeration = ingredientIds.Count > 1;
+            if (isEnumeration)
+            {
+                word = string.Join(",", ingredientIds);
+            }
+
+            return isEnumeration;
+        }
+
+        private bool TryParseIngredient(MatchCollection words, int index, QuickRecipe recipe, int subrecipeId, ref string word)
+        {
+            var readWord = words[index].Value.Trim();
+            if (this._ingredientDetector.IsDeterminant(readWord) && index + 1 < words.Count)
+            {
+                var nextWord = words[index + 1].Value.Trim();
+
+                var referencedIngredient = recipe.Ingredients.FirstOrDefault(x => x.Name.Contains(nextWord) && x.SubrecipeId == subrecipeId);
+                if (referencedIngredient != null)
+                {
+                    word = referencedIngredient.Id.ToString();
+
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private bool TryParseTimer(MatchCollection words, int index, ref string word)
+        {
+            var readWord = words[index].Value.Trim();
+            if (index + 1 < words.Count)
+            {
+                var nextWord = words[index + 1].Value.Trim();
+
+                int time;
+                if (int.TryParse(readWord, out time))
+                {
+                    if (this._timerDetector.IsTimeQualifier(nextWord))
+                    {
+                        word = this._timerDetector.Timerify(time, nextWord);
+                    }
+                }
+            }
+
+            return false;
         }
 
         private static void ClearUnusedSubrecipe(QuickRecipe recipe, int subrecipeId)
@@ -351,8 +418,20 @@ namespace CookItNow.Parser
                 }
                 else if (readType == typeof(IngredientPart))
                 {
-                    var referencedIngredient = recipe.Ingredients.First(x => x.Name == value);
+                    var referencedIngredient = recipe.Ingredients.First(x => x.Id == int.Parse(value));
                     phrase.Parts.Add(new IngredientPart { Ingredient = referencedIngredient });
+                }
+                else if (readType == typeof(IngredientEnumerationPart))
+                {
+                    var ingredients = new IngredientEnumerationPart();
+                    var ingredientIds = value.Split(',');
+                    foreach (var ingredientId in ingredientIds)
+                    {
+                        var referencedIngredient = recipe.Ingredients.First(x => x.Id == int.Parse(ingredientId));
+                        ingredients.Ingredients.Add(referencedIngredient);
+                    }
+
+                    phrase.Parts.Add(ingredients);
                 }
             }
         }

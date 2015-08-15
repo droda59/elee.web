@@ -308,51 +308,39 @@
               "value": "mélanger"
             },
             {
-              "type": "ingredient",
-              "ingredient": {
-                "id": 0,
-                "subrecipeId": 0,
-                "name": "cassonade",
-                "quantity": {
-                  "value": 750.0,
-                  "originalMeasureUnit": "ml"
-                }
-              }
-            },
-            {
-              "type": "text",
-              "value": ","
-            },
-            {
-              "type": "ingredient",
-              "ingredient": {
-                "id": 1,
-                "subrecipeId": 0,
-                "name": "cacao",
-                "quantity": {
-                  "value": 180.0,
-                  "originalMeasureUnit": "ml"
+              "type": "enumeration",
+              "ingredients": [
+                {
+                  "id": 0,
+                  "subrecipeId": 0,
+                  "name": "cassonade",
+                  "quantity": {
+                    "value": 750.0,
+                    "originalMeasureUnit": "ml"
+                  }
                 },
-                "requirements": [
-                  "tamisé"
-                ]
-              }
-            },
-            {
-              "type": "text",
-              "value": "et"
-            },
-            {
-              "type": "ingredient",
-              "ingredient": {
-                "id": 2,
-                "subrecipeId": 0,
-                "name": "fécule de maïs",
-                "quantity": {
-                  "value": 10.0,
-                  "originalMeasureUnit": "ml"
+                {
+                  "id": 1,
+                  "subrecipeId": 0,
+                  "name": "cacao",
+                  "quantity": {
+                    "value": 180.0,
+                    "originalMeasureUnit": "ml"
+                  },
+                  "requirements": [
+                    "tamisé"
+                  ]
+                },
+                {
+                  "id": 2,
+                  "subrecipeId": 0,
+                  "name": "fécule de maïs",
+                  "quantity": {
+                    "value": 10.0,
+                    "originalMeasureUnit": "ml"
+                  }
                 }
-              }
+              ]
             }
           ]
         },
@@ -363,36 +351,27 @@
               "value": "Ajouter"
             },
             {
-              "type": "ingredient",
-              "ingredient": {
-                "id": 3,
-                "subrecipeId": 0,
-                "name": "eau",
-                "quantity": {
-                  "value": 625.0,
-                  "originalMeasureUnit": "ml"
+              "type": "enumeration",
+              "ingredients": [
+                {
+                  "id": 3,
+                  "subrecipeId": 0,
+                  "name": "eau",
+                  "quantity": {
+                    "value": 625.0,
+                    "originalMeasureUnit": "ml"
+                  }
+                },
+                {
+                  "id": 4,
+                  "subrecipeId": 0,
+                  "name": "crème 35 %",
+                  "quantity": {
+                    "value": 125.0,
+                    "originalMeasureUnit": "ml"
+                  }
                 }
-              }
-            },
-            {
-              "type": "text",
-              "value": ","
-            },
-            {
-              "type": "ingredient",
-              "ingredient": {
-                "id": 4,
-                "subrecipeId": 0,
-                "name": "crème 35 %",
-                "quantity": {
-                  "value": 125.0,
-                  "originalMeasureUnit": "ml"
-                }
-              }
-            },
-            {
-              "type": "text",
-              "value": "et"
+              ]
             },
             {
               "type": "action",
@@ -452,35 +431,30 @@
               "value": "à ébullition"
             },
             {
-              "type": "ingredient",
-              "ingredient": {
-                "id": 6,
-                "subrecipeId": 1,
-                "name": "lait",
-                "quantity": {
-                  "value": 250.0,
-                  "originalMeasureUnit": "ml"
-                }
-              }
-            },
-            {
-              "type": "text",
-              "value": "et"
-            },
-            {
-              "type": "ingredient",
-              "ingredient": {
-                "id": 1,
-                "subrecipeId": 0,
-                "name": "cacao",
-                "quantity": {
-                  "value": 180.0,
-                  "originalMeasureUnit": "ml"
+              "type": "enumeration",
+              "ingredients": [
+                {
+                  "id": 6,
+                  "subrecipeId": 1,
+                  "name": "lait",
+                  "quantity": {
+                    "value": 250.0,
+                    "originalMeasureUnit": "ml"
+                  }
                 },
-                "requirements": [
-                  "tamisé"
-                ]
-              }
+                {
+                  "id": 7,
+                  "subrecipeId": 1,
+                  "name": "cacao",
+                  "quantity": {
+                    "value": 125.0,
+                    "originalMeasureUnit": "ml"
+                  },
+                  "requirements": [
+                    "tamisé"
+                  ]
+                }
+              ]
             },
             {
               "type": "text",
@@ -512,48 +486,36 @@
               "value": "mélanger"
             },
             {
-              "type": "ingredient",
-              "ingredient": {
-                "id": 8,
-                "subrecipeId": 1,
-                "name": "farine tout usage non blanchie",
-                "quantity": {
-                  "value": 375.0,
-                  "originalMeasureUnit": "ml"
+              "type": "enumeration",
+              "ingredients": [
+                {
+                  "id": 8,
+                  "subrecipeId": 1,
+                  "name": "farine tout usage non blanchie",
+                  "quantity": {
+                    "value": 375.0,
+                    "originalMeasureUnit": "ml"
+                  }
+                },
+                {
+                  "id": 9,
+                  "subrecipeId": 1,
+                  "name": "bicarbonate de soude",
+                  "quantity": {
+                    "value": 5.0,
+                    "originalMeasureUnit": "ml"
+                  }
+                },
+                {
+                  "id": 10,
+                  "subrecipeId": 1,
+                  "name": "sel",
+                  "quantity": {
+                    "value": 1.0,
+                    "originalMeasureUnit": "pinch"
+                  }
                 }
-              }
-            },
-            {
-              "type": "text",
-              "value": ","
-            },
-            {
-              "type": "ingredient",
-              "ingredient": {
-                "id": 9,
-                "subrecipeId": 1,
-                "name": "bicarbonate de soude",
-                "quantity": {
-                  "value": 5.0,
-                  "originalMeasureUnit": "ml"
-                }
-              }
-            },
-            {
-              "type": "text",
-              "value": "et"
-            },
-            {
-              "type": "ingredient",
-              "ingredient": {
-                "id": 10,
-                "subrecipeId": 1,
-                "name": "sel",
-                "quantity": {
-                  "value": 1.0,
-                  "originalMeasureUnit": "pinch"
-                }
-              }
+              ]
             }
           ]
         },
@@ -581,35 +543,30 @@
               "value": "mélanger"
             },
             {
-              "type": "ingredient",
-              "ingredient": {
-                "id": 11,
-                "subrecipeId": 1,
-                "name": "beurre non salé",
-                "quantity": {
-                  "value": 125.0,
-                  "originalMeasureUnit": "ml"
+              "type": "enumeration",
+              "ingredients": [
+                {
+                  "id": 11,
+                  "subrecipeId": 1,
+                  "name": "beurre non salé",
+                  "quantity": {
+                    "value": 125.0,
+                    "originalMeasureUnit": "ml"
+                  },
+                  "requirements": [
+                    "ramolli"
+                  ]
                 },
-                "requirements": [
-                  "ramolli"
-                ]
-              }
-            },
-            {
-              "type": "text",
-              "value": "et"
-            },
-            {
-              "type": "ingredient",
-              "ingredient": {
-                "id": 12,
-                "subrecipeId": 1,
-                "name": "sucre",
-                "quantity": {
-                  "value": 375.0,
-                  "originalMeasureUnit": "ml"
+                {
+                  "id": 12,
+                  "subrecipeId": 1,
+                  "name": "sucre",
+                  "quantity": {
+                    "value": 375.0,
+                    "originalMeasureUnit": "ml"
+                  }
                 }
-              }
+              ]
             },
             {
               "type": "text",
@@ -637,7 +594,7 @@
             },
             {
               "type": "text",
-              "value": ", un à la fois , et"
+              "value": "un à la fois , et"
             },
             {
               "type": "action",
@@ -702,16 +659,7 @@
             },
             {
               "type": "text",
-              "value": "au four environ"
-            },
-            {
-              "type": "timer",
-              "value": "PT45M",
-              "action": "Cuire"
-            },
-            {
-              "type": "text",
-              "value": "ou jusqu’ à ce qu’ un cure dent inséré au centre du gâteau en ressorte propre"
+              "value": "au four environ PT45M minutes ou jusqu’ à ce qu’ un cure dent inséré au centre du gâteau en ressorte propre"
             }
           ]
         },
