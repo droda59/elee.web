@@ -7,8 +7,8 @@ var flatten = require("gulp-flatten");
 var bump = require("gulp-bump");
 var browserSync = require("browser-sync").create();
 var changed = require("gulp-changed");
-var ts = require('gulp-tsc');
-var less = require('gulp-less');
+var ts = require("gulp-tsc");
+var less = require("gulp-less");
 
 var path = {
     package: "./package.json", 
@@ -39,7 +39,7 @@ gulp.task("clean", function () {
        .pipe(vinylPaths(del));
 });
 
-gulp.task('build-ts', function () {
+gulp.task("build-ts", function () {
     return gulp.src(path.typescript.src)
         .pipe(changed(path.typescript.src, { extension: ".ts" }))
         .pipe(ts({
@@ -100,7 +100,7 @@ gulp.task("serve", ["build"], function (done) {
 
 gulp.task("watch-ts", ["serve"], function () {
     gulp
-        .watch([path.typescript.src], ["build-ts"])
+        .watch([path.typescript.src], { interval: 3000 }, ["build-ts"])
         .on("change", function (event) {
             console.log("File " + event.path + " was " + event.type + ", running tasks...");
         });
@@ -108,7 +108,7 @@ gulp.task("watch-ts", ["serve"], function () {
 
 gulp.task("watch-html", ["serve"], function () {
     gulp
-        .watch([path.views.src], ["build-html"])
+        .watch([path.views.src], { interval: 1000 }, ["build-html"])
         .on("change", function (event) {
             console.log("File " + event.path + " was " + event.type + ", running tasks...");
         });
@@ -116,7 +116,7 @@ gulp.task("watch-html", ["serve"], function () {
 
 gulp.task("watch-less", ["serve"], function () {
     gulp
-        .watch([path.less.src], ["build-less"])
+        .watch([path.less.src], { interval: 2000 }, ["build-less"])
         .on("change", function (event) {
             console.log("File " + event.path + " was " + event.type + ", running tasks...");
         });

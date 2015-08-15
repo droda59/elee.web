@@ -50,6 +50,7 @@
         "./app/quick-recipe/components/step-text.ts",
         "./app/quick-recipe/components/step-timer.ts",
         "./app/quick-recipe/components/step-ingredient.ts",
+        "./app/quick-recipe/components/step-enumeration.ts",
         "./app/quick-recipe/components/quick-recipe-header.ts", 
         "./app/quick-recipe/components/quick-recipe-step.ts",
         "./app/quick-recipe/components/quick-recipe-footer.ts",
