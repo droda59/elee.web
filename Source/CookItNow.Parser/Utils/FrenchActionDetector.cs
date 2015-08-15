@@ -97,7 +97,7 @@ namespace CookItNow.Parser.Utils
                 action = word.Substring(0, word.Length - 1) + "re";
             }
 
-            return action;
+            return char.ToUpper(action[0]) + action.Substring(1);
         }
     }
 }

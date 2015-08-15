@@ -47,7 +47,7 @@ namespace CookItNow.Parser
             this._ingredientDetectorFactory = ingredientDetectorFactory;
             this._measureUnitDetectorFactory = measureUnitDetectorFactory;
 
-            this._wordExpression = new Regex(@"[\w()]+['’]*|[,]|[\)]\b", RegexOptions.Compiled);
+            this._wordExpression = new Regex(@"[\w()°]+['’]*|[,]|[\)]\b", RegexOptions.Compiled);
             this._quantityExpression = new Regex(@"[\xbc-\xbe\w]+[\xbc-\xbe\w'’,./]*", RegexOptions.Compiled);
             this._ingredientExpression = new Regex(@"(?<=[a-zA-Z0-9\u00C0-\u017F\s()'’\-\/%] de | d'| d’)([a-zA-Z0-9\u00C0-\u017F\s()'’\-\/%]+)(, [,\w\s]+)*", RegexOptions.Compiled);
             this._ingredientFullExpression = new Regex(@"([a-zA-Z0-9\u00C0-\u017F\s()'’\-\/%]+)(, [,\w\s]+)*", RegexOptions.Compiled);
@@ -164,16 +164,16 @@ namespace CookItNow.Parser
                             var word = words[index].Value;
                             var previouslyReadType = currentlyReadType;
 
-                            if (this.LookAheadIngredientEnumeration(words, index, recipe, subrecipeId, skippedIndexes, ref word))
+                            if (this.LookAheadIngredientEnumeration(word, words, index, recipe, subrecipeId, skippedIndexes, ref word))
                             {
                                 currentlyReadType = typeof(IngredientEnumerationPart);
                             }
-                            else if (this.TryParseIngredient(words, index, recipe, subrecipeId, ref word))
+                            else if (this.TryParseIngredient(word, words, index, recipe, subrecipeId, ref word))
                             {
                                 currentlyReadType = typeof(IngredientPart);
                                 skippedIndexes.Add(index + 1);
                             }
-                            else if (this.TryParseTimer(words, index, ref word))
+                            else if (this.TryParseTimer(word, words, index, ref word))
                             {
                                 currentlyReadType = typeof(TimerPart);
                                 skippedIndexes.Add(index + 1);
@@ -211,14 +211,13 @@ namespace CookItNow.Parser
             return recipe;
         }
 
-        private bool LookAheadIngredientEnumeration(MatchCollection words, int index, QuickRecipe recipe, int subrecipeId, IList<int> skippedIndexes, ref string word)
+        private bool LookAheadIngredientEnumeration(string word, MatchCollection words, int index, QuickRecipe recipe, int subrecipeId, IList<int> skippedIndexes, ref string result)
         {
             var ingredientIds = new List<string>();
 
-            var readWord = words[index].Value.Trim();
-            if (this.TryParseIngredient(words, index, recipe, subrecipeId, ref readWord))
+            if (this.TryParseIngredient(word, words, index, recipe, subrecipeId, ref word))
             {
-                ingredientIds.Add(readWord);
+                ingredientIds.Add(word);
                 skippedIndexes.Add(index + 1);
                 index++;
                 while (index < words.Count)
@@ -228,17 +227,17 @@ namespace CookItNow.Parser
                         index++;
                         continue;
                     }
-                    
-                    readWord = words[index].Value.Trim();
+
+                    word = words[index].Value.Trim();
                     // TODO Localize this
                     // TODO Verify future next word, because the rest of the sentence could start with this
-                    if (readWord == "," || readWord == "et")
+                    if (word == "," || word == "et")
                     {
                         skippedIndexes.Add(index);
                     }
-                    else if (this.TryParseIngredient(words, index, recipe, subrecipeId, ref readWord))
+                    else if (this.TryParseIngredient(word, words, index, recipe, subrecipeId, ref word))
                     {
-                        ingredientIds.Add(readWord);
+                        ingredientIds.Add(word);
                         skippedIndexes.Add(index);
                         skippedIndexes.Add(index + 1);
                     }
@@ -254,23 +253,22 @@ namespace CookItNow.Parser
             var isEnumeration = ingredientIds.Count > 1;
             if (isEnumeration)
             {
-                word = string.Join(",", ingredientIds);
+                result = string.Join(",", ingredientIds);
             }
 
             return isEnumeration;
         }
 
-        private bool TryParseIngredient(MatchCollection words, int index, QuickRecipe recipe, int subrecipeId, ref string word)
+        private bool TryParseIngredient(string word, MatchCollection words, int index, QuickRecipe recipe, int subrecipeId, ref string result)
         {
-            var readWord = words[index].Value.Trim();
-            if (this._ingredientDetector.IsDeterminant(readWord) && index + 1 < words.Count)
+            if (this._ingredientDetector.IsDeterminant(word) && index + 1 < words.Count)
             {
                 var nextWord = words[index + 1].Value.Trim();
 
                 var referencedIngredient = recipe.Ingredients.FirstOrDefault(x => x.Name.Contains(nextWord) && x.SubrecipeId == subrecipeId);
                 if (referencedIngredient != null)
                 {
-                    word = referencedIngredient.Id.ToString();
+                    result = referencedIngredient.Id.ToString();
 
                     return true;
                 }
@@ -279,20 +277,18 @@ namespace CookItNow.Parser
             return false;
         }
 
-        private bool TryParseTimer(MatchCollection words, int index, ref string word)
+        private bool TryParseTimer(string word, MatchCollection words, int index, ref string result)
         {
-            var readWord = words[index].Value.Trim();
-            if (index + 1 < words.Count)
+            int time;
+            if (int.TryParse(word, out time) && index + 1 < words.Count)
             {
                 var nextWord = words[index + 1].Value.Trim();
-
-                int time;
-                if (int.TryParse(readWord, out time))
+                
+                if (this._timerDetector.IsTimeQualifier(nextWord))
                 {
-                    if (this._timerDetector.IsTimeQualifier(nextWord))
-                    {
-                        word = this._timerDetector.Timerify(time, nextWord);
-                    }
+                    result = this._timerDetector.Timerify(time, nextWord);
+
+                    return true;
                 }
             }
 
