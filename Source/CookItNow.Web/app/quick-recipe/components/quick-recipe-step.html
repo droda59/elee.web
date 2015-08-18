@@ -6,7 +6,10 @@
 	
 	<p repeat.for="phrase of step.phrases" class="phrase ${$parent.isTechnicalPhrase(phrase) ? 'technical' : ''}">
 		<compose repeat.for="part of phrase.parts" model.bind="part" view-model="quick-recipe/components/step-${part.type}" containerless></compose>
-		<a class="complete-button waves-light btn" click.delegate="$parent.completeStep($event)">Done</a>
+		<span class="step-actions">
+			<a class="complete-button waves-light btn-large" click.delegate="$parent.backStep($event)"><i class="material-icons left">navigate_before</i></a>
+			<a class="complete-button waves-light btn-large" click.delegate="$parent.completeStep($event)"><i class="material-icons right">navigate_next</i></a>
+		</span>
 	</p>
 	<quick-recipe-step if.bind="step.postStep" step.bind="step.postStep" class="post-step"></quick-recipe-step>
 </template>

@@ -33,6 +33,7 @@ export class StepAnimator {
     attached() {
 		var that = this;
 		this._eventAggregator.subscribe("STEPCOMPLETED", element => this.completeStep(element));
+		this._eventAggregator.subscribe("STEPRETURNED", element => this.backStep(element));
 		
 		var firstStep = this.findFirstStep(this.element);
 		this._nextSubrecipeElement = firstStep;
@@ -40,6 +41,36 @@ export class StepAnimator {
 		this.currentStep = firstStep;
 		this.nextStep = this.findNextStep(this._currentStep);
 		this.nextestStep = this.findNextStep(this._nextStep);
+	}
+	
+	private backStep(element: Element): void {
+		if (this._nextestStep) {
+			this._animator.removeClass(this._nextestStep, StepAnimator.NextestStepClass);
+		}
+		
+		if (this._nextStep) {
+			this._animator.removeClass(this._nextStep, StepAnimator.NextStepClass)
+				.then(this.nextestStep = this._nextStep);
+		}
+		
+		this._animator.removeClass(element, StepAnimator.CurrentStepClass)
+			.then(this.nextStep = element);
+			
+		var newCurrent = this._previousStep || this.findPreviousStep(element);
+		if (newCurrent) {
+			this._animator.removeClass(newCurrent, StepAnimator.PreviousStepClass)
+				.then(this.currentStep = newCurrent);
+			
+			var previous = this._previousestStep || this.findPreviousStep(newCurrent); 
+			if (previous) {
+				this._animator.removeClass(previous, StepAnimator.PreviousestStepClass)
+					.then(this.previousStep = previous);
+				
+				this.previousestStep = this.findPreviousStep(previous); 
+			} else {
+				this.previousStep = undefined;
+			}
+		}
 	}
 
 	private completeStep(element: Element): void {
@@ -100,6 +131,41 @@ export class StepAnimator {
 						nextSubrecipe = nextSubrecipe.nextElementSibling;
 						if (nextSubrecipe && nextSubrecipe.classList.contains("subrecipe")) {
 							firstStep = this.findFirstStep(nextSubrecipe.nextElementSibling);
+						} else {
+							break;
+						}
+					}
+					
+					this._nextSubrecipeElement = firstStep;
+					return firstStep;
+				}
+			}
+		}
+		
+		return undefined;
+	}
+	
+	private findPreviousStep(element: Element): Element {
+		var previousPhrase = element.previousElementSibling;
+		if (previousPhrase && previousPhrase.classList.contains("phrase")) {
+			return previousPhrase; 
+		}
+		else if (previousPhrase && previousPhrase.classList.contains("post-step")) {
+			return this.findFirstStep(previousPhrase);
+		}
+		else {
+			var previousStep: Element = $(element).parents(".step")[0].previousElementSibling;
+			if (previousStep && previousStep.classList.contains("step")) {
+				return this.findFirstStep(previousStep);
+			}
+			else {
+				var previousSubrecipe: Element = $(element).parents(".subrecipe")[0].previousElementSibling;
+				if (previousSubrecipe && previousSubrecipe.classList.contains("subrecipe")) {
+					var firstStep = this.findFirstStep(previousSubrecipe);
+					while (!firstStep) {
+						previousSubrecipe = previousSubrecipe.previousElementSibling;
+						if (previousSubrecipe && previousSubrecipe.classList.contains("subrecipe")) {
+							firstStep = this.findFirstStep(previousSubrecipe.previousElementSibling);
 						} else {
 							break;
 						}

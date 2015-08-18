@@ -155,11 +155,19 @@
                         font-size: 1.5rem;
                     }
                     
-                    .complete-button {
+                    .step-actions {
                         visibility: hidden;
                         position: absolute;
                         right: -20%;
                         top: 20%;
+                        
+                        .complete-button {
+                            padding: 0 1rem;
+                            
+                            i {
+                                margin: 0;
+                            }
+                        }
                     }
                 }
                 .phrase.technical span {
@@ -194,7 +202,7 @@
                     margin-top: @quick-recipe-current-level-vmargin;
                     margin-bottom: @quick-recipe-current-level-vmargin;
                     
-                    .complete-button {
+                    .step-actions {
                         visibility: visible;
                     }
                 }

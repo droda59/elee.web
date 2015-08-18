@@ -14,8 +14,14 @@ export class QuickRecipeStep {
 		this._eventAggregator = eventAggregator;
 	}
 	
+	backStep(event: any) {
+		var parent = event.target.parentElement.parentElement.parentElement;
+		
+		this._eventAggregator.publish("STEPRETURNED", parent);
+	}
+	
 	completeStep(event: any) {
-		var parent = event.target.parentElement;
+		var parent = event.target.parentElement.parentElement.parentElement;
 		
         this._eventAggregator.publish("STEPCOMPLETED", parent);
 	}
