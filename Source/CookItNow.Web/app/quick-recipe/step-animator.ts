@@ -32,8 +32,8 @@ export class StepAnimator {
 	
     attached() {
 		var that = this;
-		this._eventAggregator.subscribe("STEPCOMPLETED", element => this.completeStep(element));
-		this._eventAggregator.subscribe("STEPRETURNED", element => this.backStep(element));
+		this._eventAggregator.subscribe("STEPCOMPLETED", () => this.completeStep($(this.element).find(".current-step")[0]));
+		this._eventAggregator.subscribe("STEPRETURNED", () => this.backStep($(this.element).find(".current-step")[0]));
 		
 		var firstStep = this.findFirstStep(this.element);
 		this._nextSubrecipeElement = firstStep;
@@ -115,9 +115,6 @@ export class StepAnimator {
 		if (nextPhrase && nextPhrase.classList.contains("phrase")) {
 			return nextPhrase; 
 		}
-		else if (nextPhrase && nextPhrase.classList.contains("post-step")) {
-			return this.findFirstStep(nextPhrase);
-		}
 		else {
 			var nextStep: Element = $(element).parents(".step")[0].nextElementSibling;
 			if (nextStep && nextStep.classList.contains("step")) {
@@ -149,9 +146,6 @@ export class StepAnimator {
 		var previousPhrase = element.previousElementSibling;
 		if (previousPhrase && previousPhrase.classList.contains("phrase")) {
 			return previousPhrase; 
-		}
-		else if (previousPhrase && previousPhrase.classList.contains("post-step")) {
-			return this.findFirstStep(previousPhrase);
 		}
 		else {
 			var previousStep: Element = $(element).parents(".step")[0].previousElementSibling;

@@ -684,7 +684,82 @@
             }
           ]
         }
-      ]
+      ],
+            "postStep":
+            {
+                "phrases": [
+                    {
+                        "parts": [
+                           {
+                               "type": "action",
+                               "value": "Réserver"
+                           },
+                           {
+                               "type": "text",
+                               "value": " au chaud. "
+                           }
+                        ]
+                    },
+                    {
+                        "parts": [
+                           {
+                               "type": "action",
+                               "value": "Répéter"
+                           },
+                           {
+                               "type": "text",
+                               "value": " l'opération avec le reste de la pâte."
+                           }
+                        ]
+                    },
+                    {
+                        "parts": [
+                           {
+                               "type": "action",
+                               "value": "Parsemer"
+                           },
+                           {
+                               "type": "text",
+                               "value": " avec "
+                           },
+                           {
+                               "type": "ingredient",
+                               "ingredient": {
+                                    "name": "Boeuf haché mi-maigre",
+                                    "quantity": {
+                                        "value": 300,
+                                        "originalMeasureUnit": "g"
+                                    }
+                               }
+                           },
+                           {
+                               "type": "text",
+                               "value": "."
+                           }
+                        ]
+                    },
+                    {
+                        "parts": [
+                           {
+                               "type": "action",
+                               "value": "Servir"
+                           },
+                           {
+                               "type": "text",
+                               "value": " et "
+                           },
+                           {
+                               "type": "action",
+                               "value": "déguster"
+                           },
+                           {
+                               "type": "text",
+                               "value": "."
+                           }
+                        ]
+                    }
+                ]
+            }
     }
   ]
 }

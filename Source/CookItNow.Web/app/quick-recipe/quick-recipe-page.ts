@@ -1,5 +1,6 @@
 import {inject} from "aurelia-framework";
 import {HttpClient} from "aurelia-http-client";
+import {EventAggregator} from "aurelia-event-aggregator";
 import {QuickRecipe, Step} from "quick-recipe/models/quick-recipe";
 import {Ingredient} from "shared/models/ingredient";
 
@@ -13,7 +14,7 @@ class QuickRecipeSubrecipeStep {
 	steps: Step[];
 }
 
-@inject (HttpClient, Element)
+@inject (HttpClient, EventAggregator, Element)
 export class QuickRecipePage {
     recipe: QuickRecipe;
 	subrecipeIngredients: QuickRecipeSubrecipeIngredient[] = [];
@@ -22,9 +23,11 @@ export class QuickRecipePage {
 	backgroundClass: string;
 	
     private _http: HttpClient;
+	private _eventAggregator: EventAggregator;
 	
-	constructor(http: HttpClient, element: Element) {
+	constructor(http: HttpClient, eventAggregator: EventAggregator, element: Element) {
 		this._http = http;
+		this._eventAggregator = eventAggregator;
 		this.element = element;
 	}
 	
@@ -95,5 +98,13 @@ export class QuickRecipePage {
 
 	canDeactivate() {
 		return confirm('Are you sure you want to leave?');
+	}
+	
+	backStep() {
+		this._eventAggregator.publish("STEPRETURNED");
+	}
+	
+	nextStep() {
+        this._eventAggregator.publish("STEPCOMPLETED");
 	}
 }

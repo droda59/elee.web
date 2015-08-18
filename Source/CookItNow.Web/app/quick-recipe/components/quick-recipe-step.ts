@@ -13,18 +13,18 @@ export class QuickRecipeStep {
 	{
 		this._eventAggregator = eventAggregator;
 	}
-	
-	backStep(event: any) {
-		var parent = event.target.parentElement.parentElement.parentElement;
-		
-		this._eventAggregator.publish("STEPRETURNED", parent);
-	}
-	
-	completeStep(event: any) {
-		var parent = event.target.parentElement.parentElement.parentElement;
-		
-        this._eventAggregator.publish("STEPCOMPLETED", parent);
-	}
+	// 
+	// backStep(event: any) {
+	// 	var parent = $(event.target).parents(".phrase")[0];
+	// 	
+	// 	this._eventAggregator.publish("STEPRETURNED", parent);
+	// }
+	// 
+	// completeStep(event: any) {
+	// 	var parent = $(event.target).parents(".phrase")[0];
+	// 	
+    //     this._eventAggregator.publish("STEPCOMPLETED", parent);
+	// }
 	
 	isTechnicalPhrase(phrase: Phrase) {
 		var ingredientParts = phrase.parts.filter(
@@ -32,5 +32,17 @@ export class QuickRecipeStep {
 		);
 			
 		return ingredientParts.length === 0;
+	}
+	
+	isTimerPhrase(phrase: Phrase) {
+		var ingredientParts = phrase.parts.filter(
+			(part) => part.type == "timer"
+		);
+			
+		return ingredientParts.length > 0;
+	}
+	
+	getPostStepPhrases() {
+		return this.step.postStep.phrases;
 	}
 }

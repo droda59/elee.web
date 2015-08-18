@@ -1,15 +1,11 @@
 <template>
-	<require from="quick-recipe/components/step-text"></require>
-	<require from="quick-recipe/components/step-action"></require>
-	<require from="quick-recipe/components/step-timer"></require>
-	<require from="quick-recipe/components/step-ingredient"></require>
-	
-	<p repeat.for="phrase of step.phrases" class="phrase ${$parent.isTechnicalPhrase(phrase) ? 'technical' : ''}">
-		<compose repeat.for="part of phrase.parts" model.bind="part" view-model="quick-recipe/components/step-${part.type}" containerless></compose>
-		<span class="step-actions">
-			<a class="complete-button waves-light btn-large" click.delegate="$parent.backStep($event)"><i class="material-icons left">navigate_before</i></a>
-			<a class="complete-button waves-light btn-large" click.delegate="$parent.completeStep($event)"><i class="material-icons right">navigate_next</i></a>
-		</span>
-	</p>
-	<quick-recipe-step if.bind="step.postStep" step.bind="step.postStep" class="post-step"></quick-recipe-step>
+	<div repeat.for="phrase of step.phrases" class="phrase">
+		<p class="${$parent.isTechnicalPhrase(phrase) ? 'technical' : ''}">
+			<compose repeat.for="part of phrase.parts" model.bind="part" view-model="quick-recipe/components/step-${part.type}" containerless></compose>
+		</p>
+		
+		<p if.bind="$parent.isTimerPhrase(phrase)" repeat.for="postStepPhrase of $parent.getPostStepPhrases()" class="post-step">
+			<compose repeat.for="part of postStepPhrase.parts" model.bind="part" view-model="quick-recipe/components/step-${part.type}" containerless></compose>
+		</p>
+	</div>
 </template>

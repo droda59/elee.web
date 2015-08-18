@@ -12,7 +12,7 @@
 			<span class="value">${quantity.value | quantityHumanFormat:measureUnit}</span>
 			<span class="unit">${measureUnit | quantityPluralFormat:quantity.value}</span>
 		</span>
-		${nextWord}  
+		<span class="text">${nextWord} </span>
 		<span class="type">${ingredientName} <span if.bind="requirements" class="requirements">(${requirements})</span></span> 
 	</span>
 </template>
