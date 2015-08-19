@@ -56,8 +56,8 @@ namespace CookItNow.Parser
 
         public override async Task<QuickRecipe> ParseHtmlAsync(Uri uri)
         {
-            //var content = await this.LoadHtmlAsync(uri);
-            var content = await this.GetOfflineHtmlContent();
+            var content = await this.LoadHtmlAsync(uri);
+            //var content = await this.GetOfflineHtmlContent();
 
             var recipe = new QuickRecipe();
             recipe.OriginalUrl = uri.AbsoluteUri;
