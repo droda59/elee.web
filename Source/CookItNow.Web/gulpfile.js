@@ -9,6 +9,7 @@ var browserSync = require("browser-sync").create();
 var changed = require("gulp-changed");
 var ts = require("gulp-tsc");
 var less = require("gulp-less");
+var sass = require('gulp-sass');
 
 var path = {
     package: "./package.json", 
@@ -24,6 +25,10 @@ var path = {
     }, 
     less: {
         src: "app/**/*.less",
+        dest: "dist/"
+    },
+    sass: {
+        src: "app/**/*.scss",
         dest: "dist/"
     }
 };
@@ -69,6 +74,14 @@ gulp.task("build-less", function() {
         .pipe(browserSync.reload({ stream: true }));
 });
 
+gulp.task("build-sass", function() {
+    return gulp.src(path.sass.src)
+        .pipe(changed(path.sass.src, { extension: ".scss" }))
+        .pipe(sass())
+        .pipe(gulp.dest(path.sass.dest))
+        .pipe(browserSync.reload({ stream: true }));
+});
+
 gulp.task("bump-version", function () {
     return gulp.src(path.package)
       .pipe(bump({ type: "patch" })) //major|minor|patch|prerelease
@@ -79,7 +92,7 @@ gulp.task("default", ["build"]);
 gulp.task("build", function (callback) {
     return runSequence(
       "clean",
-      ["build-ts", "build-html", "build-less"],
+      ["build-ts", "build-html", "build-less", "build-sass"],
       callback
     );
 });
@@ -122,4 +135,12 @@ gulp.task("watch-less", ["serve"], function () {
         });
 });
 
-gulp.task("watch", ["watch-ts", "watch-html", "watch-less"]);
+gulp.task("watch-sass", ["serve"], function () {
+    gulp
+        .watch([path.sass.src], { interval: 2000 }, ["build-sass"])
+        .on("change", function (event) {
+            console.log("File " + event.path + " was " + event.type + ", running tasks...");
+        });
+});
+
+gulp.task("watch", ["watch-ts", "watch-html", "watch-less", "watch-sass"]);
