@@ -140,9 +140,11 @@ namespace CookItNow.Parser
 
                 foreach (var stepNode in stepNodes)
                 {
+                    bool? putNextPhraseInPostStep = null;
                     var step = new Step { SubrecipeId = subrecipeId };
 
                     var stepText = stepNode.InnerText.Trim();
+                    // TODO Temp fix, localize and do better
                     var splitPhrases = stepText.Replace("c. à", "c à").Split('.').Select(x => x.Trim()).Where(x => !string.IsNullOrWhiteSpace(x)).ToList();
                     foreach (var splitPhrase in splitPhrases)
                     {
@@ -177,6 +179,7 @@ namespace CookItNow.Parser
                             {
                                 currentlyReadType = typeof(TimerPart);
                                 skippedIndexes.Add(index + 1);
+                                putNextPhraseInPostStep = false;
                             }
                             else if (this._actionDetector.IsAction(word.Trim()))
                             {
@@ -198,7 +201,21 @@ namespace CookItNow.Parser
                         }
 
                         this.FlushPhrasePart(recipe, phrase, phraseBuilder, currentlyReadType);
-                        step.Phrases.Add(phrase);   
+
+                        if (!putNextPhraseInPostStep.GetValueOrDefault())
+                        {
+                            step.Phrases.Add(phrase);
+                            if (putNextPhraseInPostStep.HasValue)
+                            {
+                                putNextPhraseInPostStep = true;
+                            }
+                        }
+                        else
+                        {
+                            step.PostStep = new Step();
+                            step.PostStep.SubrecipeId = subrecipeId;
+                            step.PostStep.Phrases.Add(phrase);
+                        }
                     }
 
                     recipe.Steps.Add(step);

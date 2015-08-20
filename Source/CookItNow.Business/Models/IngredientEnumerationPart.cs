@@ -16,5 +16,13 @@ namespace CookItNow.Business.Models
         }
 
         public IList<Ingredient> Ingredients { get; set; }
+
+        internal override string DebuggerDisplay
+        {
+            get
+            {
+                return string.Join(", ", this.Ingredients);
+            }
+        }
     }
 }

@@ -1,8 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 
 namespace CookItNow.Business.Models
 {
+    [DebuggerDisplay("{DebuggerDisplay}")]
     public class Phrase
     {
         public Phrase()
@@ -10,6 +13,14 @@ namespace CookItNow.Business.Models
             this.Parts = new List<Part>();
         }
 
-        public IList<Part> Parts { get; set; } 
+        public IList<Part> Parts { get; set; }
+
+        private string DebuggerDisplay
+        {
+            get
+            {
+                return string.Join(" ", this.Parts.Select(x => x.DebuggerDisplay));
+            }
+        }
     }
 }

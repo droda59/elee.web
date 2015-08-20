@@ -10,5 +10,10 @@ namespace CookItNow.Business.Models
         }
 
         public Ingredient Ingredient { get; set; }
+
+        internal override string DebuggerDisplay
+        {
+            get { return this.Ingredient.Name; }
+        }
     }
 }

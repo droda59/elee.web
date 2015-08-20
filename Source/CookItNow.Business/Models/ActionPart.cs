@@ -9,6 +9,11 @@ namespace CookItNow.Business.Models
             get { return "action"; }
         }
 
+        internal override string DebuggerDisplay
+        {
+            get { return this.Value; }
+        }
+
         public string Value { get; set; }
     }
 }

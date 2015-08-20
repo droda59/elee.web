@@ -10,5 +10,10 @@ namespace CookItNow.Business.Models
         }
 
         public string Value { get; set; }
+
+        internal override string DebuggerDisplay
+        {
+            get { return this.Value; }
+        }
     }
 }
