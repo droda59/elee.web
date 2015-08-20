@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 
 namespace CookItNow.Business.Models
 {
@@ -15,6 +14,6 @@ namespace CookItNow.Business.Models
 		
         public Ingredient Replacement { get; set; }
 		
-        public IList<string> Requirements { get; set; }
+        public string Requirements { get; set; }
     }
 }

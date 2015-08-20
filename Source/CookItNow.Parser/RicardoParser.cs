@@ -353,37 +353,37 @@ namespace CookItNow.Parser
                     ingredientMatch = this._ingredientExpression.Match(name);
                 }
 
-                var splitRequirements = ingredientMatch.Value.Split(',');
-                var readIngredientName = splitRequirements[0].Trim();
-
                 var ingredient = new Ingredient
                 {
                     Id = ingredientId,
                     Quantity = new Quantity { Value = quantity, OriginalMeasureUnit = measureUnitEnum },
-                    Name = readIngredientName,
                     SubrecipeId = subrecipeId
                 };
 
-                var requirements = splitRequirements.Skip(1).Select(x => x.Trim()).ToList();
-                Step requirementsStep = null;
-                if (requirements.Any())
+                var ingredientPhrase = ingredientMatch.Value.Trim();
+                var firstCommaIndex = ingredientPhrase.IndexOf(",");
+                if (firstCommaIndex > -1)
                 {
+                    var requirements = ingredientPhrase.Substring(firstCommaIndex + 2, ingredientPhrase.Length - firstCommaIndex - 2);
+
+                    ingredient.Name = ingredientPhrase.Substring(0, firstCommaIndex);
                     ingredient.Requirements = requirements;
 
-                    requirementsStep = new Step();
-                    requirementsStep.SubrecipeId = RequirementsSubrecipeId;
-                    recipe.Steps.Add(requirementsStep);
-                }
-
-                foreach (var requirement in requirements)
-                {
-                    var requirementAction = this._actionDetector.Actionify(requirement);
+                    var requirementAction = this._actionDetector.Actionify(requirements);
 
                     var phrase = new Phrase();
                     phrase.Parts.Add(new ActionPart { Value = requirementAction });
                     phrase.Parts.Add(new IngredientPart { Ingredient = ingredient });
 
+                    var requirementsStep = new Step();
+                    requirementsStep.SubrecipeId = RequirementsSubrecipeId;
                     requirementsStep.Phrases.Add(phrase);
+
+                    recipe.Steps.Add(requirementsStep);
+                }
+                else
+                {
+                    ingredient.Name = ingredientPhrase;
                 }
 
                 recipe.Ingredients.Add(ingredient);

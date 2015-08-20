@@ -9,7 +9,7 @@ namespace CookItNow.Parser.Utils
             throw new NotImplementedException();
         }
 
-        public string Actionify(string word)
+        public string Actionify(string phrase)
         {
             throw new NotImplementedException();
         }

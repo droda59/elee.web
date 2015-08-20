@@ -4,6 +4,6 @@ namespace CookItNow.Parser.Utils
     {
         bool IsAction(string part);
 
-        string Actionify(string word);
+        string Actionify(string phrase);
     }
 }
