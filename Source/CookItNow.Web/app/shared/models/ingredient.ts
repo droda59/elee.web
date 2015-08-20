@@ -5,6 +5,6 @@ export interface Ingredient {
     subrecipeId: number;
     name: string;
     quantity: Quantity;
-    requirements: string[];
+    requirements: string;
     replacements: Ingredient[];
 }

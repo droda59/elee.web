@@ -10,7 +10,6 @@ export class MeasurableIngredient {
 	quantity: Quantity;
 	nextWord: string;
 	ingredientName: string;
-	requirements: string;
 	
 	bind() {
 		this.ingredientName = this.ingredient.name.toLowerCase();
@@ -18,7 +17,5 @@ export class MeasurableIngredient {
 			
 		this.measureUnit = this.ingredient.quantity.originalMeasureUnit;
 		this.quantity = new Quantity(this.ingredient.quantity);
-		
-		this.requirements = (this.ingredient.requirements || []).join(" et ");
 	}
 }
