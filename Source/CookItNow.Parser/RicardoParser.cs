@@ -389,6 +389,7 @@ namespace CookItNow.Parser
                     var requirementAction = this._actionDetector.Actionify(requirements);
 
                     var phrase = new Phrase();
+                    phrase.Parts.Add(new TextPart { Value = string.Format("{0}: ", recipe.Subrecipes.Single(x => x.Id == subrecipeId).Title)});
                     phrase.Parts.Add(new ActionPart { Value = requirementAction });
                     phrase.Parts.Add(new IngredientPart { Ingredient = ingredient });
 
