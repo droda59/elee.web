@@ -1,464 +1,344 @@
 {
-    "id": 2,
-    "title": "Gaufres",
-    "originalUrl": "http://www.ricardocuisine.com/recettes/3892-gaufres",
-    "summary": "",
-    "originalServings": 8,
-    "durations": [
+  "id": 2,
+  "title": "Gaufres",
+  "originalUrl": "http://www.ricardocuisine.com/recettes/3892-gaufres",
+  "originalServings": 0,
+  "durations": [
+    {
+      "title": "Préparation",
+      "time": "PT10M"
+    },
+    {
+      "title": "Cuisson",
+      "time": "PT20M"
+    }
+  ],
+  "subrecipes": [
+    {
+      "id": -1,
+      "title": "Préparation"
+    }
+  ],
+  "ingredients": [
+    {
+      "id": 0,
+      "subrecipeId": -1,
+      "name": "farine tout usage non blanchie",
+      "quantity": {
+        "value": 250.0,
+        "originalMeasureUnit": "ml"
+      }
+    },
+    {
+      "id": 1,
+      "subrecipeId": -1,
+      "name": "fécule de maïs",
+      "quantity": {
+        "value": 60.0,
+        "originalMeasureUnit": "ml"
+      }
+    },
+    {
+      "id": 2,
+      "subrecipeId": -1,
+      "name": "poudre à pâte",
+      "quantity": {
+        "value": 2.5,
+        "originalMeasureUnit": "ml"
+      }
+    },
+    {
+      "id": 3,
+      "subrecipeId": -1,
+      "name": "bicarbonate de soude",
+      "quantity": {
+        "value": 1.0,
+        "originalMeasureUnit": "ml"
+      }
+    },
+    {
+      "id": 4,
+      "subrecipeId": -1,
+      "name": "sel",
+      "quantity": {
+        "value": 1.0,
+        "originalMeasureUnit": "ml"
+      }
+    },
+    {
+      "id": 5,
+      "subrecipeId": -1,
+      "name": "oeufs",
+      "quantity": {
+        "value": 2.0,
+        "originalMeasureUnit": "unit"
+      }
+    },
+    {
+      "id": 6,
+      "subrecipeId": -1,
+      "name": "cassonade",
+      "quantity": {
+        "value": 45.0,
+        "originalMeasureUnit": "ml"
+      }
+    },
+    {
+      "id": 7,
+      "subrecipeId": -1,
+      "name": "huile de canola",
+      "quantity": {
+        "value": 60.0,
+        "originalMeasureUnit": "ml"
+      }
+    }
+  ],
+  "steps": [
+    {
+      "subrecipeId": -1,
+      "phrases": [
         {
-            "title": "Préparation",
-            "time": "PT00H10M"
-        },
-        {
-            "title": "Cuisson",
-            "time": "PT00H20M"
-        }
-    ],
-    "ingredients": [
-        {
-            "id": 1,
-            "name": "Lait de beurre",
-            "quantity": {
-                "value": 250,
-                "originalMeasureUnit": "ml"
+          "parts": [
+            {
+              "type": "text",
+              "value": "Dans un bol ,"
             },
-			"replacements": [
-                {
-					"name": "Lait",
-					"quantity": {
-                        "value": 250,
-                        "originalMeasureUnit": "ml"
-				      }
-                }
-            ]
-        },
-        {
-            "id": 2,
-            "name": "Farine tout usage non blanchie",
-            "quantity": {
-                "value": 250,
-                "originalMeasureUnit": "ml"
-            }
-        },
-        {
-            "id": 3,
-            "name": "Fécule de maïs",
-            "quantity": {
-                "value": 60,
-                "originalMeasureUnit": "ml"
-            }
-        },
-        {
-            "id": 4,
-            "name": "Huile de canola",
-            "quantity": {
-                "value": 60,
-                "originalMeasureUnit": "ml"
-            }
-        },
-        {
-            "id": 5,
-            "name": "Cassonade",
-            "quantity": {
-                "value": 45,
-                "originalMeasureUnit": "ml"
-            }
-        },
-        {
-            "id": 6,
-            "name": "Poudre à pâte",
-            "quantity": {
-                "value": 2.5,
-                "originalMeasureUnit": "ml"
-            }
-        },
-        {
-            "id": 7,
-            "name": "Bicarbonate de soude",
-            "quantity": {
-                "value": 1,
-                "originalMeasureUnit": "ml"
-            }
-        },
-        {
-            "id": 8,
-            "name": "Sel",
-            "quantity": {
-                "value": 1,
-                "originalMeasureUnit": "ml"
-            }
-        },
-        {
-            "id": 9,
-            "name": "Oeufs",
-            "quantity": {
-                "value": 2,
-                "originalMeasureUnit": "unit"
-            }
-        },
-        {
-            "id": 10,
-            "name": "Boeuf haché mi-maigre",
-            "quantity": {
-                "value": 300,
-                "originalMeasureUnit": "g"
-            }
-        }
-    ],
-    "steps": [
-        {
-            "phrases": [
-                {
-                    "parts": [
-                       {
-                           "type": "text",
-                           "value": "Dans un bol, "
-                       },
-                       {
-                           "type": "action",
-                           "value": "mélanger"
-                       },
-                       {
-                           "type": "ingredient",
-                           "ingredient": {
-                                "name": "Farine tout usage non blanchie",
-                                "quantity": {
-                                    "value": 250,
-                                    "originalMeasureUnit": "ml"
-                                }
-                           }
-                       },
-                       {
-                           "type": "text",
-                           "value": ", "
-                       },
-                       {
-                           "type": "ingredient",
-                           "ingredient": {
-                                "name": "Fécule de maïs",
-                                "quantity": {
-                                    "value": 60,
-                                    "originalMeasureUnit": "ml"
-                                }
-                           }
-                       },
-                       {
-                           "type": "text",
-                           "value": ", "
-                       },
-                       {
-                           "type": "ingredient",
-                           "ingredient": {
-                                "name": "Poudre à pâte",
-                                "quantity": {
-                                    "value": 2.5,
-                                    "originalMeasureUnit": "ml"
-                                }
-                           }
-                       },
-                       {
-                           "type": "text",
-                           "value": ", "
-                       },
-                       {
-                           "type": "ingredient",
-                           "ingredient": {
-                                "name": "Bicarbonate de soude",
-                                "quantity": {
-                                    "value": 1,
-                                    "originalMeasureUnit": "ml"
-                                }
-                           }
-                       },
-                       {
-                           "type": "text",
-                           "value": " et "
-                       },
-                       {
-                           "type": "ingredient",
-                           "ingredient": {
-                                "name": "Sel",
-                                "quantity": {
-                                    "value": 1,
-                                    "originalMeasureUnit": "ml"
-                                }
-                           }
-                       },
-                       {
-                           "type": "text",
-                           "value": "."
-                       }
-                    ]
-                },
-                {
-                    "parts": [
-                       {
-                           "type": "action",
-                           "value": "Réserver"
-                       },
-                       {
-                           "type": "text",
-                           "value": "."
-                       }
-                    ]
-                }
-            ]
-        },
-        {
-            "phrases": [
-                {
-                    "parts": [
-                       {
-                           "type": "action",
-                           "value": "Ajouter"
-                       },
-                       {
-                           "type": "ingredient",
-                           "ingredient": {
-                                "name": "Huile de canola",
-                                "quantity": {
-                                    "value": 60,
-                                    "originalMeasureUnit": "ml"
-                                }
-                           }
-                       },
-                       {
-                           "type": "text",
-                           "value": " graduellement en fouettant."
-                       }
-                    ]
-                },
-                {
-                    "parts": [
-                       {
-                           "type": "text",
-                           "value": "Dans un autre bol, "
-                       },
-                       {
-                           "type": "action",
-                           "value": "fouetter"
-                       },
-                       {
-                           "type": "ingredient",
-                           "ingredient": {
-                                "name": "Oeufs",
-                                "quantity": {
-                                    "value": 2,
-                                    "originalMeasureUnit": "unit"
-                                }
-                           }
-                       },
-                       {
-                           "type": "text",
-                           "value": " et "
-                       },
-                       {
-                           "type": "ingredient",
-                           "ingredient": {
-                                "name": "Cassonade",
-                                "quantity": {
-                                    "value": 45,
-                                    "originalMeasureUnit": "ml"
-                                }
-                           }
-                       },
-                       {
-                           "type": "text",
-                           "value": " environ "
-                       },
-                       {
-                           "type": "timer",
-                           "value": "PT00H05M"
-                       },
-                       {
-                           "type": "text",
-                           "value": " jusqu'à ce qu'ils blanchissent, forment un ruban et triplent de volume."
-                       }
-                    ]
-                }
-            ], 
-            "postStep": 
             {
-                "phrases": [
-                    {
-                        "parts": [
-                           {
-                               "type": "text",
-                               "value": "À l'aide dune spatule, "
-                           },
-                           {
-                               "type": "action",
-                               "value": "incorporer"
-                           },
-                           {
-                               "type": "text",
-                               "value": " les ingrédients secs en alternant avec "
-                           },
-                           {
-                               "type": "ingredient",
-                               "ingredient": {
-                                    "name": "Lait de beurre",
-                                    "quantity": {
-                                        "value": 250,
-                                        "originalMeasureUnit": "ml"
-                                    }
-                               }
-                           },
-                           {
-                               "type": "text",
-                               "value": " jusqu'à ce que le mélange soit humecté (il restera quelques grumeaux de farine)."
-                           }
-                        ]
-                    },
-                    {
-                        "parts": [
-                           {
-                               "type": "action",
-                               "value": "Laisser reposer"
-                           },
-                           {
-                               "type": "timer",
-                               "value": "PT00H10M"
-                           },
-                           {
-                               "type": "text",
-                               "value": "."
-                           }
-                        ]
-                    }
-                ]
+              "type": "action",
+              "value": "mélanger"
+            },
+            {
+              "type": "enumeration",
+              "ingredients": [
+                {
+                  "id": 0,
+                  "subrecipeId": -1,
+                  "name": "farine tout usage non blanchie",
+                  "quantity": {
+                    "value": 250.0,
+                    "originalMeasureUnit": "ml"
+                  }
+                },
+                {
+                  "id": 1,
+                  "subrecipeId": -1,
+                  "name": "fécule de maïs",
+                  "quantity": {
+                    "value": 60.0,
+                    "originalMeasureUnit": "ml"
+                  }
+                },
+                {
+                  "id": 2,
+                  "subrecipeId": -1,
+                  "name": "poudre à pâte",
+                  "quantity": {
+                    "value": 2.5,
+                    "originalMeasureUnit": "ml"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "value": "à pâte ,"
+            },
+            {
+              "type": "enumeration",
+              "ingredients": [
+                {
+                  "id": 3,
+                  "subrecipeId": -1,
+                  "name": "bicarbonate de soude",
+                  "quantity": {
+                    "value": 1.0,
+                    "originalMeasureUnit": "ml"
+                  }
+                },
+                {
+                  "id": 4,
+                  "subrecipeId": -1,
+                  "name": "sel",
+                  "quantity": {
+                    "value": 1.0,
+                    "originalMeasureUnit": "ml"
+                  }
+                }
+              ]
             }
+          ]
         },
         {
-            "phrases": [
-                {
-                    "parts": [
-                       {
-                           "type": "action",
-                           "value": "Préchauffer"
-                       },
-                       {
-                           "type": "text",
-                           "value": " le gaufrier."
-                       }
-                    ]
-                },
-                {
-                    "parts": [
-                       {
-                           "type": "action",
-                           "value": "Verser"
-                       },
-                       {
-                           "type": "text",
-                           "value": " environ 250 ml (1 tasse) de pâte à la fois (pour deux gaufres) et "
-                       },
-                       {
-                           "type": "action",
-                           "value": "refermer"
-                       },
-                       {
-                           "type": "text",
-                           "value": " l'appareil (ou selon les recommandations du fabricant)."
-                       }
-                    ]
-                },
-                {
-                    "parts": [
-                       {
-                           "type": "action",
-                           "value": "Cuire"
-                       },
-                       {
-                           "type": "text",
-                           "value": " environ "
-                       },
-                       {
-                           "type": "timer",
-                           "value": "PT00H05M"
-                       },
-                       {
-                           "type": "text",
-                           "value": " ou jusqu'à ce qu'elles soient dorées."
-                       }
-                    ]
-                }
-            ], 
-            "postStep":
+          "parts": [
             {
-                "phrases": [
-                    {
-                        "parts": [
-                           {
-                               "type": "action",
-                               "value": "Réserver"
-                           },
-                           {
-                               "type": "text",
-                               "value": " au chaud. "
-                           }
-                        ]
-                    },
-                    {
-                        "parts": [
-                           {
-                               "type": "action",
-                               "value": "Répéter"
-                           },
-                           {
-                               "type": "text",
-                               "value": " l'opération avec le reste de la pâte."
-                           }
-                        ]
-                    },
-                    {
-                        "parts": [
-                           {
-                               "type": "action",
-                               "value": "Parsemer"
-                           },
-                           {
-                               "type": "text",
-                               "value": " avec "
-                           },
-                           {
-                               "type": "ingredient",
-                               "ingredient": {
-                                    "name": "Boeuf haché mi-maigre",
-                                    "quantity": {
-                                        "value": 300,
-                                        "originalMeasureUnit": "g"
-                                    }
-                               }
-                           },
-                           {
-                               "type": "text",
-                               "value": "."
-                           }
-                        ]
-                    },
-                    {
-                        "parts": [
-                           {
-                               "type": "action",
-                               "value": "Servir"
-                           },
-                           {
-                               "type": "text",
-                               "value": " et "
-                           },
-                           {
-                               "type": "action",
-                               "value": "déguster"
-                           },
-                           {
-                               "type": "text",
-                               "value": "."
-                           }
-                        ]
-                    }
-                ]
-            } 
+              "type": "action",
+              "value": "Réserver"
+            }
+          ]
         }
-    ]
+      ]
+    },
+    {
+      "subrecipeId": -1,
+      "phrases": [
+        {
+          "parts": [
+            {
+              "type": "text",
+              "value": "Dans un autre bol ,"
+            },
+            {
+              "type": "action",
+              "value": "fouetter"
+            },
+            {
+              "type": "enumeration",
+              "ingredients": [
+                {
+                  "id": 5,
+                  "subrecipeId": -1,
+                  "name": "oeufs",
+                  "quantity": {
+                    "value": 2.0,
+                    "originalMeasureUnit": "unit"
+                  }
+                },
+                {
+                  "id": 6,
+                  "subrecipeId": -1,
+                  "name": "cassonade",
+                  "quantity": {
+                    "value": 45.0,
+                    "originalMeasureUnit": "ml"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "value": "environ"
+            },
+            {
+              "type": "timer",
+              "value": "PT5M",
+              "action": "fouetter"
+            },
+            {
+              "type": "text",
+              "value": "jusqu' à ce qu' ils blanchissent , forment un ruban et triplent de volume"
+            }
+          ]
+        },
+        {
+          "parts": [
+            {
+              "type": "action",
+              "value": "Laisser reposer"
+            },
+            {
+              "type": "timer",
+              "value": "PT10M",
+              "action": "Laisser reposer"
+            }
+          ]
+        }
+      ],
+      "postStep": {
+        "subrecipeId": -1,
+        "phrases": [
+          {
+            "parts": [
+              {
+                "type": "text",
+                "value": "À l' aide dune spatule ,"
+              },
+              {
+                "type": "action",
+                "value": "incorporer"
+              },
+              {
+                "type": "text",
+                "value": "les ingrédients secs en alternant avec le lait de beurre jusqu' à ce que le mélange soit humecté (il restera quelques grumeaux de farine)"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "subrecipeId": -1,
+      "phrases": [
+        {
+          "parts": [
+            {
+              "type": "action",
+              "value": "Préchauffer"
+            },
+            {
+              "type": "text",
+              "value": "le gaufrier"
+            }
+          ]
+        },
+        {
+          "parts": [
+            {
+              "type": "action",
+              "value": "Verser"
+            },
+            {
+              "type": "text",
+              "value": "environ 250 ml (1 tasse) de pâte à la fois (pour deux gaufres) et"
+            },
+            {
+              "type": "action",
+              "value": "refermer"
+            },
+            {
+              "type": "text",
+              "value": "l' appareil (ou selon les recommandations du fabricant)"
+            }
+          ]
+        },
+        {
+          "parts": [
+            {
+              "type": "action",
+              "value": "Cuire"
+            },
+            {
+              "type": "text",
+              "value": "environ"
+            },
+            {
+              "type": "timer",
+              "value": "PT5M",
+              "action": "Cuire"
+            },
+            {
+              "type": "text",
+              "value": "ou jusqu' à ce qu' elles soient dorées"
+            }
+          ]
+        }
+      ],
+      "postStep": {
+        "subrecipeId": -1,
+        "phrases": [
+          {
+            "parts": [
+              {
+                "type": "action",
+                "value": "Servir"
+              },
+              {
+                "type": "text",
+                "value": "avec le coulis de fraises en trempette"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
 }
