@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 using CookItNow.Api.Models;
 using CookItNow.Business.Models;
-using CookItNow.Parser;
 
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -14,46 +12,29 @@ namespace CookItNow.Api
 {
     internal class QuickRecipeRepository : IQuickRecipeRepository
     {
-        private readonly IParserFactory _parserFactory;
-
-        public QuickRecipeRepository(IParserFactory parserFactory)
-        {
-            this._parserFactory = parserFactory;
-        }
-
         public async Task<QuickRecipe> GetAsync(string id)
         {
-            var client = new MongoClient("mongodb://localhost"); 
-            var database = client.GetDatabase("cookitnow"); 
-            var collection = database.GetCollection<QuickRecipe>("quickrecipe");
+            var collection = GetCollection<QuickRecipe>("quickrecipe");
 
             var documentsTask = await collection.Find(x => x.Id == id).FirstAsync();
 
             return documentsTask;
         }
 
-        public async Task<bool> UpdateAsync(string url)
+        public async Task<bool> UpdateAsync(QuickRecipe data)
         {
-            var uri = new Uri(url);
-            IHtmlParser parser;
+            var collection = GetCollection<QuickRecipe>("quickrecipe");
 
-            try
-            {
-                parser = this._parserFactory.CreateParser(url);
-            }
-            catch (KeyNotFoundException)
-            {
-                return false;
-            }
+            await collection.FindOneAndReplaceAsync(x => x.Id == data.Id, data);
 
-            var parsedContent = await parser.ParseHtmlAsync(uri);
-            parsedContent.Id = MongoDB.Bson.ObjectId.GenerateNewId().ToString();
+            return true;
+        }
 
-            var document = parsedContent.ToBsonDocument();
+        public async Task<bool> InsertAsync(QuickRecipe data)
+        {
+            var document = data.ToBsonDocument();
 
-            var client = new MongoClient("mongodb://localhost");
-            var database = client.GetDatabase("cookitnow");
-            var collection = database.GetCollection<BsonDocument>("quickrecipe");
+            var collection = GetCollection<BsonDocument>("quickrecipe");
 
             await collection.InsertOneAsync(document);
 
@@ -62,15 +43,32 @@ namespace CookItNow.Api
 
         public async Task<IEnumerable<QuickRecipeSearchResult>> SearchAsync(string query)
         {
+            var collection = GetCollection<QuickRecipe>("quickrecipe");
+
+            await collection.Indexes.CreateOneAsync(Builders<QuickRecipe>.IndexKeys.Text(x => x.Title));
+
+            var results = new List<QuickRecipeSearchResult>();
+            using (var cursor = await collection.FindAsync(Builders<QuickRecipe>.Filter.Text(query)))
+            {
+                while (await cursor.MoveNextAsync())
+                {
+                    foreach (var document in cursor.Current)
+                    {
+                        results.Add(new QuickRecipeSearchResult { Id = document.Id, Title = document.Title, OriginalUrl = document.OriginalUrl });
+                    }
+                }
+            }
+
+            return results;
+        }
+
+        private static IMongoCollection<TDocument> GetCollection<TDocument>(string collectionName)
+        {
             var client = new MongoClient("mongodb://localhost");
             var database = client.GetDatabase("cookitnow");
-            var collection = database.GetCollection<QuickRecipe>("quickrecipe");
+            var collection = database.GetCollection<TDocument>(collectionName);
 
-            var results = await collection.Find(new BsonDocument()).ToListAsync();
-
-            return results
-                .Select(x => new QuickRecipeSearchResult { Id = x.Id, Title = x.Title, OriginalUrl = x.OriginalUrl })
-                .ToList();
+            return collection;
         }
     }
 }

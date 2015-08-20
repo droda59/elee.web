@@ -9,6 +9,7 @@ namespace CookItNow.Api
         {
             UnityConfig.RegisterComponents();
             GlobalConfiguration.Configure(WebApiConfig.Register);
+            MongoDBConfig.RegisterClassMaps();
         }
     }
 }

@@ -91,6 +91,7 @@ namespace CookItNow.Parser
             var node = nodes.First();
             while (node != null)
             {
+                // TODO Temp fix, localize and do better
                 if (node.Name == "dt" && node.InnerText != "Portions")
                 {
                     var nextSibling = node.NextSibling.NextSibling;

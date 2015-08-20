@@ -5,20 +5,12 @@ using System.Threading.Tasks;
 
 using CookItNow.Api.Models;
 using CookItNow.Business.Models;
-using CookItNow.Parser;
 
 namespace CookItNow.Api
 {
     internal class LocalRepository : IQuickRecipeRepository
     {
-        private readonly static IDictionary<string, QuickRecipe> _knownRecipes = new Dictionary<string, QuickRecipe>(); 
-
-        private readonly IParserFactory _parserFactory;
-
-        public LocalRepository(IParserFactory parserFactory)
-        {
-            this._parserFactory = parserFactory;
-        }
+        private readonly static IDictionary<string, QuickRecipe> _knownRecipes = new Dictionary<string, QuickRecipe>();
 
         public Task<QuickRecipe> GetAsync(string id)
         {
@@ -28,25 +20,30 @@ namespace CookItNow.Api
             return task;
         }
 
-        public async Task<bool> UpdateAsync(string url)
+        public Task<bool> UpdateAsync(QuickRecipe data)
         {
-            var uri = new Uri(url);
-            IHtmlParser parser;
+            var task = Task.Run(
+                () =>
+                {
+                    _knownRecipes[data.Id] = data;
+                    return true;
+                });
+            task.Wait();
 
-            try
-            {
-                parser = this._parserFactory.CreateParser(url);
-            }
-            catch (KeyNotFoundException)
-            {
-                return false;
-            }
+            return task;
+        }
 
-            var parsedContent = await parser.ParseHtmlAsync(uri);
-            parsedContent.Id = Guid.NewGuid().ToString();
-            _knownRecipes[parsedContent.Id] = parsedContent;
+        public Task<bool> InsertAsync(QuickRecipe data)
+        {
+            var task = Task.Run(
+                () =>
+                {
+                    _knownRecipes[data.Id] = data;
+                    return true;
+                });
+            task.Wait();
 
-            return true;
+            return task;
         }
 
         public Task<IEnumerable<QuickRecipeSearchResult>> SearchAsync(string query)

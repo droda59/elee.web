@@ -1,5 +1,6 @@
 using Microsoft.Practices.Unity;
 using System.Web.Http;
+
 using Unity.WebApi;
 
 namespace CookItNow.Api
@@ -10,7 +11,7 @@ namespace CookItNow.Api
         {
 			var container = new UnityContainer();
             
-            container.RegisterType<IQuickRecipeRepository, LocalRepository>(new ContainerControlledLifetimeManager());
+            container.RegisterType<IQuickRecipeRepository, QuickRecipeRepository>(new ContainerControlledLifetimeManager());
 
             CookItNow.Parser.UnityConfig.RegisterComponents(container);
             

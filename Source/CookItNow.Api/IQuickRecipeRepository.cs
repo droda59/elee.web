@@ -11,7 +11,9 @@ namespace CookItNow.Api
     {
         Task<QuickRecipe> GetAsync(string id);
 
-        Task<bool> UpdateAsync(string url);
+        Task<bool> UpdateAsync(QuickRecipe data);
+
+        Task<bool> InsertAsync(QuickRecipe data);
 
         Task<IEnumerable<QuickRecipeSearchResult>> SearchAsync(string query);
     }

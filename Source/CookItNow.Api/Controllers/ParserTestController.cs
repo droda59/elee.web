@@ -1,28 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Http;
 
 using CookItNow.Api.Infrastucture;
 using CookItNow.Api.Models;
 using CookItNow.Business.Models;
+using CookItNow.Parser;
+
+using MongoDB.Bson;
 
 namespace CookItNow.Api.Controllers
 {
     [LocalAuthorizationOnly]
     public class ParserTestController : ApiController
     {
+        private readonly IParserFactory _parserFactory;
         private readonly IQuickRecipeRepository _repo;
 
-        public ParserTestController(IQuickRecipeRepository repo)
+        public ParserTestController(IParserFactory parserFactory, IQuickRecipeRepository repo)
         {
+            this._parserFactory = parserFactory;
             this._repo = repo;
-        }
-
-        public async Task<IEnumerable<QuickRecipeSearchResult>> GetAsync()
-        {
-            return await this._repo.SearchAsync("");
         }
 
         public async Task<QuickRecipe> GetAsync(string id)
@@ -30,20 +29,44 @@ namespace CookItNow.Api.Controllers
             return await this._repo.GetAsync(id);
         }
 
+        [HttpGet]
+        [Route("api/parsertest/search")]
+        public async Task<IEnumerable<QuickRecipeSearchResult>> SearchAsync(string query)
+        {
+            return await this._repo.SearchAsync(query);
+        }
+
         public async Task<IHttpActionResult> Put(string url)
         {
-            var result = await this._repo.UpdateAsync(url);
-
-            if (result)
+            var result = await this.ParseRecipeAsync(url);
+            if (result == null)
             {
-                var searchResult = await this._repo.SearchAsync("");
-                var recipeId = searchResult.First(x => x.OriginalUrl == url).Id;
-                var recipe = await this._repo.GetAsync(recipeId);
-
-                return this.Ok(recipe);
+                return this.BadRequest();
             }
 
-            return this.BadRequest();
+            await this._repo.UpdateAsync(result);
+
+            return this.Ok(result);
+        }
+
+        private async Task<QuickRecipe> ParseRecipeAsync(string url)
+        {
+            var uri = new Uri(url);
+            IHtmlParser parser;
+
+            try
+            {
+                parser = this._parserFactory.CreateParser(url);
+            }
+            catch (KeyNotFoundException)
+            {
+                return null;
+            }
+
+            var parsedContent = await parser.ParseHtmlAsync(uri);
+            parsedContent.Id = ObjectId.GenerateNewId().ToString();
+
+            return parsedContent;
         }
     }
 }

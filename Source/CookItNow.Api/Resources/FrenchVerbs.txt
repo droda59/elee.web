@@ -1769,6 +1769,7 @@ sangloter
 saouler
 saper
 satisfaire
+saupoudrer
 saurer
 sauter
 sauvegarder
@@ -1932,6 +1933,7 @@ traîner
 traire
 traiter
 tramer
+trancher
 transcrire
 transférer
 transformer
