@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Web.Hosting;
 
-namespace CookItNow.Parser.Utils
+namespace CookItNow.Parser.LanguageUtilities.French
 {
     internal class FrenchActionDetector : IActionDetector
     {

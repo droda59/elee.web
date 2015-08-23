@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 
-using CookItNow.Parser.Utils;
+using CookItNow.Parser.LanguageUtilities;
 
 using Microsoft.Practices.Unity;
 
@@ -25,6 +25,8 @@ namespace CookItNow.Parser
             RegisterDetector<ITimerDetector>(container);
             RegisterDetector<IIngredientDetector>(container);
             RegisterDetector<IMeasureUnitDetector>(container);
+            RegisterDetector<ILanguageHelper>(container);
+            RegisterDetector<ISubrecipeRepository>(container);
 
             container.RegisterType<IHtmlParser, RicardoParser>(typeof(RicardoParser).Name, new ContainerControlledLifetimeManager());
         }
@@ -37,7 +39,7 @@ namespace CookItNow.Parser
             
             foreach (var supportedCulture in _supportedCultures)
             {
-                var type = Type.GetType(@namespace + "." + supportedCulture.EnglishName + baseName);
+                var type = Type.GetType(@namespace + "." + supportedCulture.EnglishName + "." + supportedCulture.EnglishName + baseName);
                 container.RegisterType(typeFrom, type, supportedCulture.EnglishName + baseName, new ContainerControlledLifetimeManager());
             }
 

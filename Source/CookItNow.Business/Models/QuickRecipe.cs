@@ -1,10 +1,6 @@
 using System;
 using System.Collections.Generic;
 
-using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
-using MongoDB.Bson.Serialization.IdGenerators;
-
 namespace CookItNow.Business.Models
 {
     public class QuickRecipe
@@ -25,7 +21,7 @@ namespace CookItNow.Business.Models
 		
 		public string Summary { get; set; }
 		
-		public int OriginalServings { get; set; }
+		public string OriginalServings { get; set; }
 		
 		public IList<Duration> Durations { get; set; }
 

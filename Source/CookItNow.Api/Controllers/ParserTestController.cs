@@ -36,6 +36,19 @@ namespace CookItNow.Api.Controllers
             return await this._repo.SearchAsync(query);
         }
 
+        [HttpGet]
+        [Route("api/parsertest/parse")]
+        public async Task<IHttpActionResult> Parse(string url)
+        {
+            var result = await this.ParseRecipeAsync(url);
+            if (result == null)
+            {
+                return this.BadRequest();
+            }
+
+            return this.Ok(result);
+        }
+
         public async Task<IHttpActionResult> Put(string url)
         {
             var result = await this.ParseRecipeAsync(url);

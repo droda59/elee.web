@@ -1,6 +1,8 @@
+using System;
+
 using CookItNow.Business;
 
-namespace CookItNow.Parser.Utils
+namespace CookItNow.Parser.LanguageUtilities.English
 {
     internal class EnglishMeasureUnitDetector : IMeasureUnitDetector
     {

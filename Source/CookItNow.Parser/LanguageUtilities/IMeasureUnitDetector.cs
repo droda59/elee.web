@@ -1,6 +1,6 @@
 ﻿using CookItNow.Business;
 
-namespace CookItNow.Parser.Utils
+namespace CookItNow.Parser.LanguageUtilities
 {
     internal interface IMeasureUnitDetector
     {

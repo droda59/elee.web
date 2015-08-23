@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CookItNow.Parser.Utils
+namespace CookItNow.Parser.LanguageUtilities
 {
     internal interface ITimerDetector
     {

@@ -1,8 +1,8 @@
-using System;
+﻿using System;
 
-namespace CookItNow.Parser.Utils
+namespace CookItNow.Parser.LanguageUtilities.English
 {
-    internal class EnglishIngredientDetector : IIngredientDetector
+    internal class EnglishLanguageHelper : ILanguageHelper
     {
         public bool IsDeterminant(string word)
         {
