@@ -1,4 +1,5 @@
 <template>
+	<require from="shared/value-converters/time-format"></require>
 	<require from="shared/value-converters/duration-format"></require>
 	
     <div class="navbar-fixed">
@@ -41,7 +42,7 @@
 										<li repeat.for="timer of activeTimers" class="collection-item avatar valign-wrapper active-timer au-animate">
 											<i class="material-icons circle ${timer.state == 'isAlmostDone' ? 'yellow' : timer.state == 'isAlmosterDone' ? 'red' : 'green'}">av_timer</i>
 											<span class="title">${timer.action}</span>
-											<p class="${timer.state == 'isAlmostDone' ? 'yellow-text' : timer.state == 'isAlmosterDone' ? 'red-text' : 'green-text'}">${timer.remainingTime} of ${timer.duration | durationFormat}</p>
+											<p class="${timer.state == 'isAlmostDone' ? 'yellow-text' : timer.state == 'isAlmosterDone' ? 'red-text' : 'green-text'}">${timer.remainingTime | timeFormat} of ${timer.originalTime | timeFormat}</p>
 											<span class="secondary-content">
 												<a click.trigger="timer.replay()"><i class="material-icons">replay</i></a>
 												<a click.trigger="timer.pause()" show.bind="!timer.isPaused"><i class="material-icons">pause</i></a>

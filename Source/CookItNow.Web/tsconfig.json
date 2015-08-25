@@ -62,6 +62,7 @@
         "./app/shared/models/ingredient", 
         "./app/shared/models/quantity.ts", 
         "./app/shared/value-converters/duration-format.ts",
+        "./app/shared/value-converters/time-format.ts",
         "./app/shared/value-converters/quantity-plural-format.ts",
         "./app/shared/value-converters/quantity-human-format.ts", 
         "./app/welcome/welcome.ts"

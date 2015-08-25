@@ -5,7 +5,7 @@ export interface QuickRecipe {
     title : string;
     originalUrl : string;
     summary : string;
-    originalServings : number;
+    originalServings : string;
     duration : Duration[];
     subrecipes : SubRecipe[];
     ingredients : Ingredient[];

@@ -23,6 +23,7 @@ export class StepAnimator {
 	private static CurrentStepClass: string = "current-step";
 	private static NextStepClass: string = "next-step";
 	private static NextestStepClass: string = "nextest-step";
+	private static FirstStepClass: string = "first-step";
 	private static LastStepClass: string = "last-step";
 	
 	constructor(eventAggregator: EventAggregator, animator: CssAnimator) {
@@ -36,6 +37,7 @@ export class StepAnimator {
 		this._eventAggregator.subscribe("STEPRETURNED", () => this.backStep($(this.element).find(".current-step")[0]));
 		
 		var firstStep = this.findFirstStep(this.element);
+		this._animator.addClass(firstStep, StepAnimator.FirstStepClass);
 		this._nextSubrecipeElement = firstStep;
 		
 		this.currentStep = firstStep;
@@ -74,6 +76,10 @@ export class StepAnimator {
 	}
 
 	private completeStep(element: Element): void {
+		if (element.classList.contains(StepAnimator.LastStepClass)) {
+			this._eventAggregator.publish("RECIPECOMPLETED");
+		}
+		
 		if (this._previousestStep) {
 			this._animator.removeClass(this._previousestStep, StepAnimator.PreviousestStepClass);
 		}

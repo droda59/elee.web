@@ -21,6 +21,11 @@ export class QuickRecipePage {
 	subrecipeSteps: QuickRecipeSubrecipeStep[] = [];
 	element: Element;
 	backgroundClass: string;
+	isRecipeDone: boolean;
+	
+	comments: string;
+	isSent: boolean;
+	contactEmail: string;
 	
     private _http: HttpClient;
 	private _eventAggregator: EventAggregator;
@@ -32,20 +37,7 @@ export class QuickRecipePage {
 	}
 	
 	activate(route, routeConfig) {
-		var url;
-		switch (route.id) {
-			case "1":
-				url = "app/quick-recipe/assets/json/recipeModel-pouding.json";
-				break;
-			case "2": 
-				url = "app/quick-recipe/assets/json/recipeModel-gaufres.json";
-				break;
-			case "3": 
-				url = "app/quick-recipe/assets/json/recipeModel-chevre.json";
-				break;
-			default:
-				break;
-		}
+		this._eventAggregator.subscribe("RECIPECOMPLETED", () => this.isRecipeDone = true);
 		
 		// TODO Ugly-ass code; used to decide randomly which background to pick. this should go somewhere else
 		var backgroundId = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
@@ -58,6 +50,21 @@ export class QuickRecipePage {
 				break;
 			default:
 				this.backgroundClass = "stone";
+				break;
+		}
+		
+		var url;
+		switch (route.id) {
+			case "1":
+				url = "app/quick-recipe/assets/json/recipeModel-pouding.json";
+				break;
+			case "2": 
+				url = "app/quick-recipe/assets/json/recipeModel-gaufres.json";
+				break;
+			case "3": 
+				url = "app/quick-recipe/assets/json/recipeModel-chevre.json";
+				break;
+			default:
 				break;
 		}
 		
@@ -106,5 +113,12 @@ export class QuickRecipePage {
 	
 	nextStep() {
         this._eventAggregator.publish("STEPCOMPLETED");
+	}
+	
+	sendComments() {
+		// TODO Validate comments
+		this._http.post("api/comments").then(response => {
+            this.isSent = true;
+		});
 	}
 }
