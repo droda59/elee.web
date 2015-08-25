@@ -120,6 +120,7 @@
     <Compile Include="Controllers\ParserTestController.cs" />
     <Compile Include="Controllers\QuickRecipeController.cs" />
     <Compile Include="Controllers\QuickRecipeSearchController.cs" />
+    <Compile Include="EntityRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

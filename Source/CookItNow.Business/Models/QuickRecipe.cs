@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CookItNow.Business.Models
 {
-    public class QuickRecipe
+    public class QuickRecipe : Document
 	{
         public QuickRecipe()
         {
@@ -13,8 +13,6 @@ namespace CookItNow.Business.Models
             this.Steps = new List<Step>();
         }
 
-		public string Id { get; set; }
-		
 		public string Title { get; set; }
 
         public string OriginalUrl { get; set; }

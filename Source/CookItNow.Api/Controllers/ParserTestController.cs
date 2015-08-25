@@ -38,7 +38,7 @@ namespace CookItNow.Api.Controllers
 
         [HttpGet]
         [Route("api/parsertest/parse")]
-        public async Task<IHttpActionResult> Parse(string url)
+        public async Task<IHttpActionResult> ParseAsync(string url)
         {
             var result = await this.ParseRecipeAsync(url);
             if (result == null)
@@ -49,7 +49,7 @@ namespace CookItNow.Api.Controllers
             return this.Ok(result);
         }
 
-        public async Task<IHttpActionResult> Put(string url)
+        public async Task<IHttpActionResult> PutAsync(string url)
         {
             var result = await this.ParseRecipeAsync(url);
             if (result == null)
@@ -58,6 +58,19 @@ namespace CookItNow.Api.Controllers
             }
 
             await this._repo.UpdateAsync(result);
+
+            return this.Ok(result);
+        }
+
+        public async Task<IHttpActionResult> PostAsync(string url)
+        {
+            var result = await this.ParseRecipeAsync(url);
+            if (result == null)
+            {
+                return this.BadRequest();
+            }
+
+            await this._repo.InsertAsync(result);
 
             return this.Ok(result);
         }
