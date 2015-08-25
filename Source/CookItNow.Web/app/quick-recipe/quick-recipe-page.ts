@@ -23,16 +23,12 @@ export class QuickRecipePage {
 	backgroundClass: string;
 	isRecipeDone: boolean;
 	
-	comments: string;
-	isSent: boolean;
-	contactEmail: string;
-	
     private _http: HttpClient;
 	private _eventAggregator: EventAggregator;
 	
 	constructor(http: HttpClient, eventAggregator: EventAggregator, element: Element) {
-		this._http = http;
 		this._eventAggregator = eventAggregator;
+		this._http = http;
 		this.element = element;
 	}
 	
@@ -113,12 +109,5 @@ export class QuickRecipePage {
 	
 	nextStep() {
         this._eventAggregator.publish("STEPCOMPLETED");
-	}
-	
-	sendComments() {
-		// TODO Validate comments
-		this._http.post("api/comments").then(response => {
-            this.isSent = true;
-		});
 	}
 }
