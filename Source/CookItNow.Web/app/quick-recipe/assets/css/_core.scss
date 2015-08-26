@@ -1,0 +1,7 @@
+@mixin quick-recipe-theme($background, $ingredients-background) {
+	background: $background;
+	
+	main .ingredients {
+		background-color: $ingredients-background;
+	}
+}

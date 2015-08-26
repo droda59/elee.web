@@ -1,7 +1,28 @@
-body {
-	font-family: $font-raleway;
-}
-
 @mixin font-size($size) {
   font-size: $size / $font-base-size + "em";
 }
+
+@mixin create-fonts($family, $name, $weight) {
+    @font-face {
+        font-family: $family;
+        src: url('../../../../app/shared/assets/fonts/@{name}.ttf') format('truetype');
+        font-weight: $weight;
+        font-style: normal;
+    }
+}
+
+@include create-fonts("Roboto Thin", "roboto-thin", 100);
+@include create-fonts("Roboto Thin Italic", "roboto-thinitalic", 100);
+@include create-fonts("Roboto Light", "roboto-light", 300);
+@include create-fonts("Roboto Light Italic", "roboto-lightitalic", 300);
+@include create-fonts("Roboto", "Roboto-Regular", 400 );
+@include create-fonts("Roboto Italic", "roboto-italic", 400);
+@include create-fonts("Roboto Medium", "roboto-medium", 500);
+@include create-fonts("Roboto Medium Italic", "roboto-mediumitalic", 500);
+@include create-fonts("Roboto Bold", "roboto-bold", 700);
+@include create-fonts("Roboto Bold Italic", "roboto-bolditalic", 700);
+@include create-fonts("Roboto Black", "roboto-blac", 900);
+@include create-fonts("Roboto Black Italic", "roboto-blackitalic", 900);
+
+@include create-fonts("Chocolate Box", "chocolate-box", 500);
+@include create-fonts("Chocolate Box Decorative", "chocolate-box-decorative", 500);

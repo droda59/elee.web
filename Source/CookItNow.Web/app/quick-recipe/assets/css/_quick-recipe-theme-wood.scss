@@ -1,0 +1,5 @@
+@import "core";
+
+.quick-recipe.wood {
+    @include quick-recipe-theme(url("../../../../app/quick-recipe/assets/images/wood.png") no-repeat, rgb(216, 216, 212));
+}

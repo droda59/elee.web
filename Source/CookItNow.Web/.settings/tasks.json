@@ -46,7 +46,6 @@
 			"isBuildCommand": true,
 			// Use the standard less compilation problem matcher.
 			"problemMatcher": [
-				"$lessCompile", 
 				"$gulp-tsc"
 			]
 		}

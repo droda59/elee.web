@@ -1,0 +1,17 @@
+.ingredient .value .select-wrapper {
+    display: inline-block;
+    margin-top: inherit;
+        
+    .mdi-navigation-arrow-drop-down {
+        display: none;
+    }
+    input.select-dropdown {
+        height: inherit;
+        line-height: inherit;
+        margin: 0;
+    }
+    .dropdown-content li {
+        text-align: right;
+        line-height: 1rem;
+    }
+}

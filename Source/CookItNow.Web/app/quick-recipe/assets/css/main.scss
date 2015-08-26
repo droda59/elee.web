@@ -1,8 +1,10 @@
+@import "core";
+@import "variables";
 @import "quick-recipe-theme-wood";
 @import "quick-recipe-theme-stone";
 @import "quick-recipe-theme-chalkboard";
-@import "animations";
 @import "quick-recipe-header";
+@import "animations";
 
 .quick-recipe {
     .row {
@@ -14,7 +16,7 @@
         
         .ingredients {
             padding: 10px;
-            width: @quick-recipe-ingredients-side-width;
+            width: $quick-recipe-ingredients-side-width;
             margin-bottom: 42px;
             position: relative;
             
@@ -22,13 +24,13 @@
                 background-color: #e9e9e9;
                 border: 1px solid #9e9fa4;
                 padding: 8px;
-                height: calc(~'100vh - 184px'); // Empêche le parallax de fonctionner
+                height: calc(100vh - 184px); // Empêche le parallax de fonctionner
                 overflow-y: auto;
                 
                 .content {
                     h3, 
                     h4 {
-                        font-family: @font-fancy-decorative;
+                        font-family: $font-fancy-decorative;
                     }
                     
                     .title {
@@ -63,7 +65,7 @@
         .ingredients::after {
             content: "";
             height: 50px;
-            width: calc(~'100% - 22px');
+            width: calc(100% - 22px);
             background: linear-gradient(to top, rgba(233, 233, 233, 1) 0%, rgba(233, 233, 233, 0.1) 100%);
             left: 11px;
             bottom: 11px;
@@ -73,8 +75,8 @@
         
         .main {
             color: white;
-            width: calc(~'100% - 396px');
-            height: calc(~'100vh - 165px');
+            width: calc(100% - 396px);
+            height: calc(100vh - 165px);
             overflow: hidden;
             position: relative;
             
@@ -207,22 +209,22 @@
                 }
                 .phrase.previousest-step,
                 .phrase.nextest-step {
-                    opacity: @quick-recipe-second-level-opacity;
-                    margin-top: @quick-recipe-second-level-vmargin;
-                    margin-bottom: @quick-recipe-second-level-vmargin;
-                    padding-left: @quick-recipe-second-level-padding;
+                    opacity: $quick-recipe-second-level-opacity;
+                    margin-top: $quick-recipe-second-level-vmargin;
+                    margin-bottom: $quick-recipe-second-level-vmargin;
+                    padding-left: $quick-recipe-second-level-padding;
                 }
                 .phrase.previous-step,
                 .phrase.next-step {
-                    opacity: @quick-recipe-first-level-opacity;
-                    margin-top: @quick-recipe-first-level-vmargin;
-                    margin-bottom: @quick-recipe-first-level-vmargin;
-                    padding-left: @quick-recipe-first-level-padding;
+                    opacity: $quick-recipe-first-level-opacity;
+                    margin-top: $quick-recipe-first-level-vmargin;
+                    margin-bottom: $quick-recipe-first-level-vmargin;
+                    padding-left: $quick-recipe-first-level-padding;
                 }
                 .phrase.current-step {
                     width: 80%;
-                    margin-top: @quick-recipe-current-level-vmargin;
-                    margin-bottom: @quick-recipe-current-level-vmargin;
+                    margin-top: $quick-recipe-current-level-vmargin;
+                    margin-bottom: $quick-recipe-current-level-vmargin;
                     
                     .enumeration .collection-item {
                         [type="checkbox"] + label {
