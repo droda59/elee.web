@@ -1,108 +1,63 @@
 <template>
-	<div id="index-banner" class="parallax-container">
-	    <div class="section no-pad-bot">
-  			<div class="container">
-  				<br><br>
-  				<h1 class="header center teal-text text-lighten-2">Cook it now</h1>
-  				<div class="row center">
-  					<h5 class="header col s12 light">A modern, easy-to-use recipe application based on real-world needs</h5>
-  				</div>
-  				<div class="row center">
-            <form class="col s12" submit.delegate="loadRecipe()" novalidate>
-              <div class="row">
-                <div class="input-field center col s6 offset-s3">
-                  <select value.bind="selectedRecipeId" materialize="select">
-                    <option>Select a recipe</option>
-                    <option repeat.for="recipe of recipes" value.bind="recipe.id">${recipe.title}</option>
-                  </select>
-                  <label>Recipe selection</label>
-                </div>
-              </div>
-              <div class="row center">
-                <button class="btn-large waves-effect waves-light" type="submit" name="action">
-                  Cook it now!
-                  <i class="material-icons right">send</i>
-                </button>
-              </div>
-            </form>
-  				</div>
-  				<br><br>
-  			</div>
-	    </div>
-	    <div class="parallax" materialize="parallax">
-			   <img src="app/welcome/assets/images/background1.jpg" alt="Unsplashed background img 2">
+  
+  <!-- Welcome container -->
+  <div id="welcome-container">
+    
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#!" class="brand-logo">Logo</a>
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="#_">Home</a></li>
+            <li><a href="#_">Browse</a></li>
+            <li><a href="#_">Contact</a></li>
+            <li class="signin"><a href="#_">Sign in</a></li>
+          </ul>
+          <ul class="side-nav" id="mobile-demo">
+            <li><a href="#_">Home</a></li>
+            <li><a href="#_">Browse</a></li>
+            <li><a href="#_">Contact</a></li>
+            <li><a href="#_">Sign in</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    
+    <!-- Teaser container -->
+    <div class="parallax-container">
+
+      <div class="parallax" materialize="parallax">
+			   <img src="/app/welcome/assets/images/teaser_bg.jpg" alt="Teaser BG">
 		  </div>
-	</div>
+    
+    </div> <!-- Teaser container -->
+    
+    <!-- Popular recipes container -->
+    <div class="popular-recipes-container">
 
-  <div class="container">
-    <div class="section">
-      <!--   Icon Section   -->
-      <div class="row">
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="mdi-image-flash-on"></i></h2>
-            <h5 class="center">Grounded on reality</h5>
-
-            <p class="light">We focused on real people following real recipes in the real world.</p>
+    </div> <!-- Popular recipes container -->
+    
+    <form class="col s12" submit.delegate="loadRecipe()" novalidate>
+        <div class="row">
+          <div class="input-field center col s6 offset-s3">
+            <select value.bind="selectedRecipeId" materialize="select">
+              <option>Select a recipe</option>
+              <option repeat.for="recipe of recipes" value.bind="recipe.id">${recipe.title}</option>
+            </select>
+            <label>Recipe selection</label>
           </div>
         </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="mdi-social-group"></i></h2>
-            <h5 class="center">Focused on the user</h5>
-
-            <p class="light">For you, a human being, in your kitchen, cooking dinner for your family or your friends. Spend less time understanding recipes, and more with your loved ones.</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="mdi-action-settings"></i></h2>
-            <h5 class="center">Simple as fuck</h5>
-
-            <p class="light">We have put most of our efforts on the ease of use, because we know you are multi-tasking. You need a clean, simple and intuitive interface to be efficient.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
         <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+          <button class="btn-large waves-effect waves-light" type="submit" name="action">
+            Cook it now!
+            <i class="material-icons right">send</i>
+          </button>
         </div>
-      </div>
-    </div>
-    <div class="parallax" materialize="parallax">
-      <img src="app/welcome/assets/images/background3.jpg" alt="Unsplashed background img 2">
-    </div>
-  </div>
+      </form>
+  
+  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+  
+  </div> <!-- /Welcome container -->
 
-  <div class="container">
-    <div class="section">
-      <div class="row">
-        <div class="col s12 center">
-          <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4>Contact Us</h4>
-          <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
-        </div>
-      </div>
-    </div>
-    <div class="parallax" materialize="parallax">
-      <img src="app/welcome/assets/images/background2.jpg" alt="Unsplashed background img 3">
-    </div>
-  </div>
 </template>
