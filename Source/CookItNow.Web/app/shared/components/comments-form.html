@@ -1,27 +1,26 @@
 <template>
-	<form submit.delegate="send()" novalidate>
-		<div class="row center">
-			<div class="input-field center col s8 offset-s2">
-				<textarea value.bind="comments"></textarea>
+	<form submit.delegate="send()" role="form" novalidate>
+		<div class="row">
+			<div class="input-field col s8 offset-s2">
+				<textarea value.bind="comments" id="comments" rows="6"></textarea>
+				<label for="comments" class="">Your message</label>
 			</div>
 		</div>
-		<div class="row center">
-			<p>Enter your email if you would like to receive updates</p>
-		</div>
-		<div class="row center">
-			<div class="input-field">
-				<input type="email" value.bind="contactEmail" id="contactEmail" class="col s8">
-				<label for="contactEmail">Email</label>
+		<div class="row">
+			<p class="center">Enter your email if you would like to receive updates</p>
+			<div class="input-field col s8 offset-s2">
+				<input value.bind="contactEmail" id="contactEmail" type="email">
+				<label for="contactEmail" class="">Your email address</label>
 			</div>
 		</div>
+		<div class="row" if.bind="isSent">
+			<p>Thank you for your input, it is really important for us!</p>
+		</div>
 		<div class="row center">
-			<button class="btn-large waves-effect waves-light" type="submit" name="action">
+			<button id="send-message" class="btn btn-large btn-success waves-effect waves-light">
 				Send
 				<i class="material-icons right">send</i>
 			</button>
-		</div>
-		<div class="row center" if.bind="isSent">
-			<p>Thank you for your input, it is really important for us!</p>
 		</div>
 	</form>
 </template>

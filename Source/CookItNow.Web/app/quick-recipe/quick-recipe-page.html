@@ -49,7 +49,7 @@
 			</aside>
 			
 			<div class="main section col right">
-				<div class="recipe-content" if.bind="!isRecipeDone">
+				<div class="recipe-content" if.bind="isRecipeDone">
 					<div repeat.for="subrecipe of subrecipeSteps" class="subrecipe">
 						<div class="valign-wrapper subrecipe-title-wrapper">
 							<h2 class="valign subrecipe-title au-animate">${subrecipe.subrecipeTitle}</h2>
@@ -66,13 +66,13 @@
 					</span>
 				</div>
 				
-				<div class="comments-section col s12" if.bind="isRecipeDone">
+				<div class="comments-section col s12" if.bind="!isRecipeDone">
 					<div class="row center">
 						<hgroup>
 							<h3>Did you like your experience?</h3>
 							<h4>We'd like to hear from you!</h4>
 						</hgroup>
-						<p>Please enter your comments or suggestions in the post below.</p>
+						<p>Please enter your comments or suggestions in the box below.</p>
 					</div>
 						
 					<comments-form containerless></comments-form>

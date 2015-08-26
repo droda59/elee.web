@@ -10,5 +10,28 @@ nav .brand-logo {
 }
 
 textarea {
-	height: 8rem;
+	overflow-y: hidden;
+	padding: 1.6rem 0;
+	resize: none;
+	min-height: 3rem; 
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid #9e9e9e;
+	border-radius: 0;
+	outline: none;
+	width: 100%;
+	font-size: 1rem;
+	margin: 0 0 15px 0;
+	box-shadow: none;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+	transition: all .3s; 
+}
+textarea:focus:not([readonly]) {
+	border-bottom: 1px solid rgb(97, 162, 156);
+	box-shadow: 0 1px 0 0 rgb(97, 162, 156);
+}
+textarea:focus:not([readonly]) + label {
+	color: rgb(97, 162, 156);
 }
