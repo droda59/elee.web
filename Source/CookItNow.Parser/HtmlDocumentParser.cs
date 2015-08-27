@@ -128,14 +128,14 @@ namespace CookItNow.Parser
                 foreach (var stepNode in stepNodes)
                 {
                     bool? putNextPhraseInPostStep = null;
-                    var step = new Step { SubrecipeId = subrecipeId };
+                    Step postStep = null;
 
                     var stepText = stepNode.InnerText.Trim();
                     // TODO Temp fix, localize and do better
                     var splitPhrases = stepText.Replace("c. à", "c à").Split('.').Select(x => x.Trim()).Where(x => !string.IsNullOrWhiteSpace(x)).ToList();
                     foreach (var splitPhrase in splitPhrases)
                     {
-                        var phrase = new Phrase();
+                        var step = new Step { SubrecipeId = subrecipeId };
                         var words = this._wordExpression.Matches(splitPhrase);
                         var index = 0;
                         var skippedIndexes = new List<int>();
@@ -179,7 +179,7 @@ namespace CookItNow.Parser
 
                             if (previouslyReadType != null && previouslyReadType != currentlyReadType)
                             {
-                                this.FlushPhrasePart(recipe, phrase, phraseBuilder, previouslyReadType);
+                                this.FlushPhrasePart(recipe, step, phraseBuilder, previouslyReadType);
                             }
 
                             phraseBuilder.AppendFormat("{0} ", word);
@@ -187,25 +187,22 @@ namespace CookItNow.Parser
                             index++;
                         }
 
-                        this.FlushPhrasePart(recipe, phrase, phraseBuilder, currentlyReadType);
+                        this.FlushPhrasePart(recipe, step, phraseBuilder, currentlyReadType);
 
                         if (!putNextPhraseInPostStep.GetValueOrDefault())
                         {
-                            step.Phrases.Add(phrase);
+                            recipe.Steps.Add(step);
                             if (putNextPhraseInPostStep.HasValue)
                             {
                                 putNextPhraseInPostStep = true;
+                                postStep = step;
                             }
                         }
                         else
                         {
-                            step.PostStep = new Step();
-                            step.PostStep.SubrecipeId = subrecipeId;
-                            step.PostStep.Phrases.Add(phrase);
+                            postStep.PostSteps.Add(step);
                         }
                     }
-
-                    recipe.Steps.Add(step);
                 }
             }
 
@@ -244,8 +241,8 @@ namespace CookItNow.Parser
 
         private async Task<HtmlDocument> LoadDocument(Uri uri)
         {
-            var content = await this.LoadHtmlAsync(uri);
-            //var content = await this.GetOfflineHtmlContent();
+            //var content = await this.LoadHtmlAsync(uri);
+            var content = await this.GetOfflineHtmlContent();
 
             var document = new HtmlDocument();
             document.LoadHtml(content);
@@ -428,16 +425,13 @@ namespace CookItNow.Parser
 
                     var requirementAction = this._actionDetector.Actionify(requirements);
 
-                    var phrase = new Phrase();
-                    phrase.Parts.Add(new TextPart { Value = string.Format("{0}: ", recipe.Subrecipes.Single(x => x.Id == subrecipeId).Title) });
-                    phrase.Parts.Add(new ActionPart { Value = requirementAction });
-                    phrase.Parts.Add(new IngredientPart { Ingredient = ingredient });
+                    var step = new Step();
+                    step.SubrecipeId = RequirementsSubrecipeId;
+                    step.Parts.Add(new TextPart { Value = string.Format("{0}: ", recipe.Subrecipes.Single(x => x.Id == subrecipeId).Title) });
+                    step.Parts.Add(new ActionPart { Value = requirementAction });
+                    step.Parts.Add(new IngredientPart { Ingredient = ingredient });
 
-                    var requirementsStep = new Step();
-                    requirementsStep.SubrecipeId = RequirementsSubrecipeId;
-                    requirementsStep.Phrases.Add(phrase);
-
-                    recipe.Steps.Add(requirementsStep);
+                    recipe.Steps.Add(step);
                 }
                 else
                 {
@@ -450,7 +444,7 @@ namespace CookItNow.Parser
             }
         }
 
-        private void FlushPhrasePart(QuickRecipe recipe, Phrase phrase, StringBuilder phraseBuilder, Type readType)
+        private void FlushPhrasePart(QuickRecipe recipe, Step step, StringBuilder phraseBuilder, Type readType)
         {
             if (phraseBuilder.Length > 0)
             {
@@ -459,21 +453,21 @@ namespace CookItNow.Parser
 
                 if (readType == typeof(ActionPart))
                 {
-                    phrase.Parts.Add(new ActionPart { Value = value });
+                    step.Parts.Add(new ActionPart { Value = value });
                 }
                 else if (readType == typeof(TimerPart))
                 {
-                    var previousAction = phrase.Parts.Last(x => x is ActionPart) as ActionPart;
-                    phrase.Parts.Add(new TimerPart { Action = previousAction.Value, Value = value });
+                    var previousAction = step.Parts.Last(x => x is ActionPart) as ActionPart;
+                    step.Parts.Add(new TimerPart { Action = previousAction.Value, Value = value });
                 }
                 else if (readType == typeof(TextPart))
                 {
-                    phrase.Parts.Add(new TextPart { Value = value });
+                    step.Parts.Add(new TextPart { Value = value });
                 }
                 else if (readType == typeof(IngredientPart))
                 {
                     var referencedIngredient = recipe.Ingredients.First(x => x.Id == int.Parse(value));
-                    phrase.Parts.Add(new IngredientPart { Ingredient = referencedIngredient });
+                    step.Parts.Add(new IngredientPart { Ingredient = referencedIngredient });
                 }
                 else if (readType == typeof(IngredientEnumerationPart))
                 {
@@ -485,7 +479,7 @@ namespace CookItNow.Parser
                         ingredients.Ingredients.Add(referencedIngredient);
                     }
 
-                    phrase.Parts.Add(ingredients);
+                    step.Parts.Add(ingredients);
                 }
             }
         }

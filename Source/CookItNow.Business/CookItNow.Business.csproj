@@ -47,7 +47,6 @@
     <Compile Include="Models\IngredientEnumerationPart.cs" />
     <Compile Include="Models\IngredientPart.cs" />
     <Compile Include="Models\Part.cs" />
-    <Compile Include="Models\Phrase.cs" />
     <Compile Include="Models\Quantity.cs" />
     <Compile Include="Models\QuickRecipe.cs" />
     <Compile Include="Models\Step.cs" />
