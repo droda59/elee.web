@@ -15,16 +15,4 @@ export class QuickRecipeStep {
 			
 		return ingredientParts.length === 0;
 	}
-	
-	isTimerStep(): boolean {
-		if (!this.step) {
-			return false;
-		}
-		
-		var ingredientParts = this.step.parts.filter(
-			(part) => part.type == "timer"
-		);
-			
-		return ingredientParts.length > 0;
-	}
 }

@@ -3,7 +3,7 @@
 		<compose repeat.for="part of step.parts" model.bind="part" view-model="quick-recipe/components/step-${part.type}" containerless></compose>
 	</p>
 	
-	<p if.bind="isTimerStep() && step.postStep" class="post-step">
-		<compose repeat.for="part of step.postStep.parts" model.bind="part" view-model="quick-recipe/components/step-${part.type}" containerless></compose>
+	<p if.bind="step.postSteps && step.postSteps.length" class="post-step">
+		<quick-recipe-step repeat.for="postStep of step.postSteps" step.bind="postStep"></quick-recipe-step>
 	</p>
 </template>

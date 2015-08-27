@@ -642,19 +642,21 @@
               "value": "ou jusqu’ à ce qu’ un cure dent inséré au centre du gâteau en ressorte propre"
             }
           ],
-        "postStep": {
-          "subrecipeId": 1,
-              "parts": [
-                {
-                  "type": "action",
-                  "value": "Servir"
-                },
-                {
-                  "type": "text",
-                  "value": "chaud ou tempéré"
-                }
-              ]
-          }
+        "postSteps": [
+          {
+            "subrecipeId": 1,
+                "parts": [
+                  {
+                    "type": "action",
+                    "value": "Servir"
+                  },
+                  {
+                    "type": "text",
+                    "value": "chaud ou tempéré"
+                  }
+                ]
+            }
+          ]
         }
       ]
 }
