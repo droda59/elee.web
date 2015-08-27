@@ -1,4 +1,4 @@
-import {inject} from "aurelia-framework";
+import {inject, computedFrom} from "aurelia-framework";
 import {HttpClient} from "aurelia-http-client";
 import {EventAggregator} from "aurelia-event-aggregator";
 import {QuickRecipe, Step} from "quick-recipe/models/quick-recipe";
@@ -14,7 +14,7 @@ class QuickRecipeSubrecipeStep {
 	steps: Step[];
 }
 
-@inject (HttpClient, EventAggregator, Element)
+@inject (HttpClient, EventAggregator)
 export class QuickRecipePage {
     recipe: QuickRecipe;
 	subrecipeIngredients: QuickRecipeSubrecipeIngredient[] = [];
@@ -34,7 +34,7 @@ export class QuickRecipePage {
     private _http: HttpClient;
 	private _eventAggregator: EventAggregator;
 	
-	constructor(http: HttpClient, eventAggregator: EventAggregator, element: Element) {
+	constructor(http: HttpClient, eventAggregator: EventAggregator) {
 		this._eventAggregator = eventAggregator;
 		this._http = http;
 	}
@@ -112,8 +112,6 @@ export class QuickRecipePage {
 		this.currentStep = this.recipe.steps[this._currentStepIndex];
 		this.nextStep = this.recipe.steps[this._currentStepIndex + 1];
 		this.nextestStep = this.recipe.steps[this._currentStepIndex + 2];
-		
-		this.updatePositions();
 	}
 	
 	backStep(): void {
@@ -128,8 +126,6 @@ export class QuickRecipePage {
 		this.currentStep = this.previousStep;
 		this.previousStep = this.recipe.steps[this._currentStepIndex - 1];
 		this.previousestStep = this.recipe.steps[this._currentStepIndex - 2];
-		
-		this.updatePositions();
 	}
 
 	completeStep(): void {
@@ -145,28 +141,45 @@ export class QuickRecipePage {
 		this.currentStep = this.nextStep;
 		this.nextStep = this.recipe.steps[this._currentStepIndex + 1];
 		this.nextestStep = this.recipe.steps[this._currentStepIndex + 2];
-		
-		this.updatePositions();
 	}
-	
-	private updatePositions(): void {
-		// TODO This must be done after the view was refreshed
-		var previousestStepElement = $(".step.previousest-step");
-		var previousStepElement = $(".step.previous-step");
-		var nextStepElement = $(".step.next-step");
-		var nextestStepElement = $(".step.nextest-step");
+    
+    get previousestStepPosition() {
+		var previousestStepElement = $(".step.previousest-step")[0];
+		var previousStepElement = $(".step.previous-step")[0];
+		if (previousStepElement && previousestStepElement) {
+			return previousStepElement.offsetTop - (previousStepElement.offsetParent.clientHeight * 0.03) - previousestStepElement.offsetHeight;
+		}
 		
+		return 0;
+    }
+    
+    get previousStepPosition() {
+		var previousStepElement = $(".step.previous-step")[0];
+		var currentStepElement = $(".step.current-step")[0];
+		if (currentStepElement && previousStepElement) {
+			return currentStepElement.offsetTop - (currentStepElement.offsetParent.clientHeight * 0.06) - previousStepElement.offsetHeight;
+		}
+		
+		return 0;
+    }
+    
+    get nextStepPosition() {
 		var currentStepElement = $(".step.current-step")[0];
 		if (currentStepElement) {
-			var longDistance = currentStepElement.offsetParent.clientHeight * 0.26;
-			var closeDistance = currentStepElement.offsetParent.clientHeight * 0.16;
-			
-			previousestStepElement.css("bottom", longDistance + currentStepElement.offsetTop);
-			previousStepElement.css("bottom", closeDistance + currentStepElement.offsetTop);
-			nextStepElement.css("top", closeDistance + currentStepElement.offsetTop);
-			nextestStepElement.css("top", longDistance + currentStepElement.offsetTop);
+			return (currentStepElement.offsetTop + currentStepElement.offsetHeight) + (currentStepElement.offsetParent.clientHeight * 0.06);
 		}
-	}
+		
+		return 0;
+    }
+    
+    get nextestStepPosition() {
+		var nextStepElement = $(".step.next-step")[0];
+		if (nextStepElement) {
+			return (nextStepElement.offsetTop + nextStepElement.offsetHeight) + (nextStepElement.offsetParent.clientHeight * 0.03);
+		}
+		
+		return 0;
+    }
 	
 	get activeSubrecipeId(): number {
 		if (!this.currentStep) {
