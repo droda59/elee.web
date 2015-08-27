@@ -80,10 +80,52 @@
             overflow: hidden;
             position: relative;
             
+            .subrecipe-titles {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                flex-wrap: nowrap;
+                
+                li {
+                    opacity: 0.5;
+                    flex-grow: 1;
+                    text-align: center;
+                }
+                li.active {
+                    background: none;
+                    opacity: 1;
+                }
+            }
+            
+            .recipe-content {
+                height: 100%;
+                top: 0;
+            }
+            .current-step-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                height: 100%;
+                
+                position: absolute;
+                top: 0;
+                width: 99%;
+                z-index: 1;
+                
+                .step {
+                    position: initial;
+                }
+            }
+            
             .step-actions {
                 position: absolute;
                 bottom: 0;
                 right: 0;
+                z-index: 1;
+                
+                .complete-button i {
+                    margin: 0;
+                }
             }
             
             .subrecipe-title-wrapper {
@@ -93,7 +135,6 @@
                 background-color: rgba(0, 0, 0, 0.6);
                 position: absolute;
                 top: 0;
-                z-index: 1;
             }
             .subrecipe-title {
                 color: white;
@@ -107,86 +148,30 @@
             }
             
             .step {
-                line-height: 2.5rem;
-                list-style-type: none;
+                padding: 0 20px;
+                margin: 0;
+                width: 100%;
+                font-size: 1rem;
+                position: absolute;
                 
-                .phrase {
-                    padding: 0 20px;
-                    margin: 0;
-                    width: 100%;
-                    display: none;
-                    position: relative;
-                    font-size: 1rem;
+                .post-step {
+                    margin: 0 0 0 2rem;
                     
-                    .post-step {
-                        margin: 0 0 0 2rem;
-                        
-                        .action {
-                            font-size: 1.4rem;
-                        }
-                        .ingredient {
-                            .value {
-                                font-size: 1.8rem;
-                            }
-                            .unit {
-                                font-size: 1.4rem;
-                            }
-                            .type {
-                                font-size: 1.7rem;
-                            }
-                            .requirements {
-                                font-size: 1rem;
-                            }
-                        }
-                        .timer {
-                            color: dodgerblue;
-                            font-size: 1.5rem;
-                        }
-                    }
-  
-                    .enumeration {
-                        margin: 1rem 2rem 1rem 3rem;
-                        border: none;
-                        
-                        .collection-item {
-                            background: none;
-                            border: none;
-                            
-                            [type="checkbox"] + label {
-                                margin-left: 20px;
-                                height: 1.5rem;
-                                visibility: hidden;
-                            }
-                            [type="checkbox"] + label:before {
-                                border-color: white;
-                            }
-                            [type="checkbox"]:checked + label:before {
-                                border-left-color: transparent;
-                                border-top-color: transparent;
-                                border-right-color: white;
-                                border-bottom-color: white;
-                            }
-                        }
-                    }
                     .action {
-                        font-size: 1.8rem;
-                    }
-                    .text {
-                        font-family: "Roboto light";
+                        font-size: 1.4rem;
                     }
                     .ingredient {
                         .value {
-                            font-size: 2.2rem;
-                        }
-                        .unit {
                             font-size: 1.8rem;
                         }
+                        .unit {
+                            font-size: 1.4rem;
+                        }
                         .type {
-                            font-size: 2.1rem;
+                            font-size: 1.7rem;
                         }
                         .requirements {
-                            font-size: 1.4rem;
-                            font-family: "Roboto light";
+                            font-size: 1rem;
                         }
                     }
                     .timer {
@@ -194,44 +179,84 @@
                         font-size: 1.5rem;
                     }
                 }
-                .phrase.technical span {
-                    font-size: 1.6rem;
-                }
-                .phrase.completed-step {
-                    text-decoration: line-through;
-                }
-                .phrase.previousest-step, 
-                .phrase.previous-step, 
-                .phrase.current-step, 
-                .phrase.next-step, 
-                .phrase.nextest-step {
-                    display: table;
-                }
-                .phrase.previousest-step,
-                .phrase.nextest-step {
-                    opacity: $quick-recipe-second-level-opacity;
-                    margin-top: $quick-recipe-second-level-vmargin;
-                    margin-bottom: $quick-recipe-second-level-vmargin;
-                    padding-left: $quick-recipe-second-level-padding;
-                }
-                .phrase.previous-step,
-                .phrase.next-step {
-                    opacity: $quick-recipe-first-level-opacity;
-                    margin-top: $quick-recipe-first-level-vmargin;
-                    margin-bottom: $quick-recipe-first-level-vmargin;
-                    padding-left: $quick-recipe-first-level-padding;
-                }
-                .phrase.current-step {
-                    width: 80%;
-                    margin-top: $quick-recipe-current-level-vmargin;
-                    margin-bottom: $quick-recipe-current-level-vmargin;
+
+                .enumeration {
+                    margin: 1rem 2rem 1rem 3rem;
+                    border: none;
                     
-                    .enumeration .collection-item {
+                    .collection-item {
+                        background: none;
+                        border: none;
+                        
                         [type="checkbox"] + label {
-                            visibility: visible;
+                            margin-left: 20px;
+                            height: 1.5rem;
+                            visibility: hidden;
+                        }
+                        [type="checkbox"] + label:before {
+                            border-color: white;
+                        }
+                        [type="checkbox"]:checked + label:before {
+                            border-left-color: transparent;
+                            border-top-color: transparent;
+                            border-right-color: white;
+                            border-bottom-color: white;
                         }
                     }
                 }
+                .action {
+                    font-size: 1.8rem;
+                }
+                .text {
+                    font-family: "Roboto light";
+                }
+                .ingredient {
+                    .value {
+                        font-size: 2.2rem;
+                    }
+                    .unit {
+                        font-size: 1.8rem;
+                    }
+                    .type {
+                        font-size: 2.1rem;
+                    }
+                    .requirements {
+                        font-size: 1.4rem;
+                        font-family: "Roboto light";
+                    }
+                }
+                .timer {
+                    color: dodgerblue;
+                    font-size: 1.5rem;
+                }
+            }
+            .step.previousest-step {
+                opacity: $quick-recipe-second-level-opacity;
+                padding-left: $quick-recipe-second-level-padding;
+                text-decoration: line-through;
+            }
+            .step.previous-step {
+                opacity: $quick-recipe-first-level-opacity;
+                padding-left: $quick-recipe-first-level-padding;
+                text-decoration: line-through;
+            }
+            .step.current-step {
+                .enumeration .collection-item {
+                    [type="checkbox"] + label {
+                        visibility: visible;
+                    }
+                }
+            }
+            .step.next-step {
+                opacity: $quick-recipe-first-level-opacity;
+                padding-left: $quick-recipe-first-level-padding;
+            }
+            .step.nextest-step {
+                opacity: $quick-recipe-second-level-opacity;
+                padding-left: $quick-recipe-second-level-padding;
+            }
+            .step.technical span {
+                font-size: 1.6rem;
             }
         }
     }

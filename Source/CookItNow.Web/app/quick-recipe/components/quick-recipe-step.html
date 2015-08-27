@@ -1,11 +1,9 @@
 <template>
-	<div repeat.for="phrase of step.phrases" class="phrase">
-		<p class="${$parent.isTechnicalPhrase(phrase) ? 'technical' : ''}">
-			<compose repeat.for="part of phrase.parts" model.bind="part" view-model="quick-recipe/components/step-${part.type}" containerless></compose>
-		</p>
-		
-		<p if.bind="$parent.isTimerPhrase(phrase)" repeat.for="postStepPhrase of $parent.getPostStepPhrases()" class="post-step">
-			<compose repeat.for="part of postStepPhrase.parts" model.bind="part" view-model="quick-recipe/components/step-${part.type}" containerless></compose>
-		</p>
-	</div>
+	<p class="${isTechnicalStep() ? 'technical' : ''}">
+		<compose repeat.for="part of step.parts" model.bind="part" view-model="quick-recipe/components/step-${part.type}" containerless></compose>
+	</p>
+	
+	<p if.bind="isTimerStep() && step.postStep" class="post-step">
+		<compose repeat.for="part of step.postStep.parts" model.bind="part" view-model="quick-recipe/components/step-${part.type}" containerless></compose>
+	</p>
 </template>

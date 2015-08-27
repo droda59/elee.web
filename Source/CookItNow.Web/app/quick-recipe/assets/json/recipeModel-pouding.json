@@ -165,38 +165,32 @@
   "steps": [
     {
       "subrecipeId": -2,
-      "phrases": [
+      "parts": [
         {
-          "parts": [
-            {
-              "type": "text",
-              "value": "Sauce: "
+          "type": "text",
+          "value": "Sauce: "
+        },
+        {
+          "type": "action",
+          "value": "tamiser "
+        },
+        {
+          "type": "ingredient",
+          "ingredient": {
+            "id": 1,
+            "subrecipeId": 0,
+            "name": "cacao",
+            "quantity": {
+              "value": 180.0,
+              "originalMeasureUnit": "ml"
             },
-            {
-              "type": "action",
-              "value": "tamiser "
-            },
-            {
-              "type": "ingredient",
-              "ingredient": {
-                "id": 1,
-                "subrecipeId": 0,
-                "name": "cacao",
-                "quantity": {
-                  "value": 180.0,
-                  "originalMeasureUnit": "ml"
-                },
-                "requirements": "tamisé"
-              }
-            }
-          ]
+            "requirements": "tamisé"
+          }
         }
       ]
     },
     {
       "subrecipeId": -2,
-      "phrases": [
-        {
           "parts": [
             {
               "type": "text",
@@ -219,14 +213,10 @@
                 "requirements": "tamisé"
               }
             }
-          ]
-        }
       ]
     },
     {
       "subrecipeId": -2,
-      "phrases": [
-        {
           "parts": [
             {
               "type": "text",
@@ -249,14 +239,10 @@
                 "requirements": "ramolli"
               }
             }
-          ]
-        }
       ]
     },
     {
       "subrecipeId": -1,
-      "phrases": [
-        {
           "parts": [
             {
               "type": "action",
@@ -267,8 +253,9 @@
               "value": "la grille au centre du four"
             }
           ]
-        },
-        {
+    },
+    {
+      "subrecipeId": -1,
           "parts": [
             {
               "type": "action",
@@ -279,8 +266,9 @@
               "value": "le four à 180 °C (350 °F)"
             }
           ]
-        },
-        {
+    },
+    {
+      "subrecipeId": -1,
           "parts": [
             {
               "type": "action",
@@ -291,13 +279,9 @@
               "value": "un plat de cuisson de 33 x 23 cm (13 x 9 po)"
             }
           ]
-        }
-      ]
     },
     {
       "subrecipeId": 0,
-      "phrases": [
-        {
           "parts": [
             {
               "type": "text",
@@ -341,8 +325,9 @@
               ]
             }
           ]
-        },
-        {
+    },
+    {
+      "subrecipeId": 0,
           "parts": [
             {
               "type": "action",
@@ -380,8 +365,9 @@
               "value": "à ébullition en remuant à l’ aide d’ un fouet"
             }
           ]
-        },
-        {
+    },
+    {
+      "subrecipeId": 0,
           "parts": [
             {
               "type": "action",
@@ -400,21 +386,18 @@
               }
             }
           ]
-        },
-        {
+    },
+    {
+      "subrecipeId": 0,
           "parts": [
             {
               "type": "action",
               "value": "Réserver"
             }
           ]
-        }
-      ]
     },
     {
       "subrecipeId": 1,
-      "phrases": [
-        {
           "parts": [
             {
               "type": "text",
@@ -457,21 +440,18 @@
               "value": "en remuant à l’ aide d’ un fouet"
             }
           ]
-        },
-        {
+    },
+    {
+      "subrecipeId": 1,
           "parts": [
             {
               "type": "action",
               "value": "Laisser tiédir"
             }
           ]
-        }
-      ]
     },
     {
       "subrecipeId": 1,
-      "phrases": [
-        {
           "parts": [
             {
               "type": "text",
@@ -514,21 +494,18 @@
               ]
             }
           ]
-        },
-        {
+    },
+    {
+      "subrecipeId": 1,
           "parts": [
             {
               "type": "action",
               "value": "Réserver"
             }
           ]
-        }
-      ]
     },
     {
       "subrecipeId": 1,
-      "phrases": [
-        {
           "parts": [
             {
               "type": "text",
@@ -567,8 +544,9 @@
               "value": "au batteur électrique jusqu’ à ce que le mélange prenne une texture granuleuse"
             }
           ]
-        },
-        {
+    },
+    {
+      "subrecipeId": 1,
           "parts": [
             {
               "type": "action",
@@ -599,8 +577,9 @@
               "value": "jusqu’ à ce que la préparation soit homogène"
             }
           ]
-        },
-        {
+    },
+    {
+      "subrecipeId": 1,
           "parts": [
             {
               "type": "text",
@@ -615,8 +594,9 @@
               "value": "les ingrédients secs en alternant avec le mélange de cacao"
             }
           ]
-        },
-        {
+    },
+    {
+      "subrecipeId": 1,
           "parts": [
             {
               "type": "action",
@@ -627,13 +607,9 @@
               "value": "la pâte dans le plat"
             }
           ]
-        }
-      ]
     },
     {
       "subrecipeId": 1,
-      "phrases": [
-        {
           "parts": [
             {
               "type": "action",
@@ -644,8 +620,9 @@
               "value": "la sauce chaude délicatement sur la pâte"
             }
           ]
-        },
-        {
+    },
+    {
+      "subrecipeId": 1,
           "parts": [
             {
               "type": "action",
@@ -664,26 +641,20 @@
               "type": "text",
               "value": "ou jusqu’ à ce qu’ un cure dent inséré au centre du gâteau en ressorte propre"
             }
-          ]
-        }
-      ],
-      "postStep": {
-        "subrecipeId": 1,
-        "phrases": [
-          {
-            "parts": [
-              {
-                "type": "action",
-                "value": "Servir"
-              },
-              {
-                "type": "text",
-                "value": "chaud ou tempéré"
-              }
-            ]
+          ],
+        "postStep": {
+          "subrecipeId": 1,
+              "parts": [
+                {
+                  "type": "action",
+                  "value": "Servir"
+                },
+                {
+                  "type": "text",
+                  "value": "chaud ou tempéré"
+                }
+              ]
           }
-        ]
-      }
-    }
-  ]
+        }
+      ]
 }

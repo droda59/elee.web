@@ -24,12 +24,8 @@ export interface SubRecipe {
 
 export interface Step {
     subrecipeId: number;
-    phrases: Phrase[];
-    postStep: Step;
-}
-
-export interface Phrase {
     parts: Part[];
+    postStep: Step;
 }
 
 export interface Part {

@@ -70,25 +70,11 @@ export class Timer {
     @computedFrom("_remainingSeconds")
     get remainingTime() {
         return this._remainingSeconds;
-    //     var hours   = Math.floor(this._remainingSeconds / 3600);
-    //     var minutes = Math.floor((this._remainingSeconds - (hours * 3600)) / 60);
-    //     var seconds = this._remainingSeconds - (hours * 3600) - (minutes * 60);
-    // 
-    //     return (hours ? (hours < 10 ? "0" + hours : hours) + ":" : "") 
-    //         + (minutes < 10 ? "0" + minutes : minutes) + ":" 
-    //         + (seconds < 10 ? "0" + seconds : seconds);
     }
     
     @computedFrom("_originalSeconds")
     get originalTime() {
         return this._originalSeconds;
-    //     var hours   = Math.floor(this._originalSeconds / 3600);
-    //     var minutes = Math.floor((this._originalSeconds - (hours * 3600)) / 60);
-    //     var seconds = this._originalSeconds - (hours * 3600) - (minutes * 60);
-    // 
-    //     return (hours ? (hours < 10 ? "0" + hours : hours) + ":" : "") 
-    //         + (minutes < 10 ? "0" + minutes : minutes) + ":" 
-    //         + (seconds < 10 ? "0" + seconds : seconds);
     }
     
     private initialize() {

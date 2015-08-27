@@ -31,7 +31,7 @@ export class StepAnimator {
 		this._eventAggregator = eventAggregator;
 	}
 	
-    attached() {
+	attached() {
 		var that = this;
 		this._eventAggregator.subscribe("STEPCOMPLETED", () => this.completeStep($(this.element).find(".current-step")[0]));
 		this._eventAggregator.subscribe("STEPRETURNED", () => this.backStep($(this.element).find(".current-step")[0]));

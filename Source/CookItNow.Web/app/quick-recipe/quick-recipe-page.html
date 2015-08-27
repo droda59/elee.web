@@ -2,11 +2,8 @@
 	<require from="quick-recipe/components/quick-recipe-header"></require>
 	<require from="quick-recipe/components/quick-recipe-step"></require>
 	<require from="quick-recipe/components/quick-recipe-footer"></require>
-	<require from="quick-recipe/step-animator"></require>
 	<require from="shared/components/measurable-ingredient"></require>
 	<require from="shared/components/comments-form"></require>
-	
-	<step-animator element.bind="element"></step-animator>
 	
 	<div class="quick-recipe" class.bind="backgroundClass">
 	    <header class="row">
@@ -49,24 +46,34 @@
 			</aside>
 			
 			<div class="main section col right">
-				<div class="recipe-content" if.bind="isRecipeDone">
-					<div repeat.for="subrecipe of subrecipeSteps" class="subrecipe">
-						<div class="valign-wrapper subrecipe-title-wrapper">
-							<h2 class="valign subrecipe-title au-animate">${subrecipe.subrecipeTitle}</h2>
-						</div>
-						<ol class="step-list">
-							<li repeat.for="step of subrecipe.steps" class="step au-animate">
-								<quick-recipe-step step.bind="step"></quick-recipe-step>
-							</li>
-						</ol>
+				<div class="recipe-content" if.bind="!isRecipeDone">
+					<div class="navbar">
+						<nav>
+							<div class="nav-wrapper">
+								<ul class="subrecipe-titles">
+									<li repeat.for="subrecipe of recipe.subrecipes" class="${$parent.activeSubrecipeId === subrecipe.id ? 'active' : ''}"><a href="#">${subrecipe.title}</a></li>
+								</ul>
+							</div>
+						</nav>
 					</div>
+  
+					<quick-recipe-step step.bind="previousestStep" class="step previousest-step"></quick-recipe-step>
+					<quick-recipe-step step.bind="previousStep" class="step previous-step"></quick-recipe-step>
+					
+					<div if.bind="currentStep" class="current-step-container">
+						<quick-recipe-step step.bind="currentStep" class="step current-step"></quick-recipe-step>
+					</div>
+					
+					<quick-recipe-step step.bind="nextStep" class="step next-step"></quick-recipe-step>
+					<quick-recipe-step step.bind="nextestStep" class="step nextest-step"></quick-recipe-step>
+					
 					<span class="step-actions">
-						<a class="complete-button waves-light btn-large" click.delegate="backStep()"><i class="material-icons left">navigate_before</i></a>
-						<a class="complete-button waves-light btn-large" click.delegate="nextStep()"><i class="material-icons right">navigate_next</i></a>
+						<a class="complete-button waves-light btn ${isFirstStep ? 'disabled' : ''}" click.delegate="backStep()"><i class="material-icons left">navigate_before</i></a>
+						<a class="complete-button waves-light btn" click.delegate="completeStep()"><i class="material-icons right">navigate_next</i></a>
 					</span>
 				</div>
 				
-				<div class="comments-section col s12" if.bind="!isRecipeDone">
+				<div class="comments-section col s12" if.bind="isRecipeDone">
 					<div class="row center">
 						<hgroup>
 							<h3>Did you like your experience?</h3>

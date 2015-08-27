@@ -1,19 +1,4 @@
 .quick-recipe {
-    .show-subrecipe-title-animation-add {
-        visibility: visible !important;
-        
-        -webkit-animation: fadeIn 2s ease-in-out;
-        -moz-animation: fadeIn 2s ease-in-out;
-        animation: fadeIn 2s ease-in-out;
-    }
-    .show-subrecipe-title-animation-remove {
-        visibility: visible !important;
-        
-        -webkit-animation: fadeIn 2s ease-in-out reverse;
-        -moz-animation: fadeIn 2s ease-in-out reverse;
-        animation: fadeIn 2s ease-in-out reverse;
-    }
-    
     .step.au-enter {
         opacity: 0!important;
     }
