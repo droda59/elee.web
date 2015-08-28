@@ -1,6 +1,5 @@
-import {inject, computedFrom} from "aurelia-framework";
+import {inject} from "aurelia-framework";
 import {HttpClient} from "aurelia-http-client";
-import {EventAggregator} from "aurelia-event-aggregator";
 import {QuickRecipe, Step} from "quick-recipe/models/quick-recipe";
 import {Ingredient} from "shared/models/ingredient";
 
@@ -9,12 +8,13 @@ class QuickRecipeSubrecipeIngredient {
 	ingredients: Ingredient[];
 }
 
-@inject (HttpClient, EventAggregator)
+@inject (HttpClient)
 export class QuickRecipePage {
     recipe: QuickRecipe;
 	subrecipeIngredients: QuickRecipeSubrecipeIngredient[] = [];
 	
 	backgroundClass: string;
+	isRecipeStarted: boolean;
 	isRecipeDone: boolean;
 	
 	previousestStep: Step;
@@ -24,12 +24,9 @@ export class QuickRecipePage {
 	nextestStep: Step;
 	
 	private _currentStepIndex: number = 0;
-	
     private _http: HttpClient;
-	private _eventAggregator: EventAggregator;
 	
-	constructor(http: HttpClient, eventAggregator: EventAggregator) {
-		this._eventAggregator = eventAggregator;
+	constructor(http: HttpClient) {
 		this._http = http;
 	}
 	
@@ -88,7 +85,9 @@ export class QuickRecipePage {
 		return confirm('Are you sure you want to leave?');
 	}
 	
-	attached() {
+	startRecipe(): void {
+		this.isRecipeStarted = true;
+		
 		this.currentStep = this.recipe.steps[this._currentStepIndex];
 		this.nextStep = this.recipe.steps[this._currentStepIndex + 1];
 		this.nextestStep = this.recipe.steps[this._currentStepIndex + 2];

@@ -4,6 +4,7 @@
 	<require from="quick-recipe/components/quick-recipe-footer"></require>
 	<require from="shared/components/measurable-ingredient"></require>
 	<require from="shared/components/comments-form"></require>
+	<require from="shared/value-converters/duration-format"></require>
 	
 	<div class="quick-recipe" class.bind="backgroundClass">
 	    <header class="row">
@@ -46,7 +47,28 @@
 			</aside>
 			
 			<div class="main section col right">
-				<div class="recipe-content" if.bind="!isRecipeDone">
+				<section class="presentation-section" if.bind="!isRecipeStarted">
+					<div class="col s6 offset-s3">
+						<h3>${recipe.title}</h3>
+						<div class="row">
+							<div>Servings : ${recipe.originalServings}</div>
+						</div>
+						
+						<div class="row">
+							<ul>
+								<li repeat.for="duration of recipe.durations">
+									${duration.title} : ${duration.time | durationFormat}
+								</li>
+							</ul>
+						</div>
+						
+						<div class="row center">
+							<a class="btn btn-large btn-success waves-effect waves-light" click.trigger="startRecipe()">Start</a>
+						</div>
+					</div>
+				</section>
+				
+				<section class="recipe-content" if.bind="isRecipeStarted && !isRecipeDone">
 					<div class="navbar">
 						<nav>
 							<div class="nav-wrapper">
@@ -69,11 +91,11 @@
 					
 					<span class="step-actions">
 						<a class="complete-button waves-light btn ${isFirstStep ? 'disabled' : ''}" click.delegate="backStep()"><i class="material-icons left">navigate_before</i></a>
-						<a class="complete-button waves-light btn" click.delegate="completeStep()"><i class="material-icons right">navigate_next</i></a>
+						<a class="complete-button waves-light btn" click.delegate="completeStep()">${isLastStep ? 'Done' : ''}<i class="material-icons right">${isLastStep ? '' : 'navigate_next'}</i></a>
 					</span>
-				</div>
+				</section>
 				
-				<div class="comments-section col s12" if.bind="isRecipeDone">
+				<section class="comments-section" if.bind="isRecipeStarted && isRecipeDone">
 					<div class="row center">
 						<hgroup>
 							<h3>Did you like your experience?</h3>
@@ -83,7 +105,7 @@
 					</div>
 						
 					<comments-form containerless></comments-form>
-				</div>
+				</section>
 			</div>
 		</main>
 				
