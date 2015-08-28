@@ -45,7 +45,6 @@
         "./app/app.ts", 
         "./app/main.ts", 
         "./app/quick-recipe-page/quick-recipe-page.ts",
-        "./app/quick-recipe-page/step-animator.ts", 
         "./app/quick-recipe/components/step-action.ts",
         "./app/quick-recipe/components/step-text.ts",
         "./app/quick-recipe/components/step-timer.ts",

@@ -9,16 +9,10 @@ class QuickRecipeSubrecipeIngredient {
 	ingredients: Ingredient[];
 }
 
-class QuickRecipeSubrecipeStep {
-	subrecipeTitle: string;
-	steps: Step[];
-}
-
 @inject (HttpClient, EventAggregator)
 export class QuickRecipePage {
     recipe: QuickRecipe;
 	subrecipeIngredients: QuickRecipeSubrecipeIngredient[] = [];
-	subrecipeSteps: QuickRecipeSubrecipeStep[] = [];
 	
 	backgroundClass: string;
 	isRecipeDone: boolean;
@@ -84,20 +78,6 @@ export class QuickRecipePage {
 					 
 					if (subrecipeIngredient.ingredients.length) {
 						this.subrecipeIngredients.push(subrecipeIngredient);
-					}
-				} 
-			);
-			
-			(this.recipe.subrecipes || []).forEach(
-				(subrecipe) => {
-					var subrecipeStep = new QuickRecipeSubrecipeStep();
-					subrecipeStep.subrecipeTitle = subrecipe.title;
-					subrecipeStep.steps = this.recipe.steps.filter(
-						(step) => step.subrecipeId === subrecipe.id
-					);
-					 
-					if (subrecipeStep.steps.length) {
-						this.subrecipeSteps.push(subrecipeStep);
 					}
 				} 
 			);
