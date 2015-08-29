@@ -33,17 +33,18 @@ export class QuickRecipePage {
 	activate(route, routeConfig) {
 		// TODO Ugly-ass code; used to decide randomly which background to pick. this should go somewhere else
 		var backgroundId = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
-		switch (backgroundId) {
-			case 1:
-				this.backgroundClass = "chalkboard";
-				break;
-			case 2: 
-				this.backgroundClass = "wood";
-				break;
-			default:
-				this.backgroundClass = "stone";
-				break;
-		}
+		// switch (backgroundId) {
+		// 	case 1:
+		// 		this.backgroundClass = "chalkboard";
+		// 		break;
+		// 	case 2: 
+		// 		this.backgroundClass = "wood";
+		// 		break;
+		// 	default:
+		// 		this.backgroundClass = "stone";
+		// 		break;
+		// }
+		this.backgroundClass = "chalkboard";
 		
 		var url;
 		switch (route.id) {

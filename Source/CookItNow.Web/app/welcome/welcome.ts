@@ -1,22 +1,52 @@
 import {Router} from "aurelia-router";
 import {inject} from "aurelia-framework";
+import {EventAggregator} from 'aurelia-event-aggregator';
+import {I18N} from 'aurelia-i18next';
 
-@inject (Router)
+@inject (Router, EventAggregator, I18N, Element)
 export class Welcome {
+	private _router: Router;
+	private _i18n: I18N;
+	private _element: Element;
 	
-	private router: Router;
 	selectedRecipeId: string;
 	recipes: {}[] = [];
 	
-	constructor(router: Router) {
-		this.router = router;
+	constructor(router: Router, eventAggregator: EventAggregator, i18n: I18N, element: Element) {
+		this._router = router;
+		this._i18n = i18n;
+		this._element = element;
+		
+		// eventAggregator.subscribe('i18n:locale:changed', payload => {
+        // 	this._i18n.updateTranslations(this._element);
+      	// });
 
 		this.recipes.push({ id: "1", title: "Pouding au chocolat" });
 		this.recipes.push({ id: "2", title: "Gaufres" });
 		this.recipes.push({ id: "3", title: "Chèvre croustillant aux pêches et aux amandes caramélisées" });
 	}
+	
+	attached(){
+		this._i18n.updateTranslations(this._element);
+	}
 
 	loadRecipe() {
-		this.router.navigateToRoute("quick-recipe", { "id": this.selectedRecipeId }, undefined);
+		this._router.navigateToRoute("quick-recipe", { "id": this.selectedRecipeId }, undefined);
+	}
+	
+	changeLocale() {
+		var newLocale;
+		var currentLocale = this._i18n.getLocale();
+		if (currentLocale === "fr") {
+			newLocale = "en";
+		} else if (currentLocale === "en") {
+			newLocale = "fr";
+		}
+		
+        this._i18n
+            .setLocale(newLocale)
+            .then(() => {
+				this._i18n.updateTranslations(this._element);
+        	});
 	}
 }
