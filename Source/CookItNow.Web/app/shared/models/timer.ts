@@ -1,6 +1,5 @@
 import {EventAggregator} from "aurelia-event-aggregator";
 import {computedFrom} from "aurelia-framework"; 
-import * as moment from "moment";
 
 export class Timer {
 	private _eventAggregator: EventAggregator;

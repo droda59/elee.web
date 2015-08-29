@@ -1,24 +1,24 @@
 <template>
-	<form submit.delegate="send()" role="form" novalidate>
+	<form submit.delegate="send()" role="form">
 		<div class="row">
 			<div class="input-field col s8 offset-s2">
-				<textarea value.bind="comments" id="comments" rows="6"></textarea>
-				<label for="comments" class="">Your message</label>
+				<textarea value.bind="comments" id="comments" rows="6" minlength="5"></textarea>
+				<label for="comments" class="">Votre message</label>
 			</div>
 		</div>
 		<div class="row">
-			<p class="center">Enter your email if you would like to receive updates</p>
+			<p class="center">Inscrivez votre adresse de courriel si vous aimeriez recevoir des mises à jour.</p>
 			<div class="input-field col s8 offset-s2">
 				<input value.bind="contactEmail" id="contactEmail" type="email">
-				<label for="contactEmail" class="">Your email address</label>
+				<label for="contactEmail" class="">Votre adresse de courriel</label>
 			</div>
 		</div>
 		<div class="row" if.bind="isSent">
-			<p>Thank you for your input, it is really important for us!</p>
+			<p>Merci pour vos commentaires, ils sont très importants pour nous!</p>
 		</div>
 		<div class="row center">
 			<button id="send-message" class="btn btn-large btn-success waves-effect waves-light">
-				Send
+				Envoyer
 				<i class="material-icons right">send</i>
 			</button>
 		</div>
