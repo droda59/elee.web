@@ -63,6 +63,8 @@ export class QuickRecipePage {
         return this._http.get(url).then(response => {
             this.recipe = response.content;
 			
+			moment.locale(this.recipe.language);
+			
 			routeConfig.navModel.title = this.recipe.title;
 			
 			(this.recipe.subrecipes || []).forEach(

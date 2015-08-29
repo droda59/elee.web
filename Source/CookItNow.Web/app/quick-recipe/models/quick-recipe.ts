@@ -2,6 +2,7 @@ import {Ingredient} from "shared/models/ingredient";
 
 export interface QuickRecipe {
     id : number;
+    language: string;
     title : string;
     originalUrl : string;
     summary : string;
