@@ -1,5 +1,6 @@
 import {inject} from "aurelia-framework";
 import {HttpClient} from "aurelia-http-client";
+import {I18N} from 'aurelia-i18n';
 import {QuickRecipe, Step} from "quick-recipe/models/quick-recipe";
 import {Ingredient} from "shared/models/ingredient";
 
@@ -8,7 +9,7 @@ class QuickRecipeSubrecipeIngredient {
 	ingredients: Ingredient[];
 }
 
-@inject (HttpClient)
+@inject (HttpClient, I18N)
 export class QuickRecipePage {
     recipe: QuickRecipe;
 	subrecipeIngredients: QuickRecipeSubrecipeIngredient[] = [];
@@ -25,9 +26,11 @@ export class QuickRecipePage {
 	
 	private _currentStepIndex: number = 0;
     private _http: HttpClient;
+	private _i18n: I18N;
 	
-	constructor(http: HttpClient) {
+	constructor(http: HttpClient, i18n: I18N) {
 		this._http = http;
+		this._i18n = i18n;
 	}
 	
 	activate(route, routeConfig) {
@@ -65,6 +68,7 @@ export class QuickRecipePage {
             this.recipe = response.content;
 			
 			moment.locale(this.recipe.language);
+			this._i18n.setLocale(this.recipe.language);
 			
 			routeConfig.navModel.title = this.recipe.title;
 			

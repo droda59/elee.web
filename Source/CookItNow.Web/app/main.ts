@@ -1,4 +1,4 @@
-import {I18N} from "aurelia-i18next";
+import {I18N} from "aurelia-i18n";
 import {ConventionalViewStrategy} from "aurelia-templating";
  
 export function configure(aurelia) {
@@ -7,7 +7,7 @@ export function configure(aurelia) {
         .developmentLogging()
         .globalResources("shared/aurelia-materialize")
 	    .plugin("aurelia-animator-css")
-        .plugin("aurelia-i18next", (instance) => {
+        .plugin("aurelia-i18n", (instance) => {
             instance.setup({
                 resGetPath : "locale/__lng__/__ns__.json",
                 lng : "fr",

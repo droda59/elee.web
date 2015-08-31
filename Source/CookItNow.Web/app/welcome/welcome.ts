@@ -1,9 +1,8 @@
 import {Router} from "aurelia-router";
 import {inject} from "aurelia-framework";
-import {EventAggregator} from 'aurelia-event-aggregator';
-import {I18N} from 'aurelia-i18next';
+import {I18N} from 'aurelia-i18n';
 
-@inject (Router, EventAggregator, I18N, Element)
+@inject (Router, I18N, Element)
 export class Welcome {
 	private _router: Router;
 	private _i18n: I18N;
@@ -12,14 +11,10 @@ export class Welcome {
 	selectedRecipeId: string;
 	recipes: {}[] = [];
 	
-	constructor(router: Router, eventAggregator: EventAggregator, i18n: I18N, element: Element) {
+	constructor(router: Router, i18n: I18N, element: Element) {
 		this._router = router;
 		this._i18n = i18n;
 		this._element = element;
-		
-		// eventAggregator.subscribe('i18n:locale:changed', payload => {
-        // 	this._i18n.updateTranslations(this._element);
-      	// });
 
 		this.recipes.push({ id: "1", title: "Pouding au chocolat" });
 		this.recipes.push({ id: "2", title: "Gaufres" });

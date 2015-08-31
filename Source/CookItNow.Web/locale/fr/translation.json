@@ -1,17 +1,63 @@
 {
-  "score": "Score: __score__",
-  "lives": "__count__ life remaining",
-  "lives_plural": "__count__ lives remaining",
-  "lives_indefinite": "a life remaining",
-  "lives_plural_indefinite": "some lives remaining",
-  "friend": "A friend",
-  "friend_male": "A boyfriend",
-  "friend_female": "A girlfriend",
-  "home": {
-    "home": "Maison",
-    "browse": "Naviguer",
-    "contact": "Contact",
-    "lang": "English",
-    "signIn": "Connexion"
-  }
+    "nav": {
+        "home": "Maison",
+        "browse": "Naviguer",
+        "contact": "Contact",
+        "lang": "English",
+        "signIn": "Connexion"
+    },
+    "comments": {
+        "yourMessage": "Votre message",
+        "emailForUpdates": "Inscrivez votre adresse de courriel si vous aimeriez recevoir des mises à jour.",
+        "email": "Votre adresse de courriel",
+        "thankYouMessage": "Merci pour vos commentaires, ils sont très importants pour nous!",
+        "sendButton": "Envoyer"
+    }, 
+    "home": {
+        "selectRecipe": "Sélectionner une recette",
+        "recipeSelection": "Sélection de recette",
+        "cookItNowButton": "Cook it now!"
+    },
+    "quantities": {
+        "ml": "ml",
+        "ml_plural": "ml",
+        "cl": "cl",
+        "cl_plural": "cl",
+        "dl": "dl",
+        "dl_plural": "dl",
+        "l": "l",
+        "l_plural": "l",
+        "tsp": "c. à thé",
+        "tsp_plural": "c. à thé",
+        "tbsp": "c. à soupe",
+        "tbsp_plural": "c. à soupe", 
+        "oz": "once", 
+        "oz_plural": "onces", 
+        "cup": "tasse",
+        "cup_plural": "tasses",
+        "g": "g",
+        "g_plural": "g",
+        "kg": "kg",
+        "kg_plural": "kg",
+        "lb": "livre",
+        "lb_plural": "livres",
+        "pinch": "pincée",
+        "pinch_plural": "pincées",
+        "nextWordVowel": "d'",
+        "nextWordConsonant": "de"
+    },
+    "quickRecipe": {
+        "originalRecipe": "Recette originale : ",  
+        "timerTimeOfTotal": " de ",
+        "ingredientsSideTitle": "Ingrédients",
+        "ingredientReplacementConjunction": "ou", 
+        "servings": "Portions : ",
+        "start": "Débuter",
+        "finish": "Terminer",
+        "comments": {
+            "didYouLikeExperience": "Did you like your experience?",
+            "wedLikeYourComments": "We'd like to hear from you!",
+            "writeComments": "Write your comments and suggestions in the box below."
+        }
+    }
 }

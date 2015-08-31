@@ -19,7 +19,7 @@
 							<div class="section no-pad-bot">
 								<div class="container">
 									<div class="row center">
-										<h3 class="header col s12">Ingrédients</h3>
+										<h3 class="header col s12" i18n="quickRecipe.ingredientsSideTitle">Ingredients</h3>
 									</div>
 								</div>
 							</div>
@@ -34,7 +34,7 @@
 								<li repeat.for="ingredient of subrecipe.ingredients" class="collection-item ingredient-item">
 									<measurable-ingredient containerless ingredient.bind="ingredient"></measurable-ingredient>
 									<small if.bind="ingredient.replacements" repeat.for="replacement of ingredient.replacements">
-										<div>ou</div>
+										<div i18n="quickRecipe.ingredientReplacementConjunction">Or</div>
 										<measurable-ingredient containerless ingredient.bind="replacement"></measurable-ingredient>
 									</small>
 								</li>
@@ -51,19 +51,21 @@
 					<div class="col s6 offset-s3">
 						<h3>${recipe.title}</h3>
 						<div class="row">
-							<div>Portions : ${recipe.originalServings}</div>
+							<div>
+								<span i18n="quickRecipe.servings">Servings</span>${recipe.originalServings}
+							</div>
 						</div>
 						
 						<div class="row">
 							<ul>
 								<li repeat.for="duration of recipe.durations">
-									${duration.title} : ${duration.time | durationFormat}
+									${duration.title}: ${duration.time | durationFormat}
 								</li>
 							</ul>
 						</div>
 						
 						<div class="row center">
-							<a class="btn btn-large btn-success waves-effect waves-light" click.trigger="startRecipe()">Démarrer</a>
+							<a class="btn btn-large btn-success waves-effect waves-light" click.trigger="startRecipe()" i18n="quickRecipe.start">Start</a>
 						</div>
 					</div>
 				</section>
@@ -91,17 +93,20 @@
 					
 					<span class="step-actions">
 						<a class="complete-button waves-light btn ${isFirstStep ? 'disabled' : ''}" click.delegate="backStep()"><i class="material-icons left">navigate_before</i></a>
-						<a class="complete-button waves-light btn" click.delegate="completeStep()">${isLastStep ? 'Terminer' : ''}<i class="material-icons right">${isLastStep ? '' : 'navigate_next'}</i></a>
+						<a class="complete-button waves-light btn" click.delegate="completeStep()">
+							<span if.bind="isLastStep" i18n="quickRecipe.finish">Finish</span>
+							<i if.bind="!isLastStep" class="material-icons right">navigate_next</i>
+						</a>
 					</span>
 				</section>
 				
 				<section class="comments-section" if.bind="isRecipeStarted && isRecipeDone">
 					<div class="row center">
 						<hgroup>
-							<h3>Avez-vous aimé votre expérience?</h3>
-							<h4>Nous aimerions avoir vos commentaires!</h4>
+							<h3 i18n="quickRecipe.comments.didYouLikeExperience">DidYouLikeExperience</h3>
+							<h4 i18n="quickRecipe.comments.wedLikeYourComments">WeLikeToHear</h4>
 						</hgroup>
-						<p>Inscrivez vos commentaires ou suggestions dans la boîte ci-dessous.</p>
+						<p i18n="quickRecipe.comments.writeComments">WriteComments</p>
 					</div>
 						
 					<comments-form containerless></comments-form>

@@ -1,17 +1,63 @@
 {
-  "score": "Score: __score__",
-  "lives": "__count__ life remaining",
-  "lives_plural": "__count__ lives remaining",
-  "lives_indefinite": "a life remaining",
-  "lives_plural_indefinite": "some lives remaining",
-  "friend": "A friend",
-  "friend_male": "A boyfriend",
-  "friend_female": "A girlfriend",
-  "nav": {
-    "home": "Home",
-    "browse": "Browse",
-    "contact": "Contact",
-    "lang": "French",
-    "signIn": "Sign In"
-  }
+    "nav": {
+        "home": "Home",
+        "browse": "Browse",
+        "contact": "Contact",
+        "lang": "French",
+        "signIn": "Sign In"
+    },
+    "comments": {
+        "yourMessage": "Your message",
+        "emailForUpdates": "Entr your email if you would like to receive updates in your mailbox.",
+        "email": "Your email address",
+        "thankYouMessage": "Thank you for your input, it is really important for us!",
+        "sendButton": "Send"
+    }, 
+    "home": {
+        "selectRecipe": "Select a recipe",
+        "recipeSelection": "Recipe selection",
+        "cookItNowButton": "Cook it now!"
+    },
+    "quantities": {
+        "ml": "ml",
+        "ml_plural": "ml",
+        "cl": "cl",
+        "cl_plural": "cl",
+        "dl": "dl",
+        "dl_plural": "dl",
+        "l": "l",
+        "l_plural": "l",
+        "tsp": "teaspoon",
+        "tsp_plural": "teaspoons",
+        "tbsp": "tablespoon",
+        "tbsp_plural": "tablespoons", 
+        "oz": "ounce", 
+        "oz_plural": "ounces", 
+        "cup": "cup",
+        "cup_plural": "cups",
+        "g": "g",
+        "g_plural": "g",
+        "kg": "kg",
+        "kg_plural": "kg",
+        "lb": "pound",
+        "lb_plural": "pounds",
+        "pinch": "pinch",
+        "pinch_plural": "pinches",
+        "nextWordVowel": "of",
+        "nextWordConsonant": "of"
+    },
+    "quickRecipe": {
+        "originalRecipe": "Original recipe: ", 
+        "timerTimeOfTotal": " of ", 
+        "ingredientsSideTitle": "Ingredients",
+        "ingredientReplacementConjunction": "or", 
+        "servings": "Servings: ",
+        "start": "Start",
+        "finish": "Finish",
+        "comments": {
+            "didYouLikeExperience": "Avez-vous aimé votre expérience?",
+            "wedLikeYourComments": "Nous aimerions avoir vos commentaires!",
+            "writeComments": "Inscrivez vos commentaires ou suggestions dans la boîte ci-dessous."
+        }
+    }
 }

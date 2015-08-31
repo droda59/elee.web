@@ -1,11 +1,12 @@
 System.config({
-  "transpiler": "traceur",
-  "paths": {
+  defaultJSExtensions: true,
+  transpiler: "traceur",
+  paths: {
     "*": "dist/*",
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
   },
-  "bundles": {
+  bundles: {
     "app-bundle.js": [
       "npm:core-js@0.9.18/modules/$.fw",
       "npm:core-js@0.9.18/modules/$.dom-create",
@@ -175,12 +176,9 @@ System.config({
       "github:aurelia/bootstrapper@0.16.0"
     ]
   },
-  "defaultJSExtensions": true,
-  "buildCSS": false
-});
+  buildCSS: false,
 
-System.config({
-  "map": {
+  map: {
     "aurelia-animator-css": "github:aurelia/animator-css@0.15.0",
     "aurelia-binding": "github:aurelia/binding@0.8.6",
     "aurelia-bootstrapper": "github:aurelia/bootstrapper@0.16.0",
@@ -190,7 +188,7 @@ System.config({
     "aurelia-history": "github:aurelia/history@0.6.1",
     "aurelia-history-browser": "github:aurelia/history-browser@0.7.0",
     "aurelia-http-client": "github:aurelia/http-client@0.10.3",
-    "aurelia-i18next": "github:zewa666/aurelia-i18next@0.7.1",
+    "aurelia-i18n": "github:aurelia/i18n@0.1.0",
     "aurelia-loader": "github:aurelia/loader@0.8.7",
     "aurelia-loader-default": "github:aurelia/loader-default@0.9.5",
     "aurelia-logging": "github:aurelia/logging@0.6.4",
@@ -287,6 +285,13 @@ System.config({
       "aurelia-path": "github:aurelia/path@0.8.1",
       "core-js": "npm:core-js@0.9.18"
     },
+    "github:aurelia/i18n@0.1.0": {
+      "Intl.js": "github:andyearnshaw/Intl.js@0.1.4",
+      "aurelia-event-aggregator": "github:aurelia/event-aggregator@0.7.0",
+      "aurelia-loader-default": "github:aurelia/loader-default@0.9.5",
+      "aurelia-templating": "github:aurelia/templating@0.14.4",
+      "i18next": "github:i18next/i18next@1.10.2"
+    },
     "github:aurelia/loader-default@0.9.5": {
       "aurelia-loader": "github:aurelia/loader@0.8.7",
       "aurelia-metadata": "github:aurelia/metadata@0.7.3"
@@ -379,13 +384,6 @@ System.config({
       "jquery": "github:components/jquery@2.1.4",
       "materialize": "github:Dogfalo/materialize@0.96.1"
     },
-    "github:zewa666/aurelia-i18next@0.7.1": {
-      "Intl.js": "github:andyearnshaw/Intl.js@0.1.4",
-      "aurelia-event-aggregator": "github:aurelia/event-aggregator@0.7.0",
-      "aurelia-loader-default": "github:aurelia/loader-default@0.9.5",
-      "aurelia-templating": "github:aurelia/templating@0.14.4",
-      "i18next": "github:i18next/i18next@1.10.2"
-    },
     "npm:babel-runtime@5.8.20": {
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
@@ -399,4 +397,3 @@ System.config({
     }
   }
 });
-

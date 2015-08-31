@@ -1,49 +1,25 @@
+import {inject} from "aurelia-framework";
+import {I18N} from 'aurelia-i18n';
+
+@inject (I18N)
 export class QuantityPluralFormatValueConverter {
-	toView(measureUnit: string, value: number) {
-		return this.getLocalizedMeasureUnit(value, measureUnit);
+	private _i18n: I18N;
+	
+	constructor(i18n: I18N) {
+		this._i18n = i18n;
 	}
 	
-	private getLocalizedMeasureUnit(value: number, measureUnit: string): string {
+	toView(measureUnit: string, value: number) {
 		switch (measureUnit) {
-			case "ml":
-				return " ml";
-				
-			case "cl":
-				return " cl";
-				
-			case "dl":
-				return " dl";
-				
-			case "l":
-				return " l";
-				
-			case "oz":
-				return " once" + (value > 1 ? "s" : "");
-                    
-            case "tsp": 
-                return " c. à thé";
-                    
-            case "tbsp": 
-                return " c. à soupe";
-				
-			case "cup":
-				return " tasse" + (value > 1 ? "s" : "");
-                    
-            case "g": 
-                return " g";
-                    
-            case "kg": 
-                return " kg";
-				
-			case "lb":
-				return " livre" + (value > 1 ? "s" : "");
-				
-			case "pinch":
-				return " pincée" + (value > 1 ? "s" : "");
-		
 			case "unit":
-			default:
 				return "";
 		};
+		
+		var keyName = "quantities." + measureUnit;
+		if (value > 1) {
+			keyName += "_plural";
+		}
+		
+		return this._i18n.tr(keyName);
 	}
 }

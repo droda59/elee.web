@@ -20,7 +20,9 @@
 								</a>
 								<div class="dropdown-content" show.bind="recipeInfoSectionActive">
 									<div class="row">
-										<div>Portions : ${recipe.originalServings}</div>
+										<div>
+											<span i18n="quickRecipe.servings">Servings</span>${recipe.originalServings}
+										</div>
 									</div>
 									
 									<div class="row">
@@ -42,7 +44,11 @@
 										<li repeat.for="timer of activeTimers" class="collection-item avatar valign-wrapper active-timer au-animate">
 											<i class="material-icons circle ${timer.state == 'isAlmostDone' ? 'yellow' : timer.state == 'isAlmosterDone' ? 'red' : 'green'}">av_timer</i>
 											<span class="title">${timer.action}</span>
-											<p class="${timer.state == 'isAlmostDone' ? 'yellow-text' : timer.state == 'isAlmosterDone' ? 'red-text' : 'green-text'}">${timer.remainingTime | timeFormat} of ${timer.originalTime | timeFormat}</p>
+											<p class="${timer.state == 'isAlmostDone' ? 'yellow-text' : timer.state == 'isAlmosterDone' ? 'red-text' : 'green-text'}">
+												<span>${timer.remainingTime | timeFormat}</span>
+												<span i18n="quickRecipe.timerTimeOfTotal">Of</span>
+												<span>${timer.originalTime | timeFormat}</span>
+											</p>
 											<span class="secondary-content">
 												<a click.trigger="timer.replay()"><i class="material-icons">replay</i></a>
 												<a click.trigger="timer.pause()" show.bind="!timer.isPaused"><i class="material-icons">pause</i></a>
