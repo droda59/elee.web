@@ -9,7 +9,7 @@ export function configure(aurelia) {
 	    .plugin("aurelia-animator-css")
         .plugin("aurelia-i18n", (instance) => {
             instance.setup({
-                resGetPath : "locale/__lng__/__ns__.json",
+                resGetPath : "app/shared/assets/locale/__lng__/__ns__.json",
                 lng : "fr",
                 attributes : ["t","i18n"],
                 getAsync : true,
