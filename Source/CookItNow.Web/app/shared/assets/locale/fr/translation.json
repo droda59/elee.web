@@ -14,9 +14,22 @@
         "sendButton": "Envoyer"
     }, 
     "home": {
-        "selectRecipe": "Sélectionner une recette",
-        "recipeSelection": "Sélection de recette",
-        "cookItNowButton": "Cook it now!"
+        "search": "Recherche",
+        "cookItNowButton": "Cook it now!",
+        "categories": {
+            "title": "Catégories populaires", 
+            "browseAll": "Voir toutes",
+            "viewAll": "Voir toutes"
+        },
+        "howItWorks": {
+            "title": "Comment ça marche",
+            "step1Title": "1 - Trouver une recette",
+            "step1Text": "Trouvez une recette que vous aimez. Il doit bien y en avoir une : vous avez l'internet à votre portée!",
+            "step2Title": "2 - Cuisinez la recette",
+            "step2Text": "Suivez la recette en utilisant notre moteur. C'est facile, intuitif et élégant. Nous sommes en 2015, après tout!",
+            "step3Title": "3 - Appréciez votre repas",
+            "step3Text": "Nous n'avons sûrement pas besoin de vous guider pour cette étape. Allez-y, appréciez; vous le méritez!"
+        }
     },
     "quantities": {
         "ml": "ml",

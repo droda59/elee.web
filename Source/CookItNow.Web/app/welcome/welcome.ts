@@ -10,6 +10,7 @@ export class Welcome {
 	
 	selectedRecipeId: string;
 	recipes: {}[] = [];
+	popularCategories: {}[] = [];
 	
 	constructor(router: Router, i18n: I18N, element: Element) {
 		this._router = router;
@@ -19,6 +20,11 @@ export class Welcome {
 		this.recipes.push({ id: "1", title: "Pouding au chocolat" });
 		this.recipes.push({ id: "2", title: "Gaufres" });
 		this.recipes.push({ id: "3", title: "Chèvre croustillant aux pêches et aux amandes caramélisées" });
+		
+		this.popularCategories.push({ id: "1", title: "Asie", cover: "/app/welcome/assets/images/categ1.png" });
+		this.popularCategories.push({ id: "2", title: "Dessert", cover: "/app/welcome/assets/images/categ2.png" });
+		this.popularCategories.push({ id: "3", title: "Sans gluten", cover: "/app/welcome/assets/images/categ3.png" });
+		this.popularCategories.push({ id: "4", title: "BBQ", cover: "/app/welcome/assets/images/categ4.png" });
 	}
 	
 	attached(){

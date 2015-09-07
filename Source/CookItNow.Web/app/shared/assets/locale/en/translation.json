@@ -14,9 +14,22 @@
         "sendButton": "Send"
     }, 
     "home": {
-        "selectRecipe": "Select a recipe",
-        "recipeSelection": "Recipe selection",
-        "cookItNowButton": "Cook it now!"
+        "search": "Search",
+        "cookItNowButton": "Cook it now!",
+        "categories": {
+            "title": "Popular categories", 
+            "browseAll": "Browse all",
+            "viewAll": "View all"
+        },
+        "howItWorks": {
+            "title": "How it works",
+            "step1Title": "1 - Find a recipe",
+            "step1Text": "Find a recipe you like. There has to be some: you have the whole Web at your fingertips!",
+            "step2Title": "2 - Cook the recipe",
+            "step2Text": "Actually make the recipe you found using our engine. It's easy, intuitive and elegant. We're in 2015, after all!",
+            "step3Title": "3 - Enjoy your meal",
+            "step3Text": "We don't have to guide you through this step. Go on, enjoy it; you deserve it!"
+        }
     },
     "quantities": {
         "ml": "ml",

@@ -1,64 +1,134 @@
 <template>
-  
-  <!-- Welcome container -->
-  <div id="welcome-container">
-    
-    <div class="navbar-fixed">
-      <nav>
-        <div class="nav-wrapper">
-          <a href="#!" class="brand-logo">Logo</a>
-          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="#_" i18n="nav.home">Home</a></li>
-            <li><a href="#_" i18n="nav.browse">Browse</a></li>
-            <li><a href="#_" i18n="nav.contact">Contact</a></li>
-            <li><a href="#_" i18n="nav.lang" click.trigger="changeLocale()">Lang</a></li>
-            <li class="signin"><a href="#_" i18n="nav.signIn">SignIn</a></li>
-          </ul>
-          <ul class="side-nav" id="mobile-demo">
-            <li><a href="#_">Home</a></li>
-            <li><a href="#_">Browse</a></li>
-            <li><a href="#_">Contact</a></li>
-            <li><a href="#_">Sign in</a></li>
-          </ul>
+    <!-- Welcome container -->
+    <div id="welcome-container">
+        <div class="navbar-fixed">
+            <nav>
+                <div class="nav-wrapper">
+                    <a href="#!" class="brand-logo">Logo</a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="#_" i18n="nav.home">Home</a></li>
+                        <li><a href="#_" i18n="nav.browse">Browse</a></li>
+                        <li><a href="#_" i18n="nav.contact">Contact</a></li>
+                        <li><a href="#_" i18n="nav.lang" click.trigger="changeLocale()">Lang</a></li>
+                        <li class="signin"><a href="#_" i18n="nav.signIn">SignIn</a></li>
+                    </ul>
+                </div>
+            </nav>
         </div>
-      </nav>
-    </div>
-    
-    <!-- Teaser container -->
-    <div class="parallax-container">
+      
+        <!-- Search container -->
+        <section class="parallax-container">
+            <div class="parallax" materialize="parallax">
+                <img src="/app/welcome/assets/images/teaser_bg.jpg" alt="Teaser BG">
+            </div>
+            
+            <form class="recipe-search" submit.delegate="loadRecipe()" novalidate>
+                <div class="row">
+                    <div class="input-field center col s6 offset-s3">
+                        <select value.bind="selectedRecipeId" materialize="select">
+                            <option i18n="home.search">Search</option>
+                            <option repeat.for="recipe of recipes" value.bind="recipe.id">${recipe.title}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row center">
+                    <button class="btn-large waves-effect waves-light" type="submit" name="action" i18n="home.cookItNowButton">
+                        CookItNow
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </form>
+        </section> 
+        <!-- Search container -->
+        
+        <!-- Popular categories container -->
+        <section class="popular-categories-container">
+            <div class="row center-align underline-title">
+                <h3 class="title" i18n="home.categories.title">Categories</h3>
+                <hr />
+            </div>
+            <div class="row">
+                <div repeat.for="category of popularCategories" class="col s3">
+                    <div class="card hoverable">
+                        <div class="card-image">
+                            <img src.bind="category.cover">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title valign-wrapper">
+                                <div class="valign center-align">${category.title}</div>
+                            </span>
+                            <div class="card-action center-align">
+                                <a class="btn view-all" href="#" i18n="home.categories.viewAll">ViewAll</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row center-align">
+                <a class="btn-large waves-effect waves-light browse-button" href="#categ" i18n="home.categories.browseAll">BrowseAll</a>
+            </div>
+        </section> 
+        <!-- Popular categories container -->
+        
+        <!-- Description container -->
+        <section class="description-container">
+            <div class="container">
+                <div class="row">
+                    <div class="col s4">
+                        <div class="center promo">
+                            <i class="material-icons icon">flash_on</i>
+                            <p class="promo-caption">Speeds up development</p>
+                            <p class="light center">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+                        </div>
+                    </div>
+        
+                    <div class="col s4">
+                        <div class="center promo">
+                            <i class="material-icons icon">group</i>
+                            <p class="promo-caption">User Experience Focused</p>
+                            <p class="light center">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
+                        </div>
+                    </div>
+        
+                    <div class="col s4">
+                        <div class="center promo">
+                            <i class="material-icons icon">settings</i>
+                            <p class="promo-caption">Easy to work with</p>
+                            <p class="light center">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Description container -->
 
-      <div class="parallax" materialize="parallax">
-			   <img src="/app/welcome/assets/images/teaser_bg.jpg" alt="Teaser BG">
-		  </div>
-    
-    </div> <!-- Teaser container -->
-    
-    <!-- Popular recipes container -->
-    <div class="popular-recipes-container">
-
-    </div> <!-- Popular recipes container -->
-    
-    <form class="col s12" submit.delegate="loadRecipe()" novalidate>
-        <div class="row">
-          <div class="input-field center col s6 offset-s3">
-            <select value.bind="selectedRecipeId" materialize="select">
-              <option i18n="home.selectRecipe">SelectRecipe</option>
-              <option repeat.for="recipe of recipes" value.bind="recipe.id">${recipe.title}</option>
-            </select>
-            <label i18n="home.recipeSelection">RecipeSelection</label>
-          </div>
-        </div>
-        <div class="row center">
-          <button class="btn-large waves-effect waves-light" type="submit" name="action" i18n="home.cookItNowButton">
-            CookItNow
-            <i class="material-icons right">send</i>
-          </button>
-        </div>
-      </form>
-  
-  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-  
-  </div> <!-- /Welcome container -->
-
+        <!-- How it works container -->
+        <section class="how-it-works-container">
+            <div class="row center underline-title">
+                <h3 class="title" i18n="home.howItWorks.title">HowItWorks</h3>
+                <hr />
+            </div>
+            <div class="row description">
+                <div class="col s5">
+                    <div class="row">
+                        <h4 class="promo-caption" i18n="home.howItWorks.step1Title">FindARecipe</h4>
+                        <p class="light" i18n="home.howItWorks.step1Text">FindARecipeText</p>
+                    </div>
+                    <div class="row">
+                        <h4 class="promo-caption" i18n="home.howItWorks.step2Title">CookTheRecipe</h4>
+                        <p class="light" i18n="home.howItWorks.step2Text">CookTheRecipeText</p>
+                    </div>
+                    <div class="row">
+                        <h4 class="promo-caption" i18n="home.howItWorks.step3Title">EnjoyYourMeal</h4>
+                        <p class="light" i18n="home.howItWorks.step3Text">EnjoyYourMealText</p>
+                    </div>
+                </div>
+                <div class="col s7 image valign-wrapper">
+                    <img src="/app/welcome/assets/images/macbook.png" alt="Teaser BG" class="valign">
+                </div>
+            </div>
+        </section>
+        <!-- How it works container -->
+    </div> 
+    <!-- /Welcome container -->
 </template>
