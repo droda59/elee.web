@@ -230,15 +230,97 @@
                     font-size: 1.5rem;
                 }
             }
-            .step.previousest-step {
-                opacity: $quick-recipe-second-level-opacity;
-                padding-left: $quick-recipe-second-level-padding;
+            .step.previousest-step,
+            .step.previous-step {
                 text-decoration: line-through;
             }
-            .step.previous-step {
+            .step.previousest-step,
+            .step.nextest-step {
+                opacity: $quick-recipe-second-level-opacity;
+                padding-left: $quick-recipe-second-level-padding;
+                
+                .enumeration {
+                    margin: 0.2rem 1.6rem 0.2rem 2.6rem;
+                    
+                    .collection-item {
+                        padding: 2px 5px;
+                        
+                        [type="checkbox"] + label {
+                            display: none;
+                        }
+                    }
+                }
+                .action {
+                    font-size: 1rem;
+                }
+                .text {
+                    font-size: 1rem;
+                }
+                .ingredient {
+                    .value {
+                        font-size: 1.2rem;
+                    }
+                    .unit {
+                        font-size: 0.6rem;
+                    }
+                    .type {
+                        font-size: 1rem;
+                    }
+                    .requirements {
+                        font-size: 0.6rem;
+                    }
+                }
+                .timer {
+                    font-size: 1rem;
+                    
+                    a {
+                        color: white;
+                    }
+                }
+            }
+            .step.previous-step,
+            .step.next-step {
                 opacity: $quick-recipe-first-level-opacity;
                 padding-left: $quick-recipe-first-level-padding;
-                text-decoration: line-through;
+                
+                .enumeration {
+                    margin: 0.2rem 1.6rem 0.2rem 2.6rem;
+                    
+                    .collection-item {
+                        padding: 5px 10px;
+                        
+                        [type="checkbox"] + label {
+                            display: none;
+                        }
+                    }
+                }
+                .action {
+                    font-size: 1.4rem;
+                }
+                .text {
+                    font-size: 1rem;
+                }
+                .ingredient {
+                    .value {
+                        font-size: 1.6rem;
+                    }
+                    .unit {
+                        font-size: 1.2rem;
+                    }
+                    .type {
+                        font-size: 1.4rem;
+                    }
+                    .requirements {
+                        font-size: 1rem;
+                    }
+                }
+                .timer {
+                    font-size: 1.2rem;
+                    
+                    a {
+                        color: white;
+                    }
+                }
             }
             .step.current-step {
                 .enumeration .collection-item {
@@ -246,14 +328,6 @@
                         visibility: visible;
                     }
                 }
-            }
-            .step.next-step {
-                opacity: $quick-recipe-first-level-opacity;
-                padding-left: $quick-recipe-first-level-padding;
-            }
-            .step.nextest-step {
-                opacity: $quick-recipe-second-level-opacity;
-                padding-left: $quick-recipe-second-level-padding;
             }
             .step.technical span {
                 font-size: 1.6rem;

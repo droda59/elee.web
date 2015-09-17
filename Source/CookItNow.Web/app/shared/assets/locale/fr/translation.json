@@ -68,9 +68,9 @@
         "start": "Débuter",
         "finish": "Terminer",
         "comments": {
-            "didYouLikeExperience": "Did you like your experience?",
-            "wedLikeYourComments": "We'd like to hear from you!",
-            "writeComments": "Write your comments and suggestions in the box below."
+            "didYouLikeExperience": "Avez-vous aimé votre expérience?",
+            "wedLikeYourComments": "Nous aimerions avoir vos commentaires!",
+            "writeComments": "Inscrivez vos commentaires ou suggestions dans la boîte ci-dessous."
         }
     }
 }
