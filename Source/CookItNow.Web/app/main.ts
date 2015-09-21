@@ -7,6 +7,7 @@ export function configure(aurelia) {
         .developmentLogging()
         .globalResources("shared/aurelia-materialize")
 	    .plugin("aurelia-animator-css")
+	    .plugin("aurelia-dialog")
         .plugin("aurelia-i18n", (instance) => {
             instance.setup({
                 resGetPath : "app/shared/assets/locale/__lng__/__ns__.json",

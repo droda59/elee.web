@@ -1,6 +1,7 @@
 <template>
 	<require from="shared/value-converters/time-format"></require>
 	<require from="shared/value-converters/duration-format"></require>
+	<require from="shared/components/settings-modal"></require>
 	
     <div class="navbar-fixed">
         <nav role="navigation">
@@ -10,6 +11,7 @@
                         <a class="brand-logo left" href="#">
                             Cook It Now
                         </a>
+						<a class="modal-trigger waves-effect waves-light btn" click.trigger="editSettings()" href="#settings-modal">Settings</a>
                     </div>
 					<div class="right info">
 						<h3>

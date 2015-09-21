@@ -1,9 +1,12 @@
 import {bindable, inject} from "aurelia-framework";
 import {EventAggregator} from "aurelia-event-aggregator";
+import {DialogService} from "aurelia-dialog";
 import {QuickRecipe} from "quick-recipe/models/quick-recipe";
 import {Timer} from "shared/models/timer";
+import {SettingsManager} from "shared/settings-manager";
+import {SettingsModal} from "shared/components/settings-modal";
 
-@inject (EventAggregator)
+@inject (EventAggregator, DialogService, SettingsManager)
 export class QuickRecipeHeader {
 	@bindable recipe: QuickRecipe = null;
 	
@@ -12,9 +15,13 @@ export class QuickRecipeHeader {
 	activeTimersSectionActive: boolean = false;
 	
 	private _eventAggregator: EventAggregator;
+	private _dialogService: DialogService;
+	private _settingsManager: SettingsManager;
 	
-	constructor(eventAggregator: EventAggregator) {
+	constructor(eventAggregator: EventAggregator, dialogService: DialogService, settingsManager: SettingsManager) {
 		this._eventAggregator = eventAggregator;
+		this._dialogService = dialogService;
+		this._settingsManager = settingsManager;
 	}
 	
     attached() {
@@ -39,5 +46,13 @@ export class QuickRecipeHeader {
 	
 	toggleMinimizeRecipeInfo() {
 		this.recipeInfoSectionActive = !this.recipeInfoSectionActive; 
+	}
+	
+	editSettings() {
+		this._dialogService
+			.open({ viewModel: SettingsModal, model: this._settingsManager.settings})
+			.then(() => {
+				this._settingsManager.save();
+			});
 	}
 }

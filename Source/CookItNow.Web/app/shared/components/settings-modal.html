@@ -1,0 +1,31 @@
+<template>
+	<require from="shared/value-converters/quantity-full-name-format"></require>
+	<require from="shared/value-converters/uppercase-first-letter-format"></require>
+	
+	<dialog class="settings-modal  modal-fixed-footer" id="settings-modal">
+		<dialog-body class="modal-content">
+			<h3 i18n="settings.title">Settings</h3>
+			
+			<section class="section">
+				<h5 i18n="settings.volumeMeasureUnits">VolumeMeasureUnits</h5>
+				<div repeat.for="measureUnit of settings.convertibleVolumeMeasureUnits">
+					<input type="checkbox" id="${measureUnit}" checked.bind="$parent.isVolumeMeasureUnitActive(measureUnit)" />
+					<label for="${measureUnit}">${measureUnit | quantityFullNameFormat | uppercaseFirstLetterFormat}</label>
+				</div>
+			</section>
+			
+			<section class="section">
+				<h5 i18n="settings.weightMeasureUnits">WeightMeasureUnits</h5>
+				<div repeat.for="measureUnit of settings.convertibleWeightMeasureUnits">
+					<input type="checkbox" id="${measureUnit}" checked.bind="$parent.isWeightMeasureUnitActive(measureUnit)" />
+					<label for="${measureUnit}">${measureUnit | quantityFullNameFormat | uppercaseFirstLetterFormat}</label>
+				</div>
+			</section>
+		</dialog-body>
+		
+		<dialog-footer class="modal-footer">
+			<button click.trigger="controller.cancel()" class="modal-action modal-close waves-effect btn-flat" i18n="settings.cancelButton">Cancel</button>
+			<button click.trigger="controller.ok(settings)" class="modal-action modal-close waves-effect btn-flat" i18n="settings.okButton">Ok</button>
+		</dialog-footer>
+	</dialog>
+</template>
