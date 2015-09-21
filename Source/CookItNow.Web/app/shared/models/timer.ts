@@ -7,7 +7,7 @@ export class Timer {
     private _remainingSeconds: number;
     duration: string;
     action: string;
-    isPaused: boolean;
+    isStopped: boolean;
     state: string;
     timer: number;
 	
@@ -15,7 +15,7 @@ export class Timer {
 		this._eventAggregator = eventAggregator;
         this.duration = duration;
         this.action = action;
-        this.isPaused = true;
+        this.isStopped = true;
         this.state = "original";
         
         this.initialize();
@@ -33,17 +33,13 @@ export class Timer {
         this.play();
     }
     
-    pause() {
-        this.isPaused = true;
-    }
-    
     play() {
-        this.isPaused = false;
+        this.isStopped = false;
         
         if (!this.timer) {
             var that = this;
             this.timer = setInterval(function(){
-                if (!that.isPaused) {
+                if (!that.isStopped) {
                     that._remainingSeconds--;
                     
                     that.state = that._remainingSeconds < ((that._originalSeconds / 100) * 20) 
@@ -53,7 +49,7 @@ export class Timer {
                         : "original";
                     
                     if (that._remainingSeconds <= 0) {
-                        that.isPaused = true;
+                        that.isStopped = true;
                     }
                 }
             }, 1000);
