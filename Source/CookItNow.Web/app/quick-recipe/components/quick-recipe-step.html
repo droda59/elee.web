@@ -1,6 +1,6 @@
 <template>
 	<p class="${isTechnicalStep() ? 'technical' : ''}">
-		<compose repeat.for="part of step.parts" model.bind="part" view-model="quick-recipe/components/step-${part.type}" containerless></compose>
+		<compose repeat.for="part of step.parts" model.bind="part" view-model="quick-recipe/components/steps/step-${part.type}" containerless></compose>
 	</p>
 	
 	<p if.bind="step.postSteps && step.postSteps.length" class="post-step">
