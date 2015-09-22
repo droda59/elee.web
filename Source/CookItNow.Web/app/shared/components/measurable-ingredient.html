@@ -1,5 +1,4 @@
 <template>
-	<require from="shared/value-converters/quantity-plural-format"></require>
 	<require from="shared/value-converters/quantity-human-format"></require>
 	
 	<span class="ingredient">
@@ -10,7 +9,7 @@
 		</span>
 		<span if.bind="!quantity.isConvertible || quantity.getValidConvertibleMeasureUnits().length == 1">
 			<span class="value">${quantity.value | quantityHumanFormat:measureUnit}</span>
-			<span class="unit">${measureUnit | quantityPluralFormat:quantity.value}</span>
+			<span class="unit">${'quantities.' + measureUnit | t: { 'count': quantity.value }}</span>
 		</span>
 		<span class="text">${nextWord} </span>
 		<span class="type">${ingredientName} <span if.bind="requirements" class="requirements">(${ingredient.requirements})</span></span> 

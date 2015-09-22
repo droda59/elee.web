@@ -66,9 +66,7 @@
         "./app/shared/models/settings.ts", 
         "./app/shared/value-converters/duration-format.ts",
         "./app/shared/value-converters/time-format.ts",
-        "./app/shared/value-converters/quantity-plural-format.ts",
         "./app/shared/value-converters/quantity-human-format.ts", 
-        "./app/shared/value-converters/quantity-full-name-format.ts", 
         "./app/shared/value-converters/uppercase-first-letter-format.ts", 
         "./app/welcome/welcome.ts"
     ]

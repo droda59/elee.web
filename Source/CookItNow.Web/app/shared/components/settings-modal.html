@@ -1,5 +1,4 @@
 <template>
-	<require from="shared/value-converters/quantity-full-name-format"></require>
 	<require from="shared/value-converters/uppercase-first-letter-format"></require>
 	
 	<dialog class="settings-modal  modal-fixed-footer" id="settings-modal">
@@ -10,7 +9,7 @@
 				<h5 i18n="settings.volumeMeasureUnits">VolumeMeasureUnits</h5>
 				<div repeat.for="measureUnit of settings.convertibleVolumeMeasureUnits">
 					<input type="checkbox" id="${measureUnit}" checked.bind="$parent.isVolumeMeasureUnitActive(measureUnit)" />
-					<label for="${measureUnit}">${measureUnit | quantityFullNameFormat | uppercaseFirstLetterFormat}</label>
+					<label for="${measureUnit}">${'quantities.' + measureUnit | t: { 'context': 'full' } | uppercaseFirstLetterFormat}</label>
 				</div>
 			</section>
 			
@@ -18,7 +17,7 @@
 				<h5 i18n="settings.weightMeasureUnits">WeightMeasureUnits</h5>
 				<div repeat.for="measureUnit of settings.convertibleWeightMeasureUnits">
 					<input type="checkbox" id="${measureUnit}" checked.bind="$parent.isWeightMeasureUnitActive(measureUnit)" />
-					<label for="${measureUnit}">${measureUnit | quantityFullNameFormat | uppercaseFirstLetterFormat}</label>
+					<label for="${measureUnit}">${'quantities.' + measureUnit | t: { 'context': 'full' } | uppercaseFirstLetterFormat}</label>
 				</div>
 			</section>
 		</dialog-body>
