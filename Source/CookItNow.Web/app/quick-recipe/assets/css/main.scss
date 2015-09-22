@@ -172,15 +172,6 @@
                             height: 1.5rem;
                             visibility: hidden;
                         }
-                        [type="checkbox"] + label:before {
-                            border-color: white;
-                        }
-                        [type="checkbox"]:checked + label:before {
-                            border-left-color: transparent;
-                            border-top-color: transparent;
-                            border-right-color: white;
-                            border-bottom-color: white;
-                        }
                     }
                 }
                 .action {
