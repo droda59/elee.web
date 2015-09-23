@@ -12,14 +12,9 @@ export class SettingsModal {
 	}
 	
 	activate(settings: Settings) {
-		this.settings = settings;
-	}
-	
-	isVolumeMeasureUnitActive(measureUnit: string) {
-		return this.settings.volumeMeasureUnits.indexOf(measureUnit) > -1;
-	}
-	
-	isWeightMeasureUnitActive(measureUnit: string) {
-		return this.settings.weightMeasureUnits.indexOf(measureUnit) > -1;
+		this.settings = new Settings();
+		
+		this.settings.volumeMeasureUnits = settings.volumeMeasureUnits;
+		this.settings.weightMeasureUnits = settings.weightMeasureUnits;
 	}
 }

@@ -51,8 +51,8 @@ export class QuickRecipeHeader {
 	editSettings() {
 		this._dialogService
 			.open({ viewModel: SettingsModal, model: this._settingsManager.settings})
-			.then(() => {
-				this._settingsManager.save();
+			.then((settings) => {
+				this._settingsManager.save(settings);
 			});
 	}
 }

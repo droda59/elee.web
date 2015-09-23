@@ -8,7 +8,7 @@
 			<section class="section">
 				<h5 i18n="settings.volumeMeasureUnits">VolumeMeasureUnits</h5>
 				<div repeat.for="measureUnit of settings.convertibleVolumeMeasureUnits">
-					<input type="checkbox" id="${measureUnit}" checked.bind="$parent.isVolumeMeasureUnitActive(measureUnit)" />
+					<input type="checkbox" id="${measureUnit}" value.bind="measureUnit" checked.bind="$parent.settings.volumeMeasureUnits" />
 					<label for="${measureUnit}">${'quantities.' + measureUnit | t: { 'context': 'full' } | uppercaseFirstLetterFormat}</label>
 				</div>
 			</section>
@@ -16,7 +16,7 @@
 			<section class="section">
 				<h5 i18n="settings.weightMeasureUnits">WeightMeasureUnits</h5>
 				<div repeat.for="measureUnit of settings.convertibleWeightMeasureUnits">
-					<input type="checkbox" id="${measureUnit}" checked.bind="$parent.isWeightMeasureUnitActive(measureUnit)" />
+					<input type="checkbox" id="${measureUnit}" value.bind="measureUnit" checked.bind="$parent.settings.weightMeasureUnitsterm" />
 					<label for="${measureUnit}">${'quantities.' + measureUnit | t: { 'context': 'full' } | uppercaseFirstLetterFormat}</label>
 				</div>
 			</section>

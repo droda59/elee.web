@@ -5,13 +5,15 @@ export class SettingsManager {
 	
 	constructor() {
 		this.settings = new Settings();
+		
+		var storageSettings = localStorage.getItem("settings");
+		if (storageSettings === null) {
+			this.settings = JSON.parse(storageSettings);
+		}
 	}
 	
-	activate() {
-		// TODO Load settings from localstorage
-	}
-	
-	save() {
-		// TODO Save settings into local storage
+	save(settings: Settings) {
+		this.settings = settings;
+		localStorage.setItem("settings", JSON.stringify(this.settings));
 	}
 }
