@@ -1,4 +1,3 @@
-import {inject} from "aurelia-framework";
 import {Settings} from "shared/models/settings";
 
 export class SettingsManager {

@@ -74,6 +74,8 @@
         "lb_full": "pounds",
         "pinch": "pinch",
         "pinch_plural": "pinches",
+        "unit": "",
+        "unit_plural": "",
         "nextWordVowel": "of",
         "nextWordConsonant": "of"
     },

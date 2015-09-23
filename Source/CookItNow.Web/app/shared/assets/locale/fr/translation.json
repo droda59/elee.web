@@ -74,6 +74,8 @@
         "lb_full": "livres",
         "pinch": "pincée",
         "pinch_plural": "pincées",
+        "unit": "",
+        "unit_plural": "",
         "nextWordVowel": "d'",
         "nextWordConsonant": "de"
     },

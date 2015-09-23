@@ -2,14 +2,14 @@
 	<require from="shared/value-converters/quantity-human-format"></require>
 	
 	<span class="ingredient">
-		<span class="value" if.bind="quantity.isConvertible && quantity.getValidConvertibleMeasureUnits().length > 1" >
+		<span class="value" if.bind="isConvertible" >
 			<select class="input-field" value.bind="measureUnit" materialize="select">
-	            <option repeat.for="measureUnit of quantity.getValidConvertibleMeasureUnits()" value.bind="measureUnit.unit">${measureUnit.value | quantityHumanFormat:measureUnit.unit}&nbsp;${measureUnit.unit | quantityPluralFormat:measureUnit.value}</option>
+	            <option repeat.for="measureUnit of convertibleMeasureUnits" value.bind="measureUnit.unit">${measureUnit.value | quantityHumanFormat:measureUnit.unit}&nbsp;${'quantities.' + measureUnit.unit | t: { 'count': measureUnit.value }}</option>
 	        </select> 
 		</span>
-		<span if.bind="!quantity.isConvertible || quantity.getValidConvertibleMeasureUnits().length == 1">
-			<span class="value">${quantity.value | quantityHumanFormat:measureUnit}</span>
-			<span class="unit">${'quantities.' + measureUnit | t: { 'count': quantity.value }}</span>
+		<span if.bind="!isConvertible">
+			<span class="value">${quantity | quantityHumanFormat:measureUnit}</span>
+			<span class="unit">${'quantities.' + measureUnit | t: { 'count': quantity }}</span>
 		</span>
 		<span class="text">${nextWord} </span>
 		<span class="type">${ingredientName} <span if.bind="requirements" class="requirements">(${ingredient.requirements})</span></span> 

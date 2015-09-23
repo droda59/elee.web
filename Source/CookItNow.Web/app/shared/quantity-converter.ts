@@ -1,45 +1,38 @@
-export class Quantity {
-    private _convertibleVolumeMeasureUnits: string[] = [ "ml", "cl", "dl", "l", "tbsp", "tsp", "oz", "cup" ];
-    private _convertibleWeightMeasureUnits: string[] = [ "g", "kg", "lb" ];
-    private _validConvertibleMeasureUnits: {}[];
-    isConvertible: boolean;
-    originalMeasureUnit: string;
-    value: number;
+import {inject} from "aurelia-framework";
+import {SettingsManager} from "shared/settings-manager";
+
+@inject (SettingsManager)
+export class QuantityConverter {
+	private _settingsManager: SettingsManager;
+	
+	constructor(settingsManager: SettingsManager) {
+		this._settingsManager = settingsManager;
+	}
     
-    constructor(model) {
-        for (var prop in model) {
-            this[prop] = model[prop]
-        };
-    
-        this.isConvertible = this._convertibleVolumeMeasureUnits.indexOf(this.originalMeasureUnit) > -1
-                          || this._convertibleWeightMeasureUnits.indexOf(this.originalMeasureUnit) > -1;
-    }
-    
-    getValidConvertibleMeasureUnits() {
-        if (!this._validConvertibleMeasureUnits) {
-            var _this = this;
-            this._validConvertibleMeasureUnits = [];
-            
-            var convertibleMeasureUnits = this._convertibleVolumeMeasureUnits.indexOf(this.originalMeasureUnit) > -1
-                ? this._convertibleVolumeMeasureUnits
-                : this._convertibleWeightMeasureUnits;
-            
-            convertibleMeasureUnits.forEach(function(unit) {
-                var value = this.getQuantity(unit);
-                var isValid = unit === _this.originalMeasureUnit 
-                    || this.isValidConvertibleMeasureUnit(value, unit);
-                    
-                    if (isValid) {
-                        _this._validConvertibleMeasureUnits.push({ value: value, unit: unit});
-                    }
-            }, this);
-        }
+    getValidConvertibleMeasureUnits(value: number, measureUnit: string) {
+        var validConvertibleMeasureUnits = [];
+        validConvertibleMeasureUnits.push({ value: value, unit: measureUnit});
         
-        return this._validConvertibleMeasureUnits;
+        var convertibleMeasureUnits = this._settingsManager.settings.convertibleVolumeMeasureUnits.indexOf(measureUnit) > -1
+            ? this._settingsManager.settings.volumeMeasureUnits
+            : this._settingsManager.settings.weightMeasureUnits;
+        
+        convertibleMeasureUnits.forEach(function(unit) {
+            if (unit !== measureUnit) {
+                var quantity = this.getQuantity(value, measureUnit, unit);
+                var isValid = this.isValidConvertibleMeasureUnit(quantity, unit);
+                    
+                if (isValid) {
+                    validConvertibleMeasureUnits.push({ value: quantity, unit: unit});
+                }
+            }
+        }, this);
+        
+        return validConvertibleMeasureUnits;
     }
     
-    getQuantity(measureUnit: string): number {
-        var value = this.value * this.getQuantityConversion(this.originalMeasureUnit, measureUnit);
+    getQuantity(value: number, originalMeasureUnit: string, measureUnit: string): number {
+        var value = value * this.getQuantityConversion(originalMeasureUnit, measureUnit);
         var approximatedValue = this.getApproximatedValue(value, measureUnit);
         
         return approximatedValue;
