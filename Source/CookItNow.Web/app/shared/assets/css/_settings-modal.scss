@@ -1,0 +1,22 @@
+dialog-container {
+	.settings-modal.modal {
+		display: block;
+		margin-left: auto !important;
+			
+		.modal-header {
+			position: absolute;
+			height: 95px;
+			width: 100%;
+		}
+		
+		.modal-content {
+			height: calc(100% - 152px);
+			position: absolute;
+			top: 95px;
+		}
+	}
+}
+
+dialog-overlay.active {
+	background-color: rgba(0, 0, 0, 0.5);
+}
