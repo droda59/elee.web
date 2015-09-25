@@ -9,6 +9,7 @@ var browserSync = require("browser-sync").create();
 var changed = require("gulp-changed");
 var ts = require("gulp-tsc");
 var sass = require('gulp-sass');
+var bundler = require("aurelia-bundler");
 
 var path = {
     package: "./package.json", 
@@ -27,6 +28,50 @@ var path = {
         dest: "dist/"
     }
 };
+
+var bundleConfig = {
+    force: true, 
+    packagePath: ".",
+    bundles: {
+        "dist/app-bundle": {
+            includes: [
+                "**/*",
+                "**/*.html!text",
+                "**/*.css!text",
+            ],
+            options: {
+                inject: true,
+                minify: true
+            }
+        },
+        "dist/aurelia-bundle": {
+            includes: [
+                "aurelia-bootstrapper",
+                "aurelia-http-client",
+                "aurelia-router",
+                "aurelia-animator-css",
+                "aurelia-templating-binding",
+                "aurelia-templating-resources",
+                "aurelia-templating-router",
+                "aurelia-loader-default",
+                "aurelia-history-browser",
+                "aurelia-logging-console"
+            ],
+            options: {
+                inject: true,
+                minify: true
+            }
+        }
+    }
+};
+
+gulp.task("bundle", function() {
+    return bundler.bundle(bundleConfig);
+});
+
+gulp.task("unbundle", function() {
+    return bundler.unbundle(bundleConfig);
+});
 
 gulp.task("typedef", function () {
     return gulp.src("jspm_packages/github/aurelia/**/*.d.ts")
@@ -78,7 +123,6 @@ gulp.task("bump-version", function () {
 gulp.task("default", ["build"]);
 gulp.task("build", function (callback) {
     return runSequence(
-      "clean",
       ["build-ts", "build-html", "build-sass"],
       callback
     );
