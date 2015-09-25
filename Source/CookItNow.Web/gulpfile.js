@@ -80,7 +80,7 @@ gulp.task("typedef", function () {
 });
 
 gulp.task("clean", function () {
-    return gulp.src(["dist/*", "!dist/app-bundle.js"])
+    return gulp.src(["dist/*", "!dist/app-bundle.js", "!dist/aurelia-bundle.js"])
        .pipe(vinylPaths(del));
 });
 
