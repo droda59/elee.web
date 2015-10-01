@@ -1,7 +1,7 @@
 export class Settings {
-    volumeMeasureUnits: string[] = [ ];
-    weightMeasureUnits: string[] = [ ];
+    selectedVolumeOption: string = "metric";
+    selectedWeightOption: string = "metric";
     
-    convertibleVolumeMeasureUnits: string[] = [ "ml", "cl", "dl", "l", "tbsp", "tsp", "oz", "cup" ];
-    convertibleWeightMeasureUnits: string[] = [ "g", "kg", "lb" ];
+    metricVolumeOption: string = "imperialWhenPossible";
+    useMetricAdditionalUnits: boolean = false;
 }

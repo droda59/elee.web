@@ -18,7 +18,23 @@
         "okButton": "OK", 
         "cancelButton": "Annuler",
         "volumeMeasureUnits": "Unités de mesure de volume",
-        "weightMeasureUnits": "Unités de mesure de poids"
+        "volumeOptions": {
+            "metric": "Unités métriques",
+            "imperial": "Unités impériales"
+        },
+        "metricVolumeOption": "Sélectionnez une option",
+        "metricVolumeOptions": {
+            "metricOnly": "Unités métriques uniquement",
+            "imperialWhenPossible": "Convertir en impérial lorsque possible",
+            "showBoth": "Afficher les deux"
+        },
+        "metricVolumeOptionsLabel": "Options",
+        "useMetricAdditionalUnits": "Utiliser les centilitres et décilitres",
+        "weightMeasureUnits": "Unités de mesure de poids",
+        "weightOptions": {
+            "metric": "Unités métriques",
+            "imperial": "Unités impériales"
+        }
     }, 
     "home": {
         "search": "Recherche",

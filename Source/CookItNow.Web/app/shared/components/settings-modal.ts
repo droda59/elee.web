@@ -7,6 +7,10 @@ export class SettingsModal {
 	settings: Settings;
 	controller: DialogController;
 	
+    volumeOptions: string[] = [ "metric", "imperial" ];
+    weightOptions: string[] = [ "metric", "imperial" ];
+    metricVolumeOptions: string[] = [ "metricOnly", "imperialWhenPossible", "showBoth" ];
+	
 	constructor(controller: DialogController) {
 		this.controller = controller;
 	}
@@ -14,7 +18,9 @@ export class SettingsModal {
 	activate(settings: Settings) {
 		this.settings = new Settings();
 		
-		this.settings.volumeMeasureUnits = settings.volumeMeasureUnits;
-		this.settings.weightMeasureUnits = settings.weightMeasureUnits;
+		this.settings.selectedVolumeOption = settings.selectedVolumeOption;
+		this.settings.selectedWeightOption = settings.selectedWeightOption;
+		this.settings.metricVolumeOption = settings.metricVolumeOption;
+		this.settings.useMetricAdditionalUnits = settings.useMetricAdditionalUnits;
 	}
 }

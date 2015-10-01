@@ -9,17 +9,40 @@
 		<dialog-body class="modal-content">
 			<section class="section">
 				<h5 i18n="settings.volumeMeasureUnits">VolumeMeasureUnits</h5>
-				<div repeat.for="measureUnit of settings.convertibleVolumeMeasureUnits">
-					<input type="checkbox" id="${measureUnit}" value.bind="measureUnit" checked.bind="$parent.settings.volumeMeasureUnits" />
-					<label for="${measureUnit}">${'quantities.' + measureUnit | t: { 'context': 'full' } | uppercaseFirstLetterFormat}</label>
+				
+				<div class="row">
+					<span class="col s6 input-field" repeat.for="volumeOption of volumeOptions">
+						<input name="volume-measure-units" type="radio" id="volume-units-${volumeOption}" value.bind="volumeOption" checked.bind="$parent.settings.selectedVolumeOption" />
+						<label for="volume-units-${volumeOption}">${'settings.volumeOptions.' + volumeOption | t}</label>
+					</span>
+				</div>
+				
+				<div class="row">
+					<div class="input-field col s6">
+						<select value.bind="settings.metricVolumeOption" materialize="select">
+							<option i18n="settings.metricVolumeOption">ChooseOption</option>
+							<option repeat.for="option of metricVolumeOptions" value.bind="option">${'settings.metricVolumeOptions.' + option | t}</option>
+						</select>
+						<label i18n="settings.metricVolumeOptionsLabel">MetricVolumeOptions</label>
+					</div>
+				</div>
+				
+				<div class="row">
+					<div class="input-field col s6">
+						<input type="checkbox" id="use-metric-additional-units" checked.bind="settings.useMetricAdditionalUnits" />
+						<label for="use-metric-additional-units" i18n="settings.useMetricAdditionalUnits">useMetricAdditionalUnits</label>
+					</div>
 				</div>
 			</section>
 			
 			<section class="section">
 				<h5 i18n="settings.weightMeasureUnits">WeightMeasureUnits</h5>
-				<div repeat.for="measureUnit of settings.convertibleWeightMeasureUnits">
-					<input type="checkbox" id="${measureUnit}" value.bind="measureUnit" checked.bind="$parent.settings.weightMeasureUnitsterm" />
-					<label for="${measureUnit}">${'quantities.' + measureUnit | t: { 'context': 'full' } | uppercaseFirstLetterFormat}</label>
+				
+				<div class="row input-field">
+					<span class="col s6" repeat.for="weightOption of weightOptions">
+						<input name="weight-measure-units" type="radio" id="weight-units-${weightOption}" value.bind="weightOption" checked.bind="$parent.settings.selectedWeightOption" />
+						<label for="weight-units-${weightOption}">${'settings.weightOptions.' + weightOption | t}</label>
+					</span>
 				</div>
 			</section>
 		</dialog-body>

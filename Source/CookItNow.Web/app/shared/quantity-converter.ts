@@ -4,34 +4,68 @@ import {SettingsManager} from "shared/settings-manager";
 @inject (SettingsManager)
 export class QuantityConverter {
 	private _settingsManager: SettingsManager;
+    
+    private _imperialVolumeMeasureUnits: string[] = [ "cup", "oz", "tbsp", "tsp" ];
+    private _metricVolumeMeasureUnits: string[] = [ "l", "ml" ];
+    
+    private _imperialWeightMeasureUnits: string[] = [ "lb" ];
+    private _metricWeightMeasureUnits: string[] = [ "kg", "g" ];
 	
 	constructor(settingsManager: SettingsManager) {
 		this._settingsManager = settingsManager;
 	}
     
-    getValidConvertibleMeasureUnits(value: number, measureUnit: string) {
-        var validConvertibleMeasureUnits = [];
-        validConvertibleMeasureUnits.push({ value: value, unit: measureUnit});
+    getBestConvertibleMeasureUnit(originalValue: number, originalMeasureUnit: string, forceImperialVolumeUnit: boolean = false) {
+        var bestConvertibleMeasureUnit = { value: originalValue, unit: originalMeasureUnit };
         
-        var convertibleMeasureUnits = this._settingsManager.settings.convertibleVolumeMeasureUnits.indexOf(measureUnit) > -1
-            ? this._settingsManager.settings.volumeMeasureUnits
-            : this._settingsManager.settings.weightMeasureUnits;
+        var unitsToConvertTo = this.getUnitsToConvertTo(originalMeasureUnit, forceImperialVolumeUnit);
+        if (unitsToConvertTo === this._metricVolumeMeasureUnits && this._settingsManager.settings.useMetricAdditionalUnits) {
+            unitsToConvertTo = [ "l", "dl", "cl", "ml" ];
+        }
         
-        convertibleMeasureUnits.forEach(function(unit) {
-            if (unit !== measureUnit) {
-                var quantity = this.getQuantity(value, measureUnit, unit);
-                var isValid = this.isValidConvertibleMeasureUnit(quantity, unit);
-                    
-                if (isValid) {
-                    validConvertibleMeasureUnits.push({ value: quantity, unit: unit});
-                }
-            }
+        unitsToConvertTo.some(function(unit: string) {
+            var quantity = this.getQuantity(originalValue, originalMeasureUnit, unit);
+            var isValid = this.isValidConvertibleMeasureUnit(quantity, unit);
+                
+            bestConvertibleMeasureUnit = { value: quantity, unit: unit };
+            return isValid;
         }, this);
         
-        return validConvertibleMeasureUnits;
+        return bestConvertibleMeasureUnit;
     }
     
-    getQuantity(value: number, originalMeasureUnit: string, measureUnit: string): number {
+    private getUnitsToConvertTo(originalMeasureUnit: string, forceImperialVolumeUnit: boolean = false): string[] {
+        var isImperialVolumeUnit = this._imperialVolumeMeasureUnits.indexOf(originalMeasureUnit) > -1;
+        var isImperialWeightUnit = this._imperialWeightMeasureUnits.indexOf(originalMeasureUnit) > -1;
+        var isMetricVolumeUnit = this._metricVolumeMeasureUnits.indexOf(originalMeasureUnit) > -1;
+        var isMetricWeightUnit = this._metricWeightMeasureUnits.indexOf(originalMeasureUnit) > -1;
+        
+        if (this._settingsManager.settings.selectedVolumeOption === "metric") {
+            if (forceImperialVolumeUnit && (isImperialVolumeUnit || isMetricVolumeUnit)) {
+                return this._imperialVolumeMeasureUnits;
+            } else if (isImperialVolumeUnit) { 
+                return this._metricVolumeMeasureUnits;
+            } else if (isImperialWeightUnit) { 
+                return this._metricWeightMeasureUnits;
+            } else if (isMetricVolumeUnit) {
+                if (this._settingsManager.settings.metricVolumeOption === "imperialWhenPossible") {
+                    return this._imperialVolumeMeasureUnits;
+                } else {
+                    return this._metricVolumeMeasureUnits;
+                }
+            }
+        } else if (this._settingsManager.settings.selectedVolumeOption === "imperial") {
+            if (isMetricVolumeUnit) { 
+                return this._imperialVolumeMeasureUnits;
+            } else if (isMetricWeightUnit) {
+                return this._imperialWeightMeasureUnits;
+            }
+        } 
+        
+        return [];
+    }
+    
+    private getQuantity(value: number, originalMeasureUnit: string, measureUnit: string): number {
         var value = value * this.getQuantityConversion(originalMeasureUnit, measureUnit);
         var approximatedValue = this.getApproximatedValue(value, measureUnit);
         

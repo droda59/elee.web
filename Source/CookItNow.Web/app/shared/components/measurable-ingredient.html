@@ -2,15 +2,16 @@
 	<require from="shared/value-converters/quantity-human-format"></require>
 	
 	<span class="ingredient">
-		<span class="value" if.bind="isConvertible" >
-			<select class="input-field" value.bind="measureUnit" materialize="select">
-	            <option repeat.for="measureUnit of convertibleMeasureUnits" value.bind="measureUnit.unit">${measureUnit.value | quantityHumanFormat:measureUnit.unit}&nbsp;${'quantities.' + measureUnit.unit | t: { 'count': measureUnit.value }}</option>
-	        </select> 
+		<span class="value">${convertibleMeasureUnit.value | quantityHumanFormat:convertibleMeasureUnit.unit}</span>
+		<span class="unit">${'quantities.' + convertibleMeasureUnit.unit | t: { 'count': convertibleMeasureUnit.value }}</span>
+		
+		<span if.bind="showBoth">
+			(
+			<span class="value">${offConvertibleMeasureUnit.value | quantityHumanFormat:offConvertibleMeasureUnit.unit}</span>
+			<span class="unit">${'quantities.' + offConvertibleMeasureUnit.unit | t: { 'count': offConvertibleMeasureUnit.value }}</span>
+			)
 		</span>
-		<span if.bind="!isConvertible">
-			<span class="value">${quantity | quantityHumanFormat:measureUnit}</span>
-			<span class="unit">${'quantities.' + measureUnit | t: { 'count': quantity }}</span>
-		</span>
+		
 		<span class="text">${nextWord} </span>
 		<span class="type">${ingredientName} <span if.bind="requirements" class="requirements">(${ingredient.requirements})</span></span> 
 	</span>

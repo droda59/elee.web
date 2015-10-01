@@ -7,7 +7,7 @@ export class SettingsManager {
 		this.settings = new Settings();
 		
 		var storageSettings = localStorage.getItem("settings");
-		if (storageSettings === null) {
+		if (storageSettings) {
 			this.settings = JSON.parse(storageSettings);
 		}
 	}
