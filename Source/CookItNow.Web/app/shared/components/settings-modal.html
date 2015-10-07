@@ -10,28 +10,14 @@
 			<section class="section">
 				<h5 i18n="settings.volumeMeasureUnits">VolumeMeasureUnits</h5>
 				
-				<div class="row">
-					<span class="col s6 input-field" repeat.for="volumeOption of volumeOptions">
-						<input name="volume-measure-units" type="radio" id="volume-units-${volumeOption}" value.bind="volumeOption" checked.bind="$parent.settings.selectedVolumeOption" />
-						<label for="volume-units-${volumeOption}">${'settings.volumeOptions.' + volumeOption | t}</label>
+				<div class="row choice">
+					<span class="col s6 input-field" repeat.for="volumeDisplay of volumeDisplays">
+						<input name="volume-units" type="radio" id="volume-units-${volumeDisplay.name}" value.bind="volumeDisplay.name" checked.bind="$parent.settings.selectedVolumeDisplay" />
+						<h5>${'settings.volumeDisplays.' + volumeDisplay.name | t}</h5>
+						<label class="btn col s12 waves-effect" for="volume-units-${volumeDisplay.name}">
+							<div repeat.for="example of volumeDisplay.examples">${example}</div>
+						</label>
 					</span>
-				</div>
-				
-				<div class="row">
-					<div class="input-field col s6">
-						<select value.bind="settings.metricVolumeOption" materialize="select">
-							<option i18n="settings.metricVolumeOption">ChooseOption</option>
-							<option repeat.for="option of metricVolumeOptions" value.bind="option">${'settings.metricVolumeOptions.' + option | t}</option>
-						</select>
-						<label i18n="settings.metricVolumeOptionsLabel">MetricVolumeOptions</label>
-					</div>
-				</div>
-				
-				<div class="row">
-					<div class="input-field col s6">
-						<input type="checkbox" id="use-metric-additional-units" checked.bind="settings.useMetricAdditionalUnits" />
-						<label for="use-metric-additional-units" i18n="settings.useMetricAdditionalUnits">useMetricAdditionalUnits</label>
-					</div>
 				</div>
 			</section>
 			

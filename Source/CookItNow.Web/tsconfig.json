@@ -63,6 +63,7 @@
         "./app/shared/components/settings-modal.ts", 
         "./app/shared/models/timer.ts", 
         "./app/shared/models/ingredient.ts", 
+        "./app/shared/models/quantity", 
         "./app/shared/models/settings.ts", 
         "./app/shared/value-converters/duration-format.ts",
         "./app/shared/value-converters/time-format.ts",

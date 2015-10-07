@@ -56,6 +56,29 @@ footer.page-footer {
     color: white;
 }
 
+.choice {
+    [type="radio"]:checked ~ label.btn {
+        outline: 1px solid #26a69a;
+    }
+    label.btn:before, 
+    label.btn:after {
+        content: none;
+    }
+    label.btn {
+        background-color: white;
+        text-align: inherit;
+        text-transform: none;
+        height: inherit;
+        padding: 0.75rem;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        position: relative;
+        line-height: inherit;
+        font-size: 0.9rem;
+    }
+}
+
 // Global elements importation
 @import "navigation";
 @import "measurable-ingredient";

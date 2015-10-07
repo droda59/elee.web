@@ -1,72 +1,78 @@
 import {inject} from "aurelia-framework";
 import {SettingsManager} from "shared/settings-manager";
+import {Quantity} from "shared/models/quantity";
 
 @inject (SettingsManager)
 export class QuantityConverter {
 	private _settingsManager: SettingsManager;
     
-    private _imperialVolumeMeasureUnits: string[] = [ "cup", "oz", "tbsp", "tsp" ];
-    private _metricVolumeMeasureUnits: string[] = [ "l", "ml" ];
+    private _imperialShortVolumeMeasureUnits: string[] = [ "cup", "tbsp", "tsp" ];
+    private _imperialCompleteVolumeMeasureUnits: string[] = [ "cup", "oz", "tbsp", "tsp" ];
+    
+    private _metricShortVolumeMeasureUnits: string[] = [ "l", "ml" ];
+    private _metricCompleteVolumeMeasureUnits: string[] = [ "l", "dl", "cl", "ml" ];
     
     private _imperialWeightMeasureUnits: string[] = [ "lb" ];
     private _metricWeightMeasureUnits: string[] = [ "kg", "g" ];
+    
+    private _volumeMeasureUnits: string[] = [ "cup", "oz", "tbsp", "tsp", "l", "dl", "cl", "ml" ];
+    private _weightMeasureUnits: string[] = [ "lb", "kg", "g" ];
 	
 	constructor(settingsManager: SettingsManager) {
 		this._settingsManager = settingsManager;
 	}
     
-    getBestConvertibleMeasureUnit(originalValue: number, originalMeasureUnit: string, forceImperialVolumeUnit: boolean = false) {
-        var bestConvertibleMeasureUnit = { value: originalValue, unit: originalMeasureUnit };
+    getBestConvertibleMeasureUnit(quantity: Quantity, forceVolumeDisplay: string = null): Quantity {
+        var bestConvertibleQuantity = new Quantity();
+        bestConvertibleQuantity.value = quantity.value;
+        bestConvertibleQuantity.unit = quantity.unit;
         
-        var unitsToConvertTo = this.getUnitsToConvertTo(originalMeasureUnit, forceImperialVolumeUnit);
-        if (unitsToConvertTo === this._metricVolumeMeasureUnits && this._settingsManager.settings.useMetricAdditionalUnits) {
-            unitsToConvertTo = [ "l", "dl", "cl", "ml" ];
-        }
-        
+        var unitsToConvertTo = this.getUnitsToConvertTo(quantity.unit, forceVolumeDisplay);
         unitsToConvertTo.some(function(unit: string) {
-            var quantity = this.getQuantity(originalValue, originalMeasureUnit, unit);
-            var isValid = this.isValidConvertibleMeasureUnit(quantity, unit);
+            var value = this.getConvertedValue(quantity, unit);
+            var isValid = this.isValidConvertibleMeasureUnit(value, unit);
                 
-            bestConvertibleMeasureUnit = { value: quantity, unit: unit };
+            bestConvertibleQuantity.value = value;
+            bestConvertibleQuantity.unit = unit;
+            
             return isValid;
         }, this);
         
-        return bestConvertibleMeasureUnit;
+        return bestConvertibleQuantity;
     }
     
-    private getUnitsToConvertTo(originalMeasureUnit: string, forceImperialVolumeUnit: boolean = false): string[] {
-        var isImperialVolumeUnit = this._imperialVolumeMeasureUnits.indexOf(originalMeasureUnit) > -1;
-        var isImperialWeightUnit = this._imperialWeightMeasureUnits.indexOf(originalMeasureUnit) > -1;
-        var isMetricVolumeUnit = this._metricVolumeMeasureUnits.indexOf(originalMeasureUnit) > -1;
-        var isMetricWeightUnit = this._metricWeightMeasureUnits.indexOf(originalMeasureUnit) > -1;
+    private getUnitsToConvertTo(originalMeasureUnit: string, forceVolumeDisplay: string): string[] {
+        var isVolumeUnit = this._volumeMeasureUnits.indexOf(originalMeasureUnit) > -1;
+        var isWeightUnit = this._weightMeasureUnits.indexOf(originalMeasureUnit) > -1;
         
-        if (this._settingsManager.settings.selectedVolumeOption === "metric") {
-            if (forceImperialVolumeUnit && (isImperialVolumeUnit || isMetricVolumeUnit)) {
-                return this._imperialVolumeMeasureUnits;
-            } else if (isImperialVolumeUnit) { 
-                return this._metricVolumeMeasureUnits;
-            } else if (isImperialWeightUnit) { 
-                return this._metricWeightMeasureUnits;
-            } else if (isMetricVolumeUnit) {
-                if (this._settingsManager.settings.metricVolumeOption === "imperialWhenPossible") {
-                    return this._imperialVolumeMeasureUnits;
-                } else {
-                    return this._metricVolumeMeasureUnits;
-                }
+        if (isVolumeUnit) {
+            var volumeDisplay = this._settingsManager.settings.selectedVolumeDisplay;
+            if (forceVolumeDisplay) {
+                volumeDisplay = forceVolumeDisplay;
             }
-        } else if (this._settingsManager.settings.selectedVolumeOption === "imperial") {
-            if (isMetricVolumeUnit) { 
-                return this._imperialVolumeMeasureUnits;
-            } else if (isMetricWeightUnit) {
+            
+            if (volumeDisplay === "imperialShort") {
+                return this._imperialShortVolumeMeasureUnits;
+            } else if (volumeDisplay === "imperialComplete") {
+                return this._imperialCompleteVolumeMeasureUnits;
+            } else if (volumeDisplay === "metricShort") {
+                return this._metricShortVolumeMeasureUnits;
+            } else if (volumeDisplay === "metricComplete") {
+                return this._metricCompleteVolumeMeasureUnits;
+            }
+        } else if (isWeightUnit) {
+            if (this._settingsManager.settings.selectedWeightOption === "metric") {
+                return this._metricWeightMeasureUnits;
+            } else if (this._settingsManager.settings.selectedWeightOption === "imperial") {
                 return this._imperialWeightMeasureUnits;
             }
-        } 
+        }
         
         return [];
     }
     
-    private getQuantity(value: number, originalMeasureUnit: string, measureUnit: string): number {
-        var value = value * this.getQuantityConversion(originalMeasureUnit, measureUnit);
+    private getConvertedValue(quantity: Quantity, measureUnit: string): number {
+        var value = quantity.value * this.getQuantityConversion(quantity.unit, measureUnit);
         var approximatedValue = this.getApproximatedValue(value, measureUnit);
         
         return approximatedValue;

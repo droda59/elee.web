@@ -1,6 +1,7 @@
 import {bindable, inject, ObserverLocator} from "aurelia-framework";
 import {I18N} from "aurelia-i18n"; 
 import {Ingredient} from "shared/models/ingredient";
+import {Quantity} from "shared/models/quantity";
 import {TextUtils}from "shared/text-utils";
 import {QuantityConverter}from "shared/quantity-converter";
 import {SettingsManager}from "shared/settings-manager";
@@ -12,11 +13,10 @@ export class MeasurableIngredient {
 	showBoth: boolean;
 	nextWord: string;
 	ingredientName: string;
-	convertibleMeasureUnit: {} = {};
-	offConvertibleMeasureUnit: {} = {};
+	convertibleMeasureUnit: Quantity;
+	offConvertibleMeasureUnit: Quantity;
 	
-	private _quantity: number;
-	private _measureUnit: string;
+	private _quantity: Quantity;
 	private _i18n: I18N;
 	private _quantityConverter: QuantityConverter;
 	private _settingsManager: SettingsManager;
@@ -26,39 +26,41 @@ export class MeasurableIngredient {
 		this._i18n = i18n;
 		this._quantityConverter = quantityConverter;
 		this._settingsManager = settingsManager;
+		this.convertibleMeasureUnit = new Quantity();
+		this.offConvertibleMeasureUnit = new Quantity();
 		
 		this._settingsObserver = observerLocator
 			.getObserver(settingsManager, 'settings')
 			.subscribe(newVal => {
-				this.calculateConvertibleMeasureUnits();
+				this.calculateConvertibleMeasureUnits(newVal.selectedVolumeDisplay);
 			});
 	}
 	
 	bind() {
 		this.ingredientName = this.ingredient.name.toLowerCase();
-		this.nextWord = " " + (this.ingredient.quantity.originalMeasureUnit !== "unit" 
+		this.nextWord = " " + (this.ingredient.quantity.unit !== "unit" 
 			? TextUtils.isVowel(this.ingredientName[0]) 
 				? this._i18n.tr("quantities.nextWordVowel") 
 				: this._i18n.tr("quantities.nextWordConsonant") + " " 
 			: "");
 			
-		this._measureUnit = this.ingredient.quantity.originalMeasureUnit;
-		this._quantity = this.ingredient.quantity.value;
+		this._quantity = this.ingredient.quantity;
 		
-		this.calculateConvertibleMeasureUnits();
+		var selectedVolumeDisplay = this._settingsManager.settings.selectedVolumeDisplay;
+		this.calculateConvertibleMeasureUnits(selectedVolumeDisplay);
 	}
 	
 	deactivate () {
 		this._settingsObserver();
 	}
 	
-	private calculateConvertibleMeasureUnits() {
-		this.convertibleMeasureUnit = this._quantityConverter.getBestConvertibleMeasureUnit(this._quantity, this._measureUnit);
-		 
-		if (this._settingsManager.settings.selectedVolumeOption === "metric" && this._settingsManager.settings.metricVolumeOption === "showBoth") {
-			this.offConvertibleMeasureUnit = this._quantityConverter.getBestConvertibleMeasureUnit(this._quantity, this._measureUnit, true);
+	private calculateConvertibleMeasureUnits(selectedVolumeDisplay: string) {
+		if (selectedVolumeDisplay === "both") {
+			this.convertibleMeasureUnit = this._quantityConverter.getBestConvertibleMeasureUnit(this._quantity, "metricShort");
+			this.offConvertibleMeasureUnit = this._quantityConverter.getBestConvertibleMeasureUnit(this._quantity, "imperialShort");
 			this.showBoth = this.offConvertibleMeasureUnit["unit"] !== this.convertibleMeasureUnit["unit"];
 		} else {
+			this.convertibleMeasureUnit = this._quantityConverter.getBestConvertibleMeasureUnit(this._quantity);
 			this.showBoth = false;
 		}
 	}
