@@ -9,6 +9,7 @@ import {SettingsManager}from "shared/settings-manager";
 @inject (I18N, ObserverLocator, QuantityConverter, SettingsManager)
 export class MeasurableIngredient {
 	@bindable ingredient: Ingredient = null;
+	@bindable unit: string = null;
 	
 	showBoth: boolean;
 	nextWord: string;
@@ -46,21 +47,34 @@ export class MeasurableIngredient {
 			
 		this._quantity = this.ingredient.quantity;
 		
-		var selectedVolumeDisplay = this._settingsManager.settings.selectedVolumeDisplay;
-		this.calculateConvertibleMeasureUnits(selectedVolumeDisplay);
+        var isVolumeUnit = this._quantityConverter.volumeMeasureUnits.indexOf(this._quantity.unit) > -1;
+        var isWeightUnit = this._quantityConverter.weightMeasureUnits.indexOf(this._quantity.unit) > -1;
+		
+		var selectedDisplay;
+		if (isVolumeUnit) {
+			selectedDisplay = this._settingsManager.settings.selectedVolumeDisplay; 
+		} else if (isWeightUnit) {
+			selectedDisplay = this._settingsManager.settings.selectedWeightDisplay; 
+		}
+		 
+		if (this.unit) {
+			selectedDisplay = this.unit;
+		}
+		
+		this.calculateConvertibleMeasureUnits(selectedDisplay);
 	}
 	
 	deactivate () {
 		this._settingsObserver();
 	}
 	
-	private calculateConvertibleMeasureUnits(selectedVolumeDisplay: string) {
-		if (selectedVolumeDisplay === "both") {
+	private calculateConvertibleMeasureUnits(selectedDisplay: string) {
+		if (selectedDisplay === "both") {
 			this.convertibleMeasureUnit = this._quantityConverter.getBestConvertibleMeasureUnit(this._quantity, "metricShort");
 			this.offConvertibleMeasureUnit = this._quantityConverter.getBestConvertibleMeasureUnit(this._quantity, "imperialShort");
-			this.showBoth = this.offConvertibleMeasureUnit["unit"] !== this.convertibleMeasureUnit["unit"];
+			this.showBoth = this.offConvertibleMeasureUnit.unit !== this.convertibleMeasureUnit.unit;
 		} else {
-			this.convertibleMeasureUnit = this._quantityConverter.getBestConvertibleMeasureUnit(this._quantity);
+			this.convertibleMeasureUnit = this._quantityConverter.getBestConvertibleMeasureUnit(this._quantity, selectedDisplay);
 			this.showBoth = false;
 		}
 	}

@@ -7,7 +7,6 @@ export class QuantityHumanFormatValueConverter {
         var isMetric = measureUnit == "ml"
             || measureUnit == "cl"
             || measureUnit == "dl"
-            || measureUnit == "l"
             || measureUnit == "g"
             || measureUnit == "kg";
 			
@@ -15,7 +14,7 @@ export class QuantityHumanFormatValueConverter {
 			return value.toString();
 		}
 		
-		var decimal = Math.round((value % 1) * 1000) / 1000;
+		var decimal = Math.round((value % 1) * 100) / 100;
 		var decimalText = decimal.toString();
 				
 		switch (decimal) {

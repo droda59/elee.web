@@ -1,5 +1,6 @@
 <template>
 	<require from="shared/value-converters/uppercase-first-letter-format"></require>
+	<require from="shared/components/measurable-ingredient"></require>
 	
 	<dialog class="settings-modal modal modal-fixed-footer au-animate" id="settings-modal">
 		<dialog-header class="modal-header">
@@ -15,7 +16,9 @@
 						<input name="volume-units" type="radio" id="volume-units-${volumeDisplay.name}" value.bind="volumeDisplay.name" checked.bind="$parent.settings.selectedVolumeDisplay" />
 						<h5>${'settings.volumeDisplays.' + volumeDisplay.name | t}</h5>
 						<label class="btn col s12 waves-effect" for="volume-units-${volumeDisplay.name}">
-							<div repeat.for="example of volumeDisplay.examples">${example}</div>
+							<div repeat.for="example of volumeDisplay.examples">
+								<measurable-ingredient unit.bind="$parent.volumeDisplay.name" ingredient.bind="example" containerless></measurable-ingredient>
+							</div>
 						</label>
 					</span>
 				</div>
@@ -24,10 +27,15 @@
 			<section class="section">
 				<h5 i18n="settings.weightMeasureUnits">WeightMeasureUnits</h5>
 				
-				<div class="row input-field">
-					<span class="col s6" repeat.for="weightOption of weightOptions">
-						<input name="weight-measure-units" type="radio" id="weight-units-${weightOption}" value.bind="weightOption" checked.bind="$parent.settings.selectedWeightOption" />
-						<label for="weight-units-${weightOption}">${'settings.weightOptions.' + weightOption | t}</label>
+				<div class="row choice">
+					<span class="col s6 input-field" repeat.for="weightDisplay of weightDisplays">
+						<input name="weight-units" type="radio" id="weight-units-${weightDisplay.name}" value.bind="weightDisplay.name" checked.bind="$parent.settings.selectedWeightDisplay" />
+						<h5>${'settings.weightDisplays.' + weightDisplay.name | t}</h5>
+						<label class="btn col s12 waves-effect" for="weight-units-${weightDisplay.name}">
+							<div repeat.for="example of weightDisplay.examples">
+								<measurable-ingredient unit.bind="$parent.weightDisplay.name" ingredient.bind="example" containerless></measurable-ingredient>
+							</div>
+						</label>
 					</span>
 				</div>
 			</section>

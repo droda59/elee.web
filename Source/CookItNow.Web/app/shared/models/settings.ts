@@ -1,5 +1,4 @@
 export class Settings {
-    selectedWeightOption: string = "metric";
-    
+    selectedWeightDisplay: string = "metricShort";
     selectedVolumeDisplay: string = "imperialShort";
 }

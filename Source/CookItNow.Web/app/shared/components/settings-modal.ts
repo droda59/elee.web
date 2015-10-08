@@ -4,7 +4,6 @@ import {Ingredient} from "shared/models/ingredient";
 import {Quantity} from "shared/models/quantity";
 import {Settings} from "shared/models/settings";
 import {QuantityConverter} from "shared/quantity-converter";
-import {QuantityConverter} from "shared/quantity-converter";
 
 @inject (DialogController, QuantityConverter)
 export class SettingsModal {
@@ -12,56 +11,8 @@ export class SettingsModal {
 	controller: DialogController;
 	quantityConverter: QuantityConverter;
 	
-    volumeOptions: string[] = [ "metric", "imperial" ];
-    weightOptions: string[] = [ "metric", "imperial" ];
-    metricVolumeOptions: string[] = [ "metricOnly", "imperialWhenPossible", "showBoth" ];
-	
-    volumeDisplays: {}[] = [ 
-		{
-			name: "metricShort",
-			examples: [
-				"1 l d'eau", 
-				"750 ml de cassonade", 
-				"30 ml de lait",
-				"2.5 ml de sel" 
-			]
-		}, 
-		{
-			name: "metricComplete",
-			examples: [ 
-				"1 l d'eau", 
-				"7.5 dl de cassonade",  
-				"3 cl de lait",
-				"2.5 ml de sel"
-			]
-		}, 
-		{
-			name: "imperialShort",
-			examples: [
-				"4 tasses d'eau", 
-				"3 tasses de cassonade", 
-				"2 tbsp de lait",
-				"1 tsp de sel" 
-			]
-		}, 
-		{
-			name: "imperialComplete",
-			examples: [ 
-				"4 tasses d'eau", 
-				"3 tasses de cassonade", 
-				"1 oz de lait",
-				"1 tsp de sel" 
-			]
-		},
-		{
-			name: "both",
-			examples: [ 
-				"1 l (4 tasses) d'eau", 
-				"750 ml (3 tasses) de cassonade", 
-				"30 ml (2 tbsp) de lait",
-				"2.5 ml (1 tsp) de sel" 
-			]
-		} ];
+	volumeDisplays: {}[] = [];
+	weightDisplays: {}[] = [];
 	
 	constructor(controller: DialogController, quantityConverter: QuantityConverter) {
 		this.controller = controller;
@@ -72,6 +23,92 @@ export class SettingsModal {
 		this.settings = new Settings();
 		
 		this.settings.selectedVolumeDisplay = settings.selectedVolumeDisplay;
-		this.settings.selectedWeightOption = settings.selectedWeightOption;
+		this.settings.selectedWeightDisplay = settings.selectedWeightDisplay;
+		
+		var ingredient1 = new Ingredient();
+		ingredient1.name = "eau";
+		ingredient1.quantity = new Quantity();
+		ingredient1.quantity.value = 1000;
+		ingredient1.quantity.unit = "ml";
+		
+		var ingredient2 = new Ingredient();
+		ingredient2.name = "cassonade";
+		ingredient2.quantity = new Quantity();
+		ingredient2.quantity.value = 750;
+		ingredient2.quantity.unit = "ml";
+		
+		var ingredient3 = new Ingredient();
+		ingredient3.name = "lait";
+		ingredient3.quantity = new Quantity();
+		ingredient3.quantity.value = 30;
+		ingredient3.quantity.unit = "ml";
+		
+		var ingredient4 = new Ingredient();
+		ingredient4.name = "sel";
+		ingredient4.quantity = new Quantity();
+		ingredient4.quantity.value = 2.5;
+		ingredient4.quantity.unit = "ml";
+		
+		this.volumeDisplays.push({
+			name: "metricShort",
+			examples: [ ingredient1, ingredient2, ingredient3, ingredient4 ]
+		});
+		
+		this.volumeDisplays.push({
+			name: "metricComplete",
+			examples: [ ingredient1, ingredient2, ingredient3, ingredient4 ]
+		});
+		
+		this.volumeDisplays.push({
+			name: "imperialShort",
+			examples: [ ingredient1, ingredient2, ingredient3, ingredient4 ]
+		});
+		
+		this.volumeDisplays.push({
+			name: "imperialComplete",
+			examples: [ ingredient1, ingredient2, ingredient3, ingredient4 ]
+		});
+		
+		this.volumeDisplays.push({
+			name: "both",
+			examples: [ ingredient1, ingredient2, ingredient3, ingredient4 ]
+		});
+		
+		var ingredient5 = new Ingredient();
+		ingredient5.name = "poulet";
+		ingredient5.quantity = new Quantity();
+		ingredient5.quantity.value = 1360;
+		ingredient5.quantity.unit = "g";
+		
+		var ingredient6 = new Ingredient();
+		ingredient6.name = "farine";
+		ingredient6.quantity = new Quantity();
+		ingredient6.quantity.value = 680;
+		ingredient6.quantity.unit = "g";
+		
+		this.weightDisplays.push({
+			name: "metricShort",
+			examples: [ ingredient5, ingredient6 ]
+		});
+		
+		this.weightDisplays.push({
+			name: "metricComplete",
+			examples: [ ingredient5, ingredient6 ]
+		});
+		
+		this.weightDisplays.push({
+			name: "imperialShort",
+			examples: [ ingredient5, ingredient6 ]
+		});
+		
+		this.weightDisplays.push({
+			name: "imperialComplete",
+			examples: [ ingredient5, ingredient6 ]
+		});
+		
+		this.weightDisplays.push({
+			name: "both",
+			examples: [ ingredient5, ingredient6 ]
+		});
 	}
 }

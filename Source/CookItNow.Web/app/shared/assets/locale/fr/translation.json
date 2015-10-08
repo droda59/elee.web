@@ -18,10 +18,6 @@
         "okButton": "OK", 
         "cancelButton": "Annuler",
         "volumeMeasureUnits": "Unités de mesure de volume",
-        "volumeOptions": {
-            "metric": "Unités métriques",
-            "imperial": "Unités impériales"
-        },
         "volumeDisplays": {
             "metricShort": "Métrique simplifié",
             "metricComplete": "Métrique",
@@ -29,18 +25,13 @@
             "imperialComplete": "Impérial",
             "both": "Afficher les deux"
         },
-        "metricVolumeOption": "Sélectionnez une option",
-        "metricVolumeOptions": {
-            "metricOnly": "Unités métriques uniquement",
-            "imperialWhenPossible": "Convertir en impérial lorsque possible",
-            "showBoth": "Afficher les deux"
-        },
-        "metricVolumeOptionsLabel": "Options",
-        "useMetricAdditionalUnits": "Utiliser les centilitres et décilitres",
         "weightMeasureUnits": "Unités de mesure de poids",
-        "weightOptions": {
-            "metric": "Unités métriques",
-            "imperial": "Unités impériales"
+        "weightDisplays": {
+            "metricShort": "Métrique simplifié",
+            "metricComplete": "Métrique",
+            "imperialShort": "Impérial simplifié",
+            "imperialComplete": "Impérial",
+            "both": "Afficher les deux"
         }
     }, 
     "home": {
@@ -64,37 +55,28 @@
     "quantities": {
         "ml": "ml",
         "ml_plural": "ml",
-        "ml_full": "millilitres",
         "cl": "cl",
         "cl_plural": "cl",
-        "cl_full": "centillitres",
         "dl": "dl",
         "dl_plural": "dl",
-        "dl_full": "decilitres",
-        "l": "l",
-        "l_plural": "l",
-        "l_full": "litres",
+        "l": "L",
+        "l_plural": "L",
         "tsp": "c. à thé",
         "tsp_plural": "c. à thé",
-        "tsp_full": "c. à thé",
         "tbsp": "c. à soupe",
         "tbsp_plural": "c. à soupe", 
-        "tbsp_full": "c. à soupe", 
-        "oz": "once", 
-        "oz_plural": "onces", 
-        "oz_full": "onces", 
+        "floz": "oz liq", 
+        "floz_plural": "oz liq", 
         "cup": "tasse",
         "cup_plural": "tasses",
-        "cup_full": "tasses",
         "g": "g",
         "g_plural": "g",
-        "g_full": "grammes",
         "kg": "kg",
         "kg_plural": "kg",
-        "kg_full": "kilogrammes",
-        "lb": "livre",
-        "lb_plural": "livres",
-        "lb_full": "livres",
+        "oz": "oz", 
+        "oz_plural": "oz", 
+        "lb": "lb",
+        "lb_plural": "lbs",
         "pinch": "pincée",
         "pinch_plural": "pincées",
         "unit": "",

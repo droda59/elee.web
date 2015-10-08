@@ -1,33 +1,28 @@
 import {inject} from "aurelia-framework";
-import {SettingsManager} from "shared/settings-manager";
 import {Quantity} from "shared/models/quantity";
 
-@inject (SettingsManager)
 export class QuantityConverter {
-	private _settingsManager: SettingsManager;
-    
     private _imperialShortVolumeMeasureUnits: string[] = [ "cup", "tbsp", "tsp" ];
-    private _imperialCompleteVolumeMeasureUnits: string[] = [ "cup", "oz", "tbsp", "tsp" ];
+    private _imperialCompleteVolumeMeasureUnits: string[] = [ "cup", "floz", "tbsp", "tsp" ];
     
     private _metricShortVolumeMeasureUnits: string[] = [ "l", "ml" ];
     private _metricCompleteVolumeMeasureUnits: string[] = [ "l", "dl", "cl", "ml" ];
     
-    private _imperialWeightMeasureUnits: string[] = [ "lb" ];
-    private _metricWeightMeasureUnits: string[] = [ "kg", "g" ];
+    private _imperialShortWeightMeasureUnits: string[] = [ "lb" ];
+    private _metricShortWeightMeasureUnits: string[] = [ "g" ];
     
-    private _volumeMeasureUnits: string[] = [ "cup", "oz", "tbsp", "tsp", "l", "dl", "cl", "ml" ];
-    private _weightMeasureUnits: string[] = [ "lb", "kg", "g" ];
+    private _imperialCompleteWeightMeasureUnits: string[] = [ "lb", "oz" ];
+    private _metricCompleteWeightMeasureUnits: string[] = [ "kg", "g" ];
+    
+    volumeMeasureUnits: string[] = [ "cup", "floz", "tbsp", "tsp", "l", "dl", "cl", "ml" ];
+    weightMeasureUnits: string[] = [ "lb", "oz", "kg", "g" ];
 	
-	constructor(settingsManager: SettingsManager) {
-		this._settingsManager = settingsManager;
-	}
-    
-    getBestConvertibleMeasureUnit(quantity: Quantity, forceVolumeDisplay: string = null): Quantity {
+    getBestConvertibleMeasureUnit(quantity: Quantity, displayUnit: string): Quantity {
         var bestConvertibleQuantity = new Quantity();
         bestConvertibleQuantity.value = quantity.value;
         bestConvertibleQuantity.unit = quantity.unit;
         
-        var unitsToConvertTo = this.getUnitsToConvertTo(quantity.unit, forceVolumeDisplay);
+        var unitsToConvertTo = this.getUnitsToConvertTo(quantity.unit, displayUnit);
         unitsToConvertTo.some(function(unit: string) {
             var value = this.getConvertedValue(quantity, unit);
             var isValid = this.isValidConvertibleMeasureUnit(value, unit);
@@ -41,30 +36,29 @@ export class QuantityConverter {
         return bestConvertibleQuantity;
     }
     
-    private getUnitsToConvertTo(originalMeasureUnit: string, forceVolumeDisplay: string): string[] {
-        var isVolumeUnit = this._volumeMeasureUnits.indexOf(originalMeasureUnit) > -1;
-        var isWeightUnit = this._weightMeasureUnits.indexOf(originalMeasureUnit) > -1;
+    private getUnitsToConvertTo(originalMeasureUnit: string, displayUnit: string): string[] {
+        var isVolumeUnit = this.volumeMeasureUnits.indexOf(originalMeasureUnit) > -1;
+        var isWeightUnit = this.weightMeasureUnits.indexOf(originalMeasureUnit) > -1;
         
         if (isVolumeUnit) {
-            var volumeDisplay = this._settingsManager.settings.selectedVolumeDisplay;
-            if (forceVolumeDisplay) {
-                volumeDisplay = forceVolumeDisplay;
-            }
-            
-            if (volumeDisplay === "imperialShort") {
+            if (displayUnit === "imperialShort") {
                 return this._imperialShortVolumeMeasureUnits;
-            } else if (volumeDisplay === "imperialComplete") {
+            } else if (displayUnit === "imperialComplete") {
                 return this._imperialCompleteVolumeMeasureUnits;
-            } else if (volumeDisplay === "metricShort") {
+            } else if (displayUnit === "metricShort") {
                 return this._metricShortVolumeMeasureUnits;
-            } else if (volumeDisplay === "metricComplete") {
+            } else if (displayUnit === "metricComplete") {
                 return this._metricCompleteVolumeMeasureUnits;
             }
         } else if (isWeightUnit) {
-            if (this._settingsManager.settings.selectedWeightOption === "metric") {
-                return this._metricWeightMeasureUnits;
-            } else if (this._settingsManager.settings.selectedWeightOption === "imperial") {
-                return this._imperialWeightMeasureUnits;
+            if (displayUnit === "imperialShort") {
+                return this._imperialShortWeightMeasureUnits;
+            } else if (displayUnit === "imperialComplete") {
+                return this._imperialCompleteWeightMeasureUnits;
+            } else if (displayUnit === "metricShort") {
+                return this._metricShortWeightMeasureUnits;
+            } else if (displayUnit === "metricComplete") {
+                return this._metricCompleteWeightMeasureUnits;
             }
         }
         
@@ -87,7 +81,7 @@ export class QuantityConverter {
                 case "l": return 0.001;
                 case "tsp": return 0.202884;
                 case "tbsp": return 0.067628;
-                case "oz": return 0.033814;
+                case "floz": return 0.033814;
                 case "cup": return 0.004; // 0.004226;
             }
         } 
@@ -99,7 +93,7 @@ export class QuantityConverter {
                 case "l": return 0.01;
                 case "tsp": return 2.028841;
                 case "tbsp": return 0.676280;
-                case "oz": return 0.33814;
+                case "floz": return 0.33814;
                 case "cup": return 0.04; // 0.042267;
             }
         } 
@@ -111,7 +105,7 @@ export class QuantityConverter {
                 case "l": return 0.1;
                 case "tsp": return 20.288413;
                 case "tbsp": return 6.762804;
-                case "oz": return 3.3814;
+                case "floz": return 3.3814;
                 case "cup": return 0.4; // 0.422675;
             }
         } 
@@ -123,7 +117,7 @@ export class QuantityConverter {
                 case "l": return 1;
                 case "tsp": return 202.884136;
                 case "tbsp": return 67.628045;
-                case "oz": return 33.814;
+                case "floz": return 33.814;
                 case "cup": return 4; // 4.226752;
             }
         } 
@@ -135,7 +129,7 @@ export class QuantityConverter {
                 case "l": return 0.004928;
                 case "tsp": return 1;
                 case "tbsp": return 0.333333;
-                case "oz": return 0.166667;
+                case "floz": return 0.166667;
                 case "cup": return 0.0208333;
             }
         }
@@ -147,11 +141,11 @@ export class QuantityConverter {
                 case "l": return 0.014786;
                 case "tsp": return 3;
                 case "tbsp": return 1;
-                case "oz": return 0.5;
+                case "floz": return 0.5;
                 case "cup": return 0.0625;
             }
         }
-        else if (fromUnit === "oz") {
+        else if (fromUnit === "floz") {
             switch (toUnit) {
                 case "ml": return 29.5735;
                 case "cl": return 2.9573;
@@ -159,7 +153,7 @@ export class QuantityConverter {
                 case "l": return 0.02957;
                 case "tsp": return 6;
                 case "tbsp": return 2;
-                case "oz": return 1;
+                case "floz": return 1;
                 case "cup": return 0.125;
             }
         } 
@@ -171,7 +165,7 @@ export class QuantityConverter {
                 case "l": return 0.25; // 0.236588;
                 case "tsp": return 48;
                 case "tbsp": return 16;
-                case "oz": return 8;
+                case "floz": return 8;
                 case "cup": return 1;
             }
         } 
@@ -180,6 +174,7 @@ export class QuantityConverter {
                 case "g": return 1;
                 case "kg": return 0.001;
                 case "lb": return 0.0022;
+                case "oz": return 0.035274;
             }
         }
         else if (fromUnit === "kg") {
@@ -187,6 +182,7 @@ export class QuantityConverter {
                 case "g": return 1000;
                 case "kg": return 1;
                 case "lb": return 2.20264;
+                case "oz": return 35.274;
             }
         }
         else if (fromUnit === "lb") {
@@ -194,6 +190,15 @@ export class QuantityConverter {
                 case "g": return 454;
                 case "kg": return 0.454;
                 case "lb": return 1;
+                case "oz": return 16;
+            }
+        }
+        else if (fromUnit === "oz") {
+            switch (toUnit) {
+                case "g": return 85;
+                case "kg": return 0.085;
+                case "lb": return 0.0625;
+                case "oz": return 1;
             }
         }
         
@@ -242,7 +247,7 @@ export class QuantityConverter {
                 return value;
             }
                 
-            case "oz": 
+            case "floz": 
                 return Math.round(value * 10) / 10;
                 
             case "cup":
@@ -290,6 +295,9 @@ export class QuantityConverter {
                 
                 return value;
             }
+                
+            case "oz": 
+                return Math.round(value * 10) / 10;
         }
         
         return 0;
@@ -320,13 +328,13 @@ export class QuantityConverter {
                 return value === 0.5 
                     || (value >= 1 && value <= 6 && value % 1 >= 0 && value % 1 <= 0.1);
                 
-            case "oz": 
-                return value > 1;
+            case "floz": 
+                return value >= 1;
                 
             case "cup":
                 var decimal = value % 1;
                 return decimal === 0
-                    || decimal === 0.125 || decimal === 0.25 || decimal === 0.333 
+                    || decimal === 0.25 || decimal === 0.333 
                     || decimal === 0.375 || decimal === 0.5 || decimal === 0.666 
                     || decimal === 0.625 || decimal === 0.75 || decimal === 0.875;
                 
@@ -334,7 +342,7 @@ export class QuantityConverter {
                 return value > 1;
                 
             case "kg": 
-                return value > 0.1;
+                return value >= 1;
                 
             case "lb": 
                 var decimal = value % 1;
@@ -342,6 +350,9 @@ export class QuantityConverter {
                     || decimal === 0.25 || decimal === 0.333
                     || decimal === 0.5 || decimal === 0.666 
                     || decimal === 0.75;
+                
+            case "oz": 
+                return value > 1;
         }
         
         return false;

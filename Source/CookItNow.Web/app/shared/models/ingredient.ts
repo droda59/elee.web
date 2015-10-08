@@ -1,6 +1,6 @@
 import {Quantity} from "shared/models/quantity"; 
 
-export interface Ingredient {
+export class Ingredient {
     id: number;
     subrecipeId: number;
     name: string;
