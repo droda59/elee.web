@@ -1,19 +1,19 @@
 import {Timer} from "shared/models/timer";
 import {TimerPart} from "quick-recipe/models/quick-recipe";
+import {TimerCoordinator} from "shared/timer-coordinator";
 import {inject} from "aurelia-framework";
-import {EventAggregator} from "aurelia-event-aggregator";
 
-@inject (EventAggregator)
+@inject (TimerCoordinator)
 export class StepTimer {
 	timer: Timer;
 	
-	private _eventAggregator: EventAggregator;
+	private _timerCoordinator: TimerCoordinator;
 	
-	constructor(eventAggregator: EventAggregator) {
-		this._eventAggregator = eventAggregator;
+	constructor(timerCoordinator: TimerCoordinator) {
+		this._timerCoordinator = timerCoordinator;
 	}
 	
 	activate(model: TimerPart) {
-        this.timer = new Timer(this._eventAggregator, model.value, model.action);
+        this.timer = new Timer(this._timerCoordinator, model.value, model.action);
 	}
 }

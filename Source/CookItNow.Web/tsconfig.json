@@ -56,6 +56,7 @@
         "./app/quick-recipe/models/quick-recipe.ts",
         "./app/shared/aurelia-materialize.ts",
         "./app/shared/text-utils.ts",
+        "./app/shared/timer-coordinator.ts",
         "./app/shared/settings-manager.ts",
         "./app/shared/quantity-converter.ts",
         "./app/shared/components/comments-form.ts", 

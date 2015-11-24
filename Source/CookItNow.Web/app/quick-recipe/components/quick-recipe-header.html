@@ -38,12 +38,12 @@
 							</div>
 						
 							<div class="header-dropdown active-timers right">
-								<a if.bind="activeTimers.length" click.trigger="toggleMinimizeActiveTimers()" class="dropdown-button ${activeTimersSectionActive ? 'active' : ''} au-animate">
+								<a if.bind="timerCoordinator.activeTimers.length" click.trigger="toggleMinimizeActiveTimers()" class="dropdown-button ${timerCoordinator.activeTimers.length ? 'active' : ''} au-animate">
 									<i class="material-icons small white-text">av_timer</i>
 								</a>
-								<div class="dropdown-content" show.bind="activeTimersSectionActive">
+								<div class="dropdown-content" show.bind="timerCoordinator.activeTimers.length">
 									<ul class="collection">
-										<li repeat.for="timer of activeTimers" class="collection-item avatar valign-wrapper active-timer au-animate">
+										<li repeat.for="timer of timerCoordinator.activeTimers" class="collection-item avatar valign-wrapper active-timer au-animate">
 											<i class="material-icons circle ${timer.state == 'isAlmostDone' ? 'yellow' : timer.state == 'isAlmosterDone' ? 'red' : 'green'}">av_timer</i>
 											<span class="title">${timer.action}</span>
 											<p class="${timer.state == 'isAlmostDone' ? 'yellow-text' : timer.state == 'isAlmosterDone' ? 'red-text' : 'green-text'}">

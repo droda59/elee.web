@@ -1,8 +1,8 @@
-import {EventAggregator} from "aurelia-event-aggregator";
 import {computedFrom} from "aurelia-framework"; 
+import {TimerCoordinator} from "shared/timer-coordinator";
 
 export class Timer {
-	private _eventAggregator: EventAggregator;
+    private _timerCoordinator: TimerCoordinator;
     private _originalSeconds: number;
     private _remainingSeconds: number;
     duration: string;
@@ -11,8 +11,8 @@ export class Timer {
     state: string;
     timer: number;
 	
-    constructor(eventAggregator: EventAggregator, duration: string, action: string) {
-		this._eventAggregator = eventAggregator;
+    constructor(timerCoordinator: TimerCoordinator, duration: string, action: string) {
+        this._timerCoordinator = timerCoordinator;
         this.duration = duration;
         this.action = action;
         this.isStopped = true;
@@ -23,7 +23,7 @@ export class Timer {
     
     start() {
         if (!this.timer) {
-            this._eventAggregator.publish("TIMERSTARTED", this);
+            this._timerCoordinator.startTimer(this);
             this.play();
         }
     }
@@ -59,7 +59,7 @@ export class Timer {
     delete() {
         clearInterval(this.timer);
         this.timer = null;
-        this._eventAggregator.publish("TIMERDELETED", this);
+        this._timerCoordinator.deleteTimer(this);
     }
     
     @computedFrom("_remainingSeconds")
