@@ -1,7 +1,7 @@
 import {inject} from "aurelia-framework";
 import {HttpClient} from "aurelia-http-client";
 import {I18N} from 'aurelia-i18n';
-import {QuickRecipe, Step} from "quick-recipe/models/quick-recipe";
+import {QuickRecipe, Step, IngredientPart, IngredientEnumerationPart} from "quick-recipe/models/quick-recipe";
 import {Ingredient} from "shared/models/ingredient";
 
 class QuickRecipeSubrecipeIngredient {
@@ -105,6 +105,8 @@ export class QuickRecipePage {
 			return;
 		}
 		
+		this.activateStepIngredients(this.previousStep, false);
+		
 		this._currentStepIndex--;
 		
 		this.nextestStep = this.nextestStep;
@@ -119,6 +121,8 @@ export class QuickRecipePage {
 			this.isRecipeDone = true;
 			return;
 		}
+		
+		this.activateStepIngredients(this.currentStep, true);
 		
 		this._currentStepIndex++;
 		
@@ -181,5 +185,29 @@ export class QuickRecipePage {
 	
 	get isLastStep(): boolean {
 		return this._currentStepIndex == this.recipe.steps.length - 1;
+	}
+	
+	private activateStepIngredients(step: Step, activate: boolean): void {
+		if (step.subrecipeId >= 0) {
+			var ingredientParts: IngredientPart[] = <IngredientPart[]>step.parts.filter(
+				part => part.type == "ingredient"
+			);
+			ingredientParts.forEach(part => {
+				this.recipe.ingredients
+					.filter(ingredient => ingredient.id === part.ingredient.id)
+					.forEach(element => element.done = activate);
+			});
+			
+			var enumerationParts = <IngredientEnumerationPart[]>step.parts.filter(
+				part => part.type == "enumeration"
+			);
+			enumerationParts.forEach(enumeration => {
+				enumeration.ingredients.forEach(part => {
+					this.recipe.ingredients
+						.filter(ingredient => ingredient.id === part.id)
+						.forEach(element => element.done = activate);
+				});
+			});
+		}
 	}
 }

@@ -51,6 +51,9 @@
                             border: none;
                             background: none;
                             
+                            .ingredient.done {
+                                text-decoration: line-through;
+                            }
                             .select-wrapper input.select-dropdown {
                                 width: 100px;
                             }
@@ -78,6 +81,7 @@
             width: calc(100% - 396px);
             height: calc(100vh - 165px);
             overflow: hidden;
+            overflow-y: auto;
             position: relative;
             
             .subrecipe-titles {
@@ -101,6 +105,11 @@
             .recipe-content {
                 height: 100%;
                 top: 0;
+                
+                .navbar {
+                    position: fixed;
+                    width: calc(100% - 396px);
+                }
             }
             .current-step-container {
                 display: flex;
@@ -119,10 +128,14 @@
             }
             
             .step-actions {
-                position: absolute;
-                bottom: 0;
-                right: 0;
+                // position: absolute;
+                // bottom: 0;
+                // right: 0;
                 z-index: 1;
+                
+                position: fixed;
+                bottom: 50px;
+                right: 10px;
                 
                 .complete-button i {
                     margin: 0;
@@ -131,7 +144,7 @@
             
             .step {
                 padding: 0 20px;
-                position: absolute;
+                // position: absolute;
                 
                 .post-step {
                     margin: 0 0 0 2rem;

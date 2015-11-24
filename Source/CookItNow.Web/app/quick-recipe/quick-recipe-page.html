@@ -80,7 +80,11 @@
 							</div>
 						</nav>
 					</div>
-  
+					
+					<div repeat.for="step of recipe.steps">
+						<quick-recipe-step step.bind="step" class="step"></quick-recipe-step>
+					</div>
+<!--  
 					<quick-recipe-step step.bind="previousestStep" class="step previousest-step" style="top: ${previousestStepPosition}px"></quick-recipe-step>
 					<quick-recipe-step step.bind="previousStep" class="step previous-step" style="top: ${previousStepPosition}px"></quick-recipe-step>
 					
@@ -90,7 +94,7 @@
 					
 					<quick-recipe-step step.bind="nextStep" class="step next-step" style="top: ${nextStepPosition}px"></quick-recipe-step>
 					<quick-recipe-step step.bind="nextestStep" class="step nextest-step" style="top: ${nextestStepPosition}px"></quick-recipe-step>
-					
+-->
 					<span class="step-actions">
 						<a class="complete-button waves-light btn ${isFirstStep ? 'disabled' : ''}" click.delegate="backStep()"><i class="material-icons left">navigate_before</i></a>
 						<a class="complete-button waves-light btn" click.delegate="completeStep()">

@@ -171,11 +171,6 @@
           "type": "text",
           "value": "Sauce: "
         },
-            {
-              "type": "timer",
-              "value": "PT45M",
-              "action": "Cuire"
-            },
         {
           "type": "action",
           "value": "tamiser "
