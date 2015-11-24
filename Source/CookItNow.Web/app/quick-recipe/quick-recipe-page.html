@@ -81,9 +81,12 @@
 						</nav>
 					</div>
 					
-					<div repeat.for="step of recipe.steps">
-						<quick-recipe-step step.bind="step" class="step"></quick-recipe-step>
-					</div>
+					<quick-recipe-step 
+						repeat.for="step of recipe.steps" 
+						step.bind="step" 
+						id="step-${$index}" 
+						class="step">
+					</quick-recipe-step>
 <!--  
 					<quick-recipe-step step.bind="previousestStep" class="step previousest-step" style="top: ${previousestStepPosition}px"></quick-recipe-step>
 					<quick-recipe-step step.bind="previousStep" class="step previous-step" style="top: ${previousStepPosition}px"></quick-recipe-step>

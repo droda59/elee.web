@@ -131,6 +131,10 @@ export class QuickRecipePage {
 		this.currentStep = this.nextStep;
 		this.nextStep = this.recipe.steps[this._currentStepIndex + 1];
 		this.nextestStep = this.recipe.steps[this._currentStepIndex + 2];
+		
+		$('.main').animate({
+			scrollTop: $("#step-" + this._currentStepIndex).offset().top
+		}, 2000);
 	}
     
     get previousestStepPosition() {

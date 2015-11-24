@@ -143,8 +143,10 @@
             }
             
             .step {
-                padding: 0 20px;
+                // padding: 0 20px;
                 // position: absolute;
+                padding: 1rem 20px;
+                display: block;
                 
                 .post-step {
                     margin: 0 0 0 2rem;
