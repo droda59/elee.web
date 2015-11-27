@@ -39,15 +39,18 @@ System.config({
     "babel": "npm:babel-core@5.8.25",
     "babel-runtime": "npm:babel-runtime@5.8.24",
     "core-js": "npm:core-js@0.9.18",
-    "css": "github:systemjs/plugin-css@0.1.17",
+    "css": "github:systemjs/plugin-css@0.1.19",
+    "greensock": "github:greensock/GreenSock-JS@1.18.0",
+    "gsap": "npm:gsap@1.18.0",
     "jquery": "github:components/jquery@2.1.4",
-    "materialize": "github:Dogfalo/materialize@0.97.1",
+    "materialize": "npm:materialize-css@0.97.3",
     "moment": "npm:moment@2.10.6",
+    "scrollmagic": "npm:scrollmagic@2.0.5",
     "text": "github:systemjs/plugin-text@0.0.2",
     "traceur": "github:jmcriffey/bower-traceur@0.0.91",
     "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.91",
     "github:Dogfalo/materialize@0.97.1": {
-      "css": "github:systemjs/plugin-css@0.1.17",
+      "css": "github:systemjs/plugin-css@0.1.19",
       "jquery": "github:components/jquery@2.1.4"
     },
     "github:aurelia/animator-css@0.18.0": {
@@ -216,7 +219,7 @@ System.config({
       "aurelia-dependency-injection": "github:aurelia/dependency-injection@0.12.1",
       "aurelia-event-aggregator": "github:aurelia/event-aggregator@0.10.0",
       "aurelia-templating": "github:aurelia/templating@0.17.3",
-      "css": "github:systemjs/plugin-css@0.1.17",
+      "css": "github:systemjs/plugin-css@0.1.19",
       "jquery": "github:components/jquery@2.1.4",
       "materialize": "github:Dogfalo/materialize@0.97.1"
     },
@@ -237,6 +240,9 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.2",
       "systemjs-json": "github:systemjs/plugin-json@0.1.0"
     },
+    "npm:gsap@1.18.0": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
@@ -248,6 +254,10 @@ System.config({
     },
     "npm:process@0.11.2": {
       "assert": "github:jspm/nodelibs-assert@0.1.0"
+    },
+    "npm:scrollmagic@2.0.5": {
+      "gsap": "npm:gsap@1.18.0",
+      "jquery": "github:components/jquery@2.1.4"
     },
     "npm:util@0.10.3": {
       "inherits": "npm:inherits@2.0.1",

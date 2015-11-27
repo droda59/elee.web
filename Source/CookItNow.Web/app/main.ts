@@ -1,11 +1,9 @@
-import {I18N} from "aurelia-i18n";
-import {ConventionalViewStrategy} from "aurelia-templating";
- 
 export function configure(aurelia) {
     aurelia.use
         .standardConfiguration()
         .developmentLogging()
         .globalResources("shared/aurelia-materialize")
+	    // .plugin("scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap")
 	    .plugin("aurelia-animator-css")
 	    .plugin("aurelia-dialog")
         .plugin("aurelia-i18n", (instance) => {

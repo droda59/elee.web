@@ -1,6 +1,10 @@
 import {inject} from "aurelia-framework";
 import {HttpClient} from "aurelia-http-client";
-import {I18N} from 'aurelia-i18n';
+import {I18N} from "aurelia-i18n";
+import * as ScrollMagic from "scrollmagic";
+import "scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap";
+import "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators";
+import * as TweenMax from "gsap";
 import {QuickRecipe, Step, IngredientPart, IngredientEnumerationPart} from "quick-recipe/models/quick-recipe";
 import {Ingredient} from "shared/models/ingredient";
 
@@ -27,10 +31,17 @@ export class QuickRecipePage {
 	private _currentStepIndex: number = 0;
     private _http: HttpClient;
 	private _i18n: I18N;
+	private _scrollController;
 	
 	constructor(http: HttpClient, i18n: I18N) {
 		this._http = http;
 		this._i18n = i18n;
+		
+        this._scrollController = new ScrollMagic.Controller({
+			options: {
+				container: ".recipe-content"
+			}
+		});
 	}
 	
 	activate(route, routeConfig) {
@@ -95,6 +106,23 @@ export class QuickRecipePage {
 	startRecipe(): void {
 		this.isRecipeStarted = true;
 		
+		this.recipe.steps.forEach((step, index) => {
+			var tween = TweenMax.to("#step-" + index + " .step", 0.5, { backgroundColor: "red", repeat: 1, yoyo: true });
+	
+			var scene = new ScrollMagic.Scene({ triggerElement: "#step-" + index, offset: 100, duration: 100 })
+							.setTween(tween)
+							.setPin("#step-" + index + " .step")
+							.addIndicators()
+							.addTo(this._scrollController);
+		});
+// 		var tween = TweenMax.to("#step-6 .step", 0.5, { backgroundColor: "red", repeat: 1, yoyo: true });
+// 
+// 		var scene = new ScrollMagic.Scene({ triggerElement: "#step-6", offset: 100, duration: 100 })
+// 						.setTween(tween)
+// 						.setPin("#step-6 .step")
+// 						.addIndicators()
+// 						.addTo(this._scrollController);
+		
 		this.currentStep = this.recipe.steps[this._currentStepIndex];
 		this.nextStep = this.recipe.steps[this._currentStepIndex + 1];
 		this.nextestStep = this.recipe.steps[this._currentStepIndex + 2];
@@ -135,6 +163,7 @@ export class QuickRecipePage {
 		$('.main').animate({
 			scrollTop: $("#step-" + this._currentStepIndex).offset().top
 		}, 2000);
+		// this._scrollController.scrollTo("#step-" + this._currentStepIndex);
 	}
     
     get previousestStepPosition() {
