@@ -2,17 +2,21 @@
 	<require from="shared/value-converters/quantity-human-format"></require>
 	
 	<span class="ingredient ${ingredient.done ? 'done' : ''}">
-		<span class="value">${convertibleMeasureUnit.value | quantityHumanFormat:convertibleMeasureUnit.unit}</span>
-		<span class="unit">${'quantities.' + convertibleMeasureUnit.unit | t: { 'count': convertibleMeasureUnit.value }}</span>
+		<span class="emphasis">
+			${convertibleMeasureUnit.value | quantityHumanFormat:convertibleMeasureUnit.unit}
+			${'quantities.' + convertibleMeasureUnit.unit | t: { 'count': convertibleMeasureUnit.value }}
+		</span>
 		
 		<span if.bind="showBoth">
 			(
-			<span class="value">${offConvertibleMeasureUnit.value | quantityHumanFormat:offConvertibleMeasureUnit.unit}</span>
-			<span class="unit">${'quantities.' + offConvertibleMeasureUnit.unit | t: { 'count': offConvertibleMeasureUnit.value }}</span>
+			<span class="emphasis">
+				${offConvertibleMeasureUnit.value | quantityHumanFormat:offConvertibleMeasureUnit.unit}
+				${'quantities.' + offConvertibleMeasureUnit.unit | t: { 'count': offConvertibleMeasureUnit.value }}
+			</span>
 			)
 		</span>
 		
-		<span class="text">${nextWord} </span>
-		<span class="type">${ingredientName} <span if.bind="requirements" class="requirements">(${ingredient.requirements})</span></span> 
+		<span>${nextWord} </span>
+		<span class="emphasis">${ingredientName} <span if.bind="requirements" class="requirements">(${ingredient.requirements})</span></span> 
 	</span>
 </template>

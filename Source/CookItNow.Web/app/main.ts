@@ -3,7 +3,6 @@ export function configure(aurelia) {
         .standardConfiguration()
         .developmentLogging()
         .globalResources("shared/aurelia-materialize")
-	    // .plugin("scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap")
 	    .plugin("aurelia-animator-css")
 	    .plugin("aurelia-dialog")
         .plugin("aurelia-i18n", (instance) => {

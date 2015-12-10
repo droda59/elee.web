@@ -1,12 +1,14 @@
 import {inject} from "aurelia-framework";
 import {HttpClient} from "aurelia-http-client";
 import {I18N} from "aurelia-i18n";
+import {QuickRecipe, Step, IngredientPart, IngredientEnumerationPart} from "quick-recipe/models/quick-recipe";
+import {Ingredient} from "shared/models/ingredient";
+import * as moment from "moment";
 import * as ScrollMagic from "scrollmagic";
 import "scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap";
 import "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators";
 import * as TweenMax from "gsap";
-import {QuickRecipe, Step, IngredientPart, IngredientEnumerationPart} from "quick-recipe/models/quick-recipe";
-import {Ingredient} from "shared/models/ingredient";
+import "gsap/src/uncompressed/plugins/ScrollToPlugin";
 
 class QuickRecipeSubrecipeIngredient {
 	subrecipeTitle: string;
@@ -22,13 +24,7 @@ export class QuickRecipePage {
 	isRecipeStarted: boolean;
 	isRecipeDone: boolean;
 	
-	previousestStep: Step;
-	previousStep: Step;
-	currentStep: Step;
-	nextStep: Step;
-	nextestStep: Step;
-	
-	private _currentStepIndex: number = 0;
+	private _currentStepIndex: number = undefined;
     private _http: HttpClient;
 	private _i18n: I18N;
 	private _scrollController;
@@ -37,11 +33,10 @@ export class QuickRecipePage {
 		this._http = http;
 		this._i18n = i18n;
 		
-        this._scrollController = new ScrollMagic.Controller({
-			options: {
-				container: ".recipe-content"
-			}
-		});
+        this._scrollController = new ScrollMagic.Controller()
+			.scrollTo(function (newPos) {
+				TweenMax.to(window, 0.5, { scrollTo: { y: newPos }});
+			});
 	}
 	
 	activate(route, routeConfig) {
@@ -105,43 +100,70 @@ export class QuickRecipePage {
 	
 	startRecipe(): void {
 		this.isRecipeStarted = true;
+		this._currentStepIndex = 0;
 		
 		this.recipe.steps.forEach((step, index) => {
-			var tween = TweenMax.to("#step-" + index + " .step", 0.5, { backgroundColor: "red", repeat: 1, yoyo: true });
-	
-			var scene = new ScrollMagic.Scene({ triggerElement: "#step-" + index, offset: 100, duration: 100 })
-							.setTween(tween)
-							.setPin("#step-" + index + " .step")
-							.addIndicators()
-							.addTo(this._scrollController);
+			TweenMax.set("#step-" + index + " p", { marginLeft: "100px", opacity: "0" });
+			TweenMax.set("#step-" + index + " span", { fontSize: "0.5rem" });
+			TweenMax.set("#step-" + index + " .emphasis", { fontSize: "0.5rem" });
+			
+			var sceneTop = new ScrollMagic
+				.Scene({ triggerElement: "#step-" + index, offset: 100, duration: 100 })
+				.setPin("#step-" + index + " p")
+				.setClassToggle("#step-" + index + " p", "current")
+				.addTo(this._scrollController);
+				
+			var timelineTop = new TimelineMax().add([
+				TweenMax.to("#step-" + index + " p", 2, { marginLeft: "100px", opacity: "0" }),
+				TweenMax.to("#step-" + index + " span", 2, { fontSize: "0.5rem" }),
+				TweenMax.to("#step-" + index + " .emphasis", 2, { fontSize: "0.5rem" })
+			]);
+			
+			var timelineBottom = new TimelineMax().add([
+				TweenMax.to("#step-" + index + " p", 2, { marginLeft: "-100px", opacity: "1" }),
+				TweenMax.to("#step-" + index + " span", 2, { fontSize: "1rem" }),
+				TweenMax.to("#step-" + index + " .emphasis", 2, { fontSize: "2rem" })
+			]);
+				
+			var isEnumeration = step.parts.filter(part => part.type == "enumeration").length > 0;
+			if (isEnumeration) {
+				TweenMax.set("#step-" + index + " ul", { margin: "0rem 2rem 0rem 3rem" });
+				TweenMax.set("#step-" + index + " li", { lineHeight: "0.5rem", padding: "0px 20px" });
+				
+				// sceneTop.setClassToggle("#step-" + index + " li label", "visible");
+				// sceneTop.setClassToggle("#step-" + index + " p", "current");
+				
+				timelineTop = new TimelineMax().add([
+					TweenMax.to("#step-" + index + " p", 2, { marginLeft: "100px", opacity: "0" }),
+					TweenMax.to("#step-" + index + " span", 2, { fontSize: "0.5rem" }),
+					TweenMax.to("#step-" + index + " .emphasis", 2, { fontSize: "0.5rem" }),
+					TweenMax.to("#step-" + index + " ul", 2, { margin: "0rem 2rem 0rem 3rem" }),
+					TweenMax.to("#step-" + index + " li", 2, { lineHeight: "0.5rem", padding: "0px 20px" })
+				]);
+				
+				timelineBottom = new TimelineMax().add([
+					TweenMax.to("#step-" + index + " p", 2, { marginLeft: "-100px", opacity: "1" }),
+					TweenMax.to("#step-" + index + " span", 2, { fontSize: "1rem" }),
+					TweenMax.to("#step-" + index + " .emphasis", 2, { fontSize: "2rem" }),
+					TweenMax.to("#step-" + index + " ul", 2, { margin: "1rem 2rem 1rem 3rem" }),
+					TweenMax.to("#step-" + index + " li", 2, { lineHeight: "1.5rem", padding: "10px 20px" })
+				]);
+			}
+			
+			new ScrollMagic
+				.Scene({ triggerElement: "#step-" + index, offset: 250, duration: 300 })
+				.setTween(timelineTop)
+				.addTo(this._scrollController);
+				
+			new ScrollMagic
+				.Scene({ triggerElement: "#step-" + index, offset: -300, duration: 300 })
+				.setTween(timelineBottom)
+				.addTo(this._scrollController);
 		});
-// 		var tween = TweenMax.to("#step-6 .step", 0.5, { backgroundColor: "red", repeat: 1, yoyo: true });
-// 
-// 		var scene = new ScrollMagic.Scene({ triggerElement: "#step-6", offset: 100, duration: 100 })
-// 						.setTween(tween)
-// 						.setPin("#step-6 .step")
-// 						.addIndicators()
-// 						.addTo(this._scrollController);
-		
-		this.currentStep = this.recipe.steps[this._currentStepIndex];
-		this.nextStep = this.recipe.steps[this._currentStepIndex + 1];
-		this.nextestStep = this.recipe.steps[this._currentStepIndex + 2];
 	}
 	
-	backStep(): void {
-		if (this.isFirstStep) {
-			return;
-		}
-		
-		this.activateStepIngredients(this.previousStep, false);
-		
-		this._currentStepIndex--;
-		
-		this.nextestStep = this.nextestStep;
-		this.nextStep = this.currentStep;
-		this.currentStep = this.previousStep;
-		this.previousStep = this.recipe.steps[this._currentStepIndex - 1];
-		this.previousestStep = this.recipe.steps[this._currentStepIndex - 2];
+	goToCurrentStep(): void {
+		this._scrollController.scrollTo("#step-" + this._currentStepIndex);
 	}
 
 	completeStep(): void {
@@ -150,70 +172,21 @@ export class QuickRecipePage {
 			return;
 		}
 		
-		this.activateStepIngredients(this.currentStep, true);
+		var step = this.recipe.steps[this._currentStepIndex];
+		this.activateStepIngredients(step, true);
 		
 		this._currentStepIndex++;
 		
-		this.previousestStep = this.previousStep;
-		this.previousStep = this.currentStep;
-		this.currentStep = this.nextStep;
-		this.nextStep = this.recipe.steps[this._currentStepIndex + 1];
-		this.nextestStep = this.recipe.steps[this._currentStepIndex + 2];
-		
-		$('.main').animate({
-			scrollTop: $("#step-" + this._currentStepIndex).offset().top
-		}, 2000);
-		// this._scrollController.scrollTo("#step-" + this._currentStepIndex);
+		this.goToCurrentStep();
 	}
     
-    get previousestStepPosition() {
-		var previousestStepElement = $(".step.previousest-step")[0];
-		var previousStepElement = $(".step.previous-step")[0];
-		if (previousStepElement && previousestStepElement) {
-			return previousStepElement.offsetTop - (previousStepElement.offsetParent.clientHeight * 0.03) - previousestStepElement.offsetHeight;
-		}
-		
-		return 0;
-    }
-    
-    get previousStepPosition() {
-		var previousStepElement = $(".step.previous-step")[0];
-		var currentStepElement = $(".step.current-step")[0];
-		if (currentStepElement && previousStepElement) {
-			return currentStepElement.offsetTop - (currentStepElement.offsetParent.clientHeight * 0.06) - previousStepElement.offsetHeight;
-		}
-		
-		return 0;
-    }
-    
-    get nextStepPosition() {
-		var currentStepElement = $(".step.current-step")[0];
-		if (currentStepElement) {
-			return (currentStepElement.offsetTop + currentStepElement.offsetHeight) + (currentStepElement.offsetParent.clientHeight * 0.06);
-		}
-		
-		return 0;
-    }
-    
-    get nextestStepPosition() {
-		var nextStepElement = $(".step.next-step")[0];
-		if (nextStepElement) {
-			return (nextStepElement.offsetTop + nextStepElement.offsetHeight) + (nextStepElement.offsetParent.clientHeight * 0.03);
-		}
-		
-		return 0;
-    }
-	
 	get activeSubrecipeId(): number {
-		if (!this.currentStep) {
+		if (!this._currentStepIndex) {
 			return -2;
 		}
 		
-		return this.currentStep.subrecipeId;
-	}
-	
-	get isFirstStep(): boolean {
-		return this._currentStepIndex == 0;
+		var step = this.recipe.steps[this._currentStepIndex];
+		return step.subrecipeId;
 	}
 	
 	get isLastStep(): boolean {

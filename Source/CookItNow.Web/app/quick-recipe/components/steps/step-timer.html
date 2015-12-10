@@ -2,7 +2,7 @@
 	<require from="shared/value-converters/duration-format"></require>
 	<require from="shared/value-converters/time-format"></require>
 	
-	<span class="timer"> 
+	<span class="timer emphasis"> 
 		<a click.trigger="timer.start()"> 
 			<i class="material-icons">av_timer</i>
 			<span if.bind="timer.remainingTime === timer.originalTime">${timer.duration | durationFormat}</span>
