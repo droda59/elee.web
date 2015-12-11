@@ -108,6 +108,8 @@
                 top: 0;
                 
                 .navbar {
+                    background-color: black;
+                    z-index: 1;
                     position: fixed;
                     width: calc(100% - 396px);
                 }
@@ -149,7 +151,7 @@
                 padding: 1rem 20px;
                 display: block;
                 p {
-                   margin-left: 100px;
+                   margin-left: 200px;
                    width: 100%;
                 }
     

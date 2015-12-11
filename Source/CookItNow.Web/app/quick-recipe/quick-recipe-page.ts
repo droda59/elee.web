@@ -103,14 +103,13 @@ export class QuickRecipePage {
 		this._currentStepIndex = 0;
 		
 		this.recipe.steps.forEach((step, index) => {
-			TweenMax.set("#step-" + index + " p", { marginLeft: "100px", opacity: "0" });
+			TweenMax.set("#step-" + index + " p", { marginLeft: "200px", opacity: "0" });
 			TweenMax.set("#step-" + index + " span", { fontSize: "0.5rem" });
 			TweenMax.set("#step-" + index + " .emphasis", { fontSize: "0.5rem" });
 			
 			var sceneTop = new ScrollMagic
-				.Scene({ triggerElement: "#step-" + index, offset: 100, duration: 100 })
+				.Scene({ triggerElement: "#step-" + index, offset: 50, duration: 200 })
 				.setPin("#step-" + index + " p")
-				.setClassToggle("#step-" + index + " p", "current")
 				.addTo(this._scrollController);
 				
 			var timelineTop = new TimelineMax().add([
@@ -120,7 +119,7 @@ export class QuickRecipePage {
 			]);
 			
 			var timelineBottom = new TimelineMax().add([
-				TweenMax.to("#step-" + index + " p", 2, { marginLeft: "-100px", opacity: "1" }),
+				TweenMax.to("#step-" + index + " p", 2, { marginLeft: "-200px", opacity: "1" }),
 				TweenMax.to("#step-" + index + " span", 2, { fontSize: "1rem" }),
 				TweenMax.to("#step-" + index + " .emphasis", 2, { fontSize: "2rem" })
 			]);
@@ -130,8 +129,7 @@ export class QuickRecipePage {
 				TweenMax.set("#step-" + index + " ul", { margin: "0rem 2rem 0rem 3rem" });
 				TweenMax.set("#step-" + index + " li", { lineHeight: "0.5rem", padding: "0px 20px" });
 				
-				// sceneTop.setClassToggle("#step-" + index + " li label", "visible");
-				// sceneTop.setClassToggle("#step-" + index + " p", "current");
+				sceneTop.setClassToggle("#step-" + index + " li label", "visible");
 				
 				timelineTop = new TimelineMax().add([
 					TweenMax.to("#step-" + index + " p", 2, { marginLeft: "100px", opacity: "0" }),
@@ -142,7 +140,7 @@ export class QuickRecipePage {
 				]);
 				
 				timelineBottom = new TimelineMax().add([
-					TweenMax.to("#step-" + index + " p", 2, { marginLeft: "-100px", opacity: "1" }),
+					TweenMax.to("#step-" + index + " p", 2, { marginLeft: "-200px", opacity: "1" }),
 					TweenMax.to("#step-" + index + " span", 2, { fontSize: "1rem" }),
 					TweenMax.to("#step-" + index + " .emphasis", 2, { fontSize: "2rem" }),
 					TweenMax.to("#step-" + index + " ul", 2, { margin: "1rem 2rem 1rem 3rem" }),
@@ -151,12 +149,12 @@ export class QuickRecipePage {
 			}
 			
 			new ScrollMagic
-				.Scene({ triggerElement: "#step-" + index, offset: 250, duration: 300 })
+				.Scene({ triggerElement: "#step-" + index, offset: 250, duration: 400 })
 				.setTween(timelineTop)
 				.addTo(this._scrollController);
 				
 			new ScrollMagic
-				.Scene({ triggerElement: "#step-" + index, offset: -300, duration: 300 })
+				.Scene({ triggerElement: "#step-" + index, offset: -400, duration: 550 })
 				.setTween(timelineBottom)
 				.addTo(this._scrollController);
 		});
