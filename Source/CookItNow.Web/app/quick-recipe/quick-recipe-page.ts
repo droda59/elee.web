@@ -103,23 +103,23 @@ export class QuickRecipePage {
 		this._currentStepIndex = 0;
 		
 		this.recipe.steps.forEach((step, index) => {
-			TweenMax.set("#step-" + index + " p", { marginLeft: "200px", opacity: "0" });
+			TweenMax.set("#step-" + index + " p", { opacity: "0" });
 			TweenMax.set("#step-" + index + " span", { fontSize: "0.5rem" });
 			TweenMax.set("#step-" + index + " .emphasis", { fontSize: "0.5rem" });
 			
-			var sceneTop = new ScrollMagic
+			var sceneMiddle = new ScrollMagic
 				.Scene({ triggerElement: "#step-" + index, offset: 50, duration: 200 })
 				.setPin("#step-" + index + " p")
 				.addTo(this._scrollController);
 				
 			var timelineTop = new TimelineMax().add([
-				TweenMax.to("#step-" + index + " p", 2, { marginLeft: "100px", opacity: "0" }),
+				TweenMax.to("#step-" + index + " p", 2, { left: "250px", opacity: "0" }),
 				TweenMax.to("#step-" + index + " span", 2, { fontSize: "0.5rem" }),
 				TweenMax.to("#step-" + index + " .emphasis", 2, { fontSize: "0.5rem" })
 			]);
 			
 			var timelineBottom = new TimelineMax().add([
-				TweenMax.to("#step-" + index + " p", 2, { marginLeft: "-200px", opacity: "1" }),
+				TweenMax.to("#step-" + index + " p", 2, { left: "0", opacity: "1" }),
 				TweenMax.to("#step-" + index + " span", 2, { fontSize: "1rem" }),
 				TweenMax.to("#step-" + index + " .emphasis", 2, { fontSize: "2rem" })
 			]);
@@ -129,10 +129,10 @@ export class QuickRecipePage {
 				TweenMax.set("#step-" + index + " ul", { margin: "0rem 2rem 0rem 3rem" });
 				TweenMax.set("#step-" + index + " li", { lineHeight: "0.5rem", padding: "0px 20px" });
 				
-				sceneTop.setClassToggle("#step-" + index + " li label", "visible");
+				sceneMiddle.setClassToggle("#step-" + index + " li label", "visible");
 				
 				timelineTop = new TimelineMax().add([
-					TweenMax.to("#step-" + index + " p", 2, { marginLeft: "100px", opacity: "0" }),
+					TweenMax.to("#step-" + index + " p", 2, { left: "250px", opacity: "0" }),
 					TweenMax.to("#step-" + index + " span", 2, { fontSize: "0.5rem" }),
 					TweenMax.to("#step-" + index + " .emphasis", 2, { fontSize: "0.5rem" }),
 					TweenMax.to("#step-" + index + " ul", 2, { margin: "0rem 2rem 0rem 3rem" }),
@@ -140,7 +140,7 @@ export class QuickRecipePage {
 				]);
 				
 				timelineBottom = new TimelineMax().add([
-					TweenMax.to("#step-" + index + " p", 2, { marginLeft: "-200px", opacity: "1" }),
+					TweenMax.to("#step-" + index + " p", 2, { left: "0", opacity: "1" }),
 					TweenMax.to("#step-" + index + " span", 2, { fontSize: "1rem" }),
 					TweenMax.to("#step-" + index + " .emphasis", 2, { fontSize: "2rem" }),
 					TweenMax.to("#step-" + index + " ul", 2, { margin: "1rem 2rem 1rem 3rem" }),
@@ -148,15 +148,21 @@ export class QuickRecipePage {
 				]);
 			}
 			
-			new ScrollMagic
+			var sceneTop = new ScrollMagic
 				.Scene({ triggerElement: "#step-" + index, offset: 250, duration: 400 })
 				.setTween(timelineTop)
 				.addTo(this._scrollController);
 				
-			new ScrollMagic
-				.Scene({ triggerElement: "#step-" + index, offset: -400, duration: 550 })
+			var sceneBottom = new ScrollMagic
+				.Scene({ triggerElement: "#step-" + index, offset: -350, duration: 400 })
 				.setTween(timelineBottom)
 				.addTo(this._scrollController);
+				
+			if (index == 2) {
+				sceneMiddle.addIndicators({ name: "middle-" + index });
+				sceneTop.addIndicators({ name: "top-" + index });
+				sceneBottom.addIndicators({ name: "bottom-" + index });
+			}
 		});
 	}
 	

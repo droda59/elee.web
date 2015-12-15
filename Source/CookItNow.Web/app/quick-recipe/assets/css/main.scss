@@ -112,6 +112,7 @@
                     z-index: 1;
                     position: fixed;
                     width: calc(100% - 396px);
+                    top: 102px;
                 }
             }
             .current-step-container {
@@ -131,9 +132,6 @@
             }
             
             .step-actions {
-                // position: absolute;
-                // bottom: 0;
-                // right: 0;
                 z-index: 1;
                 
                 position: fixed;
@@ -146,13 +144,12 @@
             }
             
             .step {
-                // padding: 0 20px;
-                // position: absolute;
                 padding: 1rem 20px;
                 display: block;
+                position: relative;
+                
                 p {
-                   margin-left: 200px;
-                   width: 100%;
+                    width: 100%;
                 }
     
                 .post-step {
@@ -188,10 +185,16 @@
                     color: dodgerblue;
                 }
             }
+            .step:first-of-type {
+                margin-top: 400px;
+            }
+            .step:last-of-type {
+                margin-bottom: 400px;
+            }
         }
     }
     
     footer {
-        background-color: rgba(29, 30, 34, 0.7);
+        background-color: black;
     }
 }
