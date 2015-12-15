@@ -2,6 +2,11 @@
 @import "variables";
 @import "core";
 
+html,
+body {
+    height: 100%;
+}
+
 body {
 	font-family: $font-raleway;
 }

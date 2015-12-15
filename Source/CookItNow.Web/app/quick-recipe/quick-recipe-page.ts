@@ -103,71 +103,56 @@ export class QuickRecipePage {
 		this._currentStepIndex = 0;
 		
 		this.recipe.steps.forEach((step, index) => {
-			TweenMax.set("#step-" + index + " p", { opacity: "0" });
-			TweenMax.set("#step-" + index + " span", { fontSize: "0.5rem" });
-			TweenMax.set("#step-" + index + " .emphasis", { fontSize: "0.5rem" });
+			var elementId = "#step-" + index;
+			TweenMax.set(elementId + " p", { opacity: "0" });
+			TweenMax.set(elementId + " span", { fontSize: "0.5rem" });
+			TweenMax.set(elementId + " .emphasis", { fontSize: "0.5rem" });
+			TweenMax.set(elementId + " ul", { margin: "0rem 2rem 0rem 3rem" });
+			TweenMax.set(elementId + " li", { lineHeight: "0.5rem", padding: "0px 20px" });
 			
 			var sceneMiddle = new ScrollMagic
-				.Scene({ triggerElement: "#step-" + index, offset: 50, duration: 200 })
-				.setPin("#step-" + index + " p")
+				.Scene({ triggerElement: elementId, offset: 50, duration: 200 })
+				.setPin(elementId + " p")
 				.addTo(this._scrollController);
-				
-			var timelineTop = new TimelineMax().add([
-				TweenMax.to("#step-" + index + " p", 2, { left: "250px", opacity: "0" }),
-				TweenMax.to("#step-" + index + " span", 2, { fontSize: "0.5rem" }),
-				TweenMax.to("#step-" + index + " .emphasis", 2, { fontSize: "0.5rem" })
-			]);
-			
-			var timelineBottom = new TimelineMax().add([
-				TweenMax.to("#step-" + index + " p", 2, { left: "0", opacity: "1" }),
-				TweenMax.to("#step-" + index + " span", 2, { fontSize: "1rem" }),
-				TweenMax.to("#step-" + index + " .emphasis", 2, { fontSize: "2rem" })
-			]);
 				
 			var isEnumeration = step.parts.filter(part => part.type == "enumeration").length > 0;
 			if (isEnumeration) {
-				TweenMax.set("#step-" + index + " ul", { margin: "0rem 2rem 0rem 3rem" });
-				TweenMax.set("#step-" + index + " li", { lineHeight: "0.5rem", padding: "0px 20px" });
-				
-				sceneMiddle.setClassToggle("#step-" + index + " li label", "visible");
-				
-				timelineTop = new TimelineMax().add([
-					TweenMax.to("#step-" + index + " p", 2, { left: "250px", opacity: "0" }),
-					TweenMax.to("#step-" + index + " span", 2, { fontSize: "0.5rem" }),
-					TweenMax.to("#step-" + index + " .emphasis", 2, { fontSize: "0.5rem" }),
-					TweenMax.to("#step-" + index + " ul", 2, { margin: "0rem 2rem 0rem 3rem" }),
-					TweenMax.to("#step-" + index + " li", 2, { lineHeight: "0.5rem", padding: "0px 20px" })
-				]);
-				
-				timelineBottom = new TimelineMax().add([
-					TweenMax.to("#step-" + index + " p", 2, { left: "0", opacity: "1" }),
-					TweenMax.to("#step-" + index + " span", 2, { fontSize: "1rem" }),
-					TweenMax.to("#step-" + index + " .emphasis", 2, { fontSize: "2rem" }),
-					TweenMax.to("#step-" + index + " ul", 2, { margin: "1rem 2rem 1rem 3rem" }),
-					TweenMax.to("#step-" + index + " li", 2, { lineHeight: "1.5rem", padding: "10px 20px" })
-				]);
+				sceneMiddle.setClassToggle(elementId + " li label", "visible");
 			}
+				
+			var timelineTop = new TimelineMax().add([
+				TweenMax.to(elementId + " p", 2, { left: "250px", opacity: "0" }),
+				TweenMax.to(elementId + " span", 2, { fontSize: "0.5rem" }),
+				TweenMax.to(elementId + " .emphasis", 2, { fontSize: "0.5rem" }),
+				TweenMax.to(elementId + " ul", 2, { margin: "0rem 2rem 0rem 3rem" }),
+				TweenMax.to(elementId + " li", 2, { lineHeight: "0.5rem", padding: "0px 20px" })
+			]);
 			
 			var sceneTop = new ScrollMagic
-				.Scene({ triggerElement: "#step-" + index, offset: 250, duration: 400 })
+				.Scene({ triggerElement: elementId, offset: 250, duration: 400 })
 				.setTween(timelineTop)
 				.addTo(this._scrollController);
+			
+			var timelineBottom = new TimelineMax().add([
+				TweenMax.to(elementId + " p", 2, { left: "0", opacity: "1" }),
+				TweenMax.to(elementId + " span", 2, { fontSize: "1rem" }),
+				TweenMax.to(elementId + " .emphasis", 2, { fontSize: "2rem" }),
+				TweenMax.to(elementId + " ul", 2, { margin: "1rem 2rem 1rem 3rem" }),
+				TweenMax.to(elementId + " li", 2, { lineHeight: "1.5rem", padding: "10px 20px" })
+			]);
 				
 			var sceneBottom = new ScrollMagic
-				.Scene({ triggerElement: "#step-" + index, offset: -350, duration: 400 })
+				.Scene({ triggerElement: elementId, offset: -350, duration: 400 })
 				.setTween(timelineBottom)
 				.addTo(this._scrollController);
-				
-			if (index == 2) {
-				sceneMiddle.addIndicators({ name: "middle-" + index });
-				sceneTop.addIndicators({ name: "top-" + index });
-				sceneBottom.addIndicators({ name: "bottom-" + index });
-			}
 		});
+		
+		this.goToCurrentStep();
 	}
 	
 	goToCurrentStep(): void {
-		this._scrollController.scrollTo("#step-" + this._currentStepIndex);
+		var top = $("#step-" + this._currentStepIndex)[0].offsetTop - 200;
+		this._scrollController.scrollTo(top);
 	}
 
 	completeStep(): void {
