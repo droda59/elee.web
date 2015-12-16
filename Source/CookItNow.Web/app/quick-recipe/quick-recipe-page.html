@@ -75,7 +75,9 @@
 						<nav>
 							<div class="nav-wrapper">
 								<ul class="subrecipe-titles">
-									<li repeat.for="subrecipe of recipe.subrecipes" class="subrecipe-title ${$parent.activeSubrecipeId === subrecipe.id ? 'active' : ''}"><a href="#">${subrecipe.title}</a></li>
+									<li repeat.for="subrecipe of recipe.subrecipes" class="subrecipe-title ${$parent.activeSubrecipeId === subrecipe.id ? 'active' : ''}">
+										${subrecipe.title}
+									</li>
 								</ul>
 							</div>
 						</nav>

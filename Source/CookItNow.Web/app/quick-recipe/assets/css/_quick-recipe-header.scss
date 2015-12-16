@@ -17,7 +17,6 @@
             background-color: rgba(29, 30, 34, 0.5);
             height: 102px;
             border-bottom: 1px solid rgb(102, 103, 111);
-            
             a {
                 color: rgb(213, 217, 225);
             }
@@ -26,9 +25,21 @@
                 margin: 0;
             }
             
+            .block-button {
+                display: inline-block;
+                overflow-x: hidden;
+                cursor: pointer;
+                                    
+                i {
+                    height: 100%;
+                    line-height: 102px;
+                    display: inline-block;
+                    width: 102px;
+                }
+            }
+            
             .logo {
                 width: calc(396px + 20px);
-                padding-left: 100px;
             }
             .info {
                 width: calc(100% - 416px);
@@ -41,7 +52,6 @@
                 .dropdown-button {
                     height: 100%;
                     display: block;
-                    cursor: pointer;
                     line-height: 102px; 
                     overflow-x: hidden;
                                         
