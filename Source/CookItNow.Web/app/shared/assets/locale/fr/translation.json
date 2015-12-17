@@ -87,7 +87,7 @@
     "quickRecipe": {
         "originalRecipe": "Recette originale : ",  
         "timerTimeOfTotal": " de ",
-        "ingredientsSideTitle": "Ingrédients",
+        "ingredientsSideTitle": "Ingredients",
         "ingredientReplacementConjunction": "ou", 
         "servings": "Portions : ",
         "start": "Débuter",

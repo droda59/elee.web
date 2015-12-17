@@ -86,10 +86,12 @@
 					<quick-recipe-step repeat.for="step of recipe.steps" id="step-${$index}" step.bind="step" class="step"></quick-recipe-step>
 						
 					<span class="step-actions">
-						<a class="complete-button waves-light btn" click.delegate="goToCurrentStep()"><i class="material-icons left">navigate_before</i></a>
+						<a class="complete-button waves-light btn" click.delegate="goToCurrentStep()">
+							<i class="material-icons left">present_to_all</i>
+						</a>
 						<a class="complete-button waves-light btn" click.delegate="completeStep()">
 							<span if.bind="isLastStep" i18n="quickRecipe.finish">Finish</span>
-							<i if.bind="!isLastStep" class="material-icons right">navigate_next</i>
+							<i if.bind="!isLastStep" class="material-icons right">done</i>
 						</a>
 					</span>
 				</section>
