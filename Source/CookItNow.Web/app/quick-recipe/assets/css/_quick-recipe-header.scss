@@ -14,12 +14,12 @@
         
         nav {
             box-shadow: none;
-            background-color: rgba(29, 30, 34, 0.5);
+            // background-color: rgba(29, 30, 34, 0.5);
             height: 102px;
             border-bottom: 1px solid rgb(102, 103, 111);
             
             a {
-                color: rgb(213, 217, 225);
+                // color: rgb(213, 217, 225);
             }
             
             h3 {
@@ -39,10 +39,10 @@
                     text-align: center;
                 }
             }
-                .block-button:hover,
-                .block-button.active {
-                    background-color: rgba(226, 225, 221, 0.1);
-                }
+            .block-button:hover,
+            .block-button.active {
+                background-color: rgba(226, 225, 221, 0.1);
+            }
             
             .logo {
                 width: calc(396px + 20px);
@@ -54,13 +54,13 @@
             .dropdown-content {
                 display: block;
                 border: 1px solid #66676f;
-                background-color: rgba(29, 30, 34, 0.3);
+                // background-color: rgba(29, 30, 34, 0.3);
                 opacity: 1;
                 min-width: 400px;
-                color: white;
+                // color: white;
                 
                 li > span {
-                    color: white;
+                    // color: white;
                 }
             }
 
@@ -82,21 +82,21 @@
                         margin: 0;
                         
                         .collection-item {
-                            background: none;
+                            // background: none;
                             padding: 10px 0;
                             min-height: inherit;
                             
                             .circle {
-                                height: 20px;
-                                width: 30px;
+                                // height: 20px;
+                                // width: 30px;
                                 position: initial;
                                 padding-right: 10px;
                             }
                             i.circle {
                                 font-size: 22px;
                                 line-height: 20px;
-                                border-radius: 0;
-                                background: none !important;
+                                // border-radius: 0;
+                                // background: none !important;
                                 display: inline-block;
                             }
                             .title {
@@ -121,6 +121,7 @@
                                       font-size: 0.3rem;
                                       display: inline-block;
                                       padding: 0;
+                                      color: inherit;
                                       
                                       i {
                                           height: inherit;
