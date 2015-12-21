@@ -23,6 +23,7 @@ export class QuickRecipePage {
 	backgroundClass: string;
 	isRecipeStarted: boolean;
 	isRecipeDone: boolean;
+	isSidePanelHidden: boolean = false;
 	
 	private _currentStepIndex: number = undefined;
     private _http: HttpClient;
@@ -167,6 +168,10 @@ export class QuickRecipePage {
 		this._currentStepIndex++;
 		
 		this.goToCurrentStep();
+	}
+	
+	toggleSidePanelVisibility() {
+		this.isSidePanelHidden = !this.isSidePanelHidden; 
 	}
     
 	get activeSubrecipeId(): number {

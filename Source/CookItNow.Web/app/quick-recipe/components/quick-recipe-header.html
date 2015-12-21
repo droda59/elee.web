@@ -19,33 +19,11 @@
                     </div>
 					<div class="right info">
 						<h3>
-							<div class="header-dropdown recipe-info left">
-								<a class="dropdown-button ${recipeInfoSectionActive ? 'active' : ''}" click.trigger="toggleMinimizeRecipeInfo()">
-									<i class="material-icons left">arrow_drop_down</i>
-									${recipe.title}
-								</a>
-								<div class="dropdown-content" show.bind="recipeInfoSectionActive">
-									<div class="row">
-										<div>
-											<span i18n="quickRecipe.servings">Servings</span>${recipe.originalServings}
-										</div>
-									</div>
-									
-									<div class="row">
-										<ul>
-									        <li repeat.for="duration of recipe.durations">
-												<span>${duration.title} : ${duration.time | durationFormat}</span>
-									        </li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						
-							<div class="header-dropdown active-timers right">
-								<a if.bind="timerCoordinator.activeTimers.length" click.trigger="toggleMinimizeActiveTimers()" class="dropdown-button ${timerCoordinator.activeTimers.length ? 'active' : ''} au-animate">
+							<div class="active-timers right">
+								<a if.bind="timerCoordinator.activeTimers.length" click.trigger="toggleMinimizeActiveTimers()" class="block-button ${activeTimersSectionActive ? 'active' : ''} au-animate">
 									<i class="material-icons small white-text">av_timer</i>
 								</a>
-								<div class="dropdown-content" show.bind="timerCoordinator.activeTimers.length">
+								<div class="dropdown-content" show.bind="activeTimersSectionActive">
 									<ul class="collection">
 										<li repeat.for="timer of timerCoordinator.activeTimers" class="collection-item avatar valign-wrapper active-timer au-animate">
 											<i class="material-icons circle ${timer.state == 'isAlmostDone' ? 'yellow' : timer.state == 'isAlmosterDone' ? 'red' : 'green'}">av_timer</i>

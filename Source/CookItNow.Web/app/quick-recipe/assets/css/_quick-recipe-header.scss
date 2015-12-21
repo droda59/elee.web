@@ -39,6 +39,10 @@
                     text-align: center;
                 }
             }
+                .block-button:hover,
+                .block-button.active {
+                    background-color: rgba(226, 225, 221, 0.1);
+                }
             
             .logo {
                 width: calc(396px + 20px);
@@ -47,50 +51,16 @@
                 width: calc(100% - 416px);
             }
             
-            .header-dropdown {
-                height: 100%;
-                top: 0;
+            .dropdown-content {
+                display: block;
+                border: 1px solid #66676f;
+                background-color: rgba(29, 30, 34, 0.3);
+                opacity: 1;
+                min-width: 400px;
+                color: white;
                 
-                .dropdown-button {
-                    height: 100%;
-                    display: block;
-                    line-height: 102px; 
-                    overflow-x: hidden;
-                                        
-                    i {
-                        height: 100%;
-                        line-height: 102px;
-                    }
-                }
-                .dropdown-button:hover,
-                .dropdown-button.active {
-                    background-color: rgba(226, 225, 221, 0.1);
-                }
-                
-                .dropdown-content {
-                    display: block;
-                    border: 1px solid #66676f;
-                    background-color: rgba(29, 30, 34, 0.3);
-                    opacity: 1;
-                    min-width: 400px;
+                li > span {
                     color: white;
-                    
-                    li > span {
-                        color: white;
-                    }
-                }
-            }
-            
-            .recipe-info {
-                font-family: "Times New Roman";
-                
-                .dropdown-button {
-                    padding-right: 20px;
-                }
-                
-                .dropdown-content {
-                    padding: 10px 20px 0;
-                    top: 101px;
                 }
             }
 

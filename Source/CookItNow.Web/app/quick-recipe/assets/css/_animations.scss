@@ -8,12 +8,12 @@
         animation: fadeIn 3s ease-in-out;
     }
     
-    .active-timers .dropdown-button.au-enter-active {
+    .active-timers .block-button.au-enter-active {
         -webkit-animation: backgroundHighlight 2s ease-in-out;
         -moz-animation: backgroundHighlight 2s ease-in-out;
         animation: backgroundHighlight 2s ease-in-out;
     }
-    .active-timers .dropdown-button.au-leave-active {
+    .active-timers .block-button.au-leave-active {
         -webkit-animation: fadeIn 0.8s ease-in-out reverse;
         -moz-animation: fadeIn 0.8s ease-in-out reverse;
         animation: fadeIn 0.8s ease-in-out reverse;

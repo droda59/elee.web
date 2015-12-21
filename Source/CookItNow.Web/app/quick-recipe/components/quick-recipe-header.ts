@@ -27,10 +27,6 @@ export class QuickRecipeHeader {
 		this.activeTimersSectionActive = !this.activeTimersSectionActive; 
 	}
 	
-	toggleMinimizeRecipeInfo() {
-		this.recipeInfoSectionActive = !this.recipeInfoSectionActive; 
-	}
-	
 	editSettings() {
 		this._dialogService
 			.open({ viewModel: SettingsModal, model: this._settingsManager.settings})

@@ -12,23 +12,19 @@
 	    </header>
 		
 		<main class="row">
-			<aside class="ingredients col left z-depth-2">
+			<aside class="ingredients col left z-depth-2 ${isSidePanelHidden ? 'hidden' : ''}">
 				<div class="border-box">
 					<div class="content">
 						<div class="title parallax-container valign-wrapper">
-							<div class="section no-pad-bot">
-								<div class="container">
-									<div class="row center">
-										<h3 class="header col s12" i18n="quickRecipe.ingredientsSideTitle">Ingredients</h3>
-									</div>
-								</div>
+							<div class="center col s12">
+								<h3 i18n="quickRecipe.ingredientsSideTitle">Ingredients</h3>
 							</div>
 							<div class="parallax" materialize="parallax">
 								<img src="app/quick-recipe/assets/images/pouding.jpg" alt.bind="recipe.title">
 							</div>
 						</div>
 						
-						<div repeat.for="subrecipe of subrecipeIngredients" class="section">
+						<section repeat.for="subrecipe of subrecipeIngredients" class="section">
 							<h4 if.bind="subrecipe.subrecipeTitle" class="center">${subrecipe.subrecipeTitle}</h4>
 							<ul class="ingredient-list collection">
 								<li repeat.for="ingredient of subrecipe.ingredients" class="collection-item ingredient-item">
@@ -39,9 +35,7 @@
 									</small>
 								</li>
 							</ul>
-							
-							<div class="divider col m10 offset-m1"></div>
-						</div>
+						</section>
 					</div>
 				</div>
 			</aside>
@@ -86,6 +80,9 @@
 					<quick-recipe-step repeat.for="step of recipe.steps" id="step-${$index}" step.bind="step" class="step"></quick-recipe-step>
 						
 					<span class="step-actions">
+						<a class="complete-button waves-light btn" click.delegate="toggleSidePanelVisibility()">
+							<i class="material-icons left">toggle</i>
+						</a>
 						<a class="complete-button waves-light btn" click.delegate="goToCurrentStep()">
 							<i class="material-icons left">present_to_all</i>
 						</a>
