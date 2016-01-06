@@ -56,12 +56,16 @@ Preparation
 To be able to run the client app, you need to do the following: 
 
 - Install Node globally
-	https://nodejs.org/download/
+	Get NodeJS here : https://nodejs.org/download/
+	You can choose between the LTS version or the latest and greatest version. Both will work thus the latest might broke sometime.
 
 - Install jspm globally
 	! The latest Aurelia version uses the latest jspm beta version. However, there are 
 	stll known bugs in that version. So install the current release version of jspm. 
 	npm install jspm -g
+	
+- Install gulp globally
+	npm install gulp -g
 
 - Install app packages
 	navigate to solution folder /Source/CookItNow.Web/
