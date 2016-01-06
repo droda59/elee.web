@@ -31,6 +31,8 @@ var path = {
 
 var bundleConfig = {
     force: true, 
+    baseURL: '.',                   // `baseURL of the application` 
+    configPath: './config.js',      // `config.js` path. Must be within `baseURL` 
     packagePath: ".",
     bundles: {
         "dist/app-bundle": {
