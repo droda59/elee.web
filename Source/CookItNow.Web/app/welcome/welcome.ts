@@ -18,8 +18,6 @@ export class Welcome {
 		this._element = element;
 
 		this.recipes.push({ id: "1", title: "Pouding au chocolat" });
-		this.recipes.push({ id: "2", title: "Gaufres" });
-		this.recipes.push({ id: "3", title: "Chèvre croustillant aux pêches et aux amandes caramélisées" });
 		
 		this.popularCategories.push({ id: "1", title: "Asie", cover: "/app/welcome/assets/images/categ1.png" });
 		this.popularCategories.push({ id: "2", title: "Dessert", cover: "/app/welcome/assets/images/categ2.png" });
