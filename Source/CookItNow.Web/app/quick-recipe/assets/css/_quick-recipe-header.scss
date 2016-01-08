@@ -2,7 +2,7 @@
     header {
         @media only screen and (min-width: 601px) {
             nav {
-                line-height: 102px;
+                line-height: 70px;
             }
             
             .navbar-fixed {
@@ -10,12 +10,12 @@
             }
         }
         
-        height: 102px;
+        height: 70px;
         
         nav {
             box-shadow: none;
-            // background-color: rgba(29, 30, 34, 0.5);
-            height: 102px;
+             background-color: rgba(29, 30, 34, 0.5);
+            height: 70px;
             border-bottom: 1px solid rgb(102, 103, 111);
             
             a {
@@ -33,7 +33,7 @@
                                     
                 i {
                     height: 100%;
-                    line-height: 102px;
+                    // line-height: 90px;
                     display: inline-block;
                     width: 102px;
                     text-align: center;
@@ -58,10 +58,6 @@
                 opacity: 1;
                 min-width: 400px;
                 // color: white;
-                
-                li > span {
-                    // color: white;
-                }
             }
 
             .active-timers {
