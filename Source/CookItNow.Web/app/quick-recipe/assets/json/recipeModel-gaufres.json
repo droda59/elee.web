@@ -1,0 +1,344 @@
+{
+  "id": 2,
+  "title": "Gaufres",
+  "originalUrl": "http://www.ricardocuisine.com/recettes/3892-gaufres",
+  "originalServings": 0,
+  "durations": [
+    {
+      "title": "Préparation",
+      "time": "PT10M"
+    },
+    {
+      "title": "Cuisson",
+      "time": "PT20M"
+    }
+  ],
+  "subrecipes": [
+    {
+      "id": -1,
+      "title": "Préparation"
+    }
+  ],
+  "ingredients": [
+    {
+      "id": 0,
+      "subrecipeId": -1,
+      "name": "farine tout usage non blanchie",
+      "quantity": {
+        "value": 250.0,
+        "originalMeasureUnit": "ml"
+      }
+    },
+    {
+      "id": 1,
+      "subrecipeId": -1,
+      "name": "fécule de maïs",
+      "quantity": {
+        "value": 60.0,
+        "originalMeasureUnit": "ml"
+      }
+    },
+    {
+      "id": 2,
+      "subrecipeId": -1,
+      "name": "poudre à pâte",
+      "quantity": {
+        "value": 2.5,
+        "originalMeasureUnit": "ml"
+      }
+    },
+    {
+      "id": 3,
+      "subrecipeId": -1,
+      "name": "bicarbonate de soude",
+      "quantity": {
+        "value": 1.0,
+        "originalMeasureUnit": "ml"
+      }
+    },
+    {
+      "id": 4,
+      "subrecipeId": -1,
+      "name": "sel",
+      "quantity": {
+        "value": 1.0,
+        "originalMeasureUnit": "ml"
+      }
+    },
+    {
+      "id": 5,
+      "subrecipeId": -1,
+      "name": "oeufs",
+      "quantity": {
+        "value": 2.0,
+        "originalMeasureUnit": "unit"
+      }
+    },
+    {
+      "id": 6,
+      "subrecipeId": -1,
+      "name": "cassonade",
+      "quantity": {
+        "value": 45.0,
+        "originalMeasureUnit": "ml"
+      }
+    },
+    {
+      "id": 7,
+      "subrecipeId": -1,
+      "name": "huile de canola",
+      "quantity": {
+        "value": 60.0,
+        "originalMeasureUnit": "ml"
+      }
+    }
+  ],
+  "steps": [
+    {
+      "subrecipeId": -1,
+      "phrases": [
+        {
+          "parts": [
+            {
+              "type": "text",
+              "value": "Dans un bol ,"
+            },
+            {
+              "type": "action",
+              "value": "mélanger"
+            },
+            {
+              "type": "enumeration",
+              "ingredients": [
+                {
+                  "id": 0,
+                  "subrecipeId": -1,
+                  "name": "farine tout usage non blanchie",
+                  "quantity": {
+                    "value": 250.0,
+                    "originalMeasureUnit": "ml"
+                  }
+                },
+                {
+                  "id": 1,
+                  "subrecipeId": -1,
+                  "name": "fécule de maïs",
+                  "quantity": {
+                    "value": 60.0,
+                    "originalMeasureUnit": "ml"
+                  }
+                },
+                {
+                  "id": 2,
+                  "subrecipeId": -1,
+                  "name": "poudre à pâte",
+                  "quantity": {
+                    "value": 2.5,
+                    "originalMeasureUnit": "ml"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "value": "à pâte ,"
+            },
+            {
+              "type": "enumeration",
+              "ingredients": [
+                {
+                  "id": 3,
+                  "subrecipeId": -1,
+                  "name": "bicarbonate de soude",
+                  "quantity": {
+                    "value": 1.0,
+                    "originalMeasureUnit": "ml"
+                  }
+                },
+                {
+                  "id": 4,
+                  "subrecipeId": -1,
+                  "name": "sel",
+                  "quantity": {
+                    "value": 1.0,
+                    "originalMeasureUnit": "ml"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "parts": [
+            {
+              "type": "action",
+              "value": "Réserver"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subrecipeId": -1,
+      "phrases": [
+        {
+          "parts": [
+            {
+              "type": "text",
+              "value": "Dans un autre bol ,"
+            },
+            {
+              "type": "action",
+              "value": "fouetter"
+            },
+            {
+              "type": "enumeration",
+              "ingredients": [
+                {
+                  "id": 5,
+                  "subrecipeId": -1,
+                  "name": "oeufs",
+                  "quantity": {
+                    "value": 2.0,
+                    "originalMeasureUnit": "unit"
+                  }
+                },
+                {
+                  "id": 6,
+                  "subrecipeId": -1,
+                  "name": "cassonade",
+                  "quantity": {
+                    "value": 45.0,
+                    "originalMeasureUnit": "ml"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "value": "environ"
+            },
+            {
+              "type": "timer",
+              "value": "PT5M",
+              "action": "fouetter"
+            },
+            {
+              "type": "text",
+              "value": "jusqu' à ce qu' ils blanchissent , forment un ruban et triplent de volume"
+            }
+          ]
+        },
+        {
+          "parts": [
+            {
+              "type": "action",
+              "value": "Laisser reposer"
+            },
+            {
+              "type": "timer",
+              "value": "PT10M",
+              "action": "Laisser reposer"
+            }
+          ]
+        }
+      ],
+      "postStep": {
+        "subrecipeId": -1,
+        "phrases": [
+          {
+            "parts": [
+              {
+                "type": "text",
+                "value": "À l' aide dune spatule ,"
+              },
+              {
+                "type": "action",
+                "value": "incorporer"
+              },
+              {
+                "type": "text",
+                "value": "les ingrédients secs en alternant avec le lait de beurre jusqu' à ce que le mélange soit humecté (il restera quelques grumeaux de farine)"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "subrecipeId": -1,
+      "phrases": [
+        {
+          "parts": [
+            {
+              "type": "action",
+              "value": "Préchauffer"
+            },
+            {
+              "type": "text",
+              "value": "le gaufrier"
+            }
+          ]
+        },
+        {
+          "parts": [
+            {
+              "type": "action",
+              "value": "Verser"
+            },
+            {
+              "type": "text",
+              "value": "environ 250 ml (1 tasse) de pâte à la fois (pour deux gaufres) et"
+            },
+            {
+              "type": "action",
+              "value": "refermer"
+            },
+            {
+              "type": "text",
+              "value": "l' appareil (ou selon les recommandations du fabricant)"
+            }
+          ]
+        },
+        {
+          "parts": [
+            {
+              "type": "action",
+              "value": "Cuire"
+            },
+            {
+              "type": "text",
+              "value": "environ"
+            },
+            {
+              "type": "timer",
+              "value": "PT5M",
+              "action": "Cuire"
+            },
+            {
+              "type": "text",
+              "value": "ou jusqu' à ce qu' elles soient dorées"
+            }
+          ]
+        }
+      ],
+      "postStep": {
+        "subrecipeId": -1,
+        "phrases": [
+          {
+            "parts": [
+              {
+                "type": "action",
+                "value": "Servir"
+              },
+              {
+                "type": "text",
+                "value": "avec le coulis de fraises en trempette"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

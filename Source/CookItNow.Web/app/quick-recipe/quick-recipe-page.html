@@ -41,68 +41,66 @@
 			</aside>
 			
 			<div class="main section col right">
-                <div class="content">
-                    <section id="presentation-section" if.bind="!isRecipeStarted">
-                        <div>
-                            <h3>${recipe.title}</h3>
-                            <div class="row">
-                                <div>
-                                    <span i18n="quickRecipe.servings">Servings</span>${recipe.originalServings}
-                                </div>
-                            </div>
-                            
-                            <div class="row">
-                                <ul>
-                                    <li repeat.for="duration of recipe.durations">
-                                        ${duration.title}: ${duration.time | durationFormat}
-                                    </li>
-                                </ul>
-                            </div>
-                            
-                            <div class="row center">
-                                <a class="btn btn-large btn-success waves-effect waves-light" click.trigger="startRecipe()" i18n="quickRecipe.start">Start</a>
-                            </div>
-                        </div>
-                    </section>
-                    
-                    <section id="recipe-content" show.bind="isRecipeStarted && !isRecipeDone">
-                        <nav class="navbar z-depth-1">
-                            <ul class="subrecipe-titles">
-                                <li repeat.for="subrecipe of recipe.subrecipes" class="subrecipe-title ${$parent.activeSubrecipeId === subrecipe.id ? 'active' : ''}">
-                                    ${subrecipe.title}
-                                </li>
-                            </ul>
-                        </nav>
-                        
-                        <quick-recipe-step repeat.for="step of recipe.steps" id="step-${$index}" step.bind="step" class="step"></quick-recipe-step>
-                            
-                        <span class="step-actions">
-                            <a class="complete-button waves-light btn" click.delegate="toggleSidePanelVisibility()">
-								<span>Hide left panel</span>
-                                <i class="material-icons left">toggle</i>
-                            </a>
-                            <a class="complete-button waves-light btn" click.delegate="goToCurrentStep()">
-                                <i class="material-icons left">present_to_all</i>
-                            </a>
-                            <a class="complete-button waves-light btn" click.delegate="completeStep()">
-                                <span if.bind="isLastStep" i18n="quickRecipe.finish">Finish</span>
-                                <i if.bind="!isLastStep" class="material-icons right">done</i>
-                            </a>
-                        </span>
-                    </section>
-                    
-                    <section id="comments-section" if.bind="isRecipeStarted && isRecipeDone">
-                        <div class="row center">
-                            <hgroup>
-                                <h3 i18n="quickRecipe.comments.didYouLikeExperience">DidYouLikeExperience</h3>
-                                <h4 i18n="quickRecipe.comments.wedLikeYourComments">WeLikeToHear</h4>
-                            </hgroup>
-                            <p i18n="quickRecipe.comments.writeComments">WriteComments</p>
-                        </div>
-                            
-                        <comments-form containerless></comments-form>
-                    </section>
-                </div>
+				<section class="presentation-section" if.bind="!isRecipeStarted">
+					<div>
+						<h3>${recipe.title}</h3>
+						<div class="row">
+							<div>
+								<span i18n="quickRecipe.servings">Servings</span>${recipe.originalServings}
+							</div>
+						</div>
+						
+						<div class="row">
+							<ul>
+								<li repeat.for="duration of recipe.durations">
+									${duration.title}: ${duration.time | durationFormat}
+								</li>
+							</ul>
+						</div>
+						
+						<div class="row center">
+							<a class="btn btn-large btn-success waves-effect waves-light" click.trigger="startRecipe()" i18n="quickRecipe.start">Start</a>
+						</div>
+					</div>
+				</section>
+				
+				<section id="recipe-content" class="recipe-content" show.bind="isRecipeStarted && !isRecipeDone">
+					<nav class="navbar z-depth-1">
+						<ul class="subrecipe-titles">
+							<li repeat.for="subrecipe of recipe.subrecipes" class="subrecipe-title ${$parent.activeSubrecipeId === subrecipe.id ? 'active' : ''}">
+								${subrecipe.title}
+							</li>
+						</ul>
+					</nav>
+					
+					<quick-recipe-step repeat.for="step of recipe.steps" id="step-${$index}" step.bind="step" class="step"></quick-recipe-step>
+						
+					<span class="step-actions">
+						<a class="complete-button waves-light btn" click.delegate="toggleSidePanelVisibility()">
+                            <span>Hide left panel</span>
+							<i class="material-icons left">settings_overscan</i>
+						</a>
+						<a class="complete-button waves-light btn" click.delegate="goToCurrentStep()">
+							<i class="material-icons left">present_to_all</i>
+						</a>
+						<a class="complete-button waves-light btn" click.delegate="completeStep()">
+							<span if.bind="isLastStep" i18n="quickRecipe.finish">Finish</span>
+							<i if.bind="!isLastStep" class="material-icons right">done</i>
+						</a>
+					</span>
+				</section>
+				
+				<section class="comments-section" if.bind="isRecipeStarted && isRecipeDone">
+					<div class="row center">
+						<hgroup>
+							<h3 i18n="quickRecipe.comments.didYouLikeExperience">DidYouLikeExperience</h3>
+							<h4 i18n="quickRecipe.comments.wedLikeYourComments">WeLikeToHear</h4>
+						</hgroup>
+						<p i18n="quickRecipe.comments.writeComments">WriteComments</p>
+					</div>
+						
+					<comments-form containerless></comments-form>
+				</section>
 			</div>
 		</main>
 				

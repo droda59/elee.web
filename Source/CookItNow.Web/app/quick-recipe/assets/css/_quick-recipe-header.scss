@@ -1,10 +1,8 @@
-@import "variables";
-
 .quick-recipe {
     header {
         @media only screen and (min-width: 601px) {
             nav {
-                line-height: $quick-recipe-header-height;
+                line-height: 70px;
             }
             
             .navbar-fixed {
@@ -12,12 +10,12 @@
             }
         }
         
-        height: $quick-recipe-header-height;
+        height: 70px;
         
         nav {
             box-shadow: none;
-            // background-color: rgba(29, 30, 34, 0.5);
-            height: $quick-recipe-header-height;
+             background-color: rgba(29, 30, 34, 0.5);
+            height: 70px;
             border-bottom: 1px solid rgb(102, 103, 111);
             
             a {
@@ -35,9 +33,9 @@
                                     
                 i {
                     height: 100%;
-                    line-height: $quick-recipe-header-height;
+                    // line-height: 90px;
                     display: inline-block;
-                    width: $quick-recipe-header-height;
+                    width: 102px;
                     text-align: center;
                 }
             }
@@ -66,13 +64,13 @@
                 right: 0;
                 
                 .dropdown-button {
-                    width: $quick-recipe-header-height;
+                    width: 102px;
                     text-align: center;
                 }
                 
                 .dropdown-content {
                     right: -1px;
-                    top: calc($quick-recipe-header-height - 1px);
+                    top: 101px;
                     padding: 0 10px;
                     
                     .collection {
@@ -116,15 +114,15 @@
                                   line-height: initial;
                                       
                                 a {
-                                    font-size: 0.3rem;
-                                    display: inline-block;
-                                    padding: 0;
-                                    color: inherit;
-                                    
-                                    i {
-                                        height: inherit;
-                                        line-height: inherit;
-                                    }
+                                      font-size: 0.3rem;
+                                      display: inline-block;
+                                      padding: 0;
+                                      color: inherit;
+                                      
+                                      i {
+                                          height: inherit;
+                                          line-height: inherit;
+                                      }
                                 }
                             }
                         }

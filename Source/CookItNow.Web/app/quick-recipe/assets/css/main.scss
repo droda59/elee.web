@@ -4,24 +4,20 @@
 @import "quick-recipe-theme-stone";
 @import "quick-recipe-theme-chalkboard";
 @import "quick-recipe-header";
-@import "quick-recipe-footer";
 @import "animations";
 
 .quick-recipe {
-    height: 100%;
-    
     .row {
         margin: 0;
     }
     
     main {
         padding: 10px;
-        height: calc(100% - ($quick-recipe-header-height) - ($quick-recipe-footer-height)); // TODO Voir comment on fait
-        height: calc(100% - 102px - 42px);
         
         .ingredients {
             padding: 10px;
             width: $quick-recipe-ingredients-side-width;
+            margin-bottom: 42px;
             position: fixed;
             
             .border-box {
@@ -79,27 +75,25 @@
                 }
             }
         }
-        // Transparent gradient at the bottom of the ingredient box
-        // .ingredients::after {
-        //     content: "";
-        //     height: 50px;
-        //     width: calc(100% - 22px);
-        //     background: linear-gradient(to top, rgba(233, 233, 233, 1) 0%, rgba(233, 233, 233, 0.1) 100%);
-        //     left: 11px;
-        //     bottom: 11px;
-        //     display: block;
-        //     position: absolute;
-        // }
+        .ingredients::after {
+            content: "";
+            height: 50px;
+            width: calc(100% - 22px);
+            // background: linear-gradient(to top, rgba(233, 233, 233, 1) 0%, rgba(233, 233, 233, 0.1) 100%);
+            left: 11px;
+            bottom: 11px;
+            display: block;
+            position: absolute;
+        }
         .ingredients.hidden {
             left: 0;
-            width: $quick-recipe-ingredients-side-collapsed-width;
+            width: 40px;
             will-change: width, left;
             transition: left 0.35s ease-in-out, width 0.35s ease-in-out;
         }
         
         .ingredients.hidden ~.main,
-        .ingredients.hidden ~.main #recipe-content .navbar {
-            width: calc(100% - $quick-recipe-ingredients-side-collapsed-width); // TODO
+        .ingredients.hidden ~.main .recipe-content .navbar {
             width: calc(100% - 40px);
             will-change: width;
             transition: left 0.35s ease-in-out, width 0.35s ease-in-out;
@@ -107,115 +101,132 @@
         
         .main {
             // color: white;
-            width: calc(100% - $quick-recipe-ingredients-side-width); // TODO
             width: calc(100% - 396px);
-            height: 100%;
+            overflow: hidden;
+            overflow-y: auto;
+            position: relative;
             
-            .content {
-                overflow: hidden;
-                overflow-y: auto;
-                position: relative;
-            
-                #recipe-content {
-                    height: 100%;
-                    top: 0;
-                    
-                    .navbar {
-                        // background: -moz-linear-gradient(top,  rgba(0,0,0,1) 0%, rgba(0,0,0,1) 2%, rgba(0,0,0,1) 52%, rgba(0,0,0,0.44) 86%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
-                        // background: -webkit-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(0,0,0,1) 2%,rgba(0,0,0,1) 52%,rgba(0,0,0,0.44) 86%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
-                        // background: linear-gradient(to bottom,  rgba(0,0,0,1) 0%,rgba(0,0,0,1) 2%,rgba(0,0,0,1) 52%,rgba(0,0,0,0.44) 86%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-                        // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
-                        z-index: 1;
-                        position: fixed;
-                        width: calc(100% - $quick-recipe-ingredients-side-width); // TODO
-                        width: calc(100% - 396px);
-                        top: $quick-recipe-header-height;
-                        
-                        .subrecipe-titles {
-                            display: flex;
-                            flex-direction: row;
-                            justify-content: space-around;
-                            flex-wrap: nowrap;
-                            
-                            .subrecipe-title {
-                                opacity: 0.5;
-                                flex-grow: 1;
-                                text-align: center;
-                                cursor: default;
-                            }
-                            .subrecipe-title:hover {
-                                background: none;
-                            }
-                            .subrecipe-title.active {
-                                // background: none;
-                                opacity: 1;
-                                transition: opacity 0.3s ease-in-out;
-                            }
-                        }
-                    }
+            .subrecipe-titles {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                flex-wrap: nowrap;
                 
-                    .step-actions {
-                        z-index: 1;
-                        
-                        position: fixed;
-                        bottom: 50px;
-                        right: 10px;
-                        
-                        .complete-button i {
-                            margin: 0;
-                        }
-                    }
-                    
-                    .step {
-                        padding: 1rem 20px;
-                        display: block;
-                        position: relative;
-                        
-                        p {
-                            width: 100%;
-                        }
-            
-                        .post-step {
-                            margin: 0 0 0 2rem;
-                            
-                            .emphasis {
-                                font-size: 1.4rem;
-                            }
-                        }
-
-                        .enumeration {
-                            margin: 1rem 2rem 1rem 3rem;
-                            border: none;
-                            
-                            .collection-item {
-                                // background: none;
-                                border: none;
-                                
-                                [type="checkbox"] + label {
-                                    margin-left: 20px;
-                                    height: 1.5rem;
-                                    display: none;
-                                }
-                                [type="checkbox"] + label.visible {
-                                    display: inline-block;
-                                }
-                            }
-                        }
-                        .emphasis {
-                            font-size: 2rem;
-                        }
-                        .timer {
-                            // color: dodgerblue;
-                        }
-                    }
-                    .step:first-of-type {
-                        margin-top: 400px;
-                    }
-                    .step:last-of-type {
-                        margin-bottom: 400px;
-                    }
+                .subrecipe-title {
+                    opacity: 0.5;
+                    flex-grow: 1;
+                    text-align: center;
+                    cursor: default;
+                }
+                .subrecipe-title:hover {
+                    background: none;
+                }
+                .subrecipe-title.active {
+                    // background: none;
+                    opacity: 1;
+                    transition: opacity 0.3s ease-in-out;
                 }
             }
+            
+            .recipe-content {
+                height: 100%;
+                top: 0;
+                
+                .navbar {
+                    // background: -moz-linear-gradient(top,  rgba(0,0,0,1) 0%, rgba(0,0,0,1) 2%, rgba(0,0,0,1) 52%, rgba(0,0,0,0.44) 86%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+                    // background: -webkit-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(0,0,0,1) 2%,rgba(0,0,0,1) 52%,rgba(0,0,0,0.44) 86%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+                    // background: linear-gradient(to bottom,  rgba(0,0,0,1) 0%,rgba(0,0,0,1) 2%,rgba(0,0,0,1) 52%,rgba(0,0,0,0.44) 86%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                    // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+                    z-index: 1;
+                    position: fixed;
+                    width: calc(100% - 396px);
+                    top: 70px;
+                }
+            }
+            .current-step-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                height: 100%;
+                
+                position: absolute;
+                top: 0;
+                width: 99%;
+                z-index: 1;
+                
+                .step {
+                    position: initial;
+                }
+            }
+            
+            .step-actions {
+                z-index: 1;
+                
+                position: fixed;
+                bottom: 50px;
+                right: 10px;
+                
+                .complete-button i {
+                    margin: 0;
+                }
+            }
+            
+            .step {
+                padding: 1rem 20px;
+                display: block;
+                position: relative;
+                
+                p {
+                    width: 100%;
+                }
+    
+                .post-step {
+                    margin: 0 0 0 2rem;
+                    
+                    .emphasis {
+                        font-size: 1.4rem;
+                    }
+                }
+
+                .enumeration {
+                    margin: 1rem 2rem 1rem 3rem;
+                    border: none;
+                    
+                    .collection-item {
+                        // background: none;
+                        border: none;
+                        
+                        [type="checkbox"] + label {
+                            margin-left: 20px;
+                            height: 1.5rem;
+                            display: none;
+                        }
+                        [type="checkbox"] + label.visible {
+                            display: inline-block;
+                        }
+                    }
+                }
+                .emphasis {
+                    font-size: 2rem;
+                }
+                .timer {
+                    // color: dodgerblue;
+                }
+            }
+            .step:first-of-type {
+                margin-top: 400px;
+            }
+            .step:last-of-type {
+                margin-bottom: 400px;
+            }
         }
+    }
+    
+    footer {
+        background-color: rgba(29, 30, 34, 0.5);
+        // background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.44) 14%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 98%, rgba(0,0,0,1) 100%);
+        // background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.44) 14%,rgba(0,0,0,1) 48%,rgba(0,0,0,1) 98%,rgba(0,0,0,1) 100%);
+        // background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.44) 14%,rgba(0,0,0,1) 48%,rgba(0,0,0,1) 98%,rgba(0,0,0,1) 100%);
+        // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 );
     }
 }
