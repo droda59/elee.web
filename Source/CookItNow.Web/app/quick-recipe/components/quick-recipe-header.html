@@ -2,7 +2,7 @@
 	<require from="shared/value-converters/time-format"></require>
 	<require from="shared/value-converters/duration-format"></require>
 	<require from="shared/components/settings-modal"></require>
-	
+
     <div class="navbar-fixed">
         <nav role="navigation">
             <div class="nav-wrapper">
@@ -12,14 +12,9 @@
                             Cook It Now
 							<i class="material-icons small white-text">home</i>
                         </a>
-                    </div>
-                    <div class="right">
-                        <a click.trigger="editSettings()" class="modal-trigger block-button">
-							<i class="material-icons small white-text">settings</i>
-						</a>
-                        <a>
-                            <i class="material-icons small right">more_vert</i>
-                        </a>
+												<a click.trigger="editSettings()" class="modal-trigger block-button">
+													<i class="material-icons small white-text">settings</i>
+												</a>
                     </div>
 					<div class="right info">
 						<h3>
@@ -40,7 +35,7 @@
 											<span class="secondary-content">
 												<a click.trigger="timer.replay()"><i class="material-icons">replay</i></a>
 												<a click.trigger="timer.delete()"><i class="material-icons">delete</i></a>
-											</span>							
+											</span>
 										</li>
 									</ul>
 								</div>
