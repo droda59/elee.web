@@ -5,12 +5,12 @@
 	<require from="shared/components/measurable-ingredient"></require>
 	<require from="shared/components/comments-form"></require>
 	<require from="shared/value-converters/duration-format"></require>
-	
+
 	<div class="quick-recipe" class.bind="backgroundClass">
 	    <header class="row">
 			<quick-recipe-header containerless recipe.bind="recipe"></quick-recipe-header>
 	    </header>
-		
+
 		<main class="row">
 			<aside class="ingredients col left z-depth-2 ${isSidePanelHidden ? 'hidden' : ''}">
 				<div class="border-box">
@@ -23,7 +23,7 @@
 								<img src="app/quick-recipe/assets/images/pouding.jpg" alt.bind="recipe.title">
 							</div>
 						</div>
-						
+
 						<section repeat.for="subrecipe of subrecipeIngredients" class="section">
 							<h4 if.bind="subrecipe.subrecipeTitle" class="center">${subrecipe.subrecipeTitle}</h4>
 							<ul class="ingredient-list collection">
@@ -39,7 +39,7 @@
 					</div>
 				</div>
 			</aside>
-			
+
 			<div class="main section col right">
                 <div class="content">
                     <section id="presentation-section" if.bind="!isRecipeStarted">
@@ -50,7 +50,7 @@
                                     <span i18n="quickRecipe.servings">Servings</span>${recipe.originalServings}
                                 </div>
                             </div>
-                            
+
                             <div class="row">
                                 <ul>
                                     <li repeat.for="duration of recipe.durations">
@@ -58,13 +58,13 @@
                                     </li>
                                 </ul>
                             </div>
-                            
+
                             <div class="row center">
                                 <a class="btn btn-large btn-success waves-effect waves-light" click.trigger="startRecipe()" i18n="quickRecipe.start">Start</a>
                             </div>
                         </div>
                     </section>
-                    
+
                     <section id="recipe-content" show.bind="isRecipeStarted && !isRecipeDone">
                         <nav class="navbar z-depth-1">
                             <ul class="subrecipe-titles">
@@ -73,13 +73,12 @@
                                 </li>
                             </ul>
                         </nav>
-                        
+
                         <quick-recipe-step repeat.for="step of recipe.steps" id="step-${$index}" step.bind="step" class="step"></quick-recipe-step>
-                            
+
                         <span class="step-actions">
                             <a class="complete-button waves-light btn" click.delegate="toggleSidePanelVisibility()">
-								<span>Hide left panel</span>
-                                <i class="material-icons left">toggle</i>
+                                <i class="material-icons">aspect_ratio</i>
                             </a>
                             <a class="complete-button waves-light btn" click.delegate="goToCurrentStep()">
                                 <i class="material-icons left">present_to_all</i>
@@ -90,7 +89,7 @@
                             </a>
                         </span>
                     </section>
-                    
+
                     <section id="comments-section" if.bind="isRecipeStarted && isRecipeDone">
                         <div class="row center">
                             <hgroup>
@@ -99,13 +98,13 @@
                             </hgroup>
                             <p i18n="quickRecipe.comments.writeComments">WriteComments</p>
                         </div>
-                            
+
                         <comments-form containerless></comments-form>
                     </section>
                 </div>
 			</div>
 		</main>
-				
+
 		<footer class="row page-footer fixed">
 			<quick-recipe-footer containerless url.bind="recipe.originalUrl"></quick-recipe-footer>
 		</footer>
