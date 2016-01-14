@@ -26,26 +26,24 @@
 									<ul class="collection">
 										<li repeat.for="timer of timerCoordinator.activeTimers" class="collection-item avatar valign-wrapper active-timer au-animate">
 											<i class="material-icons prefix">av_timer</i>
-											<input type="text" placeholder="Description" value.bind="timer.action">
-											<input type="text" placeholder="Time" value.bind="timer.duration" if.bind="timer.isEditionMode">
-											
-											<span class="secondary-content" if.bind="timer.isEditionMode">
-												<a click.trigger="startTimer(timer)"><i class="material-icons">play_arrow</i></a>
-												<a click.trigger="removeTimer(timer)"><i class="material-icons">delete</i></a>
-											</span>
+											<form submit.delegate="startTimer(timer)">
+												<input type="text" placeholder="Description" value.bind="timer.action" focus.bind="timer.isEditingDescription">
+												<input type="text" placeholder="Time" value.bind="timer.duration" if.bind="timer.remainingTime === timer.originalTime">
 
-											<p class="${timer.state == 'isAlmostDone' ? 'yellow-text' : timer.state == 'isAlmosterDone' ? 'red-text' : 'green-text'}" if.bind="!timer.isEditionMode">
+												<button click.trigger="startTimer(timer)" class="${timer.duration ? '' : 'disabled'}" if.bind="timer.remainingTime === timer.originalTime"><i class="material-icons">play_arrow</i></button>
+											</form>
+
+											<span class="${timer.state == 'isAlmostDone' ? 'yellow-text' : timer.state == 'isAlmosterDone' ? 'red-text' : ''}" if.bind="timer.remainingTime !== timer.originalTime">
 												<span>${timer.remainingTime | timeFormat}</span>
 												<span i18n="quickRecipe.timerTimeOfTotal">Of</span>
 												<span>${timer.originalTime | timeFormat}</span>
-											</p>
-											<span class="secondary-content" if.bind="!timer.isEditionMode">
-												<a click.trigger="timer.replay()"><i class="material-icons">replay</i></a>
-												<a click.trigger="removeTimer(timer)"><i class="material-icons">delete</i></a>
 											</span>
+
+											<a click.trigger="timer.replay()" if.bind="timer.remainingTime !== timer.originalTime"><i class="material-icons">replay</i></a>
+											<a click.trigger="removeTimer(timer)"><i class="material-icons">delete</i></a>
 										</li>
                                         <li class="collection-item avatar valign-wrapper">
-											<a click.trigger="addTimer()" class="add-timer btn-floating red ${isEditingTimer ? 'disabled' : ''}">
+											<a click.trigger="addTimer()" class="add-timer btn-floating red">
 												<i class="material-icons">add</i>
 											</a>
 											<span class="title">Ajouter</span>

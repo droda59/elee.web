@@ -88,14 +88,41 @@
                             .circle {
                                 position: initial;
                             }
+                            form {
+                                line-height: 64px;
+                                height: 64px;
+                            }
+                            button {
+                                display: inline-block;
+                                color: #26a69a;
+                                border: none;
+                                background: none;
+                                transition: background-color .3s;
+                                font-size: 1rem;
+                                padding: 0 15px;
+                                cursor: pointer;
+                            }
+                            button:hover {
+                                background-color: rgba(0, 0, 0, 0.1);
+                            }
                             input {
                                 margin: 0 10px;
                                 width: initial;
                                 color: #26a69a;
                                 border-bottom-color: transparent;
+                                vertical-align: top;
+                                line-height: inherit;
+                                height: inherit;
                             }
                             input:focus {
                                 border-bottom-color: #26a69a;
+                            }
+                            a {
+                                display: inline-block;
+                                color: #26a69a;
+                                line-height: 64px;
+                                height: 64px;
+                                padding: 0 15px;
                             }
                             p {
                                 font-size: 1.2rem;
@@ -103,8 +130,8 @@
                             .btn-floating {
                                 padding: 0;
                                 margin: 0;
-                                display: inline-block;
                                 line-height: 37px;
+                                height: inherit;
                             }
 
                             .secondary-content {

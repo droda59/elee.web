@@ -6,7 +6,7 @@ export class Timer {
     duration: string;
     action: string;
     isStopped: boolean = true;
-    isEditionMode: boolean = false;
+    isEditingDescription: boolean = false;
     state: string = "original";
     timer: number;
 
