@@ -12,31 +12,44 @@
                             Cook It Now
 							<i class="material-icons small white-text">home</i>
                         </a>
-												<a click.trigger="editSettings()" class="modal-trigger block-button">
-													<i class="material-icons small white-text">settings</i>
-												</a>
+						<a click.trigger="editSettings()" class="modal-trigger block-button">
+							<i class="material-icons small white-text">settings</i>
+						</a>
                     </div>
 					<div class="right info">
 						<h3>
 							<div class="active-timers right">
-								<a if.bind="timerCoordinator.activeTimers.length" click.trigger="toggleMinimizeActiveTimers()" class="block-button ${activeTimersSectionActive ? 'active' : ''} au-animate">
+								<a click.trigger="toggleMinimizeActiveTimers()" class="block-button ${activeTimersSectionActive ? 'active' : ''} au-animate">
 									<i class="material-icons small white-text">av_timer</i>
 								</a>
-								<div class="dropdown-content" show.bind="activeTimersSectionActive">
+								<div class="dropdown-content au-animate" if.bind="activeTimersSectionActive">
 									<ul class="collection">
 										<li repeat.for="timer of timerCoordinator.activeTimers" class="collection-item avatar valign-wrapper active-timer au-animate">
-											<i class="material-icons circle ${timer.state == 'isAlmostDone' ? 'yellow' : timer.state == 'isAlmosterDone' ? 'red' : 'green'}">av_timer</i>
-											<span class="title">${timer.action}</span>
-											<p class="${timer.state == 'isAlmostDone' ? 'yellow-text' : timer.state == 'isAlmosterDone' ? 'red-text' : 'green-text'}">
+											<i class="material-icons prefix">av_timer</i>
+											<input type="text" placeholder="Description" value.bind="timer.action">
+											<input type="text" placeholder="Time" value.bind="timer.duration" if.bind="timer.isEditionMode">
+											
+											<span class="secondary-content" if.bind="timer.isEditionMode">
+												<a click.trigger="startTimer(timer)"><i class="material-icons">play_arrow</i></a>
+												<a click.trigger="removeTimer(timer)"><i class="material-icons">delete</i></a>
+											</span>
+
+											<p class="${timer.state == 'isAlmostDone' ? 'yellow-text' : timer.state == 'isAlmosterDone' ? 'red-text' : 'green-text'}" if.bind="!timer.isEditionMode">
 												<span>${timer.remainingTime | timeFormat}</span>
 												<span i18n="quickRecipe.timerTimeOfTotal">Of</span>
 												<span>${timer.originalTime | timeFormat}</span>
 											</p>
-											<span class="secondary-content">
+											<span class="secondary-content" if.bind="!timer.isEditionMode">
 												<a click.trigger="timer.replay()"><i class="material-icons">replay</i></a>
-												<a click.trigger="timer.delete()"><i class="material-icons">delete</i></a>
+												<a click.trigger="removeTimer(timer)"><i class="material-icons">delete</i></a>
 											</span>
 										</li>
+                                        <li class="collection-item avatar valign-wrapper">
+											<a click.trigger="addTimer()" class="add-timer btn-floating red ${isEditingTimer ? 'disabled' : ''}">
+												<i class="material-icons">add</i>
+											</a>
+											<span class="title">Ajouter</span>
+                                        </li>
 									</ul>
 								</div>
 							</div>

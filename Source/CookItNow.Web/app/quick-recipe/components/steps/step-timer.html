@@ -1,12 +1,12 @@
 <template>
 	<require from="shared/value-converters/duration-format"></require>
 	<require from="shared/value-converters/time-format"></require>
-	
-	<span class="timer emphasis"> 
-		<a click.trigger="timer.start()"> 
+
+	<span class="timer emphasis">
+		<a click.trigger="startTimer()"> 
 			<i class="material-icons">av_timer</i>
 			<span if.bind="timer.remainingTime === timer.originalTime">${timer.duration | durationFormat}</span>
 			<span if.bind="timer.remainingTime !== timer.originalTime">${timer.remainingTime | timeFormat}</span>
-		</a>  
+		</a>
 	</span>
 </template>

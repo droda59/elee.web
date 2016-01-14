@@ -8,12 +8,16 @@ export class StepTimer {
 	timer: Timer;
 	
 	private _timerCoordinator: TimerCoordinator;
-	
+
 	constructor(timerCoordinator: TimerCoordinator) {
 		this._timerCoordinator = timerCoordinator;
 	}
-	
+
 	activate(model: TimerPart) {
-        this.timer = new Timer(this._timerCoordinator, model.value, model.action);
+        this.timer = new Timer(model.value, model.action);
+	}
+
+	startTimer(): void {
+		this._timerCoordinator.startTimer(this.timer);
 	}
 }

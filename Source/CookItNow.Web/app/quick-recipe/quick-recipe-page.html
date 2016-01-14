@@ -42,7 +42,7 @@
 
 			<div class="main section col right">
                 <div class="content">
-                    <section id="presentation-section" if.bind="!isRecipeStarted">
+                    <section id="presentation-section" if.bind="!isRecipeStarted" class="au-animate">
                         <div>
                             <h3>${recipe.title}</h3>
                             <div class="row">
@@ -65,7 +65,7 @@
                         </div>
                     </section>
 
-                    <section id="recipe-content" show.bind="isRecipeStarted && !isRecipeDone">
+                    <section id="recipe-content" show.bind="isRecipeStarted && !isRecipeDone" class="au-animate">
                         <nav class="navbar z-depth-1">
                             <ul class="subrecipe-titles">
                                 <li repeat.for="subrecipe of recipe.subrecipes" class="subrecipe-title ${$parent.activeSubrecipeId === subrecipe.id ? 'active' : ''}">

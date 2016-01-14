@@ -6,33 +6,33 @@
             nav {
                 line-height: $quick-recipe-header-height;
             }
-            
+
             .navbar-fixed {
                 height: 100%;
             }
         }
-        
+
         height: $quick-recipe-header-height;
-        
+
         nav {
             box-shadow: none;
             // background-color: rgba(29, 30, 34, 0.5);
             height: $quick-recipe-header-height;
             border-bottom: 1px solid rgb(102, 103, 111);
-            
+
             a {
                 // color: rgb(213, 217, 225);
             }
-            
+
             h3 {
                 margin: 0;
             }
-            
+
             .block-button {
                 display: inline-block;
                 overflow-x: hidden;
                 cursor: pointer;
-                                    
+
                 i {
                     height: 100%;
                     line-height: $quick-recipe-header-height;
@@ -45,14 +45,14 @@
             .block-button.active {
                 background-color: rgba(226, 225, 221, 0.1);
             }
-            
+
             .logo {
                 width: calc(396px + 20px);
             }
             .info {
                 width: calc(100% - 416px);
             }
-            
+
             .dropdown-content {
                 display: block;
                 border: 1px solid #66676f;
@@ -64,63 +64,57 @@
 
             .active-timers {
                 right: 0;
-                
+
                 .dropdown-button {
                     width: $quick-recipe-header-height;
                     text-align: center;
                 }
-                
+
                 .dropdown-content {
                     right: -1px;
                     top: calc($quick-recipe-header-height - 1px);
-                    padding: 0 10px;
-                    
+                    top: calc(70px - 1px);
+                    padding: 10px;
+
                     .collection {
                         border: none;
                         margin: 0;
-                        
+
                         .collection-item {
                             // background: none;
                             padding: 10px 0;
                             min-height: inherit;
-                            
+
                             .circle {
-                                // height: 20px;
-                                // width: 30px;
                                 position: initial;
-                                padding-right: 10px;
                             }
-                            i.circle {
-                                font-size: 22px;
-                                line-height: 20px;
-                                // border-radius: 0;
-                                // background: none !important;
-                                display: inline-block;
+                            input {
+                                margin: 0 10px;
+                                width: initial;
+                                color: #26a69a;
+                                border-bottom-color: transparent;
                             }
-                            .title {
-                                font-size: 1rem;
-                                padding: 0 10px;
-                                display: inline-block;
+                            input:focus {
+                                border-bottom-color: #26a69a;
                             }
                             p {
-                                display: inline-block;
                                 font-size: 1.2rem;
                             }
-                            
+                            .btn-floating {
+                                padding: 0;
+                                margin: 0;
+                                display: inline-block;
+                                line-height: 37px;
+                            }
+
                             .secondary-content {
-                                  font-size: 0.3rem;
-                                  display: inline-block;
-                                  padding: 0;
-                                  top: 10px;
-                                  right: 0;
-                                  line-height: initial;
-                                      
+                                right: 0;
+
                                 a {
-                                    font-size: 0.3rem;
                                     display: inline-block;
                                     padding: 0;
                                     color: inherit;
-                                    
+
                                     i {
                                         height: inherit;
                                         line-height: inherit;
