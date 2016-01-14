@@ -3,12 +3,14 @@ import {computedFrom} from "aurelia-framework";
 export class Timer {
     private _originalSeconds: number;
     private _remainingSeconds: number;
+
     duration: string;
     action: string;
     isStopped: boolean = true;
     isEditingDescription: boolean = false;
     state: string = "original";
     timer: number;
+    onFinish: Event;
 
     constructor() {
     }
@@ -40,14 +42,13 @@ export class Timer {
                 if (!that.isStopped) {
                     that._remainingSeconds--;
 
-                    that.state = that._remainingSeconds < ((that._originalSeconds / 100) * 20)
-                        ? that._remainingSeconds < ((that._originalSeconds / 100) * 10)
-                            ? "isAlmosterDone"
-                            : "isAlmostDone"
+                    that.state = that._remainingSeconds < ((that._originalSeconds / 100) * 10)
+                        ? "isAlmostDone"
                         : "original";
 
                     if (that._remainingSeconds <= 0) {
                         that.isStopped = true;
+                        that.onFinish();
                     }
                 }
             }, 1000);

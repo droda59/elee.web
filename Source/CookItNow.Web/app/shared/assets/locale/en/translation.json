@@ -87,9 +87,10 @@
     "quickRecipe": {
         "originalRecipe": "Original recipe: ",
         "timerTimeOfTotal": " of ",
-        "timerAddButton": "Add",
+        "timerAdd": "Add",
         "timerDescription": "Description",
         "timerDuration": "Duration",
+        "timerEnded": "Timer ended",
         "ingredientsSideTitle": "Ingredients",
         "ingredientReplacementConjunction": "or",
         "servings": "Servings: ",

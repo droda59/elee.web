@@ -33,7 +33,7 @@
 												<button click.trigger="startTimer(timer)" class="${timer.duration ? '' : 'disabled'}" if.bind="timer.remainingTime === timer.originalTime"><i class="material-icons">play_arrow</i></button>
 											</form>
 
-											<span class="${timer.state == 'isAlmostDone' ? 'yellow-text' : timer.state == 'isAlmosterDone' ? 'red-text' : ''}" if.bind="timer.remainingTime !== timer.originalTime">
+											<span class="${timer.state == 'isAlmostDone' ? 'red-text' : ''}" if.bind="timer.remainingTime !== timer.originalTime">
 												<span>${timer.remainingTime | timeFormat}</span>
 												<span i18n="quickRecipe.timerTimeOfTotal">Of</span>
 												<span>${timer.originalTime | timeFormat}</span>
@@ -47,7 +47,7 @@
 												<span class="btn-floating red">
 													<i class="material-icons">add</i>
 												</span>
-												<span class="title" i18n="quickRecipe.timerAddButton">Add</span>
+												<span class="title" i18n="quickRecipe.timerAdd">Add</span>
 											</a>
                                         </li>
 									</ul>
