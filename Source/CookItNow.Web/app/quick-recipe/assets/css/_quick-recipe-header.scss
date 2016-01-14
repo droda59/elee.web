@@ -85,8 +85,24 @@
                             padding: 10px 0;
                             min-height: inherit;
 
-                            .circle {
-                                position: initial;
+                            .add-timer {
+                                width: 100%;
+                                padding: 0;
+                                line-height: inherit;
+                                height: inherit;
+
+                                i {
+                                    height: inherit;
+                                    line-height: inherit;
+                                }
+
+                                .title {
+                                    padding: 14px 16px;
+                                    display: inline-block;
+                                }
+                            }
+                            .add-timer:hover {
+                                background-color: inherit;
                             }
                             form {
                                 line-height: 64px;

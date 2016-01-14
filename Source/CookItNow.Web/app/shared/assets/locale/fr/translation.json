@@ -12,10 +12,10 @@
         "email": "Votre adresse de courriel",
         "thankYouMessage": "Merci pour vos commentaires, ils sont très importants pour nous!",
         "sendButton": "Envoyer"
-    }, 
+    },
     "settings": {
-        "title": "Configuration", 
-        "okButton": "OK", 
+        "title": "Configuration",
+        "okButton": "OK",
         "cancelButton": "Annuler",
         "volumeMeasureUnits": "Unités de mesure de volume",
         "volumeDisplays": {
@@ -33,12 +33,12 @@
             "imperialComplete": "Impérial",
             "both": "Afficher les deux"
         }
-    }, 
+    },
     "home": {
         "search": "Recherche",
         "cookItNowButton": "Cook it now!",
         "categories": {
-            "title": "Catégories populaires", 
+            "title": "Catégories populaires",
             "browseAll": "Voir toutes",
             "viewAll": "Voir toutes"
         },
@@ -64,17 +64,17 @@
         "tsp": "c. à thé",
         "tsp_plural": "c. à thé",
         "tbsp": "c. à soupe",
-        "tbsp_plural": "c. à soupe", 
-        "floz": "oz liq", 
-        "floz_plural": "oz liq", 
+        "tbsp_plural": "c. à soupe",
+        "floz": "oz liq",
+        "floz_plural": "oz liq",
         "cup": "tasse",
         "cup_plural": "tasses",
         "g": "g",
         "g_plural": "g",
         "kg": "kg",
         "kg_plural": "kg",
-        "oz": "oz", 
-        "oz_plural": "oz", 
+        "oz": "oz",
+        "oz_plural": "oz",
         "lb": "lb",
         "lb_plural": "lbs",
         "pinch": "pincée",
@@ -85,10 +85,13 @@
         "nextWordConsonant": "de"
     },
     "quickRecipe": {
-        "originalRecipe": "Recette originale : ",  
+        "originalRecipe": "Recette originale : ",
         "timerTimeOfTotal": " de ",
+        "timerAddButton": "Ajouter",
+        "timerDescription": "Description",
+        "timerDuration": "Durée", 
         "ingredientsSideTitle": "Ingredients",
-        "ingredientReplacementConjunction": "ou", 
+        "ingredientReplacementConjunction": "ou",
         "servings": "Portions : ",
         "start": "Débuter",
         "finish": "Terminer",

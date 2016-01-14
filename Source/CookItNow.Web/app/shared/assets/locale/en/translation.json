@@ -12,10 +12,10 @@
         "email": "Your email address",
         "thankYouMessage": "Thank you for your input, it is really important for us!",
         "sendButton": "Send"
-    }, 
+    },
     "settings": {
-        "title": "Settings", 
-        "okButton": "Ok", 
+        "title": "Settings",
+        "okButton": "Ok",
         "cancelButton": "Cancel",
         "volumeMeasureUnits": "Volume measure units",
         "volumeDisplays": {
@@ -33,12 +33,12 @@
             "imperialComplete": "Imperial",
             "both": "Show both"
         }
-    }, 
+    },
     "home": {
         "search": "Search",
         "cookItNowButton": "Cook it now!",
         "categories": {
-            "title": "Popular categories", 
+            "title": "Popular categories",
             "browseAll": "Browse all",
             "viewAll": "View all"
         },
@@ -65,7 +65,7 @@
         "tsp_plural": "tsp",
         "tbsp": "tbsp",
         "tbsp_plural": "tbsp",
-        "floz": "fl oz", 
+        "floz": "fl oz",
         "floz_plural": "fl oz",
         "cup": "cup",
         "cup_plural": "cups",
@@ -73,7 +73,7 @@
         "g_plural": "g",
         "kg": "kg",
         "kg_plural": "kg",
-        "oz": "oz", 
+        "oz": "oz",
         "oz_plural": "oz",
         "lb": "lb",
         "lb_plural": "lbs",
@@ -85,10 +85,13 @@
         "nextWordConsonant": "of"
     },
     "quickRecipe": {
-        "originalRecipe": "Original recipe: ", 
-        "timerTimeOfTotal": " of ", 
+        "originalRecipe": "Original recipe: ",
+        "timerTimeOfTotal": " of ",
+        "timerAddButton": "Add",
+        "timerDescription": "Description",
+        "timerDuration": "Duration",
         "ingredientsSideTitle": "Ingredients",
-        "ingredientReplacementConjunction": "or", 
+        "ingredientReplacementConjunction": "or",
         "servings": "Servings: ",
         "start": "Start",
         "finish": "Finish",

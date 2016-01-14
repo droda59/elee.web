@@ -27,8 +27,8 @@
 										<li repeat.for="timer of timerCoordinator.activeTimers" class="collection-item avatar valign-wrapper active-timer au-animate">
 											<i class="material-icons prefix">av_timer</i>
 											<form submit.delegate="startTimer(timer)">
-												<input type="text" placeholder="Description" value.bind="timer.action" focus.bind="timer.isEditingDescription">
-												<input type="text" placeholder="Time" value.bind="timer.duration" if.bind="timer.remainingTime === timer.originalTime">
+												<input type="text" placeholder="${'quickRecipe.timerDescription' | t}" value.bind="timer.action" focus.bind="timer.isEditingDescription">
+												<input type="text" placeholder="${'quickRecipe.timerDuration' | t}" value.bind="timer.duration" if.bind="timer.remainingTime === timer.originalTime">
 
 												<button click.trigger="startTimer(timer)" class="${timer.duration ? '' : 'disabled'}" if.bind="timer.remainingTime === timer.originalTime"><i class="material-icons">play_arrow</i></button>
 											</form>
@@ -43,10 +43,12 @@
 											<a click.trigger="removeTimer(timer)"><i class="material-icons">delete</i></a>
 										</li>
                                         <li class="collection-item avatar valign-wrapper">
-											<a click.trigger="addTimer()" class="add-timer btn-floating red">
-												<i class="material-icons">add</i>
+											<a click.trigger="addTimer()" class="add-timer">
+												<span class="btn-floating red">
+													<i class="material-icons">add</i>
+												</span>
+												<span class="title" i18n="quickRecipe.timerAddButton">Add</span>
 											</a>
-											<span class="title">Ajouter</span>
                                         </li>
 									</ul>
 								</div>
