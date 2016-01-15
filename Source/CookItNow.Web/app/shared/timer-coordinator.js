@@ -7,7 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-define(["require", "exports", "aurelia-framework", "aurelia-i18n"], function (require, exports, aurelia_framework_1, aurelia_i18n_1) {
+define(["require", "exports", "aurelia-framework", "aurelia-i18n", "chrome.notifications"], function (require, exports, aurelia_framework_1, aurelia_i18n_1, chrome_notifications_1) {
     "use strict";
     var TimerCoordinator = (function () {
         function TimerCoordinator(i18n) {
@@ -21,11 +21,11 @@ define(["require", "exports", "aurelia-framework", "aurelia-i18n"], function (re
             if (!timer.onFinish) {
                 timer.onFinish = function () {
                     if ("Notification" in window) {
-                        if (Notification.permission === "granted") {
+                        if (chrome_notifications_1.Notification.permission === "granted") {
                             var options = {
                                 body: timer.action
                             };
-                            new Notification(that._i18n.tr("quickRecipe.timerEnded"), options);
+                            new chrome_notifications_1.Notification(that._i18n.tr("quickRecipe.timerEnded", null), options);
                         }
                     }
                 };

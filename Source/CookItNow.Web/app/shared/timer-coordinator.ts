@@ -1,6 +1,7 @@
 import {inject} from "aurelia-framework";
 import {I18N} from "aurelia-i18n";
 import {Timer} from "shared/models/timer";
+import {Notification} from "chrome.notifications";
 
 @inject (I18N)
 export class TimerCoordinator {
@@ -25,7 +26,7 @@ export class TimerCoordinator {
 							body: timer.action
 						}
 
-						new Notification(that._i18n.tr("quickRecipe.timerEnded"), options);
+						new Notification(that._i18n.tr("quickRecipe.timerEnded", null), options);
 					}
 				}
 			}

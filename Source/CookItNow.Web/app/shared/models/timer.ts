@@ -10,12 +10,9 @@ export class Timer {
     isEditingDescription: boolean = false;
     state: string = "original";
     timer: number;
-    onFinish: Event;
+    onFinish;
 
-    constructor() {
-    }
-
-    constructor(duration: string, action: string) {
+    constructor(duration?: string, action?: string) {
         this.duration = duration;
         this.action = action;
     }
