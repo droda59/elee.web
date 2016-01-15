@@ -1,5 +1,6 @@
 import {inject, customAttribute} from "aurelia-framework";
 import {TaskQueue} from "aurelia-task-queue";
+import * as $ from 'jquery'
 
 function createEvent(name) {
   var event = document.createEvent("Event");
@@ -24,7 +25,7 @@ export class Materialize {
   taskQueue;
   value;
   domObserver;
-  
+
   constructor(element, taskQueue) {
     this.element = element;
     this.taskQueue = taskQueue;
@@ -61,11 +62,11 @@ export class Materialize {
       case "label":
         this.taskQueue.queueMicroTask({ call: () => this.fixLabelOverlap() });
         break;
-        
+
       case "parallax":
         setTimeout(() => $(this.element).parallax(), 10);
         break;
-        
+
       case "pushpin":
         setTimeout(() => $(this.element).pushpin({ top: 0 }), 10);
         break;
