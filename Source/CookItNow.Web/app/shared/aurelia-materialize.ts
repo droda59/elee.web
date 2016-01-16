@@ -1,6 +1,7 @@
 import {inject, customAttribute} from "aurelia-framework";
 import {TaskQueue} from "aurelia-task-queue";
-import * as $ from 'jquery'
+// Commented out. It fix the warning in TS build but make the homepage wrecking havoc. Need to investigate...
+//import * as $ from 'jquery'
 
 function createEvent(name) {
   var event = document.createEvent("Event");
