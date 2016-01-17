@@ -12,13 +12,13 @@ var sass = require('gulp-sass');
 var bundler = require("aurelia-bundler");
 
 var path = {
-    package: "./package.json", 
-    views: 
+    package: "./package.json",
+    views:
     {
         src: "app/**/*.html",
         dest: "dist/"
     },
-    typescript: 
+    typescript:
     {
         src: "app/**/*.ts",
         dest: "dist/"
@@ -30,9 +30,9 @@ var path = {
 };
 
 var bundleConfig = {
-    force: true, 
-    baseURL: '.',                   // `baseURL of the application` 
-    configPath: './config.js',      // `config.js` path. Must be within `baseURL` 
+    force: true,
+    baseURL: '.',                   // `baseURL of the application`
+    configPath: './config.js',      // `config.js` path. Must be within `baseURL`
     packagePath: ".",
     bundles: {
         "dist/app-bundle": {
@@ -76,7 +76,7 @@ gulp.task("unbundle", function() {
 });
 
 gulp.task("typedef", function () {
-    return gulp.src("jspm_packages/github/aurelia/**/*.d.ts")
+    return gulp.src("jspm_packages/npm/aurelia*/**/*.d.ts")
         .pipe(flatten())
         .pipe(gulp.dest("typings/aurelia"));
 });
@@ -91,8 +91,8 @@ gulp.task("build-ts", function () {
         .pipe(changed(path.typescript.src, { extension: ".ts" }))
         .pipe(ts({
             module: "amd",
-            sourceMap: false, 
-            emitError: false, 
+            sourceMap: false,
+            emitError: false,
             target: "ES5",
             emitDecoratorMetadata: true,
             experimentalDecorators : true
