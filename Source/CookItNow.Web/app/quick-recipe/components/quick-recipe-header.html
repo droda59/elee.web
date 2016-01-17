@@ -25,11 +25,13 @@
 									<ul class="collection">
 										<li repeat.for="timer of timerCoordinator.activeTimers" class="collection-item avatar valign-wrapper active-timer au-animate">
 											<i class="material-icons prefix">av_timer</i>
-											<form submit.delegate="startTimer(timer)">
+											<form submit.delegate="startTimer(timer)" validate.bind="timer.validation">
 												<input type="text" placeholder="${'quickRecipe.timerDescription' | t}" value.bind="timer.action" focus.bind="timer.isEditingDescription">
-												<input type="text" placeholder="${'quickRecipe.timerDuration' | t}" value.bind="timer.duration" if.bind="timer.remainingTime === timer.originalTime">
+												<input type="text" placeholder="${'quickRecipe.timerDuration' | t}" validation="duration" value.bind="timer.duration" if.bind="timer.remainingTime === timer.originalTime">
 
-												<button click.trigger="startTimer(timer)" class="${timer.duration ? '' : 'disabled'}" if.bind="timer.remainingTime === timer.originalTime"><i class="material-icons">play_arrow</i></button>
+												<button type="submit" disabled.bind="!timer.validation.result.isValid" click.trigger="startTimer(timer)" class="${timer.duration ? '' : 'disabled'}" if.bind="timer.remainingTime === timer.originalTime">
+													<i class="material-icons">play_arrow</i>
+												</button>
 											</form>
 
 											<span class="${timer.state == 'isAlmostDone' ? 'red-text' : ''}" if.bind="timer.remainingTime !== timer.originalTime">

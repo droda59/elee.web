@@ -1,24 +1,27 @@
-import {bindable, autoinject} from "aurelia-framework";
+import {bindable, inject} from "aurelia-framework";
 import {DialogService} from "aurelia-dialog";
+import {Validation} from "aurelia-validation";
 import {TimerCoordinator} from "shared/timer-coordinator";
 import {QuickRecipe} from "quick-recipe/models/quick-recipe";
 import {Timer} from "shared/models/timer";
 import {SettingsManager} from "shared/settings-manager";
 import {SettingsModal} from "shared/components/settings-modal";
 
-@autoinject
+@inject (TimerCoordinator, DialogService, SettingsManager, Validation)
 export class QuickRecipeHeader {
 	@bindable recipe: QuickRecipe = null;
 
 	activeTimersSectionActive: boolean = false;
 	timerCoordinator: TimerCoordinator;
 
+	private _validation: Validation;
 	private _dialogService: DialogService;
 	private _settingsManager: SettingsManager;
 
-	constructor(timerCoordinator: TimerCoordinator, dialogService: DialogService, settingsManager: SettingsManager) {
+	constructor(timerCoordinator: TimerCoordinator, dialogService: DialogService, settingsManager: SettingsManager, validation: Validation) {
 		this._dialogService = dialogService;
 		this._settingsManager = settingsManager;
+		this._validation = validation;
 		this.timerCoordinator = timerCoordinator;
 	}
 
@@ -27,14 +30,19 @@ export class QuickRecipeHeader {
 	}
 
 	addTimer(): void {
-		var newTimer = new Timer();
-		newTimer.isEditingDescription = true;
+		var timer = new Timer();
+		timer.isEditingDescription = true;
+		timer.validation = this._validation.on(timer, null);
 
-		this.timerCoordinator.addTimer(newTimer);
+		this.timerCoordinator.addTimer(timer);
 	}
 
 	startTimer(timer: Timer): void {
-		this.timerCoordinator.startTimer(timer);
+		timer.validation
+			.validate()
+			.then(() => {
+	  			this.timerCoordinator.startTimer(timer);
+	      	});
 	}
 
 	removeTimer(timer: Timer): void {

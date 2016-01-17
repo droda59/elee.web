@@ -54,6 +54,7 @@
       "aurelia-templating-resources": "npm:aurelia-templating-resources@^1.0.0-beta.1.0.3",
       "aurelia-templating-router": "npm:aurelia-templating-router@^1.0.0-beta.1.0.4",
       "aurelia-ui-toolkits/aurelia-materialize-plugin": "github:aurelia-ui-toolkits/aurelia-materialize-plugin-old@master",
+      "aurelia-validation": "npm:aurelia-validation@^0.6.0",
       "css": "github:systemjs/plugin-css@^0.1.20",
       "gsap": "npm:gsap@^1.18.0",
       "jquery": "github:components/jquery@^2.1.4",

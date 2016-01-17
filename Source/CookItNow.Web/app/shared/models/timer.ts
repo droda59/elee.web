@@ -1,15 +1,20 @@
 import {computedFrom} from "aurelia-framework";
+import {ensure, ValidationGroup} from "aurelia-validation";
+import * as moment from "moment";
 
 export class Timer {
     private _originalSeconds: number;
     private _remainingSeconds: number;
 
+    @ensure(function(it) { it.isNotEmpty().passes(this.isTime); })
     duration: string;
+    
     action: string;
     isStopped: boolean = true;
     isEditingDescription: boolean = false;
     state: string = "original";
     timer: number;
+    validation: ValidationGroup;
     onFinish;
 
     constructor(duration?: string, action?: string) {
@@ -65,6 +70,10 @@ export class Timer {
     @computedFrom("_originalSeconds")
     get originalTime() {
         return this._originalSeconds;
+    }
+
+    private isTime(): boolean {
+        return !(!moment.duration(this.duration));
     }
 
     private initialize() {
