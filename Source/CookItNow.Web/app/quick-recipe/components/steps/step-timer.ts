@@ -6,7 +6,7 @@ import {inject} from "aurelia-framework";
 @inject (TimerCoordinator)
 export class StepTimer {
 	timer: Timer;
-	
+
 	private _timerCoordinator: TimerCoordinator;
 
 	constructor(timerCoordinator: TimerCoordinator) {
@@ -18,6 +18,8 @@ export class StepTimer {
 	}
 
 	startTimer(): void {
-		this._timerCoordinator.startTimer(this.timer);
+		if (this.timer.isStopped) {
+			this._timerCoordinator.startTimer(this.timer);
+		}
 	}
 }

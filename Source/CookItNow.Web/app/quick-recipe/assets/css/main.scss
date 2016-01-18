@@ -206,7 +206,9 @@
                             font-size: 2rem;
                         }
                         .timer {
-                            // color: dodgerblue;
+                            a {
+                                vertical-align: top;
+                            }
                         }
                     }
                     .step:first-of-type {

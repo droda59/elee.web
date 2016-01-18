@@ -8,7 +8,7 @@ export class Timer {
 
     @ensure(function(it) { it.isNotEmpty().passes(this.isTime); })
     duration: string;
-    
+
     action: string;
     isStopped: boolean = true;
     isEditingDescription: boolean = false;
@@ -60,6 +60,8 @@ export class Timer {
     delete() {
         clearInterval(this.timer);
         this.timer = null;
+        this.isStopped = true;
+        this.initialize();
     }
 
     @computedFrom("_remainingSeconds")
