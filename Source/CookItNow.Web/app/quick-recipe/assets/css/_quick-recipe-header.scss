@@ -70,8 +70,7 @@
 
             .dropdown-content {
                 right: -1px;
-                top: calc($quick-recipe-header-height - 1px);
-                top: calc(70px - 1px);
+                top: calc(#{$quick-recipe-header-height} - 1px);
                 padding: 10px;
 
                 .collection {
