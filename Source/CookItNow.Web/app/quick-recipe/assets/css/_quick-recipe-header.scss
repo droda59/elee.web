@@ -32,6 +32,7 @@
                 display: inline-block;
                 overflow-x: hidden;
                 cursor: pointer;
+                height: $quick-recipe-header-height;
 
                 i {
                     height: 100%;
@@ -62,106 +63,103 @@
                 // color: white;
             }
 
-            .active-timers {
-                right: 0;
+            .dropdown-button {
+                width: $quick-recipe-header-height;
+                text-align: center;
+            }
 
-                .dropdown-button {
-                    width: $quick-recipe-header-height;
-                    text-align: center;
-                }
+            .dropdown-content {
+                right: -1px;
+                top: calc($quick-recipe-header-height - 1px);
+                top: calc(70px - 1px);
+                padding: 10px;
 
-                .dropdown-content {
-                    right: -1px;
-                    top: calc($quick-recipe-header-height - 1px);
-                    top: calc(70px - 1px);
-                    padding: 10px;
+                .collection {
+                    border: none;
+                    margin: 0;
 
-                    .collection {
-                        border: none;
-                        margin: 0;
+                    .collection-item {
+                        // background: none;
+                        padding: 10px 0;
+                        min-height: inherit;
 
-                        .collection-item {
-                            // background: none;
-                            padding: 10px 0;
-                            min-height: inherit;
+                        .add-timer {
+                            width: 100%;
+                            padding: 0;
+                            line-height: inherit;
+                            height: inherit;
 
-                            .add-timer {
-                                width: 100%;
-                                padding: 0;
-                                line-height: inherit;
+                            i {
                                 height: inherit;
+                                line-height: inherit;
+                            }
+
+                            .title {
+                                padding: 14px 16px;
+                                display: inline-block;
+                            }
+                        }
+                        .add-timer:hover {
+                            background-color: inherit;
+                        }
+                        form {
+                            line-height: 64px;
+                            height: 64px;
+                            width: 100%;
+                        }
+                        button {
+                            display: inline-block;
+                            color: #26a69a;
+                            border: none;
+                            background: none;
+                            transition: background-color .3s;
+                            font-size: 1rem;
+                            padding: 0 15px;
+                            cursor: pointer;
+                        }
+                        button:hover {
+                            background-color: rgba(0, 0, 0, 0.1);
+                        }
+                        input {
+                            margin: 0 10px;
+                            width: initial;
+                            color: #26a69a;
+                            border-bottom-color: transparent;
+                            vertical-align: top;
+                            line-height: inherit;
+                            height: inherit;
+                        }
+                        input:focus {
+                            border-bottom-color: #26a69a;
+                        }
+                        a {
+                            display: inline-block;
+                            color: #26a69a;
+                            line-height: 64px;
+                            height: 64px;
+                            padding: 0 15px;
+                        }
+                        p {
+                            font-size: 1.2rem;
+                        }
+                        .btn-floating {
+                            padding: 0;
+                            margin: 0;
+                            line-height: 37px;
+                            height: inherit;
+                        }
+
+                        .secondary-content {
+                            right: 0;
+
+                            a {
+                                display: inline-block;
+                                padding: 0;
+                                color: inherit;
 
                                 i {
                                     height: inherit;
                                     line-height: inherit;
-                                }
-
-                                .title {
-                                    padding: 14px 16px;
-                                    display: inline-block;
-                                }
-                            }
-                            .add-timer:hover {
-                                background-color: inherit;
-                            }
-                            form {
-                                line-height: 64px;
-                                height: 64px;
-                            }
-                            button {
-                                display: inline-block;
-                                color: #26a69a;
-                                border: none;
-                                background: none;
-                                transition: background-color .3s;
-                                font-size: 1rem;
-                                padding: 0 15px;
-                                cursor: pointer;
-                            }
-                            button:hover {
-                                background-color: rgba(0, 0, 0, 0.1);
-                            }
-                            input {
-                                margin: 0 10px;
-                                width: initial;
-                                color: #26a69a;
-                                border-bottom-color: transparent;
-                                vertical-align: top;
-                                line-height: inherit;
-                                height: inherit;
-                            }
-                            input:focus {
-                                border-bottom-color: #26a69a;
-                            }
-                            a {
-                                display: inline-block;
-                                color: #26a69a;
-                                line-height: 64px;
-                                height: 64px;
-                                padding: 0 15px;
-                            }
-                            p {
-                                font-size: 1.2rem;
-                            }
-                            .btn-floating {
-                                padding: 0;
-                                margin: 0;
-                                line-height: 37px;
-                                height: inherit;
-                            }
-
-                            .secondary-content {
-                                right: 0;
-
-                                a {
-                                    display: inline-block;
-                                    padding: 0;
-                                    color: inherit;
-
-                                    i {
-                                        height: inherit;
-                                        line-height: inherit;
-                                    }
                                 }
                             }
                         }
