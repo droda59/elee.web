@@ -6,7 +6,7 @@ export class Timer {
     private _originalSeconds: number;
     private _remainingSeconds: number;
 
-    @ensure(function(it) { it.isNotEmpty().passes(this.isTime); })
+    // @ensure(function(it) { it.isNotEmpty().passes(this.isTime) })
     duration: string;
 
     action: string;
@@ -73,10 +73,10 @@ export class Timer {
     get originalTime() {
         return this._originalSeconds;
     }
-
-    private isTime(): boolean {
-        return !(!moment.duration(this.duration));
-    }
+    //
+    // private isTime(value): boolean {
+    //     return moment.duration(value).asMilliseconds() > 0;
+    // }
 
     private initialize() {
 		var original = moment.duration(this.duration);

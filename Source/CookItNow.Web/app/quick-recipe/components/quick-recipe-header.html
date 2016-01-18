@@ -34,15 +34,21 @@
 											<span>${timer.originalTime | timeFormat}</span>
 										</span>
 
-										<a click.trigger="removeTimer(timer)" class="right">
-											<i class="material-icons">delete</i>
-										</a>
-										<a click.trigger="timer.replay()" if.bind="timer.remainingTime !== timer.originalTime" class="right">
-											<i class="material-icons">replay</i>
-										</a>
-										<button type="submit" disabled.bind="!timer.validation.result.isValid" click.trigger="startTimer(timer)" class="${timer.duration ? '' : 'disabled'} right" if.bind="timer.remainingTime === timer.originalTime">
+										<button type="submit"
+												class="btn-floating"
+												if.bind="timer.remainingTime === timer.originalTime"
+												disabled.bind="!timer.validation.result.isValid"
+												click.trigger="startTimer(timer)">
 											<i class="material-icons">play_arrow</i>
 										</button>
+										<a click.trigger="timer.replay()"
+											if.bind="timer.remainingTime !== timer.originalTime"
+											class="btn-floating">
+											<i class="material-icons">replay</i>
+										</a>
+										<a click.trigger="removeTimer(timer)" class="btn-floating">
+											<i class="material-icons">delete</i>
+										</a>
 									</form>
 								</li>
                                 <li class="collection-item avatar valign-wrapper">

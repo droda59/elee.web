@@ -6,6 +6,7 @@ import {QuickRecipe} from "quick-recipe/models/quick-recipe";
 import {Timer} from "shared/models/timer";
 import {SettingsManager} from "shared/settings-manager";
 import {SettingsModal} from "shared/components/settings-modal";
+import * as moment from "moment";
 
 @inject (TimerCoordinator, DialogService, SettingsManager, Validation)
 export class QuickRecipeHeader {
@@ -32,17 +33,22 @@ export class QuickRecipeHeader {
 	addTimer(): void {
 		var timer = new Timer();
 		timer.isEditingDescription = true;
-		timer.validation = this._validation.on(timer, null);
+		timer.validation = this._validation
+			.on(timer, (config) => { config.useDebounceTimeout(1500) })
+			.ensure("duration")
+				.isNotEmpty()
+				.passes(this.isTime);
+		// timer.validation.validate();
 
 		this.timerCoordinator.addTimer(timer);
 	}
 
+    private isTime(value): boolean {
+        return moment.duration(value).asMilliseconds() > 0;
+    }
+
 	startTimer(timer: Timer): void {
-		timer.validation
-			.validate()
-			.then(() => {
-	  			this.timerCoordinator.startTimer(timer);
-	      	});
+		this.timerCoordinator.startTimer(timer);
 	}
 
 	removeTimer(timer: Timer): void {
