@@ -161,10 +161,6 @@
                         position: fixed;
                         bottom: 50px;
                         right: 10px;
-
-                        .complete-button i {
-                            margin: 0;
-                        }
                     }
 
                     .step {
@@ -207,7 +203,7 @@
                         }
                         .timer {
                             a {
-                                vertical-align: top;
+                                font-size: 1rem;
                             }
                         }
                     }
