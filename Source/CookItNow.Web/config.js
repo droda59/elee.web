@@ -1,12 +1,12 @@
 System.config({
-  "defaultJSExtensions": true,
-  "transpiler": "traceur",
-  "paths": {
+  defaultJSExtensions: true,
+  transpiler: "traceur",
+  paths: {
     "*": "dist/*",
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
   },
-  "bundles": {
+  bundles: {
     "aurelia-bundle": [
       "github:jspm/nodelibs-process@0.1.2",
       "github:jspm/nodelibs-process@0.1.2/index",
@@ -311,7 +311,8 @@ System.config({
       "npm:process@0.11.2/browser"
     ]
   },
-  "map": {
+
+  map: {
     "aurelia-animator-css": "npm:aurelia-animator-css@1.0.0-beta.1.0.3",
     "aurelia-binding": "npm:aurelia-binding@1.0.0-beta.1.0.5",
     "aurelia-bootstrapper": "npm:aurelia-bootstrapper@1.0.0-beta.1.0.2",
@@ -760,4 +761,4 @@ System.config({
       "indexof": "npm:indexof@0.0.1"
     }
   }
-})
+});

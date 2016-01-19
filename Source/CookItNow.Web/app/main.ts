@@ -7,11 +7,7 @@ export function configure(aurelia) {
         .globalResources("shared/aurelia-materialize")
 	    .plugin("aurelia-animator-css")
 	    .plugin("aurelia-dialog")
-        .plugin("aurelia-validation"
-        // , (config) => {
-        //     config.useViewStrategy(MaterializeViewStrategy);
-        // }
-    )
+        .plugin("aurelia-validation", (config) => { config.useViewStrategy(MaterializeViewStrategy); })
         .plugin("aurelia-i18n", (instance) => {
             instance.setup({
                 resGetPath : "app/shared/assets/locale/__lng__/__ns__.json",

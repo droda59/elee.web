@@ -1,12 +1,13 @@
 import {computedFrom} from "aurelia-framework";
 import {ensure, ValidationGroup} from "aurelia-validation";
+import {TimeValidationRule} from "shared/validation-rules/time-validation-rule";
 import * as moment from "moment";
 
 export class Timer {
     private _originalSeconds: number;
     private _remainingSeconds: number;
 
-    // @ensure(function(it) { it.isNotEmpty().passes(this.isTime) })
+    @ensure(function(it) { it.isNotEmpty().passesRule(new TimeValidationRule()) })
     duration: string;
 
     action: string;
@@ -73,10 +74,6 @@ export class Timer {
     get originalTime() {
         return this._originalSeconds;
     }
-    //
-    // private isTime(value): boolean {
-    //     return moment.duration(value).asMilliseconds() > 0;
-    // }
 
     private initialize() {
 		var original = moment.duration(this.duration);
