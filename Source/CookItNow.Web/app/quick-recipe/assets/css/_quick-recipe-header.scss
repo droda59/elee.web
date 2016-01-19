@@ -29,7 +29,6 @@
             }
 
             .block-button {
-                display: inline-block;
                 overflow-x: hidden;
                 cursor: pointer;
                 height: $quick-recipe-header-height;
@@ -37,7 +36,6 @@
                 i {
                     height: 100%;
                     line-height: $quick-recipe-header-height;
-                    display: inline-block;
                     width: $quick-recipe-header-height;
                     text-align: center;
                 }
