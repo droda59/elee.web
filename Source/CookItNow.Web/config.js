@@ -1,12 +1,12 @@
 System.config({
-  defaultJSExtensions: true,
-  transpiler: "traceur",
-  paths: {
+  "defaultJSExtensions": true,
+  "transpiler": "traceur",
+  "paths": {
     "*": "dist/*",
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
   },
-  bundles: {
+  "bundles": {
     "aurelia-bundle": [
       "github:jspm/nodelibs-process@0.1.2",
       "github:jspm/nodelibs-process@0.1.2/index",
@@ -311,8 +311,7 @@ System.config({
       "npm:process@0.11.2/browser"
     ]
   },
-
-  map: {
+  "map": {
     "aurelia-animator-css": "npm:aurelia-animator-css@1.0.0-beta.1.0.3",
     "aurelia-binding": "npm:aurelia-binding@1.0.0-beta.1.0.5",
     "aurelia-bootstrapper": "npm:aurelia-bootstrapper@1.0.0-beta.1.0.2",
@@ -638,9 +637,6 @@ System.config({
       "util": "github:jspm/nodelibs-util@0.1.0",
       "vm": "github:jspm/nodelibs-vm@0.1.0"
     },
-    "npm:gsap@1.18.0": {
-      "process": "github:jspm/nodelibs-process@0.1.2"
-    },
     "npm:gsap@1.18.2": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
@@ -727,7 +723,7 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:scrollmagic@2.0.5": {
-      "gsap": "npm:gsap@1.18.0",
+      "gsap": "npm:gsap@1.18.2",
       "jquery": "github:components/jquery@2.2.0"
     },
     "npm:stream-browserify@1.0.0": {
@@ -761,4 +757,4 @@ System.config({
       "indexof": "npm:indexof@0.0.1"
     }
   }
-});
+})
