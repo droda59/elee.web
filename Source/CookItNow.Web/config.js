@@ -1,12 +1,12 @@
 System.config({
-  defaultJSExtensions: true,
-  transpiler: "traceur",
-  paths: {
+  "defaultJSExtensions": true,
+  "transpiler": "traceur",
+  "paths": {
     "*": "dist/*",
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
   },
-  bundles: {
+  "bundles": {
     "aurelia-bundle": [
       "github:jspm/nodelibs-process@0.1.2",
       "github:jspm/nodelibs-process@0.1.2/index",
@@ -86,6 +86,24 @@ System.config({
       "npm:aurelia-templating-router@1.0.0-beta.1.0.5/router-view",
       "npm:aurelia-templating@1.0.0-beta.1.0.3",
       "npm:aurelia-templating@1.0.0-beta.1.0.3/aurelia-templating",
+      "npm:aurelia-validation@0.6.0",
+      "npm:aurelia-validation@0.6.0/debouncer",
+      "npm:aurelia-validation@0.6.0/decorators",
+      "npm:aurelia-validation@0.6.0/index",
+      "npm:aurelia-validation@0.6.0/path-observer",
+      "npm:aurelia-validation@0.6.0/strategies/twbootstrap-view-strategy",
+      "npm:aurelia-validation@0.6.0/utilities",
+      "npm:aurelia-validation@0.6.0/validate-custom-attribute",
+      "npm:aurelia-validation@0.6.0/validation",
+      "npm:aurelia-validation@0.6.0/validation-config",
+      "npm:aurelia-validation@0.6.0/validation-group",
+      "npm:aurelia-validation@0.6.0/validation-group-builder",
+      "npm:aurelia-validation@0.6.0/validation-locale",
+      "npm:aurelia-validation@0.6.0/validation-property",
+      "npm:aurelia-validation@0.6.0/validation-result",
+      "npm:aurelia-validation@0.6.0/validation-rules",
+      "npm:aurelia-validation@0.6.0/validation-rules-collection",
+      "npm:aurelia-validation@0.6.0/validation-view-strategy",
       "npm:core-js@1.2.6",
       "npm:core-js@1.2.6/index",
       "npm:core-js@1.2.6/modules/$",
@@ -293,8 +311,7 @@ System.config({
       "npm:process@0.11.2/browser"
     ]
   },
-
-  map: {
+  "map": {
     "aurelia-animator-css": "npm:aurelia-animator-css@1.0.0-beta.1.0.3",
     "aurelia-binding": "npm:aurelia-binding@1.0.0-beta.1.0.5",
     "aurelia-bootstrapper": "npm:aurelia-bootstrapper@1.0.0-beta.1.0.2",
@@ -309,6 +326,7 @@ System.config({
     "aurelia-loader-default": "npm:aurelia-loader-default@1.0.0-beta.1.0.2",
     "aurelia-logging": "npm:aurelia-logging@1.0.0-beta.1",
     "aurelia-logging-console": "npm:aurelia-logging-console@1.0.0-beta.1",
+    "aurelia-materialize": "github:aurelia-ui-toolkits/aurelia-materialize-plugin-old@master",
     "aurelia-metadata": "npm:aurelia-metadata@1.0.0-beta.1",
     "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.0.2",
     "aurelia-path": "npm:aurelia-path@1.0.0-beta.1",
@@ -319,7 +337,6 @@ System.config({
     "aurelia-templating-binding": "npm:aurelia-templating-binding@1.0.0-beta.1.0.2",
     "aurelia-templating-resources": "npm:aurelia-templating-resources@1.0.0-beta.1.0.4",
     "aurelia-templating-router": "npm:aurelia-templating-router@1.0.0-beta.1.0.5",
-    "aurelia-ui-toolkits/aurelia-materialize-plugin": "github:aurelia-ui-toolkits/aurelia-materialize-plugin-old@master",
     "aurelia-validation": "npm:aurelia-validation@0.6.0",
     "babel": "npm:babel-core@5.8.34",
     "babel-runtime": "npm:babel-runtime@5.8.34",
@@ -743,4 +760,4 @@ System.config({
       "indexof": "npm:indexof@0.0.1"
     }
   }
-});
+})

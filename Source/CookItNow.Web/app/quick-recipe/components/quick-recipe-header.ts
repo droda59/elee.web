@@ -34,11 +34,11 @@ export class QuickRecipeHeader {
 		var timer = new Timer();
 		timer.isEditingDescription = true;
 		timer.validation = this._validation
-			.on(timer, (config) => { config.useDebounceTimeout(1500) })
+			.on(timer, (config) => { config.useDebounceTimeout(1500)})
 			.ensure("duration")
 				.isNotEmpty()
 				.passes(this.isTime);
-		// timer.validation.validate();
+		timer.validation.validate().catch((t) => {});
 
 		this.timerCoordinator.addTimer(timer);
 	}
@@ -48,7 +48,11 @@ export class QuickRecipeHeader {
     }
 
 	startTimer(timer: Timer): void {
-		this.timerCoordinator.startTimer(timer);
+		timer.validation
+			.validate()
+			.then(() => {
+	  			this.timerCoordinator.startTimer(timer);
+	      	});
 	}
 
 	removeTimer(timer: Timer): void {

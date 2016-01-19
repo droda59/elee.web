@@ -1,3 +1,5 @@
+import {MaterializeViewStrategy} from "shared/materialize-view-strategy";
+
 export function configure(aurelia) {
     aurelia.use
         .standardConfiguration()
@@ -5,7 +7,11 @@ export function configure(aurelia) {
         .globalResources("shared/aurelia-materialize")
 	    .plugin("aurelia-animator-css")
 	    .plugin("aurelia-dialog")
-        .plugin("aurelia-validation")
+        .plugin("aurelia-validation"
+        // , (config) => {
+        //     config.useViewStrategy(MaterializeViewStrategy);
+        // }
+    )
         .plugin("aurelia-i18n", (instance) => {
             instance.setup({
                 resGetPath : "app/shared/assets/locale/__lng__/__ns__.json",
