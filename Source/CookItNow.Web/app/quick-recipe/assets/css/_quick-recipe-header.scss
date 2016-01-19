@@ -104,18 +104,10 @@
                             height: 64px;
                             width: 100%;
                         }
-                        button {
-                            display: inline-block;
-                            color: #26a69a;
-                            border: none;
-                            background: none;
-                            transition: background-color .3s;
-                            font-size: 1rem;
-                            padding: 0 15px;
-                            cursor: pointer;
-                        }
-                        button:hover {
-                            background-color: rgba(0, 0, 0, 0.1);
+                        button i,
+                        a i {
+                            height: inherit;
+                            line-height: inherit;
                         }
                         input {
                             margin: 0 10px;
@@ -129,21 +121,22 @@
                         input:focus {
                             border-bottom-color: #26a69a;
                         }
-                        a {
-                            display: inline-block;
-                            color: #26a69a;
-                            line-height: 64px;
-                            height: 64px;
-                            padding: 0 15px;
+                        input.valid {
+                            border-bottom-color: transparent;
+                            box-shadow: none;
+                        }
+                        input.valid:focus {
+                            border-bottom-color: #26a69a;
+                            box-shadow: 0 1px 0 0 #4CAF50;
+                        }
+                        input.invalid {
+                            color: #F44336;
+                        }
+                        input.invalid:focus {
+                            border-bottom-color: #F44336;
                         }
                         p {
                             font-size: 1.2rem;
-                        }
-                        .btn-floating {
-                            padding: 0;
-                            margin: 0;
-                            line-height: 37px;
-                            height: inherit;
                         }
 
                         .secondary-content {

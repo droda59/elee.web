@@ -1,8 +1,8 @@
 import {bindable, inject} from "aurelia-framework";
 import {DialogService} from "aurelia-dialog";
 import {Validation} from "aurelia-validation";
-import {TimerCoordinator} from "shared/timer-coordinator";
 import {QuickRecipe} from "quick-recipe/models/quick-recipe";
+import {TimerCoordinator} from "shared/timer-coordinator";
 import {Timer} from "shared/models/timer";
 import {SettingsManager} from "shared/settings-manager";
 import {SettingsModal} from "shared/components/settings-modal";
@@ -32,7 +32,8 @@ export class QuickRecipeHeader {
 	addTimer(): void {
 		var timer = new Timer();
 		timer.isEditingDescription = true;
-		timer.validation = this._validation.on(timer, null);
+		timer.validation = this._validation.on(timer, (config) => { config.useDebounceTimeout(150) });
+		timer.validation.validate().catch((t) => {});
 
 		this.timerCoordinator.addTimer(timer);
 	}

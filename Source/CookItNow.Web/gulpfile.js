@@ -8,7 +8,7 @@ var bump = require("gulp-bump");
 var browserSync = require("browser-sync").create();
 var changed = require("gulp-changed");
 var ts = require("gulp-tsc");
-var sass = require('gulp-sass');
+var sass = require("gulp-sass");
 var bundler = require("aurelia-bundler");
 
 var path = {
@@ -31,8 +31,8 @@ var path = {
 
 var bundleConfig = {
     force: true,
-    baseURL: '.',                   // `baseURL of the application`
-    configPath: './config.js',      // `config.js` path. Must be within `baseURL`
+    baseURL: ".",                   // `baseURL of the application`
+    configPath: "./config.js",      // `config.js` path. Must be within `baseURL`
     packagePath: ".",
     bundles: {
         "dist/app-bundle": {
@@ -57,7 +57,8 @@ var bundleConfig = {
                 "aurelia-templating-router",
                 "aurelia-loader-default",
                 "aurelia-history-browser",
-                "aurelia-logging-console"
+                "aurelia-logging-console",
+                "aurelia-validation"
             ],
             options: {
                 inject: true,
