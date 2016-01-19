@@ -26,7 +26,7 @@
 									<i class="material-icons prefix">av_timer</i>
 									<form submit.delegate="startTimer(timer)" validate.bind="timer.validation">
 										<input type="text" placeholder="${'quickRecipe.timerDescription' | t}" value.bind="timer.action" focus.bind="timer.isEditingDescription">
-										<input type="text" placeholder="${'quickRecipe.timerDuration' | t}" value.bind="timer.duration" if.bind="timer.remainingTime === timer.originalTime">
+										<input type="text" placeholder="${'quickRecipe.timerDuration' | t}" validate="duration" value.bind="timer.duration" show.bind="timer.remainingTime === timer.originalTime">
 
 										<span class="${timer.state == 'isAlmostDone' ? 'red-text' : ''}" if.bind="timer.remainingTime !== timer.originalTime">
 											<span>${timer.remainingTime | timeFormat}</span>

@@ -32,7 +32,7 @@ export class QuickRecipeHeader {
 	addTimer(): void {
 		var timer = new Timer();
 		timer.isEditingDescription = true;
-		timer.validation = this._validation.on(timer, (config) => { config.useDebounceTimeout(1500) });
+		timer.validation = this._validation.on(timer, (config) => { config.useDebounceTimeout(150) });
 		timer.validation.validate().catch((t) => {});
 
 		this.timerCoordinator.addTimer(timer);

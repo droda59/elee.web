@@ -123,6 +123,20 @@
                         input:focus {
                             border-bottom-color: #26a69a;
                         }
+                        input.valid {
+                            border-bottom-color: transparent;
+                            box-shadow: none;
+                        }
+                        input.valid:focus {
+                            border-bottom-color: #26a69a;
+                            box-shadow: 0 1px 0 0 #4CAF50;
+                        }
+                        input.invalid {
+                            color: #F44336;
+                        }
+                        input.invalid:focus {
+                            border-bottom-color: #F44336;
+                        }
                         p {
                             font-size: 1.2rem;
                         }
