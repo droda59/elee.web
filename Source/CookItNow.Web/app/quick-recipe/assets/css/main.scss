@@ -126,12 +126,14 @@
                         position: fixed;
                         width: calc(100% - #{$quick-recipe-ingredients-side-width});
                         top: $quick-recipe-header-height;
+                        background-color: $quick-sub-recipe-color;
 
                         .subrecipe-titles {
                             display: flex;
                             flex-direction: row;
                             justify-content: space-around;
                             flex-wrap: nowrap;
+                            color: black;
 
                             .subrecipe-title {
                                 opacity: 0.5;
@@ -152,10 +154,18 @@
 
                     .step-actions {
                         z-index: 1;
-
                         position: fixed;
                         bottom: 50px;
                         right: 10px;
+
+                        .btn {
+                          color: black;
+                          background-color: #FFE7CA;
+                        }
+
+                        .btn:hover {
+                          background-color: #FFAF4B;
+                        }
                     }
 
                     .step {

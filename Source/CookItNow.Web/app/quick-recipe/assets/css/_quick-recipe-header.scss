@@ -16,7 +16,7 @@
 
         nav {
             box-shadow: none;
-            // background-color: rgba(29, 30, 34, 0.5);
+            background-color: $quick-recipe-header-color;
             height: $quick-recipe-header-height;
             border-bottom: 1px solid rgb(102, 103, 111);
 
@@ -26,6 +26,16 @@
 
             h3 {
                 margin: 0;
+            }
+
+            .brand-logo {
+              i {
+                // Temp fix so the text flow next to the icon.
+                // Anyway, this will eventually get replaced.
+                display: inline-block;
+                padding-right: 5px;
+                vertical-align: middle;
+              }
             }
 
             .block-button {
@@ -45,9 +55,6 @@
                 background-color: rgba(226, 225, 221, 0.1);
             }
 
-            .logo {
-                width: calc(396px + 20px);
-            }
             .info {
                 width: calc(100% - 416px);
             }
