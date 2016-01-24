@@ -1,0 +1,20 @@
+{
+  "version": "1.0.0-*",
+  "description": "E133.Database Class Library",
+  "authors": [ "E133" ],
+  "tags": [""],
+  "projectUrl": "",
+  "licenseUrl": "",
+  "tooling": {
+    "defaultNamespace": "E133.Database"
+  },
+  
+  "dependencies": {
+    "E133.Business": "1.0.0-*",
+    "MongoDB.Driver": "2.2.2"
+  },
+
+  "frameworks": {
+    "dnx451": { }
+  }
+}
