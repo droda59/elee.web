@@ -1,10 +1,7 @@
 {
     "nav": {
         "home": "Home",
-        "browse": "Browse",
-        "contact": "Contact",
-        "lang": "French",
-        "signIn": "Sign In"
+        "lang": "French"
     },
     "comments": {
         "yourMessage": "Your message",

@@ -1,10 +1,7 @@
 {
     "nav": {
-        "home": "Maison",
-        "browse": "Naviguer",
         "contact": "Contact",
-        "lang": "English",
-        "signIn": "Connexion"
+        "lang": "English"
     },
     "comments": {
         "yourMessage": "Votre message",

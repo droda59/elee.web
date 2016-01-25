@@ -6,11 +6,17 @@
                 <div class="nav-wrapper">
                     <a href="#!" class="brand-logo">Logo</a>
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="#_" i18n="nav.home">Home</a></li>
-                        <li><a href="#_" i18n="nav.browse">Browse</a></li>
+                        <li>
+                            <form>
+                                <div class="input-field">
+                                  <input id="search" type="search" required="">
+                                  <label for="search" class=""><i class="material-icons">search</i></label>
+                                  <i class="material-icons">close</i>
+                                </div>
+                            </form>
+                        </li>
                         <li><a href="#_" i18n="nav.contact">Contact</a></li>
                         <li><a href="#_" i18n="nav.lang" click.trigger="changeLocale()">Lang</a></li>
-                        <li class="signin"><a href="#_" i18n="nav.signIn">SignIn</a></li>
                     </ul>
                 </div>
             </nav>

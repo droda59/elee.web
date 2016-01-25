@@ -27,6 +27,22 @@ export class Welcome {
 
 	attached(){
 		this._i18n.updateTranslations(this._element);
+
+		var scrollStart = 0;
+	   	var startchange = $(".popular-categories-container");
+		var nav = $("nav");
+		var offset = startchange.offset();
+		var navHeight = nav.height();
+	    if (startchange.length) {
+	   		$(document).scroll(function() {
+	      		scrollStart = $(this).scrollTop();
+	      		if(scrollStart > offset.top - navHeight) {
+	          		nav.addClass("primary-color");
+	       		} else {
+	          		nav.removeClass("primary-color");
+	       		}
+	   		});
+	    }
 	}
 
 	loadRecipe() {
