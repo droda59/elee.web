@@ -1,17 +1,17 @@
 {
   "version": "1.0.0-*",
-  "description": "E133.Business Class Library",
-  "authors": [ "E133" ],
+  "description": "E133.Crawler Class Library",
+  "authors": [ "Class Library template" ],
   "tags": [""],
   "projectUrl": "",
   "licenseUrl": "",
   "tooling": {
-    "defaultNamespace": "E133.Business"
+    "defaultNamespace": "E133.Crawler"
   },
   
   "dependencies": {
-    "System.Net.Http": "4.0.1-beta-23516",
-    "Autofac": "4.0.0-rc1-177"
+    "Autofac": "4.0.0-rc1-177",
+    "E133.Business": "1.0.0-*"
   },
 
   "frameworks": {
@@ -22,8 +22,7 @@
         "System.Collections": "4.0.11-beta-23516",
         "System.Linq": "4.0.1-beta-23516",
         "System.Runtime": "4.0.21-beta-23516",
-        "System.Threading": "4.0.11-beta-23516",
-        "Newtonsoft.Json": "8.0.2"
+        "System.Threading": "4.0.11-beta-23516"
       }
     }
   }

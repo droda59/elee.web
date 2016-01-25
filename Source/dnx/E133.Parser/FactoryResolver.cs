@@ -9,11 +9,12 @@ namespace E133.Parser
     {
         public static Func<CultureInfo, TDetector> ResolveDetectorByLanguage<TDetector>(IComponentContext c)
         {
-            var baseName = typeof(TDetector).Name.Remove(0, 1);
-
+            var context = c.Resolve<IComponentContext>();
+            
             return language => 
             {
-                var context = c.Resolve<IComponentContext>();
+                var baseName = typeof(TDetector).Name.Remove(0, 1);
+
                 return context.ResolveKeyed<TDetector>(language.EnglishName + baseName);
             };
         }

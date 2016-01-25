@@ -18,7 +18,6 @@ namespace E133.Parser
 
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<HtmlLoader>().As<IHtmlLoader>().SingleInstance();
             builder.RegisterType<ParserFactory>().As<IParserFactory>().SingleInstance();
 
             RegisterDetector<IActionDetector>(builder);
@@ -47,21 +46,8 @@ namespace E133.Parser
                     .SingleInstance();
             }
 
-            // builder.Register<Func<CultureInfo, TDetector>>(FactoryResolver.ResolveDetectorByLanguage<TDetector>)
-            builder.Register<Func<CultureInfo, TDetector>>(
-                c =>
-                {
-                    var context = c.Resolve<IComponentContext>();
-                    
-                    return language => 
-                    {
-                        var bName = typeof(TDetector).Name.Remove(0, 1);
-
-                        return context.ResolveKeyed<TDetector>(language.EnglishName + bName);
-                    };
-                }
-            );
-                // .SingleInstance();
+            builder.Register<Func<CultureInfo, TDetector>>(FactoryResolver.ResolveDetectorByLanguage<TDetector>)
+                .SingleInstance();
         }
     }
 }

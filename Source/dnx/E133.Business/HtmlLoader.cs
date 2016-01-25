@@ -2,7 +2,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace E133.Parser
+namespace E133.Business
 {
     internal class HtmlLoader : IHtmlLoader
     {

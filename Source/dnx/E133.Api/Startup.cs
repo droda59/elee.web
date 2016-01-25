@@ -9,7 +9,6 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
 using E133.Api.Infrastructure;
-using E133.Database;
 
 namespace E133.Api
 {
