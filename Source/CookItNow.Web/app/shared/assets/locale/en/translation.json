@@ -1,6 +1,6 @@
 {
     "nav": {
-        "home": "Home",
+        "contact": "Contact",
         "lang": "French"
     },
     "comments": {
@@ -33,7 +33,7 @@
     },
     "home": {
         "search": "Search",
-        "cookItNowButton": "Cook it now!",
+        "cookItNowButton": "Cook it!",
         "categories": {
             "title": "Popular categories",
             "browseAll": "Browse all",
@@ -43,10 +43,18 @@
             "title": "How it works",
             "step1Title": "1 - Find a recipe",
             "step1Text": "Find a recipe you like. There has to be some: you have the whole Web at your fingertips!",
-            "step2Title": "2 - Cook the recipe",
-            "step2Text": "Actually make the recipe you found using our engine. It's easy, intuitive and elegant. We're in 2015, after all!",
+            "step2Title": "2 - Cook it",
+            "step2Text": "Actually make the recipe you found using our engine. It's simple, intuitive and elegant. We're in 2016, after all!",
             "step3Title": "3 - Enjoy your meal",
             "step3Text": "We don't have to guide you through this step. Go on, enjoy it; you deserve it!"
+        },
+        "description": {
+            "ingredientsTitle": "Inline ingredients",
+            "ingredientsDescription": "Ingredient quantities are specified directly in the step, in the measure unit your prefer. No need to look for information elsewhere anymore! Furthermore, ingredients that have already been used are checked from the ingredient list.",
+            "timersTitle": "Timers",
+            "timersDescription": "Lorsqu'un temps est requis, vous pouvez activer un chronomètre directement dans l'étape. Vous pouvez même ajouter un chronomètre manuellement, selon vos besoins! Lorsque le temps est écoulé, une alerte vous l'indique, quoi que vous soyez en train de faire.",
+            "stepsTitle": "Single steps",
+            "stepsDescription": "The recipe steps are shown one instruction at a time. The time when we got lost in a big paragraph trying to find what we were doing is over!"
         }
     },
     "quantities": {
@@ -83,6 +91,7 @@
     },
     "quickRecipe": {
         "originalRecipe": "Original recipe: ",
+        "note": "Note: ",
         "timerTimeOfTotal": " of ",
         "timerAdd": "Add",
         "timerDescription": "Description",

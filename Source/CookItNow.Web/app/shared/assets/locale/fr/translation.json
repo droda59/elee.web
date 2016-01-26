@@ -33,7 +33,7 @@
     },
     "home": {
         "search": "Recherche",
-        "cookItNowButton": "Cook it now!",
+        "cookItNowButton": "Cuisinez!",
         "categories": {
             "title": "Catégories populaires",
             "browseAll": "Voir toutes",
@@ -43,10 +43,18 @@
             "title": "Comment ça marche",
             "step1Title": "1 - Trouver une recette",
             "step1Text": "Trouvez une recette que vous aimez. Il doit bien y en avoir une : vous avez l'internet à votre portée!",
-            "step2Title": "2 - Cuisinez la recette",
-            "step2Text": "Suivez la recette en utilisant notre moteur. C'est facile, intuitif et élégant. Nous sommes en 2015, après tout!",
+            "step2Title": "2 - Cuisinez-la",
+            "step2Text": "Suivez la recette en utilisant notre moteur. C'est simple, intuitif et élégant. Nous sommes en 2016, après tout!",
             "step3Title": "3 - Appréciez votre repas",
             "step3Text": "Nous n'avons sûrement pas besoin de vous guider pour cette étape. Allez-y, appréciez; vous le méritez!"
+        },
+        "description": {
+            "ingredientsTitle": "Ingrédients",
+            "ingredientsDescription": "Les quantités des ingrédients sont indiquées directement dans les étapes de la recette, dans l'unité de mesure que vous préférez. Vous n'avez plus à chercher de l'information ailleurs! De plus, les ingrédients passés sont rayés de la liste des ingrédients, pour éviter toute confusion.",
+            "timersTitle": "Chronomètres",
+            "timersDescription": "Lorsqu'un temps est requis, vous pouvez activer un chronomètre directement dans l'étape. Vous pouvez même ajouter un chronomètre manuellement, selon vos besoins! Lorsque le temps est écoulé, une alerte vous l'indique, quoi que vous soyez en train de faire.",
+            "stepsTitle": "Étapes",
+            "stepsDescription": "Les étapes de la recettes sont présentées une instruction à la fois. Terminée, l'époque où on devait toujours retrouver ce qu'on faisait dans un gros paragraphe!"
         }
     },
     "quantities": {
@@ -83,6 +91,7 @@
     },
     "quickRecipe": {
         "originalRecipe": "Recette originale : ",
+        "note": "Note : ",
         "timerTimeOfTotal": " de ",
         "timerAdd": "Ajouter",
         "timerDescription": "Description",

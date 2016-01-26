@@ -799,6 +799,7 @@ endormir
 enduire
 endurer
 énerver
+enfariner
 enfermer
 enfiler
 enflammer
@@ -1885,9 +1886,11 @@ tâcher
 tailler
 taire
 taler
+tamiser
 tanner
 taper
 tapir
+tapisser
 taquiner
 tarder
 tarer

@@ -1,12 +1,12 @@
 <template>
     <!-- Welcome container -->
-    <div id="welcome-container">
-        <div class="navbar-fixed">
-            <nav>
-                <div class="nav-wrapper">
-                    <a href="#!" class="brand-logo">Logo</a>
+    <div id="welcome-container" class="row">
+        <nav>
+            <div class="nav-wrapper">
+                <div class="col s12">
+                    <a href="#!" class="brand-logo">E133</a>
                     <ul class="right hide-on-med-and-down">
-                        <li>
+                        <!-- <li>
                             <form>
                                 <div class="input-field">
                                   <input id="search" type="search" required="">
@@ -14,26 +14,24 @@
                                   <i class="material-icons">close</i>
                                 </div>
                             </form>
-                        </li>
+                        </li> -->
                         <li><a href="#_" i18n="nav.contact">Contact</a></li>
                         <li><a href="#_" i18n="nav.lang" click.trigger="changeLocale()">Lang</a></li>
                     </ul>
                 </div>
-            </nav>
-        </div>
+            </div>
+        </nav>
 
         <!-- Search container -->
-        <section class="parallax-container">
-            <div class="parallax" materialize="parallax">
-                <img src="/app/welcome/assets/images/teaser_bg.jpg" alt="Teaser BG">
-            </div>
-
+        <section class="search-container">
             <form class="recipe-search" submit.delegate="loadRecipe()" novalidate>
                 <div class="row">
                     <div class="input-field center col s6 offset-s3">
                         <select value.bind="selectedRecipeId" materialize="select">
                             <option i18n="home.search">Search</option>
-                            <option repeat.for="recipe of recipes" value.bind="recipe.id">${recipe.title}</option>
+                            <optgroup repeat.for="group of recipeGroups" label.bind="group.label">
+                                <option repeat.for="recipe of group.recipes" value.bind="recipe.id" data-icon.bind="recipe.imageUrl" class="left circle">${recipe.title}</option>
+                            </optgroup>
                         </select>
                     </div>
                 </div>
@@ -46,67 +44,6 @@
             </form>
         </section>
         <!-- Search container -->
-
-        <!-- Popular categories container -->
-        <section class="popular-categories-container">
-            <div class="row center-align underline-title">
-                <h3 class="title" i18n="home.categories.title">Categories</h3>
-                <hr />
-            </div>
-            <div class="row">
-                <div repeat.for="category of popularCategories" class="col s3">
-                    <div class="card hoverable">
-                        <div class="card-image">
-                            <img src.bind="category.cover">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title valign-wrapper">
-                                <div class="valign center-align">${category.title}</div>
-                            </span>
-                            <div class="card-action center-align">
-                                <a class="btn view-all" href="#" i18n="home.categories.viewAll">ViewAll</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row center-align">
-                <a class="btn-large waves-effect waves-light browse-button" href="#categ" i18n="home.categories.browseAll">BrowseAll</a>
-            </div>
-        </section>
-        <!-- Popular categories container -->
-
-        <!-- Description container -->
-        <section class="description-container">
-            <div class="container">
-                <div class="row">
-                    <div class="col s4">
-                        <div class="center promo">
-                            <i class="material-icons icon">flash_on</i>
-                            <p class="promo-caption">Speeds up development</p>
-                            <p class="light center">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
-                        </div>
-                    </div>
-
-                    <div class="col s4">
-                        <div class="center promo">
-                            <i class="material-icons icon">group</i>
-                            <p class="promo-caption">User Experience Focused</p>
-                            <p class="light center">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
-                        </div>
-                    </div>
-
-                    <div class="col s4">
-                        <div class="center promo">
-                            <i class="material-icons icon">settings</i>
-                            <p class="promo-caption">Easy to work with</p>
-                            <p class="light center">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Description container -->
 
         <!-- How it works container -->
         <section class="how-it-works-container">
@@ -135,6 +72,67 @@
             </div>
         </section>
         <!-- How it works container -->
+
+        <!-- Description container -->
+        <section class="description-container">
+            <div class="container">
+                <div class="row">
+                    <div class="col s4">
+                        <div class="center promo">
+                            <i class="material-icons icon">list</i>
+                            <p class="promo-caption" i18n="home.description.stepsTitle">Ingredients</p>
+                            <p class="light center" i18n="home.description.stepsDescription">Description</p>
+                        </div>
+                    </div>
+
+                    <div class="col s4">
+                        <div class="center promo">
+                            <i class="material-icons icon">shopping_cart</i>
+                            <p class="promo-caption" i18n="home.description.ingredientsTitle">Ingredients</p>
+                            <p class="light center" i18n="home.description.ingredientsDescription">Description</p>
+                        </div>
+                    </div>
+
+                    <div class="col s4">
+                        <div class="center promo">
+                            <i class="material-icons icon">av_timer</i>
+                            <p class="promo-caption" i18n="home.description.timersTitle">Ingredients</p>
+                            <p class="light center" i18n="home.description.timersDescription">Description</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Description container -->
+
+        <!-- Popular categories container -->
+        <!-- <section class="popular-categories-container">
+            <div class="row center-align underline-title">
+                <h3 class="title" i18n="home.categories.title">Categories</h3>
+                <hr />
+            </div>
+            <div class="row">
+                <div repeat.for="category of popularCategories" class="col s3">
+                    <div class="card hoverable">
+                        <div class="card-image">
+                            <img src.bind="category.cover">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title valign-wrapper">
+                                <div class="valign center-align">${category.title}</div>
+                            </span>
+                            <div class="card-action center-align">
+                                <a class="btn view-all" href="#" i18n="home.categories.viewAll">ViewAll</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row center-align">
+                <a class="btn-large waves-effect waves-light browse-button" href="#categ" i18n="home.categories.browseAll">BrowseAll</a>
+            </div>
+        </section> -->
+        <!-- Popular categories container -->
     </div>
     <!-- /Welcome container -->
 </template>

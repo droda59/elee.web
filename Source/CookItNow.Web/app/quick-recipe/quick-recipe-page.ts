@@ -23,7 +23,6 @@ export class QuickRecipePage {
 	backgroundClass: string;
 	isRecipeStarted: boolean;
 	isRecipeDone: boolean;
-	isSidePanelHidden: boolean = false;
 
 	private _currentStepIndex: number = undefined;
     private _http: HttpClient;
@@ -58,14 +57,26 @@ export class QuickRecipePage {
 
 		var url;
 		switch (route.id) {
-			case "1":
+			case "56a6c32144fd4666d1194b77":
+				url = "app/quick-recipe/assets/json/recipeModel-biscuitsChocolat.json";
+				break;
+			case "56a6c11444fd4666d1194b73":
+				url = "app/quick-recipe/assets/json/recipeModel-carreAuxDattes.json";
+				break;
+			case "56a6c13744fd4666d1194b74":
+				url = "app/quick-recipe/assets/json/recipeModel-chocolatFondant.json";
+				break;
+			case "56a6c30844fd4666d1194b76":
+				url = "app/quick-recipe/assets/json/recipeModel-patePoulet.json";
+				break;
+			case "56a6c36644fd4666d1194b78":
 				url = "app/quick-recipe/assets/json/recipeModel-pouding.json";
 				break;
-			case "2":
-				url = "app/quick-recipe/assets/json/recipeModel-gaufres.json";
+			case "56a6c2e644fd4666d1194b75":
+				url = "app/quick-recipe/assets/json/recipeModel-sauceSpag.json";
 				break;
-			case "3":
-				url = "app/quick-recipe/assets/json/recipeModel-chevre.json";
+			case "56a6c09d44fd4666d1194b72":
+				url = "app/quick-recipe/assets/json/recipeModel-tofu.json";
 				break;
 			default:
 				break;
@@ -174,10 +185,6 @@ export class QuickRecipePage {
 		this._currentStepIndex++;
 
 		this.goToCurrentStep();
-	}
-
-	toggleSidePanelVisibility() {
-		this.isSidePanelHidden = !this.isSidePanelHidden;
 	}
 
 	get activeSubrecipeId(): number {

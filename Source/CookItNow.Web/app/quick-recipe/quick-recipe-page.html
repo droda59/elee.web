@@ -7,42 +7,35 @@
 	<require from="shared/value-converters/duration-format"></require>
 
 	<div class="quick-recipe" class.bind="backgroundClass">
-	    <header class="row">
+	    <header class="row z-depth-1">
 			<quick-recipe-header containerless recipe.bind="recipe"></quick-recipe-header>
 	    </header>
 
 		<main class="row">
-			<aside class="ingredients col left z-depth-2 ${isSidePanelHidden ? 'hidden' : ''}">
-				<div class="border-box">
-					<div class="content">
-						<div class="title parallax-container valign-wrapper">
-							<div class="center col s12">
-								<h3 i18n="quickRecipe.ingredientsSideTitle">Ingredients</h3>
-							</div>
-							<div class="parallax" materialize="parallax">
-								<img src="app/quick-recipe/assets/images/pouding.jpg" alt.bind="recipe.title">
-							</div>
-						</div>
-
-						<section repeat.for="subrecipe of subrecipeIngredients" class="section">
-							<h4 if.bind="subrecipe.subrecipeTitle" class="center">${subrecipe.subrecipeTitle}</h4>
-							<ul class="ingredient-list collection">
-								<li repeat.for="ingredient of subrecipe.ingredients" class="collection-item ingredient-item">
-									<measurable-ingredient containerless ingredient.bind="ingredient"></measurable-ingredient>
-									<small if.bind="ingredient.replacements" repeat.for="replacement of ingredient.replacements">
-										<div i18n="quickRecipe.ingredientReplacementConjunction">Or</div>
-										<measurable-ingredient containerless ingredient.bind="replacement"></measurable-ingredient>
-									</small>
-								</li>
-							</ul>
-						</section>
-					</div>
+			<div class="ingredients card">
+				<div class="card-image">
+					<img src.bind="recipe.imageUrl">
+					<span class="card-title" i18n="quickRecipe.ingredientsSideTitle">Ingredients</span>
 				</div>
-			</aside>
+				<div class="card-content">
+					<section repeat.for="subrecipe of subrecipeIngredients" class="section">
+						<h4 if.bind="subrecipe.subrecipeTitle" class="center">${subrecipe.subrecipeTitle}</h4>
+						<ul class="collection">
+							<li repeat.for="ingredient of subrecipe.ingredients" class="collection-item ingredient-item">
+								<measurable-ingredient containerless ingredient.bind="ingredient"></measurable-ingredient>
+								<small if.bind="ingredient.replacements" repeat.for="replacement of ingredient.replacements">
+									<div i18n="quickRecipe.ingredientReplacementConjunction">Or</div>
+									<measurable-ingredient containerless ingredient.bind="replacement"></measurable-ingredient>
+								</small>
+							</li>
+						</ul>
+					</section>
+				</div>
+			</div>
 
 			<div class="main section col right">
                 <div class="content">
-                    <section id="presentation-section" if.bind="!isRecipeStarted" class="au-animate">
+                    <section id="presentation-section" if.bind="!isRecipeStarted" class="au-animate section">
                         <div>
                             <h3>${recipe.title}</h3>
                             <div class="row">
@@ -59,8 +52,12 @@
                                 </ul>
                             </div>
 
+                            <div class="row" if.bind="recipe.note">
+								<p><span i18n="quickRecipe.note">Note</span>${recipe.note}</p>
+                            </div>
+
                             <div class="row center">
-                                <a class="btn btn-large btn-success waves-effect waves-light" click.trigger="startRecipe()" i18n="quickRecipe.start">Start</a>
+                                <a class="btn btn-large waves-effect waves-light" click.trigger="startRecipe()" i18n="quickRecipe.start">Start</a>
                             </div>
                         </div>
                     </section>
@@ -77,9 +74,6 @@
                         <quick-recipe-step repeat.for="step of recipe.steps" id="step-${$index}" step.bind="step" class="step"></quick-recipe-step>
 
                         <span class="step-actions">
-                            <a class="complete-button waves-light btn" click.delegate="toggleSidePanelVisibility()">
-                                <i class="material-icons">aspect_ratio</i>
-                            </a>
                             <a class="complete-button waves-light btn" click.delegate="goToCurrentStep()">
                                 <i class="material-icons">present_to_all</i>
                             </a>

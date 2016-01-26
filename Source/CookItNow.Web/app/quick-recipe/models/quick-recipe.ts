@@ -1,15 +1,17 @@
-import {Ingredient} from "shared/models/ingredient"; 
+import {Ingredient} from "shared/models/ingredient";
 
 export interface QuickRecipe {
-    id : number;
+    id: number;
     language: string;
-    title : string;
-    originalUrl : string;
-    summary : string;
-    originalServings : string;
-    duration : Duration[];
-    subrecipes : SubRecipe[];
-    ingredients : Ingredient[];
+    title: string;
+    originalUrl: string;
+    note: string;
+    imageUrl: string;
+    summary: string;
+    originalServings: string;
+    duration: Duration[];
+    subrecipes: SubRecipe[];
+    ingredients: Ingredient[];
     steps: Step[];
 }
 
