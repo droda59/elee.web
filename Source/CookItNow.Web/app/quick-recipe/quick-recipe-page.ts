@@ -113,7 +113,9 @@ export class QuickRecipePage {
 	}
 
 	canDeactivate() {
-		return confirm('Are you sure you want to leave?');
+		if (!this.isRecipeDone) {
+			return confirm('Are you sure you want to leave?');
+		}
 	}
 
 	startRecipe(): void {

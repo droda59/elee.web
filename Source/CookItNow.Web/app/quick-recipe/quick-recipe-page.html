@@ -84,7 +84,7 @@
                         </span>
                     </section>
 
-                    <section id="comments-section" if.bind="isRecipeStarted && isRecipeDone">
+                    <section id="comments-section" if.bind="isRecipeStarted && isRecipeDone" class="section">
                         <div class="row center">
                             <hgroup>
                                 <h3 i18n="quickRecipe.comments.didYouLikeExperience">DidYouLikeExperience</h3>
@@ -93,7 +93,14 @@
                             <p i18n="quickRecipe.comments.writeComments">WriteComments</p>
                         </div>
 
-                        <comments-form containerless></comments-form>
+						<div class="row center">
+							<a href="#comments" class="btn btn-large btn-success waves-effect waves-light" i18n="comments.sendButton">
+								Send
+								<i class="material-icons right">send</i>
+							</a>
+						</div>
+
+                        <!-- <comments-form containerless></comments-form> -->
                     </section>
                 </div>
 			</div>
