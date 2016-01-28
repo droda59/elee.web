@@ -44,11 +44,14 @@
                     line-height: $quick-recipe-header-height;
                     width: $quick-recipe-header-height;
                     text-align: center;
+
+                    .badge {
+                        vertical-align: middle;
+                    }
+                    .badge.new:after {
+                        content: '';
+                    }
                 }
-            }
-            .block-button:hover,
-            .block-button.active {
-                background-color: rgba(226, 225, 221, 0.1);
             }
 
             .info {
@@ -60,14 +63,6 @@
                 border: 1px solid #66676f;
                 opacity: 1;
                 min-width: 400px;
-            }
-
-            .dropdown-button {
-                width: $quick-recipe-header-height;
-                text-align: center;
-            }
-
-            .dropdown-content {
                 right: -1px;
                 top: calc(#{$quick-recipe-header-height} - 1px);
                 padding: 10px;
