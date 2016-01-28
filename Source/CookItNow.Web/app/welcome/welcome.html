@@ -1,6 +1,6 @@
 <template>
     <!-- Welcome container -->
-    <div id="welcome-container" class="row">
+    <div id="welcome-container">
         <nav>
             <div class="nav-wrapper container">
                 <div class="col s12">
@@ -15,7 +15,7 @@
                                 </div>
                             </form>
                         </li> -->
-                        <li><a href="maito:contact@elee.menu" i18n="nav.contact">Contact</a></li>
+                        <li><a href="#typeform" i18n="nav.contact">Contact</a></li>
                         <li><a href="#_" i18n="nav.lang" click.trigger="changeLocale()">Lang</a></li>
                     </ul>
                 </div>
@@ -45,59 +45,16 @@
         </section>
         <!-- Search container -->
 
-        <!-- How it works container -->
-        <section class="how-it-works-container">
-            <div class="row center underline-title">
-                <h3 class="title" i18n="home.howItWorks.title">HowItWorks</h3>
-                <hr />
-            </div>
-            <div class="row description">
-                <div class="col s5">
-                    <div class="row">
-                        <h4 class="promo-caption" i18n="home.howItWorks.step1Title">FindARecipe</h4>
-                        <p class="light" i18n="home.howItWorks.step1Text">FindARecipeText</p>
-                    </div>
-                    <div class="row">
-                        <h4 class="promo-caption" i18n="home.howItWorks.step2Title">CookTheRecipe</h4>
-                        <p class="light" i18n="home.howItWorks.step2Text">CookTheRecipeText</p>
-                    </div>
-                    <div class="row">
-                        <h4 class="promo-caption" i18n="home.howItWorks.step3Title">EnjoyYourMeal</h4>
-                        <p class="light" i18n="home.howItWorks.step3Text">EnjoyYourMealText</p>
-                    </div>
-                </div>
-                <div class="col s7 image valign-wrapper">
-                    <img src="/app/welcome/assets/images/macbook.png" alt="Teaser BG" class="valign">
-                </div>
-            </div>
-        </section>
-        <!-- How it works container -->
-
         <!-- Description container -->
         <section class="description-container">
             <div class="container">
                 <div class="row">
-                    <div class="col s4">
+                    <div class="col s8 offset-s2">
                         <div class="center promo">
-                            <i class="material-icons icon">list</i>
-                            <p class="promo-caption" i18n="home.description.stepsTitle">Ingredients</p>
-                            <p class="light center" i18n="home.description.stepsDescription">Description</p>
-                        </div>
-                    </div>
-
-                    <div class="col s4">
-                        <div class="center promo">
-                            <i class="material-icons icon">shopping_cart</i>
-                            <p class="promo-caption" i18n="home.description.ingredientsTitle">Ingredients</p>
-                            <p class="light center" i18n="home.description.ingredientsDescription">Description</p>
-                        </div>
-                    </div>
-
-                    <div class="col s4">
-                        <div class="center promo">
-                            <i class="material-icons icon">av_timer</i>
-                            <p class="promo-caption" i18n="home.description.timersTitle">Ingredients</p>
-                            <p class="light center" i18n="home.description.timersDescription">Description</p>
+                            <p class="promo-caption" i18n="home.description.title">Title</p>
+                            <p class="light center" i18n="home.description.description1">Description</p>
+                            <p class="center" i18n="home.description.description2">Description</p>
+                            <p class="light center" i18n="home.description.description3">Description</p>
                         </div>
                     </div>
                 </div>
@@ -133,6 +90,93 @@
             </div>
         </section> -->
         <!-- Popular categories container -->
+
+        <!-- How it works container -->
+        <section class="how-it-works-container">
+            <div class="row center underline-title">
+                <h3 class="title" i18n="home.howItWorks.title">HowItWorks</h3>
+                <hr />
+            </div>
+            <div class="row description">
+                <div class="col s5">
+                    <div class="row">
+                        <h4 class="promo-caption" i18n="home.howItWorks.step1Title">FindARecipe</h4>
+                        <p class="light" i18n="home.howItWorks.step1Text">FindARecipeText</p>
+                    </div>
+                    <div class="row">
+                        <h4 class="promo-caption" i18n="home.howItWorks.step2Title">CookTheRecipe</h4>
+                        <p class="light" i18n="home.howItWorks.step2Text">CookTheRecipeText</p>
+                    </div>
+                    <div class="row">
+                        <h4 class="promo-caption" i18n="home.howItWorks.step3Title">EnjoyYourMeal</h4>
+                        <p class="light" i18n="home.howItWorks.step3Text">EnjoyYourMealText</p>
+                    </div>
+                </div>
+                <div class="col s7 image valign-wrapper right">
+                    <img src="/app/welcome/assets/images/macbook.png" alt="Teaser BG">
+                </div>
+            </div>
+        </section>
+        <!-- How it works container -->
+
+        <!-- Features container -->
+        <section class="features-container">
+            <div class="container">
+                <div class="row">
+                    <div class="col s4">
+                        <div class="center promo">
+                            <i class="material-icons icon">list</i>
+                            <p class="promo-caption" i18n="home.features.feature1Title">Title</p>
+                            <p class="light center" i18n="home.features.feature1Description">Description</p>
+                        </div>
+                    </div>
+
+                    <div class="col s4">
+                        <div class="center promo">
+                            <i class="material-icons icon">shopping_cart</i>
+                            <p class="promo-caption" i18n="home.features.feature2Title">Title</p>
+                            <p class="light center" i18n="home.features.feature2Description">Description</p>
+                        </div>
+                    </div>
+
+                    <div class="col s4">
+                        <div class="center promo">
+                            <i class="material-icons icon">av_timer</i>
+                            <p class="promo-caption" i18n="home.features.feature3Title">Title</p>
+                            <p class="light center" i18n="home.features.feature3Description">Description</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Features container -->
+
+        <!-- Moar to come container -->
+        <section class="moar-to-come-container">
+            <div class="row center underline-title">
+                <h3 class="title" i18n="home.moar.title">Moar</h3>
+                <hr />
+            </div>
+            <div class="row description">
+                <div class="col s6 image valign-wrapper left">
+                    <img src="/app/welcome/assets/images/macbook.png" alt="Teaser BG">
+                </div>
+                <div class="col s6 offset-s6">
+                    <div class="row">
+                        <p class="light" i18n="home.moar.description">Description</p>
+                        <ul class="collection">
+                            <li class="collection-item" i18n="home.moar.nextFeatures1">Feature</li>
+                            <li class="collection-item" i18n="home.moar.nextFeatures2">Feature</li>
+                            <li class="collection-item" i18n="home.moar.nextFeatures3">Feature</li>
+                            <li class="collection-item" i18n="home.moar.nextFeatures4">Feature</li>
+                            <li class="collection-item" i18n="home.moar.nextFeatures5">Feature</li>
+                        </ul>
+                        <p class="light" i18n="home.moar.keepUpToDate">KeepUpToDate</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Moar to come container -->
     </div>
     <!-- /Welcome container -->
 </template>

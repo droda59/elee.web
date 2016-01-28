@@ -11,6 +11,10 @@ body {
 	font-family: $font-raleway;
 }
 
+router-view {
+    display: block;
+}
+
 p {
     line-height: 2rem;
 }
@@ -51,10 +55,6 @@ footer.page-footer {
     overflow: visible;
 }
 
-.dropdown-content.select-dropdown {
-    z-index: 10;
-}
-
 .select-wrapper .mdi-navigation-arrow-drop-down {
     vertical-align: middle;
     line-height: 3rem;
@@ -86,6 +86,5 @@ footer.page-footer {
 
 // Global elements importation
 @import "navigation";
-@import "measurable-ingredient";
 @import "materialize";
 @import "settings-modal";

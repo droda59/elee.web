@@ -41,20 +41,36 @@
         },
         "howItWorks": {
             "title": "Comment ça marche",
-            "step1Title": "1 - Trouvez une recette",
-            "step1Text": "Trouvez une recette que vous aimez. Il doit bien y en avoir une : vous avez l'internet à votre portée!",
+            "step1Title": "1 - Choisissez une recette",
+            "step1Text": "Choisissez une recette dans la liste.",
             "step2Title": "2 - Cuisinez-la",
             "step2Text": "Suivez la recette en utilisant notre moteur. C'est simple, intuitif et élégant. Nous sommes en 2016, après tout!",
             "step3Title": "3 - Appréciez votre repas",
             "step3Text": "Nous n'avons sûrement pas besoin de vous guider pour cette étape. Allez-y, appréciez; vous le méritez!"
         },
+        "features": {
+            "feature1Title": "Multi-platforme",
+            "feature1Description": "elee.menu est conçu pour être utilisé sur toutes les plateformes, pour que vous puissiez suivre vos recettes sur l'appareil de votre choix, où bon vous semble.",
+            "feature2Title": "Ingrédients",
+            "feature2Description": "Les quantités des ingrédients sont indiquées directement dans les étapes de la recette, dans l'unité de mesure que vous préférez. Vous n'avez plus à chercher de l'information ailleurs! De plus, les ingrédients passés sont rayés de la liste des ingrédients, pour éviter toute confusion.",
+            "feature3Title": "Chronomètres",
+            "feature3Description": "Lorsqu'un temps est requis, vous pouvez activer un chronomètre directement dans l'étape. Vous pouvez même ajouter un chronomètre manuellement, selon vos besoins! Lorsque le temps est écoulé, une alerte vous l'indique, quoi que vous soyez en train de faire."
+        },
+        "moar": {
+            "title": "Plus à venir!",
+            "description": "Gardez en tête que ceci n'est qu'une démo limitée, pour voir comment on peut améliorer le moteur. Beaucoup plus de choses suivront, telles que : ",
+            "nextFeatures1": "Design du site",
+            "nextFeatures2": "Recherche parmi toutes les recettes des grands sites populaires",
+            "nextFeatures3": "Recettes anglaises",
+            "nextFeatures4": "Sauvegarde et édition de recette dans son compte personnel",
+            "nextFeatures5": "Suggestions de recettes selon vos préférences et habiletés",
+            "keepUpToDate": "Restez informé!"
+        },
         "description": {
-            "ingredientsTitle": "Ingrédients",
-            "ingredientsDescription": "Les quantités des ingrédients sont indiquées directement dans les étapes de la recette, dans l'unité de mesure que vous préférez. Vous n'avez plus à chercher de l'information ailleurs! De plus, les ingrédients passés sont rayés de la liste des ingrédients, pour éviter toute confusion.",
-            "timersTitle": "Chronomètres",
-            "timersDescription": "Lorsqu'un temps est requis, vous pouvez activer un chronomètre directement dans l'étape. Vous pouvez même ajouter un chronomètre manuellement, selon vos besoins! Lorsque le temps est écoulé, une alerte vous l'indique, quoi que vous soyez en train de faire.",
-            "stepsTitle": "Étapes",
-            "stepsDescription": "Les étapes de la recettes sont présentées une instruction à la fois. Terminée, l'époque où on devait toujours retrouver ce qu'on faisait dans un gros paragraphe!"
+            "title": "Mais qu'est-ce que...?",
+            "description1": "Il est encore difficile de nos jours de suivre une recette sans faire d'erreur.",
+            "description2": "elee.menu vient changer la donne.",
+            "description3": "elee.menu est un outil pour suivre une recette de manière simple et élégante, visant à éliminer le risque de faire des erreurs lorsqu'on suit une recette."
         }
     },
     "quantities": {
