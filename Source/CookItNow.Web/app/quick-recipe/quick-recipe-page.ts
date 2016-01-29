@@ -3,7 +3,6 @@ import {HttpClient} from "aurelia-http-client";
 import {I18N} from "aurelia-i18n";
 import {QuickRecipe, Step, IngredientPart, IngredientEnumerationPart} from "quick-recipe/models/quick-recipe";
 import {Ingredient} from "shared/models/ingredient";
-import * as moment from "moment";
 import * as ScrollMagic from "scrollmagic";
 import "scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap";
 import "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators";

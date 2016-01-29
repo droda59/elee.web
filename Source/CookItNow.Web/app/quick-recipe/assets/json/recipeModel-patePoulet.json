@@ -2,6 +2,7 @@
     "title": "Pâté au poulet (le meilleur)",
     "originalUrl": "http://www.ricardocuisine.com/recettes/5548-pate-au-poulet-le-meilleur-",
     "originalServings": "",
+    "language": "fr",
     "note": "",
     "imageUrl": "http://www.ricardocuisine.com/pictures/cache/9c0f876d5ab0a106ef7152b7a63f99d4_w500_h675_sc.jpg",
     "durations": [
@@ -589,6 +590,7 @@
                 {
                     "type": "timer",
                     "value": "PT10M",
+                    "text": "10 minutes",
                     "action": "laisser mijoter"
                 },
                 {
@@ -904,6 +906,7 @@
                 {
                     "type": "timer",
                     "value": "PT30M",
+                    "text": "30 minutes",
                     "action": "Réfrigérer"
                 }
             ],
@@ -1045,6 +1048,7 @@
                 {
                     "type": "timer",
                     "value": "PT50M",
+                    "text": "50 minutes",
                     "action": "Cuire"
                 },
                 {
@@ -1064,6 +1068,7 @@
                 {
                     "type": "timer",
                     "value": "PT15M",
+                    "text": "15 minutes",
                     "action": "Laisser reposer"
                 },
                 {

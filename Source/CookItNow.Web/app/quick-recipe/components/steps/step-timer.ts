@@ -14,7 +14,7 @@ export class StepTimer {
 	}
 
 	activate(model: TimerPart) {
-        this.timer = new Timer(model.value, model.action);
+        this.timer = new Timer(model.value, model.action, model.text);
 	}
 
 	startTimer(): void {

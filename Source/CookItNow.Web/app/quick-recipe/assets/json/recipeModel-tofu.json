@@ -2,6 +2,7 @@
     "title": "Tofu Général Tao",
     "originalUrl": "http://www.ricardocuisine.com/recettes/5675-tofu-general-tao",
     "originalServings": "4",
+    "language": "fr",
     "note": "Pour le tofu ferme, nous utilisons le tofu de la Soyarie.",
     "imageUrl": "http://www.ricardocuisine.com/pictures/cache/21e594b4edcc407cd10ee798646a21e0_w500_h675_sc.jpg",
     "durations": [
@@ -580,11 +581,12 @@
                 },
                 {
                     "type": "text",
-                    "value": "de 1 à"
+                    "value": "de"
                 },
                 {
                     "type": "timer",
                     "value": "PT1M",
+                    "text": "1 à 2 minutes",
                     "action": "faire revenir"
                 }
             ],

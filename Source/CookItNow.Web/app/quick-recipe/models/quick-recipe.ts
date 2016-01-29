@@ -50,6 +50,7 @@ export interface ActionPart extends Part {
 export interface TimerPart extends Part {
     value: string;
     action: string;
+    text: string;
 }
 
 export interface IngredientEnumerationPart extends Part {

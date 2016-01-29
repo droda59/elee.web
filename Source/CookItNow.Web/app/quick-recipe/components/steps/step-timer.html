@@ -1,11 +1,10 @@
 <template>
-	<require from="shared/value-converters/duration-format"></require>
 	<require from="shared/value-converters/time-format"></require>
 
 	<span class="timer emphasis">
 		<a click.trigger="startTimer()" class="${timer.remainingTime === timer.originalTime ? 'btn' : 'btn-flat'}">
 			<i class="material-icons left">av_timer</i>
-			<span if.bind="timer.remainingTime === timer.originalTime">${timer.duration | durationFormat}</span>
+			<span if.bind="timer.remainingTime === timer.originalTime">${timer.text}</span>
 			<span if.bind="timer.remainingTime !== timer.originalTime">${timer.remainingTime | timeFormat}</span>
 		</a>
 	</span>

@@ -2,6 +2,7 @@
     "title": "Biscuits moelleux aux brisures de chocolat (les meilleurs)",
     "originalUrl": "http://www.ricardocuisine.com/recettes/4874-biscuits-moelleux-aux-brisures-de-chocolat-les-meilleurs-",
     "originalServings": "",
+    "language": "fr",
     "note": "Attention! Ne pas cuire plus d’une plaque à la fois, même en les inversant à la mi-cuisson.",
     "imageUrl": "http://www.ricardocuisine.com/pictures/cache/31fd16ca0f4aa9df266583d6fdde1d36_w500_h675_sc.jpg",
     "durations": [
@@ -379,6 +380,7 @@
                 {
                     "type": "timer",
                     "value": "PT1H",
+                    "text": "une heure",
                     "action": "réfrigérer"
                 },
                 {
@@ -467,11 +469,12 @@
                 },
                 {
                     "type": "text",
-                    "value": "au four, une plaque à la fois, de 8 à"
+                    "value": "au four, une plaque à la fois, de"
                 },
                 {
                     "type": "timer",
-                    "value": "PT9M",
+                    "value": "PT8M",
+                    "text": "8 à 9 minutes",
                     "action": "Cuire"
                 },
                 {

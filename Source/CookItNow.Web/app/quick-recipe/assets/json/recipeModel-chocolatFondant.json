@@ -2,6 +2,7 @@
     "title": "Gâteau au chocolat au coeur fondant",
     "originalUrl": "http://www.ricardocuisine.com/recettes/2036-gateau-au-chocolat-au-coeur-fondant",
     "originalServings": "4",
+    "language": "fr",
     "note": "",
     "imageUrl": "http://www.ricardocuisine.com/pictures/cache/b408dddbdfa3c7feee4a1cfb278b7d4d_w500_h675_sc.jpg",
     "durations": [
@@ -318,6 +319,7 @@
                 {
                     "type": "timer",
                     "value": "PT10M",
+                    "text": "10 minutes",
                     "action": "cuire"
                 }
             ],

@@ -2,6 +2,7 @@
     "title": "Carré aux dattes (le meilleur)",
     "originalUrl": "http://www.ricardocuisine.com/recettes/5263-carre-aux-dattes-le-meilleur-",
     "originalServings": "9 à 16 carrés",
+    "language": "fr",
     "note": "À défaut d’avoir des dattes Medjool, utilisez des dattes sèches.",
     "imageUrl": "http://www.ricardocuisine.com/pictures/cache/5ac64bed352f8b0cb8bfbdde7208fa42_w500_h675_sc.jpg",
     "durations": [
@@ -322,6 +323,7 @@
                 {
                     "type": "timer",
                     "value": "PT5M",
+                    "text": "5 minutes",
                     "action": "laisser mijoter"
                 },
                 {
@@ -520,6 +522,7 @@
                 {
                     "type": "timer",
                     "value": "PT55M",
+                    "text": "55 minutes",
                     "action": "Cuire"
                 },
                 {
@@ -543,6 +546,7 @@
                 {
                     "type": "timer",
                     "value": "PT4H",
+                    "text": "4 heures",
                     "action": "Laisser refroidir"
                 },
                 {

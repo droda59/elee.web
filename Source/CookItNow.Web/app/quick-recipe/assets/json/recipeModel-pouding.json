@@ -2,6 +2,7 @@
     "title": "Pouding au chocolat",
     "originalUrl": "http://www.ricardocuisine.com/recettes/5409-pouding-au-chocolat",
     "originalServings": "10",
+    "language": "fr",
     "note": "",
     "imageUrl": "http://www.ricardocuisine.com/pictures/cache/cf9e63cbb4b40428e4277afdf36edf5d_w500_h675_sc.jpg",
     "durations": [
@@ -660,6 +661,7 @@
                 {
                     "type": "timer",
                     "value": "PT45M",
+                    "text": "45 minutes",
                     "action": "Cuire"
                 },
                 {

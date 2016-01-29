@@ -21,4 +21,10 @@ export function configure(aurelia) {
       });
 
     aurelia.start().then(a => a.setRoot());
+
+    moment.relativeTimeThreshold("s", 60);
+    moment.relativeTimeThreshold("m", 60);
+    moment.relativeTimeThreshold("h", 24);
+    moment.relativeTimeThreshold("d", 28);
+    moment.relativeTimeThreshold("M", 12);
 }

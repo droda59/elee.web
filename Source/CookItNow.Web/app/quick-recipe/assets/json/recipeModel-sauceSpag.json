@@ -2,8 +2,9 @@
     "title": "Sauce à spaghetti (la meilleure)",
     "originalUrl": "http://www.ricardocuisine.com/recettes/5335-sauce-a-spaghetti-la-meilleure-",
     "originalServings": "5 litres (20 tasses)",
+    "language": "fr",
     "note": "Et les tomates fraîches ? Même si la période d’abondance est à nos portes, on n’obtiendra pas le même résultat avec des tomates fraîches mondées et épépinées qu’avec celles en conserve, beaucoup plus tendres.",
-    "imageUrl": "http://www.ricardocuisine.com/pictures/cache/da66d34107c17a5a480195ab6ddd5a2c_w500_h675_sc.jpg", 
+    "imageUrl": "http://www.ricardocuisine.com/pictures/cache/da66d34107c17a5a480195ab6ddd5a2c_w500_h675_sc.jpg",
     "durations": [
         {
             "title": "Préparation",
@@ -496,7 +497,7 @@
 							"unit": "unit"
 						}
 					}
-				},            
+				},
                 {
                     "type": "text",
                     "value": "et"
@@ -512,6 +513,7 @@
                 {
                     "type": "timer",
                     "value": "PT1M",
+                    "text": "1 minute",
                     "action": "poursuivre la cuisson"
                 },
                 {
@@ -621,6 +623,7 @@
                 {
                     "type": "timer",
                     "value": "PT3H",
+                    "text": "3 heures",
                     "action": "laisser mijoter"
                 },
                 {

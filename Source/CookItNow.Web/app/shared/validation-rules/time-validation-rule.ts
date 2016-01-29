@@ -1,5 +1,4 @@
 import {ValidationRule} from "aurelia-validation";
-import * as moment from "moment";
 
 export class TimeValidationRule extends ValidationRule {
     constructor() {
