@@ -481,7 +481,7 @@
                 },
                 {
                     "type": "timer",
-                    "value": "PT1M50M",
+                    "value": "PT1H50M",
                     "text": "1h50",
                     "action": "Cuire"
                 },
@@ -547,7 +547,7 @@
                 },
                 {
                     "type": "timer",
-                    "value": "PT8H",
+                    "value": "PT6H",
                     "text": "6 à 8 heures",
                     "action": "réfrigérer"
                 },
