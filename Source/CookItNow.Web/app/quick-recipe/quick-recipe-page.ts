@@ -77,6 +77,8 @@ export class QuickRecipePage {
 			case "56a6c09d44fd4666d1194b72":
 				url = "app/quick-recipe/assets/json/recipeModel-tofu.json";
 				break;
+			case "56ab7acf44fd466ff20f9f97":
+				url = "app/quick-recipe/assets/json/recipeModel-gateauFromage.json";
 			default:
 				break;
 		}
