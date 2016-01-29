@@ -4,6 +4,6 @@ namespace E133.Business.Models
     {
         public double Value { get; set; }
 		
-        public MeasureUnit OriginalMeasureUnit { get; set; }
+        public MeasureUnit Unit { get; set; }
     }
 }

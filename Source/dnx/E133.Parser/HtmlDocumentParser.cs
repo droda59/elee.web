@@ -406,7 +406,7 @@ namespace E133.Parser
                 var ingredient = new Ingredient
                 {
                     Id = ingredientId,
-                    Quantity = new Quantity { Value = quantity, OriginalMeasureUnit = measureUnitEnum },
+                    Quantity = new Quantity { Value = quantity, Unit = measureUnitEnum },
                     SubrecipeId = subrecipeId
                 };
 
