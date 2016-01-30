@@ -249,8 +249,37 @@
                     "value": "mélanger"
                 },
                 {
-                    "type": "text",
-                    "value": "tous les ingrédients"
+                    "type": "enumeration",
+                    "ingredients": [
+                        {
+                            "id": 0,
+                            "subrecipeId": 0,
+                            "name": "chapelure de biscuits Graham",
+                            "quantity": {
+                                "value": 310,
+                                "unit": "ml"
+                            }
+                        },
+                        {
+                            "id": 1,
+                            "subrecipeId": 0,
+                            "name": "sucre",
+                            "quantity": {
+                                "value": 30,
+                                "unit": "ml"
+                            }
+                        },
+                        {
+                            "id": 2,
+                            "subrecipeId": 0,
+                            "name": "beurre non salé",
+                            "quantity": {
+                                "value": 60,
+                                "unit": "ml"
+                            },
+                            "requirements": "fondu"
+                        }
+                    ]
                 }
             ],
             "postSteps": []
@@ -410,8 +439,59 @@
                     "value": "Ajouter"
                 },
                 {
+                    "type": "enumeration",
+                    "ingredients": [
+                        {
+                            "id": 6,
+                            "subrecipeId": 1,
+                            "name": "paquets de 250g (8 oz) de fromage à la crème",
+                            "quantity": {
+                                "value": 4,
+                                "unit": "unit"
+                            },
+                            "requirements": "tempéré"
+                        },
+                        {
+                            "id": 7,
+                            "subrecipeId": 1,
+                            "name": "crème sure",
+                            "quantity": {
+                                "value": 180,
+                                "unit": "ml"
+                            }
+                        },
+                        {
+                            "id": 8,
+                            "subrecipeId": 1,
+                            "name": "oeufs",
+                            "quantity": {
+                                "value": 4,
+                                "unit": "unit"
+                            }
+                        },
+                        {
+                            "id": 9,
+                            "subrecipeId": 1,
+                            "name": "jaunes d'oeufs",
+                            "quantity": {
+                                "value": 2,
+                                "unit": "unit"
+                            }
+                        },
+                        {
+                            "id": 10,
+                            "subrecipeId": 1,
+                            "name": "extrait de vanille",
+                            "quantity": {
+                                "value": 5,
+                                "unit": "ml"
+                            }
+                        }
+                    ]
+                },
+                {
                     "type": "text",
-                    "value": "le reste des ingrédients et"
+                    "value": "et"
                 },
                 {
                     "type": "action",

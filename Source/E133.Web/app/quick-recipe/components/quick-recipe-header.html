@@ -16,10 +16,8 @@
 						</li>
 			      		<li>
 		  					<a click.trigger="toggleMinimizeActiveTimers()" class="right block-button ${activeTimersSectionActive ? 'active' : ''} au-animate">
-		  						<i class="material-icons small white-text">
-									av_timer
-									<span class="new badge" show.bind="timerCoordinator.activeTimers.length">${timerCoordinator.activeTimers.length}</span>
-								</i>
+		  						<i class="material-icons small white-text">av_timer</i>
+								<span class="new badge" show.bind="timerCoordinator.activeTimers.length">${timerCoordinator.activeTimers.length}</span>
 		  					</a>
 						</li>
 				    </ul>
@@ -37,7 +35,7 @@
 										<span i18n="quickRecipe.timerTimeOfTotal">Of</span>
 										<span>${timer.originalTime | timeFormat}</span>
 									</span>
-									
+
 									<span class="right">
 										<button type="submit"
 												class="btn-floating"

@@ -168,6 +168,12 @@ export class QuickRecipePage {
 				.addTo(this._scrollController);
 		});
 
+	    // $("#recipe-content").scroll(function() {
+        //     if($(this).scrollTop() + $(this).innerHeight() >= $("#step-" + this._currentStepIndex)[0].scrollHeight) {
+		// 		$(".current-button").addClass("disabled");
+        //     }
+		// });
+
 		this.goToCurrentStep();
 	}
 

@@ -35,22 +35,17 @@
             }
 
             .block-button {
-                overflow-x: hidden;
                 cursor: pointer;
                 height: $quick-recipe-header-height;
 
                 i {
                     height: 100%;
                     line-height: $quick-recipe-header-height;
-                    width: $quick-recipe-header-height;
-                    text-align: center;
+                    display: inline-block;
+                }
 
-                    .badge {
-                        vertical-align: middle;
-                    }
-                    .badge.new:after {
-                        content: '';
-                    }
+                .badge.new:after {
+                    content: "";
                 }
             }
 
