@@ -14,6 +14,14 @@
         margin: 0;
     }
 
+    .btn {
+      background-color: rgba(255, 175, 75, 1);
+
+      &:hover {
+        background-color: rgba(178, 114, 35, 1);
+      }
+    }
+
     main {
         padding: 10px;
         height: calc(100% - #{$quick-recipe-header-height} - #{$quick-recipe-footer-height});
@@ -85,6 +93,8 @@
                     .navbar {
                         z-index: 1;
                         position: fixed;
+                        background-color: $quick-recipe-content-color;
+                        color: black;
                         width: calc(100% - #{$quick-recipe-ingredients-side-width});
                         top: $quick-recipe-header-height;
 
