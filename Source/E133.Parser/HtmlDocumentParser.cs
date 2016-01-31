@@ -77,6 +77,9 @@ namespace E133.Parser
             var document = await this.LoadDocument(uri);
 
             var recipe = new QuickRecipe();
+            recipe.Language = "fr";
+            recipe.Note = "";
+            recipe.ImageUrl = "";
             recipe.OriginalUrl = uri.AbsoluteUri;
             recipe.OriginalServings = this.GetRecipeYield(document);
             recipe.Title = this.GetRecipeTitle(document);
@@ -454,7 +457,7 @@ namespace E133.Parser
                 else if (readType == typeof(TimerPart))
                 {
                     var previousAction = step.Parts.Last(x => x is ActionPart) as ActionPart;
-                    step.Parts.Add(new TimerPart { Action = previousAction.Value, Value = value });
+                    step.Parts.Add(new TimerPart { Action = previousAction.Value, Value = value, Text = "" });
                 }
                 else if (readType == typeof(TextPart))
                 {

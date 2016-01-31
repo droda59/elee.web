@@ -8,6 +8,8 @@ namespace E133.Business.Models
         }
 
         public string Value { get; set; }
+        
+        public string Text { get; set; }
 
         public string Action { get; set; }
 

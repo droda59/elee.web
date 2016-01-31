@@ -54,41 +54,13 @@ export class QuickRecipePage {
 		// }
 		this.backgroundClass = "chalkboard";
 
-		var url;
-		switch (route.id) {
-			case "56a6c32144fd4666d1194b77":
-				url = "app/quick-recipe/assets/json/recipeModel-biscuitsChocolat.json";
-				break;
-			case "56a6c11444fd4666d1194b73":
-				url = "app/quick-recipe/assets/json/recipeModel-carreAuxDattes.json";
-				break;
-			case "56a6c13744fd4666d1194b74":
-				url = "app/quick-recipe/assets/json/recipeModel-chocolatFondant.json";
-				break;
-			case "56a6c30844fd4666d1194b76":
-				url = "app/quick-recipe/assets/json/recipeModel-patePoulet.json";
-				break;
-			case "56a6c36644fd4666d1194b78":
-				url = "app/quick-recipe/assets/json/recipeModel-pouding.json";
-				break;
-			case "56a6c2e644fd4666d1194b75":
-				url = "app/quick-recipe/assets/json/recipeModel-sauceSpag.json";
-				break;
-			case "56a6c09d44fd4666d1194b72":
-				url = "app/quick-recipe/assets/json/recipeModel-tofu.json";
-				break;
-			case "56ab7acf44fd466ff20f9f97":
-				url = "app/quick-recipe/assets/json/recipeModel-gateauFromage.json";
-			default:
-				break;
-		}
-
 		if ("Notification" in window) {
 			if (Notification.permission !== 'denied') {
 				Notification.requestPermission();
 			}
 		}
 
+		var url = "app/quick-recipe/assets/json/" + route.id + ".json";
         return this._http.get(url).then(response => {
             this.recipe = response.content;
 
