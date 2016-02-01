@@ -33,13 +33,12 @@ var bundleConfig = {
     force: true,
     baseURL: ".",                   // `baseURL of the application`
     configPath: "./config.js",      // `config.js` path. Must be within `baseURL`
-    packagePath: ".",
     bundles: {
         "dist/app-bundle": {
             includes: [
-                "**/*",
-                "**/*.html!text",
-                "**/*.css!text",
+                "[*.js]",
+                "*.html!text",
+                "*.css!text",
             ],
             options: {
                 inject: true,
@@ -48,27 +47,31 @@ var bundleConfig = {
         },
         "dist/aurelia-bundle": {
             includes: [
-                "aurelia-bootstrapper",
-                "aurelia-http-client",
-                "aurelia-router",
                 "aurelia-animator-css",
+                "aurelia-bootstrapper",
+                "aurelia-dialog",
+                "aurelia-framework",
+                "aurelia-history-browser",
+                "aurelia-http-client",
+                "aurelia-i18n",
+                "aurelia-loader-default",
+                "aurelia-logging-console",
+                "aurelia-router",
                 "aurelia-templating-binding",
                 "aurelia-templating-resources",
                 "aurelia-templating-router",
-                "aurelia-loader-default",
-                "aurelia-history-browser",
-                "aurelia-logging-console",
                 "aurelia-validation"
             ],
             options: {
                 inject: true,
-                minify: true
+                minify: true,
+                rev: true
             }
         }
     }
 };
 
-gulp.task("bundle", function() {
+gulp.task("bundle", ['unbundle', 'build'], function() {
     return bundler.bundle(bundleConfig);
 });
 

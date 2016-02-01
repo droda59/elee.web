@@ -1,8 +1,8 @@
 {
-  "name": "cookitnow",
+  "name": "E133",
   "version": "0.0.7",
   "licenseUrl": "http://localhost",
-  "description": "Make cooking easier.",
+  "description": "cook smarter.",
   "repository": {
     "type": "git"
   },
@@ -66,6 +66,7 @@
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.25",
       "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "clean-css": "npm:clean-css@^3.4.9",
       "core-js": "npm:core-js@^1.2.6",
       "traceur": "github:jmcriffey/bower-traceur@^0.0.93",
       "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@^0.0.93"
