@@ -26,7 +26,7 @@
         <section class="search-container">
             <form class="recipe-search" submit.delegate="loadRecipe()" novalidate>
                 <div class="row">
-                    <div class="input-field center col s6 offset-s3">
+                    <div class="input-field center col s12 m6 offset-m3">
                         <select value.bind="selectedRecipeId" materialize="select">
                             <option i18n="home.search">Search</option>
                             <optgroup repeat.for="group of recipeGroups" label.bind="group.label">
@@ -49,7 +49,7 @@
         <section class="description-container">
             <div class="container">
                 <div class="row">
-                    <div class="col s8 offset-s2">
+                    <div class="col s12 m8 offset-m2">
                         <div class="center promo">
                             <p class="promo-caption" i18n="home.description.title">Title</p>
                             <p class="light center" i18n="home.description.description1">Description</p>
@@ -98,7 +98,7 @@
                 <hr />
             </div>
             <div class="row description">
-                <div class="col s5">
+                <div class="col s12 m5">
                     <div class="row">
                         <h4 class="promo-caption" i18n="home.howItWorks.step1Title">FindARecipe</h4>
                         <p class="light" i18n="home.howItWorks.step1Text">FindARecipeText</p>
@@ -112,7 +112,7 @@
                         <p class="light" i18n="home.howItWorks.step3Text">EnjoyYourMealText</p>
                     </div>
                 </div>
-                <div class="col s7 image valign-wrapper right">
+                <div class="col m7 image valign-wrapper right hide-on-small-only">
                     <img src="/app/welcome/assets/images/macbook.png" alt="Teaser BG">
                 </div>
             </div>
@@ -123,7 +123,7 @@
         <section class="features-container">
             <div class="container">
                 <div class="row">
-                    <div class="col s4">
+                    <div class="col s12 m4">
                         <div class="center promo">
                             <i class="material-icons icon">list</i>
                             <p class="promo-caption" i18n="home.features.feature1Title">Title</p>
@@ -131,7 +131,7 @@
                         </div>
                     </div>
 
-                    <div class="col s4">
+                    <div class="col s12 m4">
                         <div class="center promo">
                             <i class="material-icons icon">shopping_cart</i>
                             <p class="promo-caption" i18n="home.features.feature2Title">Title</p>
@@ -139,7 +139,7 @@
                         </div>
                     </div>
 
-                    <div class="col s4">
+                    <div class="col s12 m4">
                         <div class="center promo">
                             <i class="material-icons icon">av_timer</i>
                             <p class="promo-caption" i18n="home.features.feature3Title">Title</p>
@@ -158,10 +158,10 @@
                 <hr />
             </div>
             <div class="row description">
-                <div class="col s6 image valign-wrapper left">
+                <div class="col s12 m6 image valign-wrapper left hide-on-small-only">
                     <img src="/app/welcome/assets/images/kitchen-trends.jpg" alt="Teaser BG">
                 </div>
-                <div class="col s6 offset-s6">
+                <div class="col s12 m6 offset-m6">
                     <div class="row">
                         <p class="light" i18n="home.moar.description">Description</p>
                         <ul class="collection">
