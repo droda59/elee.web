@@ -189,7 +189,7 @@ export class QuickRecipePage {
 	}
 
 	private activateStepIngredients(step: Step, activate: boolean): void {
-		if (step.subrecipeId >= 0) {
+		if (step.subrecipeId >= -1) {
 			var ingredientParts: IngredientPart[] = <IngredientPart[]>step.parts.filter(
 				part => part.type == "ingredient"
 			);

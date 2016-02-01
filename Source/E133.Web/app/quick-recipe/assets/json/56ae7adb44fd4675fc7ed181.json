@@ -74,19 +74,19 @@
         {
             "id": 5,
             "subrecipeId": -1,
-            "name": "Une pincée de clou de girofle moulu",
+            "name": "clou de girofle moulu",
             "quantity": {
                 "value": 1,
-                "unit": "unit"
+                "unit": "pinch"
             }
         },
         {
             "id": 6,
             "subrecipeId": -1,
-            "name": "pincée de sel",
+            "name": "sel",
             "quantity": {
                 "value": 1,
-                "unit": "unit"
+                "unit": "pinch"
             }
         },
         {
@@ -268,19 +268,19 @@
 						{
 							"id": 5,
 							"subrecipeId": -1,
-							"name": "Une pincée de clou de girofle moulu",
+							"name": "clou de girofle moulu",
 							"quantity": {
 								"value": 1,
-								"unit": "unit"
+								"unit": "pinch"
 							}
 						},
 						{
 							"id": 6,
 							"subrecipeId": -1,
-							"name": "pincée de sel",
+							"name": "sel",
 							"quantity": {
 								"value": 1,
-								"unit": "unit"
+								"unit": "pinch"
 							}
                         }
                     ]

@@ -100,10 +100,10 @@
         {
             "id": 7,
             "subrecipeId": 1,
-            "name": "paquet de 454 g (1 lb) de tofu ferme",
+            "name": "tofu ferme",
             "quantity": {
-                "value": 1,
-                "unit": "unit"
+                "value": 454,
+                "unit": "g"
             },
             "requirements": "coupé en cubes et bien épongé"
         },
@@ -160,7 +160,7 @@
             "subrecipeId": 1,
             "name": "Sel et poivre",
             "quantity": {
-                "value": 1,
+                "value": 0,
                 "unit": "unit"
             }
         },
@@ -179,7 +179,7 @@
             "subrecipeId": 2,
             "name": "Riz cuit vapeur",
             "quantity": {
-                "value": 1,
+                "value": 0,
                 "unit": "unit"
             }
         }
@@ -209,10 +209,10 @@
                     "ingredient": {
                         "id": 7,
                         "subrecipeId": 1,
-                        "name": "paquet de 454 g (1 lb) de tofu ferme",
+                        "name": "tofu ferme",
                         "quantity": {
-                            "value": 1,
-                            "unit": "unit"
+                            "value": 454,
+                            "unit": "g"
                         },
                         "requirements": "coupé en cubes et bien épongé"
                     }
@@ -421,10 +421,10 @@
                     "ingredient": {
                         "id": 7,
                         "subrecipeId": 1,
-                        "name": "paquet de 454 g (1 lb) de tofu ferme",
+                        "name": "tofu ferme",
                         "quantity": {
-                            "value": 1,
-                            "unit": "unit"
+                            "value": 454,
+                            "unit": "g"
                         },
                         "requirements": "coupé en cubes et bien épongé"
                     }
@@ -523,24 +523,7 @@
                 },
                 {
                     "type": "text",
-                    "value": "la moitié de"
-                },
-                {
-                    "type": "ingredient",
-                    "ingredient": {
-                        "id": 7,
-                        "subrecipeId": 1,
-                        "name": "paquet de 454 g (1l b) de tofu ferme",
-                        "quantity": {
-                            "value": 1,
-                            "unit": "unit"
-                        },
-                        "requirements": "coupé en cubes et bien épongé"
-                    }
-                },
-                {
-                	"type": "text",
-                	"value": "à la fois, jusqu’à ce qu’il soit légèrement doré"
+                    "value": "la moitié du tofu à la fois, jusqu’à ce qu’il soit légèrement doré"
                 }
             ],
             "postSteps": []
@@ -571,21 +554,8 @@
                     "value": "Retirer"
                 },
                 {
-                    "type": "ingredient",
-                    "ingredient": {
-                        "id": 7,
-                        "subrecipeId": 1,
-                        "name": "paquet de 454 g (1 lb) de tofu ferme",
-                        "quantity": {
-                            "value": 1,
-                            "unit": "unit"
-                        },
-                        "requirements": "coupé en cubes et bien épongé"
-                    }
-                },
-                {
                     "type": "text",
-                    "value": "du wok à l’aide d’une écumoire et"
+                    "value": "le tofu du wok à l’aide d’une écumoire et"
                 },
                 {
                     "type": "action",
@@ -700,17 +670,8 @@
                     "value": "Ajouter"
                 },
                 {
-                    "type": "ingredient",
-                    "ingredient": {
-                        "id": 7,
-                        "subrecipeId": 1,
-                        "name": "paquet de 454 g (1 lb) de tofu ferme",
-                        "quantity": {
-                            "value": 1,
-                            "unit": "unit"
-                        },
-                        "requirements": "coupé en cubes et bien épongé"
-                    }
+                    "type": "text",
+                    "value": "le tofu et"
                 },
                 {
                     "type": "action",

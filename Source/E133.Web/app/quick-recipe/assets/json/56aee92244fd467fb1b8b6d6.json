@@ -72,7 +72,7 @@
             "subrecipeId": -1,
             "name": "Eau",
             "quantity": {
-                "value": 1,
+                "value": 0,
                 "unit": "unit"
             }
         }
@@ -104,10 +104,10 @@
                     "ingredient": {
                         "id": 0,
                         "subrecipeId": -1,
-                        "name": "jambon fumé dans l’épaule avec os d’environ 3 kg (6 1/2 lb)",
+                        "name": "jambon fumé dans l’épaule avec os",
                         "quantity": {
-                            "value": 1,
-                            "unit": "unit"
+                            "value": 3,
+                            "unit": "kg"
                         }
                     }
                 },

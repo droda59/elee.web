@@ -38,7 +38,7 @@
 
 									<span class="right">
 										<button type="submit"
-												class="btn-floating"
+												class="btn btn-floating"
 												if.bind="timer.remainingTime === timer.originalTime"
 												disabled.bind="!timer.validation.result.isValid"
 												click.trigger="startTimer(timer)">
@@ -46,10 +46,10 @@
 										</button>
 										<a click.trigger="timer.replay()"
 											if.bind="timer.remainingTime !== timer.originalTime"
-											class="btn-floating">
+											class="btn btn-floating">
 											<i class="material-icons">replay</i>
 										</a>
-										<a click.trigger="removeTimer(timer)" class="btn-floating">
+										<a click.trigger="removeTimer(timer)" class="btn btn-floating">
 											<i class="material-icons">delete</i>
 										</a>
 									</span>

@@ -2,21 +2,25 @@ export class QuantityHumanFormatValueConverter {
 	toView(value: number, measureUnit: string) {
 		return this.getHumanizedValue(value, measureUnit);
 	}
-	
+
 	private getHumanizedValue(value: number, measureUnit: string): string {
+		if (value === 0) {
+			return "";
+		}
+		
         var isMetric = measureUnit == "ml"
             || measureUnit == "cl"
             || measureUnit == "dl"
             || measureUnit == "g"
             || measureUnit == "kg";
-			
+
 		if (isMetric) {
 			return value.toString();
 		}
-		
+
 		var decimal = Math.round((value % 1) * 100) / 100;
 		var decimalText = decimal.toString();
-				
+
 		switch (decimal) {
 			case 0.125: decimalText = "1/8"; break;
 			case 0.25: decimalText = "1/4"; break;
@@ -29,14 +33,14 @@ export class QuantityHumanFormatValueConverter {
 			case 0.875: decimalText = "7/8"; break;
 			default: return value.toString();
 		};
-		
+
 		var integer = Math.trunc(value);
 		var integerText = integer.toString();
-		
-		var text = (integer > 0 ? integerText : "") 
-			+ (integer > 0 && decimal > 0 ? " " : "") 
+
+		var text = (integer > 0 ? integerText : "")
+			+ (integer > 0 && decimal > 0 ? " " : "")
 			+ (decimal > 0 ? decimalText : "");
-			
+
 		return text;
 	}
 }

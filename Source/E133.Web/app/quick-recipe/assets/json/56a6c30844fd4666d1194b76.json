@@ -140,7 +140,7 @@
             "subrecipeId": 0,
             "name": "Sel et poivre",
             "quantity": {
-                "value": 1,
+                "value": 0,
                 "unit": "unit"
             }
         },
@@ -195,7 +195,7 @@
             "subrecipeId": 1,
             "name": "Lait pour badigeonner",
             "quantity": {
-                "value": 1,
+                "value": 0,
                 "unit": "unit"
             }
         }

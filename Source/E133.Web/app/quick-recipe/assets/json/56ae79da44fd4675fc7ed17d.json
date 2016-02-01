@@ -119,10 +119,10 @@
     {
       "id": 10,
       "subrecipeId": 1,
-      "name": "rôti d’épaule de porc d’environ 1,8 kg (4 lb)",
+      "name": "rôti d’épaule de porc",
       "quantity": {
-        "value": 1,
-        "unit": "unit"
+        "value": 1.8,
+        "unit": "kg"
       }
     },
     {
@@ -130,7 +130,7 @@
       "subrecipeId": 1,
       "name": "Sel et poivre",
       "quantity": {
-        "value": 1,
+        "value": 0,
         "unit": "unit"
       }
     }
@@ -255,13 +255,13 @@
         {
         	"type": "ingredient",
         	"ingredient": {
-			  "id": 10,
-			  "subrecipeId": 1,
-			  "name": "rôti d’épaule de porc d’environ 1,8 kg (4 lb)",
-			  "quantity": {
-				"value": 1,
-				"unit": "unit"
-			  }
+              "id": 10,
+              "subrecipeId": 1,
+              "name": "rôti d’épaule de porc",
+              "quantity": {
+                "value": 1.8,
+                "unit": "kg"
+              }
 			}
 		},
         {
