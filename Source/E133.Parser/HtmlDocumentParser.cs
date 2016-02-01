@@ -391,7 +391,7 @@ namespace E133.Parser
                     quantity = 1;
                 }
 
-                var readMeasureUnit = matches[1].Value;
+                var readMeasureUnit = matches.Count > 1 ? matches[1].Value : string.Empty;
                 var measureUnitEnum = this._measureUnitDetector.GetMeasureUnit(readMeasureUnit);
 
                 Match ingredientMatch;

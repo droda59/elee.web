@@ -296,7 +296,7 @@ export class QuantityConverter {
                 else if (secondDecimalPlaceRound >= 0.74 && secondDecimalPlaceRound <= 0.76) { return 0.75 + intValue; }
 
                 var firstDecimalPlaceRound = Math.round(decimal * 10) / 10;
-                if (firstDecimalPlaceRound === 0.5) { return 0.5 + intValue; }
+                if (firstDecimalPlaceRound >= 0.45 && firstDecimalPlaceRound <= 0.60) { return 0.5 + intValue; }
                 else if (1 - (Math.round((firstDecimalPlaceRound % 1) * 10) / 10) <= 0.1) { return 1 + intValue}
                 else if (firstDecimalPlaceRound >= 1 && Math.round((firstDecimalPlaceRound % 1) * 10) / 10 <= 0.1) { return Math.trunc(firstDecimalPlaceRound); }
 
