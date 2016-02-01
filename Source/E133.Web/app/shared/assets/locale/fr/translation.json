@@ -29,6 +29,14 @@
             "imperialShort": "Impérial simplifié",
             "imperialComplete": "Impérial",
             "both": "Afficher les deux"
+        },
+        "examples": {
+            "water": "eau",
+            "brownSugar": "cassonade",
+            "milk": "lait",
+            "salt": "sel",
+            "chicken": "poulet",
+            "flour": "farine"
         }
     },
     "home": {

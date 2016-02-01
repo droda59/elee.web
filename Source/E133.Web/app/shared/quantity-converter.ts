@@ -252,21 +252,24 @@ export class QuantityConverter {
 
             case "cup":
             {
-                var thirdDecimalPlaceRound = Math.round(value * 1000) / 1000;
-                if (thirdDecimalPlaceRound >= 0.120 && thirdDecimalPlaceRound <= 0.130) { return 0.125; }
-                else if (thirdDecimalPlaceRound >= 0.330 && thirdDecimalPlaceRound <= 0.340) { return 0.333; }
-                else if (thirdDecimalPlaceRound >= 0.370 && thirdDecimalPlaceRound <= 0.380) { return 0.375; }
-                else if (thirdDecimalPlaceRound >= 0.620 && thirdDecimalPlaceRound <= 0.630) { return 0.625; }
-                else if (thirdDecimalPlaceRound >= 0.660 && thirdDecimalPlaceRound <= 0.670) { return 0.666; }
-                else if (thirdDecimalPlaceRound >= 0.870 && thirdDecimalPlaceRound <= 0.880) { return 0.875; }
-                else if (thirdDecimalPlaceRound >= 0.990 && thirdDecimalPlaceRound <= 1.000) { return 1; }
+                var decimal = value % 1;
+                var intValue = value - decimal;
 
-                var secondDecimalPlaceRound = Math.round(value * 100) / 100;
-                if (secondDecimalPlaceRound >= 0.22 && secondDecimalPlaceRound <= 0.28) { return 0.25; }
-                else if (secondDecimalPlaceRound >= 0.72 && secondDecimalPlaceRound <= 0.78) { return 0.75; }
+                var thirdDecimalPlaceRound = Math.round(decimal * 1000) / 1000;
+                if (thirdDecimalPlaceRound >= 0.120 && thirdDecimalPlaceRound <= 0.130) { return 0.125 + intValue; }
+                else if (thirdDecimalPlaceRound >= 0.330 && thirdDecimalPlaceRound <= 0.340) { return 0.333 + intValue; }
+                else if (thirdDecimalPlaceRound >= 0.370 && thirdDecimalPlaceRound <= 0.380) { return 0.375 + intValue; }
+                else if (thirdDecimalPlaceRound >= 0.620 && thirdDecimalPlaceRound <= 0.630) { return 0.625 + intValue; }
+                else if (thirdDecimalPlaceRound >= 0.660 && thirdDecimalPlaceRound <= 0.670) { return 0.666 + intValue; }
+                else if (thirdDecimalPlaceRound >= 0.870 && thirdDecimalPlaceRound <= 0.880) { return 0.875 + intValue; }
+                else if (thirdDecimalPlaceRound >= 0.990 && thirdDecimalPlaceRound <= 1.000) { return 1 + intValue; }
 
-                var firstDecimalPlaceRound = Math.round(value * 10) / 10;
-                if (firstDecimalPlaceRound === 0.5) { return 0.5; }
+                var secondDecimalPlaceRound = Math.round(decimal * 100) / 100;
+                if (secondDecimalPlaceRound >= 0.22 && secondDecimalPlaceRound <= 0.28) { return 0.25 + intValue; }
+                else if (secondDecimalPlaceRound >= 0.72 && secondDecimalPlaceRound <= 0.78) { return 0.75 + intValue; }
+
+                var firstDecimalPlaceRound = Math.round(decimal * 10) / 10;
+                if (firstDecimalPlaceRound === 0.5) { return 0.5 + intValue; }
                 else if (firstDecimalPlaceRound >= 1 && Math.round((firstDecimalPlaceRound % 1) * 10) / 10 <= 0.1) { return  Math.trunc(firstDecimalPlaceRound); }
 
                 return value;
@@ -280,17 +283,21 @@ export class QuantityConverter {
 
             case "lb":
             {
-                var thirdDecimalPlaceRound = Math.round(value * 1000) / 1000;
-                if (thirdDecimalPlaceRound >= 0.330 && thirdDecimalPlaceRound <= 0.340) { return 0.333; }
-                else if (thirdDecimalPlaceRound >= 0.660 && thirdDecimalPlaceRound <= 0.670) { return 0.666; }
-                else if (thirdDecimalPlaceRound >= 0.990 && thirdDecimalPlaceRound <= 1.000) { return 1; }
+                var decimal = value % 1;
+                var intValue = value - decimal;
 
-                var secondDecimalPlaceRound = Math.round(value * 100) / 100;
-                if (secondDecimalPlaceRound >= 0.24 && secondDecimalPlaceRound <= 0.26) { return 0.25; }
-                else if (secondDecimalPlaceRound >= 0.74 && secondDecimalPlaceRound <= 0.76) { return 0.75; }
+                var thirdDecimalPlaceRound = Math.round(decimal * 1000) / 1000;
+                if (thirdDecimalPlaceRound >= 0.330 && thirdDecimalPlaceRound <= 0.340) { return 0.333 + intValue; }
+                else if (thirdDecimalPlaceRound >= 0.660 && thirdDecimalPlaceRound <= 0.670) { return 0.666 + intValue; }
+                else if (thirdDecimalPlaceRound >= 0.990 && thirdDecimalPlaceRound <= 1.000) { return 1 + intValue; }
 
-                var firstDecimalPlaceRound = Math.round(value * 10) / 10;
-                if (firstDecimalPlaceRound === 0.5) { return 0.5; }
+                var secondDecimalPlaceRound = Math.round(decimal * 100) / 100;
+                if (secondDecimalPlaceRound >= 0.24 && secondDecimalPlaceRound <= 0.26) { return 0.25 + intValue; }
+                else if (secondDecimalPlaceRound >= 0.74 && secondDecimalPlaceRound <= 0.76) { return 0.75 + intValue; }
+
+                var firstDecimalPlaceRound = Math.round(decimal * 10) / 10;
+                if (firstDecimalPlaceRound === 0.5) { return 0.5 + intValue; }
+                else if (1 - (Math.round((firstDecimalPlaceRound % 1) * 10) / 10) <= 0.1) { return 1 + intValue}
                 else if (firstDecimalPlaceRound >= 1 && Math.round((firstDecimalPlaceRound % 1) * 10) / 10 <= 0.1) { return Math.trunc(firstDecimalPlaceRound); }
 
                 return value;

@@ -3,6 +3,7 @@ import {HttpClient} from "aurelia-http-client";
 import {I18N} from "aurelia-i18n";
 import {QuickRecipe, Step, IngredientPart, IngredientEnumerationPart} from "quick-recipe/models/quick-recipe";
 import {Ingredient} from "shared/models/ingredient";
+import {TimerCoordinator} from "shared/timer-coordinator";
 import * as ScrollMagic from "scrollmagic";
 import "scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap";
 import "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators";
@@ -14,7 +15,7 @@ class QuickRecipeSubrecipeIngredient {
 	ingredients: Ingredient[];
 }
 
-@inject (HttpClient, I18N)
+@inject (HttpClient, I18N, TimerCoordinator)
 export class QuickRecipePage {
     recipe: QuickRecipe;
 	subrecipeIngredients: QuickRecipeSubrecipeIngredient[] = [];
@@ -23,14 +24,16 @@ export class QuickRecipePage {
 	isRecipeStarted: boolean;
 	isRecipeDone: boolean;
 
+	private _timerCoordinator: TimerCoordinator;
 	private _currentStepIndex: number = undefined;
     private _http: HttpClient;
 	private _i18n: I18N;
 	private _scrollController;
 
-	constructor(http: HttpClient, i18n: I18N) {
+	constructor(http: HttpClient, i18n: I18N, timerCoordinator: TimerCoordinator) {
 		this._http = http;
 		this._i18n = i18n;
+		this._timerCoordinator = timerCoordinator;
 
         this._scrollController = new ScrollMagic.Controller()
 			.scrollTo(function (newPos) {
@@ -89,6 +92,10 @@ export class QuickRecipePage {
 		if (!this.isRecipeDone) {
 			return confirm('Are you sure you want to leave?');
 		}
+	}
+
+	deactivate() {
+		this._timerCoordinator.clear();
 	}
 
 	startRecipe(): void {

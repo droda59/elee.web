@@ -12,7 +12,7 @@ export class TimerCoordinator {
         this._i18n = i18n;
     }
 
-	startTimer(timer: Timer) {
+	startTimer(timer: Timer): void {
 		var that = this;
 		this.addTimer(timer);
 
@@ -32,17 +32,24 @@ export class TimerCoordinator {
 		}
 	}
 
-	addTimer(timer: Timer) {
+	addTimer(timer: Timer): void {
 		if (this.activeTimers.indexOf(timer) === -1) {
 			this.activeTimers.push(timer);
 		}
 	}
 
-	deleteTimer(timer: Timer) {
+	deleteTimer(timer: Timer): void {
 		var index = this.activeTimers.indexOf(timer);
 		this.activeTimers.splice(index, 1);
 
 		timer.delete();
 		timer.onFinish = null;
+	}
+
+	clear(): void {
+		var timers = this.activeTimers.slice(0);
+		timers.forEach(timer => {
+			this.deleteTimer(timer);
+		});
 	}
 }

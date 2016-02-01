@@ -29,6 +29,14 @@
             "imperialShort": "Simplified imperial",
             "imperialComplete": "Imperial",
             "both": "Show both"
+        },
+        "examples": {
+            "water": "water",
+            "brownSugar": "brown sugar",
+            "milk": "milk",
+            "salt": "salt",
+            "chicken": "chicken",
+            "flour": "flour"
         }
     },
     "home": {

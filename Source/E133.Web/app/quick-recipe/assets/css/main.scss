@@ -39,22 +39,23 @@
                 position: fixed;
 
                 img {
+                    top: -100%;
                     filter: blur(5px);
                     -moz-filter: blur(5px);
                     -o-filter: blur(5px);
                     -ms-filter: blur(5px);
                     -webkit-filter: blur(1px);
                 }
-            }
-            .card-image .after {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, .4);
-            }
 
+                &.after {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, .4);
+                }
+            }
             .card-content {
                 height: calc(100% - 200px);
                 width: 100%;
@@ -70,10 +71,10 @@
                     .ingredient.done {
                         text-decoration: line-through;
                     }
-                }
 
-                .ingredient-item.current-step {
-                    font-weight: 500;
+                    &.current-step {
+                        font-weight: 500;
+                    }
                 }
             }
         }
@@ -110,16 +111,18 @@
                                 flex-grow: 1;
                                 text-align: center;
                                 cursor: default;
-                            }
-                            .subrecipe-title:hover {
-                                background: none;
-                            }
-                            .subrecipe-title.active:hover {
-                                background: rgba(0, 0, 0, 0.1);
-                            }
-                            .subrecipe-title.active {
-                                opacity: 1;
-                                transition: opacity 0.3s ease-in-out;
+
+                                &:hover {
+                                    background: none;
+                                }
+                                &.active {
+                                    opacity: 1;
+                                    transition: opacity 0.3s ease-in-out;
+
+                                    &:hover {
+                                        background: rgba(0, 0, 0, 0.1);
+                                    }
+                                }
                             }
                         }
                     }
@@ -159,9 +162,10 @@
                                     margin-left: 20px;
                                     height: 1.5rem;
                                     display: none;
-                                }
-                                [type="checkbox"] + label.visible {
-                                    display: inline-block;
+
+                                    &.visible {
+                                        display: inline-block;
+                                    }
                                 }
                             }
                         }
@@ -177,12 +181,13 @@
                                 margin: 0 1rem;
                             }
                         }
-                    }
-                    .step:first-of-type {
-                        margin-top: 400px;
-                    }
-                    .step:last-of-type {
-                        margin-bottom: 400px;
+
+                        &:first-of-type {
+                            margin-top: 400px;
+                        }
+                        &:last-of-type {
+                            margin-bottom: 400px;
+                        }
                     }
                 }
             }

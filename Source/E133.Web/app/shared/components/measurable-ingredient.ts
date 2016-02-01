@@ -22,6 +22,8 @@ export class MeasurableIngredient {
 	private _quantityConverter: QuantityConverter;
 	private _settingsManager: SettingsManager;
 	private _settingsObserver;
+	private _isVolumeUnit: boolean;
+	private _isWeightUnit: boolean;
 
 	constructor(i18n: I18N, observerLocator: ObserverLocator, quantityConverter: QuantityConverter, settingsManager: SettingsManager) {
 		this._i18n = i18n;
@@ -31,15 +33,16 @@ export class MeasurableIngredient {
 		this.offConvertibleMeasureUnit = new Quantity();
 
 		this._settingsObserver = observerLocator
-			.getObserver(settingsManager, 'settings')
+			.getObserver(settingsManager, "settings")
 			.subscribe(newVal => {
-				this.calculateConvertibleMeasureUnits(newVal.selectedVolumeDisplay);
+				var selectedDisplay = this.getSelectedDisplay();
+				this.calculateConvertibleMeasureUnits(selectedDisplay);
 			});
 	}
 
 	bind() {
 		this.ingredientName = this.ingredient.name.toLowerCase();
-		this.nextWord = " " + (this.ingredient.quantity.unit !== "unit" 
+		this.nextWord = " " + (this.ingredient.quantity.unit !== "unit"
 			? TextUtils.isVowel(this.ingredientName[0])
 				? this._i18n.tr("quantities.nextWordVowel")
 				: this._i18n.tr("quantities.nextWordConsonant") + " "
@@ -47,20 +50,10 @@ export class MeasurableIngredient {
 
 		this._quantity = this.ingredient.quantity;
 
-        var isVolumeUnit = this._quantityConverter.volumeMeasureUnits.indexOf(this._quantity.unit) > -1;
-        var isWeightUnit = this._quantityConverter.weightMeasureUnits.indexOf(this._quantity.unit) > -1;
+        this._isVolumeUnit = this._quantityConverter.volumeMeasureUnits.indexOf(this._quantity.unit) > -1;
+        this._isWeightUnit = this._quantityConverter.weightMeasureUnits.indexOf(this._quantity.unit) > -1;
 
-		var selectedDisplay;
-		if (isVolumeUnit) {
-			selectedDisplay = this._settingsManager.settings.selectedVolumeDisplay;
-		} else if (isWeightUnit) {
-			selectedDisplay = this._settingsManager.settings.selectedWeightDisplay;
-		}
-
-		if (this.unit) {
-			selectedDisplay = this.unit;
-		}
-
+		var selectedDisplay = this.getSelectedDisplay();
 		this.calculateConvertibleMeasureUnits(selectedDisplay);
 	}
 
@@ -68,7 +61,22 @@ export class MeasurableIngredient {
 		this._settingsObserver();
 	}
 
-	private calculateConvertibleMeasureUnits(selectedDisplay: string) {
+	private getSelectedDisplay(): string {
+		var selectedDisplay;
+		if (this._isVolumeUnit) {
+			selectedDisplay = this._settingsManager.settings.selectedVolumeDisplay;
+		} else if (this._isWeightUnit) {
+			selectedDisplay = this._settingsManager.settings.selectedWeightDisplay;
+		}
+
+		if (this.unit) {
+			selectedDisplay = this.unit;
+		}
+
+		return selectedDisplay;
+	}
+
+	private calculateConvertibleMeasureUnits(selectedDisplay: string): void {
 		if (selectedDisplay === "both") {
 			this.convertibleMeasureUnit = this._quantityConverter.getBestConvertibleMeasureUnit(this._quantity, "metricShort");
 			this.offConvertibleMeasureUnit = this._quantityConverter.getBestConvertibleMeasureUnit(this._quantity, "imperialShort");

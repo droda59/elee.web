@@ -1,16 +1,16 @@
 <template>
 	<require from="shared/value-converters/uppercase-first-letter-format"></require>
 	<require from="shared/components/measurable-ingredient"></require>
-	
+
 	<dialog class="settings-modal modal modal-fixed-footer au-animate" id="settings-modal">
 		<dialog-header class="modal-header">
 			<h3 i18n="settings.title">Settings</h3>
 		</dialog-header>
-		
+
 		<dialog-body class="modal-content">
 			<section class="section">
 				<h5 i18n="settings.volumeMeasureUnits">VolumeMeasureUnits</h5>
-				
+
 				<div class="row choice">
 					<span class="col s6 input-field" repeat.for="volumeDisplay of volumeDisplays">
 						<input name="volume-units" type="radio" id="volume-units-${volumeDisplay.name}" value.bind="volumeDisplay.name" checked.bind="$parent.settings.selectedVolumeDisplay" />
@@ -23,10 +23,12 @@
 					</span>
 				</div>
 			</section>
-			
+
+			<hr />
+
 			<section class="section">
 				<h5 i18n="settings.weightMeasureUnits">WeightMeasureUnits</h5>
-				
+
 				<div class="row choice">
 					<span class="col s6 input-field" repeat.for="weightDisplay of weightDisplays">
 						<input name="weight-units" type="radio" id="weight-units-${weightDisplay.name}" value.bind="weightDisplay.name" checked.bind="$parent.settings.selectedWeightDisplay" />
@@ -40,7 +42,7 @@
 				</div>
 			</section>
 		</dialog-body>
-		
+
 		<dialog-footer class="modal-footer">
 			<button click.trigger="controller.cancel()" class="modal-action modal-close waves-effect btn-flat" i18n="settings.cancelButton">Cancel</button>
 			<button click.trigger="controller.ok(settings)" class="modal-action modal-close waves-effect btn-flat" i18n="settings.okButton">Ok</button>
