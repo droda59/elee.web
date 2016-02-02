@@ -7,6 +7,10 @@
 		height: 80px;
 		line-height: 80px;
 
+		.container {
+			width: 80%;
+		}
+
 		.brand-logo {
 			position: relative;
 		}
@@ -22,10 +26,17 @@
 	.btn,
 	.btn-large {
 		border-radius: 0;
+		border: 2px white solid;
+		background-color: transparent;
 	}
 
 	.container {
 		width: 90%;
+	}
+	@media only screen and (max-width: 600px) {
+		.container {
+			width: 80%;
+		}
 	}
 
 	.col.offset-s3 {
@@ -40,12 +51,25 @@
 			font-weight: 600;
 			margin: 50px auto 0;
 		}
+
 		.title + hr {
 			width: 10%;
 			margin: 20px auto 0;
 			border: none;
 			background-color: black;
 			height: 3px;
+		}
+		.title + hr {
+			width: 50%;
+		}
+	}
+	@media only screen and (max-width: 600px) {
+		.underline-title {
+			margin: 20px auto;
+
+			.title + hr {
+				width: 50%;
+			}
 		}
 	}
 
@@ -59,10 +83,6 @@
 		    position: relative;
 		    padding: 40px 0;
 		}
-	}
-
-	#how-it-works-container {
-	    padding: 20px 0;
 	}
 
 	#search-container {
@@ -109,7 +129,6 @@
 	#moar-to-come-container {
 		background: white;
 		color: #2d2d2d;
-		padding: 30px 90px 50px;
 
 		.description {
 			position: relative;
@@ -208,6 +227,12 @@
 			color: white;
 			background: #8cbeb2;
 			border: none;
+		}
+	}
+
+	@media only screen and (max-width: 992px) {
+		.promo p {
+			line-height: 1.5rem;
 		}
 	}
 }
