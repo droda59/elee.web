@@ -4,6 +4,16 @@
 		transition: background-color .2s;
 		position: absolute;
 		z-index: 999;
+		height: 80px;
+		line-height: 80px;
+
+		.brand-logo {
+			position: relative;
+		}
+
+		a {
+			color: black;
+		}
 	}
 	.input-field input[type=search]:focus {
 		background-color: rgba(255, 255, 255, 0.7);
@@ -11,8 +21,6 @@
 
 	.btn,
 	.btn-large {
-		background-color: transparent;
-		border: 2px solid white;
 		border-radius: 0;
 	}
 
@@ -38,6 +46,91 @@
 			border: none;
 			background-color: black;
 			height: 3px;
+		}
+	}
+
+	#title-container {
+	    padding: 80px 20px 0;
+
+		.banner-container {
+			background-color: rgba(0, 70, 80, 0.3);
+		    box-shadow: inset 0px 0px 15px -1px rgba(0, 0, 0, 0.5);
+		    border-radius: 6px;
+		    position: relative;
+		    padding: 40px 0;
+		}
+	}
+
+	#how-it-works-container {
+	    padding: 20px 0;
+	}
+
+	#search-container {
+		background-image: url("/app/welcome/assets/images/teaser_bg.jpg");
+
+		.recipe-search {
+		    padding: 120px 0 40px;
+
+			.caret {
+				display: none;
+			}
+
+			input {
+				color: white;
+				text-align: center;
+				font-size: 1.6rem;
+				text-transform: uppercase;
+			}
+		}
+	}
+
+	#features-container {
+		padding: 70px 40px 50px;
+		background: #efefef;
+		color: #2d2d2d;
+
+		.row .col {
+			padding: 0 1.5rem;
+		}
+
+		.icon {
+			color: #8cbeb2;
+			font-size: 5rem;
+		}
+		.promo-caption {
+			font-weight: 600;
+  			font-size: 1.2rem;
+		}
+		.light {
+			color: #707070;
+		}
+	}
+
+	#moar-to-come-container {
+		background: white;
+		color: #2d2d2d;
+		padding: 30px 90px 50px;
+
+		.description {
+			position: relative;
+
+			.image {
+				height: 100%;
+				position: absolute;
+
+				img {
+					width: 100%;
+				}
+			}
+		}
+
+		.light {
+			color: #707070;
+		}
+
+		.collection,
+		.collection .collection-item {
+			border: none;
 		}
 	}
 
@@ -116,97 +209,5 @@
 			background: #8cbeb2;
 			border: none;
 		}
-	}
-
-	.features-container,
-	.description-container {
-		padding: 70px 90px 50px;
-		background: #efefef;
-		color: #2d2d2d;
-
-		.row .col {
-			padding: 0 1.5rem;
-		}
-
-		.icon {
-			color: #8cbeb2;
-			font-size: 5rem;
-		}
-		.promo-caption {
-			font-weight: 600;
-  			font-size: 1.2rem;
-		}
-		.light {
-			color: #707070;
-		}
-	}
-
-	.how-it-works-container,
-	.moar-to-come-container {
-		background: white;
-		color: #2d2d2d;
-		padding: 30px 90px 50px;
-
-		.row .col {
-			padding: 0 1rem;
-		}
-
-		.description {
-			position: relative;
-
-			.image {
-				height: 100%;
-				position: absolute;
-
-				img {
-					width: 100%;
-				}
-			}
-			.image.right {
-				right: 0;
-			}
-			.image.left {
-				left: 0;
-			}
-		}
-
-		.light {
-			color: #707070;
-		}
-
-		ul, li {
-			border: none;
-		}
-	}
-
-	.search-container {
-		background-image: url("/app/welcome/assets/images/teaser_bg.jpg");
-		height: 500px;
-		position: relative;
-
-		.recipe-search {
-			padding: 40px 0;
-			position: absolute;
-			bottom: 0;
-			width: 100%;
-
-			.caret {
-				display: none;
-			}
-
-			input {
-				color: white;
-				text-align: center;
-				font-size: 1.6rem;
-				text-transform: uppercase;
-			}
-		}
-	}
-
-	.primary-color {
-		background-color: #8cbeb2;
-	}
-	.primary-color-text {
-		color: #C35956;
 	}
 }

@@ -40,6 +40,8 @@
         }
     },
     "home": {
+        "slogan": "cook simply",
+        "mainDescription": "elee.menu guides you step-by-step through every step of your recipes, and lets you avoid common mistakes when you're preparing your meal.",
         "search": "Search",
         "cookItNowButton": "Cook it!",
         "categories": {
@@ -47,22 +49,23 @@
             "browseAll": "Browse all",
             "viewAll": "View all"
         },
-        "howItWorks": {
-            "title": "How it works",
+        "steps": {
             "step1Title": "1 - Pick a recipe",
-            "step1Text": "Pick a recipe you like in the list.",
+            "step1Description": "Find a recipe you'd like",
             "step2Title": "2 - Cook it",
-            "step2Text": "Actually make the recipe you found using our engine. It's simple, intuitive and elegant. We're in 2016, after all!",
-            "step3Title": "3 - Enjoy your meal",
-            "step3Text": "We don't have to guide you through this step. Go on, enjoy it; you deserve it!"
+            "step2Description": "Follow the recipe using the application",
+            "step3Title": "3 - Enjoy",
+            "step3Description": "Enjoy your meal; you deserve it!"
         },
         "features": {
             "feature1Title": "Multi-platform",
             "feature1Description": "elee.menu is multi-plaform, so you can follow your recipe on any device you want wherever you want.",
-            "feature2Title": "Inline ingredients",
-            "feature2Description": "Ingredient quantities are specified directly in the step, in the measure unit your prefer. No need to look for information elsewhere anymore! Furthermore, ingredients that have already been used are checked from the ingredient list.",
-            "feature3Title": "Timers",
-            "feature3Description": "Lorsqu'un temps est requis, vous pouvez activer un chronomètre directement dans l'étape. Vous pouvez même ajouter un chronomètre manuellement, selon vos besoins! Lorsque le temps est écoulé, une alerte vous l'indique, quoi que vous soyez en train de faire."
+            "feature2Title": "Aggregation",
+            "feature2Description": "Recipes are taken from major popular foodie websites and reformatted to simplify them.",
+            "feature3Title": "Inline ingredients",
+            "feature3Description": "Ingredient quantities are specified directly in the step, in your prefered measure unit.",
+            "feature4Title": "Timers",
+            "feature4Description": "When a timer is required, you can activate one directly in the current step, or add one manually, as needed."
         },
         "moar": {
             "title": "More will come!",
@@ -73,12 +76,6 @@
             "nextFeatures4": "Recipe saving and editing in your personal cookbook",
             "nextFeatures5": "Recipe suggestions based on your preferences and achievements",
             "keepUpToDate": "Keep up to date!"
-        },
-        "description": {
-            "title": "What?",
-            "description1": "It is still difficult nowadays to follow a recipe without making mistakes.",
-            "description2": "elee.menu changes the game.",
-            "description3": "elee.menu is a simple and elegant recipe tool that enables you to follow a recipe without making mistakes in the process."
         }
     },
     "quantities": {
