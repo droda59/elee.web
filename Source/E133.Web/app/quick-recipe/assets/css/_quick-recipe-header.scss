@@ -19,17 +19,13 @@
             height: $quick-recipe-header-height;
             background-color: $quick-recipe-header-color;
 
-            h3 {
-                margin: 0;
-            }
-
-            .brand-logo {
+            a.brand-logo {
               i {
                 // Temp fix so the text flow next to the icon.
                 // Anyway, this will eventually get replaced.
                 display: inline-block;
-                padding: 0 10px;
-                vertical-align: top;
+                padding: 0 5px;
+                vertical-align: middle;
                 height: inherit;
                 line-height: inherit;
               }
@@ -52,10 +48,6 @@
                         content: "\00a0";
                     }
                 }
-            }
-
-            .info {
-                width: calc(100% - 416px);
             }
 
             .dropdown-content {
