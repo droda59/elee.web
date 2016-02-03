@@ -60,7 +60,8 @@ var bundleConfig = {
                 "aurelia-templating-binding",
                 "aurelia-templating-resources",
                 "aurelia-templating-router",
-                "aurelia-validation"
+                "aurelia-validation",
+                "aurelia-validation/resources/*"
             ],
             options: {
                 inject: true,
@@ -196,22 +197,31 @@ gulp.task("export-copy", function() {
         "index.html",
         "config.js",
         "favicon.ico",
-        "dist/**/*.css",
         "dist/**/*.json",
+        "dist/**/*.png",
+        "dist/**/*.jpg",
+        "dist/**/*.svg",
+        "dist/**/*.wof",
+        "dist/**/*.ttf",
         "jspm_packages/system.js",
         "jspm_packages/system-polyfills.js",
         "jspm_packages/system-csp-production.js",
+        "jspm_packages/npm/gsap@1.18.2/src/minified/TweenMax.js",
+        "jspm_packages/npm/gsap@1.18.2/src/minified/plugins/ScrollToPlugin.js",
+        "jspm_packages/npm/scrollmagic@2.0.5/minified/ScrollMagic.min.js",
+        "jspm_packages/npm/scrollmagic@2.0.5/minified/plugins/animation.gsap.min.js",
         "jspm_packages/npm/materialize-css@0.97.5/bin/*",
         "jspm_packages/npm/moment@2.11.1/moment.js",
         "jspm_packages/npm/moment@2.11.1/locale/fr.js",
-        "jspm_packages/github/components/jquery@2.2.0/jquery.js",
-        "jspm_packages/npm/materialize-css@0.97.5/bin/materialize.js"
+        "jspm_packages/npm/aurelia-validation@0.6.0/resources/en-US.js",
+        "jspm_packages/github/components/jquery@2.2.0/jquery.js"
       ].concat(getBundles()), { base: "." })
     .pipe(gulp.dest("export/"));
 });
 
 gulp.task("export", function(callback) {
   return runSequence(
+    "clean",
     "bundle",
     "clean-export",
     "export-copy",
