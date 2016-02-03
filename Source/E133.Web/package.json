@@ -1,13 +1,13 @@
 {
   "name": "E133",
-  "version": "0.0.7",
+  "version": "1.0.0",
   "licenseUrl": "http://localhost",
   "description": "cook smarter.",
   "repository": {
     "type": "git"
   },
   "devDependencies": {
-    "aurelia-bundler": "^0.2.1",
+    "aurelia-bundler": "^0.3.0",
     "aurelia-tools": "^0.1.18",
     "browser-sync": "^2.7.13",
     "del": "^1.1.0",

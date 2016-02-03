@@ -64,14 +64,13 @@ var bundleConfig = {
             ],
             options: {
                 inject: true,
-                minify: true,
-                rev: true
+                minify: true
             }
         }
     }
 };
 
-gulp.task("bundle", ['unbundle', 'build'], function() {
+gulp.task("bundle", ["unbundle", "build"], function() {
     return bundler.bundle(bundleConfig);
 });
 
@@ -91,7 +90,7 @@ gulp.task("copyfiles", function() {
 });
 
 gulp.task("clean", function () {
-    return gulp.src(["dist/*", "!dist/app-bundle.js", "!dist/aurelia-bundle.js"])
+    return gulp.src("dist/")
        .pipe(vinylPaths(del));
 });
 
@@ -127,7 +126,7 @@ gulp.task("build-sass", function() {
 
 gulp.task("bump-version", function () {
     return gulp.src(path.package)
-      .pipe(bump({ type: "patch" })) //major|minor|patch|prerelease
+      .pipe(bump({ type: "major" })) //major|minor|patch|prerelease
       .pipe(gulp.dest("./"));
 });
 
@@ -178,3 +177,43 @@ gulp.task("watch-sass", ["serve"], function () {
 });
 
 gulp.task("watch", ["watch-ts", "watch-html", "watch-sass"]);
+
+gulp.task("clean-export", function() {
+  return gulp.src(["export/"])
+    .pipe(vinylPaths(del));
+});
+
+function getBundles() {
+  var bl = [];
+  for (b in bundleConfig.bundles) {
+    bl.push(b + ".js");
+  }
+  return bl;
+}
+
+gulp.task("export-copy", function() {
+  return gulp.src([
+        "index.html",
+        "config.js",
+        "favicon.ico",
+        "dist/**/*.css",
+        "jspm_packages/system.js",
+        "jspm_packages/system-polyfills.js",
+        "jspm_packages/system-csp-production.js",
+        "jspm_packages/npm/materialize-css@0.97.5/bin/*",
+        "jspm_packages/npm/moment@2.11.1/moment.js",
+        "jspm_packages/npm/moment@2.11.1/locale/fr.js",
+        "jspm_packages/github/components/jquery@2.2.0/jquery.js",
+        "jspm_packages/npm/materialize-css@0.97.5/bin/materialize.js"
+      ].concat(getBundles()), { base: "." })
+    .pipe(gulp.dest("export/"));
+});
+
+gulp.task("export", function(callback) {
+  return runSequence(
+    "bundle",
+    "clean-export",
+    "export-copy",
+    callback
+  );
+});
