@@ -60,7 +60,7 @@
 			height: 3px;
 		}
 		.title + hr {
-			width: 50%;
+			width: 10%;
 		}
 	}
 	@media only screen and (max-width: 600px) {
@@ -86,7 +86,7 @@
 	}
 
 	#search-container {
-		background-image: url("/app/welcome/assets/images/teaser_bg.jpg");
+		background-image: url("/dist/welcome/assets/images/teaser_bg.jpg");
 
 		.recipe-search {
 		    padding: 120px 0 40px;

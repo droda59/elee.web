@@ -51,10 +51,10 @@ export class Welcome {
 			{ id: "56a6c09d44fd4666d1194b72", title: "Tofu Général Tao", imageUrl: "http://www.ricardocuisine.com/pictures/cache/21e594b4edcc407cd10ee798646a21e0_w500_h675_sc.jpg" }
 		]});
 
-		// this.popularCategories.push({ id: "1", title: "Asie", cover: "/app/welcome/assets/images/categ1.png" });
-		// this.popularCategories.push({ id: "2", title: "Dessert", cover: "/app/welcome/assets/images/categ2.png" });
-		// this.popularCategories.push({ id: "3", title: "Sans gluten", cover: "/app/welcome/assets/images/categ3.png" });
-		// this.popularCategories.push({ id: "4", title: "BBQ", cover: "/app/welcome/assets/images/categ4.png" });
+		// this.popularCategories.push({ id: "1", title: "Asie", cover: "dist/welcome/assets/images/categ1.png" });
+		// this.popularCategories.push({ id: "2", title: "Dessert", cover: "dist/welcome/assets/images/categ2.png" });
+		// this.popularCategories.push({ id: "3", title: "Sans gluten", cover: "dist/welcome/assets/images/categ3.png" });
+		// this.popularCategories.push({ id: "4", title: "BBQ", cover: "dist/welcome/assets/images/categ4.png" });
 	}
 
 	attached(){

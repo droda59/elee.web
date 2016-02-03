@@ -10,7 +10,7 @@ export function configure(aurelia) {
         .plugin("aurelia-validation", (config) => { config.useViewStrategy(MaterializeViewStrategy); })
         .plugin("aurelia-i18n", (instance) => {
             instance.setup({
-                resGetPath : "app/shared/assets/locale/__lng__/__ns__.json",
+                resGetPath : "dist/shared/assets/locale/__lng__/__ns__.json",
                 lng : "fr",
                 attributes : ["t","i18n"],
                 getAsync : true,

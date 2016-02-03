@@ -63,7 +63,7 @@ export class QuickRecipePage {
 			}
 		}
 
-		var url = "app/quick-recipe/assets/json/" + route.id + ".json";
+		var url = "dist/quick-recipe/assets/json/" + route.id + ".json";
         return this._http.get(url).then(response => {
             this.recipe = response.content;
 

@@ -85,6 +85,11 @@ gulp.task("typedef", function () {
         .pipe(gulp.dest("typings/aurelia"));
 });
 
+gulp.task("copyfiles", function() {
+    return gulp.src("app/**/*.{json,png,jpg,svg,wof,ttf}")
+        .pipe(gulp.dest("dist/"));
+});
+
 gulp.task("clean", function () {
     return gulp.src(["dist/*", "!dist/app-bundle.js", "!dist/aurelia-bundle.js"])
        .pipe(vinylPaths(del));
@@ -129,7 +134,7 @@ gulp.task("bump-version", function () {
 gulp.task("default", ["build"]);
 gulp.task("build", function (callback) {
     return runSequence(
-      ["build-ts", "build-html", "build-sass"],
+      ["build-ts", "build-html", "build-sass", "copyfiles"],
       callback
     );
 });
