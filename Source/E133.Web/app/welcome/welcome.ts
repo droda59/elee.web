@@ -59,19 +59,6 @@ export class Welcome {
 
 	attached(){
 		this._i18n.updateTranslations(this._element);
-
-		var scrollStart = 0;
-		var nav = $("nav");
-		var offset = $(".how-it-works-container").offset().top;
-		var navHeight = nav.height();
-   		$(document).scroll(function() {
-      		scrollStart = $(this).scrollTop();
-      		if(scrollStart > offset - navHeight) {
-          		nav.addClass("primary-color");
-       		} else {
-          		nav.removeClass("primary-color");
-       		}
-   		});
 	}
 
 	loadRecipe() {
