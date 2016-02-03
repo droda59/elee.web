@@ -212,6 +212,7 @@ gulp.task("export-copy", function() {
         "jspm_packages/npm/gsap@1.18.2/src/minified/plugins/ScrollToPlugin.min.js",
         "jspm_packages/npm/scrollmagic@2.0.5/scrollmagic/minified/ScrollMagic.min.js",
         "jspm_packages/npm/scrollmagic@2.0.5/scrollmagic/minified/plugins/animation.gsap.min.js",
+        "jspm_packages/npm/scrollmagic@2.0.5/scrollmagic/minified/plugins/debug.addIndicators.min.js",
         "jspm_packages/npm/materialize-css@0.97.5/bin/*",
         "jspm_packages/npm/materialize-css@0.97.5/font/*",
         "jspm_packages/npm/moment@2.11.1/moment.js",
