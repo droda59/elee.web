@@ -36,9 +36,9 @@ var bundleConfig = {
     bundles: {
         "dist/app-bundle": {
             includes: [
-                "[*.js]",
-                "*.html!text",
-                "*.css!text",
+                "[**/*.js]",
+                "[**/*.html!text]",
+                "[**/*.css!text]",
             ],
             options: {
                 inject: true,
@@ -197,6 +197,7 @@ gulp.task("export-copy", function() {
         "config.js",
         "favicon.ico",
         "dist/**/*.css",
+        "dist/**/*.json",
         "jspm_packages/system.js",
         "jspm_packages/system-polyfills.js",
         "jspm_packages/system-csp-production.js",
