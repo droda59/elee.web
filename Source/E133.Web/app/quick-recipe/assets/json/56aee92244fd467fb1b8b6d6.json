@@ -52,10 +52,11 @@
         {
             "id": 3,
             "subrecipeId": -1,
-            "name": "bouteille de 341 ml de bière blonde",
+            "name": "bière blonde",
             "quantity": {
-                "value": 1,
-                "unit": "unit"
+                "value": 341,
+                "unit": "ml",
+                "format": "1 bouteille de {0}"
             }
         },
         {
@@ -181,10 +182,11 @@
                         {
                             "id": 3,
                             "subrecipeId": -1,
-                            "name": "bouteille de 341 ml de bière blonde",
+                            "name": "bière blonde",
                             "quantity": {
-                                "value": 1,
-                                "unit": "unit"
+                                "value": 341,
+                                "unit": "ml",
+                                "format": "1 bouteille de {0}"
                             }
                         },
                         {

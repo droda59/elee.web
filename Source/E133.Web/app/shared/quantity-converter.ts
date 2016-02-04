@@ -21,6 +21,7 @@ export class QuantityConverter {
         var bestConvertibleQuantity = new Quantity();
         bestConvertibleQuantity.value = quantity.value;
         bestConvertibleQuantity.unit = quantity.unit;
+        bestConvertibleQuantity.format = quantity.format;
 
         var unitsToConvertTo = this.getUnitsToConvertTo(quantity.unit, displayUnit);
         unitsToConvertTo.some(function(unit: string) {
@@ -256,7 +257,7 @@ export class QuantityConverter {
                 var intValue = value - decimal;
 
                 var thirdDecimalPlaceRound = Math.round(decimal * 1000) / 1000;
-                if (thirdDecimalPlaceRound >= 0.120 && thirdDecimalPlaceRound <= 0.130) { return 0.125 + intValue; }
+                if (thirdDecimalPlaceRound >= 0.120 && thirdDecimalPlaceRound <= 0.137) { return 0.125 + intValue; }
                 else if (thirdDecimalPlaceRound >= 0.330 && thirdDecimalPlaceRound <= 0.340) { return 0.333 + intValue; }
                 else if (thirdDecimalPlaceRound >= 0.370 && thirdDecimalPlaceRound <= 0.380) { return 0.375 + intValue; }
                 else if (thirdDecimalPlaceRound >= 0.620 && thirdDecimalPlaceRound <= 0.630) { return 0.625 + intValue; }
@@ -269,7 +270,7 @@ export class QuantityConverter {
                 else if (secondDecimalPlaceRound >= 0.72 && secondDecimalPlaceRound <= 0.78) { return 0.75 + intValue; }
 
                 var firstDecimalPlaceRound = Math.round(decimal * 10) / 10;
-                if (firstDecimalPlaceRound === 0.5) { return 0.5 + intValue; }
+                if (firstDecimalPlaceRound >= 0.4 && firstDecimalPlaceRound <= 0.6) { return 0.5 + intValue; }
                 else if (firstDecimalPlaceRound >= 1 && Math.round((firstDecimalPlaceRound % 1) * 10) / 10 <= 0.1) { return  Math.trunc(firstDecimalPlaceRound); }
 
                 return value;
@@ -340,7 +341,7 @@ export class QuantityConverter {
 
             case "cup":
                 var decimal = value % 1;
-                return decimal === 0
+                return decimal === 0 || decimal === 0.125
                     || decimal === 0.25 || decimal === 0.333
                     || decimal === 0.375 || decimal === 0.5 || decimal === 0.666
                     || decimal === 0.625 || decimal === 0.75 || decimal === 0.875;

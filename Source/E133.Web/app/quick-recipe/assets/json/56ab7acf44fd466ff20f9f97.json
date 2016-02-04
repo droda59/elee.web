@@ -69,7 +69,7 @@
         {
             "id": 3,
             "subrecipeId": 0,
-            "name": "Papier d'aluminium de 46 cm (18 po) de large",
+            "name": "papier d'aluminium de 46 cm (18 po) de large",
             "quantity": {
                 "value": 1,
                 "unit": "unit"
@@ -96,10 +96,11 @@
         {
             "id": 6,
             "subrecipeId": 1,
-            "name": "paquets de 250g (8 oz) de fromage à la crème",
+            "name": "fromage à la crème",
             "quantity": {
-                "value": 4,
-                "unit": "unit"
+                "value": 250,
+                "unit": "g",
+                "format": "4 paquets de {0}"
             },
             "requirements": "tempéré"
         },
@@ -184,10 +185,11 @@
                     "ingredient": {
                         "id": 6,
                         "subrecipeId": 1,
-                        "name": "paquets de 250g (8 oz) de fromage à la crème",
+                        "name": "fromage à la crème",
                         "quantity": {
-                            "value": 4,
-                            "unit": "unit"
+                            "value": 250,
+                            "unit": "g",
+                            "format": "4 paquets de {0}"
                         },
                         "requirements": "tempéré"
                     }
@@ -444,10 +446,11 @@
                         {
                             "id": 6,
                             "subrecipeId": 1,
-                            "name": "paquets de 250g (8 oz) de fromage à la crème",
+                            "name": "fromage à la crème",
                             "quantity": {
-                                "value": 4,
-                                "unit": "unit"
+                                "value": 250,
+                                "unit": "g",
+                                "format": "4 paquets de {0}"
                             },
                             "requirements": "tempéré"
                         },

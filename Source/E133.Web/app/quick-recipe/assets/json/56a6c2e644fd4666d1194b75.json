@@ -105,28 +105,31 @@
         {
             "id": 8,
             "subrecipeId": -1,
-            "name": "boîte de 156 ml (5 oz) de pâte de tomates",
+            "name": "pâte de tomates",
             "quantity": {
-                "value": 1,
-                "unit": "unit"
+                "value": 156,
+                "unit": "ml",
+                "format": "1 boîte de {0}"
             }
         },
         {
             "id": 9,
             "subrecipeId": -1,
-            "name": "boîtes de 796 ml (28 oz) de tomates italiennes en dés",
+            "name": "tomates italiennes en dés",
             "quantity": {
-                "value": 2,
-                "unit": "unit"
+                "value": 796,
+                "unit": "ml",
+                "format": "2 boîtes de {0}"
             }
         },
         {
             "id": 10,
             "subrecipeId": -1,
-            "name": "boîtes de 796 ml (28 oz) de sauce tomate ou tomates broyées avec purée",
+            "name": "sauce tomate ou tomates broyées avec purée",
             "quantity": {
-                "value": 2,
-                "unit": "unit"
+                "value": 796,
+                "unit": "ml",
+                "format": "2 boîtes de {0}"
             }
         },
         {
@@ -489,13 +492,14 @@
                 {
                 	"type": "ingredient",
                 	"ingredient": {
-						"id": 8,
-						"subrecipeId": -1,
-						"name": "boîte de 156 ml (5 oz) de pâte de tomates",
-						"quantity": {
-							"value": 1,
-							"unit": "unit"
-						}
+                        "id": 8,
+                        "subrecipeId": -1,
+                        "name": "pâte de tomates",
+                        "quantity": {
+                            "value": 156,
+                            "unit": "ml",
+                            "format": "1 boîte de {0}"
+                        }
 					}
 				},
                 {
@@ -554,19 +558,21 @@
                         {
                             "id": 9,
                             "subrecipeId": -1,
-                            "name": "boîtes de 796 ml (28 oz) de tomates italiennes en dés",
+                            "name": "tomates italiennes en dés",
                             "quantity": {
-                                "value": 2,
-                                "unit": "unit"
+                                "value": 796,
+                                "unit": "ml",
+                                "format": "2 boîtes de {0}"
                             }
                         },
                         {
                             "id": 10,
                             "subrecipeId": -1,
-                            "name": "boîtes de 796 ml (28 oz) de sauce tomate ou tomates  broyées avec purée",
+                            "name": "sauce tomate ou tomates broyées avec purée",
                             "quantity": {
-                                "value": 2,
-                                "unit": "unit"
+                                "value": 796,
+                                "unit": "ml",
+                                "format": "2 boîtes de {0}"
                             }
                         },
 						{
@@ -628,19 +634,7 @@
                 },
                 {
                     "type": "text",
-                    "value": "ou jusqu’à ce que"
-                },
-                {
-                    "type": "ingredient",
-                    "ingredient": {
-                        "id": 10,
-                        "subrecipeId": -1,
-                        "name": "boîtes de 796 ml (28 oz) de sauce tomate ou tomates  broyées avec purée",
-                        "quantity": {
-                            "value": 2,
-                            "unit": "unit"
-                        }
-                    }
+                    "value": "ou jusqu’à ce que la sauce"
                 },
                 {
                     "type": "text",

@@ -141,7 +141,7 @@
         {
             "id": 12,
             "subrecipeId": -1,
-            "name": "Persil plat",
+            "name": "persil plat",
             "quantity": {
                 "value": 0,
                 "unit": "unit"
@@ -151,7 +151,7 @@
         {
             "id": 13,
             "subrecipeId": -1,
-            "name": "Ciboulette fraîche",
+            "name": "ciboulette fraîche",
             "quantity": {
                 "value": 0,
                 "unit": "unit"
@@ -161,7 +161,7 @@
         {
             "id": 14,
             "subrecipeId": -1,
-            "name": "Sel et poivre",
+            "name": "sel et poivre",
             "quantity": {
                 "value": 0,
                 "unit": "unit"

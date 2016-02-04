@@ -1,22 +1,20 @@
 <template>
 	<require from="shared/value-converters/quantity-human-format"></require>
-	
+
 	<span class="ingredient ${ingredient.done ? 'done' : ''}">
 		<span class="emphasis">
-			${convertibleMeasureUnit.value | quantityHumanFormat:convertibleMeasureUnit.unit}
-			${'quantities.' + convertibleMeasureUnit.unit | t: { 'count': convertibleMeasureUnit.value }}
+			${convertibleMeasureUnit | quantityHumanFormat}
 		</span>
-		
+
 		<span if.bind="showBoth">
 			(
 			<span class="emphasis">
-				${offConvertibleMeasureUnit.value | quantityHumanFormat:offConvertibleMeasureUnit.unit}
-				${'quantities.' + offConvertibleMeasureUnit.unit | t: { 'count': offConvertibleMeasureUnit.value }}
+				${offConvertibleMeasureUnit | quantityHumanFormat}
 			</span>
 			)
 		</span>
-		
+
 		<span>${nextWord} </span>
-		<span class="emphasis">${ingredientName} <span if.bind="requirements" class="requirements">(${ingredient.requirements})</span></span> 
+		<span class="emphasis">${ingredientName} <span if.bind="requirements" class="requirements">(${ingredient.requirements})</span></span>
 	</span>
 </template>
