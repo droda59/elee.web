@@ -12,7 +12,7 @@
 				<h5 i18n="settings.volumeMeasureUnits">VolumeMeasureUnits</h5>
 
 				<div class="row choice">
-					<span class="col s6 input-field" repeat.for="volumeDisplay of volumeDisplays">
+					<span class="col s12 m6 input-field" repeat.for="volumeDisplay of volumeDisplays">
 						<input name="volume-units" type="radio" id="volume-units-${volumeDisplay.name}" value.bind="volumeDisplay.name" checked.bind="$parent.settings.selectedVolumeDisplay" />
 						<h5>${'settings.volumeDisplays.' + volumeDisplay.name | t}</h5>
 						<label class="btn col s12 waves-effect" for="volume-units-${volumeDisplay.name}">
@@ -30,7 +30,7 @@
 				<h5 i18n="settings.weightMeasureUnits">WeightMeasureUnits</h5>
 
 				<div class="row choice">
-					<span class="col s6 input-field" repeat.for="weightDisplay of weightDisplays">
+					<span class="col s12 m6 input-field" repeat.for="weightDisplay of weightDisplays">
 						<input name="weight-units" type="radio" id="weight-units-${weightDisplay.name}" value.bind="weightDisplay.name" checked.bind="$parent.settings.selectedWeightDisplay" />
 						<h5>${'settings.weightDisplays.' + weightDisplay.name | t}</h5>
 						<label class="btn col s12 waves-effect" for="weight-units-${weightDisplay.name}">
