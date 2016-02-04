@@ -7,12 +7,12 @@
 	<require from="shared/value-converters/duration-format"></require>
 
 	<div class="quick-recipe" class.bind="backgroundClass">
-	    <header class="row z-depth-1">
+		<header class="row z-depth-1">
 			<quick-recipe-header containerless recipe.bind="recipe"></quick-recipe-header>
-	    </header>
+		</header>
 
 		<main class="row">
-			<div class="ingredients card hoverable hide-on-small-only">
+			<div class="ingredients card hoverable hide-on-small-only col m3">
 				<div class="card-image">
 					<img src.bind="recipe.imageUrl">
 					<div class="after"></div>
@@ -34,65 +34,65 @@
 				</div>
 			</div>
 
-			<div class="main section col right">
-                <div class="content">
-                    <section id="presentation-section" if.bind="!isRecipeStarted" class="au-animate section">
-                        <div>
-                            <h3>${recipe.title}</h3>
-                            <div class="row">
-                                <div>
-                                    <span i18n="quickRecipe.servings">Servings</span>${recipe.originalServings}
-                                </div>
-                            </div>
+			<div class="main section col s12 m9 offset-m3">
+				<div class="content">
+					<section id="presentation-section" if.bind="!isRecipeStarted" class="au-animate section">
+						<div>
+							<h3>${recipe.title}</h3>
+							<div class="row">
+								<div>
+									<span i18n="quickRecipe.servings">Servings</span>${recipe.originalServings}
+								</div>
+							</div>
 
-                            <div class="row">
-                                <ul>
-                                    <li repeat.for="duration of recipe.durations">
-                                        ${duration.title}: ${duration.time | durationFormat}
-                                    </li>
-                                </ul>
-                            </div>
+							<div class="row">
+								<ul>
+									<li repeat.for="duration of recipe.durations">
+										${duration.title}: ${duration.time | durationFormat}
+									</li>
+								</ul>
+							</div>
 
-                            <div class="row" if.bind="recipe.note">
+							<div class="row" if.bind="recipe.note">
 								<p><span i18n="quickRecipe.note">Note</span>${recipe.note}</p>
-                            </div>
+							</div>
 
-                            <div class="row center">
-                                <a class="btn btn-large waves-effect waves-light" click.trigger="startRecipe()" i18n="quickRecipe.start">Start</a>
-                            </div>
-                        </div>
-                    </section>
+							<div class="row center">
+								<a class="btn btn-large waves-effect waves-light" click.trigger="startRecipe()" i18n="quickRecipe.start">Start</a>
+							</div>
+						</div>
+					</section>
 
-                    <section id="recipe-content" show.bind="isRecipeStarted && !isRecipeDone" class="au-animate">
-                        <nav class="navbar z-depth-1">
-                            <ul class="subrecipe-titles">
-                                <li repeat.for="subrecipe of recipe.subrecipes" class="subrecipe-title ${$parent.activeSubrecipeId === subrecipe.id ? 'active' : ''}">
-                                    ${subrecipe.title}
-                                </li>
-                            </ul>
-                        </nav>
+					<section id="recipe-content" show.bind="isRecipeStarted && !isRecipeDone" class="au-animate">
+						<nav class="navbar z-depth-1">
+							<ul class="subrecipe-titles">
+								<li repeat.for="subrecipe of recipe.subrecipes" class="subrecipe-title ${$parent.activeSubrecipeId === subrecipe.id ? 'active' : ''}">
+									${subrecipe.title}
+								</li>
+							</ul>
+						</nav>
 
-                        <quick-recipe-step repeat.for="step of recipe.steps" id="step-${$index}" step.bind="step" class="step"></quick-recipe-step>
+						<quick-recipe-step repeat.for="step of recipe.steps" id="step-${$index}" step.bind="step" class="step"></quick-recipe-step>
 
-                        <span class="step-actions">
+						<span class="step-actions">
                             <a class="current-button waves-light btn" click.delegate="goToCurrentStep()">
                                 <i class="material-icons">keyboard_arrow_up</i>
                             </a>
                             <a class="complete-button waves-light btn" click.delegate="completeStep()">
                                 <span if.bind="isLastStep" i18n="quickRecipe.finish">Finish</span>
-                                <i if.bind="!isLastStep" class="material-icons">done</i>
-                            </a>
-                        </span>
-                    </section>
+						<i if.bind="!isLastStep" class="material-icons">done</i>
+						</a>
+						</span>
+					</section>
 
-                    <section id="comments-section" if.bind="isRecipeStarted && isRecipeDone" class="section">
-                        <div class="row center">
-                            <hgroup>
-                                <h3 i18n="quickRecipe.comments.didYouLikeExperience">DidYouLikeExperience</h3>
-                                <h4 i18n="quickRecipe.comments.wedLikeYourComments">WeLikeToHear</h4>
-                            </hgroup>
-                            <p i18n="quickRecipe.comments.writeComments">WriteComments</p>
-                        </div>
+					<section id="comments-section" if.bind="isRecipeStarted && isRecipeDone" class="section">
+						<div class="row center">
+							<hgroup>
+								<h3 i18n="quickRecipe.comments.didYouLikeExperience">DidYouLikeExperience</h3>
+								<h4 i18n="quickRecipe.comments.wedLikeYourComments">WeLikeToHear</h4>
+							</hgroup>
+							<p i18n="quickRecipe.comments.writeComments">WriteComments</p>
+						</div>
 
 						<div class="row center">
 							<a href="#typeform" class="btn btn-large btn-success waves-effect waves-light" i18n="comments.sendButton">
@@ -101,9 +101,9 @@
 							</a>
 						</div>
 
-                        <!-- <comments-form containerless></comments-form> -->
-                    </section>
-                </div>
+						<!-- <comments-form containerless></comments-form> -->
+					</section>
+				</div>
 			</div>
 		</main>
 
