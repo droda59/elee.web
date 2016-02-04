@@ -20,6 +20,8 @@
             background-color: $quick-recipe-header-color;
 
             a.brand-logo {
+              position: inherit;
+
               i {
                 // Temp fix so the text flow next to the icon.
                 // Anyway, this will eventually get replaced.
