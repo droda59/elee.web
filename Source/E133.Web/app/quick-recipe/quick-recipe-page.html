@@ -75,13 +75,13 @@
 						<quick-recipe-step repeat.for="step of recipe.steps" id="step-${$index}" step.bind="step" class="step"></quick-recipe-step>
 
 						<span class="step-actions">
-                            <a class="current-button waves-light btn" click.delegate="goToCurrentStep()">
+                            <btn class="current-button waves-light btn ${isCurrentStepActive ? 'disabled' : ''}" click.delegate="goToCurrentStep()">
                                 <i class="material-icons">keyboard_arrow_up</i>
-                            </a>
-                            <a class="complete-button waves-light btn" click.delegate="completeStep()">
+                            </btn>
+                            <btn class="complete-button waves-light btn ${isCurrentStepActive ? '' : 'disabled'}" click.delegate="completeStep()">
                                 <span if.bind="isLastStep" i18n="quickRecipe.finish">Finish</span>
 								<i if.bind="!isLastStep" class="material-icons">done</i>
-							</a>
+							</btn>
 						</span>
 					</section>
 
@@ -95,10 +95,10 @@
 						</div>
 
 						<div class="row center">
-							<a href="#typeform" class="btn btn-large btn-success waves-effect waves-light" i18n="comments.sendButton">
+							<btn href="#typeform" class="btn btn-large btn-success waves-effect waves-light" i18n="comments.sendButton">
 								Send
 								<i class="material-icons right">send</i>
-							</a>
+							</btn>
 						</div>
 
 						<!-- <comments-form containerless></comments-form> -->

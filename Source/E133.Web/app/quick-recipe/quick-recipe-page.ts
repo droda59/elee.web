@@ -116,11 +116,15 @@ export class QuickRecipePage {
 	}
 
 	goToCurrentStep(): void {
-		var top = $("#step-" + this._currentStepIndex)[0].offsetTop - 150;
+		var top = $("#step-" + this._currentStepIndex)[0].offsetTop;
 		this._scrollController.scrollTo(top);
 	}
 
 	completeStep(): void {
+		if (!this.isCurrentStepActive) {
+			return;
+		}
+
 		var step = this.recipe.steps[this._currentStepIndex];
 		this.activateStepIngredients(step, true);
 
@@ -145,6 +149,10 @@ export class QuickRecipePage {
 
 	get isLastStep(): boolean {
 		return this._currentStepIndex == this.recipe.steps.length - 1;
+	}
+
+	get isCurrentStepActive(): boolean {
+		return $("#step-" + this._currentStepIndex).hasClass("active");
 	}
 
 	private activateStepIngredients(step: Step, activate: boolean): void {
