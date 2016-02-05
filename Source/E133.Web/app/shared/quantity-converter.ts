@@ -257,7 +257,7 @@ export class QuantityConverter {
                 var intValue = value - decimal;
 
                 var thirdDecimalPlaceRound = Math.round(decimal * 1000) / 1000;
-                if (thirdDecimalPlaceRound >= 0.120 && thirdDecimalPlaceRound <= 0.137) { return 0.125 + intValue; }
+                if (thirdDecimalPlaceRound >= 0.120 && thirdDecimalPlaceRound <= 0.186) { return 0.125 + intValue; }
                 else if (thirdDecimalPlaceRound >= 0.330 && thirdDecimalPlaceRound <= 0.340) { return 0.333 + intValue; }
                 else if (thirdDecimalPlaceRound >= 0.370 && thirdDecimalPlaceRound <= 0.380) { return 0.375 + intValue; }
                 else if (thirdDecimalPlaceRound >= 0.620 && thirdDecimalPlaceRound <= 0.630) { return 0.625 + intValue; }

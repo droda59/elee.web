@@ -27,4 +27,13 @@ export function configure(aurelia) {
     moment.relativeTimeThreshold("h", 24);
     moment.relativeTimeThreshold("d", 28);
     moment.relativeTimeThreshold("M", 12);
+
+    if (!String.format) {
+        String.format = function(format) {
+            var args = Array.prototype.slice.call(arguments, 1);
+            return format.replace(/{(\d+)}/g, function (match, number) {
+                return typeof args[number] != 'undefined' ? args[number] : match;
+            });
+        }
+    }
 }

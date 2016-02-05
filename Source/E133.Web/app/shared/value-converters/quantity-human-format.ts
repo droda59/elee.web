@@ -10,7 +10,7 @@ export class QuantityHumanFormatValueConverter {
 		this._i18n = i18n;
 	}
 
-	toView(quantity: Quantity) {
+	toView(quantity: Quantity, useFormat: boolean = true) {
 		if (quantity.value === 0) {
 			return "";
 		}
@@ -18,16 +18,7 @@ export class QuantityHumanFormatValueConverter {
 		var quantityUnit = this._i18n.tr("quantities." + quantity.unit, { "count": quantity.value });
 		var quantityValue = this.getHumanizedValue(quantity);
 
-		if (quantity.format) {
-			if (!String.format) {
-				String.format = function(format) {
-					var args = Array.prototype.slice.call(arguments, 1);
-					return format.replace(/{(\d+)}/g, function (match, number) {
-						return typeof args[number] != 'undefined' ? args[number] : match;
-					});
-				}
-			}
-
+		if (quantity.format && useFormat) {
 			quantityValue = String.format(quantity.format, quantityValue);
 		}
 
