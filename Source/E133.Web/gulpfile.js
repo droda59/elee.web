@@ -38,7 +38,7 @@ var bundleConfig = {
             includes: [
                 "[**/*.js]",
                 "[**/*.html!text]",
-                "[**/*.css!text]",
+                "[**/*.css!text]"
             ],
             options: {
                 inject: true,
@@ -50,6 +50,8 @@ var bundleConfig = {
                 "aurelia-animator-css",
                 "aurelia-bootstrapper",
                 "aurelia-dialog",
+                "[aurelia-dialog/*.html!text]",
+                "[aurelia-dialog/*.css!text]",
                 "aurelia-framework",
                 "aurelia-history-browser",
                 "aurelia-http-client",
@@ -61,7 +63,9 @@ var bundleConfig = {
                 "aurelia-templating-resources",
                 "aurelia-templating-router",
                 "aurelia-validation",
-                "aurelia-validation/resources/*"
+                "aurelia-validation/resources/*",
+                "gsap",
+                "scrollmagic"
             ],
             options: {
                 inject: true,
@@ -211,25 +215,15 @@ gulp.task("export-copy", function() {
         "jspm_packages/github/systemjs/plugin-text@0.0.4.js",
         "jspm_packages/github/systemjs/plugin-text@0.0.4/text.js",
         "jspm_packages/github/components/jquery@2.2.0/jquery.js",
-        "jspm_packages/npm/gsap@1.18.2.js",
         "jspm_packages/npm/gsap@1.18.2/src/minified/TweenMax.min.js",
         "jspm_packages/npm/gsap@1.18.2/src/minified/plugins/ScrollToPlugin.min.js",
-        "jspm_packages/npm/gsap@1.18.2/src/uncompressed/TweenMax.js",
-        "jspm_packages/npm/gsap@1.18.2/src/uncompressed/plugins/ScrollToPlugin.js",
-        "jspm_packages/npm/scrollmagic@2.0.5.js",
         "jspm_packages/npm/scrollmagic@2.0.5/scrollmagic/minified/ScrollMagic.min.js",
         "jspm_packages/npm/scrollmagic@2.0.5/scrollmagic/minified/plugins/animation.gsap.min.js",
         "jspm_packages/npm/scrollmagic@2.0.5/scrollmagic/minified/plugins/debug.addIndicators.min.js",
-        "jspm_packages/npm/scrollmagic@2.0.5/scrollmagic/uncompressed/ScrollMagic.js",
-        "jspm_packages/npm/scrollmagic@2.0.5/scrollmagic/uncompressed/plugins/animation.gsap.js",
-        "jspm_packages/npm/scrollmagic@2.0.5/scrollmagic/uncompressed/plugins/debug.addIndicators.js",
         "jspm_packages/npm/materialize-css@0.97.5/bin/*",
         "jspm_packages/npm/materialize-css@0.97.5/font/*",
         "jspm_packages/npm/moment@2.11.1/moment.js",
-        "jspm_packages/npm/moment@2.11.1/locale/fr.js",
-        "jspm_packages/npm/aurelia-dialog@0.5.3/*.html",
-        "jspm_packages/npm/aurelia-dialog@0.5.3/*.css",
-        "jspm_packages/npm/aurelia-validation@0.6.0/resources/en-US.js"
+        "jspm_packages/npm/moment@2.11.1/locale/fr.js"
       ].concat(getBundles()), { base: "." })
     .pipe(gulp.dest("export/"));
 });

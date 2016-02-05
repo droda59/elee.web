@@ -586,14 +586,19 @@ System.config({
       "npm:aurelia-dependency-injection@1.0.0-beta.1.0.1.js",
       "npm:aurelia-dependency-injection@1.0.0-beta.1.0.1/aurelia-dependency-injection.js",
       "npm:aurelia-dialog@0.5.3.js",
+      "npm:aurelia-dialog@0.5.3/ai-dialog-body.html!github:systemjs/plugin-text@0.0.4.js",
       "npm:aurelia-dialog@0.5.3/ai-dialog-body.js",
+      "npm:aurelia-dialog@0.5.3/ai-dialog-footer.html!github:systemjs/plugin-text@0.0.4.js",
       "npm:aurelia-dialog@0.5.3/ai-dialog-footer.js",
+      "npm:aurelia-dialog@0.5.3/ai-dialog-header.html!github:systemjs/plugin-text@0.0.4.js",
       "npm:aurelia-dialog@0.5.3/ai-dialog-header.js",
+      "npm:aurelia-dialog@0.5.3/ai-dialog.html!github:systemjs/plugin-text@0.0.4.js",
       "npm:aurelia-dialog@0.5.3/ai-dialog.js",
       "npm:aurelia-dialog@0.5.3/attach-focus.js",
       "npm:aurelia-dialog@0.5.3/dialog-controller.js",
       "npm:aurelia-dialog@0.5.3/dialog-renderer.js",
       "npm:aurelia-dialog@0.5.3/dialog-service.js",
+      "npm:aurelia-dialog@0.5.3/dialog.css!github:systemjs/plugin-text@0.0.4.js",
       "npm:aurelia-dialog@0.5.3/index.js",
       "npm:aurelia-dialog@0.5.3/lifecycle.js",
       "npm:aurelia-event-aggregator@1.0.0-beta.1.js",
@@ -912,8 +917,12 @@ System.config({
       "npm:core-js@1.2.6/modules/web.immediate.js",
       "npm:core-js@1.2.6/modules/web.timers.js",
       "npm:core-js@1.2.6/shim.js",
+      "npm:gsap@1.18.2.js",
+      "npm:gsap@1.18.2/src/uncompressed/TweenMax.js",
       "npm:process@0.11.2.js",
-      "npm:process@0.11.2/browser.js"
+      "npm:process@0.11.2/browser.js",
+      "npm:scrollmagic@2.0.5.js",
+      "npm:scrollmagic@2.0.5/scrollmagic/uncompressed/ScrollMagic.js"
     ]
   }
 })
