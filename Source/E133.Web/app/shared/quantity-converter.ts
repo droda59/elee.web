@@ -253,8 +253,8 @@ export class QuantityConverter {
 
             case "cup":
             {
-                var decimal = value % 1;
-                var intValue = value - decimal;
+                var decimal = this.getDecimal(value);
+                var intValue = this.getInteger(value);
 
                 var thirdDecimalPlaceRound = Math.round(decimal * 1000) / 1000;
                 if (thirdDecimalPlaceRound >= 0.120 && thirdDecimalPlaceRound <= 0.186) { return 0.125 + intValue; }
@@ -284,8 +284,8 @@ export class QuantityConverter {
 
             case "lb":
             {
-                var decimal = value % 1;
-                var intValue = value - decimal;
+                var decimal = this.getDecimal(value);
+                var intValue = this.getInteger(value);
 
                 var thirdDecimalPlaceRound = Math.round(decimal * 1000) / 1000;
                 if (thirdDecimalPlaceRound >= 0.330 && thirdDecimalPlaceRound <= 0.340) { return 0.333 + intValue; }
@@ -326,22 +326,25 @@ export class QuantityConverter {
                 return value >= 1;
 
             case "tsp":
+                var decimal = this.getDecimal(value);
                 return value === 0.125 || value === 0.25
                     || value === 0.375 || value === 0.5
                     || value === 0.625 || value === 0.75
                     || value === 0.875
-                    || (value >= 1 && value !== 3 && value < 5 && value % 1 >= 0 && value % 1 <= 0.1);
+                    || (value >= 1 && value !== 3 && value < 5 && decimal >= 0 && decimal <= 0.1);
 
             case "tbsp":
+                var decimal = this.getDecimal(value);
                 return value === 0.5
-                    || (value >= 1 && value <= 6 && value % 1 >= 0 && value % 1 <= 0.1);
+                    || (value >= 1 && value <= 6 && decimal >= 0 && decimal <= 0.1);
 
             case "floz":
                 return value >= 1;
 
             case "cup":
-                var decimal = value % 1;
-                return decimal === 0 || decimal === 0.125
+                var decimal = this.getDecimal(value);
+                var intValue = this.getInteger(value);
+                return decimal === 0 || (intValue > 0 && decimal === 0.125)
                     || decimal === 0.25 || decimal === 0.333
                     || decimal === 0.375 || decimal === 0.5 || decimal === 0.666
                     || decimal === 0.625 || decimal === 0.75 || decimal === 0.875;
@@ -353,7 +356,7 @@ export class QuantityConverter {
                 return value >= 1;
 
             case "lb":
-                var decimal = value % 1;
+                var decimal = this.getDecimal(value);
                 return decimal === 0
                     || decimal === 0.25 || decimal === 0.333
                     || decimal === 0.5 || decimal === 0.666
@@ -364,5 +367,13 @@ export class QuantityConverter {
         }
 
         return false;
+    }
+
+    private getDecimal(value: number): number {
+        return value % 1;
+    }
+
+    private getInteger(value: number): number {
+        return value - (this.getDecimal(value));
     }
 }
