@@ -116,7 +116,7 @@ export class QuickRecipePage {
 	}
 
 	goToCurrentStep(): void {
-		var top = $("#step-" + this._currentStepIndex)[0].offsetTop - 50;
+		var top = $("#step-" + this._currentStepIndex)[0].offsetTop - 150;
 		this._scrollController.scrollTo(top);
 	}
 
