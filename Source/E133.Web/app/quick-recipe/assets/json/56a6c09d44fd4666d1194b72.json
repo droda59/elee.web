@@ -177,11 +177,12 @@
         {
             "id": 15,
             "subrecipeId": 2,
-            "name": "Riz cuit vapeur",
+            "name": "riz vapeur",
             "quantity": {
                 "value": 0,
                 "unit": "unit"
-            }
+            },
+            "requirements": "cuit"
         }
     ],
     "steps": [
@@ -308,6 +309,37 @@
                             "unit": "unit"
                         },
                         "requirements": "cuit à la vapeur"
+                    }
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -2,
+            "parts": [
+                {
+                    "type": "text",
+                    "value": "Accompagnements: "
+                },
+                {
+                    "type": "action",
+                    "value": "cuire"
+                },
+                {
+                    "type": "text",
+                    "value": "du"
+                },
+                {
+                    "type": "ingredient",
+                    "ingredient": {
+                        "id": 15,
+                        "subrecipeId": 2,
+                        "name": "riz vapeur",
+                        "quantity": {
+                            "value": 0,
+                            "unit": "unit"
+                        },
+                        "requirements": "cuit"
                     }
                 }
             ],
@@ -701,7 +733,7 @@
             "postSteps": []
         },
         {
-            "subrecipeId": 1,
+            "subrecipeId": 2,
             "parts": [
                 {
                     "type": "action",
@@ -709,13 +741,26 @@
                 },
                 {
                     "type": "text",
-                    "value": "immédiatement sur du riz"
+                    "value": "immédiatement sur du"
+                },
+                {
+                    "type": "ingredient",
+                    "ingredient": {
+                        "id": 15,
+                        "subrecipeId": 2,
+                        "name": "riz vapeur",
+                        "quantity": {
+                            "value": 0,
+                            "unit": "unit"
+                        },
+                        "requirements": "cuit"
+                    }
                 }
             ],
             "postSteps": []
         },
         {
-            "subrecipeId": 1,
+            "subrecipeId": 2,
             "parts": [
                 {
                     "type": "action",
@@ -723,7 +768,20 @@
                 },
                 {
                     "type": "text",
-                    "value": "de brocoli"
+                    "value": "de"
+                },
+                {
+                    "type": "ingredient",
+                    "ingredient": {
+                        "id": 14,
+                        "subrecipeId": 2,
+                        "name": "brocoli coupé en bouquets",
+                        "quantity": {
+                            "value": 1,
+                            "unit": "unit"
+                        },
+                        "requirements": "cuit à la vapeur"
+                    }
                 }
             ],
             "postSteps": []

@@ -71,6 +71,7 @@
     .main {
       // width: 100%;
       height: 100%;
+      padding: 0 0.75rem 0 2rem;
       .content {
         overflow: hidden;
         overflow-y: auto;
@@ -83,7 +84,7 @@
             position: fixed;
             background-color: $quick-recipe-content-color;
             color: black;
-            width: calc(100% - #{$quick-recipe-ingredients-side-width});
+            width: 75%;
             top: $quick-recipe-header-height;
             .subrecipe-titles {
               display: flex;
@@ -115,7 +116,11 @@
             right: 10px;
           }
           .step {
+              font-size: 0.9em;
+              opacity: 0.2;
+              transition: opacity 0.2s ease-in-out, font-size 0.1s ease-in-out;
             padding: 1rem 20px;
+            margin: 100px 0;
             display: block;
             position: relative;
             p {
@@ -136,14 +141,18 @@
                   margin-left: 20px;
                   height: 1.5rem;
                   display: none;
-                  &.visible {
-                    display: inline-block;
-                  }
+                }
+                .emphasis {
+                  font-size: 1.5em;
                 }
               }
             }
             .emphasis {
-              font-size: 2rem;
+              font-size: 2em;
+            }
+            .technical {
+              font-size: 2em;
+              line-height: 3rem;
             }
             .timer {
               a {
@@ -154,11 +163,19 @@
                 margin: 0 1rem;
               }
             }
-            &:first-of-type {
-              margin-top: 400px;
-            }
             &:last-of-type {
-              margin-bottom: 400px;
+              margin-bottom: 300px;
+            }
+            &.active {
+                opacity: 1;
+                font-size: 1em;
+                .enumeration {
+                  .collection-item {
+                    [type="checkbox"] + label {
+                        display: inline-block;
+                    }
+                  }
+                }
             }
           }
         }

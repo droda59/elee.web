@@ -5,10 +5,10 @@ import {QuickRecipe, Step, IngredientPart, IngredientEnumerationPart} from "quic
 import {Ingredient} from "shared/models/ingredient";
 import {TimerCoordinator} from "shared/timer-coordinator";
 import * as ScrollMagic from "scrollmagic";
-import "scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap";
-import "scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators";
+import "scrollmagic/scrollmagic/minified/plugins/animation.gsap.min";
+import "scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min";
 import * as TweenMax from "gsap";
-import "gsap/src/uncompressed/plugins/ScrollToPlugin";
+import "gsap/src/minified/plugins/ScrollToPlugin.min";
 
 class QuickRecipeSubrecipeIngredient {
 	subrecipeTitle: string;
@@ -104,71 +104,30 @@ export class QuickRecipePage {
 
 		this.recipe.steps.forEach((step, index) => {
 			var elementId = "#step-" + index;
-			TweenMax.set(elementId + " p", { opacity: "0" });
-			TweenMax.set(elementId + " span", { fontSize: "0.5rem" });
-			TweenMax.set(elementId + " .emphasis", { fontSize: "0.5rem" });
-			TweenMax.set(elementId + " ul", { margin: "0rem 2rem 0rem 3rem" });
-			TweenMax.set(elementId + " li", { lineHeight: "0.5rem", padding: "0px 20px" });
 
 			var sceneMiddle = new ScrollMagic
-				.Scene({ triggerElement: elementId, offset: 50, duration: 200 })
+				.Scene({ triggerElement: elementId, offset: 150, duration: 200 })
 				.setPin(elementId + " p")
-				.addTo(this._scrollController);
-
-			var isEnumeration = step.parts.filter(part => part.type == "enumeration").length > 0;
-			if (isEnumeration) {
-				sceneMiddle.setClassToggle(elementId + " li label", "visible");
-			}
-
-			var timelineTop = new TimelineMax().add([
-				TweenMax.to(elementId + " p", 2, { left: "250px", opacity: "0" }),
-				TweenMax.to(elementId + " span", 2, { fontSize: "0.5rem" }),
-				TweenMax.to(elementId + " .emphasis", 2, { fontSize: "0.5rem" }),
-				TweenMax.to(elementId + " ul", 2, { margin: "0rem 2rem 0rem 3rem" }),
-				TweenMax.to(elementId + " li", 2, { lineHeight: "0.5rem", padding: "0px 20px" })
-			]);
-
-			var sceneTop = new ScrollMagic
-				.Scene({ triggerElement: elementId, offset: 250, duration: 400 })
-				.setTween(timelineTop)
-				.addTo(this._scrollController);
-
-			var timelineBottom = new TimelineMax().add([
-				TweenMax.to(elementId + " p", 2, { left: "0", opacity: "1" }),
-				TweenMax.to(elementId + " span", 2, { fontSize: "1rem" }),
-				TweenMax.to(elementId + " .emphasis", 2, { fontSize: "2rem" }),
-				TweenMax.to(elementId + " ul", 2, { margin: "1rem 2rem 1rem 3rem" }),
-				TweenMax.to(elementId + " li", 2, { lineHeight: "1.5rem", padding: "10px 20px" })
-			]);
-
-			var sceneBottom = new ScrollMagic
-				.Scene({ triggerElement: elementId, offset: -350, duration: 400 })
-				.setTween(timelineBottom)
+				.setClassToggle(elementId, "active")
 				.addTo(this._scrollController);
 		});
-
-	    // $("#recipe-content").scroll(function() {
-        //     if($(this).scrollTop() + $(this).innerHeight() >= $("#step-" + this._currentStepIndex)[0].scrollHeight) {
-		// 		$(".current-button").addClass("disabled");
-        //     }
-		// });
 
 		this.goToCurrentStep();
 	}
 
 	goToCurrentStep(): void {
-		var top = $("#step-" + this._currentStepIndex)[0].offsetTop - 200;
+		var top = $("#step-" + this._currentStepIndex)[0].offsetTop - 50;
 		this._scrollController.scrollTo(top);
 	}
 
 	completeStep(): void {
+		var step = this.recipe.steps[this._currentStepIndex];
+		this.activateStepIngredients(step, true);
+
 		if (this.isLastStep) {
 			this.isRecipeDone = true;
 			return;
 		}
-
-		var step = this.recipe.steps[this._currentStepIndex];
-		this.activateStepIngredients(step, true);
 
 		this._currentStepIndex++;
 
