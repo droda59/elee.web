@@ -10,6 +10,7 @@ var changed = require("gulp-changed");
 var ts = require("gulp-tsc");
 var sass = require("gulp-sass");
 var bundler = require("aurelia-bundler");
+var imagemin = require("gulp-imagemin");
 
 var path = {
     package: "./package.json",
@@ -90,7 +91,13 @@ gulp.task("typedef", function () {
 });
 
 gulp.task("copyfiles", function() {
-    return gulp.src("app/**/*.{json,png,jpg,svg,wof,ttf}")
+    return gulp.src("app/**/*.{json,png,jpg,svg,woff,woff2,ttf}")
+        .pipe(gulp.dest("dist/"));
+});
+
+gulp.task("images", function() {
+    return gulp.src("dist/**/assets/images/*")
+        .pipe(imagemin())
         .pipe(gulp.dest("dist/"));
 });
 
@@ -131,14 +138,14 @@ gulp.task("build-sass", function() {
 
 gulp.task("bump-version", function () {
     return gulp.src(path.package)
-      .pipe(bump({ type: "major" })) //major|minor|patch|prerelease
+      .pipe(bump({ type: "prerelease" })) //major|minor|patch|prerelease
       .pipe(gulp.dest("./"));
 });
 
 gulp.task("default", ["build"]);
 gulp.task("build", function (callback) {
     return runSequence(
-      ["build-ts", "build-html", "build-sass", "copyfiles"],
+      ["build-ts", "build-html", "build-sass", "copyfiles", "images"],
       callback
     );
 });
