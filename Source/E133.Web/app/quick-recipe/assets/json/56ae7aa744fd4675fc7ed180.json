@@ -325,16 +325,12 @@
                     "value": "délicatement à la spatule juste assez pour humecter"
                 },
                 {
-                    "type": "ingredient",
-                    "ingredient": {
-                        "id": 0,
-                        "subrecipeId": -1,
-                        "name": "farine tout usage non blanchie",
-                        "quantity": {
-                            "value": 430,
-                            "unit": "ml"
-                        }
-                    }
+                    "type": "action",
+                    "value": "humecter"
+                },
+                {
+                    "type": "text",
+                    "value": "la farine"
                 }
             ],
             "postSteps": []
