@@ -1,5 +1,0 @@
-@import "core";
-
-.quick-recipe.stone {
-    @include quick-recipe-theme(url("dist/quick-recipe/assets/images/stone.png") no-repeat, rgb(216, 216, 212));
-}

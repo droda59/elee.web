@@ -1,5 +1,0 @@
-@import "core";
-
-.quick-recipe.chalkboard {
-    @include quick-recipe-theme(url("dist/quick-recipe/assets/images/chalkboard.png") no-repeat, rgb(216, 216, 212));
-}
