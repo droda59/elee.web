@@ -138,7 +138,7 @@ gulp.task("build-sass", function() {
 
 gulp.task("bump-version", function () {
     return gulp.src(path.package)
-      .pipe(bump({ type: "prerelease" })) //major|minor|patch|prerelease
+      .pipe(bump({ type: "patch" })) //major|minor|patch|prerelease, e.g. "major.minor.patch-prerelease"
       .pipe(gulp.dest("./"));
 });
 
