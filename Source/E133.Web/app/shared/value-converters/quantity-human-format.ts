@@ -40,15 +40,15 @@ export class QuantityHumanFormatValueConverter {
 		var decimalText = decimal.toString();
 
 		switch (decimal) {
-			case 0.125: decimalText = "1/8"; break;
-			case 0.25: decimalText = "1/4"; break;
-			case 0.333: decimalText = "1/3"; break;
-			case 0.375: decimalText = "3/8"; break;
-			case 0.5: decimalText = "1/2"; break;
-			case 0.625: decimalText = "5/8"; break;
-			case 0.666: decimalText = "2/3"; break;
-			case 0.75: decimalText = "3/4"; break;
-			case 0.875: decimalText = "7/8"; break;
+			case 0.125: decimalText = "⅛"; break;
+			case 0.25: decimalText = "\xBC"; break;
+			case 0.333: decimalText = "⅓"; break;
+			case 0.375: decimalText = "⅜"; break;
+			case 0.5: decimalText = "\xBD"; break;
+			case 0.625: decimalText = "⅝"; break;
+			case 0.666: decimalText = "⅔"; break;
+			case 0.75: decimalText = "\xBE"; break;
+			case 0.875: decimalText = "⅞"; break;
 			default: return quantity.value.toString();
 		};
 

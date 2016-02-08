@@ -1,0 +1,524 @@
+{
+    "title": "Pain aux bananes ultra moelleux",
+    "originalUrl": "http://www.ricardocuisine.com/recettes/6085-pain-aux-bananes-ultra-moelleux",
+    "language": "fr",
+    "note": "On ne reconnaît pas le goût du lait de coco dans cette recette : si on l’utilise, c’est pour rendre le pain encore plus moelleux. Une fois que la boîte de lait est ouverte, on peut congeler le reste. À défaut d’en avoir sous la main, on peut remplacer le lait de coco et le jus de lime par 125 ml (½ tasse) de crème sure.",
+    "imageUrl": "http://www.ricardocuisine.com/pictures/cache/28d151fd25d9ce168e16b5ff34fddc41_w500_h675_sc.jpg",
+    "originalServings": "",
+    "durations": [
+        {
+            "title": "Préparation",
+            "time": "PT20M"
+        },
+        {
+            "title": "Cuisson",
+            "time": "PT1H"
+        }
+    ],
+    "subrecipes": [
+        {
+            "id": -2,
+            "title": "Requis"
+        },
+        {
+            "id": -1,
+            "title": "Préparation"
+        }
+    ],
+    "ingredients": [
+        {
+            "id": 0,
+            "subrecipeId": -1,
+            "name": "farine tout usage non blanchie",
+            "quantity": {
+                "value": 375,
+                "unit": "ml"
+            }
+        },
+        {
+            "id": 1,
+            "subrecipeId": -1,
+            "name": "poudre à pâte",
+            "quantity": {
+                "value": 5,
+                "unit": "ml"
+            }
+        },
+        {
+            "id": 2,
+            "subrecipeId": -1,
+            "name": "bicarbonate de soude",
+            "quantity": {
+                "value": 5,
+                "unit": "ml"
+            }
+        },
+        {
+            "id": 3,
+            "subrecipeId": -1,
+            "name": "bananes mûres (3 à 4 bananes)",
+            "quantity": {
+                "value": 310,
+                "unit": "ml"
+            },
+            "requirements": "écrasées à la fourchette"
+        },
+        {
+            "id": 4,
+            "subrecipeId": -1,
+            "name": "lait de coco",
+            "quantity": {
+                "value": 125,
+                "unit": "ml"
+            }
+        },
+        {
+            "id": 5,
+            "subrecipeId": -1,
+            "name": "jus de lime",
+            "quantity": {
+                "value": 15,
+                "unit": "ml"
+            }
+        },
+        {
+            "id": 6,
+            "subrecipeId": -1,
+            "name": "beurre non salé",
+            "quantity": {
+                "value": 125,
+                "unit": "ml"
+            },
+            "requirements": "ramolli"
+        },
+        {
+            "id": 7,
+            "subrecipeId": -1,
+            "name": "sucre",
+            "quantity": {
+                "value": 250,
+                "unit": "ml"
+            }
+        },
+        {
+            "id": 8,
+            "subrecipeId": -1,
+            "name": "oeuf",
+            "quantity": {
+                "value": 1,
+                "unit": "unit"
+            }
+        },
+        {
+            "id": 9,
+            "subrecipeId": -1,
+            "name": "extrait de vanille",
+            "quantity": {
+                "value": 5,
+                "unit": "ml"
+            }
+        }
+    ],
+    "steps": [
+        {
+            "subrecipeId": -2,
+            "parts": [
+                {
+                    "type": "text",
+                    "value": "Préparation: "
+                },
+                {
+                    "type": "action",
+                    "value": "ramollir "
+                },
+                {
+                    "type": "ingredient",
+                    "ingredient": {
+                        "id": 6,
+                        "subrecipeId": -1,
+                        "name": "beurre non salé",
+                        "quantity": {
+                            "value": 125,
+                            "unit": "ml"
+                        },
+                        "requirements": "ramolli"
+                    }
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -2,
+            "parts": [
+                {
+                    "type": "text",
+                    "value": "Préparation: "
+                },
+                {
+                    "type": "action",
+                    "value": "écraser"
+                },
+                {
+                    "type": "text",
+                    "value": "à la fourchette"
+                },
+                {
+                    "type": "ingredient",
+                    "ingredient": {
+						"id": 3,
+						"subrecipeId": -1,
+						"name": "bananes mûres (3 à 4 bananes)",
+						"quantity": {
+							"value": 310,
+							"unit": "ml"
+						},
+						"requirements": "écrasées à la fourchette"
+                    }
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "action",
+                    "value": "Placer"
+                },
+                {
+                    "type": "text",
+                    "value": "la grille au centre du four"
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "action",
+                    "value": "Préchauffer"
+                },
+                {
+                    "type": "text",
+                    "value": "le four à 180 °C (350 °F)"
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "action",
+                    "value": "Beurrer"
+                },
+                {
+                    "type": "text",
+                    "value": "un moule à pain de 23 x 13 cm (9 x 5 po) d’une contenance de 1,5 litre (6 tasses) et le"
+                },
+                {
+                    "type": "action",
+                    "value": "tapisser"
+                },
+                {
+                    "type": "text",
+                    "value": "d’une bande de papier parchemin en le laissant"
+                },
+                {
+                    "type": "action",
+                    "value": "dépasser"
+                },
+                {
+                    "type": "text",
+                    "value": "sur deux côtés"
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "text",
+                    "value": "Dans un bol,"
+                },
+                {
+                    "type": "action",
+                    "value": "mélanger"
+                },
+                {
+                    "type": "enumeration",
+                    "ingredients": [
+                        {
+                            "id": 0,
+                            "subrecipeId": -1,
+                            "name": "farine tout usage non blanchie",
+                            "quantity": {
+                                "value": 375,
+                                "unit": "ml"
+                            }
+                        },
+                        {
+                            "id": 1,
+                            "subrecipeId": -1,
+                            "name": "poudre à pâte",
+                            "quantity": {
+                                "value": 5,
+                                "unit": "ml"
+                            }
+                        },
+                        {
+							"id": 2,
+							"subrecipeId": -1,
+							"name": "bicarbonate de soude",
+							"quantity": {
+								"value": 5,
+								"unit": "ml"
+                        	}
+                        }
+                    ]
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "action",
+                    "value": "Réserver"
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "text",
+                    "value": "Dans un autre bol,"
+                },
+                {
+                    "type": "action",
+                    "value": "mélanger"
+                },
+                {
+                    "type": "enumeration",
+                    "ingredients": [
+                        {
+							"id": 3,
+							"subrecipeId": -1,
+							"name": "bananes mûres (3 à 4 bananes)",
+							"quantity": {
+								"value": 310,
+								"unit": "ml"
+							},
+							"requirements": "écrasées à la fourchette"
+                        },
+                        {
+                            "id": 4,
+                            "subrecipeId": -1,
+                            "name": "lait de coco",
+                            "quantity": {
+                                "value": 125,
+                                "unit": "ml"
+                            }
+                        },
+                        {
+							"id": 5,
+							"subrecipeId": -1,
+							"name": "jus de lime",
+							"quantity": {
+								"value": 15,
+								"unit": "ml"
+							}
+						}
+					]
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "action",
+                    "value": "Réserver"
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "text",
+                    "value": "Dans un troisième bol, crémer"
+                },
+                {
+                    "type": "ingredient",
+                    "ingredient": {
+                        "id": 6,
+                        "subrecipeId": -1,
+                        "name": "beurre non salé",
+                        "quantity": {
+                            "value": 125,
+                            "unit": "ml"
+                        },
+                        "requirements": "ramolli"
+                    }
+                },
+                {
+                    "type": "text",
+                    "value": "avec"
+                },
+                {
+                    "type": "ingredient",
+                    "ingredient": {
+                        "id": 7,
+                        "subrecipeId": -1,
+                        "name": "sucre",
+                        "quantity": {
+                            "value": 250,
+                            "unit": "ml"
+                        }
+                    }
+                },
+                {
+                    "type": "text",
+                    "value": "au batteur électrique"
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "action",
+                    "value": "Ajouter"
+                },
+                {
+                    "type": "enumeration",
+                    "ingredients": [
+						{							
+							"id": 8,
+							"subrecipeId": -1,
+							"name": "oeuf",
+							"quantity": {
+								"value": 1,
+								"unit": "unit"
+							}
+						},
+						{
+							"id": 9,
+							"subrecipeId": -1,
+							"name": "extrait de vanille",
+							"quantity": {
+								"value": 5,
+								"unit": "ml"
+							}
+						}
+					]
+                },
+                {
+                    "type": "text",
+                    "value": "et"
+                },
+                {
+                    "type": "action",
+                    "value": "mélanger"
+                },
+                {
+                    "type": "text",
+                    "value": "jusqu’à ce que la préparation soit homogène"
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "text",
+                    "value": "À basse vitesse,"
+                },
+                {
+                    "type": "action",
+                    "value": "incorporer"
+                },
+                {
+                    "type": "text",
+                    "value": "les ingrédients secs en alternant avec le mélange de bananes"
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "action",
+                    "value": "Répartir"
+                },
+                {
+                    "type": "text",
+                    "value": "la préparation dans le moule à pain"
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "action",
+                    "value": "Cuire"
+                },
+                {
+                    "type": "text",
+                    "value": "au four environ"
+                },
+                {
+                    "type": "timer",
+                    "value": "PT1H",
+                    "text": "1 heure",
+                    "action": "Cuire"
+                },
+                {
+                    "type": "text",
+                    "value": "ou jusqu’à ce qu’un cure dent inséré au centre de la pâte en ressorte propre"
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "action",
+                    "value": "Laisser tiédir"
+                },
+                {
+                    "type": "text",
+                    "value": "sur une grille avant de"
+                },
+                {
+                    "type": "action",
+                    "value": "démouler"
+                },
+                {
+                    "type": "text",
+                    "value": "et de"
+                },
+                {
+                    "type": "action",
+                    "value": "trancher"
+                }
+            ],
+            "postSteps": []
+        }
+    ],
+    "id": "56b822f544fd461dcd8437dc"
+}

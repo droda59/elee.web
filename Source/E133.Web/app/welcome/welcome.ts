@@ -17,18 +17,16 @@ export class Welcome {
 		this._i18n = i18n;
 		this._element = element;
 
-		this.recipeGroups.push({ label: "Asie", recipes: [
-			{ id: "56a6c09d44fd4666d1194b72", title: "Tofu Général Tao", imageUrl: "http://www.ricardocuisine.com/pictures/cache/21e594b4edcc407cd10ee798646a21e0_w500_h675_sc.jpg" }
-		]});
-
 		this.recipeGroups.push({ label: "Collations", recipes: [
 			{ id: "56ae7adb44fd4675fc7ed181", title: "Galettes à la mélasse", imageUrl: "http://www.ricardocuisine.com/pictures/cache/ffb7fce413436c47aefe74780199e293_w500_h675_sc.jpg" },
-			{ id: "56ae7aa744fd4675fc7ed180", title: "Muffins aux framboises et au kéfir", imageUrl: "http://www.ricardocuisine.com/pictures/cache/f814dea38125bd850165339182aa81da_w500_h675_sc.jpg" }
+			{ id: "56ae7aa744fd4675fc7ed180", title: "Muffins aux framboises et au kéfir", imageUrl: "http://www.ricardocuisine.com/pictures/cache/f814dea38125bd850165339182aa81da_w500_h675_sc.jpg" },
+			{ id: "56b822f544fd461dcd8437dc", title: "Pain aux bananes ultra moelleux", imageUrl: "http://www.ricardocuisine.com/pictures/cache/28d151fd25d9ce168e16b5ff34fddc41_w500_h675_sc.jpg" }
 		]});
 
 		this.recipeGroups.push({ label: "Desserts", recipes: [
 			{ id: "56a6c32144fd4666d1194b77", title: "Biscuits moelleux aux brisures de chocolat (les meilleurs)", imageUrl: "http://www.ricardocuisine.com/pictures/cache/31fd16ca0f4aa9df266583d6fdde1d36_w500_h675_sc.jpg" },
 			{ id: "56a6c11444fd4666d1194b73", title: "Carré aux dattes (le meilleur)", imageUrl: "http://www.ricardocuisine.com/pictures/cache/5ac64bed352f8b0cb8bfbdde7208fa42_w500_h675_sc.jpg" },
+			{ id: "56b826f544fd461dcd8437dd", title: "Fondue au chocolat", imageUrl: "http://www.ricardocuisine.com/pictures/cache/7104c776b29343704917cbbda79c0daa_w500_h675_sc.jpg" },
 			{ id: "56a6c13744fd4666d1194b74", title: "Gâteau au chocolat au coeur fondant", imageUrl: "http://www.ricardocuisine.com/pictures/cache/b408dddbdfa3c7feee4a1cfb278b7d4d_w500_h675_sc.jpg" },
 			{ id: "56ab7acf44fd466ff20f9f97", title: "Gâteau au fromage (le meilleur)", imageUrl: "http://www.ricardocuisine.com/pictures/cache/4ddbb475cba801b158d011ef1e29eb5d_w500_h675_sc.jpg" },
 			{ id: "56a6c36644fd4666d1194b78", title: "Pouding au chocolat", imageUrl: "http://www.ricardocuisine.com/pictures/cache/cf9e63cbb4b40428e4277afdf36edf5d_w500_h675_sc.jpg" }
@@ -43,7 +41,11 @@ export class Welcome {
 
 		this.recipeGroups.push({ label: "Repas", recipes: [
 			{ id: "56ae7a2a44fd4675fc7ed17e", title: "Boeuf Stroganov en mijoteuse", imageUrl: "http://www.ricardocuisine.com/pictures/cache/e16d13338d7a9873d35aff7103a03908_w500_h675_sc.jpg" },
+			{ id: "56b81f2344fd461dcd8437db", title: "Bol de poulet grillé à la vietnamienne", imageUrl: "http://www.ricardocuisine.com/pictures/cache/1768b3e7c46a0846c9da55c6e9badc9a_w500_h675_sc.jpg" },
+			{ id: "56b8174f44fd461dcd8437d9", title: "Chili classique", imageUrl: "http://www.ricardocuisine.com/pictures/cache/8b36bb4ec8780901e619475935faa31b_w500_h675_sc.jpg" },
+			{ id: "56b81a7344fd461dcd8437da", title: "Croquettes de thon, sauce marinara", imageUrl: "http://www.ricardocuisine.com/pictures/cache/f2783f202d69f8c997562308f4af0a61_w500_h675_sc.jpg" },
 			{ id: "56ae79da44fd4675fc7ed17d", title: "Effiloché de porc barbecue (pulled pork)", imageUrl: "http://www.ricardocuisine.com/pictures/cache/7e4648c06303e58834301a5f9180390a_w500_h675_sc.jpg"},
+			{ id: "56b8280d44fd461dcd8437de", title: "Fondue chinoise au curcuma", imageUrl: "http://www.ricardocuisine.com/pictures/cache/355a4441d80e3e60bb1a883a5198d92f_w500_h675_sc.jpg" },
 			{ id: "56aee92244fd467fb1b8b6d6", title: "Jambon à l'érable et à la bière à la mijoteuse", imageUrl: "http://www.ricardocuisine.com/pictures/cache/7a44a72235792cd6a04c032c73690c60_w500_h675_sc.jpg" },
 			{ id: "56ae7a6844fd4675fc7ed17f", title: "Mijoté de veau et de patates douces à la mijoteuse", imageUrl: "http://www.ricardocuisine.com/pictures/cache/a4bc26afe45667762d10749e47572030_w500_h675_sc.jpg" },
 			{ id: "56a6c30844fd4666d1194b76", title: "Pâté au poulet (le meilleur)", imageUrl: "http://www.ricardocuisine.com/pictures/cache/9c0f876d5ab0a106ef7152b7a63f99d4_w500_h675_sc.jpg" },

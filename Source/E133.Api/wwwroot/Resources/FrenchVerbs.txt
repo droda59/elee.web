@@ -1945,6 +1945,7 @@ transformer
 transmettre
 transparaître
 transporter
+transvider
 travailler
 traverser
 trembler

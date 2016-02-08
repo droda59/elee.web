@@ -1,0 +1,192 @@
+{
+    "title": "Fondue au chocolat",
+    "originalUrl": "http://www.ricardocuisine.com/recettes/5026-fondue-au-chocolat",
+    "language": "fr",
+    "note": "Si tu trouves la fondue trop épaisse, ajoutes-y 60 ml (1/4 tasse) de crème 35 %.",
+    "imageUrl": "http://www.ricardocuisine.com/pictures/cache/7104c776b29343704917cbbda79c0daa_w500_h675_sc.jpg",
+    "originalServings": "4",
+    "durations": [
+        {
+            "title": "Préparation",
+            "time": "PT15M"
+        },
+        {
+            "title": "Cuisson",
+            "time": "PT10M"
+        }
+    ],
+    "subrecipes": [
+        {
+            "id": -2,
+            "title": "Requis"
+        },
+        {
+            "id": -1,
+            "title": "Préparation"
+        }
+    ],
+    "ingredients": [
+        {
+            "id": 0,
+            "subrecipeId": -1,
+            "name": "crème 35 %",
+            "quantity": {
+                "value": 310,
+                "unit": "ml"
+            }
+        },
+        {
+            "id": 1,
+            "subrecipeId": -1,
+            "name": "chocolat noir ou au lait",
+            "quantity": {
+                "value": 454,
+                "unit": "g"
+            },
+            "requirements": "haché grossièrement"
+        }
+    ],
+    "steps": [
+        {
+            "subrecipeId": -2,
+            "parts": [
+                {
+                    "type": "text",
+                    "value": "Préparation: "
+                },
+                {
+                    "type": "action",
+                    "value": "hacher"
+                },
+                {
+                    "type": "text",
+                    "value": "grossièrement"
+                },
+                {
+                    "type": "ingredient",
+                    "ingredient": {
+                        "id": 1,
+                        "subrecipeId": -1,
+                        "name": "chocolat noir ou au lait",
+                        "quantity": {
+                            "value": 454,
+                            "unit": "g"
+                        },
+                        "requirements": "haché grossièrement"
+                    }
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "text",
+                    "value": "Dans une petite casserole, porte"
+                },
+                {
+                    "type": "ingredient",
+                    "ingredient": {
+                        "id": 0,
+                        "subrecipeId": -1,
+                        "name": "crème 35 %",
+                        "quantity": {
+                            "value": 310,
+                            "unit": "ml"
+                        }
+                    }
+                },
+                {
+                    "type": "text",
+                    "value": "à ébullition"
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "text",
+                    "value": "Surveille bien, elle déborde vite"
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "text",
+                    "value": "Retire la casserole du feu et ajoute"
+                },
+                {
+                    "type": "ingredient",
+                    "ingredient": {
+                        "id": 1,
+                        "subrecipeId": -1,
+                        "name": "chocolat noir ou au lait",
+                        "quantity": {
+                            "value": 454,
+                            "unit": "g"
+                        },
+                        "requirements": "haché grossièrement"
+                    }
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "text",
+                    "value": "Laisse le"
+                },
+                {
+                    "type": "action",
+                    "value": "fondre"
+                },
+                {
+                    "type": "timer",
+                    "value": "PT2M",
+                    "text": "2 minutes",
+                    "action": "Fondre"
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "text",
+                    "value": "À l’aide d’un fouet, mélange doucement jusqu’à ce que la texture soit lisse"
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "text",
+                    "value": "Verse la préparation au chocolat dans un caquelon à fondue et dépose le sur le réchaud à feu doux"
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "text",
+                    "value": "Trempes y des fruits frais en morceaux, des guimauves ou des cubes de gâteau fermes"
+                }
+            ],
+            "postSteps": []
+        }
+    ],
+    "id": "56b826f544fd461dcd8437dd"
+}
