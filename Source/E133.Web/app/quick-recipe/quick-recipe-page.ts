@@ -74,7 +74,7 @@ export class QuickRecipePage {
 	}
 
 	canDeactivate() {
-		if (!this.isRecipeDone) {
+		if (this.isRecipeStarted && !this.isRecipeDone) {
 			return confirm('Are you sure you want to leave?');
 		}
 	}
@@ -101,7 +101,12 @@ export class QuickRecipePage {
 	}
 
 	goToCurrentStep(): void {
-		var top = $("#step-" + this._currentStepIndex)[0].offsetTop;
+		var top = 0;
+		if (window.matchMedia("(min-height: 720px)").matches) {
+			top = Math.max(0, ($("#step-" + this._currentStepIndex)[0].offsetTop - 150));
+		} else {
+			top = Math.max(0, ($("#step-" + this._currentStepIndex)[0].offsetTop - 50));
+		}
 		this._scrollController.scrollTo(top);
 	}
 
