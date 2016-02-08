@@ -1,7 +1,9 @@
 import {inject} from "aurelia-framework";
+import {DialogService} from "aurelia-dialog";
 import {HttpClient} from "aurelia-http-client";
 import {I18N} from "aurelia-i18n";
 import {QuickRecipe, Step, IngredientPart, IngredientEnumerationPart} from "quick-recipe/models/quick-recipe";
+import {HelpOverlay} from "quick-recipe/components/help-overlay";
 import {Ingredient} from "shared/models/ingredient";
 import {TimerCoordinator} from "shared/timer-coordinator";
 import * as ScrollMagic from "scrollmagic";
@@ -15,7 +17,7 @@ class QuickRecipeSubrecipeIngredient {
 	ingredients: Ingredient[];
 }
 
-@inject (HttpClient, I18N, TimerCoordinator)
+@inject (HttpClient, I18N, TimerCoordinator, DialogService)
 export class QuickRecipePage {
     recipe: QuickRecipe;
 	subrecipeIngredients: QuickRecipeSubrecipeIngredient[] = [];
@@ -25,15 +27,17 @@ export class QuickRecipePage {
 	isRecipeDone: boolean;
 
 	private _timerCoordinator: TimerCoordinator;
+	private _dialogService: DialogService;
 	private _currentStepIndex: number = undefined;
     private _http: HttpClient;
 	private _i18n: I18N;
 	private _scrollController;
 
-	constructor(http: HttpClient, i18n: I18N, timerCoordinator: TimerCoordinator) {
+	constructor(http: HttpClient, i18n: I18N, timerCoordinator: TimerCoordinator, dialogService: DialogService) {
 		this._http = http;
 		this._i18n = i18n;
 		this._timerCoordinator = timerCoordinator;
+		this._dialogService = dialogService;
 
         this._scrollController = new ScrollMagic.Controller()
 			.scrollTo(function (newPos) {
@@ -46,6 +50,17 @@ export class QuickRecipePage {
 			if (Notification.permission !== 'denied') {
 				Notification.requestPermission();
 			}
+		}
+
+		// TEMP
+		localStorage.removeItem("helpSeen");
+		// TEMP
+
+		var hasSeenHelp = localStorage.getItem("helpSeen");
+		if (!hasSeenHelp) {
+			localStorage.setItem("helpSeen", "true");
+			this._dialogService
+				.open({ viewModel: HelpOverlay });
 		}
 
 		var url = "dist/quick-recipe/assets/json/" + route.id + ".json";
