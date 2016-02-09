@@ -129,7 +129,7 @@
         "timerTimeOfTotal": " of ",
         "timerAdd": "Add",
         "timerDescription": "Description",
-        "timerDuration": "Duration",
+        "timerDuration": "Duration (hh:mm:ss)",
         "timerEnded": "Timer ended",
         "ingredientsSideTitle": "Ingredients",
         "ingredientReplacementConjunction": "or",
