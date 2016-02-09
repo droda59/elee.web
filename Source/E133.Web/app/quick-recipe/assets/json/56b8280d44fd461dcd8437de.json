@@ -137,9 +137,9 @@
         {
             "id": 11,
             "subrecipeId": 0,
-            "name": "Sel et poivre",
+            "name": "sel et poivre",
             "quantity": {
-                "value": 1,
+                "value": 0,
                 "unit": "unit"
             }
         },
@@ -536,9 +536,9 @@
 						{
 							"id": 11,
 							"subrecipeId": 0,
-							"name": "Sel et poivre",
+							"name": "sel et poivre",
 							"quantity": {
-								"value": 1,
+								"value": 0,
 								"unit": "unit"
 							}
 						}

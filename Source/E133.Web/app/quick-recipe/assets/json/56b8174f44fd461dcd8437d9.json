@@ -162,7 +162,7 @@
             "quantity": {
                 "value": 796,
                 "unit": "ml",
-                "format": "boîte de {0}"
+                "format": "1 boîte de {0}"
             }
         },
         {
@@ -172,15 +172,15 @@
             "quantity": {
                 "value": 540,
                 "unit": "ml",
-                "format": "boîte de {0}"
+                "format": "1 boîte de {0}"
             }
         },
         {
             "id": 16,
             "subrecipeId": -1,
-            "name": "Sel et poivre",
+            "name": "sel et poivre",
             "quantity": {
-                "value": 1,
+                "value": 0,
                 "unit": "unit"
             }
         },
@@ -384,7 +384,7 @@
                 },
                 {
                     "type": "enumeration",
-                    "ingredients": [                    
+                    "ingredients": [
 						{
 							"id": 5,
 							"subrecipeId": -1,
@@ -541,7 +541,7 @@
 							"quantity": {
 								"value": 796,
 								"unit": "ml",
-								"format": "boîte de {0}"
+								"format": "1 boîte de {0}"
 							}
 						},
 						{
@@ -551,7 +551,7 @@
 							"quantity": {
 								"value": 540,
 								"unit": "ml",
-								"format": "boîte de {0}"
+								"format": "1 boîte de {0}"
 							}
 						}
 					]

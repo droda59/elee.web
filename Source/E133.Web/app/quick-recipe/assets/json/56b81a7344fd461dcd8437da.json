@@ -71,9 +71,9 @@
         {
             "id": 4,
             "subrecipeId": 0,
-            "name": "Sel et poivre",
+            "name": "sel et poivre",
             "quantity": {
-                "value": 1,
+                "value": 0,
                 "unit": "unit"
             }
         },
@@ -84,7 +84,7 @@
             "quantity": {
                 "value": 540,
                 "unit": "ml",
-                "format": "boîte de {0}"
+                "format": "1 boîte de {0}"
             },
             "requirements": "rincés et égouttés"
         },
@@ -100,11 +100,11 @@
         {
             "id": 7,
             "subrecipeId": 1,
-            "name": "thon égoutté et émietté",
+            "name": "thon",
             "quantity": {
                 "value": 170,
                 "unit": "g",
-                "format": "boîte de {0}"
+                "format": "3 boîtes de {0}"
             },
             "requirements": "égoutté et émietté"
         },
@@ -212,7 +212,7 @@
 						"quantity": {
 							"value": 540,
 							"unit": "ml",
-							"format": "boîte de {0}"
+							"format": "1 boîte de {0}"
 						},
 						"requirements": "rincés et égouttés"
                     }
@@ -236,11 +236,11 @@
                     "ingredient": {
 						"id": 7,
 						"subrecipeId": 1,
-						"name": "thon égoutté et émietté",
+						"name": "thon",
 						"quantity": {
 							"value": 170,
 							"unit": "g",
-							"format": "boîte de {0}"
+							"format": "3 boîtes de {0}"
 						},
 						"requirements": "égoutté et émietté"
                     }
@@ -439,7 +439,7 @@
 						"quantity": {
 							"value": 540,
 							"unit": "ml",
-							"format": "boîte de {0}"
+							"format": "1 boîte de {0}"
 						},
 						"requirements": "rincés et égouttés"
                     }
@@ -488,11 +488,11 @@
                     	{
 							"id": 7,
 							"subrecipeId": 1,
-							"name": "thon égoutté et émietté",
+							"name": "thon",
 							"quantity": {
 								"value": 170,
 								"unit": "g",
-								"format": "boîte de {0}"
+								"format": "3 boîtes de {0}"
 							},
 							"requirements": "égoutté et émietté"
 						},

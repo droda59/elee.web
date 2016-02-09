@@ -67,7 +67,7 @@
             "subrecipeId": 0,
             "name": "le jus de 2 limes",
             "quantity": {
-                "value": 1,
+                "value": 0,
                 "unit": "unit"
             }
         },
@@ -352,7 +352,7 @@
                 },
                 {
                     "type": "enumeration",
-                    "ingredients": [ 
+                    "ingredients": [
 						{
 							"id": 0,
 							"subrecipeId": 0,
@@ -386,7 +386,7 @@
 							"subrecipeId": 0,
 							"name": "le jus de 2 limes",
 							"quantity": {
-								"value": 1,
+								"value": 0,
 								"unit": "unit"
 							}
 						},
@@ -773,7 +773,7 @@
                 },
                 {
                     "type": "ingredient",
-                    "ingredient": {                    
+                    "ingredient": {
 						"id": 14,
 						"subrecipeId": 2,
 						"name": "arachides salées",
