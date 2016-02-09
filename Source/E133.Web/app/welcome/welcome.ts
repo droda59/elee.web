@@ -66,7 +66,9 @@ export class Welcome {
 	}
 
 	loadRecipe() {
-		this._router.navigateToRoute("quick-recipe", { "id": this.selectedRecipeId }, undefined);
+		if (this.canNavigateToRecipe) {
+			this._router.navigateToRoute("quick-recipe", { "id": this.selectedRecipeId }, undefined);
+		}
 	}
 
 	changeLocale() {
