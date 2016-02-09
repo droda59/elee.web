@@ -111,7 +111,7 @@
         "nextWordConsonant": "de"
     },
     "quickRecipe": {
-        "originalRecipe": "Recette originale : ",
+        "originalRecipe": "Recette originale",
         "note": "Note : ",
         "timerTimeOfTotal": " de ",
         "timerAdd": "Ajouter",
