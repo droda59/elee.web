@@ -2,39 +2,37 @@
 	ai-dialog-container {
 		transition: none;
 
-		.settings-modal.modal {
+		.modal {
 			display: block;
 			border: none;
 
 			.modal-header {
 				h3 {
-					padding: 20px 20px 0 20px;
+					margin: 0;
 				}
 			}
-
-			.modal-content {
-				height: calc(100% - 152px);
+			.modal-header + .modal-content {
+				height: calc(100% - 138px);
 				padding: 0 24px;
+			}
+
+			&.au-enter {
+				opacity: 0!important;
+				top: 0!important;
+			}
+			&.au-enter-active {
+				animation: slideIn 0.35s ease-in-out;
+			}
+			&.au-leave-active {
+				animation: slideOut 0.25s ease-in-out;
 			}
 		}
 	}
 	ai-dialog-container.active {
 		top: 0;
 	}
-
 	ai-dialog-overlay.active {
 		background: rgba(0, 0, 0, 0.5);
-	}
-
-	.modal.au-enter {
-		opacity: 0!important;
-		top: 0!important;
-	}
-	.modal.au-enter-active {
-		animation: slideIn 0.35s ease-in-out;
-	}
-	.modal.au-leave-active {
-		animation: slideOut 0.25s ease-in-out;
 	}
 
 	@keyframes slideIn {

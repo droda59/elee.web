@@ -52,10 +52,6 @@ export class QuickRecipePage {
 			}
 		}
 
-		// TEMP
-		localStorage.removeItem("helpSeen");
-		// TEMP
-
 		var hasSeenHelp = localStorage.getItem("helpSeen");
 		if (!hasSeenHelp) {
 			localStorage.setItem("helpSeen", "true");

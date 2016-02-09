@@ -2,12 +2,12 @@
 	<require from="shared/value-converters/uppercase-first-letter-format"></require>
 	<require from="shared/components/measurable-ingredient"></require>
 
-	<dialog class="settings-modal modal modal-fixed-footer au-animate" id="settings-modal">
-		<dialog-header class="modal-header">
+	<ai-dialog id="settings-modal" class="modal modal-fixed-footer au-animate">
+		<ai-dialog-header class="modal-header">
 			<h3 i18n="settings.title">Settings</h3>
-		</dialog-header>
+		</ai-dialog-header>
 
-		<dialog-body class="modal-content">
+		<ai-dialog-body class="modal-content">
 			<section class="section">
 				<h5 i18n="settings.volumeMeasureUnits">VolumeMeasureUnits</h5>
 
@@ -41,11 +41,11 @@
 					</span>
 				</div>
 			</section>
-		</dialog-body>
+		</ai-dialog-body>
 
-		<dialog-footer class="modal-footer">
+		<ai-dialog-footer class="modal-footer">
 			<button click.trigger="controller.cancel()" class="modal-action modal-close waves-effect btn-flat" i18n="settings.cancelButton">Cancel</button>
 			<button click.trigger="controller.ok(settings)" class="modal-action modal-close waves-effect btn-flat" i18n="settings.okButton">Ok</button>
-		</dialog-footer>
-	</dialog>
+		</ai-dialog-footer>
+	</ai-dialog>
 </template>

@@ -10,6 +10,19 @@
         "thankYouMessage": "Merci pour vos commentaires, ils sont très importants pour nous!",
         "sendButton": "Envoyer"
     },
+    "help": {
+        "previousButton": "Précédent",
+        "nextButton": "Suivant",
+        "okButton": "J'ai compris",
+        "backToCurrentStepTitle": "Retour à l'étape courante",
+        "backToCurrentStepDescription": "Promenez-vous dans la recette, et revenez rapidement à l'étape courante avec ce bouton!",
+        "completeStepTitle": "Terminer une étape",
+        "completeStepDescription": "Appuyez ici pour compléter l'étape courante. Suivant!",
+        "timersTitle": "Chronomètres actifs",
+        "timersDescription": "Vous pouvez consulter les chronomètres actifs ou en ajouter!",
+        "settingsTitle": "Configuration",
+        "settingsDescription": "Personnifiez l'affichage de vos unités de mesure dans cette fenêtre!"
+    },
     "settings": {
         "title": "Configuration",
         "okButton": "OK",

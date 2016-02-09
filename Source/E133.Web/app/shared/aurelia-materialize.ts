@@ -53,7 +53,7 @@ export class Materialize {
         break;
 
       case "slider":
-        setTimeout(() => $(this.element).slider(), 10);
+        setTimeout(() => $(this.element).slider({ interval: 60000, indicators: false }), 10);
         break;
 
       case "dropdown":

@@ -8,4 +8,12 @@ export class HelpOverlay {
 	constructor(controller: DialogController) {
 		this.controller = controller;
 	}
+
+	previous(): void {
+		$(".slider").slider("prev");
+	}
+
+	next(): void {
+		$(".slider").slider("next");
+	}
 }

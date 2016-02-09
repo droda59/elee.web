@@ -10,6 +10,19 @@
         "thankYouMessage": "Thank you for your input, it is really important for us!",
         "sendButton": "Send"
     },
+    "help": {
+        "previousButton": "Previous",
+        "nextButton": "Next",
+        "okButton": "Understood",
+        "backToCurrentStepTitle": "Back to current step",
+        "backToCurrentStepDescription": "Explore the recipe, and come back easily to the current step with this button!",
+        "completeStepTitle": "Complete a step",
+        "completeStepDescription": "Click here to complete the current step. Next!",
+        "timersTitle": "Active timers",
+        "timersDescription": "Here you can see the active timers, or even add new ones manually!",
+        "settingsTitle": "Settings",
+        "settingsDescription": "Customize the display of your measure units in this window!"
+    },
     "settings": {
         "title": "Settings",
         "okButton": "Ok",

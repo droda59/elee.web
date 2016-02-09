@@ -1,46 +1,44 @@
 <template>
-	<dialog class="settings-modal help-overlay modal modal-fixed-footer au-animate" id="help-overlay" materialize="slider">
-		<dialog-header class="modal-header">
-			<h3 i18n="settings.title">Settings</h3>
-		</dialog-header>
-
-		<dialog-body class="modal-content">
-            <div class="slider">
+	<ai-dialog id="help-overlay" class="modal modal-fixed-footer au-animate">
+		<ai-dialog-body class="modal-content">
+            <div class="slider" materialize="slider">
                 <ul class="slides">
                     <li>
-                        <img src="dist/welcome/assets/images/devices.png">
-                        <div class="caption center-align">
-                            <h3>This is our big Tagline!</h3>
-                            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="dist/welcome/assets/images/devices.png">
+                        <img src="dist/quick-recipe/assets/images/helpBackToCurrentStep.png" class="x-right y-bottom">
                         <div class="caption left-align">
-                            <h3>Left Aligned Caption</h3>
-                            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                            <h3 i18n="help.backToCurrentStepTitle"></h3>
+                            <h5 class="light grey-text text-lighten-3" i18n="help.backToCurrentStepDescription"></h5>
                         </div>
                     </li>
                     <li>
-                        <img src="dist/welcome/assets/images/devices.png">
-                        <div class="caption right-align">
-                            <h3>Right Aligned Caption</h3>
-                            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="dist/welcome/assets/images/devices.png">
+                        <img src="dist/quick-recipe/assets/images/helpCompleteStep.png" class="x-right y-bottom">
                         <div class="caption center-align">
-                            <h3>This is our big Tagline!</h3>
-                            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                            <h3 i18n="help.completeStepTitle"></h3>
+                            <h5 class="light grey-text text-lighten-3" i18n="help.completeStepDescription"></h5>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="dist/quick-recipe/assets/images/helpTimers.png" class="x-right y-top">
+                        <div class="caption left-align bottom">
+                            <h3 i18n="help.timersTitle"></h3>
+                            <h5 class="light grey-text text-lighten-3" i18n="help.timersDescription"></h5>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="dist/quick-recipe/assets/images/helpSettings.png" class="x-right y-top">
+                        <div class="caption center-align">
+                            <h3 i18n="help.settingsTitle"></h3>
+                            <h5 class="light grey-text text-lighten-3" i18n="help.settingsDescription"></h5>
                         </div>
                     </li>
                 </ul>
             </div>
-		</dialog-body>
+		</ai-dialog-body>
 
-		<dialog-footer class="modal-footer">
-			<button click.trigger="controller.ok()" class="modal-action modal-close waves-effect btn-flat" i18n="settings.okButton">Ok</button>
-		</dialog-footer>
-	</dialog>
+		<ai-dialog-footer class="modal-footer">
+            <button click.trigger="controller.ok()" class="modal-action modal-close waves-effect btn-flat" i18n="help.okButton">Ok</button>
+            <button click.trigger="next()" class="waves-effect btn-flat" i18n="help.nextButton">Next</button>
+			<button click.trigger="previous()" class="waves-effect btn-flat" i18n="help.previousButton">Previous</button>
+		</ai-dialog-footer>
+	</ai-dialog>
 </template>
