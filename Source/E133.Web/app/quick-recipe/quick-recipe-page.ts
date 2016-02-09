@@ -102,8 +102,8 @@ export class QuickRecipePage {
 			var elementId = "#step-" + index;
 
 			var sceneMiddle = new ScrollMagic
-				.Scene({ triggerElement: elementId, offset: 150, duration: 200 })
-				.setPin(elementId + " p")
+				.Scene({ triggerElement: elementId, offset: 0, duration: window.innerHeight / 2 })
+				// .setPin(elementId + " p")
 				.setClassToggle(elementId, "active")
 				.addTo(this._scrollController);
 		});
@@ -112,12 +112,8 @@ export class QuickRecipePage {
 	}
 
 	goToCurrentStep(): void {
-		var top = 0;
-		if (window.matchMedia("(min-height: 720px)").matches) {
-			top = Math.max(0, ($("#step-" + this._currentStepIndex)[0].offsetTop - 150));
-		} else {
-			top = Math.max(0, ($("#step-" + this._currentStepIndex)[0].offsetTop - 50));
-		}
+		var element = $("#step-" + this._currentStepIndex)[0];
+		var top = Math.max(0, element.offsetTop - ((window.innerHeight - element.offsetHeight - 150) / 2));
 		this._scrollController.scrollTo(top);
 	}
 
