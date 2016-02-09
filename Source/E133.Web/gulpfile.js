@@ -37,9 +37,7 @@ var bundleConfig = {
     bundles: {
         "dist/app-bundle": {
             includes: [
-                "[**/*.js]",
-                "[**/*.html!text]",
-                "[**/*.css!text]"
+                "[**/*.js]"
             ],
             options: {
                 inject: true,
@@ -51,8 +49,6 @@ var bundleConfig = {
                 "aurelia-animator-css",
                 "aurelia-bootstrapper",
                 "aurelia-dialog",
-                "[aurelia-dialog/*.html!text]",
-                "[aurelia-dialog/*.css!text]",
                 "aurelia-framework",
                 "aurelia-history-browser",
                 "aurelia-http-client",
@@ -208,6 +204,7 @@ gulp.task("export-copy", function() {
         "index.html",
         "config.js",
         "favicon.ico",
+        "dist/**/*.html",
         "dist/**/*.css",
         "dist/**/*.json",
         "dist/**/*.png",
@@ -217,11 +214,16 @@ gulp.task("export-copy", function() {
         "dist/**/*.woff2",
         "dist/**/*.ttf",
         "jspm_packages/system.js",
+        "jspm_packages/system.js.map",
         "jspm_packages/system-polyfills.js",
         "jspm_packages/system-csp-production.js",
+        "jspm_packages/github/andyearnshaw/Intl.js@0.1.4.js",
+        "jspm_packages/github/andyearnshaw/Intl.js@0.1.4/Intl.complete.js",
         "jspm_packages/github/systemjs/plugin-text@0.0.4.js",
         "jspm_packages/github/systemjs/plugin-text@0.0.4/text.js",
         "jspm_packages/github/components/jquery@2.2.0/jquery.js",
+        "jspm_packages/npm/aurelia-dialog@0.5.5/*.html",
+        "jspm_packages/npm/aurelia-dialog@0.5.5/*.css",
         "jspm_packages/npm/gsap@1.18.2/src/minified/TweenMax.min.js",
         "jspm_packages/npm/gsap@1.18.2/src/minified/plugins/ScrollToPlugin.min.js",
         "jspm_packages/npm/scrollmagic@2.0.5/scrollmagic/minified/ScrollMagic.min.js",
