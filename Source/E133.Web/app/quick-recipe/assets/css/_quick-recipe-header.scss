@@ -44,8 +44,9 @@
                 }
 
                 .badge.new {
-                    background-color: none;
-
+                    position: absolute;
+                    top: 10px;
+                    right: 0px;
                     &:after{
                         content: "\00a0";
                     }
@@ -53,6 +54,11 @@
             }
 
             .dropdown-content {
+                @media only screen and (max-width: 601px) {
+                  padding: 0;
+                  min-width: 300px;
+                  font-size: 0.8rem;
+                }
                 display: block;
                 border: 1px solid #66676f;
                 opacity: 1;
@@ -81,6 +87,7 @@
                             }
 
                             .title {
+                                font-size: 1rem;
                                 padding: 14px 16px;
                                 display: inline-block;
                             }
@@ -89,9 +96,12 @@
                             background-color: inherit;
                         }
                         form {
+                            @media only screen and (max-width: 601px) {
+                              line-height: 50px;
+                              height: 50px;
+                            }
                             line-height: 64px;
                             height: 64px;
-                            width: 100%;
                         }
                         button i,
                         a i {
@@ -99,13 +109,16 @@
                             line-height: inherit;
                         }
                         input {
+                          @media only screen and (max-width: 601px) {
+                            width: 90px;
+                          }
                             margin: 0 10px;
-                            width: initial;
+                            width: inherit;
                             color: #26a69a;
                             border-bottom-color: transparent;
                             vertical-align: top;
-                            line-height: inherit;
-                            height: inherit;
+                            //line-height: inherit;
+                            //height: inherit;
 
                             &:focus {
                                 border-bottom-color: #26a69a;
