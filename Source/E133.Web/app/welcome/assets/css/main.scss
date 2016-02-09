@@ -80,7 +80,7 @@
 	}
 
 	#title-container {
-	    padding: 80px 20px 0;
+	    padding: 80px 40px 0;
 
 		.banner-container {
 			background-color: rgba(0, 70, 80, 0.3);
@@ -113,15 +113,24 @@
 		.recipe-search {
 		    padding: 120px 0 40px;
 
+			.input-field i {
+				top: 12px;
+				left: 20px;
+				position: absolute;
+				color: white;
+			}
+
 			.caret {
 				display: none;
 			}
 
-			input {
-				color: white;
+			input.select-dropdown {
 				text-align: center;
-				font-size: 1.6rem;
 				text-transform: uppercase;
+
+				background-color: rgba(255, 255, 255, 0.25);
+				border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+				padding: 4px 0;
 			}
 		}
 	}

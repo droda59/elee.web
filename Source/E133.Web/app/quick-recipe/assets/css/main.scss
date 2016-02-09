@@ -77,6 +77,9 @@
             @media only screen and (max-width: 601px) {
                 padding: 0;
             }
+            .section {
+                padding: 1rem;
+            }
             .content {
                 overflow: hidden;
                 overflow-y: auto;
@@ -162,6 +165,9 @@
 
                                 .collection-item {
                                     padding: 10px 0;
+                                    .emphasis {
+                                        font-size: 1.3em;
+                                    }
                                 }
                             }
                         }
@@ -172,6 +178,14 @@
                             font-size: 2em;
                             line-height: 3rem;
                         }
+                        @media only screen and (max-height: 640px) {
+                            .emphasis {
+                                font-size: 1.5em;
+                            }
+                            .technical {
+                                font-size: 1.5em;
+                            }
+                        }
                         .timer {
                             a {
                                 font-size: 1rem;
@@ -181,10 +195,8 @@
                                 margin: 0 1rem;
                             }
                         }
-                        @media only screen and (min-height: 720px) {
-                            &:first-of-type {
-                                margin-top: 150px;
-                            }
+                        &:first-of-type {
+                            margin-top: 150px;
                         }
                         &:last-of-type {
                             margin-bottom: 100%;

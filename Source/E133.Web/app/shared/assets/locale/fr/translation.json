@@ -55,7 +55,7 @@
     "home": {
         "slogan": "cuisinez simplement",
         "mainDescription": "elee.menu vous guide pas-à-pas à travers chaque étape de vos recettes, et permet de vous éviter les erreurs fréquentes lorsque vous préparer vos festins",
-        "search": "Recherche",
+        "search": "Rechercher",
         "cookItNowButton": "Cuisinez!",
         "steps": {
             "step1Title": "1- Choisissez une recette",
@@ -73,7 +73,7 @@
         "features": {
             "feature1Title": "Multi-platforme",
             "feature1Description": "elee.menu est conçu pour être utilisé sur toutes les plateformes, pour que vous puissiez suivre vos recettes sur l'appareil de votre choix, où bon vous semble.",
-            "feature2Title": "Aggrégation",
+            "feature2Title": "Choix de recette",
             "feature2Description": "Les recettes sont prises des grands sites culinaires populaires et reformattées pour en simplifier le suivi.",
             "feature3Title": "Ingrédients",
             "feature3Description": "Les quantités des ingrédients sont indiquées directement dans les étapes de la recette, dans l'unité de mesure que vous préférez.",

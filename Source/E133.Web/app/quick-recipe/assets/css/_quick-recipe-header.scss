@@ -32,6 +32,11 @@
                 line-height: inherit;
               }
             }
+            @media only screen and (max-width: 992px) {
+                a.brand-logo {
+                    position: relative;
+                }
+            }
 
             .block-button {
                 cursor: pointer;
