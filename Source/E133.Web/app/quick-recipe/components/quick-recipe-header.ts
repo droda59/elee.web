@@ -2,7 +2,7 @@ import {bindable, inject} from "aurelia-framework";
 import {DialogService} from "aurelia-dialog";
 import {Validation} from "aurelia-validation";
 import {QuickRecipe} from "quick-recipe/models/quick-recipe";
-import {TimerCoordinator} from "shared/timer-coordinator";
+import {TimerCoordinator} from "quick-recipe/timer-coordinator";
 import {Timer} from "shared/models/timer";
 import {SettingsManager} from "shared/settings-manager";
 import {SettingsModal} from "shared/components/settings-modal";
