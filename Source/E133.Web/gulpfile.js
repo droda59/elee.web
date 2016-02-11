@@ -61,6 +61,7 @@ var bundleConfig = {
                 "aurelia-templating-router",
                 "aurelia-validation",
                 "aurelia-validation/resources/*",
+                "aurelia-google-analytics",
                 "gsap",
                 "scrollmagic"
             ],

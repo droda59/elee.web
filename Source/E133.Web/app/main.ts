@@ -18,6 +18,25 @@ export function configure(aurelia) {
                 fallbackLng : "en",
                 debug : false
             });
+      })
+      .plugin('aurelia-google-analytics', config => {
+          config.init('UA-73519104-1');
+          config.attach({
+            logging: {
+              enabled: true
+            },
+            pageTracking: {
+              enabled: true
+            },
+            clickTracking: {
+              enabled: true,
+              filter: (element) => {
+                return element instanceof HTMLElement &&
+                  (element.nodeName.toLowerCase() === 'a' ||
+                  element.nodeName.toLowerCase() === 'button');
+              }
+            }
+        });
       });
 
     aurelia.start().then(a => a.setRoot());
