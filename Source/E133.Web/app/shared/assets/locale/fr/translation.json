@@ -124,6 +124,7 @@
         "nextWordConsonant": "de"
     },
     "quickRecipe": {
+        "exitConfirmation": "Êtes-vous certain de vouloir quitter?", 
         "originalRecipe": "Recette originale",
         "note": "Note : ",
         "timerTimeOfTotal": " de ",
