@@ -1,49 +1,59 @@
 <template>
-    <!-- Welcome container -->
     <div id="welcome-container">
         <nav>
             <div class="nav-wrapper container">
-                <div class="row">
-                    <div class="col s12">
-                        <a href="#!" class="brand-logo">
-                            <img src="dist/welcome/assets/images/El33_logo.png">
-                        </a>
-                        <ul class="right hide-on-med-and-down">
-                            <!-- <li>
-                                <form>
-                                    <div class="input-field">
-                                      <input id="search" type="search" required="">
-                                      <label for="search" class=""><i class="material-icons">search</i></label>
-                                      <i class="material-icons">close</i>
-                                    </div>
-                                </form>
-                            </li> -->
-                            <li><a href="#typeform" i18n="nav.contact">Contact</a></li>
-                            <li><a href="#_" i18n="nav.lang" click.trigger="changeLocale()">Lang</a></li>
-                        </ul>
-                    </div>
+                <div class="col s12">
+                    <a href="#!" class="brand-logo white-text">E133</a>
+                    <ul class="right hide-on-med-and-down">
+                        <!-- <li>
+                            <form>
+                                <div class="input-field">
+                                  <input id="search" type="search" required="">
+                                  <label for="search" class=""><i class="material-icons">search</i></label>
+                                  <i class="material-icons">close</i>
+                                </div>
+                            </form>
+                        </li> -->
+                        <li><a href="#typeform" class="white-text" i18n="nav.contact">Contact</a></li>
+                        <li><a href="#_" class="white-text" i18n="nav.lang" click.trigger="changeLocale()">Lang</a></li>
+                    </ul>
                 </div>
             </div>
         </nav>
 
-        <!-- Title container -->
-        <section id="title-container">
-            <div class="banner-container row valign-wrapper">
-                <div class="banner-image col s12 m6 hide-on-small-only">
+        <section id="search-container">
+            <form class="recipe-search white-text" submit.delegate="loadRecipe()" novalidate>
+                <div class="row">
+                    <h1 i18n="home.slogan" class="s12 center">CookSimply</h1>
                 </div>
-                <span class="col s12 m6 offset-m6 white-text center">
-                    <h1 i18n="home.slogan">CookSimply</h1>
-                    <div class="row">
-                        <div class="col s12 m8 offset-m2 center promo">
-                            <p class="light center" i18n="home.mainDescription">MainDescription</p>
-                        </div>
+                <div class="row">
+                    <div class="input-field center col s12 m8 offset-m2 l6 offset-l3">
+                        <i class="material-icons active">search</i>
+                        <select value.bind="selectedRecipeId" materialize="select">
+                            <option i18n="home.search">Search</option>
+                            <optgroup repeat.for="group of recipeGroups" label.bind="group.label">
+                                <option repeat.for="recipe of group.recipes" value.bind="recipe.id" data-icon.bind="recipe.imageUrl" class="left circle">${recipe.title}</option>
+                            </optgroup>
+                        </select>
                     </div>
-                </span>
+                </div>
+                <div class="row center">
+                    <button class="btn-large waves-effect waves-light ${canNavigateToRecipe ? '' : 'disabled'}" type="submit" name="action" i18n="home.cookItNowButton">
+                        CookItNow
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <section id="description-container" class="section">
+            <div class="row">
+                <div class="col s12 m6 offset-m3 center promo">
+                    <p class="light center" i18n="home.mainDescription">MainDescription</p>
+                </div>
             </div>
         </section>
-        <!-- Title container -->
 
-        <!-- How it works container -->
         <section id="how-it-works-container" class="section">
             <div class="container row">
                 <div class="col s12 m4">
@@ -64,34 +74,8 @@
                 </div>
             </div>
         </section>
-        <!-- How it works container -->
 
-        <!-- Search container -->
-        <section id="search-container" class="section">
-            <form class="recipe-search white-text" submit.delegate="loadRecipe()" novalidate>
-                <div class="row">
-                    <div class="input-field center col s12 m8 offset-m2 l6 offset-l3">
-                        <i class="material-icons active">search</i>
-                        <select value.bind="selectedRecipeId" materialize="select">
-                            <option i18n="home.search">Search</option>
-                            <optgroup repeat.for="group of recipeGroups" label.bind="group.label">
-                                <option repeat.for="recipe of group.recipes" value.bind="recipe.id" data-icon.bind="recipe.imageUrl" class="left circle">${recipe.title}</option>
-                            </optgroup>
-                        </select>
-                    </div>
-                </div>
-                <div class="row center">
-                    <button class="btn-large waves-effect waves-light ${canNavigateToRecipe ? '' : 'disabled'}" type="submit" name="action" i18n="home.cookItNowButton">
-                        CookItNow
-                        <i class="material-icons right">send</i>
-                    </button>
-                </div>
-            </form>
-        </section>
-        <!-- Search container -->
-
-        <!-- Features container -->
-        <section id="features-container" class="section">
+        <section id="features-container">
             <div class="container">
                 <div class="row">
                     <div class="col s12 m3">
@@ -128,19 +112,17 @@
                 </div>
             </div>
         </section>
-        <!-- Features container -->
 
-        <!-- Moar to come container -->
-        <section id="moar-to-come-container" class="section container">
+        <section id="moar-to-come-container">
             <div class="row center underline-title">
                 <h3 class="title" i18n="home.moar.title">Moar</h3>
                 <hr />
             </div>
             <div class="row description">
-                <div class="col s12 m6 image valign-wrapper left hide-on-med-and-down">
-                    <img src="dist/welcome/assets/images/kitchen-trends.jpg" alt="Teaser BG">
+                <div class="col s12 m6 image valign-wrapper left hide-on-small-only">
+                    <img src="/app/welcome/assets/images/kitchen-trends.jpg" alt="Teaser BG">
                 </div>
-                <div class="col s12 l6 offset-l6">
+                <div class="col s12 m6 offset-m6">
                     <div class="row">
                         <p class="light" i18n="home.moar.description">Description</p>
                         <ul class="collection">
@@ -155,36 +137,5 @@
                 </div>
             </div>
         </section>
-        <!-- Moar to come container -->
-
-        <!-- Popular categories container -->
-        <!-- <section class="popular-categories-container">
-            <div class="row center-align underline-title">
-                <h3 class="title" i18n="home.categories.title">Categories</h3>
-                <hr />
-            </div>
-            <div class="row">
-                <div repeat.for="category of popularCategories" class="col s3">
-                    <div class="card hoverable">
-                        <div class="card-image">
-                            <img src.bind="category.cover">
-                        </div>
-                        <div class="card-content">
-                            <span class="card-title valign-wrapper">
-                                <div class="valign center-align">${category.title}</div>
-                            </span>
-                            <div class="card-action center-align">
-                                <a class="btn view-all" href="#" i18n="home.categories.viewAll">ViewAll</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row center-align">
-                <a class="btn-large waves-effect waves-light browse-button" href="#categ" i18n="home.categories.browseAll">BrowseAll</a>
-            </div>
-        </section> -->
-        <!-- Popular categories container -->
     </div>
-    <!-- /Welcome container -->
 </template>

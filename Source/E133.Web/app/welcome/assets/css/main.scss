@@ -108,10 +108,19 @@
 	}
 
 	#search-container {
-		background-image: url("/dist/welcome/assets/images/teaser_bg.jpg");
+		background-image: url("/app/welcome/assets/images/teaser_bg.jpg");
+		height: 500px;
+		position: relative;
 
 		.recipe-search {
-		    padding: 120px 0 40px;
+			padding: 40px 0;
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+
+			.caret {
+				display: none;
+			}
 
 			.input-field i {
 				top: 12px;
@@ -119,11 +128,6 @@
 				position: absolute;
 				color: white;
 			}
-
-			.caret {
-				display: none;
-			}
-
 			input.select-dropdown {
 				text-align: center;
 				text-transform: uppercase;
@@ -133,6 +137,15 @@
 				padding: 4px 0;
 			}
 		}
+	}
+
+	#description-container {
+		padding: 3rem 2rem;
+		background: #efefef;
+	}
+
+	#how-it-works-container {
+		padding: 3rem 0;
 	}
 
 	#features-container {

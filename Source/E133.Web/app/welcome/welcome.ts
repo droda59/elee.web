@@ -7,7 +7,6 @@ export class Welcome {
 	private _router: Router;
 	private _i18n: I18N;
 	private _element: Element;
-	private _searchOption: string;
 
 	selectedRecipeId: string;
 	recipeGroups: {}[] = [];
@@ -62,7 +61,6 @@ export class Welcome {
 
 	attached(){
 		this._i18n.updateTranslations(this._element);
-		this._searchOption = this._i18n.tr("home.search");
 	}
 
 	loadRecipe() {
@@ -88,6 +86,6 @@ export class Welcome {
 	}
 
 	get canNavigateToRecipe(): boolean {
-		return this.selectedRecipeId !== this._searchOption;
+		return this.selectedRecipeId !== this._i18n.tr("home.search");
 	}
 }
