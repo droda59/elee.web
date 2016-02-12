@@ -1,5 +1,5 @@
 <template>
-	<p class="${isTechnicalStep() ? 'technical' : ''}">
+	<p class="${isTechnicalStep() ? 'technical' : ''} ${isLoaded ? 'loaded' : ''}">
 		<compose repeat.for="part of step.parts" model.bind="part" view-model="quick-recipe/components/steps/step-${part.type}" containerless></compose>
 	</p>
 

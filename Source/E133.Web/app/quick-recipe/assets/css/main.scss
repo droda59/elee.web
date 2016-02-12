@@ -77,13 +77,16 @@
             @media only screen and (max-width: 601px) {
                 padding: 0;
             }
+
             .section {
                 padding: 1rem;
             }
+
             .content {
                 overflow: hidden;
                 overflow-y: auto;
                 position: relative;
+
                 #recipe-content {
                     height: 100%;
                     top: 0;
@@ -131,7 +134,7 @@
                         //   font-size: 0.9em;
                         opacity: 0.15;
                         transition: opacity 0.2s ease-in-out, font-size 0.1s ease-in-out;
-                        padding: 100px 20px;
+                        padding: 50px 20px;
                         // margin: 100px 0;
                         display: block;
                         position: relative;
@@ -196,7 +199,7 @@
                             }
                         }
                         &:first-of-type {
-                            margin-top: 150px;
+                            margin-top: 30vh;
                         }
                         &:last-of-type {
                             margin-bottom: 100%;

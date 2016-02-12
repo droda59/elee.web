@@ -8,11 +8,6 @@ import {TimerCoordinator} from "quick-recipe/timer-coordinator";
 import {ScrollCoordinator} from "quick-recipe/scroll-coordinator";
 import {Ingredient} from "shared/models/ingredient";
 
-class QuickRecipeSubrecipeIngredient {
-	subrecipeTitle: string;
-	ingredients: Ingredient[];
-}
-
 @inject (HttpClient, I18N, TimerCoordinator, ScrollCoordinator, DialogService)
 export class QuickRecipePage {
     recipe: QuickRecipe;
@@ -22,10 +17,10 @@ export class QuickRecipePage {
 	isRecipeStarted: boolean;
 	isRecipeDone: boolean;
 
+	private _currentStepIndex: number = undefined;
 	private _scrollCoordinator: ScrollCoordinator;
 	private _timerCoordinator: TimerCoordinator;
 	private _dialogService: DialogService;
-	private _currentStepIndex: number = undefined;
     private _http: HttpClient;
 	private _i18n: I18N;
 
@@ -41,7 +36,7 @@ export class QuickRecipePage {
 		this._scrollCoordinator.createScrollController();
 
 		if ("Notification" in window) {
-			if (Notification.permission !== 'denied') {
+			if (Notification.permission !== "denied") {
 				Notification.requestPermission();
 			}
 		}
@@ -80,7 +75,7 @@ export class QuickRecipePage {
 
 	canDeactivate() {
 		if (this.isRecipeStarted && !this.isRecipeDone) {
-			return confirm('Are you sure you want to leave?');
+			return confirm(this._i18n.tr("quickRecipe.exitConfirmation"));
 		}
 	}
 
@@ -97,8 +92,9 @@ export class QuickRecipePage {
 	}
 
 	goToCurrentStep(): void {
+		var navHeight = $(".subrecipe-titles")[0].offsetHeight;
 		var element = $("#step-" + this._currentStepIndex)[0];
-		var top = Math.max(0, element.offsetTop - ((window.innerHeight - element.offsetHeight - 150) / 2));
+		var top = Math.max(0, element.offsetTop - ((window.innerHeight - navHeight - element.offsetHeight) / 2) + 32);
 		this._scrollCoordinator.scrollTo(top);
 	}
 
@@ -112,6 +108,7 @@ export class QuickRecipePage {
 
 		if (this.isLastStep) {
 			this.isRecipeDone = true;
+			this._scrollCoordinator.destroyScrollController();
 			return;
 		}
 
@@ -160,4 +157,9 @@ export class QuickRecipePage {
 			});
 		}
 	}
+}
+
+class QuickRecipeSubrecipeIngredient {
+	subrecipeTitle: string;
+	ingredients: Ingredient[];
 }
