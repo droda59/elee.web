@@ -108,7 +108,8 @@
 	}
 
 	#search-container {
-		background-image: url("/app/welcome/assets/images/teaser_bg.jpg");
+		background-image: url("/dist/welcome/assets/images/teaser_bg.jpg");
+		background-size: cover;
 		height: 500px;
 		position: relative;
 
