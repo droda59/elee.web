@@ -9,6 +9,11 @@
 	max-height: 400px;
 }
 
+.collection,
+.collection .collection-item {
+	border: none;
+}
+
 textarea {
 	overflow-y: hidden;
 	padding: 1.6rem 0;
