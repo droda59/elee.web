@@ -4,36 +4,34 @@
 @import "quick-recipe-footer";
 @import "help-overlay";
 @import "animations";
+@import "../../../shared/assets/css/variables";
 
 .quick-recipe {
-    height: 100%;
-    .row {
-        margin: 0;
-    }
     .btn {
         background-color: rgba(255, 175, 75, 1);
+
         &:hover {
             background-color: rgba(178, 114, 35, 1);
         }
     }
+
     main {
-        @media only screen and (max-width: 601px) {
-            padding: 0;
-        }
         padding: 10px;
         height: calc(100% - #{$quick-recipe-header-height} - #{$quick-recipe-footer-height});
+
         .ingredients {
-            //width: $quick-recipe-ingredients-side-width;
             position: fixed;
             top: 50px;
             height: calc(100vh - #{$quick-recipe-header-height} - #{$quick-recipe-footer-height} - 1rem);
             overflow-y: overlay;
+
             .card-image {
                 width: inherit;
                 height: 200px;
                 overflow: hidden;
                 position: fixed;
                 left: 10px;
+
                 img {
                     top: -100%;
                     filter:blur(5px);
@@ -58,10 +56,12 @@
                 bottom: 0;
                 left: 0;
                 overflow: inherit;
+
                 ul,
                 li {
                     border: none;
                 }
+
                 .ingredient-item {
                     .ingredient.done {
                         text-decoration: line-through;
@@ -72,11 +72,9 @@
                 }
             }
         }
+
         .main {
             height: 100%;
-            @media only screen and (max-width: 601px) {
-                padding: 0;
-            }
 
             .section {
                 padding: 1rem;
@@ -90,21 +88,21 @@
                 #recipe-content {
                     height: 100%;
                     top: 0;
+
                     .navbar {
                         z-index: 1;
                         position: fixed;
                         background-color: $quick-recipe-content-color;
                         color: black;
-                        @media only screen and (max-width: 601px) {
-                            width: 100%;
-                        }
                         width: 75%;
                         top: $quick-recipe-header-height;
+
                         .subrecipe-titles {
                             display: flex;
                             flex-direction: row;
                             justify-content: space-around;
                             flex-wrap: nowrap;
+
                             .subrecipe-title {
                                 opacity: 0.5;
                                 flex-grow: 1;
@@ -116,6 +114,7 @@
                                 &.active {
                                     opacity: 1;
                                     transition: opacity 0.3s ease-in-out;
+
                                     &:hover {
                                         background: rgba(0, 0, 0, 0.1);
                                     }
@@ -123,12 +122,14 @@
                             }
                         }
                     }
+
                     .step-actions {
                         z-index: 1;
                         position: fixed;
                         bottom: 50px;
                         right: 10px;
                     }
+
                     .step {
                         font-size: 1em;
                         //   font-size: 0.9em;
@@ -138,20 +139,23 @@
                         // margin: 100px 0;
                         display: block;
                         position: relative;
+
                         p {
                             width: 100%;
                         }
+
                         .post-step {
                             margin: 0 0 0 2rem;
+
                             .emphasis {
                                 font-size: 1.4rem;
                             }
                         }
+
                         .enumeration {
                             margin: 1rem 2rem 1rem 3rem;
-                            border: none;
+
                             .collection-item {
-                                border: none;
                                 [type="checkbox"] + label {
                                     margin-left: 20px;
                                     height: 1.5rem;
@@ -162,33 +166,16 @@
                                 }
                             }
                         }
-                        @media only screen and (max-height: 640px) {
-                            .enumeration {
-                                margin: 1rem 0 1rem 1rem;
 
-                                .collection-item {
-                                    padding: 10px 0;
-                                    .emphasis {
-                                        font-size: 1.3em;
-                                    }
-                                }
-                            }
-                        }
                         .emphasis {
                             font-size: 2em;
                         }
+
                         .technical {
                             font-size: 2em;
                             line-height: 3rem;
                         }
-                        @media only screen and (max-height: 640px) {
-                            .emphasis {
-                                font-size: 1.5em;
-                            }
-                            .technical {
-                                font-size: 1.5em;
-                            }
-                        }
+
                         .timer {
                             a {
                                 font-size: 1rem;
@@ -207,12 +194,58 @@
                         &.active {
                             opacity: 1;
                             // font-size: 1em;
+
                             .enumeration {
                                 .collection-item {
                                     [type="checkbox"] + label {
                                         display: inline-block;
                                     }
                                 }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: $mobile-max-width) {
+        main {
+            padding: 0;
+
+            .main {
+                padding: 0;
+
+                .content {
+                    #recipe-content {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-height: 640px) {
+        main {
+            .main {
+                .content {
+                    #recipe-content {
+                        .step {
+                            .enumeration {
+                                margin: 1rem 0 1rem 1rem;
+
+                                .collection-item {
+                                    padding: 10px 0;
+                                    .emphasis {
+                                        font-size: 1.3em;
+                                    }
+                                }
+                            }
+                            .emphasis {
+                                font-size: 1.5em;
+                            }
+                            .technical {
+                                font-size: 1.5em;
                             }
                         }
                     }
