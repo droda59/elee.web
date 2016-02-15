@@ -1,0 +1,486 @@
+{
+  "title": "Crème caramel",
+  "originalUrl": "http://www.ricardocuisine.com/recettes/633-creme-caramel",
+  "language": "fr",
+  "note": "",
+  "imageUrl": "http://www.ricardocuisine.com/pictures/cache/df7c22e3786957aa86712ce81fa415b6_w500_h675_sc.jpg",
+  "originalServings": "6",
+  "durations": [
+    {
+      "title": "Préparation",
+      "time": "PT25M"
+    },
+    {
+      "title": "Cuisson",
+      "time": "PT40M"
+    }
+  ],
+  "subrecipes": [
+    {
+      "id": -2,
+      "title": "Requis"
+    },
+    {
+      "id": -1,
+      "title": "Préparation"
+    },
+    {
+      "id": 0,
+      "title": "Caramel"
+    },
+    {
+      "id": 1,
+      "title": "Flan"
+    }
+  ],
+  "ingredients": [
+    {
+      "id": 0,
+      "subrecipeId": 0,
+      "name": "sucre",
+      "quantity": {
+        "value": 125,
+        "unit": "ml"
+      }
+    },
+    {
+      "id": 1,
+      "subrecipeId": 0,
+      "name": "eau",
+      "quantity": {
+        "value": 30,
+        "unit": "ml"
+      }
+    },
+    {
+      "id": 2,
+      "subrecipeId": 1,
+      "name": "sucre",
+      "quantity": {
+        "value": 60,
+        "unit": "ml"
+      }
+    },
+    {
+      "id": 3,
+      "subrecipeId": 1,
+      "name": "essence de vanille",
+      "quantity": {
+        "value": 10,
+        "unit": "ml"
+      }
+    },
+    {
+      "id": 4,
+      "subrecipeId": 1,
+      "name": "lait",
+      "quantity": {
+        "value": 500,
+        "unit": "ml"
+      },
+      "requirements": "chaud"
+    },
+    {
+      "id": 5,
+      "subrecipeId": 1,
+      "name": "oeufs",
+      "quantity": {
+        "value": 3,
+        "unit": "unit"
+      },
+      "requirements": "légèrement battus"
+    }
+  ],
+  "steps": [
+    {
+      "subrecipeId": -2,
+      "parts": [
+        {
+          "type": "text",
+          "value": "Flan: "
+        },
+        {
+          "type": "action",
+          "value": "chauffer"
+        },
+        {
+          "type": "ingredient",
+          "ingredient": {
+            "id": 4,
+            "subrecipeId": 1,
+            "name": "lait",
+            "quantity": {
+              "value": 500,
+              "unit": "ml"
+            },
+            "requirements": "chaud"
+          }
+        }
+      ],
+      "postSteps": []
+    },
+    {
+      "subrecipeId": -2,
+      "parts": [
+        {
+          "type": "text",
+          "value": "Flan: "
+        },
+        {
+          "type": "action",
+          "value": "battre légèrement"
+        },
+        {
+          "type": "ingredient",
+          "ingredient": {
+            "id": 5,
+            "subrecipeId": 1,
+            "name": "oeufs",
+            "quantity": {
+              "value": 3,
+              "unit": "unit"
+            },
+            "requirements": "légèrement battus"
+          }
+        }
+      ],
+      "postSteps": []
+    },
+    {
+      "subrecipeId": -1,
+      "parts": [
+        {
+          "type": "action",
+          "value": "Préchauffer"
+        },
+        {
+          "type": "text",
+          "value": "le four à 180 °C (350 °F)"
+        }
+      ],
+      "postSteps": []
+    },
+    {
+      "subrecipeId": 0,
+      "parts": [
+        {
+          "type": "text",
+          "value": "Dans une casserole,"
+        },
+        {
+          "type": "action",
+          "value": "chauffer"
+        },
+        {
+          "type": "enumeration",
+          "ingredients": [
+            {
+              "id": 0,
+              "subrecipeId": 0,
+              "name": "sucre",
+              "quantity": {
+                "value": 125,
+                "unit": "ml"
+              }
+            },
+            {
+              "id": 1,
+              "subrecipeId": 0,
+              "name": "eau",
+              "quantity": {
+                "value": 30,
+                "unit": "ml"
+              }
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": "jusqu'à l'obtention d'un caramel de couleur ambrée"
+        }
+      ],
+      "postSteps": []
+    },
+    {
+      "subrecipeId": 0,
+      "parts": [
+        {
+          "type": "action",
+          "value": "Répartir"
+        },
+        {
+          "type": "text",
+          "value": "dans six ramequins d'une contenance de 125 ml (1 2 tasse)"
+        }
+      ],
+      "postSteps": []
+    },
+    {
+      "subrecipeId": 0,
+      "parts": [
+        {
+          "type": "action",
+          "value": "Laisser refroidir"
+        }
+      ],
+      "postSteps": []
+    },
+    {
+      "subrecipeId": 1,
+      "parts": [
+        {
+          "type": "action",
+          "value": "Ajouter"
+        },
+        {
+          "type": "enumeration",
+          "ingredients": [
+            {
+              "id": 2,
+              "subrecipeId": 1,
+              "name": "sucre",
+              "quantity": {
+                "value": 60,
+                "unit": "ml"
+              }
+            },
+            {
+              "id": 3,
+              "subrecipeId": 1,
+              "name": "essence de vanille",
+              "quantity": {
+                "value": 10,
+                "unit": "ml"
+              }
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": "de vanille au lait chaud"
+        }
+      ],
+      "postSteps": []
+    },
+    {
+      "subrecipeId": 1,
+      "parts": [
+        {
+          "type": "action",
+          "value": "Remuer"
+        },
+        {
+          "type": "text",
+          "value": "jusqu'à ce que le sucre soit dissous"
+        }
+      ],
+      "postSteps": []
+    },
+    {
+      "subrecipeId": 1,
+      "parts": [
+        {
+          "type": "text",
+          "value": "Dans un bol,"
+        },
+        {
+          "type": "action",
+          "value": "fouetter"
+        },
+        {
+          "type": "ingredient",
+          "ingredient": {
+            "id": 5,
+            "subrecipeId": 1,
+            "name": "oeufs",
+            "quantity": {
+              "value": 3,
+              "unit": "unit"
+            },
+            "requirements": "légèrement battus"
+          }
+        }
+      ],
+      "postSteps": []
+    },
+    {
+      "subrecipeId": 1,
+      "parts": [
+        {
+          "type": "text",
+          "value": "Y"
+        },
+        {
+          "type": "action",
+          "value": "incorporer"
+        },
+        {
+          "type": "text",
+          "value": "le liquide chaud toujours en fouettant"
+        }
+      ],
+      "postSteps": []
+    },
+    {
+      "subrecipeId": 1,
+      "parts": [
+        {
+          "type": "action",
+          "value": "Verser"
+        },
+        {
+          "type": "text",
+          "value": "dans les ramequins"
+        }
+      ],
+      "postSteps": []
+    },
+    {
+      "subrecipeId": 1,
+      "parts": [
+        {
+          "type": "action",
+          "value": "Préparer"
+        },
+        {
+          "type": "text",
+          "value": "un bain marie, c'est-à-dire"
+        },
+        {
+          "type": "action",
+          "value": "déposer"
+        },
+        {
+          "type": "text",
+          "value": "un linge au fond d'un grand plat de cuisson"
+        }
+      ],
+      "postSteps": []
+    },
+    {
+      "subrecipeId": 1,
+      "parts": [
+        {
+          "type": "text",
+          "value": "Y"
+        },
+        {
+          "type": "action",
+          "value": "déposer"
+        },
+        {
+          "type": "text",
+          "value": "les ramequins et"
+        },
+        {
+          "type": "action",
+          "value": "remplir"
+        },
+        {
+          "type": "text",
+          "value": "à moitié d'eau fumante"
+        }
+      ],
+      "postSteps": []
+    },
+    {
+      "subrecipeId": 1,
+      "parts": [
+        {
+          "type": "action",
+          "value": "Cuire"
+        },
+        {
+          "type": "text",
+          "value": "au four environ"
+        },
+        {
+          "type": "timer",
+          "value": "PT40M",
+          "text": "40 minutes",
+          "action": "Cuire"
+        }
+      ],
+      "postSteps": []
+    },
+	{
+	  "subrecipeId": 1,
+	  "parts": [
+		{
+		  "type": "text",
+		  "value": "L'eau ne doit jamais"
+		},
+		{
+		  "type": "action",
+		  "value": "bouillir"
+		}
+	  ],
+	  "postSteps": []
+    },
+    {
+      "subrecipeId": 1,
+      "parts": [
+        {
+          "type": "action",
+          "value": "Retirer"
+        },
+        {
+          "type": "text",
+          "value": "du four et de l'eau"
+        }
+      ],
+      "postSteps": []
+    },
+    {
+      "subrecipeId": 1,
+      "parts": [
+        {
+          "type": "action",
+          "value": "Laisser tiédir"
+        }
+      ],
+      "postSteps": []
+    },
+    {
+      "subrecipeId": 1,
+      "parts": [
+        {
+          "type": "action",
+          "value": "Réfrigérer"
+        }
+      ],
+      "postSteps": []
+    },
+    {
+      "subrecipeId": 1,
+      "parts": [
+        {
+          "type": "action",
+          "value": "Passer"
+        },
+        {
+          "type": "text",
+          "value": "la lame d'un couteau tout autour des ramequins,"
+        },
+        {
+          "type": "action",
+          "value": "renverser"
+        },
+        {
+          "type": "text",
+          "value": "et"
+        },
+        {
+          "type": "action",
+          "value": "servir"
+        },
+        {
+          "type": "text",
+          "value": "très froid"
+        }
+      ],
+      "postSteps": []
+    }
+  ],
+  "id": "56c128c644fd463ab8e3e2ff"
+}

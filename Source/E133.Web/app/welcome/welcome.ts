@@ -26,6 +26,7 @@ export class Welcome {
 		this.recipeGroups.push({ label: "Desserts", recipes: [
 			{ id: "56a6c32144fd4666d1194b77", title: "Biscuits moelleux aux brisures de chocolat (les meilleurs)", imageUrl: "http://www.ricardocuisine.com/pictures/cache/31fd16ca0f4aa9df266583d6fdde1d36_w500_h675_sc.jpg" },
 			{ id: "56a6c11444fd4666d1194b73", title: "Carré aux dattes (le meilleur)", imageUrl: "http://www.ricardocuisine.com/pictures/cache/5ac64bed352f8b0cb8bfbdde7208fa42_w500_h675_sc.jpg" },
+			{ id: "56c128c644fd463ab8e3e2ff", title: "Crème caramel", imageUrl: "http://www.ricardocuisine.com/pictures/cache/df7c22e3786957aa86712ce81fa415b6_w500_h675_sc.jpg" },
 			{ id: "56b826f544fd461dcd8437dd", title: "Fondue au chocolat", imageUrl: "http://www.ricardocuisine.com/pictures/cache/7104c776b29343704917cbbda79c0daa_w500_h675_sc.jpg" },
 			{ id: "56a6c13744fd4666d1194b74", title: "Gâteau au chocolat au coeur fondant", imageUrl: "http://www.ricardocuisine.com/pictures/cache/b408dddbdfa3c7feee4a1cfb278b7d4d_w500_h675_sc.jpg" },
 			{ id: "56ab7acf44fd466ff20f9f97", title: "Gâteau au fromage (le meilleur)", imageUrl: "http://www.ricardocuisine.com/pictures/cache/4ddbb475cba801b158d011ef1e29eb5d_w500_h675_sc.jpg" },
