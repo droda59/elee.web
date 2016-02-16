@@ -64,7 +64,7 @@
 				</section>
 
 				<section id="recipe-content" show.bind="isRecipeStarted && !isRecipeDone" class="au-animate">
-					<nav class="navbar navbar-fixed col m9 z-depth-1" show.bind="isRecipeStarted">
+					<nav class="navbar col m9 z-depth-1" show.bind="isRecipeStarted">
 						<ul class="subrecipe-titles">
 							<li repeat.for="subrecipe of recipe.subrecipes" class="subrecipe-title ${$parent.activeSubrecipeId === subrecipe.id ? 'active' : ''}">
 								${subrecipe.title}

@@ -87,6 +87,8 @@
                     background-color: $quick-recipe-content-color;
                     color: black;
                     padding: 0;
+                    position: fixed;
+                    z-index: 1;
                     top: $quick-recipe-header-height;
 
                     .subrecipe-titles {
