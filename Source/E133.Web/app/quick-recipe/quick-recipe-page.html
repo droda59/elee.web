@@ -13,7 +13,7 @@
 		</header>
 
 		<main class="row">
-			<div class="ingredients card hoverable hide-on-small-only col m3">
+			<div id="ingredients" class="card hoverable hide-on-small-only col m3">
 				<div class="card-image">
 					<img src.bind="recipe.imageUrl">
 					<div class="after"></div>
@@ -35,7 +35,7 @@
 				</div>
 			</div>
 
-			<div id="instructions" class="instructions col s12 m9 offset-m3">
+			<div id="instructions" class="col s12 m9 offset-m3">
 				<section id="presentation-section" if.bind="!isRecipeDone && !isRecipeStarted" class="au-animate section">
 					<div>
 						<h3>${recipe.title}</h3>
