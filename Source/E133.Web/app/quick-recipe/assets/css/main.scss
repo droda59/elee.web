@@ -59,13 +59,12 @@
                 overflow: inherit;
 
                 .ingredient-item {
-                    .ingredient {
-                        &.done {
-                            text-decoration: line-through;
-                        }
-                        &.current {
-                            font-weight: 600;
-                        }
+                    &.done {
+                        text-decoration: line-through;
+                        opacity: 0.6;
+                    }
+                    &.current {
+                        font-weight: 600;
                     }
                 }
             }

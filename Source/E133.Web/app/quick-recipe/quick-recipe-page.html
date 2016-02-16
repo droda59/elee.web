@@ -23,7 +23,7 @@
 					<section repeat.for="subrecipe of subrecipeIngredients" class="section">
 						<h4 if.bind="subrecipe.subrecipeTitle" class="center truncate">${subrecipe.subrecipeTitle}</h4>
 						<ul class="collection">
-							<li repeat.for="ingredient of subrecipe.ingredients" class="collection-item ingredient-item">
+							<li repeat.for="ingredient of subrecipe.ingredients" id="ingredient-${ingredient.id}" class="collection-item ingredient-item">
 								<measurable-ingredient containerless ingredient.bind="ingredient"></measurable-ingredient>
 								<small if.bind="ingredient.replacements" repeat.for="replacement of ingredient.replacements">
 									<div i18n="quickRecipe.ingredientReplacementConjunction">Or</div>

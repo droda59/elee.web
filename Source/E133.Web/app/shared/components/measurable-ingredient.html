@@ -1,7 +1,7 @@
 <template>
 	<require from="shared/value-converters/quantity-human-format"></require>
 
-	<span class="ingredient ${ingredient.done ? 'done' : ''}">
+	<span class="ingredient">
 		<span class="emphasis">
 			${convertibleMeasureUnit | quantityHumanFormat}
 		</span>

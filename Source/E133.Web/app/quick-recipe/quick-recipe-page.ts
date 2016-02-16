@@ -87,6 +87,7 @@ export class QuickRecipePage {
 		this._currentStepIndex = 0;
 		this.isRecipeStarted = true;
 
+		this.decorateStepIngredients(this.getCurrentStep(), true, undefined);
 		this.goToCurrentStep();
 	}
 
@@ -102,8 +103,7 @@ export class QuickRecipePage {
 			return;
 		}
 
-		var step = this.recipe.steps[this._currentStepIndex];
-		this.activateStepIngredients(step, true);
+		this.decorateStepIngredients(this.getCurrentStep(), false, true);
 
 		if (this.isLastStep) {
 			this.isRecipeDone = true;
@@ -113,6 +113,7 @@ export class QuickRecipePage {
 
 		this._currentStepIndex++;
 
+		this.decorateStepIngredients(this.getCurrentStep(), true, undefined);
 		this.goToCurrentStep();
 	}
 
@@ -121,8 +122,7 @@ export class QuickRecipePage {
 			return -2;
 		}
 
-		var step = this.recipe.steps[this._currentStepIndex];
-		return step.subrecipeId;
+		return this.getCurrentStep().subrecipeId;
 	}
 
 	get isLastStep(): boolean {
@@ -133,28 +133,38 @@ export class QuickRecipePage {
 		return $("#step-" + this._currentStepIndex).hasClass("active");
 	}
 
-	private activateStepIngredients(step: Step, activate: boolean): void {
-		if (step.subrecipeId >= -1) {
-			var ingredientParts: IngredientPart[] = <IngredientPart[]>step.parts.filter(
-				part => part.type == "ingredient"
-			);
-			ingredientParts.forEach(part => {
-				this.recipe.ingredients
-					.filter(ingredient => ingredient.id === part.ingredient.id)
-					.forEach(element => element.done = activate);
-			});
+    private getCurrentStep(): Step {
+        return this.recipe.steps[this._currentStepIndex];
+    }
 
-			var enumerationParts = <IngredientEnumerationPart[]>step.parts.filter(
-				part => part.type == "enumeration"
-			);
-			enumerationParts.forEach(enumeration => {
-				enumeration.ingredients.forEach(part => {
-					this.recipe.ingredients
-						.filter(ingredient => ingredient.id === part.id)
-						.forEach(element => element.done = activate);
-				});
+	private decorateStepIngredients(step: Step, isCurrent?: boolean, isDone?: boolean): void {
+        var ingredients = [];
+
+		var ingredientParts = <IngredientPart[]>step.parts.filter(part => part.type == "ingredient");
+		ingredientParts.forEach(part => {
+            ingredients = ingredients.concat(this.recipe.ingredients.filter(ingredient => ingredient.id === part.ingredient.id));
+		});
+
+		var enumerationParts = <IngredientEnumerationPart[]>step.parts.filter(part => part.type == "enumeration");
+		enumerationParts.forEach(enumeration => {
+			enumeration.ingredients.forEach(part => {
+                ingredients = ingredients.concat(this.recipe.ingredients.filter(ingredient => ingredient.id === part.id));
 			});
-		}
+		});
+
+        ingredients.forEach(ingredient => {
+            if (isCurrent != undefined) {
+                if (isCurrent) {
+                    $("#ingredient-" + ingredient.id).addClass("current");
+                } else {
+                    $("#ingredient-" + ingredient.id).removeClass("current");
+                }
+            }
+
+            if (isDone != undefined && step.subrecipeId >= -1) {
+                $("#ingredient-" + ingredient.id).addClass("done");
+            }
+        });
 	}
 }
 
