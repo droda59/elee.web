@@ -7,4 +7,5 @@ export class Ingredient {
     quantity: Quantity;
     requirements: string;
     replacements: Ingredient[];
+    state: string;
 }

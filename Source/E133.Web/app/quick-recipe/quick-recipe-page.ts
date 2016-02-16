@@ -87,7 +87,7 @@ export class QuickRecipePage {
 		this._currentStepIndex = 0;
 		this.isRecipeStarted = true;
 
-		this.decorateStepIngredients(this.getCurrentStep(), true, undefined);
+		this.decorateStepIngredients(this.getCurrentStep(), "current");
 		this.goToCurrentStep();
 	}
 
@@ -103,7 +103,7 @@ export class QuickRecipePage {
 			return;
 		}
 
-		this.decorateStepIngredients(this.getCurrentStep(), false, true);
+		this.decorateStepIngredients(this.getCurrentStep(), "done");
 
 		if (this.isLastStep) {
 			this.isRecipeDone = true;
@@ -113,7 +113,7 @@ export class QuickRecipePage {
 
 		this._currentStepIndex++;
 
-		this.decorateStepIngredients(this.getCurrentStep(), true, undefined);
+		this.decorateStepIngredients(this.getCurrentStep(), "current");
 		this.goToCurrentStep();
 	}
 
@@ -137,7 +137,7 @@ export class QuickRecipePage {
         return this.recipe.steps[this._currentStepIndex];
     }
 
-	private decorateStepIngredients(step: Step, isCurrent?: boolean, isDone?: boolean): void {
+	private decorateStepIngredients(step: Step, state: string): void {
         var ingredients = [];
 
 		var ingredientParts = <IngredientPart[]>step.parts.filter(part => part.type == "ingredient");
@@ -153,16 +153,14 @@ export class QuickRecipePage {
 		});
 
         ingredients.forEach(ingredient => {
-            if (isCurrent != undefined) {
-                if (isCurrent) {
-                    $("#ingredient-" + ingredient.id).addClass("current");
-                } else {
-                    $("#ingredient-" + ingredient.id).removeClass("current");
-                }
-            }
+            ingredient.state = "";
 
-            if (isDone != undefined && step.subrecipeId >= -1) {
-                $("#ingredient-" + ingredient.id).addClass("done");
+            if (state === "done") {
+                if (step.subrecipeId >= -1) {
+                    ingredient.state = state;
+                }
+            } else {
+                ingredient.state = state;
             }
         });
 	}
