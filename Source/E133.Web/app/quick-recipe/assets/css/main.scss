@@ -16,21 +16,23 @@
     }
 
     main {
-        padding: 10px;
-        height: calc(100% - #{$quick-recipe-header-height} - #{$quick-recipe-footer-height});
+        height: calc(100vh - #{$quick-recipe-header-height} - #{$quick-recipe-footer-height});
+        padding: 0.5rem;
+        margin-bottom: 0;
 
         .ingredients {
             position: fixed;
-            top: 50px;
             height: calc(100vh - #{$quick-recipe-header-height} - #{$quick-recipe-footer-height} - 1rem);
             overflow-y: overlay;
+            margin-top: 0;
+            margin-bottom: 0;
 
             .card-image {
                 width: inherit;
-                height: 200px;
+                height: $quick-recipe-ingredients-image-height;
                 overflow: hidden;
                 position: fixed;
-                left: 10px;
+                left: 0.5rem;
 
                 img {
                     top: -100%;
@@ -50,156 +52,131 @@
                 }
             }
             .card-content {
-                height: calc(100% - 200px);
-                width: 100%;
+                height: calc(100% - #{$quick-recipe-ingredients-image-height});
                 position: absolute;
                 bottom: 0;
                 left: 0;
                 overflow: inherit;
 
-                ul,
-                li {
-                    border: none;
-                }
-
                 .ingredient-item {
-                    .ingredient.done {
-                        text-decoration: line-through;
-                    }
-                    &.current-step {
-                        font-weight: 500;
+                    .ingredient {
+                        &.done {
+                            text-decoration: line-through;
+                        }
+                        &.current {
+                            font-weight: 600;
+                        }
                     }
                 }
             }
         }
 
-        .main {
+        .instructions {
             height: 100%;
+            overflow: hidden;
+            overflow-y: auto;
+            position: relative;
 
             .section {
                 padding: 1rem;
             }
 
-            .content {
-                overflow: hidden;
-                overflow-y: auto;
-                position: relative;
+            #recipe-content {
+                width: 100%;
 
-                #recipe-content {
-                    height: 100%;
-                    top: 0;
+                .navbar {
+                    background-color: $quick-recipe-content-color;
+                    color: black;
+                    padding: 0;
+                    top: $quick-recipe-header-height;
 
-                    .navbar {
-                        z-index: 1;
-                        position: fixed;
-                        background-color: $quick-recipe-content-color;
-                        color: black;
-                        width: 75%;
-                        top: $quick-recipe-header-height;
+                    .subrecipe-titles {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-around;
+                        flex-wrap: nowrap;
 
-                        .subrecipe-titles {
-                            display: flex;
-                            flex-direction: row;
-                            justify-content: space-around;
-                            flex-wrap: nowrap;
+                        .subrecipe-title {
+                            opacity: 0.5;
+                            flex-grow: 1;
+                            text-align: center;
+                            cursor: default;
+                            &:hover {
+                                background: none;
+                            }
+                            &.active {
+                                opacity: 1;
+                                transition: opacity 0.3s ease-in-out;
 
-                            .subrecipe-title {
-                                opacity: 0.5;
-                                flex-grow: 1;
-                                text-align: center;
-                                cursor: default;
                                 &:hover {
-                                    background: none;
-                                }
-                                &.active {
-                                    opacity: 1;
-                                    transition: opacity 0.3s ease-in-out;
-
-                                    &:hover {
-                                        background: rgba(0, 0, 0, 0.1);
-                                    }
+                                    background: rgba(0, 0, 0, 0.1);
                                 }
                             }
                         }
                     }
+                }
 
-                    .step-actions {
-                        z-index: 1;
-                        position: fixed;
-                        bottom: 50px;
-                        right: 10px;
-                    }
+                .step-actions {
+                    z-index: 1;
+                    position: fixed;
+                    bottom: calc(#{$quick-recipe-footer-height} + 10px);
+                    right: 10px;
+                }
 
-                    .step {
-                        font-size: 1em;
-                        //   font-size: 0.9em;
-                        opacity: 0.15;
-                        transition: opacity 0.2s ease-in-out, font-size 0.1s ease-in-out;
-                        padding: 50px 20px;
-                        // margin: 100px 0;
-                        display: block;
-                        position: relative;
+                .step {
+                    font-size: 1em;
+                    opacity: 0.15;
+                    transition: opacity 0.2s ease-in-out, font-size 0.1s ease-in-out;
+                    padding: 4rem 2rem;
+                    display: block;
+                    position: relative;
 
-                        p {
-                            width: 100%;
-                        }
+                    .enumeration {
+                        margin: 1rem 2rem 1rem 3rem;
 
-                        .post-step {
-                            margin: 0 0 0 2rem;
-
+                        .collection-item {
+                            [type="checkbox"] + label {
+                                margin-left: 2rem;
+                                height: 1.5rem;
+                                display: none;
+                            }
                             .emphasis {
-                                font-size: 1.4rem;
+                                font-size: 1.5em;
                             }
                         }
+                    }
+
+                    .emphasis {
+                        font-size: 2em;
+                    }
+
+                    .technical {
+                        font-size: 2em;
+                        line-height: 3rem;
+                    }
+
+                    .timer {
+                        a {
+                            font-size: 1rem;
+                        }
+                        .btn {
+                            padding: 0 1rem;
+                            margin: 0 1rem;
+                        }
+                    }
+                    &:first-of-type {
+                        margin-top: 30vh;
+                    }
+                    &:last-of-type {
+                        margin-bottom: 100%;
+                    }
+                    &.active {
+                        opacity: 1;
 
                         .enumeration {
-                            margin: 1rem 2rem 1rem 3rem;
-
                             .collection-item {
                                 [type="checkbox"] + label {
-                                    margin-left: 20px;
-                                    height: 1.5rem;
-                                    display: none;
-                                }
-                                .emphasis {
-                                    font-size: 1.5em;
-                                }
-                            }
-                        }
-
-                        .emphasis {
-                            font-size: 2em;
-                        }
-
-                        .technical {
-                            font-size: 2em;
-                            line-height: 3rem;
-                        }
-
-                        .timer {
-                            a {
-                                font-size: 1rem;
-                            }
-                            .btn {
-                                padding: 0 1rem;
-                                margin: 0 1rem;
-                            }
-                        }
-                        &:first-of-type {
-                            margin-top: 30vh;
-                        }
-                        &:last-of-type {
-                            margin-bottom: 100%;
-                        }
-                        &.active {
-                            opacity: 1;
-                            // font-size: 1em;
-
-                            .enumeration {
-                                .collection-item {
-                                    [type="checkbox"] + label {
-                                        display: inline-block;
-                                    }
+                                    display: inline-block;
                                 }
                             }
                         }
@@ -227,27 +204,23 @@
 
     @media only screen and (max-height: 640px) {
         main {
-            .main {
-                .content {
-                    #recipe-content {
-                        .step {
-                            .enumeration {
-                                margin: 1rem 0 1rem 1rem;
+            #recipe-content {
+                .step {
+                    .enumeration {
+                        margin: 1rem 0 1rem 1rem;
 
-                                .collection-item {
-                                    padding: 10px 0;
-                                    .emphasis {
-                                        font-size: 1.3em;
-                                    }
-                                }
-                            }
+                        .collection-item {
+                            padding: 10px 0;
                             .emphasis {
-                                font-size: 1.5em;
-                            }
-                            .technical {
-                                font-size: 1.5em;
+                                font-size: 1.3em;
                             }
                         }
+                    }
+                    .emphasis {
+                        font-size: 1.5em;
+                    }
+                    .technical {
+                        font-size: 1.5em;
                     }
                 }
             }

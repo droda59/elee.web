@@ -35,76 +35,76 @@
 				</div>
 			</div>
 
-			<div class="main section col s12 m9 offset-m3">
-				<div class="content">
-					<section id="presentation-section" if.bind="!isRecipeDone && !isRecipeStarted" class="au-animate section">
-						<div>
-							<h3>${recipe.title}</h3>
-							<div class="row">
-								<div>
-									<span i18n="quickRecipe.servings">Servings</span>${recipe.originalServings}
-								</div>
-							</div>
-
-							<div class="row">
-								<ul>
-									<li repeat.for="duration of recipe.durations">
-										${duration.title}: ${duration.time | durationFormat}
-									</li>
-								</ul>
-							</div>
-
-							<div class="row" if.bind="recipe.note">
-								<p><span i18n="quickRecipe.note">Note</span>${recipe.note}</p>
-							</div>
-
-							<div class="row center" show.bind="!isRecipeStarted" >
-								<a class="btn btn-large waves-effect waves-light" click.trigger="startRecipe()" i18n="quickRecipe.start">Start</a>
+			<div id="instructions" class="instructions col s12 m9 offset-m3">
+				<section id="presentation-section" if.bind="!isRecipeDone && !isRecipeStarted" class="au-animate section">
+					<div>
+						<h3>${recipe.title}</h3>
+						<div class="row">
+							<div>
+								<span i18n="quickRecipe.servings">Servings</span>${recipe.originalServings}
 							</div>
 						</div>
-					</section>
 
-					<section id="recipe-content" show.bind="isRecipeStarted && !isRecipeDone" class="au-animate">
-						<nav class="navbar z-depth-1" show.bind="isRecipeStarted">
-							<ul class="subrecipe-titles">
-								<li repeat.for="subrecipe of recipe.subrecipes" class="subrecipe-title ${$parent.activeSubrecipeId === subrecipe.id ? 'active' : ''}">
-									${subrecipe.title}
+						<div class="row">
+							<ul>
+								<li repeat.for="duration of recipe.durations">
+									${duration.title}: ${duration.time | durationFormat}
 								</li>
 							</ul>
-						</nav>
+						</div>
 
+						<div class="row" if.bind="recipe.note">
+							<p><span i18n="quickRecipe.note">Note</span>${recipe.note}</p>
+						</div>
+
+						<div class="row center" show.bind="!isRecipeStarted" >
+							<a class="btn btn-large waves-effect waves-light" click.trigger="startRecipe()" i18n="quickRecipe.start">Start</a>
+						</div>
+					</div>
+				</section>
+
+				<section id="recipe-content" show.bind="isRecipeStarted && !isRecipeDone" class="au-animate">
+					<nav class="navbar navbar-fixed col m9 z-depth-1" show.bind="isRecipeStarted">
+						<ul class="subrecipe-titles">
+							<li repeat.for="subrecipe of recipe.subrecipes" class="subrecipe-title ${$parent.activeSubrecipeId === subrecipe.id ? 'active' : ''}">
+								${subrecipe.title}
+							</li>
+						</ul>
+					</nav>
+
+					<div class="steps">
 						<quick-recipe-step repeat.for="step of recipe.steps" id="step-${$index}" step.bind="step" class="step"></quick-recipe-step>
+					</div>
 
-						<span class="step-actions" show.bind="isRecipeStarted">
-                            <btn class="current-button waves-light btn ${isCurrentStepActive ? 'disabled' : ''}" click.delegate="goToCurrentStep()">
-                                <i class="material-icons">keyboard_arrow_up</i>
-                            </btn>
-                            <btn class="complete-button waves-light btn ${isCurrentStepActive ? '' : 'disabled'}" click.delegate="completeStep()">
-                                <span if.bind="isLastStep" i18n="quickRecipe.finish">Finish</span>
-								<i if.bind="!isLastStep" class="material-icons">done</i>
-							</btn>
-						</span>
-					</section>
+					<span class="step-actions" show.bind="isRecipeStarted">
+                        <btn class="current-button waves-light btn ${isCurrentStepActive ? 'disabled' : ''}" click.delegate="goToCurrentStep()">
+                            <i class="material-icons">keyboard_arrow_up</i>
+                        </btn>
+                        <btn class="complete-button waves-light btn ${isCurrentStepActive ? '' : 'disabled'}" click.delegate="completeStep()">
+                            <span if.bind="isLastStep" i18n="quickRecipe.finish">Finish</span>
+							<i if.bind="!isLastStep" class="material-icons">done</i>
+						</btn>
+					</span>
+				</section>
 
-					<section id="comments-section" if.bind="isRecipeDone" class="section">
-						<div class="row center">
-							<hgroup>
-								<h3 i18n="quickRecipe.comments.didYouLikeExperience">DidYouLikeExperience</h3>
-								<h4 i18n="quickRecipe.comments.wedLikeYourComments">WeLikeToHear</h4>
-							</hgroup>
-							<p i18n="quickRecipe.comments.writeComments">WriteComments</p>
-						</div>
+				<section id="comments-section" if.bind="isRecipeDone" class="section">
+					<div class="row center">
+						<hgroup>
+							<h3 i18n="quickRecipe.comments.didYouLikeExperience">DidYouLikeExperience</h3>
+							<h4 i18n="quickRecipe.comments.wedLikeYourComments">WeLikeToHear</h4>
+						</hgroup>
+						<p i18n="quickRecipe.comments.writeComments">WriteComments</p>
+					</div>
 
-						<div class="row center">
-							<a href="#typeform" class="btn btn-large btn-success waves-effect waves-light" i18n="comments.sendButton">
-								Send
-								<i class="material-icons right">send</i>
-							</a>
-						</div>
+					<div class="row center">
+						<a href="#typeform" class="btn btn-large btn-success waves-effect waves-light" i18n="comments.sendButton">
+							Send
+							<i class="material-icons right">send</i>
+						</a>
+					</div>
 
-						<!-- <comments-form containerless></comments-form> -->
-					</section>
-				</div>
+					<!-- <comments-form containerless></comments-form> -->
+				</section>
 			</div>
 		</main>
 

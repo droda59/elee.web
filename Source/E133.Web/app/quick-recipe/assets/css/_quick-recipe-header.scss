@@ -1,4 +1,5 @@
 @import "variables";
+@import "../../../shared/assets/css/variables";
 
 .quick-recipe {
     header {
@@ -13,6 +14,7 @@
         }
 
         height: $quick-recipe-header-height;
+        margin-bottom: 0;
 
         nav {
             box-shadow: none;
@@ -32,7 +34,7 @@
                 line-height: inherit;
               }
             }
-            @media only screen and (max-width: 992px) {
+            @media only screen and (max-width: $tablet-max-width) {
                 a.brand-logo {
                     position: relative;
                 }
@@ -59,7 +61,7 @@
             }
 
             .dropdown-content {
-                @media only screen and (max-width: 601px) {
+                @media only screen and (max-width: $mobile-max-width) {
                   padding: 0;
                   min-width: 300px;
                   font-size: 0.8rem;
@@ -101,7 +103,7 @@
                             background-color: inherit;
                         }
                         form {
-                            @media only screen and (max-width: 601px) {
+                            @media only screen and (max-width: $mobile-max-width) {
                               line-height: 50px;
                               height: 50px;
                             }
@@ -114,7 +116,7 @@
                             line-height: inherit;
                         }
                         input {
-                          @media only screen and (max-width: 601px) {
+                          @media only screen and (max-width: $mobile-max-width) {
                             width: 90px;
                           }
                             margin: 0 10px;

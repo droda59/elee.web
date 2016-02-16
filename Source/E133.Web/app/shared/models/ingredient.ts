@@ -1,4 +1,4 @@
-import {Quantity} from "shared/models/quantity"; 
+import {Quantity} from "shared/models/quantity";
 
 export class Ingredient {
     id: number;

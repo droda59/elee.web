@@ -33,8 +33,6 @@ export class QuickRecipePage {
 	}
 
 	activate(route, routeConfig) {
-		this._scrollCoordinator.createScrollController();
-
 		if ("Notification" in window) {
 			if (Notification.permission !== "denied") {
 				Notification.requestPermission();
@@ -85,8 +83,9 @@ export class QuickRecipePage {
 	}
 
 	startRecipe(): void {
-		this.isRecipeStarted = true;
+		this._scrollCoordinator.createScrollController();
 		this._currentStepIndex = 0;
+		this.isRecipeStarted = true;
 
 		this.goToCurrentStep();
 	}

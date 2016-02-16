@@ -15,10 +15,11 @@ export class ScrollCoordinator {
 
     createScrollController(): void {
         this.destroyScrollController();
+        var instructions = document.getElementById("instructions");
 
         this._scrollController = new ScrollMagic.Controller()
 			.scrollTo(function (newPos) {
-				TweenMax.to(window, 0.5, { scrollTo: { y: newPos }});
+				TweenMax.to(instructions, 0.5, { scrollTo: { y: newPos }});
 			});
     }
 
