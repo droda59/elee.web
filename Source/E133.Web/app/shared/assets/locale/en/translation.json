@@ -11,8 +11,6 @@
         "sendButton": "Send"
     },
     "help": {
-        "previousButton": "Previous",
-        "nextButton": "Next",
         "okButton": "Understood",
         "backToCurrentStepTitle": "Back to current step",
         "backToCurrentStepDescription": "Explore the recipe, and come back easily to the current step with this button!",

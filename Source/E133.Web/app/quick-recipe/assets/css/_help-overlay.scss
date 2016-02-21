@@ -1,3 +1,5 @@
+@import "../../../shared/assets/css/variables";
+
 #help-overlay {
     .slider .slides img {
         &.x-right {
@@ -16,5 +18,29 @@
     .slider .slides li .caption.bottom {
         top: initial;
         bottom: 15%;
+    }
+
+    @media only screen and (max-width: $mobile-max-width) {
+        .slider,
+        .slides {
+            height: 100% !important;
+        }
+        .slider .slides li .caption {
+            left: 10%;
+            top: 10%;
+            width: 80%;
+        }
+        .overlay-item-back-to-current img {
+            background-image: url("/dist/quick-recipe/assets/images/helpBackToCurrentStepMobile.png") !important;
+        }
+        .overlay-item-complete-step img {
+            background-image: url("/dist/quick-recipe/assets/images/helpCompleteStepMobile.png") !important;
+        }
+        .overlay-item-timers img {
+            background-image: url("/dist/quick-recipe/assets/images/helpTimersMobile.png") !important;
+        }
+        .overlay-item-settings img {
+            background-image: url("/dist/quick-recipe/assets/images/helpSettingsMobile.png") !important;
+        }
     }
 }

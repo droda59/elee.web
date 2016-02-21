@@ -11,8 +11,6 @@
         "sendButton": "Envoyer"
     },
     "help": {
-        "previousButton": "Précédent",
-        "nextButton": "Suivant",
         "okButton": "J'ai compris",
         "backToCurrentStepTitle": "Retour à l'étape courante",
         "backToCurrentStepDescription": "Promenez-vous dans la recette, et revenez rapidement à l'étape courante avec ce bouton!",
@@ -124,7 +122,7 @@
         "nextWordConsonant": "de"
     },
     "quickRecipe": {
-        "exitConfirmation": "Êtes-vous certain de vouloir quitter?", 
+        "exitConfirmation": "Êtes-vous certain de vouloir quitter?",
         "originalRecipe": "Recette originale",
         "note": "Note : ",
         "timerTimeOfTotal": " de ",
