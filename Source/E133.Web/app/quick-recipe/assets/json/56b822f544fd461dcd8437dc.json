@@ -4,7 +4,7 @@
     "language": "fr",
     "note": "On ne reconnaît pas le goût du lait de coco dans cette recette : si on l’utilise, c’est pour rendre le pain encore plus moelleux. Une fois que la boîte de lait est ouverte, on peut congeler le reste. À défaut d’en avoir sous la main, on peut remplacer le lait de coco et le jus de lime par 125 ml (½ tasse) de crème sure.",
     "imageUrl": "http://www.ricardocuisine.com/pictures/cache/28d151fd25d9ce168e16b5ff34fddc41_w500_h675_sc.jpg",
-    "originalServings": "",
+    "originalServings": "8 à 10 portions",
     "durations": [
         {
             "title": "Préparation",
@@ -402,7 +402,7 @@
                 {
                     "type": "enumeration",
                     "ingredients": [
-						{							
+						{
 							"id": 8,
 							"subrecipeId": -1,
 							"name": "oeuf",
