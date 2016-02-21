@@ -49,8 +49,10 @@ export class Welcome {
 			{ id: "56b8280d44fd461dcd8437de", title: "Fondue chinoise au curcuma", imageUrl: "http://www.ricardocuisine.com/pictures/cache/355a4441d80e3e60bb1a883a5198d92f_w500_h675_sc.jpg" },
 			{ id: "56aee92244fd467fb1b8b6d6", title: "Jambon à l'érable et à la bière à la mijoteuse", imageUrl: "http://www.ricardocuisine.com/pictures/cache/7a44a72235792cd6a04c032c73690c60_w500_h675_sc.jpg" },
 			{ id: "56ae7a6844fd4675fc7ed17f", title: "Mijoté de veau et de patates douces à la mijoteuse", imageUrl: "http://www.ricardocuisine.com/pictures/cache/a4bc26afe45667762d10749e47572030_w500_h675_sc.jpg" },
+			{ id: "56c9ee8d44fd464bc2fb95a3", title: "Pain de viande au porc et aux pommes", imageUrl: "http://www.ricardocuisine.com/pictures/cache/d370f9299e8d9264d17134faf35dae09_w500_h675_sc.jpg" },
 			{ id: "56a6c30844fd4666d1194b76", title: "Pâté au poulet (le meilleur)", imageUrl: "http://www.ricardocuisine.com/pictures/cache/9c0f876d5ab0a106ef7152b7a63f99d4_w500_h675_sc.jpg" },
 			{ id: "56a6c2e644fd4666d1194b75", title: "Sauce à spaghetti (la meilleure)", imageUrl: "http://www.ricardocuisine.com/pictures/cache/da66d34107c17a5a480195ab6ddd5a2c_w500_h675_sc.jpg" },
+			{ id: "56c9f02944fd464bc2fb95a4", title: "Sauté de tofu aux noix de cajou", imageUrl: "http://www.ricardocuisine.com/pictures/cache/3f530cf95046381b704611ce0a10414b_w500_h675_sc.jpg" },
 			{ id: "56a6c09d44fd4666d1194b72", title: "Tofu Général Tao", imageUrl: "http://www.ricardocuisine.com/pictures/cache/21e594b4edcc407cd10ee798646a21e0_w500_h675_sc.jpg" }
 		]});
 

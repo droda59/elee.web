@@ -18,6 +18,8 @@
 
             a.brand-logo {
               position: inherit;
+              line-height: $quick-recipe-header-height;
+              height: $quick-recipe-header-height;
 
               i {
                 // Temp fix so the text flow next to the icon.
