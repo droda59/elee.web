@@ -40,3 +40,9 @@ textarea:focus:not([readonly]) {
 textarea:focus:not([readonly]) + label {
 	color: rgb(97, 162, 156);
 }
+
+@media only screen and (max-width: $mobile-max-width) {
+    .modal .modal-footer .btn-flat {
+        padding: 0 1rem;
+    }
+}

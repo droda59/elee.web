@@ -1,11 +1,11 @@
 <template>
 	<require from="shared/components/measurable-ingredient"></require>
-	
+
 	<ul class="collection enumeration">
 		<li repeat.for="ingredient of ingredients" class="collection-item">
-			<measurable-ingredient containerless ingredient.bind="ingredient"></measurable-ingredient>
 			<input type="checkbox" id="${ingredient.id}" />
 			<label for="${ingredient.id}"></label>
+			<measurable-ingredient containerless ingredient.bind="ingredient"></measurable-ingredient>
 		</li>
 	</ul>
 </template>

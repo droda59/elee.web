@@ -3,16 +3,6 @@
 
 .quick-recipe {
     header {
-        @media only screen and (min-width: 601px) {
-            nav {
-                line-height: $quick-recipe-header-height;
-            }
-
-            .navbar-fixed {
-                height: 100%;
-            }
-        }
-
         height: $quick-recipe-header-height;
         margin-bottom: 0;
 
@@ -20,6 +10,11 @@
             box-shadow: none;
             height: $quick-recipe-header-height;
             background-color: $quick-recipe-header-color;
+
+            ul a.btn-floating {
+                margin-left: 0.5rem;
+                margin-right: 0.5rem;
+            }
 
             a.brand-logo {
               position: inherit;
@@ -33,11 +28,6 @@
                 height: inherit;
                 line-height: inherit;
               }
-            }
-            @media only screen and (max-width: $tablet-max-width) {
-                a.brand-logo {
-                    position: relative;
-                }
             }
 
             .block-button {
@@ -61,11 +51,6 @@
             }
 
             .dropdown-content {
-                @media only screen and (max-width: $mobile-max-width) {
-                  padding: 0;
-                  min-width: 300px;
-                  font-size: 0.8rem;
-                }
                 display: block;
                 border: 1px solid #66676f;
                 opacity: 1;
@@ -103,10 +88,6 @@
                             background-color: inherit;
                         }
                         form {
-                            @media only screen and (max-width: $mobile-max-width) {
-                              line-height: 50px;
-                              height: 50px;
-                            }
                             line-height: 64px;
                             height: 64px;
                         }
@@ -116,9 +97,6 @@
                             line-height: inherit;
                         }
                         input {
-                          @media only screen and (max-width: $mobile-max-width) {
-                            width: 90px;
-                          }
                             margin: 0 10px;
                             width: inherit;
                             color: #26a69a;
@@ -150,24 +128,41 @@
                         p {
                             font-size: 1.2rem;
                         }
-
-                        .secondary-content {
-                            right: 0;
-
-                            a {
-                                display: inline-block;
-                                padding: 0;
-                                color: inherit;
-
-                                i {
-                                    height: inherit;
-                                    line-height: inherit;
-                                }
-                            }
-                        }
                     }
                 }
             }
+        }
+    }
+
+    @media only screen and (max-width: $mobile-max-width) {
+        header nav .dropdown-content {
+            padding: 0;
+            min-width: 300px;
+            font-size: 0.8rem;
+            width: 100%;
+            left: 0;
+            border-right: none;
+            border-left: none;
+
+            .collection .collection-item {
+                padding: 0.5rem;
+
+                form {
+                    width: 100%;
+                    line-height: 50px;
+                    height: 50px;
+
+                    input {
+                        width: 90px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: $tablet-max-width) {
+        header nav a.brand-logo {
+            position: relative;
         }
     }
 }
