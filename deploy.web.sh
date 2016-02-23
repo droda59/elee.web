@@ -71,19 +71,21 @@ fi
 echo Moving to source directory
 pushd "$DEPLOYMENT_SOURCE/Source/E133.Web"
 
-echo Installing npm packages: Starting %TIME%
-call :ExecuteCmd npm install
-echo Installing npm packages: Finished %TIME%
-IF !ERRORLEVEL! NEQ 0 goto error
+echo Installing npm packages
+npm install
+exitWithMessageOnError "npm failed"
 
-echo Installing jspm packages: Starting %TIME%
-call :ExecuteCmd jspm install
-echo Installing jspm packages: Finished %TIME%
-IF !ERRORLEVEL! NEQ 0 goto error
+echo Installing jspm packages
+npm install jspm
+exitWithMessageOnError "installing jspm failed"  
+./node_modules/.bin/jspm install  
+exitWithMessageOnError "jspm failed"
 
-echo Running Gulp: Starting %TIME%
-call :ExecuteCmd gulp export
-echo Running Gulp: Finished %TIME%
+echo Running Gulp
+npm install gulp 
+exitWithMessageOnError "installing gulp failed"  
+./node_modules/.bin/gulp export
+exitWithMessageOnError "gulp failed"  
 
 echo Moving back from source directory
 popd
