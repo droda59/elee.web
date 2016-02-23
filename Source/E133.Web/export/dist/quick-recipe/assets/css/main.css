@@ -1,0 +1,352 @@
+.quick-recipe header {
+  height: 50px;
+  margin-bottom: 0; }
+  .quick-recipe header nav {
+    box-shadow: none;
+    height: 50px;
+    background-color: #117cb2; }
+    .quick-recipe header nav ul a.btn-floating {
+      margin-left: 0.5rem;
+      margin-right: 0.5rem; }
+    .quick-recipe header nav a.brand-logo {
+      position: inherit;
+      line-height: 50px;
+      height: 50px; }
+      .quick-recipe header nav a.brand-logo i {
+        display: inline-block;
+        padding: 0 5px;
+        vertical-align: middle;
+        height: inherit;
+        line-height: inherit; }
+    .quick-recipe header nav .block-button {
+      cursor: pointer;
+      height: 50px; }
+      .quick-recipe header nav .block-button i {
+        height: 100%;
+        line-height: 50px;
+        display: inline-block; }
+      .quick-recipe header nav .block-button .badge.new {
+        position: absolute;
+        top: 10px;
+        right: 0px; }
+        .quick-recipe header nav .block-button .badge.new:after {
+          content: "\00a0"; }
+    .quick-recipe header nav .dropdown-content {
+      display: block;
+      border: 1px solid #66676f;
+      opacity: 1;
+      min-width: 400px;
+      right: -1px;
+      top: calc(50px - 1px);
+      padding: 10px; }
+      .quick-recipe header nav .dropdown-content .collection {
+        border: none;
+        margin: 0; }
+        .quick-recipe header nav .dropdown-content .collection .collection-item {
+          padding: 10px 0;
+          min-height: inherit; }
+          .quick-recipe header nav .dropdown-content .collection .collection-item .add-timer {
+            width: 100%;
+            line-height: inherit;
+            height: inherit;
+            padding: 0 10px; }
+            .quick-recipe header nav .dropdown-content .collection .collection-item .add-timer i {
+              height: inherit;
+              line-height: inherit; }
+            .quick-recipe header nav .dropdown-content .collection .collection-item .add-timer .title {
+              font-size: 1rem;
+              padding: 14px 16px;
+              display: inline-block; }
+          .quick-recipe header nav .dropdown-content .collection .collection-item .add-timer:hover {
+            background-color: inherit; }
+          .quick-recipe header nav .dropdown-content .collection .collection-item form {
+            line-height: 64px;
+            height: 64px; }
+          .quick-recipe header nav .dropdown-content .collection .collection-item button i,
+          .quick-recipe header nav .dropdown-content .collection .collection-item a i {
+            height: inherit;
+            line-height: inherit; }
+          .quick-recipe header nav .dropdown-content .collection .collection-item input {
+            margin: 0 10px;
+            width: inherit;
+            color: #26a69a;
+            border-bottom-color: transparent;
+            vertical-align: top;
+            height: inherit; }
+            .quick-recipe header nav .dropdown-content .collection .collection-item input:focus {
+              border-bottom-color: #26a69a; }
+            .quick-recipe header nav .dropdown-content .collection .collection-item input.valid {
+              border-bottom-color: transparent;
+              box-shadow: none; }
+              .quick-recipe header nav .dropdown-content .collection .collection-item input.valid:focus {
+                border-bottom-color: #26a69a;
+                box-shadow: 0 1px 0 0 #4CAF50; }
+            .quick-recipe header nav .dropdown-content .collection .collection-item input.invalid {
+              color: #F44336; }
+              .quick-recipe header nav .dropdown-content .collection .collection-item input.invalid:focus {
+                border-bottom-color: #F44336; }
+          .quick-recipe header nav .dropdown-content .collection .collection-item p {
+            font-size: 1.2rem; }
+
+@media only screen and (max-width: 600px) {
+  .quick-recipe header nav .dropdown-content {
+    padding: 0;
+    min-width: 300px;
+    font-size: 0.8rem;
+    width: 100%;
+    left: 0;
+    border-right: none;
+    border-left: none; }
+    .quick-recipe header nav .dropdown-content .collection .collection-item {
+      padding: 0.5rem; }
+      .quick-recipe header nav .dropdown-content .collection .collection-item form {
+        width: 100%;
+        line-height: 50px;
+        height: 50px; }
+        .quick-recipe header nav .dropdown-content .collection .collection-item form input {
+          width: 90px; } }
+
+@media only screen and (max-width: 992px) {
+  .quick-recipe header nav a.brand-logo {
+    position: relative; } }
+
+.quick-recipe footer {
+  background-color: #117cb2;
+  height: 42px; }
+
+#help-overlay .slider .slides img.x-right {
+  background-position-x: right; }
+
+#help-overlay .slider .slides img.x-left {
+  background-position-x: left; }
+
+#help-overlay .slider .slides img.y-bottom {
+  background-position-y: bottom; }
+
+#help-overlay .slider .slides img.y-top {
+  background-position-y: top; }
+
+#help-overlay .slider .slides li .caption.bottom {
+  top: initial;
+  bottom: 15%; }
+
+@media only screen and (max-width: 600px) {
+  #help-overlay .slider,
+  #help-overlay .slides {
+    height: 100% !important; }
+  #help-overlay .slider .slides li .caption {
+    left: 10%;
+    top: 10%;
+    width: 80%; }
+  #help-overlay .overlay-item-back-to-current img {
+    background-image: url("/dist/quick-recipe/assets/images/helpBackToCurrentStepMobile.png") !important; }
+  #help-overlay .overlay-item-complete-step img {
+    background-image: url("/dist/quick-recipe/assets/images/helpCompleteStepMobile.png") !important; }
+  #help-overlay .overlay-item-timers img {
+    background-image: url("/dist/quick-recipe/assets/images/helpTimersMobile.png") !important; }
+  #help-overlay .overlay-item-settings img {
+    background-image: url("/dist/quick-recipe/assets/images/helpSettingsMobile.png") !important; } }
+
+.quick-recipe .active-timer.au-enter-active {
+  -webkit-animation: fadeIn 0.5s ease-in-out, backgroundHighlight 2s ease-in-out;
+  -moz-animation: fadeIn 0.5s ease-in-out, backgroundHighlight 2s ease-in-out;
+  animation: fadeIn 0.5s ease-in-out, backgroundHighlight 2s ease-in-out; }
+
+.quick-recipe .active-timer.au-leave-active {
+  -webkit-animation: fadeIn 0.5s ease-in-out reverse;
+  -moz-animation: fadeIn 0.5s ease-in-out reverse;
+  animation: fadeIn 0.5s ease-in-out reverse; }
+
+.quick-recipe .dropdown-content.au-enter-active {
+  -webkit-animation: fadeIn 0.2s ease-in-out;
+  -moz-animation: fadeIn 0.2s ease-in-out;
+  animation: fadeIn 0.2s ease-in-out; }
+
+.quick-recipe .dropdown-content.au-leave-active {
+  -webkit-animation: fadeIn 0.2s ease-in-out reverse;
+  -moz-animation: fadeIn 0.2s ease-in-out reverse;
+  animation: fadeIn 0.2s ease-in-out reverse; }
+
+.quick-recipe #presentation-section.au-leave-active {
+  -webkit-animation: fadeIn 0.5s ease-in-out reverse;
+  -moz-animation: fadeIn 0.5s ease-in-out reverse;
+  animation: fadeIn 0.5s ease-in-out reverse; }
+
+.quick-recipe #recipe-content.au-enter-active {
+  -webkit-animation: fadeIn 0.5s ease-in-out;
+  -moz-animation: fadeIn 0.5s ease-in-out;
+  animation: fadeIn 0.5s ease-in-out; }
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@-webkit-keyframes backgroundHighlight {
+  0% {
+    background-color: rgba(226, 225, 221, 0.3); }
+  100% {
+    background-color: rgba(29, 30, 34, 0.1); } }
+
+@-moz-keyframes backgroundHighlight {
+  0% {
+    background-color: rgba(226, 225, 221, 0.3); }
+  100% {
+    background-color: rgba(29, 30, 34, 0.1); } }
+
+@keyframes backgroundHighlight {
+  0% {
+    background-color: rgba(226, 225, 221, 0.3); }
+  100% {
+    background-color: rgba(29, 30, 34, 0.1); } }
+
+.quick-recipe .btn {
+  background-color: #ffaf4b; }
+  .quick-recipe .btn:hover {
+    background-color: #b27223; }
+
+.quick-recipe main {
+  height: calc(100vh - 50px - 42px);
+  padding: 0.5rem;
+  margin-bottom: 0; }
+  .quick-recipe main #ingredients {
+    position: fixed;
+    height: calc(100vh - 50px - 42px - 1rem);
+    overflow-y: overlay;
+    margin-top: 0;
+    margin-bottom: 0; }
+    .quick-recipe main #ingredients .card-image {
+      width: inherit;
+      height: 200px;
+      overflow: hidden;
+      position: fixed;
+      left: 0.5rem; }
+      .quick-recipe main #ingredients .card-image img {
+        top: -100%;
+        filter: blur(5px);
+        -moz-filter: blur(5px);
+        -o-filter: blur(5px);
+        -ms-filter: blur(5px);
+        -webkit-filter: blur(1px); }
+      .quick-recipe main #ingredients .card-image .after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4); }
+    .quick-recipe main #ingredients .card-content {
+      height: calc(100% - 200px);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      overflow: inherit;
+      width: 100%; }
+      .quick-recipe main #ingredients .card-content .ingredient-item.done {
+        text-decoration: line-through;
+        opacity: 0.6; }
+      .quick-recipe main #ingredients .card-content .ingredient-item.current {
+        font-weight: 600; }
+  .quick-recipe main #instructions {
+    height: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+    position: relative; }
+    .quick-recipe main #instructions .section {
+      padding: 1rem; }
+    .quick-recipe main #instructions #recipe-content {
+      width: 100%; }
+      .quick-recipe main #instructions #recipe-content .navbar {
+        background-color: #c6ecff;
+        color: black;
+        padding: 0;
+        position: fixed;
+        z-index: 1;
+        top: 50px; }
+        .quick-recipe main #instructions #recipe-content .navbar .subrecipe-titles {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          flex-wrap: nowrap; }
+          .quick-recipe main #instructions #recipe-content .navbar .subrecipe-titles .subrecipe-title {
+            opacity: 0.5;
+            flex-grow: 1;
+            text-align: center;
+            cursor: default; }
+            .quick-recipe main #instructions #recipe-content .navbar .subrecipe-titles .subrecipe-title:hover {
+              background: none; }
+            .quick-recipe main #instructions #recipe-content .navbar .subrecipe-titles .subrecipe-title.active {
+              opacity: 1;
+              transition: opacity 0.3s ease-in-out; }
+              .quick-recipe main #instructions #recipe-content .navbar .subrecipe-titles .subrecipe-title.active:hover {
+                background: rgba(0, 0, 0, 0.1); }
+      .quick-recipe main #instructions #recipe-content .step-actions {
+        z-index: 1;
+        position: fixed;
+        bottom: calc(42px + 10px);
+        right: 10px; }
+      .quick-recipe main #instructions #recipe-content .step {
+        font-size: 1em;
+        opacity: 0.15;
+        transition: opacity 0.2s ease-in-out, font-size 0.1s ease-in-out;
+        padding: 4rem 2rem;
+        display: block;
+        position: relative; }
+        .quick-recipe main #instructions #recipe-content .step .enumeration {
+          margin: 1rem 2rem 1rem 3rem; }
+          .quick-recipe main #instructions #recipe-content .step .enumeration .collection-item [type="checkbox"] + label {
+            height: 1.5rem;
+            display: none; }
+          .quick-recipe main #instructions #recipe-content .step .enumeration .collection-item .emphasis {
+            font-size: 1.5em; }
+        .quick-recipe main #instructions #recipe-content .step .emphasis {
+          font-size: 2em; }
+        .quick-recipe main #instructions #recipe-content .step .technical {
+          font-size: 2em;
+          line-height: 3rem; }
+        .quick-recipe main #instructions #recipe-content .step .timer a {
+          font-size: 1rem; }
+        .quick-recipe main #instructions #recipe-content .step .timer .btn {
+          padding: 0 1rem;
+          margin: 0 1rem; }
+        .quick-recipe main #instructions #recipe-content .step:first-of-type {
+          margin-top: 30vh; }
+        .quick-recipe main #instructions #recipe-content .step:last-of-type {
+          margin-bottom: 100%; }
+        .quick-recipe main #instructions #recipe-content .step.active {
+          opacity: 1; }
+          .quick-recipe main #instructions #recipe-content .step.active .enumeration .collection-item [type="checkbox"] + label {
+            display: inline-block; }
+
+@media only screen and (max-width: 600px) {
+  .quick-recipe main {
+    padding: 0; }
+    .quick-recipe main #instructions #recipe-content {
+      width: 100%; }
+      .quick-recipe main #instructions #recipe-content .navbar {
+        left: 0; }
+      .quick-recipe main #instructions #recipe-content .step {
+        padding: 4rem 1rem; }
+        .quick-recipe main #instructions #recipe-content .step .enumeration {
+          margin: 1rem 0 1rem 1rem; }
+          .quick-recipe main #instructions #recipe-content .step .enumeration .collection-item {
+            padding: 10px 0; }
+            .quick-recipe main #instructions #recipe-content .step .enumeration .collection-item .emphasis {
+              font-size: 1.3em; }
+        .quick-recipe main #instructions #recipe-content .step .emphasis {
+          font-size: 1.5em; }
+        .quick-recipe main #instructions #recipe-content .step .technical {
+          font-size: 1.5em; } }

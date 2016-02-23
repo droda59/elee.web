@@ -1,0 +1,718 @@
+{
+    "title": "Boeuf Stroganov en mijoteuse",
+    "originalUrl": "http://www.ricardocuisine.com/recettes/5839-boeuf-stroganov-en-mijoteuse",
+    "language": "fr",
+    "note": "Vous pouvez conserver le bœuf Stroganov quelques heures grâce à la fonction « Warm » de la mijoteuse sans que le goût, la texture ou l’apparence du plat soient modifiés. Si vous prévoyez faire des lunchs avec les restes de bœuf Stroganov, ajoutez le yogourt seulement à la portion que vous mangez lors du repas. Le lendemain, réchauffez la viande et ajoutez le yogourt nature au dernier moment pour éviter que la sauce ne se sépare. Cette recette est tirée du livre de Ricardo « La Mijoteuse - de la lasagne à la crème brûlée»",
+    "imageUrl": "http://www.ricardocuisine.com/pictures/cache/e16d13338d7a9873d35aff7103a03908_w500_h675_sc.jpg",
+    "originalServings": "4",
+    "durations": [
+        {
+            "title": "Préparation",
+            "time": "PT30M"
+        },
+        {
+            "title": "Cuisson",
+            "time": "PT4H"
+        }
+    ],
+    "subrecipes": [
+        {
+            "id": -2,
+            "title": "Requis"
+        },
+        {
+            "id": -1,
+            "title": "Préparation"
+        }
+    ],
+    "ingredients": [
+        {
+            "id": 0,
+            "subrecipeId": -1,
+            "name": "farine tout usage",
+            "quantity": {
+                "value": 45,
+                "unit": "ml"
+            }
+        },
+        {
+            "id": 1,
+            "subrecipeId": -1,
+            "name": "surlonge de boeuf",
+            "quantity": {
+                "value": 675,
+                "unit": "g"
+            },
+            "requirements": "coupée en lanières"
+        },
+        {
+            "id": 2,
+            "subrecipeId": -1,
+            "name": "huile",
+            "quantity": {
+                "value": 45,
+                "unit": "ml"
+            }
+        },
+        {
+            "id": 3,
+            "subrecipeId": -1,
+            "name": "oignons",
+            "quantity": {
+                "value": 2,
+                "unit": "unit"
+            },
+            "requirements": "émincés"
+        },
+        {
+            "id": 4,
+            "subrecipeId": -1,
+            "name": "champignons blancs",
+            "quantity": {
+                "value": 454,
+                "unit": "g"
+            },
+            "requirements": "tranchés"
+        },
+        {
+            "id": 5,
+            "subrecipeId": -1,
+            "name": "beurre",
+            "quantity": {
+                "value": 45,
+                "unit": "ml"
+            }
+        },
+        {
+            "id": 6,
+            "subrecipeId": -1,
+            "name": "gousses d'ail",
+            "quantity": {
+                "value": 3,
+                "unit": "unit"
+            },
+            "requirements": "hachées"
+        },
+        {
+            "id": 7,
+            "subrecipeId": -1,
+            "name": "vin rouge",
+            "quantity": {
+                "value": 125,
+                "unit": "ml"
+            }
+        },
+        {
+            "id": 8,
+            "subrecipeId": -1,
+            "name": "bouillon de boeuf",
+            "quantity": {
+                "value": 250,
+                "unit": "ml"
+            }
+        },
+        {
+            "id": 9,
+            "subrecipeId": -1,
+            "name": "moutarde à l’ancienne",
+            "quantity": {
+                "value": 15,
+                "unit": "ml"
+            }
+        },
+        {
+            "id": 10,
+            "subrecipeId": -1,
+            "name": "paprika",
+            "quantity": {
+                "value": 2.5,
+                "unit": "ml"
+            }
+        },
+        {
+            "id": 11,
+            "subrecipeId": -1,
+            "name": "yogourt nature 10 %",
+            "quantity": {
+                "value": 180,
+                "unit": "ml"
+            }
+        },
+        {
+            "id": 12,
+            "subrecipeId": -1,
+            "name": "persil plat",
+            "quantity": {
+                "value": 0,
+                "unit": "unit"
+            },
+            "requirements": "ciselé au goût"
+        },
+        {
+            "id": 13,
+            "subrecipeId": -1,
+            "name": "ciboulette fraîche",
+            "quantity": {
+                "value": 0,
+                "unit": "unit"
+            },
+            "requirements": "ciselée au goût"
+        },
+        {
+            "id": 14,
+            "subrecipeId": -1,
+            "name": "sel et poivre",
+            "quantity": {
+                "value": 0,
+                "unit": "unit"
+            }
+        }
+    ],
+    "steps": [
+        {
+            "subrecipeId": -2,
+            "parts": [
+                {
+                    "type": "text",
+                    "value": "Préparation: "
+                },
+                {
+                    "type": "action",
+                    "value": "couper en lanières"
+                },
+                {
+                    "type": "ingredient",
+                    "ingredient": {
+                        "id": 1,
+                        "subrecipeId": -1,
+                        "name": "surlonge de boeuf",
+                        "quantity": {
+                            "value": 675,
+                            "unit": "g"
+                        },
+                        "requirements": "coupée en lanières"
+                    }
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -2,
+            "parts": [
+                {
+                    "type": "text",
+                    "value": "Préparation: "
+                },
+                {
+                    "type": "action",
+                    "value": "émincer"
+                },
+                {
+                    "type": "ingredient",
+                    "ingredient": {
+                        "id": 3,
+                        "subrecipeId": -1,
+                        "name": "oignons",
+                        "quantity": {
+                            "value": 2,
+                            "unit": "unit"
+                        },
+                        "requirements": "émincés"
+                    }
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -2,
+            "parts": [
+                {
+                    "type": "text",
+                    "value": "Préparation: "
+                },
+                {
+                    "type": "action",
+                    "value": "trancher"
+                },
+                {
+                    "type": "ingredient",
+                    "ingredient": {
+                        "id": 4,
+                        "subrecipeId": -1,
+                        "name": "champignons blancs",
+                        "quantity": {
+                            "value": 454,
+                            "unit": "g"
+                        },
+                        "requirements": "tranchés"
+                    }
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -2,
+            "parts": [
+                {
+                    "type": "text",
+                    "value": "Préparation: "
+                },
+                {
+                    "type": "action",
+                    "value": "hacher"
+                },
+                {
+                    "type": "ingredient",
+                    "ingredient": {
+                        "id": 6,
+                        "subrecipeId": -1,
+                        "name": "gousses d'ail",
+                        "quantity": {
+                            "value": 3,
+                            "unit": "unit"
+                        },
+                        "requirements": "hachées"
+                    }
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -2,
+            "parts": [
+                {
+                    "type": "text",
+                    "value": "Préparation: "
+                },
+                {
+                    "type": "action",
+                    "value": "ciseler au goût"
+                },
+                {
+                    "type": "ingredient",
+                    "ingredient": {
+                        "id": 12,
+                        "subrecipeId": -1,
+                        "name": "Persil plat",
+                        "quantity": {
+                            "value": 0,
+                            "unit": "unit"
+                        },
+                        "requirements": "ciselé au goût"
+                    }
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -2,
+            "parts": [
+                {
+                    "type": "text",
+                    "value": "Préparation: "
+                },
+                {
+                    "type": "action",
+                    "value": "ciseler au goût"
+                },
+                {
+                    "type": "ingredient",
+                    "ingredient": {
+                        "id": 13,
+                        "subrecipeId": -1,
+                        "name": "Ciboulette fraîche",
+                        "quantity": {
+                            "value": 0,
+                            "unit": "unit"
+                        },
+                        "requirements": "ciselée au goût"
+                    }
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "text",
+                    "value": "Dans un bol, fariner"
+                },
+                {
+                	"type": "ingredient",
+                	"ingredient": {
+						"id": 1,
+						"subrecipeId": -1,
+						"name": "surlonge de boeuf",
+						"quantity": {
+							"value": 675,
+							"unit": "g"
+						},
+						"requirements": "coupée en lanières"
+					}
+            	}
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "text",
+                    "value": "Dans une grande poêle à feu vif,"
+                },
+                {
+                    "type": "action",
+                    "value": "dorer"
+                },
+                {
+                	"type": "ingredient",
+                	"ingredient": {
+						"id": 1,
+						"subrecipeId": -1,
+						"name": "surlonge de boeuf",
+						"quantity": {
+							"value": 675,
+							"unit": "g"
+						},
+						"requirements": "coupée en lanières"
+					}
+            	},
+                {
+                    "type": "text",
+                    "value": ", une petite quantité à la fois, dans"
+                },
+                {
+                	"type": "ingredient",
+                	"ingredient": {
+						"id": 2,
+						"subrecipeId": -1,
+						"name": "huile",
+						"quantity": {
+							"value": 45,
+							"unit": "ml"
+						}
+            		}
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "action",
+                    "value": "Saler"
+                },
+                {
+                    "type": "text",
+                    "value": "et"
+                },
+                {
+                    "type": "action",
+                    "value": "poivrer"
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "text",
+                    "value": "Transvider la viande dans la mijoteuse au fur et à mesure"
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "text",
+                    "value": "Dans la même poêle,"
+                },
+                {
+                    "type": "action",
+                    "value": "dorer"
+                },
+                {
+                    "type": "enumeration",
+                    "ingredients": [
+                        {
+                            "id": 3,
+                            "subrecipeId": -1,
+                            "name": "oignons",
+                            "quantity": {
+                                "value": 2,
+                                "unit": "unit"
+                            },
+                            "requirements": "émincés"
+                        },
+                        {
+                            "id": 4,
+                            "subrecipeId": -1,
+                            "name": "champignons blancs",
+                            "quantity": {
+                                "value": 454,
+                                "unit": "g"
+                            },
+                            "requirements": "tranchés"
+                        }
+                    ]
+                },
+                {
+                    "type": "text",
+                    "value": "dans"
+                },
+                {
+                    "type": "ingredient",
+                    "ingredient": {
+                        "id": 5,
+                        "subrecipeId": -1,
+                        "name": "beurre",
+                        "quantity": {
+                            "value": 45,
+                            "unit": "ml"
+                        }
+                    }
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "action",
+                    "value": "Saler"
+                },
+                {
+                    "type": "text",
+                    "value": "et"
+                },
+                {
+                    "type": "action",
+                    "value": "poivrer"
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "action",
+                    "value": "Ajouter"
+                },
+                {
+                	"type": "ingredient",
+                	"ingredient": {
+						"id": 6,
+						"subrecipeId": -1,
+						"name": "gousses d'ail",
+						"quantity": {
+							"value": 3,
+							"unit": "unit"
+						},
+						"requirements": "hachées"
+            		}
+                },
+                {
+                    "type": "text",
+                    "value": "et"
+                },
+                {
+                    "type": "action",
+                    "value": "poursuivre"
+                },
+                {
+                    "type": "text",
+                    "value": "la cuisson"
+                },
+                {
+                    "type": "timer",
+                    "value": "PT1M",
+                    "text": "1 minute",
+                    "action": "poursuivre"
+                }
+            ],
+            "postSteps": []
+        },
+		{
+			"subrecipeId": -1,
+			"parts": [
+				{
+					"type": "text",
+					"value": "Déglacer avec"
+				},
+				{
+					"type": "ingredient",
+					"ingredient": {
+						"id": 7,
+						"subrecipeId": -1,
+						"name": "vin rouge",
+						"quantity": {
+							"value": 125,
+							"unit": "ml"
+						}
+					}
+				},
+				{
+					"type": "text",
+					"value": "transvider dans la mijoteuse"
+				}
+			],
+			"postSteps": []
+		},
+		{
+			"subrecipeId": -1,
+			"parts": [
+				{
+					"type": "action",
+					"value": "Ajouter"
+				},
+				{
+					"type": "enumeration",
+					"ingredients": [
+						{
+							"id": 8,
+							"subrecipeId": -1,
+							"name": "bouillon de boeuf",
+							"quantity": {
+								"value": 250,
+								"unit": "ml"
+							}
+						},
+						{
+							"id": 9,
+							"subrecipeId": -1,
+							"name": "moutarde à l’ancienne",
+							"quantity": {
+								"value": 15,
+								"unit": "ml"
+							}
+						},
+						{
+							"id": 10,
+							"subrecipeId": -1,
+							"name": "paprika",
+							"quantity": {
+								"value": 2.5,
+								"unit": "ml"
+							}
+						}
+					]
+				}
+			],
+			"postSteps": []
+		},
+		{
+			"subrecipeId": -1,
+			"parts": [
+				{
+					"type": "text",
+					"value": "Bien"
+				},
+				{
+					"type": "action",
+					"value": "mélanger"
+				}
+			],
+			"postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "action",
+                    "value": "Couvrir"
+                },
+                {
+                    "type": "text",
+                    "value": "et"
+                },
+                {
+                    "type": "action",
+                    "value": "cuire"
+                },
+                {
+                    "type": "text",
+                    "value": "à basse température (Low)"
+                },
+                {
+                    "type": "timer",
+                    "value": "PT4H",
+                    "text": "4 heures",
+                    "action": "cuire"
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "text",
+                    "value": "Au moment de"
+                },
+                {
+                    "type": "action",
+                    "value": "servir"
+                },
+                {
+                    "type": "text",
+                    "value": ","
+                },
+                {
+                    "type": "action",
+                    "value": "ajouter"
+                },
+                {
+                    "type": "ingredient",
+                    "ingredient": {
+                        "id": 11,
+                        "subrecipeId": -1,
+                        "name": "yogourt nature 10 %",
+                        "quantity": {
+                            "value": 180,
+                            "unit": "ml"
+                        }
+                    }
+                },
+                {
+                    "type": "action",
+                    "value": "rectifier"
+                },
+                {
+                    "type": "text",
+                    "value": "l’assaisonnement"
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "action",
+                    "value": "Déposer"
+                },
+                {
+                    "type": "text",
+                    "value": "sur des nouilles aux oeufs et"
+                },
+                {
+                    "type": "action",
+                    "value": "parsemer"
+                },
+                {
+                    "type": "text",
+                    "value": "d’herbes"
+                }
+            ],
+            "postSteps": []
+        }
+    ],
+    "id": "56ae7a2a44fd4675fc7ed17e"
+}

@@ -1,0 +1,102 @@
+#welcome-container nav {
+  background-color: transparent;
+  position: absolute;
+  z-index: 999;
+  height: 80px;
+  line-height: 80px; }
+  #welcome-container nav .brand-logo {
+    height: 100%;
+    display: inline-flex; }
+
+#welcome-container .btn {
+  border-radius: 0;
+  border: 2px white solid;
+  background-color: transparent; }
+
+#welcome-container .container {
+  width: 90%; }
+
+#welcome-container .underline-title {
+  margin: 50px auto; }
+  #welcome-container .underline-title .title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 50px auto 0; }
+  #welcome-container .underline-title .title + hr {
+    width: 10%;
+    margin: 20px auto 0;
+    border: none;
+    background-color: black;
+    height: 3px; }
+  #welcome-container .underline-title .title + hr {
+    width: 10%; }
+
+#welcome-container #search-container {
+  background-image: url("/dist/welcome/assets/images/teaser_bg.jpg");
+  background-size: cover;
+  height: 500px;
+  position: relative; }
+  #welcome-container #search-container .recipe-search {
+    padding: 3rem 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0; }
+    #welcome-container #search-container .recipe-search .caret {
+      display: none; }
+    #welcome-container #search-container .recipe-search .input-field i {
+      top: 12px;
+      left: 20px;
+      position: absolute;
+      color: white; }
+    #welcome-container #search-container .recipe-search input.select-dropdown {
+      text-align: center;
+      text-transform: uppercase;
+      background-color: rgba(255, 255, 255, 0.25);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+      padding: 4px 0; }
+
+#welcome-container #description-container {
+  padding: 3rem 2rem;
+  background: #efefef; }
+
+#welcome-container #how-it-works-container {
+  padding: 3rem 0; }
+
+#welcome-container #features-container {
+  padding: 5rem 3rem 4rem;
+  background: #efefef;
+  color: #2d2d2d; }
+  #welcome-container #features-container .icon {
+    color: #8cbeb2;
+    font-size: 5rem; }
+  #welcome-container #features-container .promo-caption {
+    font-weight: 600;
+    font-size: 1.2rem; }
+  #welcome-container #features-container .light {
+    color: #707070; }
+
+#welcome-container #moar-to-come-container {
+  background: white;
+  color: #2d2d2d; }
+  #welcome-container #moar-to-come-container .description {
+    position: relative; }
+    #welcome-container #moar-to-come-container .description .image {
+      height: 100%;
+      position: absolute; }
+      #welcome-container #moar-to-come-container .description .image img {
+        height: 100%; }
+  #welcome-container #moar-to-come-container .light {
+    color: #707070; }
+
+@media only screen and (max-width: 600px) {
+  #welcome-container .container {
+    width: 80%; }
+  #welcome-container .underline-title {
+    margin: 20px auto; }
+    #welcome-container .underline-title .title + hr {
+      width: 50%; } }
+
+@media only screen and (max-width: 992px) {
+  #welcome-container .promo p {
+    line-height: 1.5rem; } }

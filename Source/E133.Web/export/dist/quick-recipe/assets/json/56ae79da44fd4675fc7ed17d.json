@@ -1,0 +1,414 @@
+{
+  "title": "Effiloché de porc barbecue (pulled pork)",
+  "originalUrl": "http://www.ricardocuisine.com/recettes/6642-effiloche-de-porc-barbecue--i-pulled-pork-i-",
+  "language": "fr",
+  "note": "",
+  "imageUrl": "http://www.ricardocuisine.com/pictures/cache/7e4648c06303e58834301a5f9180390a_w500_h675_sc.jpg",
+  "originalServings": "8",
+  "durations": [
+    {
+      "title": "Préparation",
+      "time": "PT15M"
+    },
+    {
+      "title": "Cuisson",
+      "time": "PT8H"
+    }
+  ],
+  "subrecipes": [
+    {
+      "id": 0,
+      "title": "Sauce barbecue"
+    },
+    {
+      "id": 1,
+      "title": "Rôti"
+    }
+  ],
+  "ingredients": [
+    {
+      "id": 0,
+      "subrecipeId": 0,
+      "name": "ketchup",
+      "quantity": {
+        "value": 250,
+        "unit": "ml"
+      }
+    },
+    {
+      "id": 1,
+      "subrecipeId": 0,
+      "name": "vinaigre de cidre",
+      "quantity": {
+        "value": 125,
+        "unit": "ml"
+      }
+    },
+    {
+      "id": 2,
+      "subrecipeId": 0,
+      "name": "gelée de pommes",
+      "quantity": {
+        "value": 125,
+        "unit": "ml"
+      }
+    },
+    {
+      "id": 3,
+      "subrecipeId": 0,
+      "name": "moutarde de Dijon",
+      "quantity": {
+        "value": 30,
+        "unit": "ml"
+      }
+    },
+    {
+      "id": 4,
+      "subrecipeId": 0,
+      "name": "mélasse",
+      "quantity": {
+        "value": 30,
+        "unit": "ml"
+      }
+    },
+    {
+      "id": 5,
+      "subrecipeId": 0,
+      "name": "sauce Worcestershire",
+      "quantity": {
+        "value": 30,
+        "unit": "ml"
+      }
+    },
+    {
+      "id": 6,
+      "subrecipeId": 0,
+      "name": "poudre de chili",
+      "quantity": {
+        "value": 30,
+        "unit": "ml"
+      }
+    },
+    {
+      "id": 7,
+      "subrecipeId": 0,
+      "name": "poudre d’oignon",
+      "quantity": {
+        "value": 10,
+        "unit": "ml"
+      }
+    },
+    {
+      "id": 8,
+      "subrecipeId": 0,
+      "name": "Tabasco",
+      "quantity": {
+        "value": 5,
+        "unit": "ml"
+      }
+    },
+    {
+      "id": 9,
+      "subrecipeId": 0,
+      "name": "poudre d’ail",
+      "quantity": {
+        "value": 2.5,
+        "unit": "ml"
+      }
+    },
+    {
+      "id": 10,
+      "subrecipeId": 1,
+      "name": "rôti d’épaule de porc",
+      "quantity": {
+        "value": 1.8,
+        "unit": "kg"
+      }
+    },
+    {
+      "id": 11,
+      "subrecipeId": 1,
+      "name": "Sel et poivre",
+      "quantity": {
+        "value": 0,
+        "unit": "unit"
+      }
+    }
+  ],
+  "steps": [
+    {
+      "subrecipeId": 0,
+      "parts": [
+        {
+          "type": "text",
+          "value": "Dans la mijoteuse,"
+        },
+        {
+          "type": "action",
+          "value": "mélanger"
+        },
+        {
+          "type": "enumeration",
+          "ingredients": [
+			{
+			  "id": 0,
+			  "subrecipeId": 0,
+			  "name": "ketchup",
+			  "quantity": {
+				"value": 250,
+				"unit": "ml"
+			  }
+			},
+			{
+			  "id": 1,
+			  "subrecipeId": 0,
+			  "name": "vinaigre de cidre",
+			  "quantity": {
+				"value": 125,
+				"unit": "ml"
+			  }
+			},
+			{
+			  "id": 2,
+			  "subrecipeId": 0,
+			  "name": "gelée de pommes",
+			  "quantity": {
+				"value": 125,
+				"unit": "ml"
+			  }
+			},
+			{
+			  "id": 3,
+			  "subrecipeId": 0,
+			  "name": "moutarde de Dijon",
+			  "quantity": {
+				"value": 30,
+				"unit": "ml"
+			  }
+			},
+			{
+			  "id": 4,
+			  "subrecipeId": 0,
+			  "name": "mélasse",
+			  "quantity": {
+				"value": 30,
+				"unit": "ml"
+			  }
+			},
+			{
+			  "id": 5,
+			  "subrecipeId": 0,
+			  "name": "sauce Worcestershire",
+			  "quantity": {
+				"value": 30,
+				"unit": "ml"
+			  }
+			},
+			{
+			  "id": 6,
+			  "subrecipeId": 0,
+			  "name": "poudre de chili",
+			  "quantity": {
+				"value": 30,
+				"unit": "ml"
+			  }
+			},
+			{
+			  "id": 7,
+			  "subrecipeId": 0,
+			  "name": "poudre d’oignon",
+			  "quantity": {
+				"value": 10,
+				"unit": "ml"
+			  }
+			},
+			{
+			  "id": 8,
+			  "subrecipeId": 0,
+			  "name": "Tabasco",
+			  "quantity": {
+				"value": 5,
+				"unit": "ml"
+			  }
+			},
+			{
+			  "id": 9,
+			  "subrecipeId": 0,
+			  "name": "poudre d’ail",
+			  "quantity": {
+				"value": 2.5,
+				"unit": "ml"
+			  }
+			}
+          ]
+        }
+      ],
+      "postSteps": []
+    },
+    {
+      "subrecipeId": 1,
+      "parts": [
+        {
+          "type": "action",
+          "value": "Ajouter"
+        },
+        {
+        	"type": "ingredient",
+        	"ingredient": {
+              "id": 10,
+              "subrecipeId": 1,
+              "name": "rôti d’épaule de porc",
+              "quantity": {
+                "value": 1.8,
+                "unit": "kg"
+              }
+			}
+		},
+        {
+          "type": "text",
+          "value": "et bien l’"
+        },
+        {
+          "type": "action",
+          "value": "enrober"
+        },
+        {
+          "type": "text",
+          "value": "de la sauce"
+        }
+      ],
+      "postSteps": []
+    },
+    {
+      "subrecipeId": 1,
+      "parts": [
+        {
+          "type": "action",
+          "value": "Saler"
+        },
+        {
+          "type": "text",
+          "value": "et"
+        },
+        {
+          "type": "action",
+          "value": "poivrer"
+        }
+      ],
+      "postSteps": []
+    },
+    {
+      "subrecipeId": 1,
+      "parts": [
+        {
+          "type": "action",
+          "value": "Couvrir"
+        },
+        {
+          "type": "text",
+          "value": "et"
+        },
+        {
+          "type": "action",
+          "value": "cuire"
+        },
+        {
+          "type": "text",
+          "value": "à basse température (Low)"
+        },
+        {
+          "type": "timer",
+          "value": "PT8H",
+          "text": "8 heures",
+          "action": "cuire"
+        }
+      ],
+      "postSteps": []
+    },
+    {
+      "subrecipeId": 1,
+      "parts": [
+        {
+          "type": "action",
+          "value": "Retirer"
+        },
+        {
+          "type": "text",
+          "value": "la viande de la mijoteuse"
+        }
+      ],
+      "postSteps": []
+    },
+    {
+      "subrecipeId": 1,
+      "parts": [
+        {
+          "type": "text",
+          "value": "À l’aide d’ une fourchette, effilocher la viande et la"
+        },
+        {
+          "type": "action",
+          "value": "réserver"
+        },
+        {
+          "type": "text",
+          "value": "dans un bol"
+        }
+      ],
+      "postSteps": []
+    },
+    {
+      "subrecipeId": 1,
+      "parts": [
+        {
+          "type": "text",
+          "value": "Entre temps, dans une petite casserole,"
+        },
+        {
+          "type": "action",
+          "value": "faire réduire"
+        },
+        {
+          "type": "text",
+          "value": "la sauce de moitié puis l’"
+        },
+        {
+          "type": "action",
+          "value": "ajouter"
+        },
+        {
+          "type": "text",
+          "value": "à la viande"
+        }
+      ],
+      "postSteps": []
+    },
+    {
+      "subrecipeId": 1,
+      "parts": [
+        {
+          "type": "text",
+          "value": "Bien"
+        },
+        {
+          "type": "action",
+          "value": "mélanger"
+        },
+        {
+          "type": "text",
+          "value": "et"
+        },
+        {
+          "type": "action",
+          "value": "rectifier"
+        },
+        {
+          "type": "text",
+          "value": "l’assaisonnement"
+        }
+      ],
+      "postSteps": []
+    }
+  ],
+  "id": "56ae79da44fd4675fc7ed17d"
+}

@@ -1,0 +1,326 @@
+{
+    "title": "Jambon à l'érable et à la bière à la mijoteuse",
+    "originalUrl": "http://www.ricardocuisine.com/recettes/5803-jambon-a-l-erable-et-a-la-biere-a-la-mijoteuse",
+    "language": "fr",
+    "note": "Cette recette est tirée du livre de Ricardo «La mijoteuse - de la lasagne à la crème brûlée»",
+    "imageUrl": "http://www.ricardocuisine.com/pictures/cache/7a44a72235792cd6a04c032c73690c60_w500_h675_sc.jpg",
+    "originalServings": "10",
+    "durations": [
+        {
+            "title": "Préparation",
+            "time": "PT15M"
+        },
+        {
+            "title": "Cuisson",
+            "time": "PT10H"
+        }
+    ],
+    "subrecipes": [
+        {
+            "id": -1,
+            "title": "Préparation"
+        }
+    ],
+    "ingredients": [
+        {
+            "id": 0,
+            "subrecipeId": -1,
+            "name": "jambon fumé dans l’épaule avec os",
+            "quantity": {
+                "value": 3,
+                "unit": "kg"
+            }
+        },
+        {
+            "id": 1,
+            "subrecipeId": -1,
+            "name": "moutarde de Dijon",
+            "quantity": {
+                "value": 30,
+                "unit": "ml"
+            }
+        },
+        {
+            "id": 2,
+            "subrecipeId": -1,
+            "name": "clous de girofle",
+            "quantity": {
+                "value": 3,
+                "unit": "unit"
+            }
+        },
+        {
+            "id": 3,
+            "subrecipeId": -1,
+            "name": "bière blonde",
+            "quantity": {
+                "value": 341,
+                "unit": "ml",
+                "format": "1 bouteille de {0}",
+                "formatUnit": "floz"
+            }
+        },
+        {
+            "id": 4,
+            "subrecipeId": -1,
+            "name": "sirop d’érable",
+            "quantity": {
+                "value": 180,
+                "unit": "ml"
+            }
+        },
+        {
+            "id": 5,
+            "subrecipeId": -1,
+            "name": "Eau",
+            "quantity": {
+                "value": 0,
+                "unit": "unit"
+            }
+        }
+    ],
+    "steps": [
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "action",
+                    "value": "Retirer"
+                },
+                {
+                    "type": "text",
+                    "value": "le filet du jambon"
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "action",
+                    "value": "Déposer"
+                },
+                {
+                    "type": "ingredient",
+                    "ingredient": {
+                        "id": 0,
+                        "subrecipeId": -1,
+                        "name": "jambon fumé dans l’épaule avec os",
+                        "quantity": {
+                            "value": 3,
+                            "unit": "kg"
+                        }
+                    }
+                },
+                {
+                    "type": "text",
+                    "value": "dans la mijoteuse"
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "text",
+                    "value": "Le badigeonner avec"
+                },
+                {
+                    "type": "ingredient",
+                    "ingredient": {
+                        "id": 1,
+                        "subrecipeId": -1,
+                        "name": "moutarde de Dijon",
+                        "quantity": {
+                            "value": 30,
+                            "unit": "ml"
+                        }
+                    }
+                },
+                {
+                    "type": "text",
+                    "value": "et le"
+                },
+                {
+                    "type": "action",
+                    "value": "piquer"
+                },
+                {
+                    "type": "text",
+                    "value": "avec"
+                },
+                {
+                    "type": "ingredient",
+                    "ingredient": {
+                        "id": 2,
+                        "subrecipeId": -1,
+                        "name": "clous de girofle",
+                        "quantity": {
+                            "value": 3,
+                            "unit": "unit"
+                        }
+                    }
+                },
+                {
+                    "type": "text",
+                    "value": "de girofle"
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "action",
+                    "value": "Ajouter"
+                },
+                {
+                    "type": "enumeration",
+                    "ingredients": [
+                        {
+                            "id": 3,
+                            "subrecipeId": -1,
+                            "name": "bière blonde",
+                            "quantity": {
+                                "value": 341,
+                                "unit": "ml",
+                                "format": "1 bouteille de {0}",
+                                "formatUnit": "floz"
+                            }
+                        },
+                        {
+                            "id": 4,
+                            "subrecipeId": -1,
+                            "name": "sirop d’érable",
+                            "quantity": {
+                                "value": 180,
+                                "unit": "ml"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "action",
+                    "value": "Couvrir"
+                },
+                {
+                    "type": "text",
+                    "value": "d’eau froide jusqu’à 5 cm (2 po) du rebord de la mijoteuse"
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "action",
+                    "value": "Couvrir"
+                },
+                {
+                    "type": "text",
+                    "value": "et"
+                },
+                {
+                    "type": "action",
+                    "value": "cuire"
+                },
+                {
+                    "type": "text",
+                    "value": "à basse température (Low) environ"
+                },
+                {
+                    "type": "timer",
+                    "value": "PT10H",
+                    "text": "10 heures",
+                    "action": "cuire"
+                },
+                {
+                    "type": "text",
+                    "value": "ou jusqu'à ce que le jambon se défasse à la fourchette"
+                }
+            ],
+            "postSteps": []
+        },
+		{
+			"subrecipeId": -1,
+			"parts": [
+				{
+					"type": "text",
+					"value": "On peut"
+				},
+				{
+					"type": "action",
+					"value": "retourner"
+				},
+				{
+					"type": "text",
+					"value": "le jambon à la mi cuisson"
+				}
+			],
+			"postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "action",
+                    "value": "Retirer"
+                },
+                {
+                    "type": "text",
+                    "value": "le jambon de la mijoteuse puis l’"
+                },
+                {
+                    "type": "action",
+                    "value": "émincer"
+                },
+                {
+                    "type": "text",
+                    "value": "ou le"
+                },
+                {
+                    "type": "action",
+                    "value": "défaire"
+                },
+                {
+                    "type": "text",
+                    "value": "en morceaux"
+                }
+            ],
+            "postSteps": []
+        },
+        {
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "action",
+                    "value": "Conserver"
+                },
+                {
+                    "type": "text",
+                    "value": "le jus de cuisson (reste environ 2,25 litres / 9 tasses) pour"
+                },
+                {
+                    "type": "action",
+                    "value": "faire cuire"
+                },
+                {
+                    "type": "text",
+                    "value": "des pommes de terre entières si désiré"
+                }
+            ],
+            "postSteps": []
+        }
+    ],
+    "id": "56aee92244fd467fb1b8b6d6"
+}
