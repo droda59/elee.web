@@ -71,6 +71,8 @@ fi
 echo Moving to source directory
 pushd "$DEPLOYMENT_SOURCE/Source/E133.Web"
 
+npm config set strict-ssl false
+
 echo Installing npm packages
 npm install
 exitWithMessageOnError "npm failed"
