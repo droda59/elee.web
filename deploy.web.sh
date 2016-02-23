@@ -71,6 +71,7 @@ fi
 echo Moving to source directory
 pushd "$DEPLOYMENT_SOURCE/Source/E133.Web"
 
+npm install -g npm
 npm config set strict-ssl false
 
 echo Installing npm packages
