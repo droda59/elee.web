@@ -71,6 +71,7 @@ fi
 echo Moving to source directory
 pushd "$DEPLOYMENT_SOURCE/Source/E133.Web"
 
+set NPM_JS_PATH=%ProgramFiles(x86)%\npm\3.5.3\node_modules\npm\bin\npm-cli.js
 #npm install -g npm
 npm --version
 #npm config set strict-ssl false
