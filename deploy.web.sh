@@ -68,11 +68,61 @@ fi
 # Deployment
 # ----------
 
+echo Moving to source directory
+pushd "$DEPLOYMENT_SOURCE/Source/E133.Web"
+
+echo Installing npm packages: Starting %TIME%
+call :ExecuteCmd npm install
+echo Installing npm packages: Finished %TIME%
+IF !ERRORLEVEL! NEQ 0 goto error
+
+echo Installing jspm packages: Starting %TIME%
+call :ExecuteCmd jspm install
+echo Installing jspm packages: Finished %TIME%
+IF !ERRORLEVEL! NEQ 0 goto error
+
+echo Running Gulp: Starting %TIME%
+call :ExecuteCmd gulp export
+echo Running Gulp: Finished %TIME%
+
+echo Moving back from source directory
+popd
+
+
+
+# 1. Select node version  
+#selectNodeVersion  
+
+# 2. Install npm packages  
+#if [ -e "$DEPLOYMENT_SOURCE/package.json" ]; then  
+#  eval $NPM_CMD install  
+#  exitWithMessageOnError "npm failed"  
+#fi  
+
+# 3. Install bower packages  
+#if [ -e "$DEPLOYMENT_SOURCE/bower.json" ]; then  
+#  eval $NPM_CMD install bower  
+#  exitWithMessageOnError "installing bower failed"  
+#  ./node_modules/.bin/bower install  
+#  exitWithMessageOnError "bower failed"  
+#fi  
+
+# 4. Run gulp for build
+#if [ -e "$DEPLOYMENT_SOURCE/gulpfile.js" ]; then  
+#  eval $NPM_CMD install gulp 
+#  exitWithMessageOnError "installing gulpfailed"  
+#  ./node_modules/.bin/gulp export
+#  exitWithMessageOnError "gulp failed"  
+#fi  
+
+
+
+
 echo Handling Basic Web Site deployment.
 
 # 1. KuduSync
 if [[ "$IN_PLACE_DEPLOYMENT" -ne "1" ]]; then
-  "$KUDU_SYNC_CMD" -v 50 -f "$DEPLOYMENT_SOURCE/Source/E133.Web" -t "$DEPLOYMENT_TARGET" -n "$NEXT_MANIFEST_PATH" -p "$PREVIOUS_MANIFEST_PATH" -i ".git;.hg;.deployment;deploy.sh"
+  "$KUDU_SYNC_CMD" -v 50 -f "$DEPLOYMENT_SOURCE/Source/E133.Web/export" -t "$DEPLOYMENT_TARGET" -n "$NEXT_MANIFEST_PATH" -p "$PREVIOUS_MANIFEST_PATH" -i ".git;.hg;.deployment;deploy.sh"
   exitWithMessageOnError "Kudu Sync failed"
 fi
 
