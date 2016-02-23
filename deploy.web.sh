@@ -98,6 +98,7 @@ selectNodeVersion () {
 echo Moving to source directory
 pushd "$DEPLOYMENT_SOURCE/Source/E133.Web"
 
+selectNodeVersion
 
 #npm install -g npm
 echo npm version
