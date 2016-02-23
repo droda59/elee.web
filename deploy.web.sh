@@ -68,54 +68,28 @@ fi
 # Deployment
 # ----------
 
-selectNodeVersion () {
-  if [[ -n "$KUDU_SELECT_NODE_VERSION_CMD" ]]; then
-    SELECT_NODE_VERSION="$KUDU_SELECT_NODE_VERSION_CMD \"$DEPLOYMENT_SOURCE{SitePath}\" \"$DEPLOYMENT_TARGET\" \"$DEPLOYMENT_TEMP\""
-    eval $SELECT_NODE_VERSION
-    exitWithMessageOnError "select node version failed"
 
-    if [[ -e "$DEPLOYMENT_TEMP/__nodeVersion.tmp" ]]; then
-      NODE_EXE=`cat "$DEPLOYMENT_TEMP/__nodeVersion.tmp"`
-      exitWithMessageOnError "getting node version failed"
-    fi
-    
-    if [[ -e "$DEPLOYMENT_TEMP/__npmVersion.tmp" ]]; then
-      NPM_JS_PATH=`cat "$DEPLOYMENT_TEMP/__npmVersion.tmp"`
-      exitWithMessageOnError "getting npm version failed"
-    fi
-
-    if [[ ! -n "$NODE_EXE" ]]; then
-      NODE_EXE=node
-    fi
-
-    NPM_CMD="\"$NODE_EXE\" \"$NPM_JS_PATH\""
-  else
-    NPM_CMD=npm
-    NODE_EXE=node
-  fi
-}
 
 echo Moving to source directory
 pushd "$DEPLOYMENT_SOURCE/Source/E133.Web"
 
-selectNodeVersion
+
 #npm install -g npm
-#echo npm version
-#eval $NPM_CMD --version
+npm --version
 #npm config set strict-ssl false
 
 echo Installing npm packages
-eval $NPM_CMD install
+npm install
 exitWithMessageOnError "npm failed"
 
 echo Installing jspm packages
-eval $NPM_CMD install jspm
+npm install jspm
 exitWithMessageOnError "installing jspm failed"  
 ./node_modules/.bin/jspm install  
 exitWithMessageOnError "jspm failed"
 
 echo Running Gulp
-eval $NPM_CMD install gulp 
+npm install gulp 
 exitWithMessageOnError "installing gulp failed"  
 ./node_modules/.bin/gulp export
 exitWithMessageOnError "gulp failed"  
