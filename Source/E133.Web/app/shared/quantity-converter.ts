@@ -23,25 +23,55 @@ export class QuantityConverter {
         bestConvertibleQuantity.unit = quantity.unit;
         bestConvertibleQuantity.format = quantity.format;
 
-        var unitsToConvertTo = this.getUnitsToConvertTo(quantity.unit, displayUnit);
-        unitsToConvertTo.some(function(unit: string) {
-            var value = this.getConvertedValue(quantity, unit);
-            var isValid = this.isValidConvertibleMeasureUnit(value, unit);
+        var isValid: boolean = false;
+        var unitsToConvertTo: string[] = this.getUnitsToConvertTo(quantity.unit, displayUnit);
+        if (quantity.formatUnit && unitsToConvertTo.indexOf(quantity.unit) < 0) {
+            unitsToConvertTo = [ quantity.formatUnit ]
+        }
 
-            bestConvertibleQuantity.value = value;
-            bestConvertibleQuantity.unit = unit;
+        unitsToConvertTo.some(unit => {
+            var value = this.getConvertedValue(quantity, unit);
+            isValid = this.isValidConvertibleMeasureUnit(value, unit);
+
+            if (isValid) {
+                bestConvertibleQuantity.value = value;
+                bestConvertibleQuantity.unit = unit;
+            }
 
             return isValid;
-        }, this);
+        });
+
+        if (!isValid) {
+            unitsToConvertTo = this.getUnitsToConvertTo(quantity.unit, displayUnit, true);
+            unitsToConvertTo.some(unit => {
+                var value = this.getConvertedValue(quantity, unit);
+                isValid = this.isValidConvertibleMeasureUnit(value, unit);
+
+                if (isValid) {
+                    bestConvertibleQuantity.value = value;
+                    bestConvertibleQuantity.unit = unit;
+                }
+
+                return isValid;
+            });
+        }
 
         return bestConvertibleQuantity;
     }
 
-    private getUnitsToConvertTo(originalMeasureUnit: string, displayUnit: string): string[] {
+    private getUnitsToConvertTo(originalMeasureUnit: string, displayUnit: string, forceCompleteUnits?: boolean): string[] {
         var isVolumeUnit = this.volumeMeasureUnits.indexOf(originalMeasureUnit) > -1;
         var isWeightUnit = this.weightMeasureUnits.indexOf(originalMeasureUnit) > -1;
 
         if (isVolumeUnit) {
+            if (forceCompleteUnits) {
+                if (displayUnit === "imperialShort" || displayUnit === "imperialComplete") {
+                    return this._imperialCompleteVolumeMeasureUnits;
+                } else if (displayUnit === "metricShort" || displayUnit === "metricComplete") {
+                    return this._metricCompleteVolumeMeasureUnits;
+                }
+            }
+
             if (displayUnit === "imperialShort") {
                 return this._imperialShortVolumeMeasureUnits;
             } else if (displayUnit === "imperialComplete") {
@@ -52,6 +82,14 @@ export class QuantityConverter {
                 return this._metricCompleteVolumeMeasureUnits;
             }
         } else if (isWeightUnit) {
+            if (forceCompleteUnits) {
+                if (displayUnit === "imperialShort" || displayUnit === "imperialComplete") {
+                    return this._imperialCompleteWeightMeasureUnits;
+                } else if (displayUnit === "metricShort" || displayUnit === "metricComplete") {
+                    return this._metricCompleteWeightMeasureUnits;
+                }
+            }
+
             if (displayUnit === "imperialShort") {
                 return this._imperialShortWeightMeasureUnits;
             } else if (displayUnit === "imperialComplete") {
@@ -82,7 +120,7 @@ export class QuantityConverter {
                 case "l": return 0.001;
                 case "tsp": return 0.202884;
                 case "tbsp": return 0.067628;
-                case "floz": return 0.033814;
+                case "floz": return 0.0351951;
                 case "cup": return 0.004; // 0.004226;
             }
         }
@@ -94,7 +132,7 @@ export class QuantityConverter {
                 case "l": return 0.01;
                 case "tsp": return 2.028841;
                 case "tbsp": return 0.676280;
-                case "floz": return 0.33814;
+                case "floz": return 0.351951;
                 case "cup": return 0.04; // 0.042267;
             }
         }
@@ -106,7 +144,7 @@ export class QuantityConverter {
                 case "l": return 0.1;
                 case "tsp": return 20.288413;
                 case "tbsp": return 6.762804;
-                case "floz": return 3.3814;
+                case "floz": return 3.51951;
                 case "cup": return 0.4; // 0.422675;
             }
         }
@@ -118,7 +156,7 @@ export class QuantityConverter {
                 case "l": return 1;
                 case "tsp": return 202.884136;
                 case "tbsp": return 67.628045;
-                case "floz": return 33.814;
+                case "floz": return 35.1951;
                 case "cup": return 4; // 4.226752;
             }
         }
@@ -229,7 +267,7 @@ export class QuantityConverter {
                 else if (thirdDecimalPlaceRound >= 0.870 && thirdDecimalPlaceRound <= 0.880) { return 0.875; }
 
                 var secondDecimalPlaceRound = Math.round(value * 100) / 100;
-                if (secondDecimalPlaceRound >= 0.24 && secondDecimalPlaceRound <= 0.26) { return 0.25; }
+                if (secondDecimalPlaceRound >= 0.20 && secondDecimalPlaceRound <= 0.26) { return 0.25; }
                 else if (secondDecimalPlaceRound >= 0.74 && secondDecimalPlaceRound <= 0.76) { return 0.75; }
 
                 var firstDecimalPlaceRound = Math.round(value * 10) / 10;
@@ -270,7 +308,7 @@ export class QuantityConverter {
                 else if (secondDecimalPlaceRound >= 0.72 && secondDecimalPlaceRound <= 0.78) { return 0.75 + intValue; }
 
                 var firstDecimalPlaceRound = Math.round(decimal * 10) / 10;
-                if (firstDecimalPlaceRound >= 0.4 && firstDecimalPlaceRound <= 0.6) { return 0.5 + intValue; }
+                if (firstDecimalPlaceRound >= 0.45 && firstDecimalPlaceRound <= 0.6) { return 0.5 + intValue; }
                 else if (firstDecimalPlaceRound >= 1 && Math.round((firstDecimalPlaceRound % 1) * 10) / 10 <= 0.1) { return  Math.trunc(firstDecimalPlaceRound); }
 
                 return value;

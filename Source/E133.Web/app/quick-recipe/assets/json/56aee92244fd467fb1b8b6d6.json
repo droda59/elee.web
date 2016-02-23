@@ -56,7 +56,8 @@
             "quantity": {
                 "value": 341,
                 "unit": "ml",
-                "format": "1 bouteille de {0}"
+                "format": "1 bouteille de {0}",
+                "formatUnit": "floz"
             }
         },
         {
@@ -186,7 +187,8 @@
                             "quantity": {
                                 "value": 341,
                                 "unit": "ml",
-                                "format": "1 bouteille de {0}"
+                                "format": "1 bouteille de {0}",
+                                "formatUnit": "floz"
                             }
                         },
                         {

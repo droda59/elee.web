@@ -109,7 +109,8 @@
             "quantity": {
                 "value": 156,
                 "unit": "ml",
-                "format": "1 boîte de {0}"
+                "format": "1 boîte de {0}",
+                "formatUnit": "floz"
             }
         },
         {
@@ -119,7 +120,8 @@
             "quantity": {
                 "value": 796,
                 "unit": "ml",
-                "format": "2 boîtes de {0}"
+                "format": "2 boîtes de {0}",
+                "formatUnit": "floz"
             }
         },
         {
@@ -129,7 +131,8 @@
             "quantity": {
                 "value": 796,
                 "unit": "ml",
-                "format": "2 boîtes de {0}"
+                "format": "2 boîtes de {0}",
+                "formatUnit": "floz"
             }
         },
         {
@@ -498,7 +501,8 @@
                         "quantity": {
                             "value": 156,
                             "unit": "ml",
-                            "format": "1 boîte de {0}"
+                            "format": "1 boîte de {0}",
+                            "formatUnit": "floz"
                         }
 					}
 				},
@@ -562,7 +566,8 @@
                             "quantity": {
                                 "value": 796,
                                 "unit": "ml",
-                                "format": "2 boîtes de {0}"
+                                "format": "2 boîtes de {0}",
+                                "formatUnit": "floz"
                             }
                         },
                         {
@@ -572,7 +577,8 @@
                             "quantity": {
                                 "value": 796,
                                 "unit": "ml",
-                                "format": "2 boîtes de {0}"
+                                "format": "2 boîtes de {0}",
+                                "formatUnit": "floz"
                             }
                         },
 						{

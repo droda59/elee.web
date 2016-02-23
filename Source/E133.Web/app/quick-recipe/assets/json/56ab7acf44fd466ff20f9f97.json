@@ -100,7 +100,8 @@
             "quantity": {
                 "value": 250,
                 "unit": "g",
-                "format": "4 paquets de {0}"
+                "format": "4 paquets de {0}",
+                "formatUnit": "oz"
             },
             "requirements": "tempéré"
         },
@@ -189,7 +190,8 @@
                         "quantity": {
                             "value": 250,
                             "unit": "g",
-                            "format": "4 paquets de {0}"
+                            "format": "4 paquets de {0}",
+                            "formatUnit": "oz"
                         },
                         "requirements": "tempéré"
                     }
@@ -450,7 +452,8 @@
                             "quantity": {
                                 "value": 250,
                                 "unit": "g",
-                                "format": "4 paquets de {0}"
+                                "format": "4 paquets de {0}",
+                                "formatUnit": "oz"
                             },
                             "requirements": "tempéré"
                         },
