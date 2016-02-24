@@ -224,8 +224,8 @@ gulp.task("export-copy", function() {
         "jspm_packages/github/components/jquery@2.2.0/jquery.min.js",
         "jspm_packages/npm/aurelia-dialog@0.5.5/*.html",
         "jspm_packages/npm/aurelia-dialog@0.5.5/*.css",
-        "jspm_packages/npm/materialize-css@0.97.5/bin/*",
-        "jspm_packages/npm/materialize-css@0.97.5/font/*",
+        "jspm_packages/npm/materialize-css@0.97.5/bin/**/*",
+        "jspm_packages/npm/materialize-css@0.97.5/font/**/*",
         "jspm_packages/npm/moment@2.11.1/moment.js",
         "jspm_packages/npm/moment@2.11.1/locale/fr.js"
       ].concat(getBundles()), { base: "." })
