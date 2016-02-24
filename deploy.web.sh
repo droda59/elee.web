@@ -111,7 +111,7 @@ fi
 
 echo Running Gulp
 # 4. Run gulp for build
-if [ -e "$DEPLOYMENT_SOURCE/gulpfile.js" ]; then  
+if [ -e "gulpfile.js" ]; then  
   eval $NPM_CMD install gulp 
   exitWithMessageOnError "installing gulpfailed"  
   ./node_modules/.bin/gulp export
