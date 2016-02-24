@@ -1,9 +1,0 @@
-<template>
-	<p class="${isTechnicalStep() ? 'technical' : ''} ${isLoaded ? 'loaded' : ''}">
-		<compose repeat.for="part of step.parts" model.bind="part" view-model="quick-recipe/components/steps/step-${part.type}" containerless></compose>
-	</p>
-
-	<p if.bind="step.postSteps && step.postSteps.length" class="post-step">
-		<quick-recipe-step repeat.for="postStep of step.postSteps" step.bind="postStep"></quick-recipe-step>
-	</p>
-</template>
