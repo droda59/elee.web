@@ -22,10 +22,20 @@ selectNodeVersion () {
     eval $SELECT_NODE_VERSION
     exitWithMessageOnError "select node version failed"
 
+    if [[ -e "$DEPLOYMENT_TEMP/__nodeVersion.tmp" ]]; then
+      NODE_EXE=`cat "$DEPLOYMENT_TEMP/__nodeVersion.tmp"`
+      exitWithMessageOnError "getting node version failed"
+    fi
+
+    if [[ ! -n "$NODE_EXE" ]]; then
+      NODE_EXE=node
+    fi
+
     # Manually setting npm version to npm@3.5.1
     NPM_CMD="\"$NODE_EXE\" \"$PROGRAMFILES\\npm\\3.5.1\\node_modules\\npm\\bin\\npm-cli.js\""
   else
     NPM_CMD=npm
+    NODE_EXE=node
   fi
 }
 
