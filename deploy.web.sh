@@ -16,6 +16,29 @@ exitWithMessageOnError () {
   fi
 }
 
+selectNodeVersion () {
+  if [[ -n "$KUDU_SELECT_NODE_VERSION_CMD" ]]; then
+    SELECT_NODE_VERSION="$KUDU_SELECT_NODE_VERSION_CMD \"$DEPLOYMENT_SOURCE\" \"$DEPLOYMENT_TARGET\" \"$DEPLOYMENT_TEMP\""
+    eval $SELECT_NODE_VERSION
+    exitWithMessageOnError "select node version failed"
+
+    if [[ -e "$DEPLOYMENT_TEMP/__nodeVersion.tmp" ]]; then
+      NODE_EXE=`cat "$DEPLOYMENT_TEMP/__nodeVersion.tmp"`
+      exitWithMessageOnError "getting node version failed"
+    fi
+
+    if [[ ! -n "$NODE_EXE" ]]; then
+      NODE_EXE=node
+    fi
+
+    # Manually setting npm version to npm@3.5.1
+    NPM_CMD="\"$NODE_EXE\" \"$PROGRAMFILES\\npm\\3.5.1\\node_modules\\npm\\bin\\npm-cli.js\""
+  else
+    NPM_CMD=npm
+    NODE_EXE=node
+  fi
+}
+
 # Prerequisites
 # -------------
 
@@ -68,64 +91,35 @@ fi
 # Deployment
 # ----------
 
-
-
 echo Moving to source directory
 pushd "$DEPLOYMENT_SOURCE/Source/E133.Web"
 
+selectNodeVersion
 
-#npm install -g npm
-npm --version
-#npm config set strict-ssl false
-
-echo Installing npm packages
-npm install
-exitWithMessageOnError "npm failed"
-
-echo Installing jspm packages
-npm install jspm
-exitWithMessageOnError "installing jspm failed"  
-./node_modules/.bin/jspm install  
-exitWithMessageOnError "jspm failed"
+# 3. Install npm packages
+if [ -e "package.json" ]; then
+  echo Installing NPM modules
+  eval $NPM_CMD install --production
+  exitWithMessageOnError "npm failed"
+  
+  echo Installing jspm packages
+  eval $NPM_CMD install jspm
+  exitWithMessageOnError "installing jspm failed"  
+  ./node_modules/.bin/jspm install  
+  exitWithMessageOnError "jspm failed"
+fi
 
 echo Running Gulp
-npm install gulp 
-exitWithMessageOnError "installing gulp failed"  
-./node_modules/.bin/gulp export
-exitWithMessageOnError "gulp failed"  
+# 4. Run gulp for build
+if [ -e "$DEPLOYMENT_SOURCE/gulpfile.js" ]; then  
+  eval $NPM_CMD install gulp 
+  exitWithMessageOnError "installing gulpfailed"  
+  ./node_modules/.bin/gulp export
+  exitWithMessageOnError "gulp failed"  
+fi    
 
 echo Moving back from source directory
 popd
-
-
-
-# 1. Select node version  
-#selectNodeVersion  
-
-# 2. Install npm packages  
-#if [ -e "$DEPLOYMENT_SOURCE/package.json" ]; then  
-#  eval $NPM_CMD install  
-#  exitWithMessageOnError "npm failed"  
-#fi  
-
-# 3. Install bower packages  
-#if [ -e "$DEPLOYMENT_SOURCE/bower.json" ]; then  
-#  eval $NPM_CMD install bower  
-#  exitWithMessageOnError "installing bower failed"  
-#  ./node_modules/.bin/bower install  
-#  exitWithMessageOnError "bower failed"  
-#fi  
-
-# 4. Run gulp for build
-#if [ -e "$DEPLOYMENT_SOURCE/gulpfile.js" ]; then  
-#  eval $NPM_CMD install gulp 
-#  exitWithMessageOnError "installing gulpfailed"  
-#  ./node_modules/.bin/gulp export
-#  exitWithMessageOnError "gulp failed"  
-#fi  
-
-
-
 
 echo Handling Basic Web Site deployment.
 
