@@ -27,6 +27,12 @@ var path = {
     sass: {
         src: "app/**/*.scss",
         dest: "dist/"
+    },
+    externals: {
+        dest: "externals/"
+    },
+    export: {
+        dest: "export/"
     }
 };
 
@@ -86,9 +92,60 @@ gulp.task("typedef", function () {
         .pipe(gulp.dest("typings/aurelia"));
 });
 
-gulp.task("copyfiles", function() {
+gulp.task("copy-files", function() {
     return gulp.src("app/**/*.{json,png,jpg,svg,woff,woff2,ttf}")
         .pipe(gulp.dest("dist/"));
+});
+
+gulp.task("clean-dependencies", function() {
+  return gulp.src([path.externals.dest])
+    .pipe(vinylPaths(del));
+});
+
+gulp.task("copy-dependencies-jquery", function () {
+  return gulp.src([
+        "jspm_packages/github/components/jquery@*/jquery.min.js"
+    ])
+    .pipe(flatten())
+    .pipe(gulp.dest(path.externals.dest + "jquery/"));
+});
+
+gulp.task("copy-dependencies-materialize-css", function (callback) {
+  return gulp.src([
+        "jspm_packages/npm/materialize-css@**/bin/materialize.css",
+        "jspm_packages/npm/materialize-css@**/bin/materialize.js"])
+    .pipe(flatten())
+    .pipe(gulp.dest(path.externals.dest + "materialize-css"));
+});
+
+gulp.task("copy-dependencies-moment", function () {
+  return gulp.src([
+        "jspm_packages/npm/moment@**/moment.js",
+        "jspm_packages/npm/moment@**/locale/fr.js"
+    ])
+    .pipe(flatten())
+    .pipe(gulp.dest(path.externals.dest + "moment/"));
+});
+
+gulp.task("copy-dependencies-system", function () {
+  return gulp.src([
+        "jspm_packages/system.js",
+        "jspm_packages/system.js.map",
+        "jspm_packages/system-polyfills.js",
+        "jspm_packages/system-csp-production.js"
+    ])
+    .pipe(gulp.dest(path.externals.dest + "system/"));
+});
+
+gulp.task("copy-dependencies", function (callback) {
+    return runSequence(
+        "clean-dependencies",
+        "copy-dependencies-jquery",
+        "copy-dependencies-materialize-css",
+        "copy-dependencies-moment",
+        "copy-dependencies-system",
+        callback
+    );
 });
 
 gulp.task("images", function() {
@@ -98,7 +155,7 @@ gulp.task("images", function() {
 });
 
 gulp.task("clean", function () {
-    return gulp.src("dist/")
+    return gulp.src([path.views.dest, path.externals.dest])
        .pipe(vinylPaths(del));
 });
 
@@ -141,7 +198,7 @@ gulp.task("bump-version", function () {
 gulp.task("default", ["build"]);
 gulp.task("build", function (callback) {
     return runSequence(
-      ["build-ts", "build-html", "build-sass", "copyfiles", "images"],
+      ["build-ts", "build-html", "build-sass", "copy-files", "copy-dependencies", "images"],
       callback
     );
 });
@@ -187,7 +244,7 @@ gulp.task("watch-sass", ["serve"], function () {
 gulp.task("watch", ["watch-ts", "watch-html", "watch-sass"]);
 
 gulp.task("clean-export", function() {
-  return gulp.src(["export/"])
+  return gulp.src([path.export.dest])
     .pipe(vinylPaths(del));
 });
 
@@ -213,23 +270,15 @@ gulp.task("export-copy", function() {
         "dist/**/*.woff",
         "dist/**/*.woff2",
         "dist/**/*.ttf",
-        "jspm_packages/system.js",
-        "jspm_packages/system.js.map",
-        "jspm_packages/system-polyfills.js",
-        "jspm_packages/system-csp-production.js",
-        "jspm_packages/github/andyearnshaw/Intl.js@0.1.4.js",
-        "jspm_packages/github/andyearnshaw/Intl.js@0.1.4/Intl.complete.js",
-        "jspm_packages/github/systemjs/plugin-text@0.0.4.js",
-        "jspm_packages/github/systemjs/plugin-text@0.0.4/text.js",
-        "jspm_packages/github/components/jquery@2.2.0/jquery.min.js",
-        "jspm_packages/npm/aurelia-dialog@0.5.5/*.html",
-        "jspm_packages/npm/aurelia-dialog@0.5.5/*.css",
-        "jspm_packages/npm/materialize-css@0.97.5/bin/**/*",
-        "jspm_packages/npm/materialize-css@0.97.5/font/**/*",
-        "jspm_packages/npm/moment@2.11.1/moment.js",
-        "jspm_packages/npm/moment@2.11.1/locale/fr.js"
+        "externals/**/*",
+        "jspm_packages/github/systemjs/plugin-text@*.js",
+        "jspm_packages/github/systemjs/plugin-text@*/text.js",
+        "jspm_packages/npm/aurelia-dialog@**/*.html",
+        "jspm_packages/npm/aurelia-dialog@**/*.css",
+        "jspm_packages/github/andyearnshaw/Intl.js@*.js",
+        "jspm_packages/github/andyearnshaw/Intl.js@*/Intl.complete.js"
       ].concat(getBundles()), { base: "." })
-    .pipe(gulp.dest("export/"));
+    .pipe(gulp.dest(path.export.dest))
 });
 
 gulp.task("export", function(callback) {
