@@ -16,23 +16,11 @@ var concat = require("gulp-concat");
 
 var path = {
     package: "./package.json",
-    views:
-    {
-        src: "app/**/*.html",
-        dest: "dist/"
-    },
-    typescript:
-    {
-        src: "app/**/*.ts",
-        dest: "dist/"
-    },
-    sass: {
-        src: "app/**/*.scss",
-        dest: "dist/"
-    },
-    export: {
-        dest: "export/"
-    }
+    dest: "dist/",
+    views: "app/**/*.html",
+    typescript: "app/**/*.ts",
+    sass: "app/**/*.scss",
+    export: "export/"
 };
 
 var bundleConfig = {
@@ -97,19 +85,19 @@ gulp.task("copy-files", function() {
 });
 
 gulp.task("images", function() {
-    return gulp.src("export/**/assets/images/*")
+    return gulp.src("dist/**/assets/images/*")
         .pipe(imagemin())
-        .pipe(gulp.dest("export/"));
+        .pipe(gulp.dest(path.dest));
 });
 
 gulp.task("clean", function () {
-    return gulp.src([path.views.dest])
+    return gulp.src(path.dest)
        .pipe(vinylPaths(del));
 });
 
 gulp.task("build-ts", function () {
-    return gulp.src(path.typescript.src)
-        .pipe(changed(path.typescript.src, { extension: ".ts" }))
+    return gulp.src(path.typescript)
+        .pipe(changed(path.typescript, { extension: ".ts" }))
         .pipe(ts({
             module: "amd",
             sourceMap: false,
@@ -118,23 +106,23 @@ gulp.task("build-ts", function () {
             emitDecoratorMetadata: true,
             experimentalDecorators : true
         }))
-        .pipe(gulp.dest(path.typescript.dest))
+        .pipe(gulp.dest(path.dest))
         .pipe(browserSync.reload({ stream: true }));
 });
 
 gulp.task("build-html", function () {
-    return gulp.src(path.views.src)
-        .pipe(changed(path.views.src, { extension: ".html" }))
-        .pipe(gulp.dest(path.views.dest))
+    return gulp.src(path.views)
+        .pipe(changed(path.views, { extension: ".html" }))
+        .pipe(gulp.dest(path.dest))
         .pipe(browserSync.reload({ stream: true }));
 });
 
 gulp.task("build-sass", function() {
-    return gulp.src(path.sass.src)
-        .pipe(changed(path.sass.src, { extension: ".scss" }))
+    return gulp.src(path.sass)
+        .pipe(changed(path.sass, { extension: ".scss" }))
         .pipe(sass())
         .pipe(concat("style.css"))
-        .pipe(gulp.dest(path.sass.dest))
+        .pipe(gulp.dest(path.dest))
         .pipe(browserSync.reload({ stream: true }));
 });
 
@@ -173,7 +161,7 @@ gulp.task("serve", ["build"], function (done) {
 
 gulp.task("watch-ts", ["serve"], function () {
     gulp
-        .watch([path.typescript.src], { interval: 3000 }, ["build-ts"])
+        .watch([path.typescript], { interval: 3000 }, ["build-ts"])
         .on("change", function (event) {
             console.log("File " + event.path + " was " + event.type + ", running tasks...");
         });
@@ -181,7 +169,7 @@ gulp.task("watch-ts", ["serve"], function () {
 
 gulp.task("watch-html", ["serve"], function () {
     gulp
-        .watch([path.views.src], { interval: 1000 }, ["build-html"])
+        .watch([path.views], { interval: 1000 }, ["build-html"])
         .on("change", function (event) {
             console.log("File " + event.path + " was " + event.type + ", running tasks...");
         });
@@ -189,7 +177,7 @@ gulp.task("watch-html", ["serve"], function () {
 
 gulp.task("watch-sass", ["serve"], function () {
     gulp
-        .watch([path.sass.src], { interval: 2000 }, ["build-sass"])
+        .watch([path.sass], { interval: 2000 }, ["build-sass"])
         .on("change", function (event) {
             console.log("File " + event.path + " was " + event.type + ", running tasks...");
         });
@@ -198,7 +186,7 @@ gulp.task("watch-sass", ["serve"], function () {
 gulp.task("watch", ["watch-ts", "watch-html", "watch-sass"]);
 
 gulp.task("clean-export", function() {
-  return gulp.src([path.export.dest])
+  return gulp.src([path.export])
     .pipe(vinylPaths(del));
 });
 
@@ -233,7 +221,7 @@ gulp.task("export-copy", function() {
         "jspm_packages/npm/aurelia-dialog@**/*.html",
         "jspm_packages/npm/aurelia-dialog@**/*.css"
       ].concat(getBundles()), { base: "." })
-    .pipe(gulp.dest(path.export.dest))
+    .pipe(gulp.dest(path.export))
 });
 
 gulp.task("export", function(callback) {
