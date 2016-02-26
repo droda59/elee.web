@@ -11,6 +11,8 @@ var ts = require("gulp-tsc");
 var sass = require("gulp-sass");
 var bundler = require("aurelia-bundler");
 var imagemin = require("gulp-imagemin");
+var minifyCss = require("gulp-minify-css");
+var concat = require("gulp-concat");
 
 var path = {
     package: "./package.json",
@@ -185,8 +187,14 @@ gulp.task("build-sass", function() {
     return gulp.src(path.sass.src)
         .pipe(changed(path.sass.src, { extension: ".scss" }))
         .pipe(sass())
+        .pipe(concat("style.css"))
         .pipe(gulp.dest(path.sass.dest))
         .pipe(browserSync.reload({ stream: true }));
+});
+
+gulp.task("minify-css", function() {
+    return gulp.src("dist/style.css")
+        .pipe(minifyCss());
 });
 
 gulp.task("bump-version", function () {
@@ -261,15 +269,7 @@ gulp.task("export-copy", function() {
         "index.html",
         "config.js",
         "favicon.ico",
-        "dist/**/*.html",
-        "dist/**/*.css",
-        "dist/**/*.json",
-        "dist/**/*.png",
-        "dist/**/*.jpg",
-        "dist/**/*.svg",
-        "dist/**/*.woff",
-        "dist/**/*.woff2",
-        "dist/**/*.ttf",
+        "dist/**/*.+(html|css|json|png|jpg|svg|woff|woff2|ttf)",
         "externals/**/*",
         "jspm_packages/github/systemjs/plugin-text@*.js",
         "jspm_packages/github/systemjs/plugin-text@*/text.js",
@@ -286,6 +286,7 @@ gulp.task("export", function(callback) {
     "clean",
     "bundle",
     "clean-export",
+    "minify-css",
     "export-copy",
     callback
   );

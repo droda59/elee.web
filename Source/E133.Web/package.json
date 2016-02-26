@@ -77,5 +77,9 @@
         "format": "es6"
       }
     }
+  },
+  "dependencies": {
+    "gulp-concat": "^2.6.0",
+    "gulp-minify-css": "^1.2.4"
   }
 }
