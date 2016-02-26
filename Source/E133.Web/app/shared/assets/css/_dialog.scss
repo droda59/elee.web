@@ -1,65 +1,63 @@
-.E133 {
-	ai-dialog-container {
-		transition: none;
+ai-dialog-container {
+	transition: none;
 
-		.modal {
-			display: block;
-			border: none;
+	.modal {
+		display: block;
+		border: none;
 
-			.modal-header {
-				h3 {
-					margin: 0;
-				}
-			}
-			.modal-header + .modal-content {
-				height: calc(100% - 138px);
-				padding: 0 24px;
-			}
-
-			&.au-enter {
-				opacity: 0!important;
-				top: 0!important;
-			}
-			&.au-enter-active {
-				animation: slideIn 0.35s ease-in-out;
-			}
-			&.au-leave-active {
-				animation: slideOut 0.25s ease-in-out;
+		.modal-header {
+			h3 {
+				margin: 0;
 			}
 		}
+		.modal-header + .modal-content {
+			height: calc(100% - 138px);
+			padding: 0 24px;
+		}
+
+		&.au-enter {
+			opacity: 0!important;
+			top: 0!important;
+		}
+		&.au-enter-active {
+			animation: slideIn 0.35s ease-in-out;
+		}
+		&.au-leave-active {
+			animation: slideOut 0.25s ease-in-out;
+		}
 	}
-	ai-dialog-container.active {
+}
+ai-dialog-container.active {
+	top: 0;
+}
+ai-dialog-overlay.active {
+	background: rgba(0, 0, 0, 0.5);
+}
+ai-dialog {
+	pointer-events: all;
+}
+
+@keyframes slideIn {
+	0% {
+		opacity: 0;
 		top: 0;
+		transform: scale(0.7, 0.7);
 	}
-	ai-dialog-overlay.active {
-		background: rgba(0, 0, 0, 0.5);
+	100% {
+		opacity: 1;
+		top: 10%;
+		transform: scale(1, 1);
 	}
-	ai-dialog {
-		pointer-events: all;
+}
+@keyframes slideOut {
+	0% {
+		opacity: 1;
+		top: 10%;
+		transform: scale(1, 1);
 	}
-
-	@keyframes slideIn {
-		0% {
-			opacity: 0;
-			top: 0;
-			transform: scale(0.7, 0.7);
-		}
-		100% {
-			opacity: 1;
-			top: 10%;
-			transform: scale(1, 1);
-		}
-	}
-	@keyframes slideOut {
-		0% {
-			opacity: 1;
-			top: 10%;
-			transform: scale(1, 1);
-		}
-		100%   {
-			opacity: 0;
-			top: 0;
-			transform: scale(0.7, 0.7);
-		}
+	100%   {
+		opacity: 0;
+		top: 0;
+		transform: scale(0.7, 0.7);
 	}
 }
