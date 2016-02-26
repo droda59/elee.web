@@ -206,7 +206,8 @@ gulp.task("bump-version", function () {
 gulp.task("default", ["build"]);
 gulp.task("build", function (callback) {
     return runSequence(
-      ["build-ts", "build-html", "build-sass", "copy-files", "copy-dependencies", "images"],
+      ["build-ts", "build-html", "build-sass", "copy-files", "copy-dependencies"],
+      "images",
       callback
     );
 });
