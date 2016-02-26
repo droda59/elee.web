@@ -1,90 +1,92 @@
 // Core elements importation
-@import "variables";
-@import "core";
+.E133 {
+    @import "variables";
+    @import "core";
 
-html,
-body {
-    height: 100%;
-}
-
-body {
-	font-family: $font-raleway;
-}
-
-router-view {
-    display: block;
-}
-
-p {
-    line-height: 2rem;
-}
-
-a {
-    cursor: pointer;
-}
-
-.button-collapse {
-    color: #26a69a;
-}
-
-@media only screen and (max-width : $tablet-max-width) {
-    .parallax-container .section {
-        position: absolute;
-        top: 40%;
+    html,
+    body {
+        height: 100%;
     }
-    #index-banner .section {
-        top: 10%;
+
+    body {
+    	font-family: $font-raleway;
     }
-}
 
-@media only screen and (max-width : $mobile-max-width) {
-    #index-banner .section {
-        top: 0;
+    router-view {
+        display: block;
     }
-}
 
-.icon-block {
-    padding: 0 15px;
-}
-
-footer.page-footer {
-    margin: 0;
-}
-
-.collection {
-    overflow: visible;
-}
-
-.select-wrapper .mdi-navigation-arrow-drop-down {
-    vertical-align: middle;
-    line-height: 3rem;
-    color: white;
-}
-
-.choice {
-    [type="radio"]:checked ~ label.btn {
-        outline: 1px solid #26a69a;
+    p {
+        line-height: 2rem;
     }
-    label.btn:before,
-    label.btn:after {
-        content: none;
-    }
-    label.btn {
-        background-color: white;
-        text-align: inherit;
-        text-transform: none;
-        height: inherit;
-        padding: 0.75rem;
+
+    a {
         cursor: pointer;
-        top: 0;
-        left: 0;
-        position: relative;
-        line-height: inherit;
-        font-size: 0.9rem;
     }
-}
 
-// Global elements importation
-@import "navigation";
-@import "materialize";
-@import "dialog";
+    .button-collapse {
+        color: #26a69a;
+    }
+
+    @media only screen and (max-width : $tablet-max-width) {
+        .parallax-container .section {
+            position: absolute;
+            top: 40%;
+        }
+        #index-banner .section {
+            top: 10%;
+        }
+    }
+
+    @media only screen and (max-width : $mobile-max-width) {
+        #index-banner .section {
+            top: 0;
+        }
+    }
+
+    .icon-block {
+        padding: 0 15px;
+    }
+
+    footer.page-footer {
+        margin: 0;
+    }
+
+    .collection {
+        overflow: visible;
+    }
+
+    .select-wrapper .mdi-navigation-arrow-drop-down {
+        vertical-align: middle;
+        line-height: 3rem;
+        color: white;
+    }
+
+    .choice {
+        [type="radio"]:checked ~ label.btn {
+            outline: 1px solid #26a69a;
+        }
+        label.btn:before,
+        label.btn:after {
+            content: none;
+        }
+        label.btn {
+            background-color: white;
+            text-align: inherit;
+            text-transform: none;
+            height: inherit;
+            padding: 0.75rem;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            position: relative;
+            line-height: inherit;
+            font-size: 0.9rem;
+        }
+    }
+    
+    // Global elements importation
+    @import "navigation";
+    @import "materialize";
+    @import "dialog";
+}
