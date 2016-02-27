@@ -203,7 +203,7 @@ gulp.task("export-copy", function() {
         "index.html",
         "config.js",
         "favicon.ico",
-        "dist/**/*.+(html|css|json|png|jpg|svg|woff|woff2|ttf)",
+        "dist/*/*.+(html|css|json|png|jpg|svg|woff|woff2|ttf)",
         "jspm_packages/system.js",
         "jspm_packages/system.js.map",
         "jspm_packages/system-polyfills.js",
@@ -215,11 +215,11 @@ gulp.task("export-copy", function() {
         "jspm_packages/npm/jquery@**/dist/jquery.min.js",
         "jspm_packages/npm/materialize-css@**/dist/js/materialize.min.js",
         "jspm_packages/npm/materialize-css@**/dist/css/materialize.css",
-        "jspm_packages/npm/materialize-css@**/dist/font/**/*",
+        "jspm_packages/npm/materialize-css@**/dist/font/*/*",
         "jspm_packages/npm/moment@**/moment.js",
         "jspm_packages/npm/moment@**/locale/fr.js",
-        "jspm_packages/npm/aurelia-dialog@**/*.html",
-        "jspm_packages/npm/aurelia-dialog@**/*.css"
+        "jspm_packages/npm/aurelia-dialog@*/*.html",
+        "jspm_packages/npm/aurelia-dialog@*/*.css"
       ].concat(getBundles()), { base: "." })
     .pipe(gulp.dest(path.export))
 });
