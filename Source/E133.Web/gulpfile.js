@@ -45,7 +45,7 @@ var bundleConfig = {
                 "aurelia-framework",
                 "aurelia-history-browser",
                 "aurelia-http-client",
-                "aurelia-i18n",
+                // "aurelia-i18n",
                 "aurelia-loader-default",
                 "aurelia-logging-console",
                 "aurelia-router",
@@ -65,7 +65,7 @@ var bundleConfig = {
     }
 };
 
-gulp.task("bundle", function() {
+gulp.task("bundle", ["unbundle"], function() {
     return bundler.bundle(bundleConfig);
 });
 
@@ -100,7 +100,7 @@ gulp.task("build-ts", function () {
         .pipe(changed(path.typescript, { extension: ".ts" }))
         .pipe(ts({
             module: "amd",
-            sourceMap: false,
+            sourceMap: true,
             emitError: false,
             target: "ES5",
             emitDecoratorMetadata: true,
@@ -203,7 +203,7 @@ gulp.task("export-copy", function() {
         "index.html",
         "config.js",
         "favicon.ico",
-        "dist/*/*.+(html|css|json|png|jpg|svg|woff|woff2|ttf)",
+        "dist/**/*.+(html|css|json|png|jpg|svg|woff|woff2|ttf)",
         "jspm_packages/system.js",
         "jspm_packages/system.js.map",
         "jspm_packages/system-polyfills.js",
@@ -215,11 +215,11 @@ gulp.task("export-copy", function() {
         "jspm_packages/npm/jquery@**/dist/jquery.min.js",
         "jspm_packages/npm/materialize-css@**/dist/js/materialize.min.js",
         "jspm_packages/npm/materialize-css@**/dist/css/materialize.css",
-        "jspm_packages/npm/materialize-css@**/dist/font/*/*",
+        "jspm_packages/npm/materialize-css@**/dist/font/**/*",
         "jspm_packages/npm/moment@**/moment.js",
         "jspm_packages/npm/moment@**/locale/fr.js",
-        "jspm_packages/npm/aurelia-dialog@*/*.html",
-        "jspm_packages/npm/aurelia-dialog@*/*.css"
+        "jspm_packages/npm/aurelia-dialog@**/*.html",
+        "jspm_packages/npm/aurelia-dialog@**/*.css"
       ].concat(getBundles()), { base: "." })
     .pipe(gulp.dest(path.export))
 });
