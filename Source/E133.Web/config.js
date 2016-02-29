@@ -17,6 +17,7 @@ System.config({
     "aurelia-history": "npm:aurelia-history@1.0.0-beta.1.1.1",
     "aurelia-history-browser": "npm:aurelia-history-browser@1.0.0-beta.1.1.2",
     "aurelia-http-client": "npm:aurelia-http-client@1.0.0-beta.1.1.1",
+    "aurelia-i18n": "npm:aurelia-i18n@0.4.11",
     "aurelia-loader": "npm:aurelia-loader@1.0.0-beta.1.1.1",
     "aurelia-loader-default": "npm:aurelia-loader-default@1.0.0-beta.1.1.3",
     "aurelia-logging": "npm:aurelia-logging@1.0.0-beta.1.1.1",
@@ -186,6 +187,15 @@ System.config({
       "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.1.1.1",
       "aurelia-path": "npm:aurelia-path@1.0.0-beta.1.1.0",
       "core-js": "npm:core-js@2.1.1"
+    },
+    "npm:aurelia-i18n@0.4.11": {
+      "aurelia-binding": "npm:aurelia-binding@1.0.0-beta.1.1.3",
+      "aurelia-event-aggregator": "npm:aurelia-event-aggregator@1.0.0-beta.1.1.1",
+      "aurelia-loader": "npm:aurelia-loader@1.0.0-beta.1.1.1",
+      "aurelia-templating": "npm:aurelia-templating@1.0.0-beta.1.1.1",
+      "aurelia-templating-resources": "npm:aurelia-templating-resources@1.0.0-beta.1.1.1",
+      "i18next": "github:i18next/i18next@1.11.2",
+      "intl": "npm:intl@1.1.0"
     },
     "npm:aurelia-loader-default@1.0.0-beta.1.1.3": {
       "aurelia-loader": "npm:aurelia-loader@1.0.0-beta.1.1.1",
@@ -386,6 +396,9 @@ System.config({
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
+    "npm:intl@1.1.0": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
     "npm:materialize-css@0.97.5": {
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "hammerjs": "npm:hammerjs@2.0.6",
@@ -544,6 +557,8 @@ System.config({
       "welcome/welcome.js"
     ],
     "aurelia-bundle.js": [
+      "github:i18next/i18next@1.11.2.js",
+      "github:i18next/i18next@1.11.2/i18next.js",
       "github:jspm/nodelibs-process@0.1.2.js",
       "github:jspm/nodelibs-process@0.1.2/index.js",
       "github:miguelzakharia/aurelia-google-analytics@1.0.3.js",
@@ -578,6 +593,17 @@ System.config({
       "npm:aurelia-history@1.0.0-beta.1.1.1/aurelia-history.js",
       "npm:aurelia-http-client@1.0.0-beta.1.1.1.js",
       "npm:aurelia-http-client@1.0.0-beta.1.1.1/aurelia-http-client.js",
+      "npm:aurelia-i18n@0.4.11.js",
+      "npm:aurelia-i18n@0.4.11/aurelia-i18n.js",
+      "npm:aurelia-i18n@0.4.11/base-i18n.js",
+      "npm:aurelia-i18n@0.4.11/defaultTranslations/relative.time.js",
+      "npm:aurelia-i18n@0.4.11/df.js",
+      "npm:aurelia-i18n@0.4.11/i18n.js",
+      "npm:aurelia-i18n@0.4.11/nf.js",
+      "npm:aurelia-i18n@0.4.11/relativeTime.js",
+      "npm:aurelia-i18n@0.4.11/rt.js",
+      "npm:aurelia-i18n@0.4.11/t.js",
+      "npm:aurelia-i18n@0.4.11/utils.js",
       "npm:aurelia-loader-default@1.0.0-beta.1.1.3.js",
       "npm:aurelia-loader-default@1.0.0-beta.1.1.3/aurelia-loader-default.js",
       "npm:aurelia-loader@1.0.0-beta.1.1.1.js",

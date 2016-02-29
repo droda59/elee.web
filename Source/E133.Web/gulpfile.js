@@ -45,7 +45,7 @@ var bundleConfig = {
                 "aurelia-framework",
                 "aurelia-history-browser",
                 "aurelia-http-client",
-                // "aurelia-i18n",
+                "aurelia-i18n",
                 "aurelia-loader-default",
                 "aurelia-logging-console",
                 "aurelia-router",
