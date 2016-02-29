@@ -65,29 +65,16 @@ var bundleConfig = {
     }
 };
 
-gulp.task("bundle", ["unbundle"], function() {
-    return bundler.bundle(bundleConfig);
-});
-
-gulp.task("unbundle", function() {
-    return bundler.unbundle(bundleConfig);
-});
-
 gulp.task("typedef", function () {
     return gulp.src("jspm_packages/npm/aurelia*/**/*.d.ts")
         .pipe(flatten())
         .pipe(gulp.dest("typings/aurelia"));
 });
 
-gulp.task("copy-files", function() {
-    return gulp.src("app/**/*.{json,png,jpg,svg,woff,woff2,ttf}")
-        .pipe(gulp.dest("dist/"));
-});
-
-gulp.task("images", function() {
-    return gulp.src("dist/**/assets/images/*")
-        .pipe(imagemin())
-        .pipe(gulp.dest(path.dest));
+gulp.task("bump-version", function () {
+    return gulp.src(path.package)
+      .pipe(bump({ type: "patch" })) //major|minor|patch|prerelease, e.g. "major.minor.patch-prerelease"
+      .pipe(gulp.dest("./"));
 });
 
 gulp.task("clean", function () {
@@ -95,12 +82,35 @@ gulp.task("clean", function () {
        .pipe(vinylPaths(del));
 });
 
+gulp.task("copy-externals", ["copy-externals-materialize-css", "copy-externals-materialize-font"]);
+
+gulp.task("copy-externals-materialize-css", function() {
+  return gulp.src("jspm_packages/npm/materialize-css@**/sass/components/**/*.scss")
+        .pipe(flatten())
+        .pipe(gulp.dest("app/shared/assets/css/externals/materialize-css"));
+});
+
+gulp.task("copy-externals-materialize-font", function() {
+  return gulp.src("jspm_packages/npm/materialize-css@**/font/**/*")
+        .pipe(flatten())
+        .pipe(gulp.dest("app/shared/assets/fonts"));
+});
+
+gulp.task("default", ["build"]);
+gulp.task("build", function (callback) {
+    return runSequence(
+        "copy-externals",
+        ["build-ts", "build-html", "build-sass", "copy-files"],
+        callback
+    );
+});
+
 gulp.task("build-ts", function () {
     return gulp.src(path.typescript)
         .pipe(changed(path.typescript, { extension: ".ts" }))
         .pipe(ts({
             module: "amd",
-            sourceMap: true,
+            sourceMap: false,
             emitError: false,
             target: "ES5",
             emitDecoratorMetadata: true,
@@ -126,23 +136,9 @@ gulp.task("build-sass", function() {
         .pipe(browserSync.reload({ stream: true }));
 });
 
-gulp.task("minify-css", function() {
-    return gulp.src("dist/style.css")
-        .pipe(minifyCss());
-});
-
-gulp.task("bump-version", function () {
-    return gulp.src(path.package)
-      .pipe(bump({ type: "patch" })) //major|minor|patch|prerelease, e.g. "major.minor.patch-prerelease"
-      .pipe(gulp.dest("./"));
-});
-
-gulp.task("default", ["build"]);
-gulp.task("build", function (callback) {
-    return runSequence(
-        ["build-ts", "build-html", "build-sass", "copy-files"],
-        callback
-    );
+gulp.task("copy-files", function() {
+    return gulp.src("app/**/*.{json,png,jpg,svg,woff,woff2,ttf}")
+        .pipe(gulp.dest(path.dest));
 });
 
 gulp.task("serve", ["build"], function (done) {
@@ -190,6 +186,25 @@ gulp.task("clean-export", function() {
     .pipe(vinylPaths(del));
 });
 
+gulp.task("bundle", ["unbundle"], function() {
+    return bundler.bundle(bundleConfig);
+});
+
+gulp.task("unbundle", function() {
+    return bundler.unbundle(bundleConfig);
+});
+
+gulp.task("minify-css", function() {
+    return gulp.src("dist/style.css")
+        .pipe(minifyCss());
+});
+
+gulp.task("images", function() {
+    return gulp.src("dist/**/assets/images/*")
+        .pipe(imagemin())
+        .pipe(gulp.dest(path.dest));
+});
+
 function getBundles() {
   var bl = [];
   for (b in bundleConfig.bundles) {
@@ -214,8 +229,6 @@ gulp.task("export-copy", function() {
         "jspm_packages/github/andyearnshaw/Intl.js@*/Intl.complete.js",
         "jspm_packages/npm/jquery@**/dist/jquery.min.js",
         "jspm_packages/npm/materialize-css@**/dist/js/materialize.min.js",
-        "jspm_packages/npm/materialize-css@**/dist/css/materialize.css",
-        "jspm_packages/npm/materialize-css@**/dist/font/**/*",
         "jspm_packages/npm/moment@**/moment.js",
         "jspm_packages/npm/moment@**/locale/fr.js",
         "jspm_packages/npm/aurelia-dialog@**/*.html",

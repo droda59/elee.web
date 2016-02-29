@@ -1,48 +1,91 @@
-.page-footer.fixed {
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	padding: 10px 0;
-}
+@charset "UTF-8";
 
-.dropdown-content {
-	max-height: 400px;
-}
+// Mixins
+// @import "externals/materialize-css/prefixer";
+@import "externals/materialize-css/mixins";
+@import "externals/materialize-css/color";
 
-.collection,
-.collection .collection-item {
-	border: none;
-}
+// Variables;
+@import "materialize-variables";
 
-textarea {
-	overflow-y: hidden;
-	padding: 1.6rem 0;
-	resize: none;
-	min-height: 3rem;
-	background-color: transparent;
-	border: none;
-	border-bottom: 1px solid #9e9e9e;
-	border-radius: 0;
-	outline: none;
-	width: 100%;
-	font-size: 1rem;
-	margin: 0 0 15px 0;
-	box-shadow: none;
-	-webkit-box-sizing: content-box;
-	-moz-box-sizing: content-box;
-	box-sizing: content-box;
-	transition: all .3s;
-}
-textarea:focus:not([readonly]) {
-	border-bottom: 1px solid rgb(97, 162, 156);
-	box-shadow: 0 1px 0 0 rgb(97, 162, 156);
-}
-textarea:focus:not([readonly]) + label {
-	color: rgb(97, 162, 156);
-}
+// Reset
+@import "externals/materialize-css/normalize";
 
-@media only screen and (max-width: $mobile-max-width) {
-    .modal .modal-footer .btn-flat {
-        padding: 0 1rem;
-    }
+// components
+@import "externals/materialize-css/global";
+@import "externals/materialize-css/icons-material-design";
+@import "externals/materialize-css/grid";
+@import "externals/materialize-css/navbar";
+@import "externals/materialize-css/roboto";
+@import "externals/materialize-css/typography";
+@import "externals/materialize-css/cards";
+@import "externals/materialize-css/toast";
+@import "externals/materialize-css/tabs";
+@import "externals/materialize-css/tooltip";
+@import "externals/materialize-css/buttons";
+@import "externals/materialize-css/dropdown";
+@import "externals/materialize-css/waves";
+@import "externals/materialize-css/modal";
+@import "externals/materialize-css/collapsible";
+@import "externals/materialize-css/chips";
+@import "externals/materialize-css/materialbox";
+@import "externals/materialize-css/form";
+@import "externals/materialize-css/table_of_contents";
+@import "externals/materialize-css/sideNav";
+@import "externals/materialize-css/preloader";
+@import "externals/materialize-css/slider";
+@import "externals/materialize-css/carousel";
+@import "externals/materialize-css/default.scss";
+@import "externals/materialize-css/default.date.scss";
+@import "externals/materialize-css/default.time.scss";
+
+.E133 {
+	.page-footer.fixed {
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		padding: 10px 0;
+	}
+
+	.dropdown-content {
+		max-height: 400px;
+	}
+
+	.collection,
+	.collection .collection-item {
+		border: none;
+	}
+
+	textarea {
+		overflow-y: hidden;
+		padding: 1.6rem 0;
+		resize: none;
+		min-height: 3rem;
+		background-color: transparent;
+		border: none;
+		border-bottom: 1px solid #9e9e9e;
+		border-radius: 0;
+		outline: none;
+		width: 100%;
+		font-size: 1rem;
+		margin: 0 0 15px 0;
+		box-shadow: none;
+		-webkit-box-sizing: content-box;
+		-moz-box-sizing: content-box;
+		box-sizing: content-box;
+		transition: all .3s;
+	}
+	textarea:focus:not([readonly]) {
+		border-bottom: 1px solid rgb(97, 162, 156);
+		box-shadow: 0 1px 0 0 rgb(97, 162, 156);
+	}
+	textarea:focus:not([readonly]) + label {
+		color: rgb(97, 162, 156);
+	}
+
+	@media #{$small-and-down} {
+	    .modal .modal-footer .btn-flat {
+	        padding: 0 1rem;
+	    }
+	}
 }

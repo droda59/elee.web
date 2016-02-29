@@ -1,61 +1,59 @@
-.quick-recipe {
-    .active-timer.au-enter-active {
-        -webkit-animation: fadeIn 0.5s ease-in-out, backgroundHighlight 2s ease-in-out;
-        -moz-animation: fadeIn 0.5s ease-in-out, backgroundHighlight 2s ease-in-out;
-        animation: fadeIn 0.5s ease-in-out, backgroundHighlight 2s ease-in-out;
-    }
-    .active-timer.au-leave-active {
-        -webkit-animation: fadeIn 0.5s ease-in-out reverse;
-        -moz-animation: fadeIn 0.5s ease-in-out reverse;
-        animation: fadeIn 0.5s ease-in-out reverse;
-    }
+.active-timer.au-enter-active {
+    -webkit-animation: fadeIn 0.5s ease-in-out, backgroundHighlight 2s ease-in-out;
+    -moz-animation: fadeIn 0.5s ease-in-out, backgroundHighlight 2s ease-in-out;
+    animation: fadeIn 0.5s ease-in-out, backgroundHighlight 2s ease-in-out;
+}
+.active-timer.au-leave-active {
+    -webkit-animation: fadeIn 0.5s ease-in-out reverse;
+    -moz-animation: fadeIn 0.5s ease-in-out reverse;
+    animation: fadeIn 0.5s ease-in-out reverse;
+}
 
-    .dropdown-content.au-enter-active {
-        -webkit-animation: fadeIn 0.2s ease-in-out;
-        -moz-animation: fadeIn 0.2s ease-in-out;
-        animation: fadeIn 0.2s ease-in-out;
-    }
-    .dropdown-content.au-leave-active {
-        -webkit-animation: fadeIn 0.2s ease-in-out reverse;
-        -moz-animation: fadeIn 0.2s ease-in-out reverse;
-        animation: fadeIn 0.2s ease-in-out reverse;
-    }
+.dropdown-content.au-enter-active {
+    -webkit-animation: fadeIn 0.2s ease-in-out;
+    -moz-animation: fadeIn 0.2s ease-in-out;
+    animation: fadeIn 0.2s ease-in-out;
+}
+.dropdown-content.au-leave-active {
+    -webkit-animation: fadeIn 0.2s ease-in-out reverse;
+    -moz-animation: fadeIn 0.2s ease-in-out reverse;
+    animation: fadeIn 0.2s ease-in-out reverse;
+}
 
-    #presentation-section.au-leave-active {
-        -webkit-animation: fadeIn 0.5s ease-in-out reverse;
-        -moz-animation: fadeIn 0.5s ease-in-out reverse;
-        animation: fadeIn 0.5s ease-in-out reverse;
-    }
+#presentation-section.au-leave-active {
+    -webkit-animation: fadeIn 0.5s ease-in-out reverse;
+    -moz-animation: fadeIn 0.5s ease-in-out reverse;
+    animation: fadeIn 0.5s ease-in-out reverse;
+}
 
-    #recipe-content.au-enter-active {
-        -webkit-animation: fadeIn 0.5s ease-in-out;
-        -moz-animation: fadeIn 0.5s ease-in-out;
-        animation: fadeIn 0.5s ease-in-out;
-    }
+#recipe-content.au-enter-active {
+    -webkit-animation: fadeIn 0.5s ease-in-out;
+    -moz-animation: fadeIn 0.5s ease-in-out;
+    animation: fadeIn 0.5s ease-in-out;
+}
 
-    @-webkit-keyframes fadeIn {
-        0%   { opacity: 0; }
-        100% { opacity: 1; }
-    }
-    @-moz-keyframes fadeIn {
-        0%   { opacity: 0; }
-        100% { opacity: 1; }
-    }
-    @keyframes fadeIn {
-        0%   { opacity: 0; }
-        100% { opacity: 1; }
-    }
+@-webkit-keyframes fadeIn {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+@-moz-keyframes fadeIn {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes fadeIn {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+}
 
-    @-webkit-keyframes backgroundHighlight {
-        0% { background-color: rgba(226, 225, 221, 0.3); }
-        100% { background-color: rgba(29, 30, 34, 0.1); }
-    }
-    @-moz-keyframes backgroundHighlight {
-        0% { background-color: rgba(226, 225, 221, 0.3); }
-        100% { background-color: rgba(29, 30, 34, 0.1); }
-    }
-    @keyframes backgroundHighlight {
-        0% { background-color: rgba(226, 225, 221, 0.3); }
-        100% { background-color: rgba(29, 30, 34, 0.1); }
-    }
+@-webkit-keyframes backgroundHighlight {
+    0% { background-color: rgba(226, 225, 221, 0.3); }
+    100% { background-color: rgba(29, 30, 34, 0.1); }
+}
+@-moz-keyframes backgroundHighlight {
+    0% { background-color: rgba(226, 225, 221, 0.3); }
+    100% { background-color: rgba(29, 30, 34, 0.1); }
+}
+@keyframes backgroundHighlight {
+    0% { background-color: rgba(226, 225, 221, 0.3); }
+    100% { background-color: rgba(29, 30, 34, 0.1); }
 }

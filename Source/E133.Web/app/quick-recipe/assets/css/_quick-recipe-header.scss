@@ -1,170 +1,168 @@
 @import "variables";
 @import "../../../shared/assets/css/variables";
 
-.quick-recipe {
-    header {
+header {
+    height: $quick-recipe-header-height;
+    margin-bottom: 0;
+
+    nav {
+        box-shadow: none;
         height: $quick-recipe-header-height;
-        margin-bottom: 0;
+        background-color: $quick-recipe-header-color;
 
-        nav {
-            box-shadow: none;
+        ul a.btn-floating {
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
+        }
+
+        a.brand-logo {
+          position: inherit;
+          line-height: $quick-recipe-header-height;
+          height: $quick-recipe-header-height;
+
+          i {
+            // Temp fix so the text flow next to the icon.
+            // Anyway, this will eventually get replaced.
+            display: inline-block;
+            padding: 0 5px;
+            vertical-align: middle;
+            height: inherit;
+            line-height: inherit;
+          }
+        }
+
+        .block-button {
+            cursor: pointer;
             height: $quick-recipe-header-height;
-            background-color: $quick-recipe-header-color;
 
-            ul a.btn-floating {
-                margin-left: 0.5rem;
-                margin-right: 0.5rem;
-            }
-
-            a.brand-logo {
-              position: inherit;
-              line-height: $quick-recipe-header-height;
-              height: $quick-recipe-header-height;
-
-              i {
-                // Temp fix so the text flow next to the icon.
-                // Anyway, this will eventually get replaced.
+            i {
+                height: 100%;
+                line-height: $quick-recipe-header-height;
                 display: inline-block;
-                padding: 0 5px;
-                vertical-align: middle;
-                height: inherit;
-                line-height: inherit;
-              }
             }
 
-            .block-button {
-                cursor: pointer;
-                height: $quick-recipe-header-height;
-
-                i {
-                    height: 100%;
-                    line-height: $quick-recipe-header-height;
-                    display: inline-block;
+            .badge.new {
+                position: absolute;
+                top: 10px;
+                right: 0px;
+                &:after{
+                    content: "\00a0";
                 }
+            }
+        }
 
-                .badge.new {
-                    position: absolute;
-                    top: 10px;
-                    right: 0px;
-                    &:after{
-                        content: "\00a0";
+        .dropdown-content {
+            display: block;
+            border: 1px solid #66676f;
+            opacity: 1;
+            min-width: 400px;
+            right: -1px;
+            top: calc(#{$quick-recipe-header-height} - 1px);
+            padding: 10px;
+
+            .collection {
+                border: none;
+                margin: 0;
+
+                .collection-item {
+                    padding: 10px 0;
+                    min-height: inherit;
+
+                    .add-timer {
+                        width: 100%;
+                        line-height: inherit;
+                        height: inherit;
+                        padding: 0 10px;
+
+                        i {
+                            height: inherit;
+                            line-height: inherit;
+                        }
+
+                        .title {
+                            font-size: 1rem;
+                            padding: 14px 16px;
+                            display: inline-block;
+                        }
                     }
-                }
-            }
+                    .add-timer:hover {
+                        background-color: inherit;
+                    }
+                    form {
+                        line-height: 64px;
+                        height: 64px;
+                    }
+                    button i,
+                    a i {
+                        height: inherit;
+                        line-height: inherit;
+                    }
+                    input {
+                        margin: 0 10px;
+                        width: inherit;
+                        color: #26a69a;
+                        border-bottom-color: transparent;
+                        vertical-align: top;
+                        //line-height: inherit;
+                        height: inherit;
 
-            .dropdown-content {
-                display: block;
-                border: 1px solid #66676f;
-                opacity: 1;
-                min-width: 400px;
-                right: -1px;
-                top: calc(#{$quick-recipe-header-height} - 1px);
-                padding: 10px;
-
-                .collection {
-                    border: none;
-                    margin: 0;
-
-                    .collection-item {
-                        padding: 10px 0;
-                        min-height: inherit;
-
-                        .add-timer {
-                            width: 100%;
-                            line-height: inherit;
-                            height: inherit;
-                            padding: 0 10px;
-
-                            i {
-                                height: inherit;
-                                line-height: inherit;
-                            }
-
-                            .title {
-                                font-size: 1rem;
-                                padding: 14px 16px;
-                                display: inline-block;
-                            }
+                        &:focus {
+                            border-bottom-color: #26a69a;
                         }
-                        .add-timer:hover {
-                            background-color: inherit;
-                        }
-                        form {
-                            line-height: 64px;
-                            height: 64px;
-                        }
-                        button i,
-                        a i {
-                            height: inherit;
-                            line-height: inherit;
-                        }
-                        input {
-                            margin: 0 10px;
-                            width: inherit;
-                            color: #26a69a;
+                        &.valid {
                             border-bottom-color: transparent;
-                            vertical-align: top;
-                            //line-height: inherit;
-                            height: inherit;
+                            box-shadow: none;
 
                             &:focus {
                                 border-bottom-color: #26a69a;
-                            }
-                            &.valid {
-                                border-bottom-color: transparent;
-                                box-shadow: none;
-
-                                &:focus {
-                                    border-bottom-color: #26a69a;
-                                    box-shadow: 0 1px 0 0 #4CAF50;
-                                }
-                            }
-                            &.invalid {
-                                color: #F44336;
-
-                                &:focus {
-                                    border-bottom-color: #F44336;
-                                }
+                                box-shadow: 0 1px 0 0 #4CAF50;
                             }
                         }
-                        p {
-                            font-size: 1.2rem;
+                        &.invalid {
+                            color: #F44336;
+
+                            &:focus {
+                                border-bottom-color: #F44336;
+                            }
                         }
+                    }
+                    p {
+                        font-size: 1.2rem;
                     }
                 }
             }
         }
     }
+}
 
-    @media only screen and (max-width: $mobile-max-width) {
-        header nav .dropdown-content {
-            padding: 0;
-            min-width: 300px;
-            font-size: 0.8rem;
-            width: 100%;
-            left: 0;
-            border-right: none;
-            border-left: none;
+@media only screen and (max-width: $mobile-max-width) {
+    header nav .dropdown-content {
+        padding: 0;
+        min-width: 300px;
+        font-size: 0.8rem;
+        width: 100%;
+        left: 0;
+        border-right: none;
+        border-left: none;
 
-            .collection .collection-item {
-                padding: 0.5rem;
+        .collection .collection-item {
+            padding: 0.5rem;
 
-                form {
-                    width: 100%;
-                    line-height: 50px;
-                    height: 50px;
+            form {
+                width: 100%;
+                line-height: 50px;
+                height: 50px;
 
-                    input {
-                        width: 90px;
-                    }
+                input {
+                    width: 90px;
                 }
             }
         }
     }
+}
 
-    @media only screen and (max-width: $tablet-max-width) {
-        header nav a.brand-logo {
-            position: relative;
-        }
+@media only screen and (max-width: $tablet-max-width) {
+    header nav a.brand-logo {
+        position: relative;
     }
 }

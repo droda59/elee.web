@@ -1,184 +1,186 @@
-@import "core";
-@import "variables";
-@import "quick-recipe-header";
-@import "quick-recipe-footer";
-@import "help-overlay";
-@import "animations";
-@import "../../../shared/assets/css/variables";
+.E133 {
+    .quick-recipe {
+        @import "core";
+        @import "variables";
+        @import "quick-recipe-header";
+        @import "quick-recipe-footer";
+        @import "help-overlay";
+        @import "animations";
+        @import "../../../shared/assets/css/variables";
 
-.quick-recipe {
-    .btn {
-        background-color: rgba(255, 175, 75, 1);
+        .btn {
+            background-color: rgba(255, 175, 75, 1);
 
-        &:hover {
-            background-color: rgba(178, 114, 35, 1);
+            &:hover {
+                background-color: rgba(178, 114, 35, 1);
+            }
         }
-    }
 
-    main {
-        height: calc(100vh - #{$quick-recipe-header-height} - #{$quick-recipe-footer-height});
-        padding: 0.5rem;
-        margin-bottom: 0;
-
-        #ingredients {
-            position: fixed;
-            height: calc(100vh - #{$quick-recipe-header-height} - #{$quick-recipe-footer-height} - 1rem);
-            overflow-y: overlay;
-            margin-top: 0;
+        main {
+            height: calc(100vh - #{$quick-recipe-header-height} - #{$quick-recipe-footer-height});
+            padding: 0.5rem;
             margin-bottom: 0;
 
-            .card-image {
-                width: inherit;
-                height: $quick-recipe-ingredients-image-height;
-                overflow: hidden;
+            #ingredients {
                 position: fixed;
-                left: 0.5rem;
+                height: calc(100vh - #{$quick-recipe-header-height} - #{$quick-recipe-footer-height} - 1rem);
+                overflow-y: overlay;
+                margin-top: 0;
+                margin-bottom: 0;
 
-                img {
-                    top: -100%;
-                    filter:blur(5px);
-                    -moz-filter: blur(5px);
-                    -o-filter: blur(5px);
-                    -ms-filter: blur(5px);
-                    -webkit-filter: blur(1px);
-                }
-                .after {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background: rgba(0, 0, 0, .4);
-                }
-            }
-            .card-content {
-                height: calc(100% - #{$quick-recipe-ingredients-image-height});
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                overflow: inherit;
-                width: 100%;
-
-                .ingredient-item {
-                    &.done {
-                        text-decoration: line-through;
-                        opacity: 0.6;
-                    }
-                    &.current {
-                        font-weight: 600;
-                    }
-                }
-            }
-        }
-
-        #instructions {
-            height: 100%;
-            overflow: hidden;
-            overflow-y: auto;
-            position: relative;
-
-            .section {
-                padding: 1rem;
-            }
-
-            #recipe-content {
-                width: 100%;
-
-                .navbar {
-                    background-color: $quick-recipe-content-color;
-                    color: black;
-                    padding: 0;
+                .card-image {
+                    width: inherit;
+                    height: $quick-recipe-ingredients-image-height;
+                    overflow: hidden;
                     position: fixed;
-                    z-index: 1;
-                    top: $quick-recipe-header-height;
+                    left: 0.5rem;
 
-                    .subrecipe-titles {
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: space-around;
-                        flex-wrap: nowrap;
+                    img {
+                        top: -100%;
+                        filter:blur(5px);
+                        -moz-filter: blur(5px);
+                        -o-filter: blur(5px);
+                        -ms-filter: blur(5px);
+                        -webkit-filter: blur(1px);
+                    }
+                    .after {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(0, 0, 0, .4);
+                    }
+                }
+                .card-content {
+                    height: calc(100% - #{$quick-recipe-ingredients-image-height});
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    overflow: inherit;
+                    width: 100%;
 
-                        .subrecipe-title {
-                            opacity: 0.5;
-                            flex-grow: 1;
-                            text-align: center;
-                            cursor: default;
-                            &:hover {
-                                background: none;
-                            }
-                            &.active {
-                                opacity: 1;
-                                transition: opacity 0.3s ease-in-out;
+                    .ingredient-item {
+                        &.done {
+                            text-decoration: line-through;
+                            opacity: 0.6;
+                        }
+                        &.current {
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
 
+            #instructions {
+                height: 100%;
+                overflow: hidden;
+                overflow-y: auto;
+                position: relative;
+
+                .section {
+                    padding: 1rem;
+                }
+
+                #recipe-content {
+                    width: 100%;
+
+                    .navbar {
+                        background-color: $quick-recipe-content-color;
+                        color: black;
+                        padding: 0;
+                        position: fixed;
+                        z-index: 1;
+                        top: $quick-recipe-header-height;
+
+                        .subrecipe-titles {
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-around;
+                            flex-wrap: nowrap;
+
+                            .subrecipe-title {
+                                opacity: 0.5;
+                                flex-grow: 1;
+                                text-align: center;
+                                cursor: default;
                                 &:hover {
-                                    background: rgba(0, 0, 0, 0.1);
+                                    background: none;
+                                }
+                                &.active {
+                                    opacity: 1;
+                                    transition: opacity 0.3s ease-in-out;
+
+                                    &:hover {
+                                        background: rgba(0, 0, 0, 0.1);
+                                    }
                                 }
                             }
                         }
                     }
-                }
 
-                .step-actions {
-                    z-index: 1;
-                    position: fixed;
-                    bottom: calc(#{$quick-recipe-footer-height} + 10px);
-                    right: 10px;
-                }
-
-                .step {
-                    font-size: 1em;
-                    opacity: 0.15;
-                    transition: opacity 0.2s ease-in-out, font-size 0.1s ease-in-out;
-                    padding: 4rem 2rem;
-                    display: block;
-                    position: relative;
-
-                    .enumeration {
-                        margin: 1rem 2rem 1rem 3rem;
-
-                        .collection-item {
-                            [type="checkbox"] + label {
-                                // margin-left: 2rem;
-                                height: 1.5rem;
-                                display: none;
-                            }
-                            .emphasis {
-                                font-size: 1.5em;
-                            }
-                        }
+                    .step-actions {
+                        z-index: 1;
+                        position: fixed;
+                        bottom: calc(#{$quick-recipe-footer-height} + 10px);
+                        right: 10px;
                     }
 
-                    .emphasis {
-                        font-size: 2em;
-                    }
-
-                    .technical {
-                        font-size: 2em;
-                        line-height: 3rem;
-                    }
-
-                    .timer {
-                        a {
-                            font-size: 1rem;
-                        }
-                        .btn {
-                            padding: 0 1rem;
-                            margin: 0 1rem;
-                        }
-                    }
-                    &:first-of-type {
-                        margin-top: 30vh;
-                    }
-                    &:last-of-type {
-                        margin-bottom: 100%;
-                    }
-                    &.active {
-                        opacity: 1;
+                    .step {
+                        font-size: 1em;
+                        opacity: 0.15;
+                        transition: opacity 0.2s ease-in-out, font-size 0.1s ease-in-out;
+                        padding: 4rem 2rem;
+                        display: block;
+                        position: relative;
 
                         .enumeration {
+                            margin: 1rem 2rem 1rem 3rem;
+
                             .collection-item {
                                 [type="checkbox"] + label {
-                                    display: inline-block;
+                                    // margin-left: 2rem;
+                                    height: 1.5rem;
+                                    display: none;
+                                }
+                                .emphasis {
+                                    font-size: 1.5em;
+                                }
+                            }
+                        }
+
+                        .emphasis {
+                            font-size: 2em;
+                        }
+
+                        .technical {
+                            font-size: 2em;
+                            line-height: 3rem;
+                        }
+
+                        .timer {
+                            a {
+                                font-size: 1rem;
+                            }
+                            .btn {
+                                padding: 0 1rem;
+                                margin: 0 1rem;
+                            }
+                        }
+                        &:first-of-type {
+                            margin-top: 30vh;
+                        }
+                        &:last-of-type {
+                            margin-bottom: 100%;
+                        }
+                        &.active {
+                            opacity: 1;
+
+                            .enumeration {
+                                .collection-item {
+                                    [type="checkbox"] + label {
+                                        display: inline-block;
+                                    }
                                 }
                             }
                         }
@@ -186,37 +188,37 @@
                 }
             }
         }
-    }
 
-    @media only screen and (max-width: $mobile-max-width) {
-        main {
-            padding: 0;
+        @media only screen and (max-width: $mobile-max-width) {
+            main {
+                padding: 0;
 
-            #instructions #recipe-content {
-                width: 100%;
+                #instructions #recipe-content {
+                    width: 100%;
 
-                .navbar {
-                    left: 0;
-                }
+                    .navbar {
+                        left: 0;
+                    }
 
-                .step {
-                    padding: 4rem 1rem;
+                    .step {
+                        padding: 4rem 1rem;
 
-                    .enumeration {
-                        margin: 1rem 0 1rem 1rem;
+                        .enumeration {
+                            margin: 1rem 0 1rem 1rem;
 
-                        .collection-item {
-                            padding: 10px 0;
-                            .emphasis {
-                                font-size: 1.3em;
+                            .collection-item {
+                                padding: 10px 0;
+                                .emphasis {
+                                    font-size: 1.3em;
+                                }
                             }
                         }
-                    }
-                    .emphasis {
-                        font-size: 1.5em;
-                    }
-                    .technical {
-                        font-size: 1.5em;
+                        .emphasis {
+                            font-size: 1.5em;
+                        }
+                        .technical {
+                            font-size: 1.5em;
+                        }
                     }
                 }
             }

@@ -1,3 +1,5 @@
+@import "materialize";
+
 // Core elements importation
 .E133 {
     @import "variables";
@@ -84,9 +86,8 @@
             font-size: 0.9rem;
         }
     }
-    
+
     // Global elements importation
     @import "navigation";
-    @import "materialize";
     @import "dialog";
 }
