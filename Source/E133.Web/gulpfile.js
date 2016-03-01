@@ -216,6 +216,7 @@ function getBundles() {
 gulp.task("export-copy", function() {
   return gulp.src([
         "index.html",
+        "web.config",
         "config.js",
         "favicon.ico",
         "dist/**/*.+(html|css|json|png|jpg|svg|woff|woff2|ttf)",
