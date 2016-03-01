@@ -97,23 +97,23 @@ pushd "$DEPLOYMENT_SOURCE/Source/E133.Web"
 selectNodeVersion
 
 # 3. Install npm packages
-if [ -e "package.json" ]; then
-  echo Installing NPM modules
-  eval $NPM_CMD install
-  exitWithMessageOnError "npm failed"
+#if [ -e "package.json" ]; then
+#  echo Installing NPM modules
+#  eval $NPM_CMD install
+#  exitWithMessageOnError "npm failed"
   
-  echo Installing jspm packages
-  eval $NPM_CMD install jspm
-  exitWithMessageOnError "installing jspm failed"  
-  ./node_modules/.bin/jspm install  
-  exitWithMessageOnError "jspm failed"
-fi
+#  echo Installing jspm packages
+#  eval $NPM_CMD install jspm
+#  exitWithMessageOnError "installing jspm failed"  
+#  ./node_modules/.bin/jspm install  
+#  exitWithMessageOnError "jspm failed"
+#fi
 
 echo Running Gulp
 # 4. Run gulp for build
 if [ -e "gulpfile.js" ]; then  
-  eval $NPM_CMD install gulp 
-  exitWithMessageOnError "installing gulpfailed"  
+#  eval $NPM_CMD install gulp 
+#  exitWithMessageOnError "installing gulpfailed"  
   ./node_modules/.bin/gulp export
   exitWithMessageOnError "gulp failed"  
 fi    
