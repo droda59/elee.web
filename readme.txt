@@ -34,7 +34,7 @@ To be able to run the server api, you need to do the following:
 Executing the app
 -----------------
 To run the API, run the Visual Studio solution. It contains a REST API that you can use to test and develop. 
-To use it, open a REST client (https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo). 
+To use it, open a REST client like Postman or https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo. 
 
 - ParserTestController
 	/parsertest/get: Returns the list of recipes in the database in SearchResult format (id, name, url)
@@ -44,7 +44,7 @@ To use it, open a REST client (https://chrome.google.com/webstore/detail/advance
 	ex. GET http://localhost:50817/api/parsertest/e879fde3-9bf3-47c9-bbb8-03b163a45ca8
 	
 	/parsertest/put?url={url}: Parses the url for a known recipe, inserts it in the database, and returns it. 
-	ex. PUT http://localhost:50817/api/parsertest?url=http://www.ricardocuisine.com/recettes/5409-pouding-au-chocolat
+	ex. PUT http://localhost:50817/api/parsertest/parse?url=http://www.ricardocuisine.com/recettes/5409-pouding-au-chocolat
 
 	
 --------------
@@ -57,41 +57,18 @@ To be able to run the client app, you need to do the following:
 
 - Install Node globally
 	Get NodeJS here : https://nodejs.org/download/
-	You can choose between the LTS version or the latest and greatest version. Both will work thus the latest might broke sometime.
-
-- Install jspm globally
-	! The latest Aurelia version uses the latest jspm beta version. However, there are 
-	stll known bugs in that version. So install the current release version of jspm. 
-	npm install jspm -g
-	
-- Install gulp globally
-	npm install gulp -g
+	You can choose between the LTS version or the latest and greatest version. Both will work though the latest might broke sometime.
 
 - Install app packages
-	navigate to solution folder /Source/CookItNow.Web/
+	navigate to solution folder /Source/E133.Web/
 	npm install
 	jspm install
 
-You will want to be able to bundle the Aurelia script files and the project views 
-eventually. For this, you need to install the following: 
-
-- Install Aurelia-cli globally
-	npm install aurelia-cli -g
-
-
 Executing the app
 -----------------
-The Aurelia script files bundle is already included in the /dist folder of the app. 
-However, ou may need to re-bundle the Aurelia script files (when you update Aurelia, 
-for example). To bundle the Aurelia script files, you need to do the following: 
-
-- Update Aurelia bundle
-	navigate to solution folder /Source/CookItNow.Web/
-	aurelia bundle --force
-
 Gulp tasks are setup to build, run and watch the application. Here is a description
 of each such task. You run these tasks either from your IDE or in a console from the 
-/Source/CookItNow.Web/ folder. 
+/Source/E133.Web/ folder. 
 
 - gulp bump-version
 	Changes the current version in the /package.json file. 
@@ -110,7 +87,7 @@ of each such task. You run these tasks either from your IDE or in a console from
 	need to do. 
 	
 - gulp serve
-	Cleans de /dist folder, compiles the application, and sets up a local web server 
+	Cleans the /dist folder, compiles the application, and sets up a local web server 
 	and runs the application, normally at localhost:9000. 
 	
 - gulp watch
@@ -119,3 +96,7 @@ of each such task. You run these tasks either from your IDE or in a console from
 	running app through browser sync. 
 	watch-ts, watch-less and watch-html also exist, for better control over what you 
 	need to do. 
+	
+- gulp export
+	This will clean the /dist folder, clean the /export folder, then build, bundle and copy the production files into the /export folder. 
+	All those files will be bundled, minified and compressed, to replicate the production environment. You can test on your local machine using a local web server. 
