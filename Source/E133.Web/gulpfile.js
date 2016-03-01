@@ -231,8 +231,8 @@ gulp.task("export-copy", function() {
         "jspm_packages/npm/materialize-css@**/dist/js/materialize.min.js",
         "jspm_packages/npm/moment@**/moment.js",
         "jspm_packages/npm/moment@**/locale/fr.js",
-        "jspm_packages/npm/aurelia-dialog@**/*.html",
-        "jspm_packages/npm/aurelia-dialog@**/*.css"
+        "jspm_packages/npm/aurelia-dialog@0.5.6/*.html",
+        "jspm_packages/npm/aurelia-dialog@0.5.6/*.css"
       ].concat(getBundles()), { base: "." })
     .pipe(gulp.dest(path.export))
 });

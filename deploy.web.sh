@@ -99,6 +99,7 @@ selectNodeVersion
 # 3. Install npm packages
 if [ -e "package.json" ]; then
   echo Installing NPM modules
+  eval $NPM_CMD prune
   eval $NPM_CMD install
   exitWithMessageOnError "npm failed"
   
