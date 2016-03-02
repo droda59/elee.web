@@ -400,11 +400,9 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:materialize-css@0.97.5": {
-      "fs": "github:jspm/nodelibs-fs@0.1.2",
       "hammerjs": "npm:hammerjs@2.0.6",
       "jquery": "npm:jquery@2.2.1",
-      "node-archiver": "npm:node-archiver@0.2.0",
-      "process": "github:jspm/nodelibs-process@0.1.2"
+      "node-archiver": "npm:node-archiver@0.2.0"
     },
     "npm:minimatch@3.0.0": {
       "brace-expansion": "npm:brace-expansion@1.1.3",
