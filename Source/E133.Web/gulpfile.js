@@ -30,7 +30,8 @@ var bundleConfig = {
     bundles: {
         "dist/app-bundle": {
             includes: [
-                "[**/*.js]"
+                "[**/*.js]",
+                "**/*.html!text"
             ],
             options: {
                 inject: true,
@@ -42,6 +43,7 @@ var bundleConfig = {
                 "aurelia-animator-css",
                 "aurelia-bootstrapper",
                 "aurelia-dialog",
+                "aurelia-dialog/**/*.html!text",
                 "aurelia-framework",
                 "aurelia-history-browser",
                 "aurelia-http-client",
@@ -219,20 +221,18 @@ gulp.task("export-copy", function() {
         "web.config",
         "config.js",
         "favicon.ico",
-        "dist/**/*.+(html|css|json|png|jpg|svg|woff|woff2|ttf)",
+        "dist/style.css",
+        "dist/**/*.+(json|png|jpg|svg|woff|woff2|ttf)",
         "jspm_packages/system.js",
         "jspm_packages/system.js.map",
         "jspm_packages/system-polyfills.js",
         "jspm_packages/system-csp-production.js",
         "jspm_packages/github/systemjs/plugin-text@**.js",
         "jspm_packages/github/systemjs/plugin-text@**/text.js",
-        "jspm_packages/github/andyearnshaw/Intl.js@**.js",
-        "jspm_packages/github/andyearnshaw/Intl.js@**/Intl.complete.js",
         "jspm_packages/npm/jquery@**/dist/jquery.min.js",
         "jspm_packages/npm/materialize-css@**/dist/js/materialize.min.js",
         "jspm_packages/npm/moment@**/moment.js",
         "jspm_packages/npm/moment@**/locale/fr.js",
-        "jspm_packages/npm/aurelia-dialog@0.5.6/*.html",
         "jspm_packages/npm/aurelia-dialog@0.5.6/*.css"
       ].concat(getBundles()), { base: "." })
     .pipe(gulp.dest(path.export))
