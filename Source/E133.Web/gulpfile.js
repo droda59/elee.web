@@ -110,7 +110,7 @@ gulp.task("build-ts", function () {
         .pipe(changed(path.typescript, { extension: ".ts" }))
         .pipe(ts({
             module: "amd",
-            sourceMap: false,
+            sourceMap: true,
             emitError: false,
             target: "ES5",
             emitDecoratorMetadata: true,
