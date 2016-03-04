@@ -130,7 +130,7 @@
 			}
 		}
 
-		@media only screen and (max-width: $mobile-max-width) {
+		@media #{$small-and-down} {
 			.container {
 				width: 80%;
 			}
@@ -144,7 +144,7 @@
 			}
 		}
 
-		@media only screen and (max-width: $tablet-max-width) {
+		@media #{$medium-and-down} {
 			.promo p {
 				line-height: 1.5rem;
 			}

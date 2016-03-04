@@ -189,7 +189,7 @@
             }
         }
 
-        @media only screen and (max-width: $mobile-max-width) {
+        @media #{$small-and-down} {
             main {
                 padding: 0;
 

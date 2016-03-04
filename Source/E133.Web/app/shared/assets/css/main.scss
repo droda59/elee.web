@@ -1,19 +1,18 @@
+@import "variables";
 @import "materialize";
+@import "core";
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+	font-family: $font-raleway;
+}
 
 // Core elements importation
 .E133 {
-    @import "variables";
-    @import "core";
-
-    html,
-    body {
-        height: 100%;
-    }
-
-    body {
-    	font-family: $font-raleway;
-    }
-
     router-view {
         display: block;
     }
@@ -30,7 +29,7 @@
         color: #26a69a;
     }
 
-    @media only screen and (max-width : $tablet-max-width) {
+    @media #{$medium-and-down} {
         .parallax-container .section {
             position: absolute;
             top: 40%;
@@ -40,7 +39,7 @@
         }
     }
 
-    @media only screen and (max-width : $mobile-max-width) {
+    @media #{$small-and-down} {
         #index-banner .section {
             top: 0;
         }
