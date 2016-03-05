@@ -1,6 +1,6 @@
 import {Router} from "aurelia-router";
 import {inject} from "aurelia-framework";
-import {I18N} from 'aurelia-i18n';
+import {I18N} from "aurelia-i18n";
 
 @inject (Router, I18N, Element)
 export class Welcome {

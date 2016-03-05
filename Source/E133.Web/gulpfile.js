@@ -116,7 +116,8 @@ gulp.task("build-ts", function () {
             emitError: false,
             target: "ES5",
             emitDecoratorMetadata: true,
-            experimentalDecorators : true
+            experimentalDecorators: true,
+            allowSyntheticDefaultImports: true
         }))
         .pipe(gulp.dest(path.dest))
         .pipe(browserSync.reload({ stream: true }));

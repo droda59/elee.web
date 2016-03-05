@@ -1,5 +1,6 @@
 import {inject} from "aurelia-framework";
 import {DialogController} from "aurelia-dialog";
+import $ from "jquery";
 
 @inject (DialogController)
 export class HelpOverlay {

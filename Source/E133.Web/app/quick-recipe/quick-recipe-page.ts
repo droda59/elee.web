@@ -7,6 +7,7 @@ import {HelpOverlay} from "quick-recipe/components/help-overlay";
 import {TimerCoordinator} from "quick-recipe/timer-coordinator";
 import {ScrollCoordinator} from "quick-recipe/scroll-coordinator";
 import {Ingredient} from "shared/models/ingredient";
+import $ from "jquery";
 
 @inject (HttpClient, I18N, TimerCoordinator, ScrollCoordinator, DialogService)
 export class QuickRecipePage {

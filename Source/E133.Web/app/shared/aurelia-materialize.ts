@@ -1,5 +1,9 @@
 import {inject, customAttribute} from "aurelia-framework";
 import {TaskQueue} from "aurelia-task-queue";
+// import * as $ from "jquery";
+// import pickadate from "pickadate";
+// import materialize from "materialize";
+
 // Commented out. It fix the warning in TS build but make the homepage wrecking havoc. Need to investigate...
 //import * as $ from 'jquery'
 
@@ -19,7 +23,7 @@ function fireEvent(element, name) {
 * Also smooths out some issues with materialize and data-binding.
 */
 @customAttribute("materialize")
-@inject(Element, TaskQueue)
+@inject(Element, TaskQueue, materialize)
 export class Materialize {
   private _interval;
   element;
@@ -39,14 +43,14 @@ export class Materialize {
 
     // handle the details of configuring the materialize javascript components...
     switch(this.value) {
-      case "datepicker":
-        $(this.element).pickadate({
-          format: "m/d/yyyy",
-          selectMonths: true,
-          selectYears: 15,
-          onSet: () => fireEvent(this.element, "change") // fire a change event so the binding system knows the element value was changed
-        });
-        break;
+    //   case "datepicker":
+    //     $(this.element).pickadate({
+    //       format: "m/d/yyyy",
+    //       selectMonths: true,
+    //       selectYears: 15,
+    //       onSet: () => fireEvent(this.element, "change") // fire a change event so the binding system knows the element value was changed
+    //     });
+    //     break;
 
       case "select":
         setTimeout(() => this.bindSelect(), 10);
