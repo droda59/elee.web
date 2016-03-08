@@ -112,6 +112,7 @@
     ],
     "steps": [
         {
+            "id": 0,
             "subrecipeId": -2,
             "parts": [
                 {
@@ -139,6 +140,7 @@
             "postSteps": []
         },
         {
+            "id": 1,
             "subrecipeId": -2,
             "parts": [
                 {
@@ -170,6 +172,7 @@
             "postSteps": []
         },
         {
+            "id": 2,
             "subrecipeId": -1,
             "parts": [
                 {
@@ -216,6 +219,7 @@
             "postSteps": []
         },
         {
+            "id": 3,
             "subrecipeId": -1,
             "parts": [
                 {
@@ -226,6 +230,7 @@
             "postSteps": []
         },
         {
+            "id": 4,
             "subrecipeId": -1,
             "parts": [
                 {
@@ -284,6 +289,7 @@
             "postSteps": []
         },
         {
+            "id": 5,
             "subrecipeId": -1,
             "parts": [
                 {
@@ -322,6 +328,7 @@
             "postSteps": []
         },
         {
+            "id": 6,
             "subrecipeId": -1,
             "parts": [
                 {
@@ -336,6 +343,7 @@
             "postSteps": []
         },
         {
+            "id": 7,
             "subrecipeId": -1,
             "parts": [
                 {
@@ -363,6 +371,7 @@
             "postSteps": []
         },
         {
+            "id": 8,
             "subrecipeId": -1,
             "parts": [
                 {
@@ -391,6 +400,7 @@
             "postSteps": []
         },
         {
+            "id": 9,
             "subrecipeId": -1,
             "parts": [
                 {
@@ -405,6 +415,7 @@
             "postSteps": []
         },
         {
+            "id": 10,
             "subrecipeId": -1,
             "parts": [
                 {
@@ -419,6 +430,7 @@
             "postSteps": []
         },
         {
+            "id": 11,
             "subrecipeId": -1,
             "parts": [
                 {
@@ -429,6 +441,7 @@
             "postSteps": []
         },
         {
+            "id": 12,
             "subrecipeId": -1,
             "parts": [
                 {
@@ -447,6 +460,7 @@
             "postSteps": []
         },
         {
+            "id": 13,
             "subrecipeId": -1,
             "parts": [
                 {
@@ -461,6 +475,7 @@
             "postSteps": []
         },
         {
+            "id": 14,
             "subrecipeId": -1,
             "parts": [
                 {
@@ -485,6 +500,7 @@
             "postSteps": []
         },
         {
+            "id": 15,
             "subrecipeId": -1,
             "parts": [
 				{

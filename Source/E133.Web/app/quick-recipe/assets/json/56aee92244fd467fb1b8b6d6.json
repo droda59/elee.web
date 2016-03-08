@@ -81,6 +81,7 @@
     ],
     "steps": [
         {
+            "id": 0,
             "subrecipeId": -1,
             "parts": [
                 {
@@ -95,6 +96,7 @@
             "postSteps": []
         },
         {
+            "id": 1,
             "subrecipeId": -1,
             "parts": [
                 {
@@ -121,6 +123,7 @@
             "postSteps": []
         },
         {
+            "id": 2,
             "subrecipeId": -1,
             "parts": [
                 {
@@ -171,6 +174,7 @@
             "postSteps": []
         },
         {
+            "id": 3,
             "subrecipeId": -1,
             "parts": [
                 {
@@ -206,6 +210,7 @@
             "postSteps": []
         },
         {
+            "id": 4,
             "subrecipeId": -1,
             "parts": [
                 {
@@ -220,6 +225,7 @@
             "postSteps": []
         },
         {
+            "id": 5,
             "subrecipeId": -1,
             "parts": [
                 {
@@ -252,6 +258,7 @@
             "postSteps": []
         },
 		{
+            "id": 6,
 			"subrecipeId": -1,
 			"parts": [
 				{
@@ -270,6 +277,7 @@
 			"postSteps": []
         },
         {
+            "id": 7,
             "subrecipeId": -1,
             "parts": [
                 {
@@ -300,6 +308,7 @@
             "postSteps": []
         },
         {
+            "id": 8,
             "subrecipeId": -1,
             "parts": [
                 {

@@ -26,6 +26,7 @@ export interface SubRecipe {
 }
 
 export interface Step {
+    id: number;
     subrecipeId: number;
     parts: Part[];
     postStep: Step;

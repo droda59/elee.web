@@ -61,6 +61,7 @@ export class QuickRecipePage {
 				(subrecipe) => {
 					var subrecipeIngredient = new QuickRecipeSubrecipeIngredient();
 					subrecipeIngredient.subrecipeTitle = subrecipe.title;
+					subrecipeIngredient.subrecipeId = subrecipe.id;
 					subrecipeIngredient.ingredients = this.recipe.ingredients.filter(
 						(ingredient) => ingredient.subrecipeId === subrecipe.id
 					);
@@ -94,6 +95,11 @@ export class QuickRecipePage {
 		this.goToCurrentStep();
 	}
 
+    goToSubrecipe(subrecipeId: number): void {
+        var step = this.recipe.steps.filter(step => step.subrecipeId == subrecipeId)[0];
+		this.goToStep(step.id);
+    }
+
 	goToPreviousStep(): void {
         if (this.isNavigationFirstStep) {
             return;
@@ -101,8 +107,7 @@ export class QuickRecipePage {
 
 		this._navigationStepIndex--;
 
-        var element = $("#step-" + this._navigationStepIndex)[0];
-		this.goToStep(element);
+		this.goToStep(this._navigationStepIndex);
 	}
 
     goToNextStep(): void {
@@ -112,15 +117,13 @@ export class QuickRecipePage {
 
 		this._navigationStepIndex++;
 
-        var element = $("#step-" + this._navigationStepIndex)[0];
-		this.goToStep(element);
+		this.goToStep(this._navigationStepIndex);
     }
 
 	goToCurrentStep(): void {
         this._navigationStepIndex = this._currentStepIndex;
 
-		var element = $("#step-" + this._navigationStepIndex)[0];
-		this.goToStep(element);
+		this.goToStep(this._navigationStepIndex);
 	}
 
 	completeStep(): void {
@@ -139,7 +142,7 @@ export class QuickRecipePage {
 		this._currentStepIndex++;
 
 		this.decorateStepIngredients(this.getCurrentStep(), "current");
-		this.goToCurrentStep();
+		this.goToStep(this._currentStepIndex);
 	}
 
 	get activeSubrecipeId(): number {
@@ -166,7 +169,8 @@ export class QuickRecipePage {
 		return this._navigationStepIndex == this.recipe.steps.length - 1;
 	}
 
-    private goToStep(element): void {
+    private goToStep(stepId: number): void {
+		var element = $("#step-" + stepId)[0];
 		var navHeight = $(".subrecipe-titles")[0].offsetHeight;
 		var top = Math.max(0, element.offsetTop - ((window.innerHeight - navHeight - element.offsetHeight) / 2) + 32);
 		this._scrollCoordinator.scrollTo(top);
@@ -207,5 +211,6 @@ export class QuickRecipePage {
 
 class QuickRecipeSubrecipeIngredient {
 	subrecipeTitle: string;
+	subrecipeId: number;
 	ingredients: Ingredient[];
 }

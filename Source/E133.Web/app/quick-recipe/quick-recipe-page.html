@@ -67,14 +67,16 @@
 				<nav class="navbar col m9 z-depth-1" show.bind="isRecipeStarted && !isRecipeDone">
 					<ul class="subrecipe-titles">
 						<li repeat.for="subrecipe of recipe.subrecipes" class="subrecipe-title ${$parent.activeSubrecipeId === subrecipe.id ? 'active' : ''}">
-							${subrecipe.title}
+							<a click.trigger="goToSubrecipe(subrecipe.id)">
+								${subrecipe.title}
+							</a>
 						</li>
 					</ul>
 				</nav>
 
 				<section id="recipe-content" show.bind="isRecipeStarted && !isRecipeDone" class="au-animate">
 					<div class="steps">
-						<quick-recipe-step repeat.for="step of recipe.steps" id="step-${$index}" step.bind="step" class="step"></quick-recipe-step>
+						<quick-recipe-step repeat.for="step of recipe.steps" id="step-${step.id}" step.bind="step" class="step"></quick-recipe-step>
 					</div>
 
 					<span class="navigation-pills" show.bind="isRecipeStarted">
