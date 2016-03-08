@@ -122,7 +122,9 @@
                         z-index: 1;
                         position: fixed;
                         top: 40%;
-                        right: 10px;
+                        right: 0;
+                        width: 80px;
+                        margin: 0 10px;
 
                         .btn {
                             display: block;
@@ -209,35 +211,25 @@
         }
 
         @media #{$small-and-down} {
-            main {
-                padding: 0;
+            main #instructions #recipe-content {
+                .step {
+                    padding: 4rem 1rem;
 
-                #instructions #recipe-content {
-                    width: 100%;
+                    .enumeration {
+                        margin: 1rem 0 1rem 1rem;
 
-                    .navbar {
-                        left: 0;
-                    }
-
-                    .step {
-                        padding: 4rem 1rem;
-
-                        .enumeration {
-                            margin: 1rem 0 1rem 1rem;
-
-                            .collection-item {
-                                padding: 10px 0;
-                                .emphasis {
-                                    font-size: 1.3em;
-                                }
+                        .collection-item {
+                            padding: 10px 0;
+                            .emphasis {
+                                font-size: 1.3em;
                             }
                         }
-                        .emphasis {
-                            font-size: 1.5em;
-                        }
-                        .technical {
-                            font-size: 1.5em;
-                        }
+                    }
+                    .emphasis {
+                        font-size: 1.5em;
+                    }
+                    .technical {
+                        font-size: 1.5em;
                     }
                 }
             }

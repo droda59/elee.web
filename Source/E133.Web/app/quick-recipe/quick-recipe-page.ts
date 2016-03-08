@@ -158,10 +158,6 @@ export class QuickRecipePage {
 		return this._currentStepIndex == this.recipe.steps.length - 1;
 	}
 
-	get isNavigationStepActive(): boolean {
-		return this._navigationStepIndex == this._currentStepIndex;
-	}
-
 	get isNavigationFirstStep(): boolean {
 		return this._navigationStepIndex <= 0;
     }
