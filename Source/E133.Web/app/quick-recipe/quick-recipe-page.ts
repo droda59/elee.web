@@ -7,7 +7,7 @@ import {HelpOverlay} from "quick-recipe/components/help-overlay";
 import {TimerCoordinator} from "quick-recipe/timer-coordinator";
 import {ScrollCoordinator} from "quick-recipe/scroll-coordinator";
 import {Ingredient} from "shared/models/ingredient";
-import $ from "jquery";
+import * as $ from "jquery";
 
 @inject (HttpClient, I18N, TimerCoordinator, ScrollCoordinator, DialogService)
 export class QuickRecipePage {
@@ -19,6 +19,7 @@ export class QuickRecipePage {
 	isRecipeDone: boolean;
 
 	private _currentStepIndex: number = undefined;
+	private _navigationStepIndex: number = undefined;
 	private _scrollCoordinator: ScrollCoordinator;
 	private _timerCoordinator: TimerCoordinator;
 	private _dialogService: DialogService;
@@ -86,17 +87,40 @@ export class QuickRecipePage {
 	startRecipe(): void {
 		this._scrollCoordinator.createScrollController();
 		this._currentStepIndex = 0;
+        this._navigationStepIndex = 0;
 		this.isRecipeStarted = true;
 
 		this.decorateStepIngredients(this.getCurrentStep(), "current");
 		this.goToCurrentStep();
 	}
 
+	goToPreviousStep(): void {
+        if (this.isNavigationFirstStep) {
+            return;
+        }
+
+		this._navigationStepIndex--;
+
+        var element = $("#step-" + this._navigationStepIndex)[0];
+		this.goToStep(element);
+	}
+
+    goToNextStep(): void {
+        if (this.isNavigationLastStep) {
+            return;
+        }
+
+		this._navigationStepIndex++;
+
+        var element = $("#step-" + this._navigationStepIndex)[0];
+		this.goToStep(element);
+    }
+
 	goToCurrentStep(): void {
-		var navHeight = $(".subrecipe-titles")[0].offsetHeight;
-		var element = $("#step-" + this._currentStepIndex)[0];
-		var top = Math.max(0, element.offsetTop - ((window.innerHeight - navHeight - element.offsetHeight) / 2) + 32);
-		this._scrollCoordinator.scrollTo(top);
+        this._navigationStepIndex = this._currentStepIndex;
+
+		var element = $("#step-" + this._navigationStepIndex)[0];
+		this.goToStep(element);
 	}
 
 	completeStep(): void {
@@ -106,7 +130,7 @@ export class QuickRecipePage {
 
 		this.decorateStepIngredients(this.getCurrentStep(), "done");
 
-		if (this.isLastStep) {
+		if (this.isCurrentLastStep) {
 			this.isRecipeDone = true;
 			this._scrollCoordinator.destroyScrollController();
 			return;
@@ -126,13 +150,31 @@ export class QuickRecipePage {
 		return this.getCurrentStep().subrecipeId;
 	}
 
-	get isLastStep(): boolean {
-		return this._currentStepIndex == this.recipe.steps.length - 1;
-	}
-
 	get isCurrentStepActive(): boolean {
 		return $("#step-" + this._currentStepIndex).hasClass("active");
 	}
+
+	get isCurrentLastStep(): boolean {
+		return this._currentStepIndex == this.recipe.steps.length - 1;
+	}
+
+	get isNavigationStepActive(): boolean {
+		return this._navigationStepIndex == this._currentStepIndex;
+	}
+
+	get isNavigationFirstStep(): boolean {
+		return this._navigationStepIndex <= 0;
+    }
+
+	get isNavigationLastStep(): boolean {
+		return this._navigationStepIndex == this.recipe.steps.length - 1;
+	}
+
+    private goToStep(element): void {
+		var navHeight = $(".subrecipe-titles")[0].offsetHeight;
+		var top = Math.max(0, element.offsetTop - ((window.innerHeight - navHeight - element.offsetHeight) / 2) + 32);
+		this._scrollCoordinator.scrollTo(top);
+    }
 
     private getCurrentStep(): Step {
         return this.recipe.steps[this._currentStepIndex];

@@ -12,25 +12,27 @@
 		</header>
 
 		<main class="row">
-			<div id="ingredients" class="card hoverable hide-on-small-only col m3">
-				<div class="card-image">
-					<img src.bind="recipe.imageUrl">
-					<div class="after"></div>
-					<span class="card-title" i18n="quickRecipe.ingredientsSideTitle">Ingredients</span>
-				</div>
-				<div class="card-content">
-					<section repeat.for="subrecipe of subrecipeIngredients" class="section">
-						<h4 if.bind="subrecipe.subrecipeTitle" class="center truncate">${subrecipe.subrecipeTitle}</h4>
-						<ul class="collection">
-							<li repeat.for="ingredient of subrecipe.ingredients" class="collection-item ingredient-item ${ingredient.state ? ingredient.state : ''}">
-								<measurable-ingredient containerless ingredient.bind="ingredient"></measurable-ingredient>
-								<small if.bind="ingredient.replacements" repeat.for="replacement of ingredient.replacements">
-									<div i18n="quickRecipe.ingredientReplacementConjunction">Or</div>
-									<measurable-ingredient containerless ingredient.bind="replacement"></measurable-ingredient>
-								</small>
-							</li>
-						</ul>
-					</section>
+			<div id="ingredients" class="hide-on-small-only col m3">
+				<div class="panel card hoverable">
+					<div class="card-image">
+						<img src.bind="recipe.imageUrl">
+						<div class="after"></div>
+						<span class="card-title" i18n="quickRecipe.ingredientsSideTitle">Ingredients</span>
+					</div>
+					<div class="card-content">
+						<section repeat.for="subrecipe of subrecipeIngredients" class="section">
+							<h4 if.bind="subrecipe.subrecipeTitle" class="center truncate">${subrecipe.subrecipeTitle}</h4>
+							<ul class="collection">
+								<li repeat.for="ingredient of subrecipe.ingredients" class="collection-item ingredient-item ${ingredient.state ? ingredient.state : ''}">
+									<measurable-ingredient containerless ingredient.bind="ingredient"></measurable-ingredient>
+									<small if.bind="ingredient.replacements" repeat.for="replacement of ingredient.replacements">
+										<div i18n="quickRecipe.ingredientReplacementConjunction">Or</div>
+										<measurable-ingredient containerless ingredient.bind="replacement"></measurable-ingredient>
+									</small>
+								</li>
+							</ul>
+						</section>
+					</div>
 				</div>
 			</div>
 
@@ -62,26 +64,35 @@
 					</div>
 				</section>
 
-				<section id="recipe-content" show.bind="isRecipeStarted && !isRecipeDone" class="au-animate">
-					<nav class="navbar col m9 z-depth-1" show.bind="isRecipeStarted">
-						<ul class="subrecipe-titles">
-							<li repeat.for="subrecipe of recipe.subrecipes" class="subrecipe-title ${$parent.activeSubrecipeId === subrecipe.id ? 'active' : ''}">
-								${subrecipe.title}
-							</li>
-						</ul>
-					</nav>
+				<nav class="navbar col m9 z-depth-1" show.bind="isRecipeStarted && !isRecipeDone">
+					<ul class="subrecipe-titles">
+						<li repeat.for="subrecipe of recipe.subrecipes" class="subrecipe-title ${$parent.activeSubrecipeId === subrecipe.id ? 'active' : ''}">
+							${subrecipe.title}
+						</li>
+					</ul>
+				</nav>
 
+				<section id="recipe-content" show.bind="isRecipeStarted && !isRecipeDone" class="au-animate">
 					<div class="steps">
 						<quick-recipe-step repeat.for="step of recipe.steps" id="step-${$index}" step.bind="step" class="step"></quick-recipe-step>
 					</div>
 
-					<span class="step-actions" show.bind="isRecipeStarted">
-                        <btn class="current-button waves-light btn ${isCurrentStepActive ? 'disabled' : ''}" click.delegate="goToCurrentStep()">
-                            <i class="material-icons">keyboard_arrow_up</i>
+					<span class="navigation-pills" show.bind="isRecipeStarted">
+						<btn class="previous-button waves-light btn ${isNavigationFirstStep ? 'disabled' : ''}" click.delegate="goToPreviousStep()">
+							<i class="material-icons">keyboard_arrow_up</i>
+						</btn>
+                        <btn class="current-button waves-light btn ${isNavigationStepActive ? 'disabled' : ''}" click.delegate="goToCurrentStep()">
+                            <i class="material-icons">home</i>
                         </btn>
-                        <btn class="complete-button waves-light btn ${isCurrentStepActive ? '' : 'disabled'}" click.delegate="completeStep()">
-                            <span if.bind="isLastStep" i18n="quickRecipe.finish">Finish</span>
-							<i if.bind="!isLastStep" class="material-icons">done</i>
+                        <btn class="next-button waves-light btn ${isNavigationLastStep ? 'disabled' : ''}" click.delegate="goToNextStep()">
+                            <i class="material-icons">keyboard_arrow_down</i>
+						</btn>
+					</span>
+
+					<span class="step-actions" show.bind="isRecipeStarted">
+                        <btn class="waves-light btn ${!isCurrentStepActive ? 'disabled' : ''}" click.delegate="completeStep()">
+                            <span if.bind="isCurrentLastStep" i18n="quickRecipe.finish">Finish</span>
+							<i if.bind="!isCurrentLastStep" class="material-icons">done</i>
 						</btn>
 					</span>
 				</section>
