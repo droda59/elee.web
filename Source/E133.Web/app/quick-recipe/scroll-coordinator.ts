@@ -1,5 +1,5 @@
 import * as ScrollMagic from "scrollmagic";
-import $ from "jquery";
+import * as $ from "jquery";
 
 export class ScrollCoordinator {
     private _scrollController;
