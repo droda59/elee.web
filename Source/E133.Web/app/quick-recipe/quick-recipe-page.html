@@ -20,7 +20,7 @@
 						<span class="card-title" i18n="quickRecipe.ingredientsSideTitle">Ingredients</span>
 					</div>
 					<div class="card-content">
-						<section repeat.for="subrecipe of subrecipeIngredients" class="section">
+						<section repeat.for="subrecipe of subrecipes" if.bind="subrecipe.ingredients.length" class="section">
 							<h4 if.bind="subrecipe.subrecipeTitle" class="center truncate">${subrecipe.subrecipeTitle}</h4>
 							<ul class="collection">
 								<li repeat.for="ingredient of subrecipe.ingredients" class="collection-item ingredient-item ${ingredient.state ? ingredient.state : ''}">
@@ -64,19 +64,25 @@
 					</div>
 				</section>
 
-				<nav class="navbar col m9 z-depth-1" show.bind="isRecipeStarted && !isRecipeDone">
-					<ul class="subrecipe-titles">
-						<li repeat.for="subrecipe of recipe.subrecipes" class="subrecipe-title ${$parent.activeSubrecipeId === subrecipe.id ? 'active' : ''}">
-							<a click.trigger="goToSubrecipe(subrecipe.id)">
-								${subrecipe.title}
-							</a>
-						</li>
-					</ul>
-				</nav>
-
 				<section id="recipe-content" show.bind="isRecipeStarted && !isRecipeDone" class="au-animate">
-					<div class="steps">
-						<quick-recipe-step repeat.for="step of recipe.steps" id="step-${step.id}" step.bind="step" class="step"></quick-recipe-step>
+					<nav class="navbar col m9 z-depth-1">
+						<ul class="subrecipe-titles">
+							<li repeat.for="subrecipe of recipe.subrecipes" class="subrecipe-title ${$parent.activeSubrecipeId === subrecipe.id ? 'active' : ''}">
+								<a click.trigger="goToSubrecipe(subrecipe.id)">
+									${subrecipe.title}
+								</a>
+							</li>
+						</ul>
+					</nav>
+
+					<div repeat.for="subrecipe of subrecipes" if.bind="subrecipe.steps.length" id="subrecipe-${subrecipe.id}" class="subrecipe">
+						<div class="subrecipe-title">
+							${subrecipe.title}
+						</div>
+
+						<div class="steps">
+							<quick-recipe-step repeat.for="step of subrecipe.steps" id="step-${step.id}" step.bind="step" class="step"></quick-recipe-step>
+						</div>
 					</div>
 
 					<span class="navigation-pills" show.bind="isRecipeStarted">

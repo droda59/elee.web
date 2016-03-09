@@ -144,6 +144,19 @@
                         }
                     }
 
+                    .subrecipe {
+                        .subrecipe-title {
+                            display: none;
+                        }
+                        
+                        &:first-of-type {
+                            margin-top: 30vh;
+                        }
+                        &:last-of-type {
+                            margin-bottom: 100%;
+                        }
+                    }
+
                     .step-actions {
                         z-index: 1;
                         position: fixed;
@@ -192,12 +205,6 @@
                                 margin: 0 1rem;
                             }
                         }
-                        &:first-of-type {
-                            margin-top: 30vh;
-                        }
-                        &:last-of-type {
-                            margin-bottom: 100%;
-                        }
                         &.active {
                             opacity: 1;
 
@@ -208,6 +215,9 @@
                                     }
                                 }
                             }
+                        }
+                        &.complete {
+                            text-decoration: line-through;
                         }
                     }
                 }

@@ -12,14 +12,14 @@ import * as $ from "jquery";
 @inject (HttpClient, I18N, TimerCoordinator, ScrollCoordinator, DialogService)
 export class QuickRecipePage {
     recipe: QuickRecipe;
-	subrecipeIngredients: QuickRecipeSubrecipeIngredient[] = [];
+	subrecipes: QuickRecipeSubrecipe[] = [];
 
 	backgroundClass: string;
 	isRecipeStarted: boolean;
 	isRecipeDone: boolean;
 
-	private _currentStepIndex: number = undefined;
-	private _navigationStepIndex: number = undefined;
+	private _currentStepId: number = undefined;
+	private _navigationStepId: number = undefined;
 	private _scrollCoordinator: ScrollCoordinator;
 	private _timerCoordinator: TimerCoordinator;
 	private _dialogService: DialogService;
@@ -59,15 +59,14 @@ export class QuickRecipePage {
 
 			(this.recipe.subrecipes || []).forEach(
 				(subrecipe) => {
-					var subrecipeIngredient = new QuickRecipeSubrecipeIngredient();
-					subrecipeIngredient.subrecipeTitle = subrecipe.title;
-					subrecipeIngredient.subrecipeId = subrecipe.id;
-					subrecipeIngredient.ingredients = this.recipe.ingredients.filter(
-						(ingredient) => ingredient.subrecipeId === subrecipe.id
-					);
+					var quickRecipeSubrecipe = new QuickRecipeSubrecipe();
+					quickRecipeSubrecipe.id = subrecipe.id;
+					quickRecipeSubrecipe.title = subrecipe.title;
+					quickRecipeSubrecipe.steps = this.recipe.steps.filter(step => step.subrecipeId === subrecipe.id);
+					quickRecipeSubrecipe.ingredients = this.recipe.ingredients.filter(ingredient => ingredient.subrecipeId === subrecipe.id);
 
-					if (subrecipeIngredient.ingredients.length) {
-						this.subrecipeIngredients.push(subrecipeIngredient);
+					if (quickRecipeSubrecipe.steps.length || quickRecipeSubrecipe.ingredients.length) {
+						this.subrecipes.push(quickRecipeSubrecipe);
 					}
 				}
 			);
@@ -87,43 +86,10 @@ export class QuickRecipePage {
 
 	startRecipe(): void {
 		this._scrollCoordinator.createScrollController();
-		this._currentStepIndex = 0;
-        this._navigationStepIndex = 0;
 		this.isRecipeStarted = true;
 
-		this.decorateStepIngredients(this.getCurrentStep(), "current");
+		this._currentStepId = this.getNextUncompletedStepId();
 		this.goToCurrentStep();
-	}
-
-    goToSubrecipe(subrecipeId: number): void {
-        var step = this.recipe.steps.filter(step => step.subrecipeId == subrecipeId)[0];
-		this.goToStep(step.id);
-    }
-
-	goToPreviousStep(): void {
-        if (this.isNavigationFirstStep) {
-            return;
-        }
-
-		this._navigationStepIndex--;
-
-		this.goToStep(this._navigationStepIndex);
-	}
-
-    goToNextStep(): void {
-        if (this.isNavigationLastStep) {
-            return;
-        }
-
-		this._navigationStepIndex++;
-
-		this.goToStep(this._navigationStepIndex);
-    }
-
-	goToCurrentStep(): void {
-        this._navigationStepIndex = this._currentStepIndex;
-
-		this.goToStep(this._navigationStepIndex);
 	}
 
 	completeStep(): void {
@@ -132,6 +98,7 @@ export class QuickRecipePage {
 		}
 
 		this.decorateStepIngredients(this.getCurrentStep(), "done");
+        $("#step-" + this._currentStepId).addClass("complete");
 
 		if (this.isCurrentLastStep) {
 			this.isRecipeDone = true;
@@ -139,14 +106,54 @@ export class QuickRecipePage {
 			return;
 		}
 
-		this._currentStepIndex++;
+		this._currentStepId = this.getNextUncompletedStepId();
+		this.goToCurrentStep();
+	}
 
-		this.decorateStepIngredients(this.getCurrentStep(), "current");
-		this.goToStep(this._currentStepIndex);
+    goToSubrecipe(subrecipeId: number): void {
+        var subrecipeSteps = $("#subrecipe-" + subrecipeId + " .step");
+        var uncompletedSubrecipeSteps = subrecipeSteps.not(".complete");
+
+        var step;
+        if (uncompletedSubrecipeSteps.length) {
+            step = uncompletedSubrecipeSteps[0];
+        } else {
+            step = subrecipeSteps[0];
+        }
+
+		this.decorateStepIngredients(this.getCurrentStep(), "");
+        this._currentStepId = parseInt(step.id.substr(5));
+        this.goToCurrentStep();
+    }
+
+	goToPreviousStep(): void {
+        if (this.isNavigationFirstStep) {
+            return;
+        }
+
+		this._navigationStepId--;
+
+		this.goToStepId(this._navigationStepId);
+	}
+
+    goToNextStep(): void {
+        if (this.isNavigationLastStep) {
+            return;
+        }
+
+		this._navigationStepId++;
+
+		this.goToStepId(this._navigationStepId);
+    }
+
+	goToCurrentStep(): void {
+        this._navigationStepId = this._currentStepId;
+
+		this.goToStepId(this._currentStepId);
 	}
 
 	get activeSubrecipeId(): number {
-		if (!this._currentStepIndex) {
+		if (!this._currentStepId) {
 			return -2;
 		}
 
@@ -154,30 +161,52 @@ export class QuickRecipePage {
 	}
 
 	get isCurrentStepActive(): boolean {
-		return $("#step-" + this._currentStepIndex).hasClass("active");
+		return $("#step-" + this._currentStepId).hasClass("active");
 	}
 
 	get isCurrentLastStep(): boolean {
-		return this._currentStepIndex == this.recipe.steps.length - 1;
+		return this._currentStepId == this.recipe.steps.length - 1;
 	}
 
 	get isNavigationFirstStep(): boolean {
-		return this._navigationStepIndex <= 0;
+		return this._navigationStepId <= 0;
     }
 
 	get isNavigationLastStep(): boolean {
-		return this._navigationStepIndex == this.recipe.steps.length - 1;
+		return this._navigationStepId == this.recipe.steps.length - 1;
 	}
 
-    private goToStep(stepId: number): void {
+    private getNextUncompletedStepId(): number {
+        var stepId = undefined;
+
+        if (this._currentStepId === undefined) {
+            return 0;
+        }
+
+        var uncompletedSubrecipeSteps = $(".step").not(".complete");
+        if (uncompletedSubrecipeSteps.length) {
+            var nextSteps = uncompletedSubrecipeSteps
+                .filter((index, step) =>
+                    parseInt(step.id.substr(5)) > this._currentStepId);
+
+            stepId = parseInt(nextSteps[0].id.substr(5));
+        }
+
+        return stepId;
+    }
+
+    private goToStepId(stepId: number): void {
 		var element = $("#step-" + stepId)[0];
 		var navHeight = $(".subrecipe-titles")[0].offsetHeight;
 		var top = Math.max(0, element.offsetTop - ((window.innerHeight - navHeight - element.offsetHeight) / 2) + 32);
 		this._scrollCoordinator.scrollTo(top);
+
+        var currentStep = this.recipe.steps[stepId];
+		this.decorateStepIngredients(currentStep, "current");
     }
 
     private getCurrentStep(): Step {
-        return this.recipe.steps[this._currentStepIndex];
+        return this.recipe.steps[this._currentStepId];
     }
 
 	private decorateStepIngredients(step: Step, state: string): void {
@@ -209,8 +238,9 @@ export class QuickRecipePage {
 	}
 }
 
-class QuickRecipeSubrecipeIngredient {
-	subrecipeTitle: string;
-	subrecipeId: number;
+class QuickRecipeSubrecipe {
+    id: number;
+	title: string;
+	steps: Step[];
 	ingredients: Ingredient[];
 }
