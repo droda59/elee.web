@@ -32,6 +32,77 @@
     animation: fadeIn 0.5s ease-in-out;
 }
 
+.subrecipe-title-animation-add {
+    -webkit-animation: quickFadeDisplayIn 1s;
+    -moz-animation: quickFadeDisplayIn 1s;
+    animation: quickFadeDisplayIn 1s;
+}
+
+.subrecipe-title-animation-remove {
+    -webkit-animation: quickFadeDisplayOut 1s;
+    -moz-animation: quickFadeDisplayOut 1s;
+    animation: quickFadeDisplayOut 1s;
+}
+
+@-webkit-keyframes quickFadeDisplayIn {
+    0% {
+        visibility: visible;
+        opacity: 0;
+    }
+    30% { opacity: 1; }
+    100% { opacity: 1 }
+}
+@-moz-keyframes quickFadeDisplayIn {
+    0% {
+        visibility: visible;
+        opacity: 0;
+    }
+    30% { opacity: 1; }
+    100% { opacity: 1 }
+}
+@keyframes quickFadeDisplayIn {
+    0% {
+        visibility: visible;
+        opacity: 0;
+    }
+    30% { opacity: 1; }
+    100% { opacity: 1 }
+}
+
+@-webkit-keyframes quickFadeDisplayOut {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    70% { opacity: 0; }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+@-moz-keyframes quickFadeDisplayOut {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    70% { opacity: 0; }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+@keyframes quickFadeDisplayOut {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    70% { opacity: 0; }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
 @-webkit-keyframes fadeIn {
     0%   { opacity: 0; }
     100% { opacity: 1; }

@@ -84,7 +84,7 @@
                     color: black;
                     padding: 0;
                     position: fixed;
-                    z-index: 1;
+                    z-index: 3;
                     top: $quick-recipe-header-height;
 
                     .subrecipe-titles {
@@ -118,7 +118,6 @@
                 }
 
                 #recipe-content {
-                    margin-right: 100px;
                     height: inherit;
                     position: absolute;
 
@@ -146,14 +145,25 @@
 
                     .subrecipe {
                         .subrecipe-title {
-                            display: none;
+                            visibility: hidden;
+                            height: 100%;
+                            position: fixed;
+                            width: 100%;
+                            top: 0;
+                            z-index: 2;
+                            background-color: white;
+                            opacity: 0;
                         }
-                        
+
                         &:first-of-type {
                             margin-top: 30vh;
                         }
                         &:last-of-type {
-                            margin-bottom: 100%;
+                            margin-bottom: 30vh;
+                        }
+
+                        .steps {
+                            margin-right: 100px;
                         }
                     }
 

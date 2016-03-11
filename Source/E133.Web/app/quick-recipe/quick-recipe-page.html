@@ -21,7 +21,7 @@
 					</div>
 					<div class="card-content">
 						<section repeat.for="subrecipe of subrecipes" if.bind="subrecipe.ingredients.length" class="section">
-							<h4 if.bind="subrecipe.subrecipeTitle" class="center truncate">${subrecipe.subrecipeTitle}</h4>
+							<h4 if.bind="subrecipe.title" class="center truncate">${subrecipe.title}</h4>
 							<ul class="collection">
 								<li repeat.for="ingredient of subrecipe.ingredients" class="collection-item ingredient-item ${ingredient.state ? ingredient.state : ''}">
 									<measurable-ingredient containerless ingredient.bind="ingredient"></measurable-ingredient>
@@ -76,8 +76,8 @@
 					</nav>
 
 					<div repeat.for="subrecipe of subrecipes" if.bind="subrecipe.steps.length" id="subrecipe-${subrecipe.id}" class="subrecipe">
-						<div class="subrecipe-title">
-							${subrecipe.title}
+						<div class="subrecipe-title valign-wrapper center">
+							<h1>${subrecipe.title}</h1>
 						</div>
 
 						<div class="steps">
