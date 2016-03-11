@@ -101,8 +101,13 @@ export class QuickRecipePage {
 			return;
 		}
 
-		this.decorateStepIngredients(this.getCurrentStep(), "done");
+        var currentStep = this.getCurrentStep();
+		this.decorateStepIngredients(currentStep, "done");
         $("#step-" + this._currentStepId).addClass("complete");
+
+        var currentSubrecipe = this.subrecipes.filter(subrecipe => subrecipe.id == currentStep.subrecipeId)[0];
+        var subrecipeSteps = $("#subrecipe-" + currentStep.subrecipeId + " .step.complete");
+        currentSubrecipe.completedSteps = subrecipeSteps.length;
 
 		if (this.isCurrentLastStep) {
 			this.isRecipeDone = true;
@@ -224,8 +229,8 @@ export class QuickRecipePage {
 
     private triggerSubrecipeChangeAnimation(currentStepId: number, nextStepId: number): void {
         var subrecipeIdBefore = this.recipe.steps[currentStepId].subrecipeId;
-
         var subrecipeIdAfter = this.recipe.steps[nextStepId].subrecipeId;
+
         if (subrecipeIdBefore != subrecipeIdAfter) {
             var subrecipeElement = $("#subrecipe-" + subrecipeIdAfter + " .subrecipe-title")[0];
             this._animator.animate(subrecipeElement, "subrecipe-title-animation");
@@ -272,6 +277,7 @@ export class QuickRecipePage {
 class QuickRecipeSubrecipe {
     id: number;
 	title: string;
+    completedSteps: number = 0;
 	steps: Step[];
 	ingredients: Ingredient[];
 }

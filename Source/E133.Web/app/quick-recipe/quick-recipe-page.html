@@ -67,9 +67,10 @@
 				<section id="recipe-content" show.bind="isRecipeStarted && !isRecipeDone" class="au-animate">
 					<nav class="navbar col m9 z-depth-1">
 						<ul class="subrecipe-titles">
-							<li repeat.for="subrecipe of recipe.subrecipes" class="subrecipe-title ${$parent.activeSubrecipeId === subrecipe.id ? 'active' : ''}">
+							<li repeat.for="subrecipe of subrecipes" class="subrecipe-title ${$parent.activeSubrecipeId === subrecipe.id ? 'active' : ''}">
 								<a click.trigger="goToSubrecipe(subrecipe.id)">
-									${subrecipe.title}
+									<span>${subrecipe.title}</span>
+									<span class="progression">${subrecipe.completedSteps}/${subrecipe.steps.length}</span>
 								</a>
 							</li>
 						</ul>
