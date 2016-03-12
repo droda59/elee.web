@@ -23,7 +23,7 @@
 						<section repeat.for="subrecipe of subrecipes" if.bind="subrecipe.ingredients.length" class="section">
 							<h4 if.bind="subrecipe.title" class="center truncate">${subrecipe.title}</h4>
 							<ul class="collection">
-								<li repeat.for="ingredient of subrecipe.ingredients" class="collection-item ingredient-item ${ingredient.state ? ingredient.state : ''}">
+								<li repeat.for="ingredient of subrecipe.ingredients" class="collection-item ingredient-item ${ingredient.state}">
 									<measurable-ingredient containerless ingredient.bind="ingredient"></measurable-ingredient>
 									<small if.bind="ingredient.replacements" repeat.for="replacement of ingredient.replacements">
 										<div i18n="quickRecipe.ingredientReplacementConjunction">Or</div>
@@ -82,7 +82,7 @@
 						</div>
 
 						<div class="steps">
-							<quick-recipe-step repeat.for="step of subrecipe.steps" id="step-${step.id}" step.bind="step" class="step"></quick-recipe-step>
+							<quick-recipe-step repeat.for="step of subrecipe.steps" id="step-${step.id}" step.bind="step" class="step ${step.isCompleted ? 'complete' : ''}"></quick-recipe-step>
 						</div>
 					</div>
 

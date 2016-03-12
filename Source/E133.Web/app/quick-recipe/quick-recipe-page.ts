@@ -53,7 +53,7 @@ export class QuickRecipePage {
 
 		var url = "dist/quick-recipe/assets/json/" + route.id + ".json";
         return this._http.get(url).then(response => {
-            this.recipe = response.content;
+            this.recipe = new QuickRecipe(response.content);
 
 			moment.locale(this.recipe.language);
 			this._i18n.setLocale(this.recipe.language);
@@ -102,8 +102,8 @@ export class QuickRecipePage {
 		}
 
         var currentStep = this.getCurrentStep();
+        currentStep.isCompleted = true;
 		this.decorateStepIngredients(currentStep, "done");
-        $("#step-" + this._currentStepId).addClass("complete");
 
         var currentSubrecipe = this.subrecipes.filter(subrecipe => subrecipe.id == currentStep.subrecipeId)[0];
         var subrecipeSteps = $("#subrecipe-" + currentStep.subrecipeId + " .step.complete");
@@ -246,29 +246,25 @@ export class QuickRecipePage {
     }
 
 	private decorateStepIngredients(step: Step, state: string): void {
-        var ingredients = [];
+        var ingredients: Ingredient[] =
+            step.parts
+                .filter(part => part instanceof IngredientPart)
+                .map((part: IngredientPart) => part.ingredient);
 
-		var ingredientParts = <IngredientPart[]>step.parts.filter(part => part.type == "ingredient");
-		ingredientParts.forEach(part => {
-            ingredients = ingredients.concat(this.recipe.ingredients.filter(ingredient => ingredient.id === part.ingredient.id));
-		});
-
-		var enumerationParts = <IngredientEnumerationPart[]>step.parts.filter(part => part.type == "enumeration");
-		enumerationParts.forEach(enumeration => {
-			enumeration.ingredients.forEach(part => {
-                ingredients = ingredients.concat(this.recipe.ingredients.filter(ingredient => ingredient.id === part.id));
-			});
-		});
+        step.parts
+            .filter(part => part instanceof IngredientEnumerationPart)
+            .map((part: IngredientEnumerationPart) => part.ingredients)
+            .forEach(enumeration => {
+                ingredients = ingredients.concat(enumeration);
+            });
 
         ingredients.forEach(ingredient => {
-            ingredient.state = "";
+            if (ingredient.state !== "done") {
+                ingredient.state = "";
 
-            if (state === "done") {
-                if (step.subrecipeId >= -1) {
+                if (state !== "done" || step.subrecipeId >= -1) {
                     ingredient.state = state;
                 }
-            } else {
-                ingredient.state = state;
             }
         });
 	}
