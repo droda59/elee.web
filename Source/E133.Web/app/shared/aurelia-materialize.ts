@@ -1,7 +1,7 @@
 import {inject, customAttribute} from "aurelia-framework";
 import {TaskQueue} from "aurelia-task-queue";
 // import * as $ from "jquery";
-// import materialize from "materialize";
+// import * as Materialize from "materialize";
 
 function createEvent(name) {
   var event = document.createEvent("Event");
@@ -19,8 +19,8 @@ function fireEvent(element, name) {
 * Also smooths out some issues with materialize and data-binding.
 */
 @customAttribute("materialize")
-@inject(Element, TaskQueue/*, materialize*/)
-export class Materialize {
+@inject(Element, TaskQueue, Materialize)
+export class AureliaMaterialize {
   private _interval;
   element;
   taskQueue;
