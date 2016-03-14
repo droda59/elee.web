@@ -92,11 +92,20 @@
         {
             "id": 6,
             "subrecipeId": 1,
-            "name": "tiges de citronnelle ou le zeste râpé d’un citron",
+            "name": "tiges de citronnelle",
             "quantity": {
                 "value": 2,
                 "unit": "unit"
-            }
+            },
+            "replacements": [
+                {
+                    "name": "zeste râpé d’un citron",
+                    "quantity": {
+                        "value": 0,
+                        "unit": "unit"
+                    }
+                }
+            ]
         },
         {
             "id": 7,
@@ -443,11 +452,20 @@
                     "ingredient": {
                         "id": 6,
                         "subrecipeId": 1,
-                        "name": "tiges de citronnelle ou le zeste râpé d’un citron",
+                        "name": "tiges de citronnelle",
                         "quantity": {
                             "value": 2,
                             "unit": "unit"
-                        }
+                        },
+                        "replacements": [
+                            {
+                                "name": "zeste râpé d’un citron",
+                                "quantity": {
+                                    "value": 0,
+                                    "unit": "unit"
+                                }
+                            }
+                        ]
                     }
                 },
                 {
