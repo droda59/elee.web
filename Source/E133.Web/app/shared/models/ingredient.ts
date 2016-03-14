@@ -1,4 +1,4 @@
-import {Quantity} from "shared/models/quantity";
+import {Quantity, QuantityDto} from "shared/models/quantity";
 
 export class Ingredient implements IngredientDto {
     id: number;
@@ -9,13 +9,11 @@ export class Ingredient implements IngredientDto {
     replacements: Ingredient[];
     state: string;
 
-    constructor(ingredient: IngredientDto) {
-        this.id = ingredient.id;
-        this.subrecipeId = ingredient.subrecipeId;
-        this.name = ingredient.name;
-        this.quantity = ingredient.quantity;
-        this.requirements = ingredient.requirements;
-        this.replacements = ingredient.replacements;
+    constructor(dto: IngredientDto) {
+        Object.assign(this, dto);
+
+        this.quantity = new Quantity(dto.quantity);
+        this.replacements = (dto.replacements || []).map(replacementDto => new Ingredient(replacementDto));
 
         this.state = "";
     }
@@ -24,7 +22,7 @@ export interface IngredientDto {
     id: number;
     subrecipeId: number;
     name: string;
-    quantity: Quantity;
+    quantity: QuantityDto;
     requirements: string;
-    replacements: Ingredient[];
+    replacements: IngredientDto[];
 }
