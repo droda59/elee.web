@@ -8,7 +8,6 @@ import {HelpOverlay} from "quick-recipe/components/help-overlay";
 import {TimerCoordinator} from "quick-recipe/timer-coordinator";
 import {ScrollCoordinator} from "quick-recipe/scroll-coordinator";
 import {Ingredient} from "shared/models/ingredient";
-import * as $ from "jquery";
 
 @inject (HttpClient, I18N, TimerCoordinator, ScrollCoordinator, DialogService, CssAnimator)
 export class QuickRecipePage {
@@ -106,8 +105,7 @@ export class QuickRecipePage {
 		this.decorateStepIngredients(currentStep, "done");
 
         var currentSubrecipe = this.subrecipes.filter(subrecipe => subrecipe.id == currentStep.subrecipeId)[0];
-        var subrecipeSteps = $("#subrecipe-" + currentStep.subrecipeId + " .step.complete");
-        currentSubrecipe.completedSteps = subrecipeSteps.length;
+        currentSubrecipe.completedSteps = currentSubrecipe.steps.filter(step => step.isCompleted).length;
 
 		if (this.isCurrentLastStep) {
 			this.isRecipeDone = true;
@@ -120,8 +118,8 @@ export class QuickRecipePage {
 	}
 
     goToSubrecipe(subrecipeId: number): void {
-        var subrecipeSteps = $("#subrecipe-" + subrecipeId + " .step");
-        var uncompletedSubrecipeSteps = subrecipeSteps.not(".complete");
+        var subrecipeSteps = this.subrecipes.filter(subrecipe => subrecipe.id == subrecipeId)[0].steps;
+        var uncompletedSubrecipeSteps = subrecipeSteps.filter(step => !step.isCompleted);
 
         var step;
         if (uncompletedSubrecipeSteps.length) {
@@ -129,7 +127,7 @@ export class QuickRecipePage {
         } else {
             step = subrecipeSteps[0];
         }
-        var nextStepId = parseInt(step.id.substr(5));
+        var nextStepId = step.id;
 
         this.triggerSubrecipeChangeAnimation(this._currentStepId, nextStepId);
 		this.decorateStepIngredients(this.getCurrentStep(), "");
@@ -183,7 +181,12 @@ export class QuickRecipePage {
 	}
 
 	get isCurrentStepActive(): boolean {
-		return $("#step-" + this._currentStepId).hasClass("active");
+        var currentStep = document.getElementById("step-" + this._currentStepId);
+        if (!currentStep) {
+            return false;
+        }
+
+        return currentStep.classList.contains("active");
 	}
 
 	get isCurrentLastStep(): boolean {
@@ -205,21 +208,17 @@ export class QuickRecipePage {
             return 0;
         }
 
-        var uncompletedSubrecipeSteps = $(".step").not(".complete");
+        var uncompletedSubrecipeSteps = this.recipe.steps.filter(step => !step.isCompleted && step.id > this._currentStepId);
         if (uncompletedSubrecipeSteps.length) {
-            var nextSteps = uncompletedSubrecipeSteps
-                .filter((index, step) =>
-                    parseInt(step.id.substr(5)) > this._currentStepId);
-
-            stepId = parseInt(nextSteps[0].id.substr(5));
+            stepId = uncompletedSubrecipeSteps[0].id;
         }
 
         return stepId;
     }
 
     private goToStepId(stepId: number): void {
-		var element = $("#step-" + stepId)[0];
-		var navHeight = $(".subrecipe-titles")[0].offsetHeight;
+		var element = document.getElementById("step-" + stepId);
+		var navHeight = 65;
 		var top = Math.max(0, element.offsetTop - ((window.innerHeight - navHeight - element.offsetHeight) / 2) + 32);
 		this._scrollCoordinator.scrollTo(top);
 
@@ -232,8 +231,8 @@ export class QuickRecipePage {
         var subrecipeIdAfter = this.recipe.steps[nextStepId].subrecipeId;
 
         if (subrecipeIdBefore != subrecipeIdAfter) {
-            var subrecipeElement = $("#subrecipe-" + subrecipeIdAfter + " .subrecipe-title")[0];
-            this._animator.animate(subrecipeElement, "subrecipe-title-animation");
+            var subrecipeTitleElement = document.getElementById("subrecipe-title-" + subrecipeIdAfter);
+            this._animator.animate(subrecipeTitleElement, "subrecipe-title-animation");
         }
     }
 

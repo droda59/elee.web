@@ -34,11 +34,11 @@ export class QuickRecipeStep {
 			return this._isLoaded;
 		}
 
-		this._isLoaded = this._element.offsetHeight != 0;
+		this._isLoaded = this._element.clientHeight != 0;
 		if (this._isLoaded) {
 			var elementId = "#" + this._element.id;
 			var scene = new ScrollMagic
-				.Scene({ triggerElement: elementId, duration: this._element.offsetHeight })
+				.Scene({ triggerElement: elementId, duration: this._element.clientHeight })
 				.setClassToggle(elementId, "active");
 
 			this._scrollCoordinator.addScene(scene);
