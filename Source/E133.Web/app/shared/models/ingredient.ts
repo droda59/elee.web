@@ -9,11 +9,15 @@ export class Ingredient implements IngredientDto {
     replacements: Ingredient[];
     state: string;
 
-    constructor(dto: IngredientDto) {
+    constructor();
+    constructor(dto: IngredientDto);
+    constructor(dto?: IngredientDto) {
         Object.assign(this, dto);
 
-        this.quantity = new Quantity(dto.quantity);
-        this.replacements = (dto.replacements || []).map(replacementDto => new Ingredient(replacementDto));
+        if (dto) {
+            this.quantity = new Quantity(dto.quantity);
+            this.replacements = (dto.replacements || []).map(replacementDto => new Ingredient(replacementDto));
+        }
 
         this.state = "";
     }

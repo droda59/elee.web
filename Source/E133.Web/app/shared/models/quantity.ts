@@ -4,7 +4,9 @@ export class Quantity implements QuantityDto {
     format: string = undefined;
     formatUnit: string = undefined;
 
-    constructor(dto: QuantityDto) {
+    constructor();
+    constructor(dto: QuantityDto);
+    constructor(dto?: QuantityDto) {
         Object.assign(this, dto);
     }
 }
