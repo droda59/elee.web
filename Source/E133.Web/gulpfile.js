@@ -84,7 +84,7 @@ gulp.task("clean", function () {
        .pipe(vinylPaths(del));
 });
 
-gulp.task("copy-externals", ["copy-externals-materialize-css", "copy-externals-materialize-font"]);
+gulp.task("copy-externals", ["copy-externals-materialize-css", "copy-externals-materialize-font", "copy-externals-animate.css"]);
 
 gulp.task("copy-externals-materialize-css", function() {
   return gulp.src("jspm_packages/npm/materialize-css@**/sass/components/**/*.scss")
@@ -96,6 +96,12 @@ gulp.task("copy-externals-materialize-font", function() {
   return gulp.src("jspm_packages/npm/materialize-css@**/font/**/*")
         .pipe(flatten())
         .pipe(gulp.dest("app/shared/assets/fonts"));
+});
+
+gulp.task("copy-externals-animate.css", function() {
+  return gulp.src("jspm_packages/npm/animate.css@**/*.css")
+        .pipe(flatten())
+        .pipe(gulp.dest("app/shared/assets/css/externals/animate.css"));
 });
 
 gulp.task("default", ["build"]);
@@ -140,7 +146,7 @@ gulp.task("build-sass", function() {
 });
 
 gulp.task("copy-files", function() {
-    return gulp.src("app/**/*.{json,png,jpg,svg,woff,woff2,ttf}")
+    return gulp.src("app/**/*.{css,json,png,jpg,svg,woff,woff2,ttf}")
         .pipe(gulp.dest(path.dest));
 });
 

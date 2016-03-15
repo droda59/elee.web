@@ -233,6 +233,18 @@ export class QuickRecipePage {
         if (subrecipeIdBefore != subrecipeIdAfter) {
             var subrecipeTitleElement = document.getElementById("subrecipe-title-" + subrecipeIdAfter);
             this._animator.animate(subrecipeTitleElement, "subrecipe-title-animation");
+
+            var element = $("#subrecipe-title-" + subrecipeIdAfter + " h1");
+
+            var animationClassName = "fadeInDown";
+            if (subrecipeIdBefore < subrecipeIdAfter) {
+                animationClassName = "fadeInUp";
+            }
+            
+            var animationEnd = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
+            element.addClass("animated " + animationClassName).one(animationEnd, function() {
+                element.removeClass("animated " + animationClassName);
+            });
         }
     }
 
