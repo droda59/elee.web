@@ -40,7 +40,7 @@ System.config({
     "clean-css": "npm:clean-css@3.4.9",
     "core-js": "npm:core-js@1.2.6",
     "jquery": "npm:jquery@2.2.1",
-    "material-design-lite": "github:google/material-design-lite@1.1.2",
+    "material-design-lite": "github:google/material-design-lite@1.1.3",
     "materialize": "npm:materialize-css@0.97.5",
     "moment": "npm:moment@2.11.2",
     "scrollmagic": "npm:scrollmagic@2.0.5",
