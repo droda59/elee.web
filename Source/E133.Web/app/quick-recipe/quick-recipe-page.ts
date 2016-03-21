@@ -87,12 +87,20 @@ export class QuickRecipePage {
 	}
 
 	startRecipe(): void {
+        var that = this;
 		this._scrollCoordinator.createScrollController();
-		this.isRecipeStarted = true;
-
 		this._currentStepId = this.getNextUncompletedStepId();
         this._navigationStepId = this._currentStepId;
-		this.goToCurrentStep();
+        this.goToCurrentStep();
+
+        var element = $("#presentation-section");
+        var animationClassName = "fadeOutUpBig";
+        var animationEnd = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
+        element.addClass(animationClassName).one(animationEnd, function() {
+            element.removeClass(animationClassName);
+
+    		that.isRecipeStarted = true;
+        });
 	}
 
 	completeStep(): void {
@@ -240,7 +248,7 @@ export class QuickRecipePage {
             if (subrecipeIdBefore < subrecipeIdAfter) {
                 animationClassName = "fadeInUp";
             }
-            
+
             var animationEnd = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
             element.addClass("animated " + animationClassName).one(animationEnd, function() {
                 element.removeClass("animated " + animationClassName);

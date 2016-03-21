@@ -37,29 +37,31 @@
 			</div>
 
 			<div id="instructions" class="col s12 m9 offset-m3">
-				<section id="presentation-section" if.bind="!isRecipeDone && !isRecipeStarted" class="au-animate section">
-					<div>
-						<h3>${recipe.title}</h3>
+				<section id="presentation-section" if.bind="!isRecipeDone && !isRecipeStarted" class="card-panel animated fadeInDownBig">
+					<div class="container">
 						<div class="row">
-							<div>
-								<span i18n="quickRecipe.servings">Servings</span>${recipe.originalServings}
+							<h3>${recipe.title}</h3>
+							<div class="row">
+								<div>
+									<span i18n="quickRecipe.servings">Servings</span>${recipe.originalServings}
+								</div>
 							</div>
-						</div>
 
-						<div class="row">
-							<ul>
-								<li repeat.for="duration of recipe.durations">
-									${duration.title}: ${duration.time | durationFormat}
-								</li>
-							</ul>
-						</div>
+							<div class="row">
+								<ul>
+									<li repeat.for="duration of recipe.durations">
+										${duration.title}: ${duration.time | durationFormat}
+									</li>
+								</ul>
+							</div>
 
-						<div class="row" if.bind="recipe.note">
-							<p><span i18n="quickRecipe.note">Note</span>${recipe.note}</p>
-						</div>
+							<div class="row" if.bind="recipe.note">
+								<p><span i18n="quickRecipe.note">Note</span>${recipe.note}</p>
+							</div>
 
-						<div class="row center" show.bind="!isRecipeStarted" >
-							<a class="btn btn-large waves-effect waves-light" click.trigger="startRecipe()" i18n="quickRecipe.start">Start</a>
+							<div class="row center" show.bind="!isRecipeStarted" >
+								<a class="btn btn-large waves-effect waves-light" click.trigger="startRecipe()" i18n="quickRecipe.start">Start</a>
+							</div>
 						</div>
 					</div>
 				</section>
