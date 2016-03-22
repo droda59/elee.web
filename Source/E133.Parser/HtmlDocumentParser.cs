@@ -79,7 +79,7 @@ namespace E133.Parser
             var recipe = new QuickRecipe();
             recipe.Language = "fr";
             recipe.Note = "";
-            recipe.ImageUrl = "";
+            recipe.ImageUrl = this.GetImageUrl(document);
             recipe.OriginalUrl = uri.AbsoluteUri;
             recipe.OriginalServings = this.GetRecipeYield(document);
             recipe.Title = this.GetRecipeTitle(document);
@@ -220,6 +220,8 @@ namespace E133.Parser
 
         protected abstract string GetRecipeTitle(HtmlDocument document);
 
+        protected abstract string GetImageUrl(HtmlDocument document);
+
         protected abstract string GetRecipeYield(HtmlDocument document);
 
         protected abstract IEnumerable<Duration> GetDurations(HtmlDocument document);
@@ -240,8 +242,8 @@ namespace E133.Parser
 
         private async Task<HtmlDocument> LoadDocument(Uri uri)
         {
-            var content = await this.LoadHtmlAsync(uri);
-            // var content = await this.GetOfflineHtmlContent();
+            // var content = await this.LoadHtmlAsync(uri);
+            var content = await this.GetOfflineHtmlContent();
 
             var document = new HtmlDocument();
             document.LoadHtml(content);

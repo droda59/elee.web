@@ -37,6 +37,16 @@ namespace E133.Parser
                 .SelectSingleNode("//meta[@name='description']").Attributes["content"].Value.Trim();
         }
 
+        protected override string GetImageUrl(HtmlDocument document)
+        {
+            return string.Format("http://{0}/{1}", this.BaseDomain,  
+                document.DocumentNode
+                    .SelectSingleNode(".//div[@class='itemDetail']")
+                    .SelectSingleNode(".//div[@class='pict']")
+                    .SelectSingleNode(".//img")
+                    .Attributes["src"].Value.Trim());
+        }
+
         protected override string GetRecipeYield(HtmlDocument document)
         {
             var yieldNode = document.DocumentNode
