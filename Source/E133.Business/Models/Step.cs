@@ -13,6 +13,8 @@ namespace E133.Business.Models
             this.PostSteps = new List<Step>();
         }
 
+        public int Id { get; set; }
+
         public int SubrecipeId { get; set; }
 
         public IList<Part> Parts { get; set; }

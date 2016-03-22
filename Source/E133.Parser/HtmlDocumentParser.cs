@@ -89,6 +89,7 @@ namespace E133.Parser
                 .ToList();
 
             var ingredientId = 0;
+            var stepId = 0;
             var subrecipeNodes = this.GetSubrecipeNodes(document);
             if (subrecipeNodes != null && subrecipeNodes.Any())
             {
@@ -103,7 +104,7 @@ namespace E133.Parser
                         });
 
                     var subrecipeIngredientNodes = this.GetSubrecipeIngredientNodesFromParent(subrecipeNode);
-                    this.ParseIngredients(subrecipeIngredientNodes, recipe, subrecipeIndex, ref ingredientId);
+                    this.ParseIngredients(subrecipeIngredientNodes, recipe, subrecipeIndex, ref ingredientId, ref stepId);
                 }
             }
             // TODO Check if recipes exist with subrecipes AND orphans
@@ -111,7 +112,7 @@ namespace E133.Parser
             {
                 var ingredientsSection = this.GetIngredientSection(document);
                 var orphanIngredientNodes = this.GetIngredientNodesFromParent(ingredientsSection);
-                this.ParseIngredients(orphanIngredientNodes, recipe, PreparationSubrecipeId, ref ingredientId);
+                this.ParseIngredients(orphanIngredientNodes, recipe, PreparationSubrecipeId, ref ingredientId, ref stepId);
             }
 
             var stepSubrecipeNodes = this.GetStepSections(document);
@@ -132,7 +133,7 @@ namespace E133.Parser
                     var splitPhrases = stepText.Replace("c. à", "c à").Split('.').Select(x => x.Trim()).Where(x => !string.IsNullOrWhiteSpace(x)).ToList();
                     foreach (var splitPhrase in splitPhrases)
                     {
-                        var step = new Step { SubrecipeId = subrecipeId };
+                        var step = new Step { Id = stepId++, SubrecipeId = subrecipeId };
                         var words = this._wordExpression.Matches(splitPhrase);
                         var index = 0;
                         var skippedIndexes = new List<int>();
@@ -242,8 +243,8 @@ namespace E133.Parser
 
         private async Task<HtmlDocument> LoadDocument(Uri uri)
         {
-            // var content = await this.LoadHtmlAsync(uri);
-            var content = await this.GetOfflineHtmlContent();
+            var content = await this.LoadHtmlAsync(uri);
+            // var content = await this.GetOfflineHtmlContent();
 
             var document = new HtmlDocument();
             document.LoadHtml(content);
@@ -364,7 +365,8 @@ namespace E133.Parser
             IEnumerable<HtmlNode> ingredientNodes,
             QuickRecipe recipe,
             int subrecipeId,
-            ref int ingredientId)
+            ref int ingredientId,
+            ref int stepId)
         {
             foreach (var ingredientNode in ingredientNodes)
             {
@@ -427,6 +429,7 @@ namespace E133.Parser
                     var requirementAction = this._actionDetector.Actionify(requirements);
 
                     var step = new Step();
+                    step.Id = stepId++;
                     step.SubrecipeId = RequirementsSubrecipeId;
                     step.Parts.Add(new TextPart { Value = string.Format("{0}: ", recipe.Subrecipes.Single(x => x.Id == subrecipeId).Title) });
                     step.Parts.Add(new ActionPart { Value = requirementAction });
