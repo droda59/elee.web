@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-
+using System.Text;
 using E133.Business;
 using E133.Business.Models;
 using E133.Parser.LanguageUtilities;
@@ -45,6 +45,17 @@ namespace E133.Parser
                     .SelectSingleNode(".//div[@class='pict']")
                     .SelectSingleNode(".//img")
                     .Attributes["src"].Value.Trim());
+        }
+
+        protected override string GetNote(HtmlDocument document)
+        {
+            var tipsNodes = document.DocumentNode
+                    .SelectSingleNode(".//section[@class='tips']")
+                    .SelectNodes(".//p")
+                    .Select(x => x.InnerText)
+                    .ToList();
+                    
+            return string.Join(string.Empty, tipsNodes);
         }
 
         protected override string GetRecipeYield(HtmlDocument document)

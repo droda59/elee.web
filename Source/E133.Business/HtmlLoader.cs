@@ -11,9 +11,8 @@ namespace E133.Business
             var client = new HttpClient();
 
             var data = await client.GetAsync(uri.AbsoluteUri);
-
             var content = await data.Content.ReadAsStringAsync();
-
+            
             return content;
         }
     }
