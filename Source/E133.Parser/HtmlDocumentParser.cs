@@ -77,7 +77,7 @@ namespace E133.Parser
             var document = await this.LoadDocument(uri);
 
             var recipe = new QuickRecipe();
-            recipe.Language = "fr";
+            recipe.Language = this.GetRecipeIetfLanguage(document);
             recipe.Note = "";
             recipe.ImageUrl = this.GetImageUrl(document);
             recipe.OriginalUrl = uri.AbsoluteUri;
