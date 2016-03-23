@@ -703,30 +703,31 @@
                     "value": "de chaque côté ou jusqu’à ce qu’il soit cuit"
                 }
             ],
-            "postSteps": []
-        },
-		{
-            "id": 16,
-			"subrecipeId": 1,
-			"parts": [
-				{
-					"type": "text",
-					"value": "Sur un plan de travail,"
-				},
-				{
-					"type": "action",
-					"value": "trancher"
-				},
-				{
-					"type": "text",
-					"value": "le poulet et"
-				},
-				{
-					"type": "action",
-					"value": "réserver"
-				}
-			],
-			"postSteps": []
+            "postSteps": [
+        		{
+                    "id": 16,
+        			"subrecipeId": 1,
+        			"parts": [
+        				{
+        					"type": "text",
+        					"value": "Sur un plan de travail,"
+        				},
+        				{
+        					"type": "action",
+        					"value": "trancher"
+        				},
+        				{
+        					"type": "text",
+        					"value": "le poulet et"
+        				},
+        				{
+        					"type": "action",
+        					"value": "réserver"
+        				}
+        			],
+        			"postSteps": []
+                }
+            ],
         },
         {
             "id": 17,

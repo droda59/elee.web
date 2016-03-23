@@ -13,13 +13,13 @@ class IngredientUnicityOverseer {
 }
 
 class PartFactory {
-    static createPart(dto: PartDto): Part {
+    static createPart(dto: PartDto, step: Step): Part {
         switch(dto.type) {
-            case "ingredient": return new IngredientPart(<IngredientPartDto>dto);
-            case "text": return new TextPart(<TextPartDto>dto);
-            case "action": return new ActionPart(<ActionPartDto>dto);
-            case "timer": return new TimerPart(<TimerPartDto>dto);
-            case "enumeration": return new IngredientEnumerationPart(<IngredientEnumerationPartDto>dto);
+            case "ingredient": return new IngredientPart(<IngredientPartDto>dto, step);
+            case "text": return new TextPart(<TextPartDto>dto, step);
+            case "action": return new ActionPart(<ActionPartDto>dto, step);
+            case "timer": return new TimerPart(<TimerPartDto>dto, step);
+            case "enumeration": return new IngredientEnumerationPart(<IngredientEnumerationPartDto>dto, step);
         }
     }
 }
@@ -92,32 +92,31 @@ export class Step implements StepDto {
     id: number;
     subrecipeId: number;
     parts: Part[];
-    postStep: Step;
     isCompleted: boolean;
+    isOnHold: boolean;
 
     constructor(dto: StepDto) {
         Object.assign(this, dto);
 
-        this.parts = dto.parts.map(partDto => PartFactory.createPart(partDto));
+        this.parts = dto.parts.map(partDto => PartFactory.createPart(partDto, this));
         this.isCompleted = false;
-
-        if (dto.postStep != undefined) {
-            this.postStep = new Step(dto.postStep);
-        }
+        this.isOnHold = false;
     }
 }
 interface StepDto {
     id: number;
     subrecipeId: number;
     parts: PartDto[];
-    postStep: StepDto;
 }
 
 export class Part implements PartDto {
     type: string;
+    stepId: number;
 
-    constructor(dto: PartDto) {
+    constructor(dto: PartDto, step: Step) {
         Object.assign(this, dto);
+
+        this.stepId = step.id;
     }
 }
 interface PartDto {
@@ -127,8 +126,8 @@ interface PartDto {
 export class IngredientPart extends Part implements IngredientPartDto {
     ingredient: Ingredient;
 
-    constructor(dto: IngredientPartDto) {
-        super(dto);
+    constructor(dto: IngredientPartDto, step: Step) {
+        super(dto, step);
 
         this.ingredient = IngredientUnicityOverseer.getIngredient(dto.ingredient);
     }
@@ -140,8 +139,8 @@ interface IngredientPartDto extends PartDto {
 export class TextPart extends Part implements TextPartDto {
     value: string;
 
-    constructor(dto: TextPartDto) {
-        super(dto);
+    constructor(dto: TextPartDto, step: Step) {
+        super(dto, step);
     }
 }
 interface TextPartDto extends PartDto {
@@ -151,8 +150,8 @@ interface TextPartDto extends PartDto {
 export class ActionPart extends Part implements ActionPartDto {
     value: string;
 
-    constructor(dto: ActionPartDto) {
-        super(dto);
+    constructor(dto: ActionPartDto, step: Step) {
+        super(dto, step);
     }
 }
 interface ActionPartDto extends PartDto {
@@ -164,8 +163,8 @@ export class TimerPart extends Part implements TimerPartDto {
     action: string;
     text: string;
 
-    constructor(dto: TimerPartDto) {
-        super(dto);
+    constructor(dto: TimerPartDto, step: Step) {
+        super(dto, step);
     }
 }
 interface TimerPartDto extends PartDto {
@@ -177,8 +176,8 @@ interface TimerPartDto extends PartDto {
 export class IngredientEnumerationPart extends Part implements IngredientEnumerationPartDto {
     ingredients: Ingredient[];
 
-    constructor(dto: IngredientEnumerationPartDto) {
-        super(dto);
+    constructor(dto: IngredientEnumerationPartDto, step: Step) {
+        super(dto, step);
 
         this.ingredients = dto.ingredients.map(ingredient => IngredientUnicityOverseer.getIngredient(ingredient));
     }

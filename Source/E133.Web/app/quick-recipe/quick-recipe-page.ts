@@ -34,6 +34,9 @@ export class QuickRecipePage {
 		this._scrollCoordinator = scrollCoordinator;
 		this._dialogService = dialogService;
         this._animator = animator;
+
+        this._timerCoordinator.onTimerStarted = stepId => { this.onTimerStarted(stepId, this); };
+        this._timerCoordinator.onTimerEnded = stepId => { this.onTimerEnded(stepId, this); };
 	}
 
 	activate(route, routeConfig) {
@@ -127,7 +130,7 @@ export class QuickRecipePage {
 
     goToSubrecipe(subrecipeId: number): void {
         var subrecipeSteps = this.subrecipes.filter(subrecipe => subrecipe.id == subrecipeId)[0].steps;
-        var uncompletedSubrecipeSteps = subrecipeSteps.filter(step => !step.isCompleted);
+        var uncompletedSubrecipeSteps = subrecipeSteps.filter(step => !step.isCompleted && !step.isOnHold);
 
         var step;
         if (uncompletedSubrecipeSteps.length) {
@@ -209,6 +212,22 @@ export class QuickRecipePage {
 		return this._navigationStepId == this.recipe.steps.length - 1;
 	}
 
+    private onTimerStarted(stepId: number, that: QuickRecipePage): void {
+        var timerStep = that.recipe.steps.filter(step => step.id === stepId)[0];
+        var postSteps = that.recipe.steps.filter(step => step.subrecipeId === timerStep.subrecipeId && step.id > stepId);
+        postSteps.forEach(postStep => {
+            postStep.isOnHold = true;
+        });
+    }
+
+    private onTimerEnded(stepId: number, that: QuickRecipePage): void {
+        var timerStep = that.recipe.steps.filter(step => step.id === stepId)[0];
+        var postSteps = that.recipe.steps.filter(step => step.subrecipeId === timerStep.subrecipeId && step.id > stepId);
+        postSteps.forEach(postStep => {
+            postStep.isOnHold = false;
+        });
+    }
+
     private getNextUncompletedStepId(): number {
         var stepId = undefined;
 
@@ -216,7 +235,7 @@ export class QuickRecipePage {
             return 0;
         }
 
-        var uncompletedSubrecipeSteps = this.recipe.steps.filter(step => !step.isCompleted && step.id > this._currentStepId);
+        var uncompletedSubrecipeSteps = this.recipe.steps.filter(step => !step.isCompleted && !step.isOnHold && step.id > this._currentStepId);
         if (uncompletedSubrecipeSteps.length) {
             stepId = uncompletedSubrecipeSteps[0].id;
         }

@@ -64,6 +64,7 @@ export class Timer {
         this.timer = null;
         this.isStopped = true;
         this.initialize();
+        this.onFinish();
     }
 
     @computedFrom("_remainingSeconds")

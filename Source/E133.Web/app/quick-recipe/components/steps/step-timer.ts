@@ -7,6 +7,7 @@ import {inject} from "aurelia-framework";
 export class StepTimer {
 	timer: Timer;
 
+	private _stepId;
 	private _timerCoordinator: TimerCoordinator;
 
 	constructor(timerCoordinator: TimerCoordinator) {
@@ -15,11 +16,12 @@ export class StepTimer {
 
 	activate(model: TimerPart) {
         this.timer = new Timer(model.value, model.action, model.text);
+		this._stepId = model.stepId;
 	}
 
 	startTimer(): void {
 		if (this.timer.isStopped) {
-			this._timerCoordinator.startTimer(this.timer);
+			this._timerCoordinator.startTimer(this._stepId, this.timer);
 		}
 	}
 }

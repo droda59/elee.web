@@ -7,16 +7,22 @@ export class TimerCoordinator {
 	private _i18n: I18N;
 
 	activeTimers: Timer[] = [];
+	onTimerStarted;
+	onTimerEnded;
 
     constructor(i18n: I18N) {
         this._i18n = i18n;
     }
 
-	startTimer(timer: Timer): void {
+	startTimer(stepId: number, timer: Timer): void {
 		var that = this;
 		this.addTimer(timer);
 
 		timer.start();
+		if (this.onTimerStarted) {
+			this.onTimerStarted(stepId);
+		}
+
 		if (!timer.onFinish) {
 			timer.onFinish = () => {
 				if ("Notification" in window) {
@@ -27,6 +33,10 @@ export class TimerCoordinator {
 
 						new Notification(that._i18n.tr("quickRecipe.timerEnded", null), options);
 					}
+				}
+
+				if (this.onTimerEnded) {
+					this.onTimerEnded(stepId);
 				}
 			}
 		}

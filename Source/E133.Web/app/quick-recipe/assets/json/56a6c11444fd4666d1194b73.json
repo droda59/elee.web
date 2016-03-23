@@ -1,4 +1,5 @@
 {
+    "id": "56a6c11444fd4666d1194b73",
     "title": "Carré aux dattes (le meilleur)",
     "originalUrl": "http://www.ricardocuisine.com/recettes/5263-carre-aux-dattes-le-meilleur-",
     "originalServings": "9 à 16 carrés",
@@ -130,7 +131,7 @@
     "steps": [
     	{
             "id": 0,
-    		"subrecipeId": -1,
+    		"subrecipeId": -2,
     		"parts": [
     			{
     				"type": "text",
@@ -180,8 +181,7 @@
                         "requirements": "ramolli"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 2,
@@ -195,8 +195,7 @@
                     "type": "text",
                     "value": "la grille au centre du four"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 3,
@@ -210,8 +209,7 @@
                     "type": "text",
                     "value": "le four à 180 °C (350 °F)"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 4,
@@ -225,8 +223,7 @@
                     "type": "text",
                     "value": "un plat de cuisson carré de 20 cm (8 po) d’une bande de papier parchemin en le laissant dépasser sur deux côtés"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 5,
@@ -240,8 +237,7 @@
                     "type": "text",
                     "value": "les deux autres côtés"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 6,
@@ -297,8 +293,7 @@
     	                }
                     ]
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 7,
@@ -319,6 +314,10 @@
                             "unit": "ml"
                         }
                     }
+                },
+                {
+                    "type": "text",
+                    "value": "et"
                 },
                 {
                     "type": "action",
@@ -355,8 +354,7 @@
                     "type": "text",
                     "value": "soient réduites en purée"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 8,
@@ -366,8 +364,7 @@
     	            "type": "action",
         	        "value": "Laisser tiédir"
             	}
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 9,
@@ -422,8 +419,7 @@
                         }
                     ]
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 10,
@@ -454,8 +450,7 @@
                     "type": "action",
                     "value": "mélanger"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 11,
@@ -477,8 +472,7 @@
                     "type": "text",
                     "value": "fermement"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 12,
@@ -496,8 +490,7 @@
                     "type": "text",
                     "value": "le mélange de dattes"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 13,
@@ -519,8 +512,7 @@
                     "type": "text",
                     "value": "légèrement"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 14,
@@ -544,8 +536,7 @@
                     "type": "text",
                     "value": "ou jusqu’ à ce que le croustillant soit bien doré"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 15,
@@ -569,28 +560,25 @@
                     "type": "text",
                     "value": "ou toute une nuit"
                 }
-            ],
-            "postSteps": [
+            ]
+        },
+        {
+            "id": 16,
+            "subrecipeId": 1,
+            "parts": [
                 {
-                    "subrecipeId": 1,
-                    "parts": [
-                        {
-                            "type": "text",
-                            "value": "Démouler et"
-                        },
-                        {
-                            "type": "action",
-                            "value": "couper"
-                        },
-                        {
-                            "type": "text",
-                            "value": "en 9 à 16 carrés"
-                        }
-                    ],
-                    "postSteps": []
+                    "type": "text",
+                    "value": "Démouler et"
+                },
+                {
+                    "type": "action",
+                    "value": "couper"
+                },
+                {
+                    "type": "text",
+                    "value": "en 9 à 16 carrés"
                 }
             ]
         }
-    ],
-    "id": "56a6c11444fd4666d1194b73"
+    ]
 }

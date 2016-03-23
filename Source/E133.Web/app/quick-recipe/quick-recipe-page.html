@@ -84,7 +84,12 @@
 						</div>
 
 						<div class="steps">
-							<quick-recipe-step repeat.for="step of subrecipe.steps" id="step-${step.id}" step.bind="step" class="step ${step.isCompleted ? 'complete' : ''}"></quick-recipe-step>
+							<quick-recipe-step
+								id="step-${step.id}"
+								repeat.for="step of subrecipe.steps"
+								step.bind="step"
+								class="step ${step.isCompleted ? 'complete' : ''} ${step.isOnHold ? 'onHold' : ''}">
+							</quick-recipe-step>
 						</div>
 					</div>
 
