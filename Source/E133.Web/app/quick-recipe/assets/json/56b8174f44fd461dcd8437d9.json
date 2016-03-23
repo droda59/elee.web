@@ -1,4 +1,5 @@
 {
+    "id": "56b8174f44fd461dcd8437d9",
     "title": "Chili classique",
     "originalUrl": "http://www.ricardocuisine.com/recettes/boeuf/1027-chili-classique",
     "language": "fr",
@@ -226,8 +227,7 @@
                         "requirements": "coupé en cubes de 1 cm"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 1,
@@ -254,8 +254,7 @@
                         "requirements": "haché"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 2,
@@ -282,8 +281,7 @@
                         "requirements": "hachées"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 3,
@@ -348,8 +346,7 @@
                         }
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 4,
@@ -379,8 +376,7 @@
                     "type": "action",
                     "value": "faire dorer"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 5,
@@ -458,8 +454,7 @@
                     "text": "2 minutes",
                     "action": "Poursuivre la cuisson"
                 }
-            ],
-            "postSteps": []
+            ]
         },
 		{
             "id": 6,
@@ -492,8 +487,7 @@
 						}
 					]
 				}
-			],
-			"postSteps": []
+			]
         },
         {
             "id": 7,
@@ -513,8 +507,7 @@
                     "text": "2 minutes",
                     "action": "Poursuivre la cuisson"
                 }
-            ],
-            "postSteps": []
+            ]
         },
 		{
             "id": 8,
@@ -569,8 +562,7 @@
 						}
 					]
 				}
-			],
-			"postSteps": []
+			]
         },
         {
             "id": 9,
@@ -586,8 +578,7 @@
                     "text": "45 minutes",
                     "action": "Laisser mijoter"
                 }
-            ],
-            "postSteps": []
+            ]
         },
 		{
             "id": 10,
@@ -597,8 +588,7 @@
 					"type": "text",
 					"value": "Assaisonner"
 				}
-			],
-			"postSteps": []
+			]
 		},
 		{
             "id": 11,
@@ -628,9 +618,7 @@
 						}
 					}
 				}
-			],
-			"postSteps": []
+			]
 		}
-    ],
-    "id": "56b8174f44fd461dcd8437d9"
+    ]
 }

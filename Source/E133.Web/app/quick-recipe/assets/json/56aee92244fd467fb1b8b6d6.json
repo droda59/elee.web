@@ -1,4 +1,5 @@
 {
+    "id": "56aee92244fd467fb1b8b6d6",
     "title": "Jambon à l'érable et à la bière à la mijoteuse",
     "originalUrl": "http://www.ricardocuisine.com/recettes/5803-jambon-a-l-erable-et-a-la-biere-a-la-mijoteuse",
     "language": "fr",
@@ -92,8 +93,7 @@
                     "type": "text",
                     "value": "le filet du jambon"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 1,
@@ -119,8 +119,7 @@
                     "type": "text",
                     "value": "dans la mijoteuse"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 2,
@@ -170,8 +169,7 @@
                     "type": "text",
                     "value": "de girofle"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 3,
@@ -206,8 +204,7 @@
                         }
                     ]
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 4,
@@ -221,8 +218,7 @@
                     "type": "text",
                     "value": "d’eau froide jusqu’à 5 cm (2 po) du rebord de la mijoteuse"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 5,
@@ -254,8 +250,7 @@
                     "type": "text",
                     "value": "ou jusqu'à ce que le jambon se défasse à la fourchette"
                 }
-            ],
-            "postSteps": []
+            ]
         },
 		{
             "id": 6,
@@ -273,8 +268,7 @@
 					"type": "text",
 					"value": "le jambon à la mi cuisson"
 				}
-			],
-			"postSteps": []
+			]
         },
         {
             "id": 7,
@@ -304,8 +298,7 @@
                     "type": "text",
                     "value": "en morceaux"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 8,
@@ -327,9 +320,7 @@
                     "type": "text",
                     "value": "des pommes de terre entières si désiré"
                 }
-            ],
-            "postSteps": []
+            ]
         }
-    ],
-    "id": "56aee92244fd467fb1b8b6d6"
+    ]
 }

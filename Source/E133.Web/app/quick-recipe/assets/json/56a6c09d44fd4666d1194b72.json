@@ -1,4 +1,5 @@
 {
+    "id": "56a6c09d44fd4666d1194b72",
     "title": "Tofu Général Tao",
     "originalUrl": "http://www.ricardocuisine.com/recettes/5675-tofu-general-tao",
     "originalServings": "4",
@@ -219,8 +220,7 @@
                         "requirements": "coupé en cubes et bien épongé"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 1,
@@ -251,8 +251,7 @@
                         "requirements": "hachés finement"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 2,
@@ -283,8 +282,7 @@
                         "requirements": "hachées finement"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 3,
@@ -315,8 +313,7 @@
                         "requirements": "cuit à la vapeur"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 4,
@@ -347,8 +344,7 @@
                         "requirements": "cuit"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 5,
@@ -430,8 +426,7 @@
                         }
                     ]
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 6,
@@ -441,8 +436,7 @@
                     "type": "action",
                     "value": "Réserver"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 7,
@@ -485,8 +479,7 @@
                         }
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 8,
@@ -512,8 +505,7 @@
                     "type": "text",
                     "value": "l’excédent"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 9,
@@ -527,8 +519,7 @@
                     "type": "text",
                     "value": "sur une assiette"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 10,
@@ -554,8 +545,7 @@
 		            	}
 		            }
 		        }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 11,
@@ -569,8 +559,7 @@
                     "type": "text",
                     "value": "la moitié du tofu à la fois, jusqu’à ce qu’il soit légèrement doré"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 12,
@@ -588,8 +577,7 @@
                     "type": "action",
                     "value": "poivrer"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 13,
@@ -611,8 +599,7 @@
                     "type": "text",
                     "value": "sur une assiette tapissée de papier absorbant"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 14,
@@ -670,8 +657,7 @@
                     "text": "1 à 2 minutes",
                     "action": "faire revenir"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 15,
@@ -685,8 +671,7 @@
                     "type": "text",
                     "value": "de l’huile au besoin"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 16,
@@ -708,8 +693,7 @@
                     "type": "text",
                     "value": "à ébullition en remuant"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 17,
@@ -747,8 +731,7 @@
                     "type": "text",
                     "value": "de sauce"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 18,
@@ -775,8 +758,7 @@
                         "requirements": "cuit"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 19,
@@ -803,9 +785,7 @@
                         "requirements": "cuit à la vapeur"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         }
-    ],
-    "id": "56a6c09d44fd4666d1194b72"
+    ]
 }

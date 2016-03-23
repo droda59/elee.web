@@ -1,4 +1,5 @@
 {
+    "id": "56ae7adb44fd4675fc7ed181",
     "title": "Galettes à la mélasse",
     "originalUrl": "http://www.ricardocuisine.com/recettes/4116-galettes-a-la-melasse",
     "language": "fr",
@@ -162,8 +163,7 @@
                         "requirements": "ramolli"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 1,
@@ -177,8 +177,7 @@
                     "type": "text",
                     "value": "la grille au centre du four"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 2,
@@ -192,8 +191,7 @@
                     "type": "text",
                     "value": "le four à 180 °C (350 °F)"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 3,
@@ -207,8 +205,7 @@
                     "type": "text",
                     "value": "deux plaques à biscuits de papier parchemin"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 4,
@@ -290,8 +287,7 @@
                         }
                     ]
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 5,
@@ -301,8 +297,7 @@
                     "type": "action",
                     "value": "Réserver"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 6,
@@ -356,8 +351,7 @@
                     "type": "text",
                     "value": "au batteur électrique"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 7,
@@ -387,8 +381,7 @@
                     "type": "action",
                     "value": "mélanger"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 8,
@@ -418,8 +411,7 @@
                         }
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 9,
@@ -437,8 +429,7 @@
                     "type": "text",
                     "value": "7 boules de pâte sur chaque plaque en les espaçant de 6,5 cm (2 po)"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 10,
@@ -458,8 +449,7 @@
                     "text": "18 minutes",
                     "action": "Cuire"
                 }
-            ],
-            "postSteps": []
+            ]
         },
 		{
             "id": 11,
@@ -473,9 +463,7 @@
 					"type": "text",
 					"value": "complètement sur une grille"
 				}
-			],
-			"postSteps": []
+			]
 		}
-    ],
-    "id": "56ae7adb44fd4675fc7ed181"
+    ]
 }

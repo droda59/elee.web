@@ -1,4 +1,5 @@
 {
+    "id": "56a6c30844fd4666d1194b76",
     "title": "Pâté au poulet (le meilleur)",
     "originalUrl": "http://www.ricardocuisine.com/recettes/5548-pate-au-poulet-le-meilleur-",
     "originalServings": "4 à 5 portions",
@@ -232,8 +233,7 @@
                         "requirements": "ramolli"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 1,
@@ -264,8 +264,7 @@
                         "requirements": "haché finement"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 2,
@@ -304,8 +303,7 @@
                         "requirements": "pelée et coupée en dés"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 3,
@@ -336,8 +334,7 @@
                         "requirements": "coupée en dés"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 4,
@@ -376,8 +373,7 @@
                         "requirements": "pelée et coupée en dés"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 5,
@@ -416,8 +412,7 @@
                         "requirements": "cuit coupé en dés"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 6,
@@ -448,8 +443,7 @@
                         "requirements": "coupé en cubes"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 7,
@@ -492,8 +486,7 @@
                         }
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 8,
@@ -507,8 +500,7 @@
                     "type": "text",
                     "value": "ce beurre manié"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 9,
@@ -550,8 +542,7 @@
                         }
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 10,
@@ -561,8 +552,7 @@
                     "type": "action",
                     "value": "Réserver"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 11,
@@ -615,8 +605,7 @@
                     "type": "text",
                     "value": "dans le reste du beurre"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 12,
@@ -634,8 +623,7 @@
                     "type": "action",
                     "value": "poivrer"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 13,
@@ -679,8 +667,7 @@
                     "type": "action",
                     "value": "porter à ébullition"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 14,
@@ -712,8 +699,7 @@
                     "type": "text",
                     "value": "ou jusqu’à ce que les légumes soient tendres, mais sans plus"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 15,
@@ -735,8 +721,7 @@
 					"type": "text",
 					"value": "en remuant délicatement à la cuillère de bois"
 				}
-			],
-			"postSteps": []
+			]
 		},
 		{
             "id": 16,
@@ -758,8 +743,7 @@
 					"type": "text",
 					"value": "de nouveau"
 				}
-			],
-			"postSteps": []
+			]
 		},
 		{
             "id": 17,
@@ -773,8 +757,7 @@
 					"type": "text",
 					"value": "l’assaisonnement"
 				}
-			],
-			"postSteps": []
+			]
 		},
 		{
             "id": 18,
@@ -808,8 +791,7 @@
 						}
 					]
 				}
-			],
-			"postSteps": []
+			]
 		},
 		{
             "id": 19,
@@ -823,8 +805,7 @@
 					"type": "text",
 					"value": "une pellicule de plastique directement sur la garniture"
 				}
-			],
-			"postSteps": []
+			]
 		},
 		{
             "id": 20,
@@ -846,8 +827,7 @@
 					"type": "text",
 					"value": "la pâte"
 				}
-			],
-			"postSteps": []
+			]
         },
         {
             "id": 21,
@@ -884,8 +864,7 @@
                         }
                     ]
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 22,
@@ -920,8 +899,7 @@
                     "type": "text",
                     "value": "quelques secondes à la fois jusqu’à ce que le beurre ait la grosseur de petits pois"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 23,
@@ -966,8 +944,7 @@
                     "type": "action",
                     "value": "former"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 24,
@@ -981,8 +958,7 @@
                     "type": "text",
                     "value": "de l’eau au besoin"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 25,
@@ -1004,8 +980,7 @@
                     "type": "text",
                     "value": "deux disques avec les mains"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 26,
@@ -1021,8 +996,7 @@
                     "text": "30 minutes",
                     "action": "Réfrigérer"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 27,
@@ -1036,8 +1010,7 @@
                     "type": "text",
                     "value": "la grille dans le bas du four"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 28,
@@ -1051,8 +1024,7 @@
                     "type": "text",
                     "value": "le four à 200 °C (400 °F)"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 29,
@@ -1078,8 +1050,7 @@
                     "type": "text",
                     "value": "un plat à tarte de 23 cm (9 po) d’une abaisse"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 30,
@@ -1093,8 +1064,7 @@
                     "type": "text",
                     "value": "des incisions dans la deuxième abaisse"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 31,
@@ -1108,8 +1078,7 @@
                     "type": "text",
                     "value": "la garniture au poulet dans la croûte"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 32,
@@ -1127,8 +1096,7 @@
                     "type": "text",
                     "value": "de la seconde abaisse"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 33,
@@ -1150,8 +1118,7 @@
                     "type": "text",
                     "value": "de lait"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 34,
@@ -1175,8 +1142,7 @@
                     "type": "text",
                     "value": "ou jusqu'à ce que la pâte soit bien dorée"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 35,
@@ -1200,9 +1166,7 @@
                     "type": "action",
                     "value": "servir"
                 }
-            ],
-            "postSteps": []
+            ]
         }
-    ],
-    "id": "56a6c30844fd4666d1194b76"
+    ]
 }

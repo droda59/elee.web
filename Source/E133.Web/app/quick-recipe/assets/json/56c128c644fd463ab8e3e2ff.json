@@ -1,4 +1,5 @@
 {
+    "id": "56c128c644fd463ab8e3e2ff",
   "title": "Crème caramel",
   "originalUrl": "http://www.ricardocuisine.com/recettes/633-creme-caramel",
   "language": "fr",
@@ -117,8 +118,7 @@
             "requirements": "chaud"
           }
         }
-      ],
-      "postSteps": []
+      ]
     },
     {
         "id": 1,
@@ -145,8 +145,7 @@
             "requirements": "légèrement battus"
           }
         }
-      ],
-      "postSteps": []
+      ]
     },
     {
         "id": 2,
@@ -160,8 +159,7 @@
           "type": "text",
           "value": "le four à 180 °C (350 °F)"
         }
-      ],
-      "postSteps": []
+      ]
     },
     {
         "id": 3,
@@ -202,8 +200,7 @@
           "type": "text",
           "value": "jusqu'à l'obtention d'un caramel de couleur ambrée"
         }
-      ],
-      "postSteps": []
+      ]
     },
     {
         "id": 4,
@@ -217,8 +214,7 @@
           "type": "text",
           "value": "dans six ramequins d'une contenance de 125 ml (½ tasse)"
         }
-      ],
-      "postSteps": []
+      ]
     },
     {
         "id": 5,
@@ -228,8 +224,7 @@
           "type": "action",
           "value": "Laisser refroidir"
         }
-      ],
-      "postSteps": []
+      ]
     },
     {
         "id": 6,
@@ -266,8 +261,7 @@
           "type": "text",
           "value": "de vanille au lait chaud"
         }
-      ],
-      "postSteps": []
+      ]
     },
     {
         "id": 7,
@@ -281,8 +275,7 @@
           "type": "text",
           "value": "jusqu'à ce que le sucre soit dissous"
         }
-      ],
-      "postSteps": []
+      ]
     },
     {
         "id": 8,
@@ -309,8 +302,7 @@
             "requirements": "légèrement battus"
           }
         }
-      ],
-      "postSteps": []
+      ]
     },
     {
         "id": 9,
@@ -328,8 +320,7 @@
           "type": "text",
           "value": "le liquide chaud toujours en fouettant"
         }
-      ],
-      "postSteps": []
+      ]
     },
     {
         "id": 10,
@@ -343,8 +334,7 @@
           "type": "text",
           "value": "dans les ramequins"
         }
-      ],
-      "postSteps": []
+      ]
     },
     {
         "id": 11,
@@ -366,8 +356,7 @@
           "type": "text",
           "value": "un linge au fond d'un grand plat de cuisson"
         }
-      ],
-      "postSteps": []
+      ]
     },
     {
         "id": 12,
@@ -393,8 +382,7 @@
           "type": "text",
           "value": "à moitié d'eau fumante"
         }
-      ],
-      "postSteps": []
+      ]
     },
     {
         "id": 13,
@@ -414,8 +402,7 @@
           "text": "40 minutes",
           "action": "Cuire"
         }
-      ],
-      "postSteps": []
+      ]
     },
 	{
         "id": 14,
@@ -429,8 +416,7 @@
 		  "type": "action",
 		  "value": "bouillir"
 		}
-	  ],
-	  "postSteps": []
+	  ]
     },
     {
         "id": 15,
@@ -444,8 +430,7 @@
           "type": "text",
           "value": "du four et de l'eau"
         }
-      ],
-      "postSteps": []
+      ]
     },
     {
         "id": 16,
@@ -455,8 +440,7 @@
           "type": "action",
           "value": "Laisser tiédir"
         }
-      ],
-      "postSteps": []
+      ]
     },
     {
         "id": 17,
@@ -466,8 +450,7 @@
           "type": "action",
           "value": "Réfrigérer"
         }
-      ],
-      "postSteps": []
+      ]
     },
     {
         "id": 18,
@@ -497,9 +480,7 @@
           "type": "text",
           "value": "très froid"
         }
-      ],
-      "postSteps": []
+      ]
     }
-  ],
-  "id": "56c128c644fd463ab8e3e2ff"
+  ]
 }

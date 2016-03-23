@@ -1,4 +1,5 @@
 {
+    "id": "56a6c13744fd4666d1194b74",
     "title": "Gâteau au chocolat au coeur fondant",
     "originalUrl": "http://www.ricardocuisine.com/recettes/2036-gateau-au-chocolat-au-coeur-fondant",
     "originalServings": "4",
@@ -108,8 +109,7 @@
                         "requirements": "haché"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 1,
@@ -123,8 +123,7 @@
                     "type": "text",
                     "value": "le four à 190°C (375°F)"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 2,
@@ -150,8 +149,7 @@
                 	"type": "text",
                 	"value": "4 ramequins de 125ml (1/2 tasse)"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 3,
@@ -201,8 +199,7 @@
                     "type": "text",
                     "value": "jusqu'à blanchiment"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 4,
@@ -228,8 +225,7 @@
                         }
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 5,
@@ -260,8 +256,7 @@
                     "type": "text",
                     "value": "jusqu'à ce qu'il soit fondu"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 6,
@@ -275,8 +270,7 @@
                     "type": "text",
                     "value": "délicatement au mélange précédent"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 7,
@@ -302,8 +296,7 @@
                     "type": "text",
                     "value": "en pliant"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 8,
@@ -331,8 +324,7 @@
                     "text": "10 minutes",
                     "action": "cuire"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 9,
@@ -346,8 +338,7 @@
                     "type": "text",
                     "value": "immédiatement dans une assiette"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 10,
@@ -365,8 +356,7 @@
                     "type": "text",
                     "value": "coulant"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 11,
@@ -384,9 +374,7 @@
                     "type": "action",
                     "value": "glacer"
                 }
-            ],
-            "postSteps": []
+            ]
         }
-    ],
-    "id": "56a6c13744fd4666d1194b74"
+    ]
 }

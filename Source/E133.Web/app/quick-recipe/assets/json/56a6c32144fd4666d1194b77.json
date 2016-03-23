@@ -1,4 +1,5 @@
 {
+    "id": "56a6c32144fd4666d1194b77",
     "title": "Biscuits moelleux aux brisures de chocolat (les meilleurs)",
     "originalUrl": "http://www.ricardocuisine.com/recettes/4874-biscuits-moelleux-aux-brisures-de-chocolat-les-meilleurs-",
     "originalServings": "",
@@ -136,8 +137,7 @@
                         "requirements": "fondu"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 1,
@@ -168,8 +168,7 @@
                         "requirements": "haché grossièrement"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 2,
@@ -215,8 +214,7 @@
                         }
                     ]
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 3,
@@ -226,8 +224,7 @@
                     "type": "action",
                     "value": "Réserver"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 4,
@@ -285,8 +282,7 @@
                     "type": "text",
                     "value": "à la cuillère de bois"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 5,
@@ -324,8 +320,7 @@
                         }
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 6,
@@ -339,8 +334,7 @@
                     "type": "text",
                     "value": "jusqu’à ce que la préparation soit homogène"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 7,
@@ -367,8 +361,7 @@
                         "requirements": "haché grossièrement"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 8,
@@ -396,8 +389,7 @@
                     "type": "text",
                     "value": "ou toute une nuit"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 9,
@@ -411,8 +403,7 @@
                     "type": "text",
                     "value": "la grille au centre du four"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 10,
@@ -426,8 +417,7 @@
                     "type": "text",
                     "value": "le four à 190 °C (375 °F)"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 11,
@@ -437,8 +427,7 @@
                     "type": "text",
                     "value": "Tapisser deux plaques à biscuits de papier parchemin"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 12,
@@ -456,8 +445,7 @@
                     "type": "text",
                     "value": "des boules de pâte"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 13,
@@ -471,8 +459,7 @@
                     "type": "text",
                     "value": "5 à 6 boules de pâte par plaque en les espaçant"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 14,
@@ -496,8 +483,7 @@
                     "type": "text",
                     "value": "ou jusqu’à ce que les biscuits soient légèrement dorés tout autour, mais encore très moelleux au centre"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 15,
@@ -511,9 +497,7 @@
 					"type": "text",
 					"value": "sur la plaque"
 				}
-            ],
-            "postSteps": []
+            ]
         }
-    ],
-    "id": "56a6c32144fd4666d1194b77"
+    ]
 }

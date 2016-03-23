@@ -1,4 +1,5 @@
 ﻿{
+    "id": "56a6c36644fd4666d1194b78",
     "title": "Pouding au chocolat",
     "originalUrl": "http://www.ricardocuisine.com/recettes/5409-pouding-au-chocolat",
     "originalServings": "10",
@@ -190,8 +191,7 @@
                         "requirements": "tamisé"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 1,
@@ -218,8 +218,7 @@
                         "requirements": "tamisé"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 2,
@@ -246,8 +245,7 @@
                         "requirements": "ramolli"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 3,
@@ -261,8 +259,7 @@
                     "type": "text",
                     "value": "la grille au centre du four"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 4,
@@ -276,8 +273,7 @@
                     "type": "text",
                     "value": "le four à 180°C (350°F)"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 5,
@@ -291,8 +287,7 @@
                     "type": "text",
                     "value": "un plat de cuisson de 33 x 23 cm (13 x 9 po)"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 6,
@@ -339,8 +334,7 @@
                         }
                     ]
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 7,
@@ -386,8 +380,7 @@
                     "type": "text",
                     "value": "à ébullition en remuant à l’aide d’un fouet"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 8,
@@ -409,8 +402,7 @@
                         }
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 9,
@@ -420,8 +412,7 @@
                     "type": "action",
                     "value": "Réserver"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 10,
@@ -467,8 +458,7 @@
                     "type": "text",
                     "value": "en remuant à l’aide d’un fouet"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 11,
@@ -478,8 +468,7 @@
                     "type": "action",
                     "value": "Laisser tiédir"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 12,
@@ -525,8 +514,7 @@
                         }
                     ]
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 13,
@@ -536,8 +524,7 @@
                     "type": "action",
                     "value": "Réserver"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 14,
@@ -579,8 +566,7 @@
                     "type": "text",
                     "value": "au batteur électrique jusqu’à ce que le mélange prenne une texture granuleuse"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 15,
@@ -614,8 +600,7 @@
                     "type": "text",
                     "value": "jusqu’à ce que la préparation soit homogène"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 16,
@@ -633,8 +618,7 @@
                     "type": "text",
                     "value": "les ingrédients secs en alternant avec le mélange de cacao"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 17,
@@ -648,8 +632,7 @@
                     "type": "text",
                     "value": "la pâte dans le plat"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 18,
@@ -663,8 +646,7 @@
                     "type": "text",
                     "value": "la sauce chaude délicatement sur la pâte"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 19,
@@ -702,9 +684,7 @@
                     "type": "text",
                     "value": "chaud ou tempéré"
                 }
-            ],
-            "postSteps": []
+            ]
         }
-    ],
-    "id": "56a6c36644fd4666d1194b78"
+    ]
 }

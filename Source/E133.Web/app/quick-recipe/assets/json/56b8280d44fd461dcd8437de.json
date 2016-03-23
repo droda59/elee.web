@@ -1,4 +1,5 @@
 {
+    "id": "56b8280d44fd461dcd8437de",
     "title": "Fondue chinoise au curcuma",
     "originalUrl": "http://www.ricardocuisine.com/recettes/694-fondue-chinoise-au-curcuma",
     "language": "fr",
@@ -246,8 +247,7 @@
 						"requirements": "haché"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 1,
@@ -274,8 +274,7 @@
                         "requirements": "coupée en lanières"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 2,
@@ -302,8 +301,7 @@
                         "requirements": "décortiquées"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 3,
@@ -334,8 +332,7 @@
 						"requirements": "coupé grossièrement à la diagonale"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 4,
@@ -366,8 +363,7 @@
                         "requirements": "coupé en carrés"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 5,
@@ -445,8 +441,7 @@
 						}
                 	]
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 6,
@@ -482,8 +477,7 @@
                     "text": "1 minute",
                     "action": "faire revenir la purée"
                 }
-            ],
-            "postSteps": []
+            ]
         },
 		{
             "id": 7,
@@ -552,8 +546,7 @@
 						}
 					]
 				}
-			],
-			"postSteps": []
+			]
         },
         {
             "id": 8,
@@ -581,8 +574,7 @@
                     "text": "15 minutes",
                     "action": "laisser mijoter doucement"
                 }
-            ],
-            "postSteps": []
+            ]
         },
 		{
             "id": 9,
@@ -596,8 +588,7 @@
 					"type": "text",
 					"value": "généreusement"
 				}
-			],
-			"postSteps": []
+			]
         },
         {
             "id": 10,
@@ -652,8 +643,7 @@
                 	"type": "text",
                 	"value": "séparément dans des assiettes"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 11,
@@ -719,8 +709,7 @@
                     "type": "text",
                     "value": "dans une grande assiette de service"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 12,
@@ -742,8 +731,7 @@
                     "type": "text",
                     "value": "sur le réchaud au centre de la table"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 13,
@@ -757,9 +745,7 @@
                     "type": "text",
                     "value": "avec les sauces à fondue"
                 }
-            ],
-            "postSteps": []
+            ]
         }
-    ],
-    "id": "56b8280d44fd461dcd8437de"
+    ]
 }

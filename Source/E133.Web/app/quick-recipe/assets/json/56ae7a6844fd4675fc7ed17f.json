@@ -1,4 +1,5 @@
 {
+    "id": "56ae7a6844fd4675fc7ed17f",
     "title": "Mijoté de veau et de patates douces à la mijoteuse",
     "originalUrl": "http://www.ricardocuisine.com/recettes/4092-mijote-de-veau-et-de-patates-douces-a-la-mijoteuse",
     "language": "fr",
@@ -196,8 +197,7 @@
                         "requirements": "pelées et coupées en deux"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 1,
@@ -236,8 +236,7 @@
                         "requirements": "pelées et coupées en gros tronçons"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 2,
@@ -268,8 +267,7 @@
                         "requirements": "coupés en 6 quartiers"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 3,
@@ -296,8 +294,7 @@
                         "requirements": "émincées"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 4,
@@ -336,8 +333,7 @@
                         "requirements": "pelées et coupées en 6 quartiers"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 5,
@@ -379,8 +375,7 @@
                         }
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 6,
@@ -398,8 +393,7 @@
                     "type": "action",
                     "value": "poivrer"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 7,
@@ -443,8 +437,7 @@
                         "requirements": "pelées et coupées en gros tronçons"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 8,
@@ -487,8 +480,7 @@
 						}
             		}
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 9,
@@ -558,8 +550,7 @@
                     "text": "1 minute",
                     "action": "poursuivre"
                 }
-            ],
-            "postSteps": []
+            ]
         },
 		{
             "id": 10,
@@ -601,8 +592,7 @@
 					"type": "text",
 					"value": "Worcestershire"
 				}
-			],
-			"postSteps": []
+			]
 		},
 		{
             "id": 11,
@@ -628,8 +618,7 @@
 					"type": "action",
 					"value": "porter à ébullition"
 				}
-			],
-			"postSteps": []
+			]
 		},
 		{
             "id": 12,
@@ -647,8 +636,7 @@
 					"type": "action",
 					"value": "poivrer"
 				}
-			],
-			"postSteps": []
+			]
 		},
 		{
             "id": 13,
@@ -662,8 +650,7 @@
 					"type": "text",
 					"value": "dans la mijoteuse"
 				}
-			],
-			"postSteps": []
+			]
         },
         {
             "id": 14,
@@ -705,8 +692,7 @@
                     "type": "text",
                     "value": "à basse température ou jusqu’à ce que la viande se défasse à la fourchette"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 15,
@@ -755,8 +741,7 @@
                     "type": "text",
                     "value": "avant la fin de la cuisson"
                 }
-            ],
-            "postSteps": []
+            ]
         },
 		{
             "id": 16,
@@ -770,9 +755,7 @@
 					"type": "text",
 					"value": "l’assaisonnement"
 				}
-			],
-			"postSteps": []
+			]
 		}
-    ],
-    "id": "56ae7a6844fd4675fc7ed17f"
+    ]
 }

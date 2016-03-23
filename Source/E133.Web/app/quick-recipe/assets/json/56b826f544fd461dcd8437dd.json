@@ -1,4 +1,5 @@
 {
+    "id": "56b826f544fd461dcd8437dd",
     "title": "Fondue au chocolat",
     "originalUrl": "http://www.ricardocuisine.com/recettes/5026-fondue-au-chocolat",
     "language": "fr",
@@ -76,8 +77,7 @@
                         "requirements": "haché grossièrement"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 1,
@@ -103,8 +103,7 @@
                     "type": "text",
                     "value": "à ébullition"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 2,
@@ -114,8 +113,7 @@
                     "type": "text",
                     "value": "Surveille bien, elle déborde vite"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 3,
@@ -138,8 +136,7 @@
                         "requirements": "haché grossièrement"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 4,
@@ -159,8 +156,7 @@
                     "text": "2 minutes",
                     "action": "Fondre"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 5,
@@ -170,8 +166,7 @@
                     "type": "text",
                     "value": "À l’aide d’un fouet, mélange doucement jusqu’à ce que la texture soit lisse"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 6,
@@ -181,8 +176,7 @@
                     "type": "text",
                     "value": "Verse la préparation au chocolat dans un caquelon à fondue et dépose le sur le réchaud à feu doux"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 7,
@@ -192,9 +186,7 @@
                     "type": "text",
                     "value": "Trempes y des fruits frais en morceaux, des guimauves ou des cubes de gâteau fermes"
                 }
-            ],
-            "postSteps": []
+            ]
         }
-    ],
-    "id": "56b826f544fd461dcd8437dd"
+    ]
 }

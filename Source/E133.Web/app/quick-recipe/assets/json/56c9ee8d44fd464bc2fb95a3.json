@@ -1,4 +1,5 @@
 {
+    "id": "56c9ee8d44fd464bc2fb95a3",
     "title": "Pain de viande au porc et aux pommes",
     "originalUrl": "http://www.ricardocuisine.com/recettes/3668-pain-de-viande-au-porc-et-aux-pommes",
     "language": "fr",
@@ -153,8 +154,7 @@
 						"requirements": "pelées et râpées"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 1,
@@ -181,8 +181,7 @@
                         "requirements": "fondue"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 2,
@@ -196,8 +195,7 @@
                     "type": "text",
                     "value": "la grille au centre du four"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 3,
@@ -211,8 +209,7 @@
                     "type": "text",
                     "value": "le four à 180 °C (350 °F)"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 4,
@@ -226,8 +223,7 @@
                     "type": "text",
                     "value": "une plaque de cuisson de papier parchemin ou d'aluminium"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 5,
@@ -301,8 +297,7 @@
                         }
                     ]
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 6,
@@ -324,8 +319,7 @@
                     "type": "text",
                     "value": "généreusement"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 7,
@@ -343,8 +337,7 @@
                     "type": "text",
                     "value": "un pain de 25 x 10 cm (10 x 4 po) sur la plaque"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 8,
@@ -378,8 +371,7 @@
                     "type": "text",
                     "value": "la viande"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 9,
@@ -399,8 +391,7 @@
                     "text": "1 heure",
                     "action": "Cuire"
                 }
-            ],
-            "postSteps": []
+            ]
         },
 		{
             "id": 10,
@@ -418,8 +409,7 @@
 					"type": "text",
 					"value": "82 °C (180 °F)"
 				}
-			],
-			"postSteps": []
+			]
 		},
 		{
             "id": 11,
@@ -446,8 +436,7 @@
 						"requirements": "fondue"
 					}
 				}
-			],
-			"postSteps": []
+			]
 		},
 		{
             "id": 12,
@@ -461,8 +450,7 @@
 					"type": "text",
 					"value": "la cuisson sous le gril (broil) jusqu'à ce qu'il soit bien doré"
 				}
-			],
-			"postSteps": []
+			]
         },
         {
             "id": 13,
@@ -500,9 +488,7 @@
                     "type": "text",
                     "value": "avec une purée de pommes de terre et des haricots verts"
                 }
-            ],
-            "postSteps": []
+            ]
         }
-    ],
-    "id": "56c9ee8d44fd464bc2fb95a3"
+    ]
 }

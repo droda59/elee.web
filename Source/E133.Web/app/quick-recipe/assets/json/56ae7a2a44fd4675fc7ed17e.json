@@ -1,4 +1,5 @@
 {
+    "id": "56ae7a2a44fd4675fc7ed17e",
     "title": "Boeuf Stroganov en mijoteuse",
     "originalUrl": "http://www.ricardocuisine.com/recettes/5839-boeuf-stroganov-en-mijoteuse",
     "language": "fr",
@@ -194,8 +195,7 @@
                         "requirements": "coupée en lanières"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 1,
@@ -222,8 +222,7 @@
                         "requirements": "émincés"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 2,
@@ -250,8 +249,7 @@
                         "requirements": "tranchés"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 3,
@@ -278,8 +276,7 @@
                         "requirements": "hachées"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 4,
@@ -306,8 +303,7 @@
                         "requirements": "ciselé au goût"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 5,
@@ -334,8 +330,7 @@
                         "requirements": "ciselée au goût"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 6,
@@ -358,8 +353,7 @@
 						"requirements": "coupée en lanières"
 					}
             	}
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 7,
@@ -402,8 +396,7 @@
 						}
             		}
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 8,
@@ -421,8 +414,7 @@
                     "type": "action",
                     "value": "poivrer"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 9,
@@ -432,8 +424,7 @@
                     "type": "text",
                     "value": "Transvider la viande dans la mijoteuse au fur et à mesure"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 10,
@@ -488,8 +479,7 @@
                         }
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 10,
@@ -507,8 +497,7 @@
                     "type": "action",
                     "value": "poivrer"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 11,
@@ -549,8 +538,7 @@
                     "text": "1 minute",
                     "action": "poursuivre"
                 }
-            ],
-            "postSteps": []
+            ]
         },
 		{
             "id": 12,
@@ -576,8 +564,7 @@
 					"type": "text",
 					"value": "transvider dans la mijoteuse"
 				}
-			],
-			"postSteps": []
+			]
 		},
 		{
             "id": 13,
@@ -619,8 +606,7 @@
 						}
 					]
 				}
-			],
-			"postSteps": []
+			]
 		},
 		{
             "id": 14,
@@ -634,8 +620,7 @@
 					"type": "action",
 					"value": "mélanger"
 				}
-			],
-			"postSteps": []
+			]
         },
         {
             "id": 15,
@@ -663,8 +648,7 @@
                     "text": "4 heures",
                     "action": "cuire"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 16,
@@ -706,8 +690,7 @@
                     "type": "text",
                     "value": "l’assaisonnement"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 17,
@@ -729,9 +712,7 @@
                     "type": "text",
                     "value": "d’herbes"
                 }
-            ],
-            "postSteps": []
+            ]
         }
-    ],
-    "id": "56ae7a2a44fd4675fc7ed17e"
+    ]
 }

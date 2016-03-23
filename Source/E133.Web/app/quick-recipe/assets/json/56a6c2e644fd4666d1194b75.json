@@ -1,4 +1,5 @@
 {
+    "id": "56a6c2e644fd4666d1194b75",
     "title": "Sauce à spaghetti (la meilleure)",
     "originalUrl": "http://www.ricardocuisine.com/recettes/5335-sauce-a-spaghetti-la-meilleure-",
     "originalServings": "5 litres (20 tasses)",
@@ -202,8 +203,7 @@
                         "requirements": "hachés finement"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 1,
@@ -242,8 +242,7 @@
                         "requirements": "pelées et coupées en dés"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 2,
@@ -274,8 +273,7 @@
                         "requirements": "coupées en dés"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 3,
@@ -306,8 +304,7 @@
                         "requirements": "hachées finement"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 4,
@@ -360,8 +357,7 @@
 			            }
             		}
             	}
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 5,
@@ -375,8 +371,7 @@
                     "type": "text",
                     "value": "de l’huile au besoin"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 6,
@@ -394,8 +389,7 @@
                     "type": "action",
                     "value": "poivrer"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 7,
@@ -409,8 +403,7 @@
                     "type": "text",
                     "value": "dans un bol"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 8,
@@ -473,8 +466,7 @@
                     "type": "text",
                     "value": "dans le reste de l’huile"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 9,
@@ -492,8 +484,7 @@
                     "type": "action",
                     "value": "poivrer"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 10,
@@ -539,8 +530,7 @@
                     "type": "text",
                     "value": "à feu vif"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 11,
@@ -622,8 +612,7 @@
 						}
                     ]
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 12,
@@ -659,8 +648,7 @@
                     "type": "text",
                     "value": "épaississe"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 13,
@@ -674,9 +662,7 @@
 					"type": "text",
 					"value": "sur des pâtes au choix"
 				}
-			],
-			"postSteps": []
+			]
 		}
-    ],
-    "id": "56a6c2e644fd4666d1194b75"
+    ]
 }

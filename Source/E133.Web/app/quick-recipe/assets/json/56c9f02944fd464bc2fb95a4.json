@@ -1,4 +1,5 @@
 {
+    "id": "56c9f02944fd464bc2fb95a4",
     "title": "Sauté de tofu aux noix de cajou",
     "originalUrl": "http://www.ricardocuisine.com/recettes/5601-saute-de-tofu-aux-noix-de-cajou",
     "language": "fr",
@@ -198,8 +199,7 @@
 						"requirements": "coupé en bâtonnets d’environ 1 cm (½ po) d’épaisseur et de 4 cm (1 ½ po) de longueur, bien épongés"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 1,
@@ -226,8 +226,7 @@
                         "requirements": "émincés"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 2,
@@ -258,8 +257,7 @@
                         "requirements": "hachées finement"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 3,
@@ -323,8 +321,7 @@
 						}
                     ]
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 4,
@@ -334,8 +331,7 @@
                     "type": "action",
                     "value": "Réserver"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 5,
@@ -379,8 +375,7 @@
                         }
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 6,
@@ -406,8 +401,7 @@
                     "type": "text",
                     "value": "l’excédent"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 7,
@@ -421,8 +415,7 @@
                     "type": "text",
                     "value": "sur une assiette"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 8,
@@ -448,8 +441,7 @@
 						}
 					}
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 9,
@@ -463,8 +455,7 @@
                     "type": "text",
                     "value": "la moitié du tofu à la fois, jusqu’à ce qu’il soit légèrement doré"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 10,
@@ -482,8 +473,7 @@
                     "type": "action",
                     "value": "poivrer"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 11,
@@ -505,8 +495,7 @@
                     "type": "text",
                     "value": "sur une assiette tapissée de papier absorbant"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 12,
@@ -520,8 +509,7 @@
                     "type": "text",
                     "value": "l’huile du wok, à l’exception de 30 ml (2 c à soupe)"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 13,
@@ -579,8 +567,7 @@
                     "text": "1 minute",
                     "action": "Faire revenir"
                 }
-            ],
-            "postSteps": []
+            ]
         },
 		{
             "id": 14,
@@ -602,8 +589,7 @@
 					"type": "text",
 					"value": "à ébullition en remuant"
 				}
-			],
-			"postSteps": []
+			]
 		},
 		{
             "id": 15,
@@ -653,8 +639,7 @@
 					"type": "text",
 					"value": "de sauce"
 				}
-			],
-			"postSteps": []
+			]
 		},
 		{
             "id": 16,
@@ -668,8 +653,7 @@
 					"type": "text",
 					"value": "immédiatement sur du riz"
 				}
-			],
-			"postSteps": []
+			]
 		},
 		{
             "id": 17,
@@ -696,8 +680,7 @@
 						"requirements": "ciselée"
 					}
 				}
-			],
-			"postSteps": []
+			]
 		},
 		{
             "id": 18,
@@ -715,9 +698,7 @@
 					"type": "text",
 					"value": "de brocoli cuit à la vapeur"
 				}
-			],
-			"postSteps": []
+			]
 		}
-    ],
-    "id": "56c9f02944fd464bc2fb95a4"
+    ]
 }

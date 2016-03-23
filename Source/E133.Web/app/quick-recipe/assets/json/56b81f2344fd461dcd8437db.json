@@ -1,4 +1,5 @@
 {
+    "id": "56b81f2344fd461dcd8437db",
     "title": "Bol de poulet grillé à la vietnamienne",
     "originalUrl": "http://www.ricardocuisine.com/recettes/6470-bol-de-poulet-grille-a-la-vietnamienne",
     "language": "fr",
@@ -214,8 +215,7 @@
                         "requirements": "hachées finement"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 1,
@@ -250,8 +250,7 @@
                         "requirements": "réhydraté dans l’eau chaude et égoutté"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 2,
@@ -282,8 +281,7 @@
                         "requirements": "tranchée finement"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 3,
@@ -314,8 +312,7 @@
                         "requirements": "coupé en fine julienne"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 4,
@@ -350,8 +347,7 @@
                         "requirements": "grillées et concassées"
                     }
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 5,
@@ -425,8 +421,7 @@
 						}
                     ]
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 6,
@@ -436,8 +431,7 @@
                     "type": "action",
                     "value": "Réserver"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 7,
@@ -480,8 +474,7 @@
                     "type": "text",
                     "value": "finement au robot culinaire"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 8,
@@ -531,8 +524,7 @@
                     "type": "text",
                     "value": "et la moitié de la sauce nuoc cham"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 9,
@@ -546,8 +538,7 @@
                     "type": "action",
                     "value": "mélanger"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 10,
@@ -561,8 +552,7 @@
                     "type": "text",
                     "value": "la marinade dans contenant ou dans un sac à fermeture hermétique"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 11,
@@ -576,8 +566,7 @@
                     "type": "text",
                     "value": "le bouillon de poulet"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 12,
@@ -635,8 +624,7 @@
                     "type": "text",
                     "value": "sur le comptoir"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 13,
@@ -650,8 +638,7 @@
                     "type": "text",
                     "value": "le barbecue à feu moyen fort"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 14,
@@ -665,8 +652,7 @@
                     "type": "text",
                     "value": "la grille"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 15,
@@ -702,32 +688,29 @@
                     "type": "text",
                     "value": "de chaque côté ou jusqu’à ce qu’il soit cuit"
                 }
-            ],
-            "postSteps": [
-        		{
-                    "id": 16,
-        			"subrecipeId": 1,
-        			"parts": [
-        				{
-        					"type": "text",
-        					"value": "Sur un plan de travail,"
-        				},
-        				{
-        					"type": "action",
-        					"value": "trancher"
-        				},
-        				{
-        					"type": "text",
-        					"value": "le poulet et"
-        				},
-        				{
-        					"type": "action",
-        					"value": "réserver"
-        				}
-        			],
-        			"postSteps": []
-                }
-            ],
+            ]
+        },
+		{
+            "id": 16,
+			"subrecipeId": 1,
+			"parts": [
+				{
+					"type": "text",
+					"value": "Sur un plan de travail,"
+				},
+				{
+					"type": "action",
+					"value": "trancher"
+				},
+				{
+					"type": "text",
+					"value": "le poulet et"
+				},
+				{
+					"type": "action",
+					"value": "réserver"
+				}
+			]
         },
         {
             "id": 17,
@@ -776,8 +759,7 @@
                     "type": "text",
                     "value": "dans les bols"
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 18,
@@ -808,8 +790,7 @@
 						"requirements": "grillées et concassées"
 					}
                 }
-            ],
-            "postSteps": []
+            ]
         },
         {
             "id": 19,
@@ -823,9 +804,7 @@
                     "type": "text",
                     "value": "du reste de sauce nuoc cham"
                 }
-            ],
-            "postSteps": []
+            ]
         }
-    ],
-    "id": "56b81f2344fd461dcd8437db"
+    ]
 }
