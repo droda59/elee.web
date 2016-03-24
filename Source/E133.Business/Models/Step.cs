@@ -10,7 +10,6 @@ namespace E133.Business.Models
         public Step()
         {
             this.Parts = new List<Part>();
-            this.PostSteps = new List<Step>();
         }
 
         public int Id { get; set; }
@@ -18,8 +17,6 @@ namespace E133.Business.Models
         public int SubrecipeId { get; set; }
 
         public IList<Part> Parts { get; set; }
-
-        public IList<Step> PostSteps { get; set; }
 
         private string DebuggerDisplay
         {
