@@ -19,6 +19,11 @@ declare module 'aurelia-pal' {
       * Does the runtime environment support native HTMLTemplateElement?
       */
     htmlTemplateElement: boolean;
+    
+    /**
+      * Does the runtime environment support native DOM mutation observers?
+      */
+    mutationObserver: boolean;
   }
   
   /**
@@ -31,12 +36,15 @@ declare module 'aurelia-pal' {
   /**
   * Represents the core APIs of the runtime environment.
   */
+  /**
+  * Represents the core APIs of the runtime environment.
+  */
   export interface Platform {
     
     /**
       * The runtime environment's global.
       */
-    global: Object;
+    global: any;
     
     /**
       * A function wich does nothing.
@@ -241,14 +249,14 @@ declare module 'aurelia-pal' {
       * @param node The node that is being replaced.
       * @param parentNode The node that the current node is parented to.
       */
-    replaceNode(newNode: Node, node: Node, parentNode: Node): void;
+    replaceNode(newNode: Node, node: Node, parentNode?: Node): void;
     
     /**
       * Removes the specified node from the parent node.
       * @param node The node to remove.
       * @param parentNode The parent node from which the node will be removed.
       */
-    removeNode(node: Node, parentNode: Node): void;
+    removeNode(node: Node, parentNode?: Node): void;
     
     /**
       * Injects styles into the destination element, or the document.head if no destination is provided.
@@ -272,13 +280,22 @@ declare module 'aurelia-pal' {
   /**
   * The singleton instance of the Feature discovery API.
   */
+  /**
+  * The singleton instance of the Feature discovery API.
+  */
   export const FEATURE: Feature;
   
   /**
   * The singleton instance of the Platform API.
   */
+  /**
+  * The singleton instance of the Platform API.
+  */
   export const PLATFORM: Platform;
   
+  /**
+  * The singleton instance of the Dom API.
+  */
   /**
   * The singleton instance of the Dom API.
   */
