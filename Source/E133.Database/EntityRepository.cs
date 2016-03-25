@@ -8,7 +8,7 @@ namespace E133.Database
 
         protected EntityRepository()
         {
-            var client = new MongoClient("mongodb://localhost");
+            var client = new MongoClient("mongodb://admin:e133@ds064748.mlab.com:64748/e133");
             var database = client.GetDatabase("e133");
 
             this._collection = database.GetCollection<TDocument>(typeof(TDocument).Name.ToLower());
