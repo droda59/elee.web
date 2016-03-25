@@ -8,6 +8,8 @@ import {HelpOverlay} from "quick-recipe/components/help-overlay";
 import {TimerCoordinator} from "quick-recipe/timer-coordinator";
 import {ScrollCoordinator} from "quick-recipe/scroll-coordinator";
 import {Ingredient} from "shared/models/ingredient";
+import {Timer} from "shared/models/timer";
+import {QuickRecipeTimer} from "quick-recipe/models/quick-recipe-timer";
 
 @inject (HttpClient, I18N, TimerCoordinator, ScrollCoordinator, DialogService, CssAnimator)
 export class QuickRecipePage {
@@ -21,7 +23,7 @@ export class QuickRecipePage {
 	private _currentStepId: number = undefined;
 	private _navigationStepId: number = undefined;
 	private _scrollCoordinator: ScrollCoordinator;
-	private _timerCoordinator: TimerCoordinator;
+    private _timerCoordinator: TimerCoordinator;
 	private _dialogService: DialogService;
     private _http: HttpClient;
 	private _i18n: I18N;
@@ -30,13 +32,13 @@ export class QuickRecipePage {
 	constructor(http: HttpClient, i18n: I18N, timerCoordinator: TimerCoordinator, scrollCoordinator: ScrollCoordinator, dialogService: DialogService, animator: CssAnimator) {
 		this._http = http;
 		this._i18n = i18n;
-		this._timerCoordinator = timerCoordinator;
 		this._scrollCoordinator = scrollCoordinator;
 		this._dialogService = dialogService;
         this._animator = animator;
+		this._timerCoordinator = timerCoordinator;
 
-        this._timerCoordinator.onTimerStarted = stepId => { this.onTimerStarted(stepId, this); };
-        this._timerCoordinator.onTimerEnded = stepId => { this.onTimerEnded(stepId, this); };
+        this._timerCoordinator.onTimerStarted = timer => { this.onTimerStarted(timer, this); };
+        this._timerCoordinator.onTimerEnded = timer => { this.onTimerEnded(timer, this); };
 	}
 
 	activate(route, routeConfig) {
@@ -69,6 +71,7 @@ export class QuickRecipePage {
 					quickRecipeSubrecipe.title = subrecipe.title;
 					quickRecipeSubrecipe.steps = this.recipe.steps.filter(step => step.subrecipeId === subrecipe.id);
 					quickRecipeSubrecipe.ingredients = this.recipe.ingredients.filter(ingredient => ingredient.subrecipeId === subrecipe.id);
+                    quickRecipeSubrecipe.timers = [];
 
 					if (quickRecipeSubrecipe.steps.length || quickRecipeSubrecipe.ingredients.length) {
 						this.subrecipes.push(quickRecipeSubrecipe);
@@ -85,7 +88,6 @@ export class QuickRecipePage {
 	}
 
 	deactivate() {
-		this._timerCoordinator.clear();
 		this._scrollCoordinator.destroyScrollController();
 	}
 
@@ -212,20 +214,26 @@ export class QuickRecipePage {
 		return this._navigationStepId == this.recipe.steps.length - 1;
 	}
 
-    private onTimerStarted(stepId: number, that: QuickRecipePage): void {
-        var timerStep = that.recipe.steps.filter(step => step.id === stepId)[0];
-        var postSteps = that.recipe.steps.filter(step => step.subrecipeId === timerStep.subrecipeId && step.id > stepId);
-        postSteps.forEach(postStep => {
-            postStep.isOnHold = true;
-        });
+    private onTimerStarted(timer: QuickRecipeTimer, that: QuickRecipePage): void {
+        var timerStep = that.recipe.steps.filter(step => step.id === timer.stepId)[0];
+        var timerStepSubrecipe = this.subrecipes.filter(subrecipe => subrecipe.id == timerStep.subrecipeId)[0];
+        timerStepSubrecipe.timers.push(timer);
+
+        that.recipe.steps
+            .filter(step => step.subrecipeId === timerStep.subrecipeId && step.id > timer.stepId)
+            .forEach(postStep => { postStep.isOnHold = true; });
     }
 
-    private onTimerEnded(stepId: number, that: QuickRecipePage): void {
-        var timerStep = that.recipe.steps.filter(step => step.id === stepId)[0];
-        var postSteps = that.recipe.steps.filter(step => step.subrecipeId === timerStep.subrecipeId && step.id > stepId);
-        postSteps.forEach(postStep => {
-            postStep.isOnHold = false;
-        });
+    private onTimerEnded(timer: QuickRecipeTimer, that: QuickRecipePage): void {
+        var timerStep = that.recipe.steps.filter(step => step.id === timer.stepId)[0];
+        var timerStepSubrecipe = this.subrecipes.filter(subrecipe => subrecipe.id == timerStep.subrecipeId)[0];
+
+		var index = timerStepSubrecipe.timers.indexOf(timer);
+		timerStepSubrecipe.timers.splice(index, 1);
+
+        that.recipe.steps
+            .filter(step => step.subrecipeId === timerStep.subrecipeId && step.id > timer.stepId)
+            .forEach(postStep => { postStep.isOnHold = false; });
     }
 
     private getNextUncompletedStepId(): number {
@@ -314,4 +322,5 @@ class QuickRecipeSubrecipe {
     completedSteps: number = 0;
 	steps: Step[];
 	ingredients: Ingredient[];
+    timers: QuickRecipeTimer[];
 }

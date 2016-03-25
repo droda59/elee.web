@@ -1,12 +1,11 @@
 import {inject} from "aurelia-framework";
 import {I18N} from "aurelia-i18n";
-import {Timer} from "shared/models/timer";
+import {QuickRecipeTimer} from "quick-recipe/models/quick-recipe-timer";
 
 @inject (I18N)
 export class TimerCoordinator {
 	private _i18n: I18N;
 
-	activeTimers: Timer[] = [];
 	onTimerStarted;
 	onTimerEnded;
 
@@ -14,13 +13,12 @@ export class TimerCoordinator {
         this._i18n = i18n;
     }
 
-	startTimer(stepId: number, timer: Timer): void {
+	startTimer(timer: QuickRecipeTimer): void {
 		var that = this;
-		this.addTimer(timer);
 
 		timer.start();
 		if (this.onTimerStarted) {
-			this.onTimerStarted(stepId);
+			this.onTimerStarted(timer);
 		}
 
 		if (!timer.onFinish) {
@@ -36,30 +34,14 @@ export class TimerCoordinator {
 				}
 
 				if (this.onTimerEnded) {
-					this.onTimerEnded(stepId);
+					this.onTimerEnded(timer);
 				}
 			}
 		}
 	}
 
-	addTimer(timer: Timer): void {
-		if (this.activeTimers.indexOf(timer) === -1) {
-			this.activeTimers.push(timer);
-		}
-	}
-
-	deleteTimer(timer: Timer): void {
-		var index = this.activeTimers.indexOf(timer);
-		this.activeTimers.splice(index, 1);
-
+	deleteTimer(timer: QuickRecipeTimer): void {
 		timer.delete();
 		timer.onFinish = null;
-	}
-
-	clear(): void {
-		var timers = this.activeTimers.slice(0);
-		timers.forEach(timer => {
-			this.deleteTimer(timer);
-		});
 	}
 }

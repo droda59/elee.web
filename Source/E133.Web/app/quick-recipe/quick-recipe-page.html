@@ -8,7 +8,7 @@
 
 	<div class="quick-recipe">
 		<header class="row z-depth-1">
-			<quick-recipe-header containerless recipe.bind="recipe"></quick-recipe-header>
+			<quick-recipe-header containerless></quick-recipe-header>
 		</header>
 
 		<main class="row">
@@ -73,6 +73,9 @@
 								<a click.trigger="goToSubrecipe(subrecipe.id)">
 									<span>${subrecipe.title}</span>
 									<span class="progression">${subrecipe.completedSteps}/${subrecipe.steps.length}</span>
+									<span class="timers" show.bind="subrecipe.timers.length">
+										<i class="material-icons">av_timer</i>
+									</span>
 								</a>
 							</li>
 						</ul>

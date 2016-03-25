@@ -1,13 +1,12 @@
-import {Timer} from "shared/models/timer";
+import {inject} from "aurelia-framework";
+import {QuickRecipeTimer} from "quick-recipe/models/quick-recipe-timer";
 import {TimerPart} from "quick-recipe/models/quick-recipe";
 import {TimerCoordinator} from "quick-recipe/timer-coordinator";
-import {inject} from "aurelia-framework";
 
 @inject (TimerCoordinator)
 export class StepTimer {
-	timer: Timer;
+	timer: QuickRecipeTimer;
 
-	private _stepId;
 	private _timerCoordinator: TimerCoordinator;
 
 	constructor(timerCoordinator: TimerCoordinator) {
@@ -15,13 +14,12 @@ export class StepTimer {
 	}
 
 	activate(model: TimerPart) {
-        this.timer = new Timer(model.value, model.action, model.text);
-		this._stepId = model.stepId;
+        this.timer = new QuickRecipeTimer(model.stepId, model.value, model.action, model.text);
 	}
 
 	startTimer(): void {
 		if (this.timer.isStopped) {
-			this._timerCoordinator.startTimer(this._stepId, this.timer);
+			this._timerCoordinator.startTimer(this.timer);
 		}
 	}
 }

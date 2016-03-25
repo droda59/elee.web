@@ -257,7 +257,7 @@
                         {
 	            			"id": 0,
 				            "subrecipeId": 0,
-				            "name": "dattes de type Medjool (tassées légèrement)",
+				            "name": "dattes de type Medjool",
             				"quantity": {
 			    	            "value": 625,
 			        	        "unit": "ml"
@@ -342,7 +342,7 @@
                     "ingredient": {
 	            		"id": 0,
 				        "subrecipeId": 0,
-				        "name": "dattes de type Medjool (tassées légèrement)",
+				        "name": "dattes de type Medjool",
             			"quantity": {
 		    	            "value": 625,
 		        	        "unit": "ml"
