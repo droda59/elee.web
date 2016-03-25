@@ -13,6 +13,7 @@ var bundler = require("aurelia-bundler");
 var imagemin = require("gulp-imagemin");
 var minifyCss = require("gulp-minify-css");
 var concat = require("gulp-concat");
+var karma = require("karma").Server;
 
 var path = {
     package: "./package.json",
@@ -67,6 +68,13 @@ var bundleConfig = {
         }
     }
 };
+
+gulp.task("test", function (done) {
+  new karma({
+    configFile: __dirname + "/karma.conf.js",
+    singleRun: true
+  }, function() { done(); }).start();
+});
 
 gulp.task("typedef", function () {
     return gulp.src("jspm_packages/npm/aurelia*/**/*.d.ts")
