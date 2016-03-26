@@ -58,7 +58,7 @@ var bundleConfig = {
                 "aurelia-validation/resources/*",
                 "aurelia-google-analytics",
                 "scrollmagic",
-                "material-design-lite"
+                "material-design-lite/material.js"
             ],
             options: {
                 inject: true,
