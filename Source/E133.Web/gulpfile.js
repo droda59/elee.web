@@ -57,7 +57,8 @@ var bundleConfig = {
                 "aurelia-validation",
                 "aurelia-validation/resources/*",
                 "aurelia-google-analytics",
-                "scrollmagic"
+                "scrollmagic",
+                "material-design-lite"
             ],
             options: {
                 inject: true,
@@ -84,12 +85,23 @@ gulp.task("clean", function () {
        .pipe(vinylPaths(del));
 });
 
-gulp.task("copy-externals", ["copy-externals-materialize-css", "copy-externals-materialize-font", "copy-externals-animate.css"]);
+gulp.task("copy-externals",
+          [ "copy-externals-materialize-css",
+            "copy-externals-materialize-font",
+            "copy-externals-animate.css",
+            "copy-externals-mdl-css"]
+          );
 
 gulp.task("copy-externals-materialize-css", function() {
   return gulp.src("jspm_packages/npm/materialize-css@**/sass/components/**/*.scss")
         .pipe(flatten())
         .pipe(gulp.dest("app/shared/assets/css/externals/materialize-css"));
+});
+
+gulp.task("copy-externals-mdl-css", function() {
+  return gulp.src("jspm_packages/github/google/material-design-lite@**/*.css")
+        .pipe(flatten())
+        .pipe(gulp.dest("app/shared/assets/css/externals/material-design-lite-css"));
 });
 
 gulp.task("copy-externals-materialize-font", function() {
@@ -152,7 +164,7 @@ gulp.task("copy-files", function() {
 
 gulp.task("serve", ["build"], function (done) {
     browserSync.init({
-        open: false,
+        open: true,
         port: 9000,
         server: {
             baseDir: ["."],
@@ -241,7 +253,8 @@ gulp.task("export-copy", function() {
         "jspm_packages/npm/materialize-css@**/dist/js/materialize.min.js",
         "jspm_packages/npm/moment@**/moment.js",
         "jspm_packages/npm/moment@**/locale/fr.js",
-        "jspm_packages/npm/aurelia-dialog@0.5.6/*.css"
+        "jspm_packages/npm/aurelia-dialog@0.5.6/*.css",
+        "jspm_packages/github/google/material-design-lite@**/**.js"
       ].concat(getBundles()), { base: "." })
     .pipe(gulp.dest(path.export))
 });
