@@ -62,17 +62,17 @@ export class Welcome {
 		// this.popularCategories.push({ id: "4", title: "BBQ", cover: "dist/welcome/assets/images/categ4.png" });
 	}
 
-	attached(){
+	attached() {
 		this._i18n.updateTranslations(this._element);
 	}
 
-	loadRecipe() {
+	loadRecipe(): void {
 		if (this.canNavigateToRecipe) {
 			this._router.navigateToRoute("quick-recipe", { "id": this.selectedRecipeId }, undefined);
 		}
 	}
 
-	changeLocale() {
+	changeLocale(): void {
 		var newLocale;
 		var currentLocale = this._i18n.getLocale();
 		if (currentLocale === "fr") {
