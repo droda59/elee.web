@@ -19,8 +19,8 @@ export function configure(aurelia) {
                 debug : false
             });
           })
-        .plugin('aurelia-google-analytics', config => {
-            config.init('UA-73519104-1');
+        .plugin("aurelia-google-analytics", config => {
+            config.init("UA-73519104-1");
             config.attach({
                 logging: {
                     enabled: true
@@ -32,8 +32,8 @@ export function configure(aurelia) {
                     enabled: true,
                     filter: (element) => {
                         return element instanceof HTMLElement &&
-                            (element.nodeName.toLowerCase() === 'a' ||
-                            element.nodeName.toLowerCase() === 'button');
+                            (element.nodeName.toLowerCase() === "a" ||
+                            element.nodeName.toLowerCase() === "button");
                     }
                 }
             });
@@ -51,7 +51,7 @@ export function configure(aurelia) {
         String.format = function(format) {
             var args = Array.prototype.slice.call(arguments, 1);
             return format.replace(/{(\d+)}/g, function (match, number) {
-                return typeof args[number] != 'undefined' ? args[number] : match;
+                return typeof args[number] != "undefined" ? args[number] : match;
             });
         }
     }

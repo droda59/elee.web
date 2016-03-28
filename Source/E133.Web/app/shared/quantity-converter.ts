@@ -1,4 +1,3 @@
-import {inject} from "aurelia-framework";
 import {Quantity} from "shared/models/quantity";
 
 export class QuantityConverter {

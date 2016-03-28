@@ -5,6 +5,7 @@ export class TextUtils {
 			|| letter === "i" || letter === "I"
 			|| letter === "o" || letter === "O"
 			|| letter === "u" || letter === "U"
+			|| letter === "y" || letter === "Y"
 			|| letter === "h" || letter === "H";
 	}
 }

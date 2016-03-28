@@ -1,4 +1,4 @@
-import "aurelia-polyfills";
+import * from "aurelia-polyfills";
 import {initialize} from "aurelia-pal-browser";
 
 initialize();

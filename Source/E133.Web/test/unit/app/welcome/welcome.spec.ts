@@ -39,14 +39,14 @@ describe("the Welcome module", () => {
         expect(component.canNavigateToRecipe).toBe(true);
     });
 
-    // it("cannot navigate to quick recipe page when no recipe selected", () => {
-    //     component.selectedRecipeId = "home.search";
-    //     spyOn(routerMock, "navigateToRoute");
-    //
-    //     component.loadRecipe();
-    //
-    //     expect(routerMock.navigateToRoute).toHaveBeenCalledWith("quick-recipe", { "id": "someId" }, undefined);
-    // });
+    it("cannot navigate to quick recipe page when no recipe selected", () => {
+        component.selectedRecipeId = "home.search";
+        spyOn(routerMock, "navigateToRoute");
+
+        component.loadRecipe();
+
+        expect(routerMock.navigateToRoute).not.toHaveBeenCalledWith("quick-recipe", { "id": "someId" }, undefined);
+    });
 
     it("navigates to quick recipe page when recipe selected", () => {
         component.selectedRecipeId = "someId";
