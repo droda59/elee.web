@@ -12,6 +12,7 @@ import {Ounce} from "shared/models/measure-units/ounce";
 import {Kilogram} from "shared/models/measure-units/kilogram";
 import {Gram} from "shared/models/measure-units/gram";
 import {Unit} from "shared/models/measure-units/unit";
+import {Pinch} from "shared/models/measure-units/pinch";
 
 export class Quantity implements QuantityDto {
     value: number = 0;
@@ -56,6 +57,7 @@ class MeasureUnitFactory {
             case "kg": return Kilogram.instance;
             case "g": return Gram.instance;
             case "unit": return Unit.instance;
+            case "pinch": return Pinch.instance;
         }
 
         return undefined;
