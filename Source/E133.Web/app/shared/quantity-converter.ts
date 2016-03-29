@@ -14,26 +14,42 @@ import {Kilogram} from "shared/models/measure-units/kilogram";
 import {Gram} from "shared/models/measure-units/gram";
 
 export class QuantityConverter {
-    private _imperialShortVolumeMeasureUnits: MeasureUnit[] = [ Cup.instance, Tablespoon.instance, Teaspoon.instance ];
-    private _imperialCompleteVolumeMeasureUnits: MeasureUnit[] = [ Cup.instance, LiquidOunce.instance, Tablespoon.instance, Teaspoon.instance ];
+    private _imperialShortVolumeMeasureUnits: MeasureUnit[] = [];
+    private _imperialCompleteVolumeMeasureUnits: MeasureUnit[] = [];
 
-    private _metricShortVolumeMeasureUnits: MeasureUnit[] = [ Litre.instance, Millilitre.instance ];
-    private _metricCompleteVolumeMeasureUnits: MeasureUnit[] = [ Litre.instance, Decilitre.instance, Centilitre.instance, Millilitre.instance ];
+    private _metricShortVolumeMeasureUnits: MeasureUnit[] = [];
+    private _metricCompleteVolumeMeasureUnits: MeasureUnit[] = [];
 
-    private _imperialShortWeightMeasureUnits: MeasureUnit[] = [ Pound.instance ];
-    private _imperialCompleteWeightMeasureUnits: MeasureUnit[] = [ Pound.instance, Ounce.instance ];
+    private _imperialShortWeightMeasureUnits: MeasureUnit[] = [];
+    private _imperialCompleteWeightMeasureUnits: MeasureUnit[] = [];
 
-    private _metricShortWeightMeasureUnits: MeasureUnit[] = [ Gram.instance ];
-    private _metricCompleteWeightMeasureUnits: MeasureUnit[] = [ Kilogram.instance, Gram.instance ];
+    private _metricShortWeightMeasureUnits: MeasureUnit[] = [];
+    private _metricCompleteWeightMeasureUnits: MeasureUnit[] = [];
 
     private _volumeMeasureUnits: MeasureUnit[] = [];
     private _weightMeasureUnits: MeasureUnit[] = [];
-    private _allMeasureUnits: MeasureUnit[] = [];
+
+    private _allMeasureUnits: MeasureUnit[] = [
+        Cup.instance, LiquidOunce.instance, Tablespoon.instance, Teaspoon.instance,
+        Litre.instance, Decilitre.instance, Centilitre.instance, Millilitre.instance,
+        Pound.instance, Ounce.instance,
+        Kilogram.instance, Gram.instance ];
 
     constructor() {
-        this._volumeMeasureUnits = this._imperialCompleteVolumeMeasureUnits.concat(this._metricCompleteVolumeMeasureUnits);
-        this._weightMeasureUnits = this._imperialCompleteWeightMeasureUnits.concat(this._metricCompleteWeightMeasureUnits);
-        this._allMeasureUnits = this._volumeMeasureUnits.concat(this._weightMeasureUnits);
+        this._imperialShortVolumeMeasureUnits = this._allMeasureUnits.filter(unit => unit.system === "imperial" && unit.type === "volume" && unit.isShortUnit);
+        this._imperialCompleteVolumeMeasureUnits = this._allMeasureUnits.filter(unit => unit.system === "imperial" && unit.type === "volume");
+
+        this._metricShortVolumeMeasureUnits = this._allMeasureUnits.filter(unit => unit.system === "metric" && unit.type === "volume" && unit.isShortUnit);
+        this._metricCompleteVolumeMeasureUnits = this._allMeasureUnits.filter(unit => unit.system === "metric" && unit.type === "volume");
+
+        this._imperialShortWeightMeasureUnits = this._allMeasureUnits.filter(unit => unit.system === "imperial" && unit.type === "weight" && unit.isShortUnit);
+        this._imperialCompleteWeightMeasureUnits = this._allMeasureUnits.filter(unit => unit.system === "imperial" && unit.type === "weight");
+
+        this._metricShortWeightMeasureUnits = this._allMeasureUnits.filter(unit => unit.system === "metric" && unit.type === "weight" && unit.isShortUnit);
+        this._metricCompleteWeightMeasureUnits = this._allMeasureUnits.filter(unit => unit.system === "metric" && unit.type === "weight");
+
+        this._volumeMeasureUnits = this._allMeasureUnits.filter(unit => unit.type === "volume");
+        this._weightMeasureUnits = this._allMeasureUnits.filter(unit => unit.type === "weight");
     }
 
     getBestConvertibleMeasureUnit(quantity: Quantity, displayUnit: string): Quantity {
@@ -44,8 +60,8 @@ export class QuantityConverter {
 
         var isValid: boolean = false;
         var unitsToConvertTo: MeasureUnit[] = this.getUnitsToConvertTo(quantity.unit, displayUnit);
-        if (quantity.formatUnit && unitsToConvertTo.map(unit => unit.abbreviation).indexOf(quantity.unit) < 0) {
-            unitsToConvertTo = unitsToConvertTo.filter(unit => unit.abbreviation === quantity.formatUnit);
+        if (quantity.formatUnit && unitsToConvertTo.indexOf(quantity.unit) < 0) {
+            unitsToConvertTo = [ quantity.formatUnit ];
         }
 
         unitsToConvertTo.some(unit => {
@@ -54,7 +70,7 @@ export class QuantityConverter {
 
             if (isValid) {
                 bestConvertibleQuantity.value = value;
-                bestConvertibleQuantity.unit = unit.abbreviation;
+                bestConvertibleQuantity.unit = unit;
             }
 
             return isValid;
@@ -68,7 +84,7 @@ export class QuantityConverter {
 
                 if (isValid) {
                     bestConvertibleQuantity.value = value;
-                    bestConvertibleQuantity.unit = unit.abbreviation;
+                    bestConvertibleQuantity.unit = unit;
                 }
 
                 return isValid;
@@ -78,15 +94,15 @@ export class QuantityConverter {
         return bestConvertibleQuantity;
     }
 
-    isVolumeUnit(measureUnitAbbreviation: string): boolean {
-        return this._volumeMeasureUnits.map(unit => unit.abbreviation).indexOf(measureUnitAbbreviation) > -1;
+    private isVolumeUnit(measureUnit: MeasureUnit): boolean {
+        return measureUnit.type === "volume";
     }
 
-    isWeightUnit(measureUnitAbbreviation: string): boolean {
-        return this._weightMeasureUnits.map(unit => unit.abbreviation).indexOf(measureUnitAbbreviation) > -1;
+    private isWeightUnit(measureUnit: MeasureUnit): boolean {
+        return measureUnit.type === "weight";
     }
 
-    private getUnitsToConvertTo(originalMeasureUnit: string, displayUnit: string, forceCompleteUnits?: boolean): MeasureUnit[] {
+    private getUnitsToConvertTo(originalMeasureUnit: MeasureUnit, displayUnit: string, forceCompleteUnits?: boolean): MeasureUnit[] {
         if (this.isVolumeUnit(originalMeasureUnit)) {
             if (forceCompleteUnits) {
                 if (displayUnit === "imperialShort" || displayUnit === "imperialComplete") {
@@ -129,9 +145,7 @@ export class QuantityConverter {
     }
 
     private getConvertedValue(quantity: Quantity, targetUnit: MeasureUnit): number {
-        var sourceUnit = this._allMeasureUnits.filter(unit => unit.abbreviation == quantity.unit)[0];
-
-        var value = quantity.value * sourceUnit.getConversionRate(targetUnit.abbreviation);
+        var value = quantity.value * quantity.unit.getConversionRate(targetUnit.abbreviation);
         var approximatedValue = targetUnit.roundValue(value);
 
         return approximatedValue;

@@ -2,7 +2,7 @@ import {MeasureUnit} from "shared/models/measure-units/measure-unit";
 
 export class Kilogram extends MeasureUnit {
     constructor() {
-        super("kg");
+        super("kg", "weight", "metric");
     }
 
     static get instance(): Kilogram {

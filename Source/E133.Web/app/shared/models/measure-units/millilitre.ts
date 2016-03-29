@@ -2,7 +2,7 @@ import {MeasureUnit} from "shared/models/measure-units/measure-unit";
 
 export class Millilitre extends MeasureUnit {
     constructor() {
-        super("ml");
+        super("ml", "volume", "metric", true);
     }
 
     static get instance(): Millilitre {

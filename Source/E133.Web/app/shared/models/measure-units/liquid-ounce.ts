@@ -2,7 +2,7 @@ import {MeasureUnit} from "shared/models/measure-units/measure-unit";
 
 export class LiquidOunce extends MeasureUnit {
     constructor() {
-        super("floz");
+        super("floz", "volume", "imperial");
     }
 
     static get instance(): LiquidOunce {

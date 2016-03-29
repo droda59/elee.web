@@ -41,7 +41,7 @@
             "name": "cassonade",
             "quantity": {
                 "value": 750,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -50,7 +50,7 @@
             "name": "cacao",
             "quantity": {
                 "value": 180,
-                "unit": "ml"
+                "abbreviation": "ml"
             },
             "requirements": "tamisé"
         },
@@ -60,7 +60,7 @@
             "name": "fécule de maïs",
             "quantity": {
                 "value": 10,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -69,7 +69,7 @@
             "name": "eau",
             "quantity": {
                 "value": 625,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -78,7 +78,7 @@
             "name": "crème 35 %",
             "quantity": {
                 "value": 125,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -87,7 +87,7 @@
             "name": "extrait de vanille",
             "quantity": {
                 "value": 2.5,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -96,7 +96,7 @@
             "name": "lait",
             "quantity": {
                 "value": 250,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -105,7 +105,7 @@
             "name": "cacao",
             "quantity": {
                 "value": 125,
-                "unit": "ml"
+                "abbreviation": "ml"
             },
             "requirements": "tamisé"
         },
@@ -115,7 +115,7 @@
             "name": "farine tout usage non blanchie",
             "quantity": {
                 "value": 375,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -124,7 +124,7 @@
             "name": "bicarbonate de soude",
             "quantity": {
                 "value": 5,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -133,7 +133,7 @@
             "name": "pincée de sel",
             "quantity": {
                 "value": 1,
-                "unit": "unit"
+                "abbreviation": "unit"
             }
         },
         {
@@ -142,7 +142,7 @@
             "name": "beurre non salé",
             "quantity": {
                 "value": 125,
-                "unit": "ml"
+                "abbreviation": "ml"
             },
             "requirements": "ramolli"
         },
@@ -152,7 +152,7 @@
             "name": "sucre",
             "quantity": {
                 "value": 375,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -161,7 +161,7 @@
             "name": "oeufs",
             "quantity": {
                 "value": 2,
-                "unit": "unit"
+                "abbreviation": "unit"
             }
         }
     ],
@@ -186,7 +186,7 @@
                         "name": "cacao",
                         "quantity": {
                             "value": 180,
-                            "unit": "ml"
+                            "abbreviation": "ml"
                         },
                         "requirements": "tamisé"
                     }
@@ -213,7 +213,7 @@
                         "name": "cacao",
                         "quantity": {
                             "value": 125,
-                            "unit": "ml"
+                            "abbreviation": "ml"
                         },
                         "requirements": "tamisé"
                     }
@@ -240,7 +240,7 @@
                         "name": "beurre non salé",
                         "quantity": {
                             "value": 125,
-                            "unit": "ml"
+                            "abbreviation": "ml"
                         },
                         "requirements": "ramolli"
                     }
@@ -310,7 +310,7 @@
                             "name": "cassonade",
                             "quantity": {
                                 "value": 750,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             }
                         },
                         {
@@ -319,7 +319,7 @@
                             "name": "cacao",
                             "quantity": {
                                 "value": 180,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             },
                             "requirements": "tamisé"
                         },
@@ -329,7 +329,7 @@
                             "name": "fécule de maïs",
                             "quantity": {
                                 "value": 10,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             }
                         }
                     ]
@@ -352,7 +352,7 @@
 	            		"name": "eau",
 		            	"quantity": {
         			        "value": 625,
-    	        		    "unit": "ml"
+    	        		    "abbreviation": "ml"
 			            }
         	     	}
                 },
@@ -364,7 +364,7 @@
                         "name": "crème 35 %",
                         "quantity": {
                             "value": 125,
-                            "unit": "ml"
+                            "abbreviation": "ml"
                         }
                     }
                 },
@@ -398,7 +398,7 @@
                         "name": "extrait de vanille",
                         "quantity": {
                             "value": 2.5,
-                            "unit": "ml"
+                            "abbreviation": "ml"
                         }
                     }
                 }
@@ -439,7 +439,7 @@
                             "name": "lait",
                             "quantity": {
                                 "value": 250,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             }
                         },
                         {
@@ -448,7 +448,7 @@
                             "name": "cacao",
                             "quantity": {
                                 "value": 125,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             },
                             "requirements": "tamisé"
                         }
@@ -491,7 +491,7 @@
                             "name": "farine tout usage non blanchie",
                             "quantity": {
                                 "value": 375,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             }
                         },
                         {
@@ -500,7 +500,7 @@
                             "name": "bicarbonate de soude",
                             "quantity": {
                                 "value": 5,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             }
                         },
                         {
@@ -509,7 +509,7 @@
                             "name": "pincée de sel",
                             "quantity": {
                                 "value": 1,
-                                "unit": "unit"
+                                "abbreviation": "unit"
                             }
                         }
                     ]
@@ -547,7 +547,7 @@
                             "name": "beurre non salé",
                             "quantity": {
                                 "value": 125,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             },
                             "requirements": "ramolli"
                         },
@@ -557,7 +557,7 @@
                             "name": "sucre",
                             "quantity": {
                                 "value": 375,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             }
                         }
                     ]
@@ -584,7 +584,7 @@
                         "name": "oeufs",
                         "quantity": {
                             "value": 2,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         }
                     }
                 },

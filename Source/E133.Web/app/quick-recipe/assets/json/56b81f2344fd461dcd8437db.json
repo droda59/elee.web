@@ -41,7 +41,7 @@
             "name": "sambal oelek",
             "quantity": {
                 "value": 5,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -50,7 +50,7 @@
             "name": "gousses d'ail",
             "quantity": {
                 "value": 2,
-                "unit": "unit"
+                "abbreviation": "unit"
             },
             "requirements": "hachées finement"
         },
@@ -60,7 +60,7 @@
             "name": "sucre",
             "quantity": {
                 "value": 10,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -69,7 +69,7 @@
             "name": "le jus de 2 limes",
             "quantity": {
                 "value": 0,
-                "unit": "unit"
+                "abbreviation": "unit"
             }
         },
         {
@@ -78,7 +78,7 @@
             "name": "sauce de poisson (nuoc-mam)",
             "quantity": {
                 "value": 60,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -87,7 +87,7 @@
             "name": "eau",
             "quantity": {
                 "value": 30,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -96,14 +96,14 @@
             "name": "tiges de citronnelle",
             "quantity": {
                 "value": 2,
-                "unit": "unit"
+                "abbreviation": "unit"
             },
             "replacements": [
                 {
                     "name": "zeste râpé d’un citron",
                     "quantity": {
                         "value": 0,
-                        "unit": "unit"
+                        "abbreviation": "unit"
                     }
                 }
             ]
@@ -114,7 +114,7 @@
             "name": "huile d'arachide ou de canola",
             "quantity": {
                 "value": 15,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -123,7 +123,7 @@
             "name": "huile de sésame grillé",
             "quantity": {
                 "value": 5,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -132,7 +132,7 @@
             "name": "bouillon de poulet",
             "quantity": {
                 "value": 125,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -141,7 +141,7 @@
             "name": "hauts de cuisses de poulet désossés et sans la peau",
             "quantity": {
                 "value": 8,
-                "unit": "unit"
+                "abbreviation": "unit"
             }
         },
         {
@@ -150,7 +150,7 @@
             "name": "vermicelle de riz",
             "quantity": {
                 "value": 200,
-                "unit": "g"
+                "abbreviation": "g"
             },
             "requirements": "réhydraté dans l’eau chaude et égoutté"
         },
@@ -160,7 +160,7 @@
             "name": "laitue iceberg",
             "quantity": {
                 "value": 0.5,
-                "unit": "unit"
+                "abbreviation": "unit"
             },
             "requirements": "tranchée finement"
         },
@@ -170,7 +170,7 @@
             "name": "concombre anglais non pelé",
             "quantity": {
                 "value": 0.5,
-                "unit": "unit"
+                "abbreviation": "unit"
             },
             "requirements": "coupé en fine julienne"
         },
@@ -180,7 +180,7 @@
             "name": "arachides salées",
             "quantity": {
                 "value": 125,
-                "unit": "ml"
+                "abbreviation": "ml"
             },
             "requirements": "grillées et concassées"
         }
@@ -210,7 +210,7 @@
                         "name": "gousses d'ail",
                         "quantity": {
                             "value": 2,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         },
                         "requirements": "hachées finement"
                     }
@@ -245,7 +245,7 @@
                         "name": "vermicelle de riz",
                         "quantity": {
                             "value": 200,
-                            "unit": "g"
+                            "abbreviation": "g"
                         },
                         "requirements": "réhydraté dans l’eau chaude et égoutté"
                     }
@@ -276,7 +276,7 @@
                         "name": "laitue iceberg",
                         "quantity": {
                             "value": 0.5,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         },
                         "requirements": "tranchée finement"
                     }
@@ -307,7 +307,7 @@
                         "name": "concombre anglais non pelé",
                         "quantity": {
                             "value": 0.5,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         },
                         "requirements": "coupé en fine julienne"
                     }
@@ -342,7 +342,7 @@
                         "name": "arachides salées",
                         "quantity": {
                             "value": 125,
-                            "unit": "ml"
+                            "abbreviation": "ml"
                         },
                         "requirements": "grillées et concassées"
                     }
@@ -370,7 +370,7 @@
 							"name": "sambal oelek",
 							"quantity": {
 								"value": 5,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
 						},
 						{
@@ -379,7 +379,7 @@
 							"name": "gousses d'ail",
 							"quantity": {
 								"value": 2,
-								"unit": "unit"
+								"abbreviation": "unit"
 							},
 							"requirements": "hachées finement"
 						},
@@ -389,7 +389,7 @@
 							"name": "sucre",
 							"quantity": {
 								"value": 10,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
 						},
 						{
@@ -398,7 +398,7 @@
 							"name": "le jus de 2 limes",
 							"quantity": {
 								"value": 0,
-								"unit": "unit"
+								"abbreviation": "unit"
 							}
 						},
 						{
@@ -407,7 +407,7 @@
 							"name": "sauce de poisson (nuoc-mam)",
 							"quantity": {
 								"value": 60,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
 						},
 						{
@@ -416,7 +416,7 @@
 							"name": "eau",
 							"quantity": {
 								"value": 30,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
 						}
                     ]
@@ -449,14 +449,14 @@
                         "name": "tiges de citronnelle",
                         "quantity": {
                             "value": 2,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         },
                         "replacements": [
                             {
                                 "name": "zeste râpé d’un citron",
                                 "quantity": {
                                     "value": 0,
-                                    "unit": "unit"
+                                    "abbreviation": "unit"
                                 }
                             }
                         ]
@@ -497,7 +497,7 @@
 							"name": "huile d'arachide ou de canola",
 							"quantity": {
 								"value": 15,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
 						},
 						{
@@ -506,7 +506,7 @@
 							"name": "huile de sésame grillé",
 							"quantity": {
 								"value": 5,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
 						},
 						{
@@ -515,7 +515,7 @@
 							"name": "bouillon de poulet",
 							"quantity": {
 								"value": 125,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
 						}
                     ]
@@ -670,7 +670,7 @@
 						"name": "hauts de cuisses de poulet désossés et sans la peau",
 						"quantity": {
 							"value": 8,
-							"unit": "unit"
+							"abbreviation": "unit"
 						}
                     }
                 },
@@ -729,7 +729,7 @@
 							"name": "vermicelle de riz",
 							"quantity": {
 								"value": 200,
-								"unit": "g"
+								"abbreviation": "g"
 							},
 							"requirements": "réhydraté dans l’eau chaude et égoutté"
 						},
@@ -739,7 +739,7 @@
                             "name": "laitue iceberg",
                             "quantity": {
                                 "value": 0.5,
-                                "unit": "unit"
+                                "abbreviation": "unit"
                             },
                             "requirements": "tranchée finement"
                         },
@@ -749,7 +749,7 @@
                             "name": "concombre anglais non pelé",
                             "quantity": {
                                 "value": 0.5,
-                                "unit": "unit"
+                                "abbreviation": "unit"
                             },
                             "requirements": "coupé en fine julienne"
                         }
@@ -785,7 +785,7 @@
 						"name": "arachides salées",
 						"quantity": {
 							"value": 125,
-							"unit": "ml"
+							"abbreviation": "ml"
 						},
 						"requirements": "grillées et concassées"
 					}

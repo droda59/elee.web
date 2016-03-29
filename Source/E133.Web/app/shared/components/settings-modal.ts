@@ -5,6 +5,8 @@ import {Ingredient} from "shared/models/ingredient";
 import {Quantity} from "shared/models/quantity";
 import {Settings} from "shared/models/settings";
 import {QuantityConverter} from "shared/quantity-converter";
+import {Millilitre} from "shared/models/measure-units/millilitre";
+import {Gram} from "shared/models/measure-units/gram";
 
 @inject (DialogController, QuantityConverter, I18N)
 export class SettingsModal {
@@ -33,25 +35,25 @@ export class SettingsModal {
 		ingredient1.name = this._i18n.tr("settings.examples.water");
 		ingredient1.quantity = new Quantity();
 		ingredient1.quantity.value = 1000;
-		ingredient1.quantity.unit = "ml";
+		ingredient1.quantity.unit = Millilitre.instance;
 
 		var ingredient2 = new Ingredient();
 		ingredient2.name = this._i18n.tr("settings.examples.brownSugar");
 		ingredient2.quantity = new Quantity();
 		ingredient2.quantity.value = 750;
-		ingredient2.quantity.unit = "ml";
+		ingredient2.quantity.unit = Millilitre.instance;
 
 		var ingredient3 = new Ingredient();
 		ingredient3.name = this._i18n.tr("settings.examples.milk");
 		ingredient3.quantity = new Quantity();
 		ingredient3.quantity.value = 30;
-		ingredient3.quantity.unit = "ml";
+		ingredient3.quantity.unit = Millilitre.instance;
 
 		var ingredient4 = new Ingredient();
 		ingredient4.name = this._i18n.tr("settings.examples.salt");
 		ingredient4.quantity = new Quantity();
 		ingredient4.quantity.value = 2.5;
-		ingredient4.quantity.unit = "ml";
+		ingredient4.quantity.unit = Millilitre.instance;
 
 		this.volumeDisplays.push({
 			name: "metricShort",
@@ -82,13 +84,13 @@ export class SettingsModal {
 		ingredient5.name = this._i18n.tr("settings.examples.chicken");
 		ingredient5.quantity = new Quantity();
 		ingredient5.quantity.value = 1360;
-		ingredient5.quantity.unit = "g";
+		ingredient5.quantity.unit = Gram.instance;
 
 		var ingredient6 = new Ingredient();
 		ingredient6.name = this._i18n.tr("settings.examples.flour");
 		ingredient6.quantity = new Quantity();
 		ingredient6.quantity.value = 680;
-		ingredient6.quantity.unit = "g";
+		ingredient6.quantity.unit = Gram.instance;
 
 		this.weightDisplays.push({
 			name: "metricShort",

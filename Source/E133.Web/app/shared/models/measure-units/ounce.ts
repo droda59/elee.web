@@ -2,7 +2,7 @@ import {MeasureUnit} from "shared/models/measure-units/measure-unit";
 
 export class Ounce extends MeasureUnit {
     constructor() {
-        super("oz");
+        super("oz", "weight", "imperial");
     }
 
     static get instance(): Ounce {

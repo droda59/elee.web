@@ -33,7 +33,7 @@
             "name": "porc haché maigre",
             "quantity": {
                 "value": 675,
-                "unit": "g"
+                "abbreviation": "g"
             }
         },
         {
@@ -42,7 +42,7 @@
             "name": "pommes McIntosh (environ 3 pommes)",
             "quantity": {
                 "value": 375,
-                "unit": "ml"
+                "abbreviation": "ml"
             },
             "requirements": "pelées et râpées"
         },
@@ -52,7 +52,7 @@
             "name": "chapelure",
             "quantity": {
                 "value": 125,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -61,7 +61,7 @@
             "name": "poudre de chili",
             "quantity": {
                 "value": 15,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -70,7 +70,7 @@
             "name": "moutarde sèche",
             "quantity": {
                 "value": 5,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -79,7 +79,7 @@
             "name": "sauce Worcestershire",
             "quantity": {
                 "value": 5,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -88,7 +88,7 @@
             "name": "tranches de bacon",
             "quantity": {
                 "value": 7,
-                "unit": "unit"
+                "abbreviation": "unit"
             }
         },
         {
@@ -97,7 +97,7 @@
             "name": "gelée de pommes",
             "quantity": {
                 "value": 30,
-                "unit": "ml"
+                "abbreviation": "ml"
             },
             "requirements": "fondue"
         },
@@ -107,7 +107,7 @@
             "name": "Compote de pommes maison ou du commerce au goût",
             "quantity": {
                 "value": 0,
-                "unit": "unit"
+                "abbreviation": "unit"
             }
         },
         {
@@ -116,7 +116,7 @@
             "name": "Sel et poivre",
             "quantity": {
                 "value": 0,
-                "unit": "unit"
+                "abbreviation": "unit"
             }
         }
     ],
@@ -149,7 +149,7 @@
 						"name": "pommes McIntosh (environ 3 pommes)",
 						"quantity": {
 							"value": 375,
-							"unit": "ml"
+							"abbreviation": "ml"
 						},
 						"requirements": "pelées et râpées"
                     }
@@ -176,7 +176,7 @@
                         "name": "gelée de pommes",
                         "quantity": {
                             "value": 30,
-                            "unit": "ml"
+                            "abbreviation": "ml"
                         },
                         "requirements": "fondue"
                     }
@@ -246,7 +246,7 @@
 							"name": "porc haché maigre",
 							"quantity": {
 								"value": 675,
-								"unit": "g"
+								"abbreviation": "g"
 							}
 						},
                         {
@@ -255,7 +255,7 @@
                             "name": "pommes McIntosh (environ 3 pommes)",
                             "quantity": {
                                 "value": 375,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             },
                             "requirements": "pelées et râpées"
                         },
@@ -265,7 +265,7 @@
                             "name": "chapelure",
                             "quantity": {
                                 "value": 125,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             }
                         },
 						{
@@ -274,7 +274,7 @@
 							"name": "poudre de chili",
 							"quantity": {
 								"value": 15,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
 						},
 						{
@@ -283,7 +283,7 @@
 							"name": "moutarde sèche",
 							"quantity": {
 								"value": 5,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
 						},
                         {
@@ -292,7 +292,7 @@
 							"name": "sauce Worcestershire",
 							"quantity": {
 								"value": 5,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
                         }
                     ]
@@ -355,7 +355,7 @@
                         "name": "tranches de bacon",
                         "quantity": {
                             "value": 7,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         }
                     }
                 },
@@ -431,7 +431,7 @@
 						"name": "gelée de pommes",
 						"quantity": {
 							"value": 30,
-							"unit": "ml"
+							"abbreviation": "ml"
 						},
 						"requirements": "fondue"
 					}
@@ -472,7 +472,7 @@
 						"name": "Compote de pommes maison ou du commerce au goût",
 						"quantity": {
 							"value": 0,
-							"unit": "unit"
+							"abbreviation": "unit"
 						}
 					}
                 },

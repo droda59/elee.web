@@ -1,5 +1,6 @@
 import {bindable, inject, ObserverLocator} from "aurelia-framework";
 import {I18N} from "aurelia-i18n";
+import {MeasureUnit} from "shared/models/measure-units/measure-unit";
 import {Ingredient} from "shared/models/ingredient";
 import {Quantity} from "shared/models/quantity";
 import {TextUtils} from "shared/text-utils";
@@ -42,7 +43,7 @@ export class MeasurableIngredient {
 
 	bind() {
 		this.ingredientName = this.ingredient.name.toLowerCase();
-		this.nextWord = " " + (this.ingredient.quantity.unit !== "unit"
+		this.nextWord = " " + (this.ingredient.quantity.unit !== undefined
 			? TextUtils.isVowel(this.ingredientName[0])
 				? this._i18n.tr("quantities.nextWordVowel")
 				: this._i18n.tr("quantities.nextWordConsonant") + " "
@@ -50,8 +51,8 @@ export class MeasurableIngredient {
 
 		this._quantity = this.ingredient.quantity;
 
-        this._isVolumeUnit = this._quantityConverter.isVolumeUnit(this._quantity.unit);
-        this._isWeightUnit = this._quantityConverter.isWeightUnit(this._quantity.unit);
+        this._isVolumeUnit = this._quantity.unit.type === "volume";
+        this._isWeightUnit = this._quantity.unit.type === "weight";
 
 		var selectedDisplay = this.getSelectedDisplay();
 		this.calculateConvertibleMeasureUnits(selectedDisplay);

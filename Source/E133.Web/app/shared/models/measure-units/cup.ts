@@ -2,7 +2,7 @@ import {MeasureUnit} from "shared/models/measure-units/measure-unit";
 
 export class Cup extends MeasureUnit {
     constructor() {
-        super("cup");
+        super("cup", "volume", "imperial", true);
     }
 
     static get instance(): Cup {

@@ -2,7 +2,7 @@ import {MeasureUnit} from "shared/models/measure-units/measure-unit";
 
 export class Centilitre extends MeasureUnit {
     constructor() {
-        super("cl");
+        super("cl", "volume", "metric");
     }
 
     static get instance(): Centilitre {

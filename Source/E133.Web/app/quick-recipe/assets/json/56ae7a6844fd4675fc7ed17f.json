@@ -33,7 +33,7 @@
             "name": "rôti de palette de veau avec os",
             "quantity": {
                 "value": 1.3,
-                "unit": "kg"
+                "abbreviation": "kg"
             }
         },
         {
@@ -42,7 +42,7 @@
             "name": "huile d'olive",
             "quantity": {
                 "value": 30,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -51,7 +51,7 @@
             "name": "pommes de terre",
             "quantity": {
                 "value": 3,
-                "unit": "unit"
+                "abbreviation": "unit"
             },
             "requirements": "pelées et coupées en deux"
         },
@@ -61,7 +61,7 @@
             "name": "carottes",
             "quantity": {
                 "value": 2,
-                "unit": "unit"
+                "abbreviation": "unit"
             },
             "requirements": "pelées et coupées en gros tronçons"
         },
@@ -71,7 +71,7 @@
             "name": "oignons",
             "quantity": {
                 "value": 2,
-                "unit": "unit"
+                "abbreviation": "unit"
             },
             "requirements": "coupés en 6 quartiers"
         },
@@ -81,7 +81,7 @@
             "name": "gousses d'ail",
             "quantity": {
                 "value": 2,
-                "unit": "unit"
+                "abbreviation": "unit"
             },
             "requirements": "émincées"
         },
@@ -91,7 +91,7 @@
             "name": "pâte de tomates",
             "quantity": {
                 "value": 30,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -100,7 +100,7 @@
             "name": "sauce harissa (facultatif)",
             "quantity": {
                 "value": 5,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -109,7 +109,7 @@
             "name": "moutarde de Dijon",
             "quantity": {
                 "value": 15,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -118,7 +118,7 @@
             "name": "vin blanc",
             "quantity": {
                 "value": 250,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -127,7 +127,7 @@
             "name": "sauce Worcestershire",
             "quantity": {
                 "value": 15,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -136,7 +136,7 @@
             "name": "bouillon de poulet",
             "quantity": {
                 "value": 625,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -145,7 +145,7 @@
             "name": "patates douces",
             "quantity": {
                 "value": 2,
-                "unit": "unit"
+                "abbreviation": "unit"
             },
             "requirements": "pelées et coupées en 6 quartiers"
         },
@@ -155,7 +155,7 @@
             "name": "Sel et poivre",
             "quantity": {
                 "value": 0,
-                "unit": "unit"
+                "abbreviation": "unit"
             }
         }
     ],
@@ -192,7 +192,7 @@
                         "name": "pommes de terre",
                         "quantity": {
                             "value": 3,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         },
                         "requirements": "pelées et coupées en deux"
                     }
@@ -231,7 +231,7 @@
                         "name": "carottes",
                         "quantity": {
                             "value": 2,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         },
                         "requirements": "pelées et coupées en gros tronçons"
                     }
@@ -262,7 +262,7 @@
                         "name": "oignons",
                         "quantity": {
                             "value": 2,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         },
                         "requirements": "coupés en 6 quartiers"
                     }
@@ -289,7 +289,7 @@
                         "name": "gousses d'ail",
                         "quantity": {
                             "value": 2,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         },
                         "requirements": "émincées"
                     }
@@ -328,7 +328,7 @@
                         "name": "patates douces",
                         "quantity": {
                             "value": 2,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         },
                         "requirements": "pelées et coupées en 6 quartiers"
                     }
@@ -355,7 +355,7 @@
 						"name": "rôti de palette de veau avec os",
 						"quantity": {
 							"value": 1.3,
-							"unit": "kg"
+							"abbreviation": "kg"
 						}
 					}
                 },
@@ -371,7 +371,7 @@
                         "name": "huile d'olive",
                         "quantity": {
                             "value": 30,
-                            "unit": "ml"
+                            "abbreviation": "ml"
                         }
                     }
                 }
@@ -415,7 +415,7 @@
                         "name": "pommes de terre",
                         "quantity": {
                             "value": 3,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         },
                         "requirements": "pelées et coupées en deux"
                     }
@@ -432,7 +432,7 @@
                         "name": "carottes",
                         "quantity": {
                             "value": 2,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         },
                         "requirements": "pelées et coupées en gros tronçons"
                     }
@@ -459,7 +459,7 @@
                         "name": "oignons",
                         "quantity": {
                             "value": 2,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         },
                         "requirements": "coupés en 6 quartiers"
                     }
@@ -476,7 +476,7 @@
 						"name": "huile d'olive",
 						"quantity": {
 							"value": 30,
-							"unit": "ml"
+							"abbreviation": "ml"
 						}
             		}
                 }
@@ -499,7 +499,7 @@
                             "name": "gousses d'ail",
                             "quantity": {
                                 "value": 2,
-                                "unit": "unit"
+                                "abbreviation": "unit"
                             },
                             "requirements": "émincées"
                         },
@@ -509,7 +509,7 @@
                             "name": "pâte de tomates",
                             "quantity": {
                                 "value": 30,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             }
                         },
                         {
@@ -518,7 +518,7 @@
 							"name": "sauce harissa (facultatif)",
 							"quantity": {
 								"value": 5,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
 						},
 						{
@@ -527,7 +527,7 @@
 							"name": "moutarde de Dijon",
 							"quantity": {
 								"value": 15,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
                         }
                     ]
@@ -568,7 +568,7 @@
 						"name": "vin blanc",
 						"quantity": {
 							"value": 250,
-							"unit": "ml"
+							"abbreviation": "ml"
 						}
 					}
 				},
@@ -584,7 +584,7 @@
 						"name": "sauce harissa (facultatif)",
 						"quantity": {
 							"value": 5,
-							"unit": "ml"
+							"abbreviation": "ml"
 						}
 					}
 				},
@@ -610,7 +610,7 @@
 						"name": "bouillon de poulet",
 						"quantity": {
 							"value": 625,
-							"unit": "ml"
+							"abbreviation": "ml"
 						}
 					}
 				},
@@ -710,7 +710,7 @@
                         "name": "patates douces",
                         "quantity": {
                             "value": 2,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         },
                         "requirements": "pelées et coupées en 6 quartiers"
                     }
@@ -727,7 +727,7 @@
                         "name": "bouillon de poulet",
                         "quantity": {
                             "value": 625,
-                            "unit": "ml"
+                            "abbreviation": "ml"
                         }
                     }
                 },

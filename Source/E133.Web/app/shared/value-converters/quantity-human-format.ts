@@ -15,7 +15,7 @@ export class QuantityHumanFormatValueConverter {
 			return "";
 		}
 
-		var quantityUnit = this._i18n.tr("quantities." + quantity.unit, { "count": quantity.value });
+		var quantityUnit = this._i18n.tr("quantities." + quantity.unit.abbreviation, { "count": quantity.value });
 		var quantityValue = this.getHumanizedValue(quantity);
 
 		if (quantity.format && useFormat) {
@@ -26,13 +26,7 @@ export class QuantityHumanFormatValueConverter {
 	}
 
 	private getHumanizedValue(quantity: Quantity): string {
-        var isMetric = quantity.unit == "ml"
-            || quantity.unit == "cl"
-            || quantity.unit == "dl"
-            || quantity.unit == "g"
-            || quantity.unit == "kg";
-
-		if (isMetric) {
+		if (quantity.unit.system === "metric") {
 			return quantity.value.toString();
 		}
 

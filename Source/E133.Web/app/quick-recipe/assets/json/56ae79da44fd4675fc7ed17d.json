@@ -33,7 +33,7 @@
       "name": "ketchup",
       "quantity": {
         "value": 250,
-        "unit": "ml"
+        "abbreviation": "ml"
       }
     },
     {
@@ -42,7 +42,7 @@
       "name": "vinaigre de cidre",
       "quantity": {
         "value": 125,
-        "unit": "ml"
+        "abbreviation": "ml"
       }
     },
     {
@@ -51,7 +51,7 @@
       "name": "gelée de pommes",
       "quantity": {
         "value": 125,
-        "unit": "ml"
+        "abbreviation": "ml"
       }
     },
     {
@@ -60,7 +60,7 @@
       "name": "moutarde de Dijon",
       "quantity": {
         "value": 30,
-        "unit": "ml"
+        "abbreviation": "ml"
       }
     },
     {
@@ -69,7 +69,7 @@
       "name": "mélasse",
       "quantity": {
         "value": 30,
-        "unit": "ml"
+        "abbreviation": "ml"
       }
     },
     {
@@ -78,7 +78,7 @@
       "name": "sauce Worcestershire",
       "quantity": {
         "value": 30,
-        "unit": "ml"
+        "abbreviation": "ml"
       }
     },
     {
@@ -87,7 +87,7 @@
       "name": "poudre de chili",
       "quantity": {
         "value": 30,
-        "unit": "ml"
+        "abbreviation": "ml"
       }
     },
     {
@@ -96,7 +96,7 @@
       "name": "poudre d’oignon",
       "quantity": {
         "value": 10,
-        "unit": "ml"
+        "abbreviation": "ml"
       }
     },
     {
@@ -105,7 +105,7 @@
       "name": "Tabasco",
       "quantity": {
         "value": 5,
-        "unit": "ml"
+        "abbreviation": "ml"
       }
     },
     {
@@ -114,7 +114,7 @@
       "name": "poudre d’ail",
       "quantity": {
         "value": 2.5,
-        "unit": "ml"
+        "abbreviation": "ml"
       }
     },
     {
@@ -123,7 +123,7 @@
       "name": "rôti d’épaule de porc",
       "quantity": {
         "value": 1.8,
-        "unit": "kg"
+        "abbreviation": "kg"
       }
     },
     {
@@ -132,7 +132,7 @@
       "name": "Sel et poivre",
       "quantity": {
         "value": 0,
-        "unit": "unit"
+        "abbreviation": "unit"
       }
     }
   ],
@@ -158,7 +158,7 @@
 			  "name": "ketchup",
 			  "quantity": {
 				"value": 250,
-				"unit": "ml"
+				"abbreviation": "ml"
 			  }
 			},
 			{
@@ -167,7 +167,7 @@
 			  "name": "vinaigre de cidre",
 			  "quantity": {
 				"value": 125,
-				"unit": "ml"
+				"abbreviation": "ml"
 			  }
 			},
 			{
@@ -176,7 +176,7 @@
 			  "name": "gelée de pommes",
 			  "quantity": {
 				"value": 125,
-				"unit": "ml"
+				"abbreviation": "ml"
 			  }
 			},
 			{
@@ -185,7 +185,7 @@
 			  "name": "moutarde de Dijon",
 			  "quantity": {
 				"value": 30,
-				"unit": "ml"
+				"abbreviation": "ml"
 			  }
 			},
 			{
@@ -194,7 +194,7 @@
 			  "name": "mélasse",
 			  "quantity": {
 				"value": 30,
-				"unit": "ml"
+				"abbreviation": "ml"
 			  }
 			},
 			{
@@ -203,7 +203,7 @@
 			  "name": "sauce Worcestershire",
 			  "quantity": {
 				"value": 30,
-				"unit": "ml"
+				"abbreviation": "ml"
 			  }
 			},
 			{
@@ -212,7 +212,7 @@
 			  "name": "poudre de chili",
 			  "quantity": {
 				"value": 30,
-				"unit": "ml"
+				"abbreviation": "ml"
 			  }
 			},
 			{
@@ -221,7 +221,7 @@
 			  "name": "poudre d’oignon",
 			  "quantity": {
 				"value": 10,
-				"unit": "ml"
+				"abbreviation": "ml"
 			  }
 			},
 			{
@@ -230,7 +230,7 @@
 			  "name": "Tabasco",
 			  "quantity": {
 				"value": 5,
-				"unit": "ml"
+				"abbreviation": "ml"
 			  }
 			},
 			{
@@ -239,7 +239,7 @@
 			  "name": "poudre d’ail",
 			  "quantity": {
 				"value": 2.5,
-				"unit": "ml"
+				"abbreviation": "ml"
 			  }
 			}
           ]
@@ -262,7 +262,7 @@
               "name": "rôti d’épaule de porc",
               "quantity": {
                 "value": 1.8,
-                "unit": "kg"
+                "abbreviation": "kg"
               }
 			}
 		},

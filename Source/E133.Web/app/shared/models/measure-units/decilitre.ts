@@ -2,7 +2,7 @@ import {MeasureUnit} from "shared/models/measure-units/measure-unit";
 
 export class Decilitre extends MeasureUnit {
     constructor() {
-        super("dl");
+        super("dl", "volume", "metric");
     }
 
     static get instance(): Decilitre {

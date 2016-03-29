@@ -2,7 +2,7 @@ import {MeasureUnit} from "shared/models/measure-units/measure-unit";
 
 export class Pound extends MeasureUnit {
     constructor() {
-        super("lb");
+        super("lb", "weight", "imperial", true);
     }
 
     static get instance(): Pound {
@@ -42,7 +42,7 @@ export class Pound extends MeasureUnit {
 
     isValidConvertibleMeasureUnit(value: number): boolean {
         var decimal = this.getDecimal(value);
-        
+
         return decimal === 0
             || decimal === 0.25 || decimal === 0.333
             || decimal === 0.5 || decimal === 0.666

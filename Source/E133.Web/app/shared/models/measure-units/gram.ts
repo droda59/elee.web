@@ -2,7 +2,7 @@ import {MeasureUnit} from "shared/models/measure-units/measure-unit";
 
 export class Gram extends MeasureUnit {
     constructor() {
-        super("g");
+        super("g", "weight", "metric", true);
     }
 
     static get instance(): Gram {

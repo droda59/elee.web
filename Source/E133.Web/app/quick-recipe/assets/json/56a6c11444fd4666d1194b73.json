@@ -41,7 +41,7 @@
             "name": "dattes de type Medjool (tassées légèrement)",
             "quantity": {
                 "value": 625,
-                "unit": "ml"
+                "abbreviation": "ml"
             },
             "requirement": "dénoyautées  et hachées"
         },
@@ -51,7 +51,7 @@
             "name": "eau",
             "quantity": {
                 "value": 250,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -60,7 +60,7 @@
             "name": "jus de citron",
             "quantity": {
                 "value": 30,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -69,7 +69,7 @@
             "name": "cassonade",
             "quantity": {
                 "value": 30,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -78,7 +78,7 @@
             "name": "bicarbonate de soude",
             "quantity": {
                 "value": 2.5,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -87,7 +87,7 @@
             "name": "flocons d’avoine à cuisson rapide",
             "quantity": {
                 "value": 430,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -96,7 +96,7 @@
             "name": "farine tout usage non blanchie",
             "quantity": {
                 "value": 250,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -105,7 +105,7 @@
             "name": "cassonade",
             "quantity": {
                 "value": 180,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -114,7 +114,7 @@
             "name": "poudre à pâte",
             "quantity": {
                 "value": 1,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -123,7 +123,7 @@
             "name": "beurre demi-sel",
             "quantity": {
                 "value": 180,
-                "unit": "ml"
+                "abbreviation": "ml"
             },
             "requirements": "ramolli"
         }
@@ -149,7 +149,7 @@
 			            "name": "dattes de type Medjool (tassées légèrement)",
             			"quantity": {
 			                "value": 625,
-			                "unit": "ml"
+			                "abbreviation": "ml"
             			},
 			            "requirement": "dénoyautées  et hachées"
 			        }
@@ -176,7 +176,7 @@
                         "name": "beurre demi-sel",
                         "quantity": {
                             "value": 180,
-                            "unit": "ml"
+                            "abbreviation": "ml"
                         },
                         "requirements": "ramolli"
                     }
@@ -260,7 +260,7 @@
 				            "name": "dattes de type Medjool",
             				"quantity": {
 			    	            "value": 625,
-			        	        "unit": "ml"
+			        	        "abbreviation": "ml"
             				},
 				            "requirement": "dénoyautées  et hachées"
                         },
@@ -270,7 +270,7 @@
         	    			"name": "eau",
 		            		"quantity": {
         			        	"value": 250,
-		        		        "unit": "ml"
+		        		        "abbreviation": "ml"
 			    	        }
                         },
                         {
@@ -279,7 +279,7 @@
         	                "name": "jus de citron",
             	            "quantity": {
                 	            "value": 30,
-                    	        "unit": "ml"
+                    	        "abbreviation": "ml"
                         	}
                         },
                         {
@@ -288,7 +288,7 @@
                 	        "name": "cassonade",
                     	    "quantity": {
                         	    "value": 30,
-                            	"unit": "ml"
+                            	"abbreviation": "ml"
 	                        }
     	                }
                     ]
@@ -311,7 +311,7 @@
                         "name": "bicarbonate de soude",
                         "quantity": {
                             "value": 2.5,
-                            "unit": "ml"
+                            "abbreviation": "ml"
                         }
                     }
                 },
@@ -345,7 +345,7 @@
 				        "name": "dattes de type Medjool",
             			"quantity": {
 		    	            "value": 625,
-		        	        "unit": "ml"
+		        	        "abbreviation": "ml"
         				},
 			            "requirement": "dénoyautées  et hachées"
                     }
@@ -387,7 +387,7 @@
                 	        "name": "flocons d’avoine à cuisson rapide",
             	            "quantity": {
         	                    "value": 430,
-    	                        "unit": "ml"
+    	                        "abbreviation": "ml"
 	                        }
                     	},
                         {
@@ -396,7 +396,7 @@
                             "name": "farine tout usage non blanchie",
                             "quantity": {
                                 "value": 250,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             }
                         },
                         {
@@ -405,7 +405,7 @@
                             "name": "cassonade",
                             "quantity": {
                                 "value": 180,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             }
                         },
                         {
@@ -414,7 +414,7 @@
                             "name": "poudre à pâte",
                             "quantity": {
                                 "value": 1,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             }
                         }
                     ]
@@ -437,7 +437,7 @@
                         "name": "beurre demi-sel",
                         "quantity": {
                             "value": 180,
-                            "unit": "ml"
+                            "abbreviation": "ml"
                         },
                         "requirements": "ramolli"
                     }

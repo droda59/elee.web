@@ -37,7 +37,7 @@
             "name": "sauce chili",
             "quantity": {
                 "value": 60,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -46,7 +46,7 @@
             "name": "sauce soya",
             "quantity": {
                 "value": 30,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -55,7 +55,7 @@
             "name": "mirin",
             "quantity": {
                 "value": 30,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -64,7 +64,7 @@
             "name": "sambal oelek",
             "quantity": {
                 "value": 2.5,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -73,7 +73,7 @@
             "name": "fécule de maïs",
             "quantity": {
                 "value": 2.5,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -82,7 +82,7 @@
             "name": "tofu ferme",
             "quantity": {
                 "value": 454,
-                "unit": "g"
+                "abbreviation": "g"
             },
             "format": "1 bloc de {0}",
             "requirements": "coupé en bâtonnets d’environ 1 cm (½ po) d’épaisseur et de 4 cm (1 ½ po) de longueur, bien épongés"
@@ -93,7 +93,7 @@
             "name": "fécule de maïs",
             "quantity": {
                 "value": 75,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -102,7 +102,7 @@
             "name": "huile d’arachide ou d’olive",
             "quantity": {
                 "value": 125,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -111,7 +111,7 @@
             "name": "oignons verts",
             "quantity": {
                 "value": 4,
-                "unit": "unit"
+                "abbreviation": "unit"
             },
             "requirements": "émincés"
         },
@@ -121,7 +121,7 @@
             "name": "gingembre frais",
             "quantity": {
                 "value": 5,
-                "unit": "ml"
+                "abbreviation": "ml"
             },
             "requirements": "haché"
         },
@@ -131,7 +131,7 @@
             "name": "gousses d’ail",
             "quantity": {
                 "value": 2,
-                "unit": "unit"
+                "abbreviation": "unit"
             },
             "requirements": "hachées finement"
         },
@@ -141,7 +141,7 @@
             "name": "noix de cajou non salées et grillées",
             "quantity": {
                 "value": 250,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -150,7 +150,7 @@
             "name": "coriandre fraîche (facultatif)",
             "quantity": {
                 "value": 60,
-                "unit": "ml"
+                "abbreviation": "ml"
             },
             "requirements": "ciselée"
         },
@@ -160,7 +160,7 @@
             "name": "Sel et poivre",
             "quantity": {
                 "value": 0,
-                "unit": "unit"
+                "abbreviation": "unit"
             }
         }
     ],
@@ -193,7 +193,7 @@
 						"name": "tofu ferme",
 						"quantity": {
 							"value": 454,
-							"unit": "g"
+							"abbreviation": "g"
 						},
 						"format": "1 bloc de {0}",
 						"requirements": "coupé en bâtonnets d’environ 1 cm (½ po) d’épaisseur et de 4 cm (1 ½ po) de longueur, bien épongés"
@@ -221,7 +221,7 @@
                         "name": "oignons verts",
                         "quantity": {
                             "value": 4,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         },
                         "requirements": "émincés"
                     }
@@ -252,7 +252,7 @@
                         "name": "gousses d’ail",
                         "quantity": {
                             "value": 2,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         },
                         "requirements": "hachées finement"
                     }
@@ -280,7 +280,7 @@
 							"name": "sauce chili",
 							"quantity": {
 								"value": 60,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
 						},
 						{
@@ -289,7 +289,7 @@
 							"name": "sauce soya",
 							"quantity": {
 								"value": 30,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
 						},
 						{
@@ -298,7 +298,7 @@
 							"name": "mirin",
 							"quantity": {
 								"value": 30,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
 						},
 						{
@@ -307,7 +307,7 @@
 							"name": "sambal oelek",
 							"quantity": {
 								"value": 2.5,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
 						},
 						{
@@ -316,7 +316,7 @@
 							"name": "fécule de maïs",
 							"quantity": {
 								"value": 2.5,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
 						}
                     ]
@@ -353,7 +353,7 @@
 						"name": "tofu ferme",
 						"quantity": {
 							"value": 454,
-							"unit": "g"
+							"abbreviation": "g"
 						},
 						"format": "1 bloc de {0}",
 						"requirements": "coupé en bâtonnets d’environ 1 cm (½ po) d’épaisseur et de 4 cm (1 ½ po) de longueur, bien épongés"
@@ -371,7 +371,7 @@
                         "name": "fécule de maïs",
                         "quantity": {
                             "value": 75,
-                            "unit": "ml"
+                            "abbreviation": "ml"
                         }
                     }
                 }
@@ -437,7 +437,7 @@
 						"name": "huile d’arachide ou d’olive",
 						"quantity": {
 							"value": 125,
-							"unit": "ml"
+							"abbreviation": "ml"
 						}
 					}
                 }
@@ -532,7 +532,7 @@
 							"name": "oignons verts",
 							"quantity": {
 								"value": 4,
-								"unit": "unit"
+								"abbreviation": "unit"
 							},
 							"requirements": "émincés"
 						},
@@ -542,7 +542,7 @@
 							"name": "gingembre frais haché",
 							"quantity": {
 								"value": 5,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
 						},
 						{
@@ -551,7 +551,7 @@
 							"name": "gousses d’ail",
 							"quantity": {
 								"value": 2,
-								"unit": "unit"
+								"abbreviation": "unit"
 							},
 							"requirements": "hachées finement"
 						}
@@ -607,7 +607,7 @@
 						"name": "noix de cajou non salées et grillées",
 						"quantity": {
 							"value": 250,
-							"unit": "ml"
+							"abbreviation": "ml"
 						}
 					}
 				},
@@ -675,7 +675,7 @@
 						"name": "coriandre fraîche (facultatif)",
 						"quantity": {
 							"value": 60,
-							"unit": "ml"
+							"abbreviation": "ml"
 						},
 						"requirements": "ciselée"
 					}

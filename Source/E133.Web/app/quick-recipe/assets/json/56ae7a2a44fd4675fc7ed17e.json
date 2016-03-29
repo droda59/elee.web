@@ -33,7 +33,7 @@
             "name": "farine tout usage",
             "quantity": {
                 "value": 45,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -42,7 +42,7 @@
             "name": "surlonge de boeuf",
             "quantity": {
                 "value": 675,
-                "unit": "g"
+                "abbreviation": "g"
             },
             "requirements": "coupée en lanières"
         },
@@ -52,7 +52,7 @@
             "name": "huile",
             "quantity": {
                 "value": 45,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -61,7 +61,7 @@
             "name": "oignons",
             "quantity": {
                 "value": 2,
-                "unit": "unit"
+                "abbreviation": "unit"
             },
             "requirements": "émincés"
         },
@@ -71,7 +71,7 @@
             "name": "champignons blancs",
             "quantity": {
                 "value": 454,
-                "unit": "g"
+                "abbreviation": "g"
             },
             "requirements": "tranchés"
         },
@@ -81,7 +81,7 @@
             "name": "beurre",
             "quantity": {
                 "value": 45,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -90,7 +90,7 @@
             "name": "gousses d'ail",
             "quantity": {
                 "value": 3,
-                "unit": "unit"
+                "abbreviation": "unit"
             },
             "requirements": "hachées"
         },
@@ -100,7 +100,7 @@
             "name": "vin rouge",
             "quantity": {
                 "value": 125,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -109,7 +109,7 @@
             "name": "bouillon de boeuf",
             "quantity": {
                 "value": 250,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -118,7 +118,7 @@
             "name": "moutarde à l’ancienne",
             "quantity": {
                 "value": 15,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -127,7 +127,7 @@
             "name": "paprika",
             "quantity": {
                 "value": 2.5,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -136,7 +136,7 @@
             "name": "yogourt nature 10 %",
             "quantity": {
                 "value": 180,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -145,7 +145,7 @@
             "name": "persil plat",
             "quantity": {
                 "value": 0,
-                "unit": "unit"
+                "abbreviation": "unit"
             },
             "requirements": "ciselé au goût"
         },
@@ -155,7 +155,7 @@
             "name": "ciboulette fraîche",
             "quantity": {
                 "value": 0,
-                "unit": "unit"
+                "abbreviation": "unit"
             },
             "requirements": "ciselée au goût"
         },
@@ -165,7 +165,7 @@
             "name": "sel et poivre",
             "quantity": {
                 "value": 0,
-                "unit": "unit"
+                "abbreviation": "unit"
             }
         }
     ],
@@ -190,7 +190,7 @@
                         "name": "surlonge de boeuf",
                         "quantity": {
                             "value": 675,
-                            "unit": "g"
+                            "abbreviation": "g"
                         },
                         "requirements": "coupée en lanières"
                     }
@@ -217,7 +217,7 @@
                         "name": "oignons",
                         "quantity": {
                             "value": 2,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         },
                         "requirements": "émincés"
                     }
@@ -244,7 +244,7 @@
                         "name": "champignons blancs",
                         "quantity": {
                             "value": 454,
-                            "unit": "g"
+                            "abbreviation": "g"
                         },
                         "requirements": "tranchés"
                     }
@@ -271,7 +271,7 @@
                         "name": "gousses d'ail",
                         "quantity": {
                             "value": 3,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         },
                         "requirements": "hachées"
                     }
@@ -298,7 +298,7 @@
                         "name": "Persil plat",
                         "quantity": {
                             "value": 0,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         },
                         "requirements": "ciselé au goût"
                     }
@@ -325,7 +325,7 @@
                         "name": "Ciboulette fraîche",
                         "quantity": {
                             "value": 0,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         },
                         "requirements": "ciselée au goût"
                     }
@@ -348,7 +348,7 @@
 						"name": "surlonge de boeuf",
 						"quantity": {
 							"value": 675,
-							"unit": "g"
+							"abbreviation": "g"
 						},
 						"requirements": "coupée en lanières"
 					}
@@ -375,7 +375,7 @@
 						"name": "surlonge de boeuf",
 						"quantity": {
 							"value": 675,
-							"unit": "g"
+							"abbreviation": "g"
 						},
 						"requirements": "coupée en lanières"
 					}
@@ -392,7 +392,7 @@
 						"name": "huile",
 						"quantity": {
 							"value": 45,
-							"unit": "ml"
+							"abbreviation": "ml"
 						}
             		}
                 }
@@ -447,7 +447,7 @@
                             "name": "oignons",
                             "quantity": {
                                 "value": 2,
-                                "unit": "unit"
+                                "abbreviation": "unit"
                             },
                             "requirements": "émincés"
                         },
@@ -457,7 +457,7 @@
                             "name": "champignons blancs",
                             "quantity": {
                                 "value": 454,
-                                "unit": "g"
+                                "abbreviation": "g"
                             },
                             "requirements": "tranchés"
                         }
@@ -475,7 +475,7 @@
                         "name": "beurre",
                         "quantity": {
                             "value": 45,
-                            "unit": "ml"
+                            "abbreviation": "ml"
                         }
                     }
                 }
@@ -515,7 +515,7 @@
 						"name": "gousses d'ail",
 						"quantity": {
 							"value": 3,
-							"unit": "unit"
+							"abbreviation": "unit"
 						},
 						"requirements": "hachées"
             		}
@@ -556,7 +556,7 @@
 						"name": "vin rouge",
 						"quantity": {
 							"value": 125,
-							"unit": "ml"
+							"abbreviation": "ml"
 						}
 					}
 				},
@@ -583,7 +583,7 @@
 							"name": "bouillon de boeuf",
 							"quantity": {
 								"value": 250,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
 						},
 						{
@@ -592,7 +592,7 @@
 							"name": "moutarde à l’ancienne",
 							"quantity": {
 								"value": 15,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
 						},
 						{
@@ -601,7 +601,7 @@
 							"name": "paprika",
 							"quantity": {
 								"value": 2.5,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
 						}
 					]
@@ -678,7 +678,7 @@
                         "name": "yogourt nature 10 %",
                         "quantity": {
                             "value": 180,
-                            "unit": "ml"
+                            "abbreviation": "ml"
                         }
                     }
                 },

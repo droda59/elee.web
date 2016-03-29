@@ -33,7 +33,7 @@
             "name": "farine tout usage non blanchie",
             "quantity": {
                 "value": 625,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -42,7 +42,7 @@
             "name": "bicarbonate de soude",
             "quantity": {
                 "value": 5,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -51,7 +51,7 @@
             "name": "poudre à pâte",
             "quantity": {
                 "value": 5,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -60,7 +60,7 @@
             "name": "cannelle moulue",
             "quantity": {
                 "value": 2.5,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -69,7 +69,7 @@
             "name": "gingembre moulu",
             "quantity": {
                 "value": 2.5,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -78,7 +78,7 @@
             "name": "clou de girofle moulu",
             "quantity": {
                 "value": 1,
-                "unit": "pinch"
+                "abbreviation": "pinch"
             }
         },
         {
@@ -87,7 +87,7 @@
             "name": "sel",
             "quantity": {
                 "value": 1,
-                "unit": "pinch"
+                "abbreviation": "pinch"
             }
         },
         {
@@ -96,7 +96,7 @@
             "name": "beurre non salé",
             "quantity": {
                 "value": 125,
-                "unit": "ml"
+                "abbreviation": "ml"
             },
             "requirements": "ramolli"
         },
@@ -106,7 +106,7 @@
             "name": "cassonade",
             "quantity": {
                 "value": 180,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -115,7 +115,7 @@
             "name": "mélasse",
             "quantity": {
                 "value": 125,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -124,7 +124,7 @@
             "name": "oeuf",
             "quantity": {
                 "value": 1,
-                "unit": "unit"
+                "abbreviation": "unit"
             }
         },
         {
@@ -133,7 +133,7 @@
             "name": "lait",
             "quantity": {
                 "value": 30,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         }
     ],
@@ -158,7 +158,7 @@
                         "name": "beurre non salé",
                         "quantity": {
                             "value": 125,
-                            "unit": "ml"
+                            "abbreviation": "ml"
                         },
                         "requirements": "ramolli"
                     }
@@ -228,7 +228,7 @@
                             "name": "farine tout usage non blanchie",
                             "quantity": {
                                 "value": 625,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             }
                         },
                         {
@@ -237,7 +237,7 @@
                             "name": "bicarbonate de soude",
                             "quantity": {
                                 "value": 5,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             }
                         },
                         {
@@ -246,7 +246,7 @@
                             "name": "poudre à pâte",
                             "quantity": {
                                 "value": 5,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             }
                         },
 						{
@@ -255,7 +255,7 @@
 							"name": "cannelle moulue",
 							"quantity": {
 								"value": 2.5,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
 						},
 						{
@@ -264,7 +264,7 @@
 							"name": "gingembre moulu",
 							"quantity": {
 								"value": 2.5,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
 						},
 						{
@@ -273,7 +273,7 @@
 							"name": "clou de girofle moulu",
 							"quantity": {
 								"value": 1,
-								"unit": "pinch"
+								"abbreviation": "pinch"
 							}
 						},
 						{
@@ -282,7 +282,7 @@
 							"name": "sel",
 							"quantity": {
 								"value": 1,
-								"unit": "pinch"
+								"abbreviation": "pinch"
 							}
                         }
                     ]
@@ -315,7 +315,7 @@
                         "name": "beurre non salé",
                         "quantity": {
                             "value": 125,
-                            "unit": "ml"
+                            "abbreviation": "ml"
                         },
                         "requirements": "ramolli"
                     }
@@ -333,7 +333,7 @@
                             "name": "cassonade",
                             "quantity": {
                                 "value": 180,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             }
                         },
                         {
@@ -342,7 +342,7 @@
                             "name": "mélasse",
                             "quantity": {
                                 "value": 125,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             }
                         }
                     ]
@@ -369,7 +369,7 @@
 						"name": "oeuf",
 						"quantity": {
 							"value": 1,
-							"unit": "unit"
+							"abbreviation": "unit"
 						}
             		}
                 },
@@ -407,7 +407,7 @@
                         "name": "lait",
                         "quantity": {
                             "value": 30,
-                            "unit": "ml"
+                            "abbreviation": "ml"
                         }
                     }
                 }

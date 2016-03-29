@@ -41,7 +41,7 @@
             "name": "bouillon de poulet ou de légumes",
             "quantity": {
                 "value": 60,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -50,7 +50,7 @@
             "name": "cassonade",
             "quantity": {
                 "value": 60,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -59,7 +59,7 @@
             "name": "sauce soya",
             "quantity": {
                 "value": 30,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -68,7 +68,7 @@
             "name": "vinaigre de riz",
             "quantity": {
                 "value": 30,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -77,7 +77,7 @@
             "name": "ketchup",
             "quantity": {
                 "value": 30,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -86,7 +86,7 @@
             "name": "fécule de maïs",
             "quantity": {
                 "value": 5,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -95,7 +95,7 @@
             "name": "sambal oelek",
             "quantity": {
                 "value": 5,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -104,7 +104,7 @@
             "name": "tofu ferme",
             "quantity": {
                 "value": 454,
-                "unit": "g"
+                "abbreviation": "g"
             },
             "requirements": "coupé en cubes et bien épongé"
         },
@@ -114,7 +114,7 @@
             "name": "fécule de maïs",
             "quantity": {
                 "value": 30,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -123,7 +123,7 @@
             "name": "huile de canola",
             "quantity": {
                 "value": 60,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -132,7 +132,7 @@
             "name": "oignons verts",
             "quantity": {
                 "value": 4,
-                "unit": "unit"
+                "abbreviation": "unit"
             },
             "requirements": "hachés finement"
         },
@@ -142,7 +142,7 @@
             "name": "gingembre frais",
             "quantity": {
                 "value": 5,
-                "unit": "ml"
+                "abbreviation": "ml"
             },
             "requirements": "haché finement"
         },
@@ -152,7 +152,7 @@
             "name": "gousses d’ail",
             "quantity": {
                 "value": 2,
-                "unit": "unit"
+                "abbreviation": "unit"
             },
             "requirements": "hachées finement"
         },
@@ -162,7 +162,7 @@
             "name": "Sel et poivre",
             "quantity": {
                 "value": 0,
-                "unit": "unit"
+                "abbreviation": "unit"
             }
         },
         {
@@ -171,7 +171,7 @@
             "name": "brocoli coupé en bouquets",
             "quantity": {
                 "value": 1,
-                "unit": "unit"
+                "abbreviation": "unit"
             },
             "requirements": "cuit à la vapeur"
         },
@@ -181,7 +181,7 @@
             "name": "riz vapeur",
             "quantity": {
                 "value": 0,
-                "unit": "unit"
+                "abbreviation": "unit"
             },
             "requirements": "cuit"
         }
@@ -215,7 +215,7 @@
                         "name": "tofu ferme",
                         "quantity": {
                             "value": 454,
-                            "unit": "g"
+                            "abbreviation": "g"
                         },
                         "requirements": "coupé en cubes et bien épongé"
                     }
@@ -246,7 +246,7 @@
                         "name": "oignons verts",
                         "quantity": {
                             "value": 4,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         },
                         "requirements": "hachés finement"
                     }
@@ -277,7 +277,7 @@
                         "name": "gousses d’ail",
                         "quantity": {
                             "value": 2,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         },
                         "requirements": "hachées finement"
                     }
@@ -308,7 +308,7 @@
                         "name": "brocoli coupé en bouquets",
                         "quantity": {
                             "value": 1,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         },
                         "requirements": "cuit à la vapeur"
                     }
@@ -339,7 +339,7 @@
                         "name": "riz vapeur",
                         "quantity": {
                             "value": 0,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         },
                         "requirements": "cuit"
                     }
@@ -367,7 +367,7 @@
                             "name": "bouillon de poulet ou de légumes",
                             "quantity": {
                                 "value": 60,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             }
                         },
                         {
@@ -376,7 +376,7 @@
                             "name": "cassonade",
                             "quantity": {
                                 "value": 60,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             }
                         },
                         {
@@ -385,7 +385,7 @@
                             "name": "sauce soya",
                             "quantity": {
                                 "value": 30,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             }
                         },
                         {
@@ -394,7 +394,7 @@
                             "name": "vinaigre de riz",
                             "quantity": {
                                 "value": 30,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             }
                         },
                         {
@@ -403,7 +403,7 @@
                             "name": "ketchup",
                             "quantity": {
                                 "value": 30,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             }
                         },
                         {
@@ -412,7 +412,7 @@
                             "name": "fécule de maïs",
                             "quantity": {
                                 "value": 5,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             }
                         },
                         {
@@ -421,7 +421,7 @@
                             "name": "sambal oelek",
                             "quantity": {
                                 "value": 5,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             }
                         }
                     ]
@@ -458,7 +458,7 @@
                         "name": "tofu ferme",
                         "quantity": {
                             "value": 454,
-                            "unit": "g"
+                            "abbreviation": "g"
                         },
                         "requirements": "coupé en cubes et bien épongé"
                     }
@@ -475,7 +475,7 @@
                         "name": "fécule de maïs",
                         "quantity": {
                             "value": 30,
-                            "unit": "ml"
+                            "abbreviation": "ml"
                         }
                     }
                 }
@@ -541,7 +541,7 @@
         			    "name": "huile de canola",
 		    	        "quantity": {
         			        "value": 60,
-		            	    "unit": "ml"
+		            	    "abbreviation": "ml"
 		            	}
 		            }
 		        }
@@ -622,7 +622,7 @@
         	                "name": "oignons verts",
             	            "quantity": {
                 	            "value": 4,
-                    	        "unit": "unit"
+                    	        "abbreviation": "unit"
                         	},
 	                        "requirements": "hachés finement"
                         },
@@ -632,7 +632,7 @@
         	                "name": "gingembre frais haché finement",
             	            "quantity": {
                 	            "value": 5,
-                    	        "unit": "ml"
+                    	        "abbreviation": "ml"
                         	}
                         },
                         {
@@ -641,7 +641,7 @@
 				            "name": "gousses d’ail",
 				            "quantity": {
 				                "value": 2,
-				                "unit": "unit"
+				                "abbreviation": "unit"
 				            },
 				            "requirements": "hachées finement"
                         }
@@ -753,7 +753,7 @@
                         "name": "riz vapeur",
                         "quantity": {
                             "value": 0,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         },
                         "requirements": "cuit"
                     }
@@ -780,7 +780,7 @@
                         "name": "brocoli coupé en bouquets",
                         "quantity": {
                             "value": 1,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         },
                         "requirements": "cuit à la vapeur"
                     }

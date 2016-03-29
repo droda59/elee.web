@@ -33,7 +33,7 @@
             "name": "chair de saucisses italiennes douces ou fortes (idéalement un mélange des deux)",
             "quantity": {
                 "value": 675,
-                "unit": "g"
+                "abbreviation": "g"
             }
         },
         {
@@ -42,7 +42,7 @@
             "name": "boeuf haché maigre",
             "quantity": {
                 "value": 675,
-                "unit": "g"
+                "abbreviation": "g"
             }
         },
         {
@@ -51,7 +51,7 @@
             "name": "huile d’olive",
             "quantity": {
                 "value": 60,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -60,7 +60,7 @@
             "name": "flocons de piment fort broyés",
             "quantity": {
                 "value": 2.5,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -69,7 +69,7 @@
             "name": "oignons",
             "quantity": {
                 "value": 3,
-                "unit": "unit"
+                "abbreviation": "unit"
             },
             "requirements": "hachés finement"
         },
@@ -79,7 +79,7 @@
             "name": "carottes",
             "quantity": {
                 "value": 4,
-                "unit": "unit"
+                "abbreviation": "unit"
             },
             "requirements": "pelées et coupées en dés"
         },
@@ -89,7 +89,7 @@
             "name": "branches de céleri",
             "quantity": {
                 "value": 4,
-                "unit": "unit"
+                "abbreviation": "unit"
             },
             "requirements": "coupées en dés"
         },
@@ -99,7 +99,7 @@
             "name": "gousses d'ail",
             "quantity": {
                 "value": 4,
-                "unit": "unit"
+                "abbreviation": "unit"
             },
             "requirements": "hachées finement"
         },
@@ -109,9 +109,9 @@
             "name": "pâte de tomates",
             "quantity": {
                 "value": 156,
-                "unit": "ml",
+                "abbreviation": "ml",
                 "format": "1 boîte de {0}",
-                "formatUnit": "floz"
+                "formatAbbreviation": "floz"
             }
         },
         {
@@ -120,9 +120,9 @@
             "name": "tomates italiennes en dés",
             "quantity": {
                 "value": 796,
-                "unit": "ml",
+                "abbreviation": "ml",
                 "format": "2 boîtes de {0}",
-                "formatUnit": "floz"
+                "formatAbbreviation": "floz"
             }
         },
         {
@@ -131,9 +131,9 @@
             "name": "sauce tomate ou tomates broyées avec purée",
             "quantity": {
                 "value": 796,
-                "unit": "ml",
+                "abbreviation": "ml",
                 "format": "2 boîtes de {0}",
-                "formatUnit": "floz"
+                "formatAbbreviation": "floz"
             }
         },
         {
@@ -142,7 +142,7 @@
             "name": "bouillon de boeuf",
             "quantity": {
                 "value": 500,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -151,7 +151,7 @@
             "name": "origan séché",
             "quantity": {
                 "value": 10,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -160,7 +160,7 @@
             "name": "clous de girofle",
             "quantity": {
                 "value": 2,
-                "unit": "unit"
+                "abbreviation": "unit"
             }
         },
         {
@@ -169,7 +169,7 @@
             "name": "Sel et poivre",
             "quantity": {
                 "value": 0,
-                "unit": "unit"
+                "abbreviation": "unit"
             }
         }
     ],
@@ -198,7 +198,7 @@
                         "name": "oignons",
                         "quantity": {
                             "value": 3,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         },
                         "requirements": "hachés finement"
                     }
@@ -237,7 +237,7 @@
                         "name": "carottes",
                         "quantity": {
                             "value": 4,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         },
                         "requirements": "pelées et coupées en dés"
                     }
@@ -268,7 +268,7 @@
                         "name": "branches de céleri",
                         "quantity": {
                             "value": 4,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         },
                         "requirements": "coupées en dés"
                     }
@@ -299,7 +299,7 @@
                         "name": "gousses d'ail",
                         "quantity": {
                             "value": 4,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         },
                         "requirements": "hachées finement"
                     }
@@ -327,7 +327,7 @@
 							"name": "chair de saucisses italiennes douces ou fortes (idéalement un mélange des deux)",
 							"quantity": {
 								"value": 675,
-								"unit": "g"
+								"abbreviation": "g"
 							}
 						},
 						{
@@ -336,7 +336,7 @@
 							"name": "boeuf haché maigre",
 							"quantity": {
 								"value": 675,
-								"unit": "g"
+								"abbreviation": "g"
 							}
 						}
                     ]
@@ -353,7 +353,7 @@
 			            "name": "flocons de piment fort broyés",
 			            "quantity": {
             			    "value": 2.5,
-			                "unit": "ml"
+			                "abbreviation": "ml"
 			            }
             		}
             	}
@@ -426,7 +426,7 @@
                             "name": "oignons",
                             "quantity": {
                                 "value": 3,
-                                "unit": "unit"
+                                "abbreviation": "unit"
                             },
                             "requirements": "hachés finement"
                         },
@@ -436,7 +436,7 @@
                             "name": "carottes",
                             "quantity": {
                                 "value": 4,
-                                "unit": "unit"
+                                "abbreviation": "unit"
                             },
                             "requirements": "pelées et coupées en dés"
                         },
@@ -446,7 +446,7 @@
                             "name": "branches de céleri",
                             "quantity": {
                                 "value": 4,
-                                "unit": "unit"
+                                "abbreviation": "unit"
                             },
                             "requirements": "coupées en dés"
                         },
@@ -456,7 +456,7 @@
 							"name": "gousses d'ail",
 							"quantity": {
 								"value": 4,
-								"unit": "unit"
+								"abbreviation": "unit"
 							},
 							"requirements": "hachées finement"
 						}
@@ -502,9 +502,9 @@
                         "name": "pâte de tomates",
                         "quantity": {
                             "value": 156,
-                            "unit": "ml",
+                            "abbreviation": "ml",
                             "format": "1 boîte de {0}",
-                            "formatUnit": "floz"
+                            "formatAbbreviation": "floz"
                         }
 					}
 				},
@@ -549,7 +549,7 @@
 							"name": "chair de saucisses italiennes douces ou fortes (idéalement un mélange des deux)",
 							"quantity": {
 								"value": 675,
-								"unit": "g"
+								"abbreviation": "g"
 							}
 						},
 						{
@@ -558,7 +558,7 @@
 							"name": "boeuf haché maigre",
 							"quantity": {
 								"value": 675,
-								"unit": "g"
+								"abbreviation": "g"
 							}
 						},
                         {
@@ -567,9 +567,9 @@
                             "name": "tomates italiennes en dés",
                             "quantity": {
                                 "value": 796,
-                                "unit": "ml",
+                                "abbreviation": "ml",
                                 "format": "2 boîtes de {0}",
-                                "formatUnit": "floz"
+                                "formatAbbreviation": "floz"
                             }
                         },
                         {
@@ -578,9 +578,9 @@
                             "name": "sauce tomate ou tomates broyées avec purée",
                             "quantity": {
                                 "value": 796,
-                                "unit": "ml",
+                                "abbreviation": "ml",
                                 "format": "2 boîtes de {0}",
-                                "formatUnit": "floz"
+                                "formatAbbreviation": "floz"
                             }
                         },
 						{
@@ -589,7 +589,7 @@
 							"name": "bouillon de boeuf",
 							"quantity": {
 								"value": 500,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
 						},
 						{
@@ -598,7 +598,7 @@
 							"name": "origan séché",
 							"quantity": {
 								"value": 10,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
 						},
 						{
@@ -607,7 +607,7 @@
 							"name": "clous de girofle",
 							"quantity": {
 								"value": 2,
-								"unit": "unit"
+								"abbreviation": "unit"
 							}
 						}
                     ]

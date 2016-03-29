@@ -29,7 +29,7 @@
             "name": "jambon fumé dans l’épaule avec os",
             "quantity": {
                 "value": 3,
-                "unit": "kg"
+                "abbreviation": "kg"
             }
         },
         {
@@ -38,7 +38,7 @@
             "name": "moutarde de Dijon",
             "quantity": {
                 "value": 30,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -47,7 +47,7 @@
             "name": "clous de girofle",
             "quantity": {
                 "value": 3,
-                "unit": "unit"
+                "abbreviation": "unit"
             }
         },
         {
@@ -56,9 +56,9 @@
             "name": "bière blonde",
             "quantity": {
                 "value": 341,
-                "unit": "ml",
+                "abbreviation": "ml",
                 "format": "1 bouteille de {0}",
-                "formatUnit": "floz"
+                "formatAbbreviation": "floz"
             }
         },
         {
@@ -67,7 +67,7 @@
             "name": "sirop d’érable",
             "quantity": {
                 "value": 180,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -76,7 +76,7 @@
             "name": "Eau",
             "quantity": {
                 "value": 0,
-                "unit": "unit"
+                "abbreviation": "unit"
             }
         }
     ],
@@ -111,7 +111,7 @@
                         "name": "jambon fumé dans l’épaule avec os",
                         "quantity": {
                             "value": 3,
-                            "unit": "kg"
+                            "abbreviation": "kg"
                         }
                     }
                 },
@@ -137,7 +137,7 @@
                         "name": "moutarde de Dijon",
                         "quantity": {
                             "value": 30,
-                            "unit": "ml"
+                            "abbreviation": "ml"
                         }
                     }
                 },
@@ -161,7 +161,7 @@
                         "name": "clous de girofle",
                         "quantity": {
                             "value": 3,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         }
                     }
                 },
@@ -188,9 +188,9 @@
                             "name": "bière blonde",
                             "quantity": {
                                 "value": 341,
-                                "unit": "ml",
+                                "abbreviation": "ml",
                                 "format": "1 bouteille de {0}",
-                                "formatUnit": "floz"
+                                "formatAbbreviation": "floz"
                             }
                         },
                         {
@@ -199,7 +199,7 @@
                             "name": "sirop d’érable",
                             "quantity": {
                                 "value": 180,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             }
                         }
                     ]

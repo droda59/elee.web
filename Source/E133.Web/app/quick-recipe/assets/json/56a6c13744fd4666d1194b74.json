@@ -33,7 +33,7 @@
             "name": "oeufs",
             "quantity": {
                 "value": 3,
-                "unit": "unit"
+                "abbreviation": "unit"
             }
         },
         {
@@ -42,7 +42,7 @@
             "name": "jaunes d'oeufs",
             "quantity": {
                 "value": 2,
-                "unit": "unit"
+                "abbreviation": "unit"
             }
         },
         {
@@ -51,7 +51,7 @@
             "name": "sucre",
             "quantity": {
                 "value": 45,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -60,7 +60,7 @@
             "name": "beurre non salé",
             "quantity": {
                 "value": 125,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -69,7 +69,7 @@
             "name": "chocolat mi-sucré",
             "quantity": {
                 "value": 115,
-                "unit": "g"
+                "abbreviation": "g"
             },
             "requirements": "haché"
         },
@@ -79,7 +79,7 @@
             "name": "farine",
             "quantity": {
                 "value": 75,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         }
     ],
@@ -104,7 +104,7 @@
                         "name": "chocolat mi-sucré",
                         "quantity": {
                             "value": 115,
-                            "unit": "g"
+                            "abbreviation": "g"
                         },
                         "requirements": "haché"
                     }
@@ -172,7 +172,7 @@
                             "name": "oeufs",
                             "quantity": {
                                 "value": 3,
-                                "unit": "unit"
+                                "abbreviation": "unit"
                             }
                         },
                         {
@@ -181,7 +181,7 @@
                             "name": "jaunes d'oeufs",
                             "quantity": {
                                 "value": 2,
-                                "unit": "unit"
+                                "abbreviation": "unit"
                             }
                         },
                         {
@@ -190,7 +190,7 @@
         	                "name": "sucre",
             	            "quantity": {
                 	            "value": 45,
-                    	        "unit": "ml"
+                    	        "abbreviation": "ml"
                         	}
                         }
                     ]
@@ -221,7 +221,7 @@
                         "name": "beurre non salé",
                         "quantity": {
                             "value": 125,
-                            "unit": "ml"
+                            "abbreviation": "ml"
                         }
                     }
                 }
@@ -243,7 +243,7 @@
                         "name": "chocolat mi-sucré",
                         "quantity": {
                             "value": 115,
-                            "unit": "g"
+                            "abbreviation": "g"
                         },
                         "requirements": "haché"
                     }
@@ -288,7 +288,7 @@
                         "name": "farine",
                         "quantity": {
                             "value": 75,
-                            "unit": "ml"
+                            "abbreviation": "ml"
                         }
                     }
                 },

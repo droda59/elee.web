@@ -2,7 +2,7 @@ import {MeasureUnit} from "shared/models/measure-units/measure-unit";
 
 export class Teaspoon extends MeasureUnit {
     constructor() {
-        super("tsp");
+        super("tsp", "volume", "imperial", true);
     }
 
     static get instance(): Teaspoon {
@@ -43,7 +43,7 @@ export class Teaspoon extends MeasureUnit {
 
     isValidConvertibleMeasureUnit(value: number): boolean {
         var decimal = this.getDecimal(value);
-        
+
         return value === 0.125 || value === 0.25
             || value === 0.375 || value === 0.5
             || value === 0.625 || value === 0.75

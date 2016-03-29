@@ -33,7 +33,7 @@
             "name": "farine tout usage non blanchie",
             "quantity": {
                 "value": 375,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -42,7 +42,7 @@
             "name": "poudre à pâte",
             "quantity": {
                 "value": 5,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -51,7 +51,7 @@
             "name": "bicarbonate de soude",
             "quantity": {
                 "value": 5,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -60,7 +60,7 @@
             "name": "bananes mûres (3 à 4 bananes)",
             "quantity": {
                 "value": 310,
-                "unit": "ml"
+                "abbreviation": "ml"
             },
             "requirements": "écrasées à la fourchette"
         },
@@ -70,7 +70,7 @@
             "name": "lait de coco",
             "quantity": {
                 "value": 125,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -79,7 +79,7 @@
             "name": "jus de lime",
             "quantity": {
                 "value": 15,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -88,7 +88,7 @@
             "name": "beurre non salé",
             "quantity": {
                 "value": 125,
-                "unit": "ml"
+                "abbreviation": "ml"
             },
             "requirements": "ramolli"
         },
@@ -98,7 +98,7 @@
             "name": "sucre",
             "quantity": {
                 "value": 250,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -107,7 +107,7 @@
             "name": "oeuf",
             "quantity": {
                 "value": 1,
-                "unit": "unit"
+                "abbreviation": "unit"
             }
         },
         {
@@ -116,7 +116,7 @@
             "name": "extrait de vanille",
             "quantity": {
                 "value": 5,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         }
     ],
@@ -141,7 +141,7 @@
                         "name": "beurre non salé",
                         "quantity": {
                             "value": 125,
-                            "unit": "ml"
+                            "abbreviation": "ml"
                         },
                         "requirements": "ramolli"
                     }
@@ -172,7 +172,7 @@
 						"name": "bananes mûres (3 à 4 bananes)",
 						"quantity": {
 							"value": 310,
-							"unit": "ml"
+							"abbreviation": "ml"
 						},
 						"requirements": "écrasées à la fourchette"
                     }
@@ -258,7 +258,7 @@
                             "name": "farine tout usage non blanchie",
                             "quantity": {
                                 "value": 375,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             }
                         },
                         {
@@ -267,7 +267,7 @@
                             "name": "poudre à pâte",
                             "quantity": {
                                 "value": 5,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             }
                         },
                         {
@@ -276,7 +276,7 @@
 							"name": "bicarbonate de soude",
 							"quantity": {
 								"value": 5,
-								"unit": "ml"
+								"abbreviation": "ml"
                         	}
                         }
                     ]
@@ -314,7 +314,7 @@
 							"name": "bananes mûres (3 à 4 bananes)",
 							"quantity": {
 								"value": 310,
-								"unit": "ml"
+								"abbreviation": "ml"
 							},
 							"requirements": "écrasées à la fourchette"
                         },
@@ -324,7 +324,7 @@
                             "name": "lait de coco",
                             "quantity": {
                                 "value": 125,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             }
                         },
                         {
@@ -333,7 +333,7 @@
 							"name": "jus de lime",
 							"quantity": {
 								"value": 15,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
 						}
 					]
@@ -366,7 +366,7 @@
                         "name": "beurre non salé",
                         "quantity": {
                             "value": 125,
-                            "unit": "ml"
+                            "abbreviation": "ml"
                         },
                         "requirements": "ramolli"
                     }
@@ -383,7 +383,7 @@
                         "name": "sucre",
                         "quantity": {
                             "value": 250,
-                            "unit": "ml"
+                            "abbreviation": "ml"
                         }
                     }
                 },
@@ -410,7 +410,7 @@
 							"name": "oeuf",
 							"quantity": {
 								"value": 1,
-								"unit": "unit"
+								"abbreviation": "unit"
 							}
 						},
 						{
@@ -419,7 +419,7 @@
 							"name": "extrait de vanille",
 							"quantity": {
 								"value": 5,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
 						}
 					]

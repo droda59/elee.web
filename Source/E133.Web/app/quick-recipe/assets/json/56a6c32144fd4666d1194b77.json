@@ -33,7 +33,7 @@
             "name": "farine tout usage non blanchie",
             "quantity": {
                 "value": 375,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -42,7 +42,7 @@
             "name": "bicarbonate de soude",
             "quantity": {
                 "value": 2.5,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -51,7 +51,7 @@
             "name": "Une pincée de sel",
             "quantity": {
                 "value": 1,
-                "unit": "unit"
+                "abbreviation": "unit"
             }
         },
         {
@@ -60,7 +60,7 @@
             "name": "beurre non salé",
             "quantity": {
                 "value": 180,
-                "unit": "ml"
+                "abbreviation": "ml"
             },
             "requirements": "fondu"
         },
@@ -70,7 +70,7 @@
             "name": "cassonade tassée",
             "quantity": {
                 "value": 250,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -79,7 +79,7 @@
             "name": "sucre",
             "quantity": {
                 "value": 30,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -88,7 +88,7 @@
             "name": "oeuf",
             "quantity": {
                 "value": 1,
-                "unit": "unit"
+                "abbreviation": "unit"
             }
         },
         {
@@ -97,7 +97,7 @@
             "name": "jaune d’oeuf",
             "quantity": {
                 "value": 1,
-                "unit": "unit"
+                "abbreviation": "unit"
             }
         },
         {
@@ -106,7 +106,7 @@
             "name": "chocolat au lait ou mi-sucré",
             "quantity": {
                 "value": 195,
-                "unit": "g"
+                "abbreviation": "g"
             },
             "requirements": "haché grossièrement"
         }
@@ -132,7 +132,7 @@
                         "name": "beurre non salé",
                         "quantity": {
                             "value": 180,
-                            "unit": "ml"
+                            "abbreviation": "ml"
                         },
                         "requirements": "fondu"
                     }
@@ -163,7 +163,7 @@
                         "name": "chocolat au lait ou mi-sucré",
                         "quantity": {
                             "value": 195,
-                            "unit": "g"
+                            "abbreviation": "g"
                         },
                         "requirements": "haché grossièrement"
                     }
@@ -191,7 +191,7 @@
                             "name": "farine tout usage non blanchie",
                             "quantity": {
                                 "value": 375,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             }
                         },
                         {
@@ -200,7 +200,7 @@
                             "name": "bicarbonate de soude",
                             "quantity": {
                                 "value": 2.5,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             }
                         },
                         {
@@ -209,7 +209,7 @@
                             "name": "Une pincée de sel",
                             "quantity": {
                                 "value": 1,
-                                "unit": "unit"
+                                "abbreviation": "unit"
                             }
                         }
                     ]
@@ -246,7 +246,7 @@
                         "name": "beurre non salé",
                         "quantity": {
                             "value": 180,
-                            "unit": "ml"
+                            "abbreviation": "ml"
                         },
                         "requirements": "fondu"
                     }
@@ -264,7 +264,7 @@
                             "name": "cassonade tassée",
                             "quantity": {
                                 "value": 250,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             }
                         },
                         {
@@ -273,7 +273,7 @@
                             "name": "sucre",
                             "quantity": {
                                 "value": 30,
-                                "unit": "ml"
+                                "abbreviation": "ml"
                             }
                         }
                     ]
@@ -300,7 +300,7 @@
 						"name": "oeuf",
 						"quantity": {
 							"value": 1,
-							"unit": "unit"
+							"abbreviation": "unit"
 						}
 					}
                 },
@@ -316,7 +316,7 @@
                         "name": "jaune d’oeuf",
                         "quantity": {
                             "value": 1,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         }
                     }
                 }
@@ -356,7 +356,7 @@
                         "name": "chocolat au lait ou mi-sucré",
                         "quantity": {
                             "value": 195,
-                            "unit": "g"
+                            "abbreviation": "g"
                         },
                         "requirements": "haché grossièrement"
                     }

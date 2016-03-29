@@ -41,7 +41,7 @@
             "name": "oignons",
             "quantity": {
                 "value": 2,
-                "unit": "unit"
+                "abbreviation": "unit"
             }
         },
         {
@@ -50,7 +50,7 @@
             "name": "gousses d'ail",
             "quantity": {
                 "value": 2,
-                "unit": "unit"
+                "abbreviation": "unit"
             }
         },
         {
@@ -59,7 +59,7 @@
             "name": "gingembre frais",
             "quantity": {
                 "value": 15,
-                "unit": "ml"
+                "abbreviation": "ml"
             },
             "requirements": "haché"
         },
@@ -69,7 +69,7 @@
             "name": "curcuma moulu",
             "quantity": {
                 "value": 15,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -78,7 +78,7 @@
             "name": "coriandre moulue",
             "quantity": {
                 "value": 10,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -87,7 +87,7 @@
             "name": "huile d'olive",
             "quantity": {
                 "value": 30,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -96,7 +96,7 @@
             "name": "bouillon de poulet",
             "quantity": {
                 "value": 1,
-                "unit": "l"
+                "abbreviation": "l"
             }
         },
         {
@@ -105,7 +105,7 @@
             "name": "miel",
             "quantity": {
                 "value": 30,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -114,7 +114,7 @@
             "name": "pâte de tomates",
             "quantity": {
                 "value": 30,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -123,7 +123,7 @@
             "name": "Tabasco",
             "quantity": {
                 "value": 2.5,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -132,7 +132,7 @@
             "name": "huile de sésame grillé",
             "quantity": {
                 "value": 5,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -141,7 +141,7 @@
             "name": "sel et poivre",
             "quantity": {
                 "value": 0,
-                "unit": "unit"
+                "abbreviation": "unit"
             }
         },
         {
@@ -150,7 +150,7 @@
             "name": "poitrine de poulet",
             "quantity": {
                 "value": 225,
-                "unit": "g"
+                "abbreviation": "g"
             },
             "requirements": "coupée en lanières"
         },
@@ -160,7 +160,7 @@
             "name": "crevettes crues",
             "quantity": {
                 "value": 375,
-                "unit": "g"
+                "abbreviation": "g"
             },
             "requirements": "décortiquées"
         },
@@ -170,7 +170,7 @@
             "name": "boeuf à fondue",
             "quantity": {
                 "value": 375,
-                "unit": "g"
+                "abbreviation": "g"
             }
         },
         {
@@ -179,7 +179,7 @@
             "name": "bouquets de brocoli",
             "quantity": {
                 "value": 500,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -188,7 +188,7 @@
             "name": "bouquets de chou-fleur de couleur",
             "quantity": {
                 "value": 500,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -197,7 +197,7 @@
             "name": "chou chinois",
             "quantity": {
                 "value": 500,
-                "unit": "ml"
+                "abbreviation": "ml"
             },
             "requirements": "coupé grossièrement à la diagonale"
         },
@@ -207,7 +207,7 @@
             "name": "poivron rouge",
             "quantity": {
                 "value": 1,
-                "unit": "unit"
+                "abbreviation": "unit"
             },
             "requirements": "coupé en carrés"
         },
@@ -217,7 +217,7 @@
             "name": "mini bok-choy",
             "quantity": {
                 "value": 8,
-                "unit": "unit"
+                "abbreviation": "unit"
             }
         }
     ],
@@ -242,7 +242,7 @@
 						"name": "gingembre frais",
 						"quantity": {
 							"value": 15,
-							"unit": "ml"
+							"abbreviation": "ml"
 						},
 						"requirements": "haché"
                     }
@@ -269,7 +269,7 @@
                         "name": "poitrine de poulet",
                         "quantity": {
                             "value": 225,
-                            "unit": "g"
+                            "abbreviation": "g"
                         },
                         "requirements": "coupée en lanières"
                     }
@@ -296,7 +296,7 @@
                         "name": "crevettes crues",
                         "quantity": {
                             "value": 375,
-                            "unit": "g"
+                            "abbreviation": "g"
                         },
                         "requirements": "décortiquées"
                     }
@@ -327,7 +327,7 @@
 						"name": "chou chinois",
 						"quantity": {
 							"value": 500,
-							"unit": "ml"
+							"abbreviation": "ml"
 						},
 						"requirements": "coupé grossièrement à la diagonale"
                     }
@@ -358,7 +358,7 @@
                         "name": "poivron rouge",
                         "quantity": {
                             "value": 1,
-                            "unit": "unit"
+                            "abbreviation": "unit"
                         },
                         "requirements": "coupé en carrés"
                     }
@@ -390,7 +390,7 @@
                             "name": "oignons",
                             "quantity": {
                                 "value": 2,
-                                "unit": "unit"
+                                "abbreviation": "unit"
                             }
                         },
                         {
@@ -399,7 +399,7 @@
                             "name": "gousses d'ail",
                             "quantity": {
                                 "value": 2,
-                                "unit": "unit"
+                                "abbreviation": "unit"
                             }
                         }
                     ]
@@ -417,7 +417,7 @@
 							"name": "gingembre frais",
 							"quantity": {
 								"value": 15,
-								"unit": "ml"
+								"abbreviation": "ml"
 							},
 							"requirements": "haché"
 						},
@@ -427,7 +427,7 @@
 							"name": "curcuma moulu",
 							"quantity": {
 								"value": 15,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
 						},
 						{
@@ -436,7 +436,7 @@
 							"name": "coriandre moulue",
 							"quantity": {
 								"value": 10,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
 						}
                 	]
@@ -467,7 +467,7 @@
                         "name": "huile d'olive",
                         "quantity": {
                             "value": 30,
-                            "unit": "ml"
+                            "abbreviation": "ml"
                         }
                     }
                 },
@@ -496,7 +496,7 @@
 							"name": "bouillon de poulet",
 							"quantity": {
 								"value": 1,
-								"unit": "l"
+								"abbreviation": "l"
 							}
 						},
 						{
@@ -505,7 +505,7 @@
 							"name": "miel",
 							"quantity": {
 								"value": 30,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
 						},
 						{
@@ -514,7 +514,7 @@
 							"name": "pâte de tomates",
 							"quantity": {
 								"value": 30,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
 						},
 						{
@@ -523,7 +523,7 @@
 							"name": "Tabasco",
 							"quantity": {
 								"value": 2.5,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
 						},
 						{
@@ -532,7 +532,7 @@
 							"name": "huile de sésame grillé",
 							"quantity": {
 								"value": 5,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
 						},
 						{
@@ -541,7 +541,7 @@
 							"name": "sel et poivre",
 							"quantity": {
 								"value": 0,
-								"unit": "unit"
+								"abbreviation": "unit"
 							}
 						}
 					]
@@ -607,7 +607,7 @@
 							"name": "poitrine de poulet",
 							"quantity": {
 								"value": 225,
-								"unit": "g"
+								"abbreviation": "g"
 							},
 							"requirements": "coupée en lanières"
 						},
@@ -617,7 +617,7 @@
 							"name": "boeuf à fondue",
 							"quantity": {
 								"value": 375,
-								"unit": "g"
+								"abbreviation": "g"
 							}
 						}
                     ]
@@ -634,7 +634,7 @@
 						"name": "crevettes crues",
 						"quantity": {
 							"value": 375,
-							"unit": "g"
+							"abbreviation": "g"
 						},
 						"requirements": "décortiquées"
 					}
@@ -662,7 +662,7 @@
 							"name": "bouquets de brocoli",
 							"quantity": {
 								"value": 500,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
 						},
 						{
@@ -671,7 +671,7 @@
 							"name": "bouquets de chou-fleur de couleur",
 							"quantity": {
 								"value": 500,
-								"unit": "ml"
+								"abbreviation": "ml"
 							}
 						},
 						{
@@ -680,7 +680,7 @@
 							"name": "chou chinois",
 							"quantity": {
 								"value": 500,
-								"unit": "ml"
+								"abbreviation": "ml"
 							},
 							"requirements": "coupé grossièrement à la diagonale"
 						},
@@ -690,7 +690,7 @@
 							"name": "poivron rouge",
 							"quantity": {
 								"value": 1,
-								"unit": "unit"
+								"abbreviation": "unit"
 							},
 							"requirements": "coupé en carrés"
 						},
@@ -700,7 +700,7 @@
 							"name": "mini bok-choy",
 							"quantity": {
 								"value": 8,
-								"unit": "unit"
+								"abbreviation": "unit"
 							}
 						}
                 	]

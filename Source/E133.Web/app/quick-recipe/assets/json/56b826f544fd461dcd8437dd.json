@@ -33,7 +33,7 @@
             "name": "crème 35 %",
             "quantity": {
                 "value": 310,
-                "unit": "ml"
+                "abbreviation": "ml"
             }
         },
         {
@@ -42,7 +42,7 @@
             "name": "chocolat noir ou au lait",
             "quantity": {
                 "value": 454,
-                "unit": "g"
+                "abbreviation": "g"
             },
             "requirements": "haché grossièrement"
         }
@@ -72,7 +72,7 @@
                         "name": "chocolat noir ou au lait",
                         "quantity": {
                             "value": 454,
-                            "unit": "g"
+                            "abbreviation": "g"
                         },
                         "requirements": "haché grossièrement"
                     }
@@ -95,7 +95,7 @@
                         "name": "crème 35 %",
                         "quantity": {
                             "value": 310,
-                            "unit": "ml"
+                            "abbreviation": "ml"
                         }
                     }
                 },
@@ -131,7 +131,7 @@
                         "name": "chocolat noir ou au lait",
                         "quantity": {
                             "value": 454,
-                            "unit": "g"
+                            "abbreviation": "g"
                         },
                         "requirements": "haché grossièrement"
                     }
