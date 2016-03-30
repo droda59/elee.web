@@ -1,4 +1,4 @@
-import {MeasureUnit} from "shared/models/measure-units/measure-unit";
+import {MeasureUnit} from "app/shared/models/measure-units/measure-unit";
 
 export class Centilitre extends MeasureUnit {
     constructor() {
@@ -16,9 +16,9 @@ export class Centilitre extends MeasureUnit {
             case "cl": return 1;
             case "dl": return 0.1;
             case "l": return 0.01;
-            case "tsp": return 2.028841;
-            case "tbsp": return 0.676280;
-            case "floz": return 0.351951;
+            case "tsp": return 2;
+            case "tbsp": return 0.667;
+            case "floz": return 0.333;
             case "cup": return 0.04; // 0.042267;
         }
     }
@@ -28,6 +28,6 @@ export class Centilitre extends MeasureUnit {
     }
 
     isValidConvertibleMeasureUnit(value: number): boolean {
-        return value > 1;
+        return value >= 1;
     }
 }

@@ -1,17 +1,17 @@
-import {Quantity} from "shared/models/quantity";
-import {MeasureUnit} from "shared/models/measure-units/measure-unit";
-import {Cup} from "shared/models/measure-units/cup";
-import {LiquidOunce} from "shared/models/measure-units/liquid-ounce";
-import {Tablespoon} from "shared/models/measure-units/tablespoon";
-import {Teaspoon} from "shared/models/measure-units/teaspoon";
-import {Litre} from "shared/models/measure-units/litre";
-import {Decilitre} from "shared/models/measure-units/decilitre";
-import {Centilitre} from "shared/models/measure-units/centilitre";
-import {Millilitre} from "shared/models/measure-units/millilitre";
-import {Pound} from "shared/models/measure-units/pound";
-import {Ounce} from "shared/models/measure-units/ounce";
-import {Kilogram} from "shared/models/measure-units/kilogram";
-import {Gram} from "shared/models/measure-units/gram";
+import {Quantity} from "app/shared/models/quantity";
+import {MeasureUnit} from "app/shared/models/measure-units/measure-unit";
+import {Cup} from "app/shared/models/measure-units/cup";
+import {FluidOunce} from "app/shared/models/measure-units/fluid-ounce";
+import {Tablespoon} from "app/shared/models/measure-units/tablespoon";
+import {Teaspoon} from "app/shared/models/measure-units/teaspoon";
+import {Litre} from "app/shared/models/measure-units/litre";
+import {Decilitre} from "app/shared/models/measure-units/decilitre";
+import {Centilitre} from "app/shared/models/measure-units/centilitre";
+import {Millilitre} from "app/shared/models/measure-units/millilitre";
+import {Pound} from "app/shared/models/measure-units/pound";
+import {Ounce} from "app/shared/models/measure-units/ounce";
+import {Kilogram} from "app/shared/models/measure-units/kilogram";
+import {Gram} from "app/shared/models/measure-units/gram";
 
 export class QuantityConverter {
     private _imperialShortVolumeMeasureUnits: MeasureUnit[] = [];
@@ -30,7 +30,7 @@ export class QuantityConverter {
     private _weightMeasureUnits: MeasureUnit[] = [];
 
     private _allMeasureUnits: MeasureUnit[] = [
-        Cup.instance, LiquidOunce.instance, Tablespoon.instance, Teaspoon.instance,
+        Cup.instance, FluidOunce.instance, Tablespoon.instance, Teaspoon.instance,
         Litre.instance, Decilitre.instance, Centilitre.instance, Millilitre.instance,
         Pound.instance, Ounce.instance,
         Kilogram.instance, Gram.instance ];

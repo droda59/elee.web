@@ -1,21 +1,21 @@
-import {MeasureUnit} from "shared/models/measure-units/measure-unit";
+import {MeasureUnit} from "app/shared/models/measure-units/measure-unit";
 
-export class LiquidOunce extends MeasureUnit {
+export class FluidOunce extends MeasureUnit {
     constructor() {
         super("floz", "volume", "imperial");
     }
 
-    static get instance(): LiquidOunce {
-        LiquidOunce._instance = LiquidOunce._instance || new LiquidOunce();
-        return LiquidOunce._instance;
+    static get instance(): FluidOunce {
+        FluidOunce._instance = FluidOunce._instance || new FluidOunce();
+        return FluidOunce._instance;
     }
 
     getConversionRate(targetUnit: string): number {
         switch (targetUnit) {
-            case "ml": return 29.5735;
-            case "cl": return 2.9573;
-            case "dl": return 0.29573;
-            case "l": return 0.02957;
+            case "ml": return 30;
+            case "cl": return 3;
+            case "dl": return 0.333;
+            case "l": return 0.03;
             case "tsp": return 6;
             case "tbsp": return 2;
             case "floz": return 1;

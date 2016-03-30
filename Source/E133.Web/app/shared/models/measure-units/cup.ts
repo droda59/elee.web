@@ -1,4 +1,4 @@
-import {MeasureUnit} from "shared/models/measure-units/measure-unit";
+import {MeasureUnit} from "app/shared/models/measure-units/measure-unit";
 
 export class Cup extends MeasureUnit {
     constructor() {
@@ -52,8 +52,8 @@ export class Cup extends MeasureUnit {
         var intValue = this.getInteger(value);
 
         return decimal === 0 || (intValue > 0 && decimal === 0.125)
-            || decimal === 0.25 || decimal === 0.333
-            || decimal === 0.375 || decimal === 0.5 || decimal === 0.666
+            || decimal === 0.25 || (Math.round(decimal * 1000) / 1000) === 0.333
+            || decimal === 0.375 || decimal === 0.5 || (Math.round(decimal * 1000) / 1000) === 0.666
             || decimal === 0.625 || decimal === 0.75 || decimal === 0.875;
     }
 }

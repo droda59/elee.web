@@ -1,4 +1,4 @@
-import {MeasureUnit} from "shared/models/measure-units/measure-unit";
+import {MeasureUnit} from "app/shared/models/measure-units/measure-unit";
 
 export class Litre extends MeasureUnit {
     constructor() {
@@ -16,9 +16,9 @@ export class Litre extends MeasureUnit {
             case "cl": return 100;
             case "dl": return 10;
             case "l": return 1;
-            case "tsp": return 202.884136;
-            case "tbsp": return 67.628045;
-            case "floz": return 35.1951;
+            case "tsp": return 200;
+            case "tbsp": return 66.667;
+            case "floz": return 33.333;
             case "cup": return 4; // 4.226752;
         }
     }

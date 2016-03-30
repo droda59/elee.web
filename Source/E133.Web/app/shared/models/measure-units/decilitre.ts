@@ -1,4 +1,4 @@
-import {MeasureUnit} from "shared/models/measure-units/measure-unit";
+import {MeasureUnit} from "app/shared/models/measure-units/measure-unit";
 
 export class Decilitre extends MeasureUnit {
     constructor() {
@@ -16,9 +16,9 @@ export class Decilitre extends MeasureUnit {
             case "cl": return 10;
             case "dl": return 1;
             case "l": return 0.1;
-            case "tsp": return 20.288413;
-            case "tbsp": return 6.762804;
-            case "floz": return 3.51951;
+            case "tsp": return 20;
+            case "tbsp": return 6.66;
+            case "floz": return 3.33;
             case "cup": return 0.4; // 0.422675;
         }
     }
@@ -28,6 +28,6 @@ export class Decilitre extends MeasureUnit {
     }
 
     isValidConvertibleMeasureUnit(value: number): boolean {
-        return value > 1;
+        return value >= 1;
     }
 }

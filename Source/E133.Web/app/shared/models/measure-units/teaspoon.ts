@@ -1,4 +1,4 @@
-import {MeasureUnit} from "shared/models/measure-units/measure-unit";
+import {MeasureUnit} from "app/shared/models/measure-units/measure-unit";
 
 export class Teaspoon extends MeasureUnit {
     constructor() {
@@ -12,10 +12,10 @@ export class Teaspoon extends MeasureUnit {
 
     getConversionRate(targetUnit: string): number {
         switch (targetUnit) {
-            case "ml": return 4.92892;
-            case "cl": return 0.492892;
-            case "dl": return 0.049289;
-            case "l": return 0.004928;
+            case "ml": return 5;
+            case "cl": return 0.5;
+            case "dl": return 0.05;
+            case "l": return 0.005;
             case "tsp": return 1;
             case "tbsp": return 0.333333;
             case "floz": return 0.166667;

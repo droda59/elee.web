@@ -1,8 +1,8 @@
-import {MeasureUnit} from "shared/models/measure-units/measure-unit";
+import {MeasureUnit} from "app/shared/models/measure-units/measure-unit";
 
 export class Pinch extends MeasureUnit {
     constructor() {
-        super("unit");
+        super("pinch");
     }
 
     static get instance(): Pinch {

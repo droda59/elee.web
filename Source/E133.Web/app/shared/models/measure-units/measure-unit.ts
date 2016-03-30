@@ -1,4 +1,4 @@
-export abstract class MeasureUnit {
+export class MeasureUnit {
     protected static _instance: MeasureUnit;
 
     constructor(private _abbreviation: string, private _type: string, private _system: string, private _isShortUnit?: boolean) { }
