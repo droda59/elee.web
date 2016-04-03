@@ -5,7 +5,7 @@
 @mixin create-fonts($family, $name, $weight) {
     @font-face {
         font-family: $family;
-        src: url(/dist/shared/assets/fonts/#{$name}.ttf) format("truetype");
+        src: url(/dist/app/shared/assets/fonts/#{$name}.ttf) format("truetype");
         font-weight: $weight;
         font-style: normal;
     }

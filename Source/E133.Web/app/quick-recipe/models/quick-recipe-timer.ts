@@ -1,4 +1,4 @@
-import {Timer} from "shared/models/timer";
+import {Timer} from "app/shared/models/timer";
 
 export class QuickRecipeTimer extends Timer {
     stepId: number;

@@ -11,6 +11,7 @@
     "aurelia-tools": "^0.1.18",
     "browser-sync": "^2.7.13",
     "del": "^1.1.0",
+    "event-stream": "^3.3.2",
     "gulp": "^3.8.10",
     "gulp-babel": "^5.1.0",
     "gulp-bump": "^0.1.11",

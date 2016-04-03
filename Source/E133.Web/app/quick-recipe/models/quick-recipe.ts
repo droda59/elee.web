@@ -1,4 +1,4 @@
-import {Ingredient, IngredientDto} from "shared/models/ingredient";
+import {Ingredient, IngredientDto} from "app/shared/models/ingredient";
 
 class IngredientUnicityOverseer {
     private static ingredients: { [id: number] : Ingredient; } = {};

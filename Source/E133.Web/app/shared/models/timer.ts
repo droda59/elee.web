@@ -1,6 +1,6 @@
 import {computedFrom} from "aurelia-framework";
 import {ensure, ValidationGroup} from "aurelia-validation";
-import {TimeValidationRule} from "shared/validation-rules/time-validation-rule";
+import {TimeValidationRule} from "app/shared/validation-rules/time-validation-rule";
 
 export class Timer {
     private _originalSeconds: number;

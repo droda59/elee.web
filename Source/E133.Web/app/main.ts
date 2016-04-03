@@ -1,16 +1,16 @@
-import {MaterializeViewStrategy} from "shared/materialize-view-strategy";
+import {MaterializeViewStrategy} from "app/shared/materialize-view-strategy";
 
 export function configure(aurelia) {
     aurelia.use
         .standardConfiguration()
         .developmentLogging()
-        .globalResources("shared/aurelia-materialize")
+        .globalResources("app/shared/aurelia-materialize")
 	    .plugin("aurelia-animator-css")
 	    .plugin("aurelia-dialog")
         .plugin("aurelia-validation", (config) => { config.useViewStrategy(MaterializeViewStrategy); })
         .plugin("aurelia-i18n", (instance) => {
             instance.setup({
-                resGetPath : "dist/shared/assets/locale/__lng__/__ns__.json",
+                resGetPath : "dist/app/shared/assets/locale/__lng__/__ns__.json",
                 lng : "fr",
                 attributes : ["t","i18n"],
                 getAsync : true,
@@ -39,7 +39,8 @@ export function configure(aurelia) {
             });
         });
 
-    aurelia.start().then(a => a.setRoot());
+    aurelia.start().then(a => a.setRoot("app/app", document.body));
+    // aurelia.start().then(a => a.setRoot());
 
     moment.relativeTimeThreshold("s", 60);
     moment.relativeTimeThreshold("m", 60);

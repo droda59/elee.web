@@ -1,4 +1,4 @@
-import {Settings} from "shared/models/settings";
+import {Settings} from "app/shared/models/settings";
 
 export class SettingsManager {
 	settings: Settings;

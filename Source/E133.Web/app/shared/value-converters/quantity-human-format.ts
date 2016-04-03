@@ -1,6 +1,6 @@
 import {inject} from "aurelia-framework";
 import {I18N} from "aurelia-i18n";
-import {Quantity} from "shared/models/quantity";
+import {Quantity} from "app/shared/models/quantity";
 
 @inject (I18N)
 export class QuantityHumanFormatValueConverter {

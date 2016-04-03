@@ -1,4 +1,4 @@
-import {Quantity, QuantityDto} from "shared/models/quantity";
+import {Quantity, QuantityDto} from "app/shared/models/quantity";
 
 export class Ingredient implements IngredientDto {
     id: number;

@@ -1,7 +1,7 @@
 import {bindable, inject} from "aurelia-framework";
 import {DialogService} from "aurelia-dialog";
-import {SettingsManager} from "shared/settings-manager";
-import {SettingsModal} from "shared/components/settings-modal";
+import {SettingsManager} from "app/shared/settings-manager";
+import {SettingsModal} from "app/shared/components/settings-modal";
 
 @inject (DialogService, SettingsManager)
 export class QuickRecipeHeader {

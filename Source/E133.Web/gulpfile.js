@@ -13,11 +13,12 @@ var bundler = require("aurelia-bundler");
 var imagemin = require("gulp-imagemin");
 var minifyCss = require("gulp-minify-css");
 var concat = require("gulp-concat");
+var es = require("event-stream");
 var karma = require("karma").Server;
 
 var path = {
     package: "./package.json",
-    dest: "dist/",
+    dest: "dist/app/",
     views: "app/**/*.html",
     typescript: "app/**/*.ts",
     sass: "app/**/*.scss",
@@ -89,16 +90,16 @@ gulp.task("bump-version", function () {
 });
 
 gulp.task("clean", function () {
-    return gulp.src(path.dest)
+    return gulp.src("dist/")
        .pipe(vinylPaths(del));
 });
 
-gulp.task("copy-externals",
-          [ "copy-externals-materialize-css",
+gulp.task("copy-externals", [
+            "copy-externals-materialize-css",
             "copy-externals-materialize-font",
             "copy-externals-animate.css",
-            "copy-externals-mdl-css"]
-          );
+            "copy-externals-mdl-css"
+        ]);
 
 gulp.task("copy-externals-materialize-css", function() {
   return gulp.src("jspm_packages/npm/materialize-css@**/sass/components/**/*.scss")
@@ -157,9 +158,13 @@ gulp.task("build-html", function () {
 });
 
 gulp.task("build-sass", function() {
-    return gulp.src(path.sass)
+    var appSass = gulp.src(path.sass)
         .pipe(changed(path.sass, { extension: ".scss" }))
         .pipe(sass())
+
+    var externals = gulp.src("app/**/*.css");
+
+    return es.concat(appSass, externals)
         .pipe(concat("style.css"))
         .pipe(gulp.dest(path.dest))
         .pipe(browserSync.reload({ stream: true }));
@@ -172,7 +177,7 @@ gulp.task("copy-files", function() {
 
 gulp.task("serve", ["build"], function (done) {
     browserSync.init({
-        open: true,
+        open: false,
         port: 9000,
         server: {
             baseDir: ["."],
@@ -224,12 +229,12 @@ gulp.task("unbundle", function() {
 });
 
 gulp.task("minify-css", function() {
-    return gulp.src("dist/style.css")
+    return gulp.src("dist/app/style.css")
         .pipe(minifyCss());
 });
 
 gulp.task("images", function() {
-    return gulp.src("dist/**/assets/images/*")
+    return gulp.src("dist/app/**/assets/images/*")
         .pipe(imagemin())
         .pipe(gulp.dest(path.dest));
 });
@@ -248,9 +253,9 @@ gulp.task("export-copy", function() {
         "web.config",
         "config.js",
         "favicon.ico",
-        "dist/style.css",
-        "dist/**/*.+(json|png|jpg)",
-        "dist/**/Material*.+(eot|svg|woff|woff2|ttf)",
+        "dist/app/style.css",
+        "dist/app/**/*.+(json|png|jpg)",
+        "dist/app/**/Material*.+(eot|svg|woff|woff2|ttf)",
         "jspm_packages/system.js",
         "jspm_packages/system.js.map",
         "jspm_packages/system-polyfills.js",

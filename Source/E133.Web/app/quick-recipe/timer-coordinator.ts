@@ -1,6 +1,6 @@
 import {inject} from "aurelia-framework";
 import {I18N} from "aurelia-i18n";
-import {QuickRecipeTimer} from "quick-recipe/models/quick-recipe-timer";
+import {QuickRecipeTimer} from "app/quick-recipe/models/quick-recipe-timer";
 
 @inject (I18N)
 export class TimerCoordinator {

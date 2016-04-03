@@ -3,13 +3,13 @@ import {DialogService} from "aurelia-dialog";
 import {CssAnimator} from "aurelia-animator-css";
 import {HttpClient} from "aurelia-http-client";
 import {I18N} from "aurelia-i18n";
-import {QuickRecipe, Step, IngredientPart, IngredientEnumerationPart} from "quick-recipe/models/quick-recipe";
-import {HelpOverlay} from "quick-recipe/components/help-overlay";
-import {TimerCoordinator} from "quick-recipe/timer-coordinator";
-import {ScrollCoordinator} from "quick-recipe/scroll-coordinator";
-import {Ingredient} from "shared/models/ingredient";
-import {Timer} from "shared/models/timer";
-import {QuickRecipeTimer} from "quick-recipe/models/quick-recipe-timer";
+import {QuickRecipe, Step, IngredientPart, IngredientEnumerationPart} from "app/quick-recipe/models/quick-recipe";
+import {HelpOverlay} from "app/quick-recipe/components/help-overlay";
+import {TimerCoordinator} from "app/quick-recipe/timer-coordinator";
+import {ScrollCoordinator} from "app/quick-recipe/scroll-coordinator";
+import {Ingredient} from "app/shared/models/ingredient";
+import {Timer} from "app/shared/models/timer";
+import {QuickRecipeTimer} from "app/quick-recipe/models/quick-recipe-timer";
 
 @inject (HttpClient, I18N, TimerCoordinator, ScrollCoordinator, DialogService, CssAnimator)
 export class QuickRecipePage {
@@ -55,7 +55,7 @@ export class QuickRecipePage {
 				.open({ viewModel: HelpOverlay });
 		}
 
-		var url = "dist/quick-recipe/assets/json/" + route.id + ".json";
+		var url = "dist/app/quick-recipe/assets/json/" + route.id + ".json";
         return this._http.get(url).then(response => {
             this.recipe = new QuickRecipe(response.content);
 

@@ -1,7 +1,7 @@
 import {bindable} from "aurelia-framework";
 import {inject} from "aurelia-framework";
-import {Step} from "quick-recipe/models/quick-recipe";
-import {ScrollCoordinator} from "quick-recipe/scroll-coordinator";
+import {Step} from "app/quick-recipe/models/quick-recipe";
+import {ScrollCoordinator} from "app/quick-recipe/scroll-coordinator";
 import * as ScrollMagic from "scrollmagic";
 
 @inject (Element, ScrollCoordinator)

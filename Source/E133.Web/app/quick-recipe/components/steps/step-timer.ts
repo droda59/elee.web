@@ -1,7 +1,7 @@
 import {inject} from "aurelia-framework";
-import {QuickRecipeTimer} from "quick-recipe/models/quick-recipe-timer";
-import {TimerPart} from "quick-recipe/models/quick-recipe";
-import {TimerCoordinator} from "quick-recipe/timer-coordinator";
+import {QuickRecipeTimer} from "app/quick-recipe/models/quick-recipe-timer";
+import {TimerPart} from "app/quick-recipe/models/quick-recipe";
+import {TimerCoordinator} from "app/quick-recipe/timer-coordinator";
 
 @inject (TimerCoordinator)
 export class StepTimer {

@@ -1,11 +1,11 @@
 import {bindable, inject, ObserverLocator} from "aurelia-framework";
 import {I18N} from "aurelia-i18n";
-import {MeasureUnit} from "shared/models/measure-units/measure-unit";
-import {Ingredient} from "shared/models/ingredient";
-import {Quantity} from "shared/models/quantity";
-import {TextUtils} from "shared/text-utils";
-import {QuantityConverter} from "shared/quantity-converter";
-import {SettingsManager} from "shared/settings-manager";
+import {MeasureUnit} from "app/shared/models/measure-units/measure-unit";
+import {Ingredient} from "app/shared/models/ingredient";
+import {Quantity} from "app/shared/models/quantity";
+import {TextUtils} from "app/shared/text-utils";
+import {QuantityConverter} from "app/shared/quantity-converter";
+import {SettingsManager} from "app/shared/settings-manager";
 
 @inject (I18N, ObserverLocator, QuantityConverter, SettingsManager)
 export class MeasurableIngredient {
