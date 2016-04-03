@@ -31,14 +31,14 @@ describe("the App module", () => {
     });
 
     it("should have a welcome route", () => {
-        expect(app.router.routes).toContain({ route: ["","welcome"], moduleId: "welcome/welcome", nav: true, title:"Welcome" });
+        expect(app.router.routes).toContain({ route: ["","welcome"], moduleId: "app/welcome/welcome", nav: true, title:"Welcome" });
     });
 
     it("should have a comments page", () => {
-        expect(app.router.routes).toContain({ route: "typeform", name: "typeform", moduleId: "shared/components/typeform", nav: true, title:"Comments" });
+        expect(app.router.routes).toContain({ route: "typeform", name: "typeform", moduleId: "app/shared/components/typeform", nav: true, title:"Comments" });
     });
 
     it("should have a quick recipe route", () => {
-        expect(app.router.routes).toContain({ route: "recipe/:id", name: "quick-recipe", moduleId: "quick-recipe/quick-recipe-page" });
+        expect(app.router.routes).toContain({ route: "recipe/:id", name: "quick-recipe", moduleId: "app/quick-recipe/quick-recipe-page" });
     });
 });
