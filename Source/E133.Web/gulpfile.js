@@ -113,8 +113,7 @@ gulp.task("copy-externals-mdl-css", function()
                     "!/**/material-design-lite.scss",
                     "!/**/material-design-lite-grid.scss",
                     "!/**/styleguide.scss",
-                    "!/**/template.scss"])
-        .pipe(flatten())
+                    "!/**/template.scss"], { base: './jspm_packages/github/google/material-design-lite@1.1.3/src' })
         .pipe(gulp.dest("app/shared/assets/css/externals/material-design-lite-css"));
 });
 
