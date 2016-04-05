@@ -44,8 +44,8 @@ export class Pound extends MeasureUnit {
         var decimal = this.getDecimal(value);
 
         return decimal === 0
-            || decimal === 0.25 || decimal === 0.333
-            || decimal === 0.5 || decimal === 0.666
+            || decimal === 0.25 || (Math.round(decimal * 1000) / 1000) === 0.333
+            || decimal === 0.5 || (Math.round(decimal * 1000) / 1000) === 0.666
             || decimal === 0.75;
     }
 }

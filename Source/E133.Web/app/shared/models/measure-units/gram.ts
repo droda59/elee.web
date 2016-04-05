@@ -24,6 +24,6 @@ export class Gram extends MeasureUnit {
     }
 
     isValidConvertibleMeasureUnit(value: number): boolean {
-        return value > 1;
+        return value >= 1;
     }
 }
