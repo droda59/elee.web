@@ -107,8 +107,7 @@ gulp.task("copy-externals-materialize-css", function() {
         .pipe(gulp.dest("app/shared/assets/css/externals/materialize-css"));
 });
 
-gulp.task("copy-externals-mdl-css", function()
-{
+gulp.task("copy-externals-mdl-css", function() {
   return gulp.src(["jspm_packages/github/google/material-design-lite@**/src/**/*.scss",
                     "!/**/material-design-lite.scss",
                     "!/**/material-design-lite-grid.scss",
@@ -175,7 +174,7 @@ gulp.task("build-sass", function() {
 });
 
 gulp.task("copy-files", function() {
-    return gulp.src("app/**/*.{css,json,png,jpg,svg,woff,woff2,ttf}")
+    return gulp.src("app/**/*.{json,png,jpg,svg,woff,woff2,ttf}")
         .pipe(gulp.dest(path.dest));
 });
 

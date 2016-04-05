@@ -2,17 +2,17 @@
 @import "materialize";
 @import "core";
 
-html,
-body {
-    height: 100%;
-}
-
-body {
-	font-family: $font-raleway;
-}
-
 // Core elements importation
 .E133 {
+    html,
+    body {
+        height: 100%;
+    }
+
+    * {
+        font-family: $font-raleway;
+    }
+
     router-view {
         display: block;
     }
