@@ -1,59 +1,16 @@
-import {MaterializeViewStrategy} from "app/shared/materialize-view-strategy";
+import {Router, RouterConfiguration} from "aurelia-router";
 
-export function configure(aurelia) {
-    aurelia.use
-        .standardConfiguration()
-        .developmentLogging()
-        .globalResources("app/shared/aurelia-materialize")
-	    .plugin("aurelia-animator-css")
-	    .plugin("aurelia-dialog")
-        .plugin("aurelia-validation", (config) => { config.useViewStrategy(MaterializeViewStrategy); })
-        .plugin("aurelia-i18n", (instance) => {
-            instance.setup({
-                resGetPath : "dist/app/shared/assets/locale/__lng__/__ns__.json",
-                lng : "fr",
-                attributes : ["t","i18n"],
-                getAsync : true,
-                sendMissing : false,
-                fallbackLng : "en",
-                debug : false
-            });
-          })
-        .plugin("aurelia-google-analytics", config => {
-            config.init("UA-73519104-1");
-            config.attach({
-                logging: {
-                    enabled: true
-                },
-                pageTracking: {
-                    enabled: true
-                },
-                clickTracking: {
-                    enabled: true,
-                    filter: (element) => {
-                        return element instanceof HTMLElement &&
-                            (element.nodeName.toLowerCase() === "a" ||
-                            element.nodeName.toLowerCase() === "button");
-                    }
-                }
-            });
-        });
+export class Main {
+	router:Router;
 
-    aurelia.start().then(a => a.setRoot("app/app", document.body));
-    // aurelia.start().then(a => a.setRoot());
+	configureRouter(config: RouterConfiguration, router: Router) {
+		config.title = "E133";
+		config.map([
+			{ route: ["","welcome"],  moduleId: "app/welcome/welcome", nav: true, title:"Welcome" },
+			{ route: "typeform",  name: "typeform", moduleId: "app/shared/components/typeform", nav: true, title:"Comments" },
+			{ route: "recipe/:id", name: "quick-recipe", moduleId: "app/quick-recipe/quick-recipe-page" },
+		]);
 
-    moment.relativeTimeThreshold("s", 60);
-    moment.relativeTimeThreshold("m", 60);
-    moment.relativeTimeThreshold("h", 24);
-    moment.relativeTimeThreshold("d", 28);
-    moment.relativeTimeThreshold("M", 12);
-
-    if (!String.format) {
-        String.format = function(format) {
-            var args = Array.prototype.slice.call(arguments, 1);
-            return format.replace(/{(\d+)}/g, function (match, number) {
-                return typeof args[number] != "undefined" ? args[number] : match;
-            });
-        }
-    }
+		this.router = router;
+	}
 }

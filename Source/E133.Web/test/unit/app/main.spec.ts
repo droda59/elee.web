@@ -1,4 +1,4 @@
-import {App} from "app/app";
+import {Main} from "app/main";
 
 class RouterStub {
     routes;
@@ -12,13 +12,13 @@ class RouterStub {
     }
 }
 
-describe("the App module", () => {
-    var app: App;
+describe("the Main module", () => {
+    var app: Main;
     var mockedRouter: RouterStub;
 
     beforeEach(() => {
         mockedRouter = new RouterStub();
-        app = new App();
+        app = new Main();
         app.configureRouter(mockedRouter, mockedRouter);
     });
 
