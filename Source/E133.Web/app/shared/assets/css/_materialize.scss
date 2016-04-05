@@ -56,6 +56,10 @@
 		border: none;
 	}
 
+	nav ul a {
+		line-height: $navbar-height;
+	}
+
 	textarea {
 		overflow-y: hidden;
 		padding: 1.6rem 0;

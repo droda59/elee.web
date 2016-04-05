@@ -161,7 +161,11 @@ gulp.task("build-html", function () {
 });
 
 gulp.task("build-sass", function() {
-    var appSass = gulp.src(path.sass)
+    var appSass = gulp.src([
+            "app/shared/assets/css/main.scss",
+            "app/welcome/assets/css/main.scss",
+            "app/quick-recipe/assets/css/main.scss"
+        ])
         .pipe(changed(path.sass, { extension: ".scss" }))
         .pipe(sass())
 
