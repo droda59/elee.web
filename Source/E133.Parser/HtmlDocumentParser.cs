@@ -76,7 +76,7 @@ namespace E133.Parser
         {
             var document = await this.LoadDocument(uri);
 
-            document.OptionDefaultStreamEncoding = Encoding.UTF8;
+            // document.OptionDefaultStreamEncoding = Encoding.UTF8;
 
             var recipe = new QuickRecipe();
             recipe.Language = this.GetRecipeIetfLanguage(document);
