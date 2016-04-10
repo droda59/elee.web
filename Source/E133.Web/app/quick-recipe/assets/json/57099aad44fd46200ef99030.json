@@ -1,0 +1,324 @@
+{
+    "id": "57099aad44fd46200ef99030",
+    "title": "Crème pâtissière",
+    "originalUrl": "http://www.ricardocuisine.com/recettes/4592-creme-patissiere",
+    "language": "fr",
+    "note": "Étape 3 On peut aussi frotter la surface d’un  morceau de beurre. Le beurre fondra et préviendra la formation d’une  peau. C’est la méthode à favoriser lorsque la crème est versée  directement dans une abaisse car sa surface restera belle et lisse.\r\n Changez de parfum ! Pour une crème pâtissière…  Au café Ajoutez 45 ml (3 c. à soupe) de grains de café grossièrement concassés au lait chaud et laissez infuser, à couvert, 10 minutes. Passez le lait parfumé dans un tamis tapissé de coton à fromage et poursuivez la recette.\r\nÀ l’orange Remplacez l’extrait de vanille par 30 ml (2 c. à soupe) de zeste d’orange. Ajoutez le zeste d’orange au lait chaud et laissez infuser, à couvert 5 minutes. Passez le lait parfumé dans un tamis tapissé de coton à fromage et poursuivez la recette.\r\nAu chocolat  Ajoutez 56 g (2 oz) de chocolat mi-sucré haché au même moment que la vanille. Remuez jusqu’à ce que le chocolat soit fondu et que le mélange soit homogène.Étape 3 On peut aussi frotter la surface d’un  morceau de beurre. Le beurre fondra et préviendra la formation d’une  peau. C’est la méthode à favoriser lorsque la crème est versée  directement dans une abaisse car sa surface restera belle et lisse. Changez de parfum ! Pour une crème pâtissière…  Au café Ajoutez 45 ml (3 c. à soupe) de grains de café grossièrement concassés au lait chaud et laissez infuser, à couvert, 10 minutes. Passez le lait parfumé dans un tamis tapissé de coton à fromage et poursuivez la recette.À l’orange Remplacez l’extrait de vanille par 30 ml (2 c. à soupe) de zeste d’orange. Ajoutez le zeste d’orange au lait chaud et laissez infuser, à couvert 5 minutes. Passez le lait parfumé dans un tamis tapissé de coton à fromage et poursuivez la recette.Au chocolat  Ajoutez 56 g (2 oz) de chocolat mi-sucré haché au même moment que la vanille. Remuez jusqu’à ce que le chocolat soit fondu et que le mélange soit homogène.",
+    "imageUrl": "http://www.ricardocuisine.com/pictures/cache/6d668ea38cb56db9a2de3dc3200ad534_w500_h675_sc.jpg",
+    "originalServings": "625 ml",
+    "durations": [
+        {
+            "title": "Préparation",
+            "time": "PT15M"
+        },
+        {
+            "title": "Cuisson",
+            "time": "PT10M"
+        }
+    ],
+    "subrecipes": [
+        {
+            "id": -2,
+            "title": "Requis"
+        },
+        {
+            "id": -1,
+            "title": "Préparation"
+        }
+    ],
+    "ingredients": [
+        {
+            "id": 0,
+            "subrecipeId": -1,
+            "name": "sucre",
+            "quantity": {
+                "value": 150,
+                "abbreviation": "ml"
+            }
+        },
+        {
+            "id": 1,
+            "subrecipeId": -1,
+            "name": "farine tout usage non blanchie",
+            "quantity": {
+                "value": 75,
+                "abbreviation": "ml"
+            }
+        },
+        {
+            "id": 2,
+            "subrecipeId": -1,
+            "name": "oeufs",
+            "quantity": {
+                "value": 2,
+                "abbreviation": "unit"
+            }
+        },
+        {
+            "id": 3,
+            "subrecipeId": -1,
+            "name": "lait",
+            "quantity": {
+                "value": 500,
+                "abbreviation": "ml"
+            },
+            "requirements": "chaud"
+        },
+        {
+            "id": 4,
+            "subrecipeId": -1,
+            "name": "extrait de vanille",
+            "quantity": {
+                "value": 2.5,
+                "abbreviation": "ml"
+            }
+        }
+    ],
+    "steps": [
+        {
+            "id": 0,
+            "subrecipeId": -2,
+            "parts": [
+                {
+                    "type": "text",
+                    "value": "Préparation: "
+                },
+                {
+                    "type": "action",
+                    "value": "chauffer"
+                },
+                {
+                    "type": "ingredient",
+                    "ingredient": {
+                        "id": 3,
+                        "subrecipeId": -1,
+                        "name": "lait",
+                        "quantity": {
+                            "value": 500,
+                            "unit": "ml"
+                        },
+                        "requirements": "chaud"
+                    }
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "text",
+                    "value": "Dans une casserole, hors du feu,"
+                },
+                {
+                    "type": "action",
+                    "value": "mélanger"
+                },
+                {
+                    "type": "enumeration",
+                    "ingredients": [
+                        {
+                            "id": 0,
+                            "subrecipeId": -1,
+                            "name": "sucre",
+                            "quantity": {
+                                "value": 150,
+                                "unit": "ml"
+                            }
+                        },
+                        {
+                            "id": 1,
+                            "subrecipeId": -1,
+                            "name": "farine tout usage non blanchie",
+                            "quantity": {
+                                "value": 75,
+                                "unit": "ml"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "action",
+                    "value": "Ajouter"
+                },
+                {
+                    "type": "ingredient",
+                    "ingredient": {
+                        "id": 2,
+                        "subrecipeId": -1,
+                        "name": "oeufs",
+                        "quantity": {
+                            "value": 2,
+                            "unit": "unit"
+                        }
+                    }
+                },
+                {
+                    "type": "action",
+                    "value": "fouetter"
+                },
+                {
+                    "type": "text",
+                    "value": "jusqu’à ce que le mélange soit lisse et homogène"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "action",
+                    "value": "Ajouter"
+                },
+                {
+                    "type": "ingredient",
+                    "ingredient": {
+                        "id": 3,
+                        "subrecipeId": -1,
+                        "name": "lait",
+                        "quantity": {
+                            "value": 500,
+                            "unit": "ml"
+                        },
+                        "requirements": "chaud"
+                    }
+                },
+                {
+                    "type": "text",
+                    "value": "chaud graduellement en fouettant"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "action",
+                    "value": "Porter à ébullition"
+                },
+                {
+                    "type": "text",
+                    "value": "à feu moyen en fouettant constamment et en prenant soin de racler le fond et les coins de la casserole"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "action",
+                    "value": "Laisser mijoter"
+                },
+                {
+                    "type": "text",
+                    "value": "de"
+                },
+                {
+                    "type": "timer",
+                    "value": "PT1M",
+                    "text": "1 à 2 minutes",
+                    "action": "Laisser mijoter"
+                },
+                {
+                    "type": "text",
+                    "value": "à feu doux"
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "action",
+                    "value": "Retirer"
+                },
+                {
+                    "type": "text",
+                    "value": "du feu et"
+                },
+                {
+                    "type": "action",
+                    "value": "ajouter"
+                },
+                {
+                    "type": "ingredient",
+                    "ingredient": {
+                        "id": 4,
+                        "subrecipeId": -1,
+                        "name": "extrait de vanille",
+                        "quantity": {
+                            "value": 2.5,
+                            "unit": "ml"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "text",
+                    "value": "Pour"
+                },
+                {
+                    "type": "action",
+                    "value": "éviter"
+                },
+                {
+                    "type": "text",
+                    "value": "la formation d’une peau à la surface de la crème pâtissière,"
+                },
+                {
+                    "type": "action",
+                    "value": "déposer"
+                },
+                {
+                    "type": "text",
+                    "value": "une pellicule de plastique directement sur la crème chaude"
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "action",
+                    "value": "Laisser tiédir"
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "subrecipeId": -1,
+            "parts": [
+                {
+                    "type": "action",
+                    "value": "Réfrigérer"
+                },
+                {
+                    "type": "text",
+                    "value": "jusqu’à refroidissement complet, soit environ"
+                },
+                {
+                    "type": "timer",
+                    "value": "PT3H",
+                    "text": "3 heures",
+                    "action": "Réfrigérer"
+                }
+            ]
+        }
+    ]
+}
