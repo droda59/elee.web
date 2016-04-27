@@ -62,8 +62,9 @@
    We should be able to improve on this once CSS Font Loading L3 becomes more
    widely available.
 */
-$preferred_font: 'Roboto', 'Helvetica', 'Arial', sans-serif !default;
-$performance_font: 'Helvetica', 'Arial', sans-serif !default;
+// $preferred_font: 'Roboto', 'Helvetica', 'Arial', sans-serif !default; // This is the default value
+$preferred_font: 'Raleway', 'Roboto', 'Helvetica', 'Arial', sans-serif !default;
+$performance_font: 'Raleway', 'Helvetica', 'Arial', sans-serif !default;
 
 /* ==========  COLORS  ========== */
 

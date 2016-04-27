@@ -6,11 +6,8 @@
 // Core elements importation
 .E133 {
     html,
-    body {
+    body, h1, h2, h3, a, input, div, p, span {
         height: 100%;
-    }
-
-    * {
         font-family: $font-raleway;
     }
 
