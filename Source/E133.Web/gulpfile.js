@@ -103,7 +103,7 @@ gulp.task("copy-externals", [
 
 gulp.task("copy-externals-materialize-css", function() {
   return gulp.src("node_modules/materialize-css/sass/components/**/*.scss")
-        .pipe(flatten())
+        //.pipe(flatten())
         .pipe(gulp.dest("app/shared/assets/css/externals/materialize-css"));
 });
 
