@@ -6,7 +6,7 @@
 // Core elements importation
 .E133 {
     html,
-    body, h1, h2, h3, a, input, div, p, span {
+    body, h1, h2, h3, button, input, ul, li {
         height: 100%;
         font-family: $font-raleway;
     }
@@ -17,10 +17,12 @@
 
     p {
         line-height: 2rem;
+        font-family: $font-raleway;
     }
 
     a {
         cursor: pointer;
+        font-family: $font-raleway;
     }
 
     .button-collapse {
