@@ -9,7 +9,7 @@
   "devDependencies": {
     "aurelia-bundler": "^0.3.0",
     "aurelia-tools": "^0.1.18",
-    "browser-sync": "^2.7.13",
+    "browser-sync": "^2.12.8",
     "del": "^1.1.0",
     "event-stream": "^3.3.2",
     "gulp": "^3.8.10",
@@ -33,7 +33,7 @@
     "karma-systemjs": "^0.13.0",
     "require-dir": "^0.1.0",
     "run-sequence": "^1.0.2",
-    "typescript": "^1.8.7",
+    "typescript": "^1.8.10",
     "vinyl-paths": "^1.0.0",
     "yargs": "^2.1.1"
   },
@@ -84,5 +84,8 @@
       "traceur": "github:jmcriffey/bower-traceur@^0.0.93",
       "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@^0.0.93"
     }
+  },
+  "dependencies": {
+    "run-sequence": "^1.2.0"
   }
 }
