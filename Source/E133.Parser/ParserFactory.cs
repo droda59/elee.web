@@ -17,6 +17,11 @@ namespace E133.Parser
         {
             var uri = new Uri(url);
 
+            return this.CreateParser(uri);
+        }
+
+        public IHtmlParser CreateParser(Uri uri)
+        {
             var domain = uri.Authority;
             if (!this._parsers.ContainsKey(domain))
             {

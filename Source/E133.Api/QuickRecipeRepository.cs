@@ -5,11 +5,12 @@ using E133.Api.Models;
 using E133.Business.Models;
 using E133.Database;
 
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace E133.Api
 {
-    internal class QuickRecipeRepository : EntityRepository<QuickRecipe>, IQuickRecipeRepository
+    public class QuickRecipeRepository : EntityRepository<QuickRecipe>, IQuickRecipeRepository
     {
         public async Task<QuickRecipe> GetAsync(string id)
         {
@@ -28,6 +29,7 @@ namespace E133.Api
         public async Task<bool> InsertAsync(QuickRecipe data)
         {
             await this.Collection.InsertOneAsync(data);
+            data.Id = ObjectId.GenerateNewId().ToString();
 
             return true;
         }

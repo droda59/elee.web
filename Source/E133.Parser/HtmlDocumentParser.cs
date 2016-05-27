@@ -71,6 +71,11 @@ namespace E133.Parser
         }
 
         public string BaseDomain { get; private set; }
+        
+        public virtual bool IsRecipePage(Uri uri) 
+        {
+            return true;
+        }
 
         public async Task<QuickRecipe> ParseHtmlAsync(Uri uri)
         {

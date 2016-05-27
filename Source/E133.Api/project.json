@@ -1,6 +1,7 @@
 {
   "version": "1.0.0-*",
   "authors": [ "E133" ],
+  "projectUrl": "http://elee.menu",
   "compilationOptions": {
     "emitEntryPoint": true
   },
@@ -22,7 +23,6 @@
     "Autofac.Framework.DependencyInjection": "4.0.0-beta8-157",
     "E133.Business": "1.0.0-*",
     "E133.Database": "1.0.0-*",
-    "E133.Crawler": "1.0.0-*",
     "E133.Parser": "1.0.0-*",
     "MongoDB.Driver": "2.2.2"
   },

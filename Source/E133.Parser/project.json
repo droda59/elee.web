@@ -3,7 +3,7 @@
   "description": "E133.Parser Class Library",
   "authors": [ "E133" ],
   "tags": [""],
-  "projectUrl": "",
+  "projectUrl": "http://elee.menu",
   "licenseUrl": "",
   "tooling": {
     "defaultNamespace": "E133.Parser"

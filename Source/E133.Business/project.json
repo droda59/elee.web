@@ -3,7 +3,7 @@
   "description": "E133.Business Class Library",
   "authors": [ "E133" ],
   "tags": [""],
-  "projectUrl": "",
+  "projectUrl": "http://elee.menu",
   "licenseUrl": "",
   "tooling": {
     "defaultNamespace": "E133.Business"
@@ -15,7 +15,10 @@
   },
 
   "frameworks": {
-    "net451": { },
+    "net451": {
+        "dependencies": {
+    }
+     },
     "dotnet5.4": {
       "dependencies": {
         "Microsoft.CSharp": "4.0.1-beta-23516",

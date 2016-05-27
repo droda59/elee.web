@@ -24,6 +24,11 @@ namespace E133.Parser
             : base(htmlLoader, actionDetectorFactory, timerDetectorFactory, ingredientDetectorFactory, measureUnitDetectorFactory, languageHelperFactory, subrecipeRepositoryFactory, "www.ricardocuisine.com")
         {
         }
+        
+        public override bool IsRecipePage(Uri uri)
+        {
+            return uri.Contains("recette") || uri.Contains("recipe");
+        }
 
         protected override string GetRecipeIetfLanguage(HtmlDocument document)
         {

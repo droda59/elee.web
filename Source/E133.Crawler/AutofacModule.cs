@@ -6,7 +6,7 @@ namespace E133.Crawler
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<SiteCrawler>().As<IHtmlCrawler>().InstancePerDependency();
+            // builder.RegisterType<SiteCrawler>().As<IHtmlCrawler>().InstancePerDependency();
         }
     }
 }

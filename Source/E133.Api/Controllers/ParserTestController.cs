@@ -8,8 +8,6 @@ using E133.Parser;
 
 using Microsoft.AspNet.Mvc;
 
-using MongoDB.Bson;
-
 namespace E133.Api.Controllers
 {
     // [Authorize(Policy = "LocalAuthorizationOnly")]
@@ -102,7 +100,6 @@ namespace E133.Api.Controllers
             }
 
             var parsedContent = await parser.ParseHtmlAsync(uri);
-            parsedContent.Id = ObjectId.GenerateNewId().ToString();
 
             return parsedContent;
         }
