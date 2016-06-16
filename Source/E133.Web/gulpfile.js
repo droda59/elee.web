@@ -22,7 +22,10 @@ var path = {
     views: "app/**/*.html",
     typescript: "app/**/*.ts",
     sass: "app/**/*.scss",
-    export: "export/"
+    export: "export/",
+    dtsSrc: [
+        'typings/**/*.d.ts'
+    ]
 };
 
 var bundleConfig = {
@@ -71,10 +74,10 @@ var bundleConfig = {
 };
 
 gulp.task("test", function (done) {
-  new karma({
-    configFile: __dirname + "/karma.conf.js",
-    singleRun: true
-  }, function() { done(); }).start();
+    new karma({
+        configFile: __dirname + "/karma.conf.js",
+        singleRun: true
+    }, function () { done(); }).start();
 });
 
 gulp.task("typedef", function () {
@@ -85,45 +88,45 @@ gulp.task("typedef", function () {
 
 gulp.task("bump-version", function () {
     return gulp.src(path.package)
-      .pipe(bump({ type: "patch" })) //major|minor|patch|prerelease, e.g. "major.minor.patch-prerelease"
-      .pipe(gulp.dest("./"));
+        .pipe(bump({ type: "patch" })) //major|minor|patch|prerelease, e.g. "major.minor.patch-prerelease"
+        .pipe(gulp.dest("./"));
 });
 
 gulp.task("clean", function () {
     return gulp.src("dist/")
-       .pipe(vinylPaths(del));
+        .pipe(vinylPaths(del));
 });
 
 gulp.task("copy-externals", [
-            "copy-externals-materialize-css",
-            "copy-externals-materialize-font",
-            "copy-externals-animate.css",
-            "copy-externals-mdl-css"
-        ]);
+    "copy-externals-materialize-css",
+    "copy-externals-materialize-font",
+    "copy-externals-animate.css",
+    "copy-externals-mdl-css"
+]);
 
-gulp.task("copy-externals-materialize-css", function() {
-  return gulp.src("node_modules/materialize-css/sass/components/**/*.scss")
+gulp.task("copy-externals-materialize-css", function () {
+    return gulp.src("node_modules/materialize-css/sass/components/**/*.scss")
         //.pipe(flatten())
         .pipe(gulp.dest("app/shared/assets/css/externals/materialize-css"));
 });
 
-gulp.task("copy-externals-mdl-css", function() {
-  return gulp.src(["jspm_packages/github/google/material-design-lite@**/src/**/*.scss",
-                    "!/**/material-design-lite.scss",
-                    "!/**/material-design-lite-grid.scss",
-                    "!/**/styleguide.scss",
-                    "!/**/template.scss"], { base: './jspm_packages/github/google/material-design-lite@1.1.3/src' })
+gulp.task("copy-externals-mdl-css", function () {
+    return gulp.src(["jspm_packages/github/google/material-design-lite@**/src/**/*.scss",
+        "!/**/material-design-lite.scss",
+        "!/**/material-design-lite-grid.scss",
+        "!/**/styleguide.scss",
+        "!/**/template.scss"], { base: './jspm_packages/github/google/material-design-lite@1.1.3/src' })
         .pipe(gulp.dest("app/shared/assets/css/externals/material-design-lite-css"));
 });
 
-gulp.task("copy-externals-materialize-font", function() {
-  return gulp.src("jspm_packages/npm/materialize-css@**/font/**/*")
+gulp.task("copy-externals-materialize-font", function () {
+    return gulp.src("jspm_packages/npm/materialize-css@**/font/**/*")
         .pipe(flatten())
         .pipe(gulp.dest("app/shared/assets/fonts"));
 });
 
-gulp.task("copy-externals-animate.css", function() {
-  return gulp.src("jspm_packages/npm/animate.css@**/*.css")
+gulp.task("copy-externals-animate.css", function () {
+    return gulp.src("jspm_packages/npm/animate.css@**/*.css")
         .pipe(flatten())
         .pipe(gulp.dest("app/shared/assets/css/externals/animate.css"));
 });
@@ -138,7 +141,7 @@ gulp.task("build", function (callback) {
 });
 
 gulp.task("build-ts", function () {
-    return gulp.src(path.typescript)
+    return gulp.src(path.dtsSrc.concat(path.typescript))
         .pipe(changed(path.typescript, { extension: ".ts" }))
         .pipe(ts({
             module: "amd",
@@ -160,12 +163,12 @@ gulp.task("build-html", function () {
         .pipe(browserSync.reload({ stream: true }));
 });
 
-gulp.task("build-sass", function() {
+gulp.task("build-sass", function () {
     var appSass = gulp.src([
-            "app/shared/assets/css/main.scss",
-            "app/welcome/assets/css/main.scss",
-            "app/quick-recipe/assets/css/main.scss"
-        ])
+        "app/shared/assets/css/main.scss",
+        "app/welcome/assets/css/main.scss",
+        "app/quick-recipe/assets/css/main.scss"
+    ])
         .pipe(changed(path.sass, { extension: ".scss" }))
         .pipe(sass())
 
@@ -177,7 +180,7 @@ gulp.task("build-sass", function() {
         .pipe(browserSync.reload({ stream: true }));
 });
 
-gulp.task("copy-files", function() {
+gulp.task("copy-files", function () {
     return gulp.src("app/**/*.{json,png,jpg,svg,woff,woff2,ttf}")
         .pipe(gulp.dest(path.dest));
 });
@@ -222,40 +225,40 @@ gulp.task("watch-sass", ["serve"], function () {
 
 gulp.task("watch", ["watch-ts", "watch-html", "watch-sass"]);
 
-gulp.task("clean-export", function() {
-  return gulp.src([path.export])
-    .pipe(vinylPaths(del));
+gulp.task("clean-export", function () {
+    return gulp.src([path.export])
+        .pipe(vinylPaths(del));
 });
 
-gulp.task("bundle", ["unbundle"], function() {
+gulp.task("bundle", ["unbundle"], function () {
     return bundler.bundle(bundleConfig);
 });
 
-gulp.task("unbundle", function() {
+gulp.task("unbundle", function () {
     return bundler.unbundle(bundleConfig);
 });
 
-gulp.task("minify-css", function() {
+gulp.task("minify-css", function () {
     return gulp.src("dist/app/style.css")
         .pipe(minifyCss());
 });
 
-gulp.task("images", function() {
+gulp.task("images", function () {
     return gulp.src("dist/app/**/assets/images/*")
         .pipe(imagemin())
         .pipe(gulp.dest(path.dest));
 });
 
 function getBundles() {
-  var bl = [];
-  for (b in bundleConfig.bundles) {
-    bl.push(b + ".js");
-  }
-  return bl;
+    var bl = [];
+    for (b in bundleConfig.bundles) {
+        bl.push(b + ".js");
+    }
+    return bl;
 }
 
-gulp.task("export-copy", function() {
-  return gulp.src([
+gulp.task("export-copy", function () {
+    return gulp.src([
         "index.html",
         "web.config",
         "config.js",
@@ -275,16 +278,16 @@ gulp.task("export-copy", function() {
         "jspm_packages/npm/moment@**/locale/fr.js",
         "jspm_packages/npm/aurelia-dialog@0.5.6/*.css",
         "jspm_packages/github/google/material-design-lite@**/**.js"
-      ].concat(getBundles()), { base: "." })
-    .pipe(gulp.dest(path.export))
+    ].concat(getBundles()), { base: "." })
+        .pipe(gulp.dest(path.export))
 });
 
-gulp.task("export", function(callback) {
-  return runSequence(
-    ["clean", "clean-export"],
-    "build",
-    ["bundle", "minify-css", "images"],
-    "export-copy",
-    callback
-  );
+gulp.task("export", function (callback) {
+    return runSequence(
+        ["clean", "clean-export"],
+        "build",
+        ["bundle", "minify-css", "images"],
+        "export-copy",
+        callback
+    );
 });
