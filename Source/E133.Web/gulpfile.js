@@ -141,7 +141,7 @@ gulp.task("build", function (callback) {
 });
 
 gulp.task("build-ts", function () {
-    return gulp.src(path.dtsSrc.concat(path.typescript))
+    return gulp.src(path.typescript)
         .pipe(changed(path.typescript, { extension: ".ts" }))
         .pipe(ts({
             module: "amd",
