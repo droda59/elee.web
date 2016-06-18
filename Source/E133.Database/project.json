@@ -2,19 +2,27 @@
   "version": "1.0.0-*",
   "description": "E133.Database Class Library",
   "authors": [ "E133" ],
-  "tags": [""],
-  "projectUrl": "http://elee.menu",
-  "licenseUrl": "",
   "tooling": {
     "defaultNamespace": "E133.Database"
   },
   
   "dependencies": {
-    "E133.Business": "1.0.0-*",
-    "MongoDB.Driver": "2.2.2"
+    "Microsoft.NETCore.App": {
+      "version": "1.0.0-rc2-3002702",
+      "type": "platform"
+    }
   },
-
+  
   "frameworks": {
-    "dnx451": { }
+    "netcoreapp1.0": {
+      "imports": [
+        "dotnet5.6",
+        "dnxcore50"
+      ],
+      "dependencies": {
+        "E133.Business": "1.0.0-*",
+        "MongoDB.Driver": "2.2.4"
+      }
+    }
   }
 }

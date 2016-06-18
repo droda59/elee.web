@@ -6,7 +6,7 @@ using E133.Api.Models;
 using E133.Business.Models;
 using E133.Parser;
 
-using Microsoft.AspNet.Mvc;
+using Microsoft.AspNetCore.Mvc;
 
 namespace E133.Api.Controllers
 {

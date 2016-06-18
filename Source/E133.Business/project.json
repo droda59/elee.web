@@ -2,31 +2,32 @@
   "version": "1.0.0-*",
   "description": "E133.Business Class Library",
   "authors": [ "E133" ],
-  "tags": [""],
-  "projectUrl": "http://elee.menu",
-  "licenseUrl": "",
   "tooling": {
     "defaultNamespace": "E133.Business"
   },
   
   "dependencies": {
-    "System.Net.Http": "4.0.1-beta-23516",
-    "Autofac": "4.0.0-rc1-177"
-  },
-
-  "frameworks": {
-    "net451": {
-        "dependencies": {
+    "Microsoft.NETCore.App": {
+      "version": "1.0.0-rc2-3002702",
+      "type": "platform"
     }
-     },
-    "dotnet5.4": {
+  },
+  
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": [
+        "dotnet5.6",
+        "dnxcore50"
+      ],
       "dependencies": {
-        "Microsoft.CSharp": "4.0.1-beta-23516",
-        "System.Collections": "4.0.11-beta-23516",
-        "System.Linq": "4.0.1-beta-23516",
-        "System.Runtime": "4.0.21-beta-23516",
-        "System.Threading": "4.0.11-beta-23516",
-        "Newtonsoft.Json": "8.0.2"
+        "Microsoft.CSharp": "4.0.1-rc2-3002702",
+        "System.Collections": "4.0.11-rc2-3002702",
+        "System.Linq": "4.0.1-rc2-3002702",
+        "System.Runtime": "4.0.21-rc2-3002702",
+        "System.Threading": "4.0.11-rc2-3002702",
+        "Autofac": "4.0.0-rc2-240",
+        "Newtonsoft.Json": "9.0.1-beta1",
+        "System.Net.Http": "4.0.1-rc2-3002702"
       }
     }
   }
