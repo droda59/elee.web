@@ -1,7 +1,5 @@
 import {inject, customAttribute} from "aurelia-framework";
 import {TaskQueue} from "aurelia-task-queue";
-// import * as $ from "jquery";
-// import * as Materialize from "materialize";
 
 function createEvent(name) {
   var event = document.createEvent("Event");

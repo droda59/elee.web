@@ -8,16 +8,16 @@ import {QuantityConverter} from "app/shared/quantity-converter";
 import {Millilitre} from "app/shared/models/measure-units/millilitre";
 import {Gram} from "app/shared/models/measure-units/gram";
 
-@inject (DialogController, QuantityConverter, I18N)
+@inject(DialogController, QuantityConverter, I18N)
 export class SettingsModal {
+	private _i18n: I18N;
+
 	settings: Settings;
 	controller: DialogController;
 	quantityConverter: QuantityConverter;
 
 	volumeDisplays: {}[] = [];
 	weightDisplays: {}[] = [];
-
-	private _i18n: I18N;
 
 	constructor(controller: DialogController, quantityConverter: QuantityConverter, i18n: I18N) {
 		this.controller = controller;
@@ -57,27 +57,27 @@ export class SettingsModal {
 
 		this.volumeDisplays.push({
 			name: "metricShort",
-			examples: [ ingredient1, ingredient2, ingredient3, ingredient4 ]
+			examples: [ingredient1, ingredient2, ingredient3, ingredient4]
 		});
 
 		this.volumeDisplays.push({
 			name: "metricComplete",
-			examples: [ ingredient1, ingredient2, ingredient3, ingredient4 ]
+			examples: [ingredient1, ingredient2, ingredient3, ingredient4]
 		});
 
 		this.volumeDisplays.push({
 			name: "imperialShort",
-			examples: [ ingredient1, ingredient2, ingredient3, ingredient4 ]
+			examples: [ingredient1, ingredient2, ingredient3, ingredient4]
 		});
 
 		this.volumeDisplays.push({
 			name: "imperialComplete",
-			examples: [ ingredient1, ingredient2, ingredient3, ingredient4 ]
+			examples: [ingredient1, ingredient2, ingredient3, ingredient4]
 		});
 
 		this.volumeDisplays.push({
 			name: "both",
-			examples: [ ingredient1, ingredient2, ingredient3, ingredient4 ]
+			examples: [ingredient1, ingredient2, ingredient3, ingredient4]
 		});
 
 		var ingredient5 = new Ingredient();
@@ -94,27 +94,27 @@ export class SettingsModal {
 
 		this.weightDisplays.push({
 			name: "metricShort",
-			examples: [ ingredient5, ingredient6 ]
+			examples: [ingredient5, ingredient6]
 		});
 
 		this.weightDisplays.push({
 			name: "metricComplete",
-			examples: [ ingredient5, ingredient6 ]
+			examples: [ingredient5, ingredient6]
 		});
 
 		this.weightDisplays.push({
 			name: "imperialShort",
-			examples: [ ingredient5, ingredient6 ]
+			examples: [ingredient5, ingredient6]
 		});
 
 		this.weightDisplays.push({
 			name: "imperialComplete",
-			examples: [ ingredient5, ingredient6 ]
+			examples: [ingredient5, ingredient6]
 		});
 
 		this.weightDisplays.push({
 			name: "both",
-			examples: [ ingredient5, ingredient6 ]
+			examples: [ingredient5, ingredient6]
 		});
 	}
 }
