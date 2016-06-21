@@ -7,7 +7,6 @@ var flatten = require("gulp-flatten");
 var bump = require("gulp-bump");
 var browserSync = require("browser-sync").create();
 var changed = require("gulp-changed");
-var ts = require("gulp-tsc");
 var sass = require("gulp-sass");
 var bundler = require("aurelia-bundler");
 var imagemin = require("gulp-imagemin");
@@ -15,6 +14,9 @@ var minifyCss = require("gulp-minify-css");
 var concat = require("gulp-concat");
 var es = require("event-stream");
 var karma = require("karma").Server;
+var sourcemaps = require("gulp-sourcemaps");
+var plumber = require("gulp-plumber");
+var typescript = require("gulp-typescript");
 
 var path = {
     package: "./package.json",
@@ -140,18 +142,20 @@ gulp.task("build", function (callback) {
     );
 });
 
-gulp.task("build-ts", function () {
+var typescriptCompiler = typescriptCompiler || null;
+gulp.task('build-ts', function() {
+    if(!typescriptCompiler) {
+        typescriptCompiler = typescript.createProject('tsconfig.json', {
+            "typescript": require('typescript')
+        });
+    }
+
     return gulp.src(path.typescript)
+        .pipe(plumber())
         .pipe(changed(path.typescript, { extension: ".ts" }))
-        .pipe(ts({
-            module: "amd",
-            sourceMap: true,
-            emitError: false,
-            target: "ES5",
-            emitDecoratorMetadata: true,
-            experimentalDecorators: true,
-            allowSyntheticDefaultImports: true
-        }))
+        .pipe(sourcemaps.init({loadMaps: true}))
+        .pipe(typescript(typescriptCompiler))
+        .pipe(sourcemaps.write('.', {includeContent: false, sourceRoot: "/app"}))
         .pipe(gulp.dest(path.dest))
         .pipe(browserSync.reload({ stream: true }));
 });
