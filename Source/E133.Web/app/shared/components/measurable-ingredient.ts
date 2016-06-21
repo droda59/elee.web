@@ -42,14 +42,14 @@ export class MeasurableIngredient {
 	}
 
 	bind() {
+		this._quantity = this.ingredient.quantity;
+
 		this.ingredientName = this.ingredient.name.toLowerCase();
-		this.nextWord = " " + (this.ingredient.quantity.unit !== undefined
+		this.nextWord = " " + (this._quantity.unit.type !== undefined
 			? TextUtils.isVowel(this.ingredientName[0])
 				? this._i18n.tr("quantities.nextWordVowel")
 				: this._i18n.tr("quantities.nextWordConsonant") + " "
 			: "");
-
-		this._quantity = this.ingredient.quantity;
 
         this._isVolumeUnit = this._quantity.unit.type === "volume";
         this._isWeightUnit = this._quantity.unit.type === "weight";
