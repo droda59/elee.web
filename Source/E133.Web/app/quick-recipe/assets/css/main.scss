@@ -99,14 +99,17 @@
                             text-align: center;
                             cursor: default;
                             &:hover {
+                                background: rgba(0, 0, 0, 0.1);
+                            }
+                            & a:hover {
                                 background: none;
                             }
                             &.active {
                                 color: rgba(0, 0, 0, 1);
                                 transition: color 0.3s ease-in-out;
+                                background: rgba(0, 0, 0, 0.2);
 
                                 &:hover {
-                                    background: rgba(0, 0, 0, 0.1);
                                 }
                             }
 
@@ -129,6 +132,7 @@
                 nav ul a {
                     color: inherit;
                     padding: inherit;
+                    width: 100%;
                 }
 
                 #presentation-section {
