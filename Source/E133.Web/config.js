@@ -37,7 +37,6 @@ System.config({
     "aurelia-templating-binding": "npm:aurelia-templating-binding@1.0.0-beta.2.0.2",
     "aurelia-templating-resources": "npm:aurelia-templating-resources@1.0.0-beta.3.0.4",
     "aurelia-templating-router": "npm:aurelia-templating-router@1.0.0-beta.2.0.2",
-    "aurelia-validation": "npm:aurelia-validation@0.6.8",
     "babel": "npm:babel-core@5.8.38",
     "babel-runtime": "npm:babel-runtime@5.8.38",
     "clean-css": "npm:clean-css@3.4.18",
@@ -252,14 +251,6 @@ System.config({
       "aurelia-pal": "npm:aurelia-pal@1.0.0-beta.2.0.0",
       "aurelia-path": "npm:aurelia-path@1.0.0-beta.2.0.1",
       "aurelia-task-queue": "npm:aurelia-task-queue@1.0.0-beta.2.0.1"
-    },
-    "npm:aurelia-validation@0.6.8": {
-      "aurelia-binding": "npm:aurelia-binding@1.0.0-beta.2.0.7",
-      "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.0.0-beta.2.1.1",
-      "aurelia-loader": "npm:aurelia-loader@1.0.0-beta.2.0.1",
-      "aurelia-logging": "npm:aurelia-logging@1.0.0-beta.2.0.1",
-      "aurelia-metadata": "npm:aurelia-metadata@1.0.0-beta.2.0.1",
-      "aurelia-templating": "npm:aurelia-templating@1.0.0-beta.3.0.3"
     },
     "npm:babel-runtime@5.8.38": {
       "process": "github:jspm/nodelibs-process@0.1.2"

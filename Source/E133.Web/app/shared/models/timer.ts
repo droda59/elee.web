@@ -1,12 +1,10 @@
 import {computedFrom} from "aurelia-framework";
-import {ensure, ValidationGroup} from "aurelia-validation";
-import {TimeValidationRule} from "app/shared/validation-rules/time-validation-rule";
+// import {TimeValidationRule} from "app/shared/validation-rules/time-validation-rule";
 
 export class Timer {
     private _originalSeconds: number;
     private _remainingSeconds: number;
 
-    @ensure(function(it) { it.isNotEmpty().passesRule(new TimeValidationRule()) })
     duration: string;
 
     text: string;
@@ -15,7 +13,6 @@ export class Timer {
     isEditingDescription: boolean = false;
     state: string = "original";
     timer: number;
-    validation: ValidationGroup;
     onFinish;
 
     constructor(duration?: string, action?: string, text?: string) {
