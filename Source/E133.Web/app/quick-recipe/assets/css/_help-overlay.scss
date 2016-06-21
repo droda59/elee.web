@@ -1,23 +1,31 @@
 @import "../../../shared/assets/css/variables";
 
 #help-overlay {
-    .slider .slides img {
-        &.x-right {
-            background-position-x: right;
-        }
-        &.x-left {
-            background-position-x: left;
-        }
-        &.y-bottom {
-            background-position-y: bottom;
-        }
-        &.y-top {
-            background-position-y: top;
-        }
+    ai-dialog-body {
+        max-height: none;
     }
-    .slider .slides li .caption.bottom {
-        top: initial;
-        bottom: 15%;
+
+    .slider {
+        width: 850px;
+
+        .slides img {
+            &.x-right {
+                background-position-x: right;
+            }
+            &.x-left {
+                background-position-x: left;
+            }
+            &.y-bottom {
+                background-position-y: bottom;
+            }
+            &.y-top {
+                background-position-y: top;
+            }
+        }
+        .slides li .caption.bottom {
+            top: initial;
+            bottom: 15%;
+        }
     }
 
     @media #{$small-and-down} {

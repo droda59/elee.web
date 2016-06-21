@@ -1,40 +1,30 @@
-ai-dialog-container {
-	transition: none;
-
-	.modal {
-		display: block;
-		border: none;
-
-		.modal-header {
-			h3 {
-				margin: 0;
-			}
-		}
-		.modal-header + .modal-content {
-			height: calc(100% - 138px);
-			padding: 0 24px;
-		}
-
-		&.au-enter {
-			opacity: 0!important;
-			top: 0!important;
-		}
-		&.au-enter-active {
-			animation: slideIn 0.35s ease-in-out;
-		}
-		&.au-leave-active {
-			animation: slideOut 0.25s ease-in-out;
-		}
-	}
-}
-ai-dialog-container.active {
-	top: 0;
-}
 ai-dialog-overlay.active {
 	background: rgba(0, 0, 0, 0.5);
 }
 ai-dialog {
-	pointer-events: all;
+	// max-width: 600px;
+
+	&.au-enter {
+		opacity: 0!important;
+		top: 0!important;
+	}
+	&.au-enter-active {
+		animation: slideIn 0.35s ease-in-out;
+	}
+	&.au-leave-active {
+		animation: slideOut 0.25s ease-in-out;
+	}
+}
+ai-dialog-header {
+	h3 {
+		margin: 0;
+	}
+}
+ai-dialog-body {
+	max-height: 400px;
+    overflow-y: auto;
+}
+ai-dialog-footer {
 }
 
 @keyframes slideIn {

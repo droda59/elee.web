@@ -1,6 +1,6 @@
 <template>
-	<ai-dialog id="help-overlay" class="modal modal-fixed-footer au-animate">
-		<ai-dialog-body class="modal-content">
+	<ai-dialog id="help-overlay" class="au-animate">
+		<ai-dialog-body>
             <div class="slider" materialize="slider">
                 <ul class="slides">
                     <li class="overlay-item-back-to-current">
@@ -35,10 +35,10 @@
             </div>
 		</ai-dialog-body>
 
-		<ai-dialog-footer class="modal-footer">
-            <button click.trigger="controller.ok()" class="modal-action modal-close waves-effect btn-flat" i18n="help.okButton">Ok</button>
-            <button click.trigger="next()" class="waves-effect btn-flat"><i class="material-icons">keyboard_arrow_right</i></button>
+		<ai-dialog-footer>
 			<button click.trigger="previous()" class="waves-effect btn-flat"><i class="material-icons">keyboard_arrow_left</i></button>
+			<button click.trigger="next()" class="waves-effect btn-flat"><i class="material-icons">keyboard_arrow_right</i></button>
+            <button click.trigger="controller.ok()" class="modal-action modal-close waves-effect btn-flat" i18n="help.okButton">Ok</button>
 		</ai-dialog-footer>
 	</ai-dialog>
 </template>
