@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 using E133.Business;
+using E133.Business.Bases;
 using E133.Business.Models;
 using E133.Parser.LanguageUtilities;
 
@@ -14,7 +15,8 @@ using HtmlAgilityPack;
 
 namespace E133.Parser
 {
-    internal abstract class HtmlDocumentParser : IHtmlParser
+    internal abstract class HtmlDocumentParser<TBase> : IHtmlParser<TBase>
+        where TBase : IBase, new()
     {
         protected const int RequirementsSubrecipeId = -2;
         protected const int PreparationSubrecipeId = -1;
@@ -49,8 +51,7 @@ namespace E133.Parser
             Func<CultureInfo, IIngredientDetector> ingredientDetectorFactory,
             Func<CultureInfo, IMeasureUnitDetector> measureUnitDetectorFactory,
             Func<CultureInfo, ILanguageHelper> languageHelperFactory,
-            Func<CultureInfo, ISubrecipeRepository> subrecipeRepositoryFactory, 
-            string baseDomain)
+            Func<CultureInfo, ISubrecipeRepository> subrecipeRepositoryFactory)
         {
             this._htmlLoader = htmlLoader;
             this._actionDetectorFactory = actionDetectorFactory;
@@ -60,8 +61,6 @@ namespace E133.Parser
             this._languageHelperFactory = languageHelperFactory;
             this._subrecipeRepositoryFactory = subrecipeRepositoryFactory;
             
-            this.BaseDomain = new Uri(baseDomain);
-
             // TODO Localize and put somewhere else
             this._wordExpression = new Regex(@"[\w()°]+['’]*|[,]|[\)]\b", RegexOptions.Compiled);
             this._quantityExpression = new Regex(@"[\xbc-\xbe\w]+[\xbc-\xbe\w'’,./]*", RegexOptions.Compiled);
@@ -70,8 +69,6 @@ namespace E133.Parser
             this._ingredientUnitExpression = new Regex(@"(?<=[a-zA-Z0-9\u00C0-\u017F\s()'’\-\/%])([a-zA-Z0-9\u00C0-\u017F\s()'’\-\/%]+)(, [,\w\s]+)*", RegexOptions.Compiled);
         }
 
-        public Uri BaseDomain { get; private set; }
-        
         public virtual bool IsRecipePage(Uri uri) 
         {
             return true;

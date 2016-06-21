@@ -4,18 +4,33 @@ using System.Linq;
 using System.Threading.Tasks;
 
 using E133.Business;
+using E133.Business.Bases;
 
 using HtmlAgilityPack;
 
 namespace E133.Crawler
 {
-    internal class SiteCrawler : IHtmlCrawler
+    internal abstract class SiteCrawler<TBase> : IHtmlCrawler<TBase>
+        where TBase : IBase, new()
     {
         private readonly IHtmlLoader _htmlLoader;
+        private readonly IBase _base;
         
-        public SiteCrawler(IHtmlLoader htmlLoader)
+        protected SiteCrawler(IHtmlLoader htmlLoader)
         {
             this._htmlLoader = htmlLoader;
+            this._base = new TBase();
+        }
+
+        protected virtual IEnumerable<Func<string, bool>> Exclusions 
+        {
+            get
+            {
+                return new List<Func<string, bool>> {
+                    (link) => link != "/",
+                    (link) => !link.Contains("#")
+                };
+            }
         }
 
         // Faire un IDictionary<Uri, bool> _links
@@ -35,14 +50,14 @@ namespace E133.Crawler
         // Parse la recette
         // Ajoute la recette dans la BD
 
-        public async Task<IEnumerable<Uri>> GetAllSiteLinks(Uri uri)
+        public async Task<IEnumerable<Uri>> GetAllSiteLinks()
         {
             var discoveredLinks = new HashSet<Uri>();
             var unprocessedLinks = new HashSet<Uri>();
-            Uri link = uri;
+            Uri link = this._base.Domain;
 
-            discoveredLinks.Add(uri);
-            unprocessedLinks.Add(uri);
+            discoveredLinks.Add(link);
+            unprocessedLinks.Add(link);
             do
             {
                 await this.GetPageLinks(link, discoveredLinks, unprocessedLinks);
@@ -68,33 +83,27 @@ namespace E133.Crawler
                     
                 foreach (var linkNode in linkNodes)
                 {
-                    if (linkNode != "/" 
-                    && !linkNode.Contains("#") 
-                    && !linkNode.Contains(".pdf")
-                    && !linkNode.Contains("facebook")
-                    && !linkNode.Contains("javascript"))
+                    if (this.Exclusions.All(exclusion => exclusion(linkNode)))
                     {
                         Uri result = null;
+                        var mayAdd = false;
                         if (Uri.TryCreate(linkNode, UriKind.Absolute, out result))
                         {
                             if (pageUri.Authority.Contains(result.Authority))
                             {
-                                if (!discoveredLinks.Contains(result))
-                                {
-                                    discoveredLinks.Add(result);
-                                    unprocessedLinks.Add(result);
-                                    continue;
-                                }
+                                mayAdd = true;
                             }
                         }
                         else if (Uri.TryCreate(pageUri, linkNode, out result))
                         {
-                            if (!discoveredLinks.Contains(result))
-                            {
-                                discoveredLinks.Add(result);
-                                unprocessedLinks.Add(result);
-                                continue;
-                            }
+                            mayAdd = true;
+                        }
+
+                        if (mayAdd && !discoveredLinks.Contains(result))
+                        {
+                            discoveredLinks.Add(result);
+                            unprocessedLinks.Add(result);
+                            continue;
                         }
                     }
                 }

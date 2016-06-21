@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Autofac;
 
 using E133.Business;
+using E133.Business.Bases;
 using E133.Parser;
 
 namespace E133.Crawler
@@ -24,37 +25,36 @@ namespace E133.Crawler
             builder.RegisterModule(new E133.Parser.AutofacModule());
             var container = builder.Build();
             
-            var repo = container.Resolve<IQuickRecipeRepository>();
-            var crawler = container.Resolve<IHtmlCrawler>();
+            // var repo = container.Resolve<IQuickRecipeRepository>();
+            var knownCrawlers = container.Resolve<IEnumerable<IHtmlCrawler<RicardoBase>>>();
 
-            var knownParsers = container.Resolve<IEnumerable<IHtmlParser>>();
-            foreach (var parser in knownParsers)
+            foreach (var crawler in knownCrawlers)
             {
                 // TODO Start these assholes asynchronously
-                var allSiteLinks = await crawler.GetAllSiteLinks(parser.BaseDomain);
+                var allSiteLinks = await crawler.GetAllSiteLinks();
 
-                foreach (var link in allSiteLinks) 
-                {
-                    var isRecipe = parser.IsRecipePage(link);
-                    if (isRecipe)
-                    {
-                        var recipe = await parser.ParseHtmlAsync(link);
-                        if (recipe != null)
-                        {
-                            Console.WriteLine("Parsing of " + link + " was successful. Adding to repo.");
+                // foreach (var link in allSiteLinks) 
+                // {
+                //     var isRecipe = parser.IsRecipePage(link);
+                //     if (isRecipe)
+                //     {
+                //         var recipe = await parser.ParseHtmlAsync(link);
+                //         if (recipe != null)
+                //         {
+                //             Console.WriteLine("Parsing of " + link + " was successful. Adding to repo.");
 
-                            var success = await repo.InsertAsync(recipe);
-                            if (success)
-                            {
-                                Console.WriteLine("Recipe " + link + " was successfully added to repo. Removing link.");
-                            }
-                        }
-                        else
-                        {
-                            Console.WriteLine("Parsing of " + link + " was UNsuccessful.");
-                        }
-                    }
-                }
+                //             var success = await repo.InsertAsync(recipe);
+                //             if (success)
+                //             {
+                //                 Console.WriteLine("Recipe " + link + " was successfully added to repo. Removing link.");
+                //             }
+                //         }
+                //         else
+                //         {
+                //             Console.WriteLine("Parsing of " + link + " was UNsuccessful.");
+                //         }
+                //     }
+                // }
             }
 
             Console.ReadLine();
