@@ -219,6 +219,9 @@
                                     height: 1.5rem;
                                     display: none;
                                 }
+                                [type="checkbox"]:not(.filled-in) + label:after {
+                                    transform: none;
+                                }
                                 .emphasis {
                                     font-size: 1.5em;
                                 }
