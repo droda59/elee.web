@@ -150,7 +150,7 @@ gulp.task('build-ts', function() {
         });
     }
 
-    return gulp.src(path.typescript)
+    return gulp.src(path.dtsSrc.concat(path.typescript))
         .pipe(plumber())
         .pipe(changed(path.typescript, { extension: ".ts" }))
         .pipe(sourcemaps.init({loadMaps: true}))
