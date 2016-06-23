@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 
+using E133.Business.Bases;
 using E133.Parser.LanguageUtilities;
 
 using Autofac;
@@ -28,7 +29,7 @@ namespace E133.Parser
             RegisterDetector<ISubrecipeRepository>(builder);
 
             builder.RegisterType<RicardoParser>()
-                .As<IHtmlParser>()
+                .As<IHtmlParser<RicardoBase>>()
                 .SingleInstance();
         }
 

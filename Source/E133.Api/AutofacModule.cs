@@ -6,9 +6,6 @@ namespace E133.Api
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<QuickRecipeRepository>()
-                .As<IQuickRecipeRepository>()
-                .SingleInstance();
         }
     }
 }

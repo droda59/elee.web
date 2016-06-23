@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 
 using E133.Business;
+using E133.Business.Bases;
 using E133.Business.Models;
 using E133.Parser.LanguageUtilities;
 
@@ -11,7 +12,7 @@ using HtmlAgilityPack;
 
 namespace E133.Parser
 {
-    internal class RicardoParser : HtmlDocumentParser
+    internal class RicardoParser : HtmlDocumentParser<RicardoBase>
     {
         public RicardoParser(
             IHtmlLoader htmlLoader,
@@ -21,13 +22,13 @@ namespace E133.Parser
             Func<CultureInfo, IMeasureUnitDetector> measureUnitDetectorFactory,
             Func<CultureInfo, ILanguageHelper> languageHelperFactory,
             Func<CultureInfo, ISubrecipeRepository> subrecipeRepositoryFactory) 
-            : base(htmlLoader, actionDetectorFactory, timerDetectorFactory, ingredientDetectorFactory, measureUnitDetectorFactory, languageHelperFactory, subrecipeRepositoryFactory, "www.ricardocuisine.com")
+            : base(htmlLoader, actionDetectorFactory, timerDetectorFactory, ingredientDetectorFactory, measureUnitDetectorFactory, languageHelperFactory, subrecipeRepositoryFactory)
         {
         }
         
         public override bool IsRecipePage(Uri uri)
         {
-            return uri.Contains("recette") || uri.Contains("recipe");
+            return uri.ToString().Contains("recette") || uri.ToString().Contains("recipe");
         }
 
         protected override string GetRecipeIetfLanguage(HtmlDocument document)
@@ -44,21 +45,20 @@ namespace E133.Parser
 
         protected override string GetImageUrl(HtmlDocument document)
         {
-            return string.Format("http://{0}/{1}", this.BaseDomain,  
-                document.DocumentNode
-                    .SelectSingleNode(".//div[@class='itemDetail']")
-                    .SelectSingleNode(".//div[@class='pict']")
-                    .SelectSingleNode(".//img")
-                    .Attributes["src"].Value.Trim());
+            return document.DocumentNode
+                .SelectSingleNode(".//div[@class='itemDetail']")
+                .SelectSingleNode(".//div[@class='pict']")
+                .SelectSingleNode(".//img")
+                .Attributes["src"].Value.Trim();
         }
 
         protected override string GetNote(HtmlDocument document)
         {
             var tipsNodes = document.DocumentNode
-                    .SelectSingleNode(".//section[@class='tips']")
-                    .SelectNodes(".//p")
-                    .Select(x => x.InnerText)
-                    .ToList();
+                .SelectSingleNode(".//section[@class='tips']")
+                .SelectNodes(".//p")
+                .Select(x => x.InnerText)
+                .ToList();
                     
             return string.Join(string.Empty, tipsNodes);
         }
@@ -66,10 +66,10 @@ namespace E133.Parser
         protected override string GetRecipeYield(HtmlDocument document)
         {
             var yieldNode = document.DocumentNode
-                   .SelectSingleNode(".//div[@class='itemDetail']")
-                   .SelectSingleNode(".//div[@class='desc']")
-                   .SelectSingleNode(".//dl")
-                   .SelectSingleNode(".//dd[@itemprop='recipeYield']");
+                .SelectSingleNode(".//div[@class='itemDetail']")
+                .SelectSingleNode(".//div[@class='desc']")
+                .SelectSingleNode(".//dl")
+                .SelectSingleNode(".//dd[@itemprop='recipeYield']");
 
             if (yieldNode != null)
             {

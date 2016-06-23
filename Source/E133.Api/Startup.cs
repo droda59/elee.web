@@ -1,14 +1,12 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
-
-using E133.Api.Infrastructure;
 
 namespace E133.Api
 {
@@ -16,18 +14,18 @@ namespace E133.Api
     {
         public Startup(IHostingEnvironment env)
         {
-            // Set up configuration sources.
             var builder = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json")
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
-                
             Configuration = builder.Build();
         }
 
-        public IConfigurationRoot Configuration { get; set; }
+        public IConfigurationRoot Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public IServiceProvider ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
             services
@@ -41,16 +39,14 @@ namespace E133.Api
                     settings.NullValueHandling = NullValueHandling.Ignore;
                     settings.Formatting = Formatting.Indented;
                 });
-                
-                services.AddAuthorization(options => 
-                {
-                    options.AddPolicy("LocalAuthorizationOnly", policy => policy.Requirements.Add(new LocalAuthorizationOnlyRequirement()));
-                });
+
+            services.AddAuthorization(options => 
+            {
+                options.AddPolicy("LocalAuthorizationOnly", policy => policy.Requirements.Add(new LocalAuthorizationOnlyRequirement()));
+            });
             
-            var serviceProvider = IocConfig.RegisterComponents(services);
-            E133.Database.MongoDBConfig.RegisterClassMaps();
-            
-            return serviceProvider;
+            IocConfig.RegisterComponents(services);
+            // E133.Database.MongoDBConfig.RegisterClassMaps();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,14 +55,7 @@ namespace E133.Api
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            app.UseIISPlatformHandler();
-
-            app.UseStaticFiles();
-
             app.UseMvc();
         }
-
-        // Entry point for the application.
-        public static void Main(string[] args) => Microsoft.AspNetCore.Hosting.WebApplication.Run<Startup>(args);
     }
 }

@@ -8,10 +8,15 @@ namespace E133.Business
     {
         public async Task<string> ReadHtmlAsync(Uri uri)
         {
-            var client = new HttpClient();
-
-            var data = await client.GetAsync(uri.AbsoluteUri);
-            var content = await data.Content.ReadAsStringAsync();
+            string content = null;
+            using (var client = new HttpClient())
+            {
+                var data = await client.GetAsync(uri.AbsoluteUri);
+                if (data.IsSuccessStatusCode)
+                {
+                    content = await data.Content.ReadAsStringAsync();
+                }
+            }
             
             return content;
         }

@@ -14,7 +14,6 @@ namespace E133.Api
             
             builder.RegisterModule(new E133.Api.AutofacModule());
             builder.RegisterModule(new E133.Business.AutofacModule());
-            builder.RegisterModule(new E133.Crawler.AutofacModule());
             builder.RegisterModule(new E133.Parser.AutofacModule());
 
             builder.Populate(services);

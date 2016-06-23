@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 using Microsoft.AspNetCore.Mvc;
 
-using E133.Api.Models;
+using E133.Business;
 
 namespace E133.Api.Controllers
 {

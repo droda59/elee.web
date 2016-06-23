@@ -1,31 +1,26 @@
 {
   "version": "1.0.0-*",
-  "description": "E133.Crawler Class Library",
-  "authors": [ "Class Library template" ],
-  "tooling": {
-    "defaultNamespace": "E133.Crawler"
+  "buildOptions": {
+    "emitEntryPoint": true
   },
-  
+
   "dependencies": {
     "Microsoft.NETCore.App": {
-      "version": "1.0.0-rc2-3002702",
-      "type": "platform"
-    }
+      "type": "platform",
+      "version": "1.0.0-rc2-3002702"
+    },
+    "Autofac": "4.0.0-rc2-240",
+    "E133.Business": "1.0.0.*",
+    "E133.Parser": "1.0.0.*"
   },
-  
+
   "frameworks": {
     "netcoreapp1.0": {
-      "imports": [
-        "dotnet5.6",
-        "dnxcore50"
-      ],
-      "dependencies": {
-        "E133.Api": "1.0.0-*",
-        "E133.Business": "1.0.0-*",
-        "E133.Parser": "1.0.0-*",
-        "HtmlAgilityPack.NetCore": "1.4.9.2",
-        "MongoDB.Driver": "2.2.4"
-      }
+      "imports": "dnxcore50"
     }
+  },
+
+  "tooling": {
+    "defaultNamespace": "E133.Crawler"
   }
 }

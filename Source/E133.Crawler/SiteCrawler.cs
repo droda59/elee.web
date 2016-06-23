@@ -3,44 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-using E133.Api;
 using E133.Business;
-using E133.Business.Models;
-using E133.Parser;
+using E133.Business.Bases;
 
 using HtmlAgilityPack;
 
-using MongoDB.Bson;
-
-// using Akka;
-
 namespace E133.Crawler
 {
-    internal class SiteCrawler// : IHtmlCrawler
+    internal abstract class SiteCrawler<TBase> : IHtmlCrawler<TBase>
+        where TBase : IBase, new()
     {
         private readonly IHtmlLoader _htmlLoader;
+        private readonly IBase _base;
         
-        private readonly IQuickRecipeRepository _repo;
-        
-        private readonly IParserFactory _parserFactory;
-        
-        private readonly HashSet<Uri> _discoveredLinks;
-        
-        private readonly HashSet<Uri> _processedLinks;
-        
-        private readonly HashSet<Uri> _recipeLinks;
-        
-        public SiteCrawler(IHtmlLoader htmlLoader, IParserFactory parserFactory, IQuickRecipeRepository repo)
+        protected SiteCrawler(IHtmlLoader htmlLoader)
         {
             this._htmlLoader = htmlLoader;
-            this._parserFactory = parserFactory;
-            this._repo = repo;
-            
-            this._discoveredLinks = new HashSet<Uri>();
-            this._processedLinks = new HashSet<Uri>();
-            this._recipeLinks = new HashSet<Uri>();
-            
-            this._discoveredLinks.Add(new Uri("http://www.ricardocuisine.com/"));
+            this._base = new TBase();
+        }
+
+        protected virtual IEnumerable<Func<string, bool>> Exclusions 
+        {
+            get
+            {
+                return new List<Func<string, bool>> {
+                    (link) => link != "/",
+                    (link) => !link.Contains("#")
+                };
+            }
         }
 
         // Faire un IDictionary<Uri, bool> _links
@@ -59,99 +49,65 @@ namespace E133.Crawler
         // Si possible, vérifie la date de dernière modification
         // Parse la recette
         // Ajoute la recette dans la BD
-        
-        public async Task GetAllLinks()
+
+        public async Task<IEnumerable<Uri>> GetAllSiteLinks()
         {
-            // while (true)
-            // {
-                while (this._discoveredLinks.Any())
-                {
-                    var link = this._discoveredLinks.First();
-                    
-                    var newPageLinks = await this.GetPageLinks(link);
-                    foreach (var newPageLink in newPageLinks)
-                    {
-                        this._discoveredLinks.Add(newPageLink);
-                        if (this._parserFactory.CreateParser(newPageLink).IsRecipePage(newPageLink))
-                        {
-                            this._recipeLinks.Add(newPageLink);
-                        }
-                    }
-                    
-                    this._processedLinks.Add(link);
-                    this._discoveredLinks.Remove(link);
-                }
+            var discoveredLinks = new HashSet<Uri>();
+            var unprocessedLinks = new HashSet<Uri>();
+            Uri link = this._base.Domain;
+
+            discoveredLinks.Add(link);
+            unprocessedLinks.Add(link);
+            do
+            {
+                await this.GetPageLinks(link, discoveredLinks, unprocessedLinks);
                 
-            //     await Task.Delay(1000);
-            // }
+                unprocessedLinks.Remove(link);
+            } while ((link = unprocessedLinks.FirstOrDefault()) != null);
+
+            return discoveredLinks;
         }
         
-        public async Task AddRecipes()
+        private async Task GetPageLinks(Uri pageUri, HashSet<Uri> discoveredLinks, HashSet<Uri> unprocessedLinks)
         {
-            while (true)
-            {
-                while (this._recipeLinks.Any())
-                {
-                    var link = this._recipeLinks.First();
-                            
-                    var recipe = await this.ParseRecipeAsync(link);
-                    if (recipe != null)
-                    {
-                        var success = await this._repo.InsertAsync(recipe);
-                        if (success)
-                        {
-                            this._recipeLinks.Remove(link);
-                        }
-                    }
-                }
-                
-                await Task.Delay(1000);
-            }
-        }
-
-        private async Task<QuickRecipe> ParseRecipeAsync(Uri uri)
-        {
-            IHtmlParser parser = null;
-
-            try
-            {
-                parser = this._parserFactory.CreateParser(uri);
-            }
-            catch (KeyNotFoundException)
-            {
-                return null;
-            }
-
-            var parsedContent = await parser.ParseHtmlAsync(uri);
-
-            return parsedContent;
-        }
-        
-        private async Task<IEnumerable<Uri>> GetPageLinks(Uri pageUri)
-        {
-            var newLinks = new List<Uri>();
             var content = await this._htmlLoader.ReadHtmlAsync(pageUri);
-            
-            var document = new HtmlDocument();
-            document.LoadHtml(System.Net.WebUtility.HtmlDecode(content));
-            
-            var linkNodes = document.DocumentNode
-                .SelectNodes(".//a[@href]")
-                .Select(x => x.Attributes["href"].Value)
-                .ToList();
-                
-            foreach (var linkNode in linkNodes)
+            if (!string.IsNullOrEmpty(content))
             {
-                var newLinkUri = new Uri(linkNode);
+                var document = new HtmlDocument();
+                document.LoadHtml(System.Net.WebUtility.HtmlDecode(content));
                 
-                if (!this._processedLinks.Contains(newLinkUri)
-                    && !this._discoveredLinks.Contains(newLinkUri))
+                var linkNodes = document.DocumentNode
+                    .SelectNodes(".//a[@href]")
+                    .Select(x => x.Attributes["href"].Value)
+                    .ToList();
+                    
+                foreach (var linkNode in linkNodes)
                 {
-                    newLinks.Add(newLinkUri);
+                    if (this.Exclusions.All(exclusion => exclusion(linkNode)))
+                    {
+                        Uri result = null;
+                        var mayAdd = false;
+                        if (Uri.TryCreate(linkNode, UriKind.Absolute, out result))
+                        {
+                            if (pageUri.Authority.Contains(result.Authority))
+                            {
+                                mayAdd = true;
+                            }
+                        }
+                        else if (Uri.TryCreate(pageUri, linkNode, out result))
+                        {
+                            mayAdd = true;
+                        }
+
+                        if (mayAdd && !discoveredLinks.Contains(result))
+                        {
+                            discoveredLinks.Add(result);
+                            unprocessedLinks.Add(result);
+                            continue;
+                        }
+                    }
                 }
             }
-            
-            return newLinks;
         }
     }
 }
