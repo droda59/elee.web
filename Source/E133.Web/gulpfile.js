@@ -50,7 +50,6 @@ var bundleConfig = {
                 "aurelia-animator-css",
                 "aurelia-bootstrapper",
                 "aurelia-dialog",
-                "aurelia-dialog/**/*.html!text",
                 "aurelia-framework",
                 "aurelia-history-browser",
                 "aurelia-http-client",
@@ -61,8 +60,6 @@ var bundleConfig = {
                 "aurelia-templating-binding",
                 "aurelia-templating-resources",
                 "aurelia-templating-router",
-                "aurelia-validation",
-                "aurelia-validation/resources/*",
                 "aurelia-google-analytics",
                 "scrollmagic",
                 "material-design-lite/material.js"
@@ -100,19 +97,19 @@ gulp.task("clean", function () {
 });
 
 gulp.task("copy-externals", [
-    "copy-externals-materialize-css",
-    "copy-externals-materialize-font",
-    "copy-externals-animate.css",
-    "copy-externals-mdl-css"
+    "copy-externals:materialize-css",
+    "copy-externals:materialize-font",
+    "copy-externals:animate.css",
+    "copy-externals:mdl-css"
 ]);
 
-gulp.task("copy-externals-materialize-css", function () {
+gulp.task("copy-externals:materialize-css", function () {
     return gulp.src("node_modules/materialize-css/sass/components/**/*.scss")
         //.pipe(flatten())
         .pipe(gulp.dest("app/shared/assets/css/externals/materialize-css"));
 });
 
-gulp.task("copy-externals-mdl-css", function () {
+gulp.task("copy-externals:mdl-css", function () {
     return gulp.src(["jspm_packages/github/google/material-design-lite@**/src/**/*.scss",
         "!/**/material-design-lite.scss",
         "!/**/material-design-lite-grid.scss",
@@ -121,26 +118,20 @@ gulp.task("copy-externals-mdl-css", function () {
         .pipe(gulp.dest("app/shared/assets/css/externals/material-design-lite-css"));
 });
 
-gulp.task("copy-externals-materialize-font", function () {
+gulp.task("copy-externals:materialize-font", function () {
     return gulp.src("jspm_packages/npm/materialize-css@**/font/**/*")
         .pipe(flatten())
         .pipe(gulp.dest("app/shared/assets/fonts"));
 });
 
-gulp.task("copy-externals-animate.css", function () {
+gulp.task("copy-externals:animate.css", function () {
     return gulp.src("jspm_packages/npm/animate.css@**/*.css")
         .pipe(flatten())
         .pipe(gulp.dest("app/shared/assets/css/externals/animate.css"));
 });
 
 gulp.task("default", ["build"]);
-gulp.task("build", function (callback) {
-    return runSequence(
-        "copy-externals",
-        ["build-ts", "build-html", "build-sass", "copy-files"],
-        callback
-    );
-});
+gulp.task("build", ["build-ts", "build-html", "build-sass", "copy-files"]);
 
 var typescriptCompiler = typescriptCompiler || null;
 gulp.task('build-ts', function() {
@@ -280,7 +271,6 @@ gulp.task("export-copy", function () {
         "jspm_packages/npm/materialize-css@**/dist/js/materialize.min.js",
         "jspm_packages/npm/moment@**/moment.js",
         "jspm_packages/npm/moment@**/locale/fr.js",
-        "jspm_packages/npm/aurelia-dialog@0.5.6/*.css",
         "jspm_packages/github/google/material-design-lite@**/**.js"
     ].concat(getBundles()), { base: "." })
         .pipe(gulp.dest(path.export))
