@@ -1,21 +1,26 @@
+import * as Backend from 'i18next-xhr-backend';
+
 export function configure(aurelia) {
     aurelia.use
         .standardConfiguration()
         .developmentLogging()
         .globalResources("app/shared/aurelia-materialize")
-	    .plugin("aurelia-animator-css")
-	    .plugin("aurelia-dialog")
+        .plugin("aurelia-animator-css")
+        .plugin("aurelia-dialog")
         .plugin("aurelia-i18n", (instance) => {
-            instance.setup({
-                resGetPath : "dist/app/shared/assets/locale/__lng__/__ns__.json",
-                lng : "fr",
-                attributes : ["t","i18n"],
-                getAsync : true,
-                sendMissing : false,
-                fallbackLng : "en",
-                debug : false
+            instance.i18next.use(Backend);
+            return instance.setup({
+                backend: {
+                    loadPath : "/dist/app/shared/assets/locale/{{lng}}/{{ns}}.json"
+                },
+                lng: "fr",
+                attributes: ["t", "i18n"],
+                getAsync: true,
+                sendMissing: false,
+                fallbackLng: "en",
+                debug: false
             });
-          })
+        })
         .plugin("aurelia-google-analytics", config => {
             config.init("UA-73519104-1");
             config.attach({
@@ -30,7 +35,7 @@ export function configure(aurelia) {
                     filter: (element) => {
                         return element instanceof HTMLElement &&
                             (element.nodeName.toLowerCase() === "a" ||
-                            element.nodeName.toLowerCase() === "button");
+                                element.nodeName.toLowerCase() === "button");
                     }
                 }
             });
@@ -45,7 +50,7 @@ export function configure(aurelia) {
     moment.relativeTimeThreshold("M", 12);
 
     if (!String.format) {
-        String.format = function(format) {
+        String.format = function (format) {
             var args = Array.prototype.slice.call(arguments, 1);
             return format.replace(/{(\d+)}/g, function (match, number) {
                 return typeof args[number] != "undefined" ? args[number] : match;
