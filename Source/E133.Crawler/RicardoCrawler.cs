@@ -23,6 +23,11 @@ namespace E133.Crawler
                     (link) => !link.EndsWith(".jpg"),
                     (link) => !link.Contains("facebook"),
                     (link) => !link.Contains("javascript"),
+                    (link) => !link.Contains("/sort/"),
+                    (link) => !link.EndsWith("/full"),
+                    (link) => !link.EndsWith("/fr"),
+                    (link) => !link.Equals("fr"),
+                    (link) => !link.EndsWith("/en"),
                     (link) => !link.Equals("/en"),
                     (link) => !link.StartsWith("/en/")
                 }.Concat(base.Exclusions);

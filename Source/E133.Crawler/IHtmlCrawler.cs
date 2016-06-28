@@ -6,9 +6,10 @@ using E133.Business.Bases;
 
 namespace E133.Crawler
 {
-    public interface IHtmlCrawler<TBase>
-        where TBase : IBase, new()
+    public interface IHtmlCrawler
     {
-        Task<IEnumerable<Uri>> GetAllSiteLinks();
+        IBase Base { get; }
+        
+        Task<IEnumerable<string>> GetAllSiteLinks();
     }
 }

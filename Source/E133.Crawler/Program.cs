@@ -26,22 +26,26 @@ namespace E133.Crawler
             var container = builder.Build();
             
             // var repo = container.Resolve<IQuickRecipeRepository>();
-            var knownCrawlers = container.Resolve<IEnumerable<IHtmlCrawler<RicardoBase>>>();
+            var knownCrawlers = container.Resolve<IEnumerable<IHtmlCrawler>>();
 
             foreach (var crawler in knownCrawlers)
             {
                 // TODO Start these assholes asynchronously
                 var allSiteLinks = await crawler.GetAllSiteLinks();
 
-                // foreach (var link in allSiteLinks) 
-                // {
+                foreach (var link in allSiteLinks) 
+                {
                 //     var isRecipe = parser.IsRecipePage(link);
                 //     if (isRecipe)
                 //     {
                 //         var recipe = await parser.ParseHtmlAsync(link);
                 //         if (recipe != null)
                 //         {
-                //             Console.WriteLine("Parsing of " + link + " was successful. Adding to repo.");
+                            Uri result = null;
+                            if (Uri.TryCreate(crawler.Base.Domain, link, out result))
+                            {
+                                Console.WriteLine("Parsing of " + result.AbsoluteUri + " was successful. Adding to repo.");
+                            }
 
                 //             var success = await repo.InsertAsync(recipe);
                 //             if (success)
@@ -54,7 +58,7 @@ namespace E133.Crawler
                 //             Console.WriteLine("Parsing of " + link + " was UNsuccessful.");
                 //         }
                 //     }
-                // }
+                }
             }
 
             Console.ReadLine();

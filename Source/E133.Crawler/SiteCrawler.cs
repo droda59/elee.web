@@ -10,17 +10,18 @@ using HtmlAgilityPack;
 
 namespace E133.Crawler
 {
-    internal abstract class SiteCrawler<TBase> : IHtmlCrawler<TBase>
+    internal abstract class SiteCrawler<TBase> : IHtmlCrawler
         where TBase : IBase, new()
     {
         private readonly IHtmlLoader _htmlLoader;
-        private readonly IBase _base;
         
         protected SiteCrawler(IHtmlLoader htmlLoader)
         {
             this._htmlLoader = htmlLoader;
-            this._base = new TBase();
+            this.Base = new TBase();
         }
+
+        public IBase Base { get; }
 
         protected virtual IEnumerable<Func<string, bool>> Exclusions 
         {
@@ -50,25 +51,37 @@ namespace E133.Crawler
         // Parse la recette
         // Ajoute la recette dans la BD
 
-        public async Task<IEnumerable<Uri>> GetAllSiteLinks()
+        public async Task<IEnumerable<string>> GetAllSiteLinks()
         {
-            var discoveredLinks = new HashSet<Uri>();
+            var discoveredLinks = new HashSet<string>();
             var unprocessedLinks = new HashSet<Uri>();
-            Uri link = this._base.Domain;
+            Uri link = this.Base.Domain;
 
-            discoveredLinks.Add(link);
+            discoveredLinks.Add(link.AbsolutePath);
             unprocessedLinks.Add(link);
             do
             {
-                await this.GetPageLinks(link, discoveredLinks, unprocessedLinks);
-                
-                unprocessedLinks.Remove(link);
+                try
+                {
+                    if (link.AbsoluteUri.Contains("concours"))
+                    {
+                        var b = true;
+                    }
+                    await this.GetPageLinks(link, discoveredLinks, unprocessedLinks);
+                }
+                catch (Exception) 
+                {
+                }
+                finally 
+                {
+                    unprocessedLinks.Remove(link);
+                }
             } while ((link = unprocessedLinks.FirstOrDefault()) != null);
 
             return discoveredLinks;
         }
         
-        private async Task GetPageLinks(Uri pageUri, HashSet<Uri> discoveredLinks, HashSet<Uri> unprocessedLinks)
+        private async Task GetPageLinks(Uri pageUri, HashSet<string> discoveredLinks, HashSet<Uri> unprocessedLinks)
         {
             var content = await this._htmlLoader.ReadHtmlAsync(pageUri);
             if (!string.IsNullOrEmpty(content))
@@ -99,11 +112,15 @@ namespace E133.Crawler
                             mayAdd = true;
                         }
 
-                        if (mayAdd && !discoveredLinks.Contains(result))
+                        if (mayAdd)
                         {
-                            discoveredLinks.Add(result);
-                            unprocessedLinks.Add(result);
-                            continue;
+                            var absoluteTrim = result.AbsolutePath.TrimEnd('/');
+                            if (!discoveredLinks.Contains(absoluteTrim))
+                            {
+                                discoveredLinks.Add(absoluteTrim);
+                                unprocessedLinks.Add(result);
+                                continue;
+                            }
                         }
                     }
                 }
