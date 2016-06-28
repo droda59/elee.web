@@ -1,3 +1,6 @@
+/// <reference path="globals/es6-shim/index.d.ts" />
+/// <reference path="globals/jquery/index.d.ts" />
+/// <reference path="globals/moment/index.d.ts" />
 /// <reference path="modules/aurelia-animator-css/index.d.ts" />
 /// <reference path="modules/aurelia-dialog/index.d.ts" />
 /// <reference path="modules/aurelia-framework/index.d.ts" />
