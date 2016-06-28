@@ -1,13 +1,13 @@
 var gulp = require("gulp");
 var imagemin = require("gulp-imagemin");
-var minifyCss = require("gulp-minify-css");
+var cleanCSS = require("gulp-clean-css");
 var flatten = require("gulp-flatten");
 var bump = require("gulp-bump");
 var paths = require("../paths");
 
 gulp.task("minify-css", function () {
     return gulp.src(paths.outputApp + "style.css")
-        .pipe(minifyCss());
+        .pipe(cleanCSS());
 });
 
 gulp.task("images", function () {
