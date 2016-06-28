@@ -55,7 +55,7 @@ export class QuickRecipePage {
 				.open({ viewModel: HelpOverlay });
 		}
 
-		var url = "dist/app/quick-recipe/assets/json/" + route.id + ".json";
+        var url = "https://api.mlab.com/api/1/databases/e133/collections/quickrecipe/" + route.id + "?apiKey=tEW3mV3EqhPQo-IVY2je7cL5Zo0ztYQy"
         return this._http.get(url).then(response => {
             this.recipe = new QuickRecipe(response.content);
 

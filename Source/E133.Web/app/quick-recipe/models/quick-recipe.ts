@@ -25,7 +25,7 @@ class PartFactory {
 }
 
 export class QuickRecipe implements QuickRecipeDto {
-    id: number;
+    id: string;
     language: string;
     title: string;
     originalUrl: string;
@@ -41,6 +41,7 @@ export class QuickRecipe implements QuickRecipeDto {
     constructor(dto: QuickRecipeDto) {
         Object.assign(this, dto);
 
+        this.id = dto._id;
         this.durations = dto.durations.map(durationDto => new Duration(durationDto));
         this.subrecipes = dto.subrecipes.map(subrecipeDto => new SubRecipe(subrecipeDto));
         this.ingredients = dto.ingredients.map(ingredientDto => IngredientUnicityOverseer.getIngredient(ingredientDto));
@@ -48,7 +49,7 @@ export class QuickRecipe implements QuickRecipeDto {
     }
 }
 interface QuickRecipeDto {
-    id: number;
+    _id: string;
     language: string;
     title: string;
     originalUrl: string;

@@ -86,7 +86,5 @@
       "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@^0.0.93"
     }
   },
-  "dependencies": {
-    "run-sequence": "^1.2.1"
-  }
+  "dependencies": {}
 }

@@ -25,7 +25,7 @@
                 </div>
             </div>
         </nav>
-        
+
         <section id="search-container">
             <form class="recipe-search white-text container" submit.delegate="loadRecipe()" novalidate>
                 <div class="row">
@@ -37,7 +37,7 @@
                         <select value.bind="selectedRecipeId" materialize="select">
                             <option i18n="home.search">Search</option>
                             <optgroup repeat.for="group of recipeGroups" label.bind="group.label">
-                                <option repeat.for="recipe of group.recipes" value.bind="recipe.id" data-icon.bind="recipe.imageUrl" class="left circle">${recipe.title}</option>
+                                <option repeat.for="recipe of group.recipes" value.bind="recipe._id" data-icon.bind="recipe.imageUrl" class="left circle">${recipe.title}</option>
                             </optgroup>
                         </select>
                     </div>

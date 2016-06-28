@@ -27,7 +27,7 @@ export class Welcome {
 				this._loadRecipe("56ae7aa744fd4675fc7ed180"),
 				this._loadRecipe("56b822f544fd461dcd8437dc")
 			]).then((values) => this.recipeGroups.push({ label: "Collations", recipes: values.map(x => x.content) }));
-		
+
 		Promise.all([
 				this._loadRecipe("56a6c32144fd4666d1194b77"),
 				this._loadRecipe("56a6c11444fd4666d1194b73"),
@@ -38,14 +38,14 @@ export class Welcome {
 				this._loadRecipe("56ab7acf44fd466ff20f9f97"),
 				this._loadRecipe("56a6c36644fd4666d1194b78")
 			]).then((values) => this.recipeGroups.push({ label: "Desserts", recipes: values.map(x => x.content) }));
-		
+
 		Promise.all([
 				this._loadRecipe("56ae7a2a44fd4675fc7ed17e"),
 				this._loadRecipe("56ae79da44fd4675fc7ed17d"),
 				this._loadRecipe("56aee92244fd467fb1b8b6d6"),
 				this._loadRecipe("56ae7a6844fd4675fc7ed17f")
 			]).then((values) => this.recipeGroups.push({ label: "Mijoteuse", recipes: values.map(x => x.content) }));
-		
+
 		Promise.all([
 				this._loadRecipe("56ae7a2a44fd4675fc7ed17e"),
 				this._loadRecipe("56b81f2344fd461dcd8437db"),
@@ -92,9 +92,10 @@ export class Welcome {
 	get canNavigateToRecipe(): boolean {
 		return this.selectedRecipeId !== this._i18n.tr("home.search");
 	}
-	
+
 	private _loadRecipe(id: string): void {
-		var url = "dist/app/quick-recipe/assets/json/" + id + ".json";
+        var url = "https://api.mlab.com/api/1/databases/e133/collections/quickrecipe/" + id + "?apiKey=tEW3mV3EqhPQo-IVY2je7cL5Zo0ztYQy"
+
         return this._httpClient.get(url);
 	}
 }
