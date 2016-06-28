@@ -33,7 +33,8 @@ module.exports = {
             ],
             options: {
                 inject: true,
-                minify: true
+                minify: true,
+                rev: true
             }
         }
     }
