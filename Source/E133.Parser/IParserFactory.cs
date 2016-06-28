@@ -4,8 +4,8 @@ namespace E133.Parser
 {
     public interface IParserFactory
     {
-        // IHtmlParser<TBase> CreateParser<TBase>(string url);
+        IHtmlParser CreateParser(string url);
         
-        // IHtmlParser<TBase> CreateParser<TBase>(Uri uri);
+        IHtmlParser CreateParser(Uri uri);
     }
 }

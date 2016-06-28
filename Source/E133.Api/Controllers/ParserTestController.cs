@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-using E133.Business;
 using E133.Business.Models;
 using E133.Parser;
 
@@ -15,25 +14,10 @@ namespace E133.Api.Controllers
     public class ParserTestController : Controller
     {
         private readonly IParserFactory _parserFactory;
-        private readonly IQuickRecipeRepository _repo;
 
-        public ParserTestController(IParserFactory parserFactory, IQuickRecipeRepository repo)
+        public ParserTestController(IParserFactory parserFactory)
         {
             this._parserFactory = parserFactory;
-            this._repo = repo;
-        }
-
-        [HttpGet("{id}")]
-        public async Task<QuickRecipe> GetAsync(string id)
-        {
-            return await this._repo.GetAsync(id);
-        }
-
-        [HttpGet]
-        [Route("search")]
-        public async Task<IEnumerable<QuickRecipeSearchResult>> SearchAsync(string query)
-        {
-            return await this._repo.SearchAsync(query);
         }
 
         [HttpGet]
@@ -47,42 +31,6 @@ namespace E133.Api.Controllers
             }
 
             return new ObjectResult(result);
-        }
-
-        [HttpPut]
-        public async Task<IActionResult> PutAsync(string url)
-        {
-            var recipe = await this.ParseRecipeAsync(url);
-            if (recipe == null)
-            {
-                return new BadRequestResult();
-            }
-
-            var success = await this._repo.UpdateAsync(recipe);
-            if (!success)
-            {
-                return new BadRequestResult();
-            }
-
-            return new ObjectResult(recipe);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> PostAsync(string url)
-        {
-            var recipe = await this.ParseRecipeAsync(url);
-            if (recipe == null)
-            {
-                return new BadRequestResult();
-            }
-
-            var success = await this._repo.InsertAsync(recipe);
-            if (!success)
-            {
-                return new BadRequestResult();
-            }
-
-            return new ObjectResult(recipe);
         }
 
         private async Task<QuickRecipe> ParseRecipeAsync(string url)

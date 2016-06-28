@@ -96,3 +96,5 @@ crashlytics-build.properties
 /Source/**/obj/
 /Source/**/*.suo
 /Source/**/*.csproj.user
+
+project.lock.json

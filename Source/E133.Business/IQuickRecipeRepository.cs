@@ -9,9 +9,9 @@ namespace E133.Business
     {
         Task<QuickRecipe> GetAsync(string id);
 
-        Task<bool> UpdateAsync(QuickRecipe data);
+        Task<bool> UpdateAsync(QuickRecipe recipe);
 
-        Task<bool> InsertAsync(QuickRecipe data);
+        Task<bool> InsertAsync(QuickRecipe recipe);
 
         Task<IEnumerable<QuickRecipeSearchResult>> SearchAsync(string query);
     }

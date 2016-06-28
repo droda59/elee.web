@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 using E133.Business.Models;
 
-namespace E133.Business
+namespace E133.Business.Repositories
 {
     internal class InMemoryRepository : IQuickRecipeRepository
     {
@@ -18,12 +18,12 @@ namespace E133.Business
             return task;
         }
 
-        public Task<bool> UpdateAsync(QuickRecipe data)
+        public Task<bool> UpdateAsync(QuickRecipe recipe)
         {
             var task = Task.Run(
                 () =>
                 {
-                    _knownRecipes[data.Id] = data;
+                    _knownRecipes[recipe.Id] = recipe;
                     return true;
                 });
             task.Wait();
@@ -31,12 +31,12 @@ namespace E133.Business
             return task;
         }
 
-        public Task<bool> InsertAsync(QuickRecipe data)
+        public Task<bool> InsertAsync(QuickRecipe recipe)
         {
             var task = Task.Run(
                 () =>
                 {
-                    _knownRecipes[data.Id] = data;
+                    _knownRecipes[recipe.Id] = recipe;
                     return true;
                 });
             task.Wait();
@@ -47,7 +47,7 @@ namespace E133.Business
         public Task<IEnumerable<QuickRecipeSearchResult>> SearchAsync(string query)
         {
             var task = Task.Run(() =>
-                _knownRecipes.Values.Select(x => new QuickRecipeSearchResult { Id = x.Id, Title = x.Title, OriginalUrl = x.OriginalUrl }));
+                _knownRecipes.Values.Select(x => new QuickRecipeSearchResult { Id = x.Id, Title = x.Title, ImageUrl = x.ImageUrl }));
             task.Wait();
 
             return task;

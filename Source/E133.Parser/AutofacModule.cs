@@ -29,7 +29,7 @@ namespace E133.Parser
             RegisterDetector<ISubrecipeRepository>(builder);
 
             builder.RegisterType<RicardoParser>()
-                .As<IHtmlParser<RicardoBase>>()
+                .As<IHtmlParser>()
                 .SingleInstance();
         }
 

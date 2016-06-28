@@ -1,12 +1,14 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+
+using E133.Api.Infrastructure;
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace E133.Api
 {
@@ -19,6 +21,7 @@ namespace E133.Api
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
+
             Configuration = builder.Build();
         }
 
@@ -44,6 +47,8 @@ namespace E133.Api
             {
                 options.AddPolicy("LocalAuthorizationOnly", policy => policy.Requirements.Add(new LocalAuthorizationOnlyRequirement()));
             });
+
+            services.AddTransient<E133.Business.IQuickRecipeRepository, E133.Business.Repositories.ApiRepository>();
             
             IocConfig.RegisterComponents(services);
             // E133.Database.MongoDBConfig.RegisterClassMaps();

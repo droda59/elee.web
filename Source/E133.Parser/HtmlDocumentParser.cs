@@ -15,7 +15,7 @@ using HtmlAgilityPack;
 
 namespace E133.Parser
 {
-    internal abstract class HtmlDocumentParser<TBase> : IHtmlParser<TBase>
+    internal abstract class HtmlDocumentParser<TBase> : IHtmlParser
         where TBase : IBase, new()
     {
         protected const int RequirementsSubrecipeId = -2;
@@ -60,6 +60,8 @@ namespace E133.Parser
             this._measureUnitDetectorFactory = measureUnitDetectorFactory;
             this._languageHelperFactory = languageHelperFactory;
             this._subrecipeRepositoryFactory = subrecipeRepositoryFactory;
+
+            this.Base = new TBase();
             
             // TODO Localize and put somewhere else
             this._wordExpression = new Regex(@"[\w()°]+['’]*|[,]|[\)]\b", RegexOptions.Compiled);
@@ -68,6 +70,8 @@ namespace E133.Parser
             this._ingredientFullExpression = new Regex(@"([a-zA-Z0-9\u00C0-\u017F\s()'’\-\/%]+)(, [,\w\s]+)*", RegexOptions.Compiled);
             this._ingredientUnitExpression = new Regex(@"(?<=[a-zA-Z0-9\u00C0-\u017F\s()'’\-\/%])([a-zA-Z0-9\u00C0-\u017F\s()'’\-\/%]+)(, [,\w\s]+)*", RegexOptions.Compiled);
         }
+
+        public IBase Base { get; }
 
         public virtual bool IsRecipePage(Uri uri) 
         {

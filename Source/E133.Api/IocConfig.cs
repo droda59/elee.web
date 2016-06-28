@@ -11,7 +11,7 @@ namespace E133.Api
         public static IServiceProvider RegisterComponents(IServiceCollection services)
         {
 			var builder = new ContainerBuilder();
-            
+
             builder.RegisterModule(new E133.Api.AutofacModule());
             builder.RegisterModule(new E133.Business.AutofacModule());
             builder.RegisterModule(new E133.Parser.AutofacModule());
@@ -19,7 +19,7 @@ namespace E133.Api
             builder.Populate(services);
             
             var container = builder.Build();
-            
+
             return container.Resolve<IServiceProvider>();
         }
     }
