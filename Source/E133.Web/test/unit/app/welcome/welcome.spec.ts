@@ -1,7 +1,7 @@
 import {Welcome} from "app/welcome/welcome";
 
 class I18NStub {
-    tr(resource: string) {
+    tr(resource: string): string {
         return resource;
     }
 }
@@ -12,15 +12,23 @@ class RouterStub {
     }
 }
 
+class HttpClientStub {
+    get(url: string): Promise<HttpResponseMessage> {
+        return new Promise<HttpResponseMessage>;
+    }
+}
+
 describe("the Welcome module", () => {
     var component: Welcome;
     var container: Container;
     var routerMock: RouterStub;
+    var httpClientMock: HttpClientStub;
 
     beforeEach(() => {
         routerMock = new RouterStub();
+        httpClientMock = new HttpClientStub();
 
-        component = new Welcome(routerMock, new I18NStub(), "<div>");
+        component = new Welcome(httpClientMock, routerMock, new I18NStub(), "<div>");
     });
 
     it("constructs with an empty selectedRecipeId property", () => {

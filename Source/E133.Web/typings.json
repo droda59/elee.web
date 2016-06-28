@@ -1,6 +1,8 @@
 {
   "name": "e133.web",
-  "dependencies": {},
+  "dependencies": {
+    "aurelia-http-client": "github:aurelia/http-client"
+  },
   "globalDependencies": {
     "aurelia-binding": "github:aurelia/binding",
     "aurelia-bootstrapper": "github:aurelia/bootstrapper",
