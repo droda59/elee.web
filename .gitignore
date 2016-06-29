@@ -85,9 +85,7 @@ crashlytics.properties
 crashlytics-build.properties
 
 #.settings/
-/Source/CookItNow.Web/node_modules/
-/Source/CookItNow.Web/jspm_packages/
-/Source/CookItNow.Web/dist/**/*.css
-/Source/CookItNow.Web/dist/**/*.html
-/Source/CookItNow.Web/dist/**/*.js
-/Source/CookItNow.Web/dist/**/*.js.map
+/Source/node_modules/
+/Source/jspm_packages/
+/Source/dist/
+/Source/export/

@@ -55,30 +55,31 @@ export class QuickRecipePage {
 				.open({ viewModel: HelpOverlay });
 		}
 
-        var url = "https://api.mlab.com/api/1/databases/e133/collections/quickrecipe/" + route.id + "?apiKey=tEW3mV3EqhPQo-IVY2je7cL5Zo0ztYQy"
-        return this._http.get(url).then(response => {
-            this.recipe = new QuickRecipe(response.content);
+        return this._http
+            .get("http://eleeapi.azurewebsites.net/api/quickrecipe/" + route.id)
+            .then(response => {
+                this.recipe = new QuickRecipe(response.content);
 
-			moment.locale(this.recipe.language);
-			this._i18n.setLocale(this.recipe.language);
+    			moment.locale(this.recipe.language);
+    			this._i18n.setLocale(this.recipe.language);
 
-			routeConfig.navModel.title = this.recipe.title;
+    			routeConfig.navModel.title = this.recipe.title;
 
-			(this.recipe.subrecipes || []).forEach(
-				(subrecipe) => {
-					var quickRecipeSubrecipe = new QuickRecipeSubrecipe();
-					quickRecipeSubrecipe.id = subrecipe.id;
-					quickRecipeSubrecipe.title = subrecipe.title;
-					quickRecipeSubrecipe.steps = this.recipe.steps.filter(step => step.subrecipeId === subrecipe.id);
-					quickRecipeSubrecipe.ingredients = this.recipe.ingredients.filter(ingredient => ingredient.subrecipeId === subrecipe.id);
-                    quickRecipeSubrecipe.timers = [];
+    			(this.recipe.subrecipes || []).forEach(
+    				(subrecipe) => {
+    					var quickRecipeSubrecipe = new QuickRecipeSubrecipe();
+    					quickRecipeSubrecipe.id = subrecipe.id;
+    					quickRecipeSubrecipe.title = subrecipe.title;
+    					quickRecipeSubrecipe.steps = this.recipe.steps.filter(step => step.subrecipeId === subrecipe.id);
+    					quickRecipeSubrecipe.ingredients = this.recipe.ingredients.filter(ingredient => ingredient.subrecipeId === subrecipe.id);
+                        quickRecipeSubrecipe.timers = [];
 
-					if (quickRecipeSubrecipe.steps.length || quickRecipeSubrecipe.ingredients.length) {
-						this.subrecipes.push(quickRecipeSubrecipe);
-					}
-				}
-			);
-        });
+    					if (quickRecipeSubrecipe.steps.length || quickRecipeSubrecipe.ingredients.length) {
+    						this.subrecipes.push(quickRecipeSubrecipe);
+    					}
+    				}
+    			);
+            });
 	}
 
 	canDeactivate() {
