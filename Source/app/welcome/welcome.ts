@@ -76,22 +76,6 @@ export class Welcome {
 		}
 	}
 
-	changeLocale(): void {
-		var newLocale;
-		var currentLocale = this._i18n.getLocale();
-		if (currentLocale === "fr") {
-			newLocale = "en";
-		} else if (currentLocale === "en") {
-			newLocale = "fr";
-		}
-
-        this._i18n
-            .setLocale(newLocale)
-            .then(() => {
-				this._i18n.updateTranslations(this._element);
-        	});
-	}
-
 	get canNavigateToRecipe(): boolean {
 		return this.selectedRecipeId !== this._i18n.tr("home.search");
 	}

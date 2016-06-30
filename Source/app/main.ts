@@ -9,6 +9,7 @@ export class Main {
 			{ route: ["","welcome"],  moduleId: "app/welcome/welcome", nav: true, title:"Welcome" },
 			{ route: "typeform",  name: "typeform", moduleId: "app/shared/components/typeform", nav: true, title:"Comments" },
 			{ route: "recipe/:id", name: "quick-recipe", moduleId: "app/quick-recipe/quick-recipe-page" },
+			{ route: "about", name: "about", moduleId: "app/about/about" }
 		]);
 
 		this.router = router;

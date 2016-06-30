@@ -51,7 +51,7 @@ gulp.task("build-sass", function () {
     return es.concat(appSass, externals)
         .pipe(concat("style.css"))
         .pipe(gulp.dest(paths.outputApp))
-        .pipe(browserSync.reload({ stream: true }));
+        .pipe(browserSync.stream());
 });
 
 gulp.task("copy-files", function () {
