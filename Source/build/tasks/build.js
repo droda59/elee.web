@@ -6,6 +6,7 @@ var sass = require("gulp-sass");
 var concat = require("gulp-concat");
 var plumber = require("gulp-plumber");
 var es = require("event-stream");
+var browserSync = require("browser-sync");
 var paths = require("../paths");
 
 gulp.task("default", ["build"]);
@@ -47,7 +48,8 @@ gulp.task("build-sass", function () {
 
     return es.concat(appSass, externals)
         .pipe(concat("style.css"))
-        .pipe(gulp.dest(paths.outputApp));
+        .pipe(gulp.dest(paths.outputApp))
+        .pipe(browserSync.reload({stream:true}));
 });
 
 gulp.task("copy-files", function () {
