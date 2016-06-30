@@ -6,7 +6,6 @@ var sass = require("gulp-sass");
 var concat = require("gulp-concat");
 var plumber = require("gulp-plumber");
 var es = require("event-stream");
-var browserSync = require("browser-sync").create();
 var paths = require("../paths");
 
 gulp.task("default", ["build"]);
@@ -26,15 +25,13 @@ gulp.task("build-ts", function() {
         .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(typescript(typescriptCompiler))
         .pipe(sourcemaps.write(".", {includeContent: false, sourceRoot: "/app"}))
-        .pipe(gulp.dest(paths.outputApp))
-        .pipe(browserSync.reload({ stream: true }));
+        .pipe(gulp.dest(paths.outputApp));
 });
 
 gulp.task("build-html", function () {
     return gulp.src(paths.views)
         .pipe(changed(paths.views, { extension: ".html" }))
-        .pipe(gulp.dest(paths.outputApp))
-        .pipe(browserSync.reload({ stream: true }));
+        .pipe(gulp.dest(paths.outputApp));
 });
 
 gulp.task("build-sass", function () {
@@ -50,8 +47,7 @@ gulp.task("build-sass", function () {
 
     return es.concat(appSass, externals)
         .pipe(concat("style.css"))
-        .pipe(gulp.dest(paths.outputApp))
-        .pipe(browserSync.stream());
+        .pipe(gulp.dest(paths.outputApp));
 });
 
 gulp.task("copy-files", function () {

@@ -1,14 +1,15 @@
 var gulp = require("gulp");
-var browserSync = require("browser-sync").create();
+var browserSync = require("browser-sync");
 
 gulp.task("serve", ["build"], function (done) {
-    browserSync.init({
+    browserSync({
+        online: false,
         open: false,
         port: 9000,
         server: {
-            baseDir: ["."],
-            middleware: function (req, res, next) {
-                res.setHeader("Access-Control-Allow-Origin", "*");
+            baseDir: ['.'],
+            middleware: function(req, res, next) {
+                res.setHeader('Access-Control-Allow-Origin', '*');
                 next();
             }
         }
