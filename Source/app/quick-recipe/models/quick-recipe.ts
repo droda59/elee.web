@@ -30,7 +30,9 @@ export class QuickRecipe implements QuickRecipeDto {
     title: string;
     originalUrl: string;
     note: string;
-    imageUrl: string;
+    smallImageUrl: string;
+    normalImageUrl: string;
+    largeImageUrl: string;
     summary: string;
     originalServings: string;
     durations: Duration[];
@@ -54,7 +56,9 @@ interface QuickRecipeDto {
     title: string;
     originalUrl: string;
     note: string;
-    imageUrl: string;
+    smallImageUrl: string;
+    normalImageUrl: string;
+    largeImageUrl: string;
     summary: string;
     originalServings: string;
     durations: DurationDto[];
