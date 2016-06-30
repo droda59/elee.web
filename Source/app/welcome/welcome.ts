@@ -1,23 +1,24 @@
 import {Router} from "aurelia-router";
-import {inject} from "aurelia-framework";
-import {I18N} from "aurelia-i18n";
+import {autoinject} from "aurelia-framework";
+import {I18N, BaseI18N} from "aurelia-i18n";
 import {HttpClient} from "aurelia-http-client";
+import {EventAggregator} from "aurelia-event-aggregator";
 
-@inject (HttpClient, Router, I18N, Element)
-export class Welcome {
+@autoinject
+export class Welcome extends BaseI18N {
 	private _router: Router;
-	private _i18n: I18N;
 	private _element: Element;
 	private _httpClient: HttpClient;
 
-	selectedRecipeId: string;
+	selectedRecipeId: string = undefined;
 	recipeGroups: {}[] = [];
 	popularCategories: {}[] = [];
 
-	constructor(httpClient: HttpClient, router: Router, i18n: I18N, element: Element) {
+	constructor(httpClient: HttpClient, router: Router, i18n: I18N, element: Element, ea: EventAggregator) {
+        super(i18n, element, ea);
+
 		this._httpClient = httpClient;
 		this._router = router;
-		this._i18n = i18n;
 		this._element = element;
 	}
 
@@ -66,10 +67,6 @@ export class Welcome {
 			});
 	}
 
-	attached() {
-		this._i18n.updateTranslations(this._element);
-	}
-
 	loadRecipe(): void {
 		if (this.canNavigateToRecipe) {
 			this._router.navigateToRoute("quick-recipe", { "id": this.selectedRecipeId }, undefined);
@@ -77,7 +74,7 @@ export class Welcome {
 	}
 
 	get canNavigateToRecipe(): boolean {
-		return this.selectedRecipeId !== this._i18n.tr("home.search");
+		return !!this.selectedRecipeId;
 	}
 
 	private _loadRecipe(id: string): Promise {

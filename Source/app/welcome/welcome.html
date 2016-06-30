@@ -15,7 +15,7 @@
                     <div class="input-field center col s12 m8 offset-m2 l6 offset-l3">
                         <i class="material-icons active">search</i>
                         <select value.bind="selectedRecipeId" materialize="select">
-                            <option i18n="home.search">Search</option>
+                            <option i18n="home.search" value="">Search</option>
                             <optgroup repeat.for="group of recipeGroups" label.bind="group.label">
                                 <option repeat.for="recipe of group.recipes" value.bind="recipe._id" data-icon.bind="recipe.imageUrl" class="left circle">${recipe.title}</option>
                             </optgroup>
