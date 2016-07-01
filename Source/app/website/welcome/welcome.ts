@@ -76,10 +76,4 @@ export class Welcome extends BaseI18N {
 	get canNavigateToRecipe(): boolean {
 		return !!this.selectedRecipeId;
 	}
-
-	private _loadRecipe(id: string): Promise {
-        var url = "https://api.mlab.com/api/1/databases/e133/collections/quickrecipe/" + id + "?apiKey=tEW3mV3EqhPQo-IVY2je7cL5Zo0ztYQy"
-
-        return this._httpClient.get(url);
-	}
 }
