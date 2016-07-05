@@ -5,6 +5,7 @@ export class Main {
 
 	configureRouter(config: RouterConfiguration, router: Router) {
 		config.title = "E133";
+		config.options.pushState = true;
 		config.map([
 			{ route: ["","home"], name: "home", moduleId: "app/website/home", nav: true, title: "Website Home"},
 			{ route: "typeform",  name: "typeform", moduleId: "app/shared/components/typeform", nav: true, title:"Comments" },
