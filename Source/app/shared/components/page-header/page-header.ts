@@ -1,17 +1,20 @@
-import {I18N} from "aurelia-i18n";
-import {inject} from "aurelia-framework";
+import {autoinject} from "aurelia-framework";
+import {I18N, BaseI18N} from "aurelia-i18n";
+import {EventAggregator} from "aurelia-event-aggregator";
 
-@inject(I18N, Element)
-export class PageHeader {
+@autoinject
+export class PageHeader extends BaseI18N {
     private _i18n: I18N;
     private _element: Element;
 
-    constructor(i18n: I18N, element: Element) {
-        this._i18n = i18n;
+    constructor(i18n: I18N, element: Element, ea: EventAggregator) {
+        super(i18n, element, ea);
+
         this._element = element;
+        this._i18n = i18n;
     }
 
-    changeLocale(): void {
+    public changeLocale(): void {
         var newLocale;
         var currentLocale = this._i18n.getLocale();
         if (currentLocale === "fr") {

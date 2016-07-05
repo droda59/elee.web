@@ -1,15 +1,18 @@
 import {Router} from "aurelia-router";
-import {inject} from "aurelia-framework";
-import {I18N} from "aurelia-i18n";
+import {autoinject} from "aurelia-framework";
+import {I18N, BaseI18N} from "aurelia-i18n";
+import {EventAggregator} from "aurelia-event-aggregator";
 
-@inject(Router, I18N)
-export class About {
+@autoinject
+export class About extends BaseI18N {
     private _router: Router;
-    private _i18n: I18N;
+    private _element: Element;
 
-    constructor(router: Router, i18n: I18N) {
+    constructor(router: Router, i18n: I18N, element: Element, ea: EventAggregator) {
+        super(i18n, element, ea);
+
         this._router = router;
-        this._i18n = i18n;
+        this._element = element;
     }
 
     activate(route, routeConfig) {

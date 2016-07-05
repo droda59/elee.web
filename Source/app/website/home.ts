@@ -6,7 +6,7 @@ export class Home {
     configureRouter(config: RouterConfiguration, router: Router) {
         config.title = "E133";
         config.map([
-            { route: [""], name: "home" ,moduleId: "app/website/welcome/welcome", nav: true, title: "Welcome" },
+            { route: ["","welcome"], name: "home" ,moduleId: "app/website/welcome/welcome", nav: true, title: "Welcome" },
             { route: "about", name: "about", moduleId: "app/website/about/about" }
         ]);
 
