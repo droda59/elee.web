@@ -13,8 +13,8 @@ gulp.task("default", ["build"]);
 gulp.task("build", ["build-ts", "build-html", "build-sass", "copy-files"]);
 
 var typescriptCompiler = typescriptCompiler || null;
-gulp.task("build-ts", function() {
-    if(!typescriptCompiler) {
+gulp.task("build-ts", function () {
+    if (!typescriptCompiler) {
         typescriptCompiler = typescript.createProject("tsconfig.json", {
             "typescript": require("typescript")
         });
@@ -23,9 +23,9 @@ gulp.task("build-ts", function() {
     return gulp.src(paths.sources)
         .pipe(plumber())
         .pipe(changed(paths.sources, { extension: ".ts" }))
-        .pipe(sourcemaps.init({loadMaps: true}))
+        .pipe(sourcemaps.init({ loadMaps: true }))
         .pipe(typescript(typescriptCompiler))
-        .pipe(sourcemaps.write(".", {includeContent: false, sourceRoot: "/app"}))
+        .pipe(sourcemaps.write(".", { includeContent: false, sourceRoot: "/app" }))
         .pipe(gulp.dest(paths.outputApp));
 });
 
@@ -38,8 +38,10 @@ gulp.task("build-html", function () {
 gulp.task("build-sass", function () {
     var appSass = gulp.src([
         paths.app + "shared/assets/css/main.scss",
-        paths.app + "welcome/assets/css/main.scss",
-        paths.app + "quick-recipe/assets/css/main.scss"
+        paths.app + "shared/components/page-header/page-header.scss",
+        paths.app + "website/welcome/assets/css/main.scss",
+        paths.app + "website/about/assets/css/main.scss",
+        paths.app + "quick-recipe/assets/css/main.scss",
     ])
         .pipe(changed(paths.styles, { extension: ".scss" }))
         .pipe(sass())
@@ -49,7 +51,7 @@ gulp.task("build-sass", function () {
     return es.concat(appSass, externals)
         .pipe(concat("style.css"))
         .pipe(gulp.dest(paths.outputApp))
-        .pipe(browserSync.reload({stream:true}));
+        .pipe(browserSync.reload({ stream: true }));
 });
 
 gulp.task("copy-files", function () {

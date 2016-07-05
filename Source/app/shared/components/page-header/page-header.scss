@@ -1,0 +1,13 @@
+#page-header {
+    box-shadow: none;
+    background-color: transparent;
+    position: absolute;
+    z-index: 999;
+    height: 80px;
+    line-height: 80px;
+
+    .brand-logo {
+        height: 100%;
+        display: inline-flex;
+	}
+}
