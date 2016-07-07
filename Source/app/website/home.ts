@@ -1,15 +1,16 @@
 import {Router, RouterConfiguration} from "aurelia-router";
 
 export class Home {
-    router: Router;
+    private _router: Router;
+    private _element: Element;
 
     configureRouter(config: RouterConfiguration, router: Router) {
-        config.title = "E133";
+        config.title = "HomeRouter";
         config.map([
-            { route: ["","welcome"], name: "home" ,moduleId: "app/website/welcome/welcome", nav: true, title: "Welcome" },
+            { route: ["", "welcome"], name: "home", moduleId: "app/website/welcome/welcome", nav: true, title: "Welcome" },
             { route: "about", name: "about", moduleId: "app/website/about/about" }
         ]);
 
-        this.router = router;
+        this._router = router;
     }
 }

@@ -90,6 +90,9 @@
             "keepUpToDate": "Keep up to date!"
         }
     },
+    "about": {
+        "title": "About elee.menu"
+    },
     "quantities": {
         "ml": "ml",
         "ml_plural": "ml",
