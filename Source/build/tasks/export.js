@@ -40,7 +40,6 @@ gulp.task("export:copy", function () {
         "jspm_packages/npm/materialize-css@**/dist/js/materialize.min.js",
         "jspm_packages/npm/moment@**/moment.js",
         "jspm_packages/npm/moment@**/locale/fr.js",
-        "jspm_packages/github/google/material-design-lite@**/**.js"
     ].concat(getBundles()), { base: "." })
         .pipe(gulp.dest(paths.export))
 });
