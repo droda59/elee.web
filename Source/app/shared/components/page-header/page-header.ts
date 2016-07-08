@@ -14,6 +14,12 @@ export class PageHeader extends BaseI18N {
         this._element = element;
     }
 
+	attached() {
+        $(".button-collapse").sideNav({
+            edge: 'left'
+        });
+    }
+
     public changeLocale(): void {
         var newLocale;
         var currentLocale = this._i18n.getLocale();
