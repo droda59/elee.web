@@ -43,7 +43,6 @@ System.config({
     "core-js": "npm:core-js@1.2.6",
     "i18next-xhr-backend": "npm:i18next-xhr-backend@0.6.0",
     "jquery": "npm:jquery@2.2.4",
-    "material-design-lite": "github:google/material-design-lite@1.1.3",
     "materialize-css": "npm:materialize-css@0.97.6",
     "moment": "npm:moment@2.14.1",
     "scrollmagic": "npm:scrollmagic@2.0.5",
