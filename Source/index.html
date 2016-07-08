@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,16 +17,20 @@
     <link href='http://fonts.googleapis.com/css?family=Raleway:200,300,400,600,700,800' rel='stylesheet' type='text/css'>
     <link href="dist/app/style.css" rel="stylesheet" type="text/css">
 </head>
+
 <body aurelia-app="app/configuration" class="E133">
     <div class="splash center-align">
         <h1>elee.menu</h1>
         <h4>cook smarter</h4>
 
-        <div class="mdl-grid">
-            <div class="mdl-cell mdl-cell--4-col mdl-cell--4-offset">
-              <div class="mdl-cell mdl-cell--12-col mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+        <div class="row">
+            <div class="div col s4 offset-s4">
+                <div class="progress">
+                    <div class="indeterminate"></div>
+                </div>
             </div>
-        </div
+        </div>
+
         <h5>with <span class="purple-text darken-2">Aurelia</span></h5>
     </div>
 
@@ -42,4 +47,5 @@
         System.import("aurelia-bootstrapper");
     </script>
 </body>
+
 </html>
