@@ -10,8 +10,8 @@ export class PageHeader extends BaseI18N {
     constructor(i18n: I18N, element: Element, ea: EventAggregator) {
         super(i18n, element, ea);
 
-        this._element = element;
         this._i18n = i18n;
+        this._element = element;
     }
 
     public changeLocale(): void {

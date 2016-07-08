@@ -6,6 +6,7 @@ System.config({
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
   },
+
   map: {
     "animate.css": "npm:animate.css@3.5.1",
     "aurelia-animator-css": "npm:aurelia-animator-css@1.0.0-rc.1.0.0",
@@ -306,7 +307,7 @@ System.config({
     },
     "npm:materialize-css@0.97.6": {
       "css": "github:systemjs/plugin-css@0.1.23",
-      "jquery": "github:components/jquery@3.0.0"
+      "jquery": "github:components/jquery@2.2.4"
     },
     "npm:os-browserify@0.1.2": {
       "os": "github:jspm/nodelibs-os@0.1.0"
