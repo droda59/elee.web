@@ -91,7 +91,13 @@
         }
     },
     "about": {
-        "title": "A propos de elee.menu"
+        "title": "A propos de elee.menu",
+        "whoWeAre": "Qui sommes-nous?",
+        "whoWeAreText": "Nous sommes deux web développeur passioné.",
+        "ourTechnologies": "Les technologies que nous utilisons",
+        "ourTechnologiesText": "Voici une liste des technologies que nous utilisons pour construire Elee.menu.",
+        "bizsparkThanks": "Merci beaucoup Microsoft BizSpark!",
+        "bizsparkThanksText": "Merci à Microsoft qui nous fournit des crédits Azure ainsi que des outils gratuit pour 3 ans via leur programme BizSpark."
     },
     "quantities": {
         "ml": "ml",

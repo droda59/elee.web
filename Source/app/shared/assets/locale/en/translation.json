@@ -91,7 +91,13 @@
         }
     },
     "about": {
-        "title": "About elee.menu"
+        "title": "About elee.menu",
+        "whoWeAre": "Meet the team",
+        "whoWeAreText": "We are two passionate web developers.",
+        "ourTechnologies": "The technologies we use",
+        "ourTechnologiesText": "Here's a list of technologies we used to build Elee.menu.",
+        "bizsparkThanks": "Huge thanks to Microsoft BizSpark",
+        "bizsparkThanksText": "We want to send a huge thanks to Microsoft who provide us with Azure credits and free tools for 3 years through their BizSpark program."
     },
     "quantities": {
         "ml": "ml",
