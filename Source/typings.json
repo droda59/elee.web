@@ -2,6 +2,7 @@
   "name": "e133.web",
   "dependencies": {
     "aurelia-dialog": "github:aurelia/dialog",
+    "aurelia-event-aggregator": "github:aurelia/event-aggregator",
     "aurelia-framework": "github:aurelia/framework",
     "aurelia-http-client": "github:aurelia/http-client",
     "aurelia-i18n": "github:aurelia/i18n",

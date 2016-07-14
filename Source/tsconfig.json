@@ -17,7 +17,14 @@
 		"./test/**/*.ts",
 		"./typings/**/*.d.ts",
 		"./jspm_packages/**/*.d.ts"],
-	"exclude": ["node_modules"],
+	"exclude": [
+		"node_modules",
+		"dist",
+		"build",
+		"gulpfile.js",
+		"config.js",
+		"karma.conf.js"
+		],
 	"atom": {
 		"rewriteTsconfig": false
 	}
