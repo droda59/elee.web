@@ -7,5 +7,15 @@
 
     .container {
         background-color: #efefef;
+
+        .row {
+            padding: 0 20px;
+        }
+    }
+
+    .technos-showcase {
+        img {
+            width: 200px;
+        }
     }
 }
