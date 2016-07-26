@@ -1,7 +1,12 @@
+@import "../../../../shared/assets/css/variables";
+
 #about-container {
+    a {
+        color: $link-color;
+    }
 
     #header-background {
-        background-color: rgba(17, 124, 178, 1);
+        background-color: $header-color;
         height: 60px;
     }
 

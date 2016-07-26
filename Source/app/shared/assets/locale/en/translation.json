@@ -2,7 +2,8 @@
     "nav": {
         "contact": "Contact",
         "about": "About",
-        "lang": "French"
+        "lang": "French",
+        "links": "Links"
     },
     "comments": {
         "yourMessage": "Your message",
@@ -98,7 +99,9 @@
         "ourTechnologiesText": "Here's a list of technologies we used to build Elee.menu.",
         "bizsparkThanks": "Huge thanks to Microsoft BizSpark",
         "bizsparkThanksText": "We want to send a huge thanks to Microsoft who provide us with Azure credits and free tools for 3 years through their BizSpark program.",
-        "manyMore": "And many more..."
+        "manyMore": "And many more...",
+        "aboutMax": "FullStack developer and founder of Elee.menu.",
+        "aboutMARoy": "FullStack developer with a passion for FrontEnd development."
     },
     "quantities": {
         "ml": "ml",
