@@ -1,8 +1,9 @@
-import {autoinject} from "aurelia-framework";
+import {autoinject, inject} from "aurelia-framework";
 import {I18N, BaseI18N} from "aurelia-i18n";
 import {EventAggregator} from "aurelia-event-aggregator";
 
-@autoinject
+// @autoinject
+@inject (I18N, Element, EventAggregator)
 export class PageFooter extends BaseI18N {
     private _i18n: I18N;
     private _element: Element;

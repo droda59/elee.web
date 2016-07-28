@@ -1,10 +1,11 @@
 import {Router} from "aurelia-router";
-import {autoinject} from "aurelia-framework";
+import {autoinject, inject} from "aurelia-framework";
 import {I18N, BaseI18N} from "aurelia-i18n";
 import {HttpClient} from "aurelia-http-client";
 import {EventAggregator} from "aurelia-event-aggregator";
 
-@autoinject
+// @autoinject
+@inject (HttpClient, Router, I18N, Element, EventAggregator)
 export class Welcome extends BaseI18N {
 	private _router: Router;
 	private _element: Element;
