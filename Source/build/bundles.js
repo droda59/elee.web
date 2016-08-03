@@ -28,8 +28,7 @@ module.exports = {
                 "aurelia-templating-resources",
                 "aurelia-templating-router",
                 "aurelia-google-analytics",
-                "scrollmagic",
-                "material-design-lite/material.js"
+                "scrollmagic"
             ],
             options: {
                 inject: true,
