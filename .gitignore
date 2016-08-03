@@ -88,4 +88,3 @@ crashlytics-build.properties
 /Source/node_modules/
 /Source/jspm_packages/
 /Source/dist/
-/Source/export/

@@ -16,28 +16,28 @@ exitWithMessageOnError () {
   fi
 }
 
-selectNodeVersion () {
-  if [[ -n "$KUDU_SELECT_NODE_VERSION_CMD" ]]; then
-    SELECT_NODE_VERSION="$KUDU_SELECT_NODE_VERSION_CMD \"$DEPLOYMENT_SOURCE\" \"$DEPLOYMENT_TARGET\" \"$DEPLOYMENT_TEMP\""
-    eval $SELECT_NODE_VERSION
-    exitWithMessageOnError "select node version failed"
+#selectNodeVersion () {
+#  if [[ -n "$KUDU_SELECT_NODE_VERSION_CMD" ]]; then
+#    SELECT_NODE_VERSION="$KUDU_SELECT_NODE_VERSION_CMD \"$DEPLOYMENT_SOURCE\" \"$DEPLOYMENT_TARGET\" \"$DEPLOYMENT_TEMP\""
+#    eval $SELECT_NODE_VERSION
+#    exitWithMessageOnError "select node version failed"
 
-    if [[ -e "$DEPLOYMENT_TEMP/__nodeVersion.tmp" ]]; then
-      NODE_EXE=`cat "$DEPLOYMENT_TEMP/__nodeVersion.tmp"`
-      exitWithMessageOnError "getting node version failed"
-    fi
+#    if [[ -e "$DEPLOYMENT_TEMP/__nodeVersion.tmp" ]]; then
+#      NODE_EXE=`cat "$DEPLOYMENT_TEMP/__nodeVersion.tmp"`
+#      exitWithMessageOnError "getting node version failed"
+#    fi
 
-    if [[ ! -n "$NODE_EXE" ]]; then
-      NODE_EXE=node
-    fi
+#    if [[ ! -n "$NODE_EXE" ]]; then
+#      NODE_EXE=node
+#    fi
 
     # Manually setting npm version to npm@3.5.1
-    NPM_CMD="\"$NODE_EXE\" \"$PROGRAMFILES\\npm\\3.5.1\\node_modules\\npm\\bin\\npm-cli.js\""
-  else
-    NPM_CMD=npm
-    NODE_EXE=node
-  fi
-}
+#    NPM_CMD="\"$NODE_EXE\" \"$PROGRAMFILES\\npm\\3.5.1\\node_modules\\npm\\bin\\npm-cli.js\""
+#  else
+#    NPM_CMD=npm
+#    NODE_EXE=node
+#  fi
+#}
 
 # Prerequisites
 # -------------
@@ -92,41 +92,41 @@ fi
 # ----------
 
 echo Moving to source directory
-pushd "$DEPLOYMENT_SOURCE/Source/E133.Web"
+pushd "$DEPLOYMENT_SOURCE/Source"
 
-selectNodeVersion
+#selectNodeVersion
 
 # 3. Install npm packages
-if [ -e "package.json" ]; then
-  echo Installing NPM modules
-  eval $NPM_CMD prune
-  eval $NPM_CMD install
-  exitWithMessageOnError "npm failed"
+#if [ -e "package.json" ]; then
+#  echo Installing NPM modules
+#  eval $NPM_CMD prune
+#  eval $NPM_CMD install
+#  exitWithMessageOnError "npm failed"
   
-  echo Installing jspm packages
-  eval $NPM_CMD install jspm@0.16.15
-  exitWithMessageOnError "installing jspm failed"  
-  ./node_modules/.bin/jspm install  
-  exitWithMessageOnError "jspm failed"
-fi
+#  echo Installing jspm packages
+#  eval $NPM_CMD install jspm@0.16.15
+#  exitWithMessageOnError "installing jspm failed"  
+#  ./node_modules/.bin/jspm install  
+#  exitWithMessageOnError "jspm failed"
+#fi
 
-echo Running Gulp
+#echo Running Gulp
 # 4. Run gulp for build
-if [ -e "gulpfile.js" ]; then  
-  eval $NPM_CMD install gulp 
-  exitWithMessageOnError "installing gulpfailed"  
-  ./node_modules/.bin/gulp export
-  exitWithMessageOnError "gulp failed"  
-fi    
+#if [ -e "gulpfile.js" ]; then  
+#  eval $NPM_CMD install gulp 
+#  exitWithMessageOnError "installing gulpfailed"  
+#  ./node_modules/.bin/gulp export
+#  exitWithMessageOnError "gulp failed"  
+#fi    
 
-echo Moving back from source directory
-popd
+#echo Moving back from source directory
+#popd
 
 echo Handling Basic Web Site deployment.
 
 # 1. KuduSync
 if [[ "$IN_PLACE_DEPLOYMENT" -ne "1" ]]; then
-  "$KUDU_SYNC_CMD" -v 50 -f "$DEPLOYMENT_SOURCE/Source/E133.Web/export" -t "$DEPLOYMENT_TARGET" -n "$NEXT_MANIFEST_PATH" -p "$PREVIOUS_MANIFEST_PATH" -i ".git;.hg;.deployment;deploy.sh"
+  "$KUDU_SYNC_CMD" -v 50 -f "$DEPLOYMENT_SOURCE/Source/export" -t "$DEPLOYMENT_TARGET" -n "$NEXT_MANIFEST_PATH" -p "$PREVIOUS_MANIFEST_PATH" -i ".git;.hg;.deployment;deploy.sh"
   exitWithMessageOnError "Kudu Sync failed"
 fi
 
