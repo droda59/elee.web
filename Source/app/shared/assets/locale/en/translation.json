@@ -57,10 +57,10 @@
         "mainDescription": "elee.menu guides you step-by-step through every step of your recipes, and lets you avoid common mistakes when you're preparing your meal.",
         "search": "Search",
         "cookItNowButton": "Cook it!",
-        "categories": {
-            "title": "Popular categories",
-            "browseAll": "Browse all",
-            "viewAll": "View all"
+        "results": {
+            "title": "Results",
+            "more": "More",
+            "noResult": "No result to display"
         },
         "steps": {
             "step1Title": "1 - Pick a recipe",

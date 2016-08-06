@@ -57,6 +57,11 @@
         "mainDescription": "elee.menu vous guide pas-à-pas à travers chaque étape de vos recettes, et permet de vous éviter les erreurs fréquentes lorsque vous préparer vos festins",
         "search": "Rechercher",
         "cookItNowButton": "Cuisinez!",
+        "results": {
+            "title": "Résultats",
+            "more": "Plus",
+            "noResult": "Aucun résultat à afficher"
+        },
         "steps": {
             "step1Title": "1- Choisissez une recette",
             "step1Description": "Rechercher une recette dont vous avez le goût",
