@@ -33,6 +33,7 @@ module.exports = {
             options: {
                 inject: true,
                 minify: true,
+                depCache: false,
                 rev: true
             }
         }

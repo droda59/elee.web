@@ -47,7 +47,7 @@ gulp.task("export:copy", function () {
 function getBundles() {
     var bl = [];
     for (b in bundles.bundles) {
-        bl.push(b + ".js");
+        bl.push(b + "*.js");
     }
 
     return bl;
