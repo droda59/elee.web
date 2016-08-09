@@ -2,6 +2,21 @@
   READ ME  
 -----------
 This is what you need to know and do to run this shit. 
+	
+Executing the app
+-----------------
+To run the API, run the Visual Studio solution. It contains a REST API that you can use to test and develop. 
+To use it, open a REST client like Postman or https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo. 
+
+- ParserTestController
+	/parsertest/get: Returns the list of recipes in the database in SearchResult format (id, name, url)
+	ex. GET http://localhost:50817/api/parsertest
+	
+	/parsertest/get/{id}: Returns the recipe with the id in the database, if it exists
+	ex. GET http://localhost:50817/api/parsertest/e879fde3-9bf3-47c9-bbb8-03b163a45ca8
+	
+	/parsertest/put?url={url}: Parses the url for a known recipe, inserts it in the database, and returns it. 
+	ex. PUT http://localhost:50817/api/parsertest/parse?url=http://www.ricardocuisine.com/recettes/5409-pouding-au-chocolat
 
 	
 --------------
@@ -56,4 +71,4 @@ of each such task. You run these tasks either from your IDE or in a console from
 	
 - gulp export
 	This will clean the /dist folder, clean the /export folder, then build, bundle and copy the production files into the /export folder. 
-	All those files will be bundled, minified and compressed, to replicate the production environment. You can test on your local machine using a local web server. 
+	All those files will be bundled, minified and compressed, to replicate the production environment. You can test on your local machine using a local web server.
