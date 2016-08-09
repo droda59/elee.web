@@ -6,47 +6,13 @@
 					<a class="brand-logo" href="#"><i class="material-icons small white-text">home</i>E133</a>
 				</div>
 				<div class="col s6">
-					<ul class="right">
-						<li>
-							<a click.trigger="toggleMinimizeActiveTimers()" class="right block-button ${activeTimersSectionActive ? 'active' : ''} au-animate">
-								<i class="material-icons small white-text">av_timer</i>
-								<span class="new badge" show.bind="timerCoordinator.activeTimers.length">${timerCoordinator.activeTimers.length}</span>
-							</a>
+				    <ul class="right">
+				      	<li>
+						  	<a click.trigger="editSettings()" class="right modal-trigger block-button">
+  								<i class="material-icons small white-text">settings</i>
+		  					</a>
 						</li>
-						<li>
-							<a click.trigger="editSettings()" class="right modal-trigger block-button">
-								<i class="material-icons small white-text">settings</i>
-							</a>
-						</li>
-					</ul>
-
-					<div class="dropdown-content au-animate" if.bind="activeTimersSectionActive">
-						<ul class="collection">
-							<li repeat.for="timer of timerCoordinator.activeTimers" class="collection-item avatar valign-wrapper active-timer au-animate">
-								<i class="material-icons prefix">av_timer</i>
-								<form submit.delegate="startTimer(timer)" validate.bind="timer.validation">
-									<input type="text" placeholder="${'quickRecipe.timerDescription' | t}" value.bind="timer.action" focus.bind="timer.isEditingDescription">
-									<input type="text" placeholder="${'quickRecipe.timerDuration' | t}" validate="duration" value.bind="timer.duration" show.bind="timer.remainingTime === timer.originalTime">
-
-									<span class="${timer.state == 'isAlmostDone' ? 'red-text' : ''}" if.bind="timer.remainingTime !== timer.originalTime">
-										<span>${timer.remainingTime | timeFormat}</span>
-									<span i18n="quickRecipe.timerTimeOfTotal">Of</span>
-									<span>${timer.originalTime | timeFormat}</span>
-									</span>
-
-									<span class="right">
-										<button type="submit"
-												class="btn btn-floating"
-												if.bind="timer.remainingTime === timer.originalTime"
-												disabled.bind="!timer.validation.result.isValid"
-												click.trigger="startTimer(timer)">
-											<i class="material-icons">play_arrow</i>
-										</button>
-									</span>
-								</form>
-							</li>
-						</ul>
-					</div>
+				    </ul>
 				</div>
 			</div>
 		</nav>
