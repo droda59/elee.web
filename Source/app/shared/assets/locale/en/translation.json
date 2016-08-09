@@ -6,6 +6,7 @@
         "links": "Links"
     },
     "comments": {
+        "pageTitle": "Comments",
         "yourMessage": "Your message",
         "emailForUpdates": "Enter your email if you would like to receive updates in your mailbox.",
         "email": "Your email address",
@@ -53,6 +54,7 @@
         }
     },
     "home": {
+        "pageTitle": "Welcome",
         "slogan": "cook simply",
         "mainDescription": "elee.menu guides you step-by-step through every step of your recipes, and lets you avoid common mistakes when you're preparing your meal.",
         "search": "Search",
@@ -92,6 +94,7 @@
         }
     },
     "about": {
+        "pageTitle": "About elee.menu",
         "title": "About elee.menu",
         "whoWeAre": "Meet the team",
         "whoWeAreText": "We are two passionate web developers who also have a strong interest in cooking.",
