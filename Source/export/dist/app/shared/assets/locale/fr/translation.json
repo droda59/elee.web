@@ -1,0 +1,166 @@
+{
+    "nav": {
+        "contact": "Contact",
+        "about": "A propos",
+        "lang": "English",
+        "links": "Liens"
+    },
+    "comments": {
+        "pageTitle": "Commentaires",
+        "yourMessage": "Votre message",
+        "emailForUpdates": "Inscrivez votre adresse de courriel si vous aimeriez recevoir des mises à jour.",
+        "email": "Votre adresse de courriel",
+        "thankYouMessage": "Merci pour vos commentaires, ils sont très importants pour nous!",
+        "sendButton": "Envoyer"
+    },
+    "help": {
+        "okButton": "J'ai compris",
+        "backToCurrentStepTitle": "Retour à l'étape courante",
+        "backToCurrentStepDescription": "Promenez-vous dans la recette, et revenez rapidement à l'étape courante avec ce bouton!",
+        "completeStepTitle": "Terminer une étape",
+        "completeStepDescription": "Appuyez ici pour compléter l'étape courante. Suivant!",
+        "timersTitle": "Chronomètres actifs",
+        "timersDescription": "Vous pouvez consulter les chronomètres actifs ou en ajouter!",
+        "settingsTitle": "Configuration",
+        "settingsDescription": "Personnifiez l'affichage de vos unités de mesure dans cette fenêtre!"
+    },
+    "settings": {
+        "title": "Configuration",
+        "okButton": "OK",
+        "cancelButton": "Annuler",
+        "volumeMeasureUnits": "Unités de mesure de volume",
+        "volumeDisplays": {
+            "metricShort": "Métrique simplifié",
+            "metricComplete": "Métrique",
+            "imperialShort": "Impérial simplifié",
+            "imperialComplete": "Impérial",
+            "both": "Afficher les deux"
+        },
+        "weightMeasureUnits": "Unités de mesure de poids",
+        "weightDisplays": {
+            "metricShort": "Métrique simplifié",
+            "metricComplete": "Métrique",
+            "imperialShort": "Impérial simplifié",
+            "imperialComplete": "Impérial",
+            "both": "Afficher les deux"
+        },
+        "examples": {
+            "water": "eau",
+            "brownSugar": "cassonade",
+            "milk": "lait",
+            "salt": "sel",
+            "chicken": "poulet",
+            "flour": "farine"
+        }
+    },
+    "home": {
+        "pageTitle": "Bienvenue",
+        "slogan": "cuisinez simplement",
+        "mainDescription": "elee.menu vous guide pas-à-pas à travers chaque étape de vos recettes, et permet de vous éviter les erreurs fréquentes lorsque vous préparer vos festins",
+        "search": "Rechercher",
+        "cookItNowButton": "Cuisinez!",
+        "results": {
+            "title": "Résultats",
+            "more": "Plus",
+            "noResult": "Aucun résultat à afficher"
+        },
+        "steps": {
+            "step1Title": "1- Choisissez une recette",
+            "step1Description": "Rechercher une recette dont vous avez le goût",
+            "step2Title": "2- Cuisinez-la",
+            "step2Description": "Suivez la recette en utilisant l'application",
+            "step3Title": "3- Appréciez",
+            "step3Description": "Appréciez votre repas; vous le méritez!"
+        },
+        "categories": {
+            "title": "Catégories populaires",
+            "browseAll": "Voir toutes",
+            "viewAll": "Voir toutes"
+        },
+        "features": {
+            "feature1Title": "Multi-platforme",
+            "feature1Description": "elee.menu est conçu pour être utilisé sur toutes les plateformes, pour que vous puissiez suivre vos recettes sur l'appareil de votre choix, où bon vous semble.",
+            "feature2Title": "Choix de recette",
+            "feature2Description": "Les recettes sont prises des grands sites culinaires populaires et reformattées pour en simplifier le suivi.",
+            "feature3Title": "Ingrédients",
+            "feature3Description": "Les quantités des ingrédients sont indiquées directement dans les étapes de la recette, dans l'unité de mesure que vous préférez.",
+            "feature4Title": "Chronomètres",
+            "feature4Description": "Lorsqu'un temps est requis, vous pouvez activer un chronomètre directement dans l'étape, ou en ajouter un manuellement, selon vos besoins."
+        },
+        "moar": {
+            "title": "Plus à venir!",
+            "description": "Gardez en tête que ceci n'est qu'une démo limitée, pour voir comment vos commentaires peuvent améliorer l'application'. Beaucoup plus de choses suivront, telles que : ",
+            "nextFeatures1": "Design du site",
+            "nextFeatures2": "Recherche parmi toutes les recettes des grands sites populaires",
+            "nextFeatures3": "Recettes anglaises",
+            "nextFeatures4": "Sauvegarde et édition de recette dans son compte personnel",
+            "nextFeatures5": "Suggestions de recettes selon vos préférences et habiletés",
+            "keepUpToDate": "Restez informé!"
+        }
+    },
+    "about": {
+        "pageTitle": "À propos de elee.menu",
+        "title": "À propos de elee.menu",
+        "whoWeAre": "Qui sommes-nous?",
+        "whoWeAreText": "Nous sommes deux web développeur passionés qui ont aussi un intérêt marqué pour la cuisine. ",
+        "ourTechnologies": "Les technologies que nous utilisons",
+        "ourTechnologiesText": "Voici une liste des technologies que nous utilisons pour construire Elee.menu.",
+        "bizsparkThanks": "Merci beaucoup Microsoft BizSpark!",
+        "bizsparkThanksText": "Merci à Microsoft qui nous fournit des crédits Azure ainsi que des outils gratuit pour 3 ans via leur programme BizSpark.",
+        "manyMore": "Et plusieurs autres...",
+        "aboutMax": "Développeur FullStack et fondateur de Elee.menu.",
+        "aboutMARoy": "Développeur FullStack passionné par le développement FrontEnd."
+    },
+    "quantities": {
+        "ml": "ml",
+        "ml_plural": "ml",
+        "cl": "cl",
+        "cl_plural": "cl",
+        "dl": "dl",
+        "dl_plural": "dl",
+        "l": "L",
+        "l_plural": "L",
+        "tsp": "c. à thé",
+        "tsp_plural": "c. à thé",
+        "tbsp": "c. à soupe",
+        "tbsp_plural": "c. à soupe",
+        "floz": "oz liq",
+        "floz_plural": "oz liq",
+        "cup": "tasse",
+        "cup_plural": "tasses",
+        "g": "g",
+        "g_plural": "g",
+        "kg": "kg",
+        "kg_plural": "kg",
+        "oz": "oz",
+        "oz_plural": "oz",
+        "lb": "lb",
+        "lb_plural": "lbs",
+        "pinch": "pincée",
+        "pinch_plural": "pincées",
+        "unit": "",
+        "unit_plural": "",
+        "nextWordVowel": "d'",
+        "nextWordConsonant": "de"
+    },
+    "quickRecipe": {
+        "exitConfirmation": "Êtes-vous certain de vouloir quitter?",
+        "originalRecipe": "Recette originale",
+        "note": "Note : ",
+        "timerTimeOfTotal": " de ",
+        "timerAdd": "Ajouter",
+        "timerDescription": "Description",
+        "timerDuration": "Durée (hh:mm:ss)",
+        "timerEnded": "Le temps est écoulé",
+        "ingredientsSideTitle": "Ingredients",
+        "ingredientReplacementConjunction": "ou",
+        "servings": "Portions : ",
+        "start": "Débuter",
+        "finish": "Terminer",
+        "comments": {
+            "didYouLikeExperience": "Avez-vous aimé votre expérience?",
+            "wedLikeYourComments": "Nous aimerions avoir vos commentaires!",
+            "writeComments": "Remplissez le questionnaire qui suit."
+        }
+    }
+}
