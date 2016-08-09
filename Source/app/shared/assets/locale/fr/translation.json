@@ -6,6 +6,7 @@
         "links": "Liens"
     },
     "comments": {
+        "pageTitle": "Commentaires",
         "yourMessage": "Votre message",
         "emailForUpdates": "Inscrivez votre adresse de courriel si vous aimeriez recevoir des mises à jour.",
         "email": "Votre adresse de courriel",
@@ -53,10 +54,16 @@
         }
     },
     "home": {
+        "pageTitle": "Bienvenue",
         "slogan": "cuisinez simplement",
         "mainDescription": "elee.menu vous guide pas-à-pas à travers chaque étape de vos recettes, et permet de vous éviter les erreurs fréquentes lorsque vous préparer vos festins",
         "search": "Rechercher",
         "cookItNowButton": "Cuisinez!",
+        "results": {
+            "title": "Résultats",
+            "more": "Plus",
+            "noResult": "Aucun résultat à afficher"
+        },
         "steps": {
             "step1Title": "1- Choisissez une recette",
             "step1Description": "Rechercher une recette dont vous avez le goût",
@@ -92,7 +99,8 @@
         }
     },
     "about": {
-        "title": "A propos de elee.menu",
+        "pageTitle": "À propos de elee.menu",
+        "title": "À propos de elee.menu",
         "whoWeAre": "Qui sommes-nous?",
         "whoWeAreText": "Nous sommes deux web développeur passionés qui ont aussi un intérêt marqué pour la cuisine. ",
         "ourTechnologies": "Les technologies que nous utilisons",

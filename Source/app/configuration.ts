@@ -3,7 +3,7 @@ import * as Backend from 'i18next-xhr-backend';
 export function configure(aurelia) {
     aurelia.use
         .standardConfiguration()
-        .developmentLogging()
+        // .developmentLogging()
         .globalResources("app/shared/aurelia-materialize")
         .plugin("aurelia-animator-css")
         .plugin("aurelia-dialog")
@@ -17,7 +17,7 @@ export function configure(aurelia) {
                 attributes: ["t", "i18n"],
                 getAsync: true,
                 sendMissing: false,
-                fallbackLng: "en",
+                fallbackLng: "fr",
                 debug: false
             });
         })
@@ -25,18 +25,14 @@ export function configure(aurelia) {
             config.init("UA-73519104-1");
             config.attach({
                 logging: {
-                    enabled: true
+                    enabled: false
                 },
                 pageTracking: {
                     enabled: true
                 },
                 clickTracking: {
                     enabled: true,
-                    filter: (element) => {
-                        return element instanceof HTMLElement &&
-                            (element.nodeName.toLowerCase() === "a" ||
-                                element.nodeName.toLowerCase() === "button");
-                    }
+                    filter: config._options.clickTracking.filter
                 }
             });
         });

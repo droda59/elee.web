@@ -6,6 +6,7 @@
         "links": "Links"
     },
     "comments": {
+        "pageTitle": "Comments",
         "yourMessage": "Your message",
         "emailForUpdates": "Enter your email if you would like to receive updates in your mailbox.",
         "email": "Your email address",
@@ -53,14 +54,15 @@
         }
     },
     "home": {
+        "pageTitle": "Welcome",
         "slogan": "cook simply",
         "mainDescription": "elee.menu guides you step-by-step through every step of your recipes, and lets you avoid common mistakes when you're preparing your meal.",
         "search": "Search",
         "cookItNowButton": "Cook it!",
-        "categories": {
-            "title": "Popular categories",
-            "browseAll": "Browse all",
-            "viewAll": "View all"
+        "results": {
+            "title": "Results",
+            "more": "More",
+            "noResult": "No result to display"
         },
         "steps": {
             "step1Title": "1 - Pick a recipe",
@@ -92,6 +94,7 @@
         }
     },
     "about": {
+        "pageTitle": "About elee.menu",
         "title": "About elee.menu",
         "whoWeAre": "Meet the team",
         "whoWeAreText": "We are two passionate web developers who also have a strong interest in cooking.",
