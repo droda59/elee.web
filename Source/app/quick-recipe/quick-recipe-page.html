@@ -5,6 +5,7 @@
 	<require from="app/shared/components/measurable-ingredient"></require>
 	<!-- <require from="shared/components/comments-form"></require> -->
 	<require from="app/shared/value-converters/duration-format"></require>
+	<require from="app/shared/value-converters/time-format"></require>
 
 	<div class="quick-recipe">
 		<header class="row z-depth-1">
@@ -75,6 +76,7 @@
 									<span class="progression">${subrecipe.completedSteps}/${subrecipe.steps.length}</span>
 									<span class="timers" show.bind="subrecipe.timers.length">
 										<i class="material-icons">av_timer</i>
+										<span if.bind="subrecipe.timers.length > 0">${subrecipe.timers[0].remainingTime | timeFormat}</span>
 									</span>
 								</a>
 							</li>
