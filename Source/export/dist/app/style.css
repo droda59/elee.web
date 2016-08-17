@@ -9814,20 +9814,18 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     #welcome-container #search-container .recipe-search .caret {
       display: none; }
     #welcome-container #search-container .recipe-search .input-field i {
-      top: 15%;
-      left: 10%;
+      top: 18%;
       color: white; }
     #welcome-container #search-container .recipe-search input {
       text-align: center;
       text-transform: uppercase;
+      margin-left: 0;
       background-color: rgba(255, 255, 255, 0.25);
       border-bottom: 1px solid rgba(255, 255, 255, 0.6);
       padding: 4px 0; }
 
 #welcome-container #results-container .card {
   border-radius: 0; }
-  #welcome-container #results-container .card .card-image img {
-    top: -120px; }
   #welcome-container #results-container .card .card-content .card-title {
     line-height: normal; }
 
