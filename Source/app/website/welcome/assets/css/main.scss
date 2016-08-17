@@ -53,13 +53,13 @@
 			}
 
 			.input-field i {
-				top: 15%;
-				left: 10%;
+				top: 18%;
 				color: white;
 			}
 			input {
 				text-align: center;
 				text-transform: uppercase;
+				margin-left: 0;
 
 				background-color: rgba(255, 255, 255, 0.25);
 				border-bottom: 1px solid rgba(255, 255, 255, 0.6);
@@ -72,11 +72,6 @@
 		.card {
 			border-radius: 0;
 
-			.card-image {
-				img {
-					top: -120px;
-				}
-			}
 			.card-content .card-title {
 				line-height: normal;
 			}

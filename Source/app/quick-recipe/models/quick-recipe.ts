@@ -1,7 +1,7 @@
 import {Ingredient, IngredientDto} from "app/shared/models/ingredient";
 
 class IngredientUnicityOverseer {
-    private static ingredients: { [id: number] : Ingredient; } = {};
+    private static ingredients: { [id: number]: Ingredient; } = {};
 
     static getIngredient(dto: IngredientDto): Ingredient {
         if (!this.ingredients[dto.id]) {
@@ -10,11 +10,15 @@ class IngredientUnicityOverseer {
 
         return this.ingredients[dto.id];
     }
+
+    static initialize(): void {
+        this.ingredients = {};
+    }
 }
 
 class PartFactory {
     static createPart(dto: PartDto, step: Step): Part {
-        switch(dto.type) {
+        switch (dto.type) {
             case "ingredient": return new IngredientPart(<IngredientPartDto>dto, step);
             case "text": return new TextPart(<TextPartDto>dto, step);
             case "action": return new ActionPart(<ActionPartDto>dto, step);
@@ -43,6 +47,9 @@ export class QuickRecipe implements QuickRecipeDto {
     constructor(dto: QuickRecipeDto) {
         Object.assign(this, dto);
 
+        // Ensure we don't have ingredients leftover when switching recipe.
+        IngredientUnicityOverseer.initialize();
+
         this.id = dto._id;
         this.durations = dto.durations.map(durationDto => new Duration(durationDto));
         this.subrecipes = dto.subrecipes.map(subrecipeDto => new SubRecipe(subrecipeDto));
@@ -50,6 +57,7 @@ export class QuickRecipe implements QuickRecipeDto {
         this.steps = dto.steps.map(stepDto => new Step(stepDto));
     }
 }
+
 interface QuickRecipeDto {
     _id: string;
     language: string;
