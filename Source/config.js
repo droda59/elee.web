@@ -358,11 +358,7 @@ System.config({
     }
   },
   bundles: {
-<<<<<<< HEAD
-    "aurelia-bundle-4cc6d233f5.js": [
-=======
     "aurelia-bundle-9b9c8b227e.js": [
->>>>>>> f84d9b5063108bcfbd31105e07696d6b2b09c820
       "github:jspm/nodelibs-process@0.1.2.js",
       "github:jspm/nodelibs-process@0.1.2/index.js",
       "github:miguelzakharia/aurelia-google-analytics@1.0.4.js",
