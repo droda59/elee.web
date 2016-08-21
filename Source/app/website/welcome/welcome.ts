@@ -22,7 +22,7 @@ export class Welcome extends BaseI18N {
 	searchRecipes(): void {
 		let searchContainer = $("#search-container")[0];
 		this._httpClient.createRequest(null)
-			.withUrl("http://eleeapi.azurewebsites.net/api/quickrecipesearch?query=" + this.searchTerms)
+			.withUrl("http://eleeapi.azurewebsites.net/api/quickrecipe/search?query=" + this.searchTerms)
 			.withHeader("Accept", "application/json")
 			.asGet()
 			.send()
