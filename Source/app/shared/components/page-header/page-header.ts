@@ -17,7 +17,7 @@ export class PageHeader extends BaseI18N {
 
 	attached() {
         $(".button-collapse").sideNav({
-            edge: 'left'
+            edge: "left"
         });
     }
 
