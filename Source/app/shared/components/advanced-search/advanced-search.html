@@ -1,5 +1,16 @@
 <template>
     <div class="advanced-search">
-        
+        <h1>Advanced Search</h1>
+        <h2>Ingredients</h2>
+        <div md-chips="data.bind: ingredients"></div>
+        <div>Value:
+            <span repeat.for="ingredient of ingredients">
+            ${ingredient.tag}</span>
+        </div>
+        <h2>Time Required</h2>
+        <md-range md-value.bind="time"></md-range>
+        <div>
+            Value: ${time}
+        </div>
     </div>
 </template>

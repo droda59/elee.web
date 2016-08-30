@@ -4,7 +4,7 @@ import {I18N, BaseI18N} from "aurelia-i18n";
 
 @inject (I18N, Element, EventAggregator)
 export class AdvancedSearch extends BaseI18N {
-    @bindable recipeTime: string = null;
+    @bindable time: string = null;
     @bindable ingredients: string[] = [];
 
     private _i18n: I18N;
