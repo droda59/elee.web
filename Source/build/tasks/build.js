@@ -38,6 +38,7 @@ gulp.task("build-html", function () {
 gulp.task("build-sass", function () {
     var appSass = gulp.src([
         paths.app + "shared/assets/css/main.scss",
+        paths.app + "shared/components/advanced-search/advanced-search.scss",
         paths.app + "shared/components/page-header/page-header.scss",
         paths.app + "website/welcome/assets/css/main.scss",
         paths.app + "website/about/assets/css/main.scss",
