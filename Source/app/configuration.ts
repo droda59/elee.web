@@ -1,9 +1,9 @@
-import * as Backend from 'i18next-xhr-backend';
+import * as Backend from "i18next-xhr-backend";
 
 export function configure(aurelia) {
     aurelia.use
         .standardConfiguration()
-        // .developmentLogging()
+        //.developmentLogging()
         .globalResources("app/shared/aurelia-materialize")
         .plugin("aurelia-animator-css")
         .plugin("aurelia-dialog")
@@ -11,7 +11,7 @@ export function configure(aurelia) {
             instance.i18next.use(Backend);
             return instance.setup({
                 backend: {
-                    loadPath : "/dist/app/shared/assets/locale/{{lng}}/{{ns}}.json"
+                    loadPath: "/dist/app/shared/assets/locale/{{lng}}/{{ns}}.json"
                 },
                 lng: "fr",
                 attributes: ["t", "i18n"],
@@ -35,7 +35,11 @@ export function configure(aurelia) {
                     filter: config._options.clickTracking.filter
                 }
             });
-        });
+        }).plugin("aurelia-materialize-bridge", bridge => {
+            bridge
+                .useRange()
+                .useChip()
+        });;
 
     aurelia.start().then(a => a.setRoot("app/main", document.body));
 
@@ -51,6 +55,6 @@ export function configure(aurelia) {
             return format.replace(/{(\d+)}/g, function (match, number) {
                 return typeof args[number] !== "undefined" ? args[number] : match;
             });
-        }
+        };
     }
 }
