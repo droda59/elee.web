@@ -28,6 +28,7 @@ module.exports = {
                 "aurelia-templating-resources",
                 "aurelia-templating-router",
                 "aurelia-google-analytics",
+                "aurelia-materialize-bridge",
                 "scrollmagic"
             ],
             options: {
