@@ -3,7 +3,7 @@ import * as Backend from "i18next-xhr-backend";
 export function configure(aurelia) {
     aurelia.use
         .standardConfiguration()
-        //.developmentLogging()
+        .developmentLogging()
         .globalResources("app/shared/aurelia-materialize")
         .plugin("aurelia-animator-css")
         .plugin("aurelia-dialog")

@@ -2,7 +2,7 @@ import {inject} from "aurelia-framework";
 import {Router, RouterConfiguration} from "aurelia-router";
 import {I18N} from "aurelia-i18n";
 
-@inject (I18N)
+@inject(I18N)
 export class Main {
 	router: Router;
     private _i18n: I18N;
@@ -14,9 +14,23 @@ export class Main {
 	configureRouter(config: RouterConfiguration, router: Router) {
 		config.title = "E133";
 		config.map([
-			{ route: ["", "home"], moduleId: "app/website/home", nav: false },
-			{ route: "typeform", name: "typeform", moduleId: "app/shared/components/typeform", nav: true, title: this._i18n.tr("comments.pageTitle") },
-			{ route: "recipe/:id", name: "quick-recipe", moduleId: "app/quick-recipe/quick-recipe-page" }
+			{
+				route: ["", "home"],
+				moduleId: "app/website/home",
+				nav: false
+			},
+			{
+				route: "typeform",
+				name: "typeform",
+				moduleId: "app/shared/components/typeform",
+				nav: true,
+				title: this._i18n.tr("comments.pageTitle")
+			},
+			{
+				route: "recipe/:id",
+				name: "quick-recipe",
+				moduleId: "app/quick-recipe/quick-recipe-page"
+			}
 		]);
 
 		this.router = router;
