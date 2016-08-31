@@ -2,21 +2,33 @@ import {inject} from "aurelia-framework";
 import {Router, RouterConfiguration} from "aurelia-router";
 import {I18N} from "aurelia-i18n";
 
-@inject (I18N)
+@inject(I18N)
 export class Home {
-    private _router: Router;
-    private _i18n: I18N;
+    router: Router;
+    i18n: I18N;
 
     constructor(i18n: I18N) {
-        this._i18n = i18n;
+        this.i18n = i18n;
     }
 
     configureRouter(config: RouterConfiguration, router: Router) {
         config.map([
-            { route: ["", "welcome"], name: "welcome", moduleId: "app/website/welcome/welcome", nav: true, title: this._i18n.tr("home.pageTitle") },
-            { route: "about", name: "about", moduleId: "app/website/about/about", nav: true, title: this._i18n.tr("about.pageTitle") }
+            {
+                route: ["", "welcome"],
+                name: "welcome",
+                moduleId: "app/website/welcome/welcome",
+                nav: true,
+                title: this.i18n.tr("home.pageTitle")
+            },
+            {
+                route: "about",
+                name: "about",
+                moduleId: "app/website/about/about",
+                nav: true,
+                title: this.i18n.tr("about.pageTitle")
+            }
         ]);
 
-        this._router = router;
+        this.router = router;
     }
 }
