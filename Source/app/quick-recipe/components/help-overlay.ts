@@ -2,19 +2,19 @@ import {inject} from "aurelia-framework";
 import {DialogController} from "aurelia-dialog";
 // import * as $ from "jquery";
 
-@inject (DialogController)
+@inject(DialogController)
 export class HelpOverlay {
-	controller: DialogController;
+  controller: DialogController;
 
-	constructor(controller: DialogController) {
-		this.controller = controller;
-	}
+  constructor(controller: DialogController) {
+    this.controller = controller;
+  }
 
-	previous(): void {
-		$(".slider").slider("prev");
-	}
+  previous(): void {
+    $(".slider").slider("prev");
+  }
 
-	next(): void {
-		$(".slider").slider("next");
-	}
+  next(): void {
+    $(".slider").slider("next");
+  }
 }

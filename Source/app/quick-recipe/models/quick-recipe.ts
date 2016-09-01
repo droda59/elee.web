@@ -1,200 +1,200 @@
 import {Ingredient, IngredientDto} from "app/shared/models/ingredient";
 
 class IngredientUnicityOverseer {
-    private static ingredients: { [id: number]: Ingredient; } = {};
+  private static ingredients: { [id: number]: Ingredient; } = {};
 
-    static getIngredient(dto: IngredientDto): Ingredient {
-        if (!this.ingredients[dto.id]) {
-            this.ingredients[dto.id] = new Ingredient(dto);
-        }
-
-        return this.ingredients[dto.id];
+  static getIngredient(dto: IngredientDto): Ingredient {
+    if (!this.ingredients[dto.id]) {
+      this.ingredients[dto.id] = new Ingredient(dto);
     }
 
-    static initialize(): void {
-        this.ingredients = {};
-    }
+    return this.ingredients[dto.id];
+  }
+
+  static initialize(): void {
+    this.ingredients = {};
+  }
 }
 
 class PartFactory {
-    static createPart(dto: PartDto, step: Step): Part {
-        switch (dto.type) {
-            case "ingredient": return new IngredientPart(<IngredientPartDto>dto, step);
-            case "text": return new TextPart(<TextPartDto>dto, step);
-            case "action": return new ActionPart(<ActionPartDto>dto, step);
-            case "timer": return new TimerPart(<TimerPartDto>dto, step);
-            case "enumeration": return new IngredientEnumerationPart(<IngredientEnumerationPartDto>dto, step);
-        }
+  static createPart(dto: PartDto, step: Step): Part {
+    switch (dto.type) {
+      case "ingredient": return new IngredientPart(<IngredientPartDto>dto, step);
+      case "text": return new TextPart(<TextPartDto>dto, step);
+      case "action": return new ActionPart(<ActionPartDto>dto, step);
+      case "timer": return new TimerPart(<TimerPartDto>dto, step);
+      case "enumeration": return new IngredientEnumerationPart(<IngredientEnumerationPartDto>dto, step);
     }
+  }
 }
 
 export class QuickRecipe implements QuickRecipeDto {
-    id: string;
-    language: string;
-    title: string;
-    originalUrl: string;
-    note: string;
-    smallImageUrl: string;
-    normalImageUrl: string;
-    largeImageUrl: string;
-    summary: string;
-    originalServings: string;
-    durations: Duration[];
-    subrecipes: SubRecipe[];
-    ingredients: Ingredient[];
-    steps: Step[];
+  id: string;
+  language: string;
+  title: string;
+  originalUrl: string;
+  note: string;
+  smallImageUrl: string;
+  normalImageUrl: string;
+  largeImageUrl: string;
+  summary: string;
+  originalServings: string;
+  durations: Duration[];
+  subrecipes: SubRecipe[];
+  ingredients: Ingredient[];
+  steps: Step[];
 
-    constructor(dto: QuickRecipeDto) {
-        Object.assign(this, dto);
+  constructor(dto: QuickRecipeDto) {
+    Object.assign(this, dto);
 
-        // Ensure we don't have ingredients leftover when switching recipe.
-        IngredientUnicityOverseer.initialize();
+    // Ensure we don't have ingredients leftover when switching recipe.
+    IngredientUnicityOverseer.initialize();
 
-        this.id = dto._id;
-        this.durations = dto.durations.map(durationDto => new Duration(durationDto));
-        this.subrecipes = dto.subrecipes.map(subrecipeDto => new SubRecipe(subrecipeDto));
-        this.ingredients = dto.ingredients.map(ingredientDto => IngredientUnicityOverseer.getIngredient(ingredientDto));
-        this.steps = dto.steps.map(stepDto => new Step(stepDto));
-    }
+    this.id = dto._id;
+    this.durations = dto.durations.map(durationDto => new Duration(durationDto));
+    this.subrecipes = dto.subrecipes.map(subrecipeDto => new SubRecipe(subrecipeDto));
+    this.ingredients = dto.ingredients.map(ingredientDto => IngredientUnicityOverseer.getIngredient(ingredientDto));
+    this.steps = dto.steps.map(stepDto => new Step(stepDto));
+  }
 }
 
 interface QuickRecipeDto {
-    _id: string;
-    language: string;
-    title: string;
-    originalUrl: string;
-    note: string;
-    smallImageUrl: string;
-    normalImageUrl: string;
-    largeImageUrl: string;
-    summary: string;
-    originalServings: string;
-    durations: DurationDto[];
-    subrecipes: SubRecipeDto[];
-    ingredients: IngredientDto[];
-    steps: StepDto[];
+  _id: string;
+  language: string;
+  title: string;
+  originalUrl: string;
+  note: string;
+  smallImageUrl: string;
+  normalImageUrl: string;
+  largeImageUrl: string;
+  summary: string;
+  originalServings: string;
+  durations: DurationDto[];
+  subrecipes: SubRecipeDto[];
+  ingredients: IngredientDto[];
+  steps: StepDto[];
 }
 
 export class Duration implements DurationDto {
-    title: string;
-    time: string;
+  title: string;
+  time: string;
 
-    constructor(dto: DurationDto) {
-        Object.assign(this, dto);
-    }
+  constructor(dto: DurationDto) {
+    Object.assign(this, dto);
+  }
 }
 interface DurationDto {
-    title: string;
-    time: string;
+  title: string;
+  time: string;
 }
 
 export class SubRecipe implements SubRecipeDto {
-    id: number;
-    title: string;
+  id: number;
+  title: string;
 
-    constructor(dto: SubRecipeDto) {
-        Object.assign(this, dto);
-    }
+  constructor(dto: SubRecipeDto) {
+    Object.assign(this, dto);
+  }
 }
 interface SubRecipeDto {
-    id: number;
-    title: string;
+  id: number;
+  title: string;
 }
 
 export class Step implements StepDto {
-    id: number;
-    subrecipeId: number;
-    parts: Part[];
-    isCompleted: boolean;
-    isOnHold: boolean;
+  id: number;
+  subrecipeId: number;
+  parts: Part[];
+  isCompleted: boolean;
+  isOnHold: boolean;
 
-    constructor(dto: StepDto) {
-        Object.assign(this, dto);
+  constructor(dto: StepDto) {
+    Object.assign(this, dto);
 
-        this.parts = dto.parts.map(partDto => PartFactory.createPart(partDto, this));
-        this.isCompleted = false;
-        this.isOnHold = false;
-    }
+    this.parts = dto.parts.map(partDto => PartFactory.createPart(partDto, this));
+    this.isCompleted = false;
+    this.isOnHold = false;
+  }
 }
 interface StepDto {
-    id: number;
-    subrecipeId: number;
-    parts: PartDto[];
+  id: number;
+  subrecipeId: number;
+  parts: PartDto[];
 }
 
 export class Part implements PartDto {
-    type: string;
-    stepId: number;
+  type: string;
+  stepId: number;
 
-    constructor(dto: PartDto, step: Step) {
-        Object.assign(this, dto);
+  constructor(dto: PartDto, step: Step) {
+    Object.assign(this, dto);
 
-        this.stepId = step.id;
-    }
+    this.stepId = step.id;
+  }
 }
 interface PartDto {
-    type: string;
+  type: string;
 }
 
 export class IngredientPart extends Part implements IngredientPartDto {
-    ingredient: Ingredient;
+  ingredient: Ingredient;
 
-    constructor(dto: IngredientPartDto, step: Step) {
-        super(dto, step);
+  constructor(dto: IngredientPartDto, step: Step) {
+    super(dto, step);
 
-        this.ingredient = IngredientUnicityOverseer.getIngredient(dto.ingredient);
-    }
+    this.ingredient = IngredientUnicityOverseer.getIngredient(dto.ingredient);
+  }
 }
 interface IngredientPartDto extends PartDto {
-    ingredient: IngredientDto;
+  ingredient: IngredientDto;
 }
 
 export class TextPart extends Part implements TextPartDto {
-    value: string;
+  value: string;
 
-    constructor(dto: TextPartDto, step: Step) {
-        super(dto, step);
-    }
+  constructor(dto: TextPartDto, step: Step) {
+    super(dto, step);
+  }
 }
 interface TextPartDto extends PartDto {
-    value: string;
+  value: string;
 }
 
 export class ActionPart extends Part implements ActionPartDto {
-    value: string;
+  value: string;
 
-    constructor(dto: ActionPartDto, step: Step) {
-        super(dto, step);
-    }
+  constructor(dto: ActionPartDto, step: Step) {
+    super(dto, step);
+  }
 }
 interface ActionPartDto extends PartDto {
-    value: string;
+  value: string;
 }
 
 export class TimerPart extends Part implements TimerPartDto {
-    value: string;
-    action: string;
-    text: string;
+  value: string;
+  action: string;
+  text: string;
 
-    constructor(dto: TimerPartDto, step: Step) {
-        super(dto, step);
-    }
+  constructor(dto: TimerPartDto, step: Step) {
+    super(dto, step);
+  }
 }
 interface TimerPartDto extends PartDto {
-    value: string;
-    action: string;
-    text: string;
+  value: string;
+  action: string;
+  text: string;
 }
 
 export class IngredientEnumerationPart extends Part implements IngredientEnumerationPartDto {
-    ingredients: Ingredient[];
+  ingredients: Ingredient[];
 
-    constructor(dto: IngredientEnumerationPartDto, step: Step) {
-        super(dto, step);
+  constructor(dto: IngredientEnumerationPartDto, step: Step) {
+    super(dto, step);
 
-        this.ingredients = dto.ingredients.map(ingredient => IngredientUnicityOverseer.getIngredient(ingredient));
-    }
+    this.ingredients = dto.ingredients.map(ingredient => IngredientUnicityOverseer.getIngredient(ingredient));
+  }
 }
 interface IngredientEnumerationPartDto extends PartDto {
-    ingredients: IngredientDto[];
+  ingredients: IngredientDto[];
 }
