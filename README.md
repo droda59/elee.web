@@ -31,10 +31,15 @@ To be able to run the client app, you need to do the following:
 	Get NodeJS here : https://nodejs.org/download/
 	You can choose between the LTS version or the latest and greatest version. Both will work though the latest might broke sometime.
 
+- Install VSCode latest version.
+- Install VSCode extensions
+    - **EditorConfig** : Open the command pallet and type `ext install EditorConfig`
+        - If you're not using VSCode, the extension is also available for many other IDE/Text Editor.
+
 - Install app packages
-	navigate to solution folder /Source/E133.Web/
-	npm install
-	jspm install
+	- navigate to solution folder /Source/E133.Web/
+	- npm install
+	- jspm install
 
 Executing the app
 -----------------
