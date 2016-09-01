@@ -36,7 +36,7 @@ export class AureliaMaterialize {
     }
 
     // handle the details of configuring the materialize javascript components...
-    switch(this.value) {
+    switch (this.value) {
       case "datepicker":
         $(this.element).pickadate({
           format: "m/d/yyyy",
@@ -109,7 +109,7 @@ export class AureliaMaterialize {
       var i, options, option, optionValue;
       options = this.element.options;
       i = options.length;
-      while(i--) {
+      while (i--) {
         option = options.item(i);
         if (option.selected) {
           return option;
@@ -127,18 +127,18 @@ export class AureliaMaterialize {
 
     // dirrrrrty checking.
     this._interval = setInterval(() => {
-        if (lastSelectValue !== this.element.value) {
-          selectedOption = getSelectedOption();
-          if (input.value === selectedOption.text) {
-            // materialize changed the select"s value.  notify the binding system.
-            fireEvent(this.element, "change");
-          } else {
-            // the binding system updated the select"s value.  synchronize the materialize input.
-            input.value = selectedOption.text;
-          }
-          lastSelectValue = this.element.value;
+      if (lastSelectValue !== this.element.value) {
+        selectedOption = getSelectedOption();
+        if (input.value === selectedOption.text) {
+          // materialize changed the select"s value.  notify the binding system.
+          fireEvent(this.element, "change");
+        } else {
+          // the binding system updated the select"s value.  synchronize the materialize input.
+          input.value = selectedOption.text;
         }
-      },
+        lastSelectValue = this.element.value;
+      }
+    },
       120);
 
     // handle option changes

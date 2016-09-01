@@ -4,35 +4,35 @@ import {I18N} from "aurelia-i18n";
 
 @inject(I18N)
 export class Main {
-	router: Router;
-    private _i18n: I18N;
+  router: Router;
+  private _i18n: I18N;
 
-    constructor(i18n: I18N) {
-        this._i18n = i18n;
-    }
+  constructor(i18n: I18N) {
+    this._i18n = i18n;
+  }
 
-	configureRouter(config: RouterConfiguration, router: Router) {
-		config.title = "E133";
-		config.map([
-			{
-				route: ["", "home"],
-				moduleId: "app/website/home",
-				nav: false
-			},
-			{
-				route: "typeform",
-				name: "typeform",
-				moduleId: "app/shared/components/typeform",
-				nav: true,
-				title: this._i18n.tr("comments.pageTitle")
-			},
-			{
-				route: "recipe/:id",
-				name: "quick-recipe",
-				moduleId: "app/quick-recipe/quick-recipe-page"
-			}
-		]);
+  configureRouter(config: RouterConfiguration, router: Router) {
+    config.title = "E133";
+    config.map([
+      {
+        route: ["", "home"],
+        moduleId: "app/website/home",
+        nav: false
+      },
+      {
+        route: "typeform",
+        name: "typeform",
+        moduleId: "app/shared/components/typeform",
+        nav: true,
+        title: this._i18n.tr("comments.pageTitle")
+      },
+      {
+        route: "recipe/:id",
+        name: "quick-recipe",
+        moduleId: "app/quick-recipe/quick-recipe-page"
+      }
+    ]);
 
-		this.router = router;
-	}
+    this.router = router;
+  }
 }

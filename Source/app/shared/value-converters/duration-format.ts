@@ -1,9 +1,9 @@
 export class DurationFormatValueConverter {
-	toView(value: string) {
-		if (!/PT[\d]+/.test(value)){
-			return value;
-		}
+  toView(value: string) {
+    if (!/PT[\d]+/.test(value)) {
+      return value;
+    }
 
-		return moment.duration(value).humanize();
-	}
+    return moment.duration(value).humanize();
+  }
 }

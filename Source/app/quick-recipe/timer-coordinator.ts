@@ -2,46 +2,46 @@ import {inject} from "aurelia-framework";
 import {I18N} from "aurelia-i18n";
 import {QuickRecipeTimer} from "app/quick-recipe/models/quick-recipe-timer";
 
-@inject (I18N)
+@inject(I18N)
 export class TimerCoordinator {
-	private _i18n: I18N;
+  private _i18n: I18N;
 
-	onTimerStarted;
-	onTimerEnded;
+  onTimerStarted;
+  onTimerEnded;
 
-    constructor(i18n: I18N) {
-        this._i18n = i18n;
+  constructor(i18n: I18N) {
+    this._i18n = i18n;
+  }
+
+  startTimer(timer: QuickRecipeTimer): void {
+    var that = this;
+
+    timer.start();
+    if (this.onTimerStarted) {
+      this.onTimerStarted(timer);
     }
 
-	startTimer(timer: QuickRecipeTimer): void {
-		var that = this;
+    if (!timer.onFinish) {
+      timer.onFinish = () => {
+        if ("Notification" in window) {
+          if (Notification.permission === "granted") {
+            var options = {
+              body: timer.action
+            }
 
-		timer.start();
-		if (this.onTimerStarted) {
-			this.onTimerStarted(timer);
-		}
+            new Notification(that._i18n.tr("quickRecipe.timerEnded", null), options);
+          }
+        }
 
-		if (!timer.onFinish) {
-			timer.onFinish = () => {
-				if ("Notification" in window) {
-					if (Notification.permission === "granted") {
-						var options = {
-							body: timer.action
-						}
+        if (this.onTimerEnded) {
+          this.onTimerEnded(timer);
+        }
+      }
+    }
+  }
 
-						new Notification(that._i18n.tr("quickRecipe.timerEnded", null), options);
-					}
-				}
-
-				if (this.onTimerEnded) {
-					this.onTimerEnded(timer);
-				}
-			}
-		}
-	}
-
-	deleteTimer(timer: QuickRecipeTimer): void {
-		timer.delete();
-		timer.onFinish = null;
-	}
+  deleteTimer(timer: QuickRecipeTimer): void {
+    timer.delete();
+    timer.onFinish = null;
+  }
 }
