@@ -7,8 +7,15 @@
 				</div>
 				<div class="col s6">
 				    <ul class="right">
+						<li>
+							<a click.trigger="reportRecipe()" class="right block-button tooltipped"
+								data-position="bottom" data-delay="50" data-tooltip="${'quickRecipe.reportProblem' | t}">
+								<i class="material-icons small white-text">report_problem</i>
+							</a>
+						</li>
 				      	<li>
-						  	<a click.trigger="editSettings()" class="right modal-trigger block-button">
+						  	<a click.trigger="editSettings()" class="right modal-trigger block-button tooltipped"
+								data-position="bottom" data-delay="50" data-tooltip="${'quickRecipe.settings' | t}">
   								<i class="material-icons small white-text">settings</i>
 		  					</a>
 						</li>

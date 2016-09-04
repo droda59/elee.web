@@ -139,6 +139,9 @@
         "nextWordConsonant": "of"
     },
     "quickRecipe": {
+        "recipeFlagged": "Recipe reported!",
+        "reportProblem": "Report problem",
+        "settings": "Settings",
         "exitConfirmation": "Are you sure you want to leave?",
         "originalRecipe": "Original recipe",
         "note": "Note: ",
