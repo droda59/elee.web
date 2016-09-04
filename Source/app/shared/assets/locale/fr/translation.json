@@ -144,6 +144,9 @@
         "nextWordConsonant": "de"
     },
     "quickRecipe": {
+        "recipeFlagged": "Recette signalée!",
+        "reportProblem": "Signaler un problème",
+        "settings": "Options",
         "exitConfirmation": "Êtes-vous certain de vouloir quitter?",
         "originalRecipe": "Recette originale",
         "note": "Note : ",
