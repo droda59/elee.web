@@ -16,7 +16,6 @@ export class QuickRecipePage {
   recipe: QuickRecipe;
   subrecipes: QuickRecipeSubrecipe[] = [];
 
-  backgroundClass: string;
   isRecipeStarted: boolean;
   isRecipeDone: boolean;
 

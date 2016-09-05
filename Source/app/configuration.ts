@@ -1,4 +1,5 @@
 import * as Backend from "i18next-xhr-backend";
+import "materialize-css"; // ONLY when using the "npm" option above
 
 export function configure(aurelia) {
   aurelia.use
@@ -39,6 +40,7 @@ export function configure(aurelia) {
       bridge
         .useRange()
         .useChip()
+        .useSelect()
     });;
 
   aurelia.start().then(a => a.setRoot("app/main", document.body));
