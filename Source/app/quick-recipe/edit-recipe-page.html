@@ -28,10 +28,28 @@
                 <section class="section">
                     <h2>Ingredients</h2>
                     <div class="row">
-    					<section repeat.for="subrecipe of subrecipes" if.bind="subrecipe.ingredients.length" class="col s6">
-    						<h4 if.bind="subrecipe.title" class="center truncate">${subrecipe.title}</h4>
+    					<section repeat.for="subrecipe of subrecipes" if.bind="subrecipe.id >= 0" class="col s12 m6">
+                            <div class="row valign-wrapper">
+                                <div class="col s2">
+                                    <a class="btn-flat btn-floating waves-effect waves-red" click.trigger="removeSubrecipe(subrecipe.id)">
+                                        <i class="material-icons red-text">delete</i>
+                                    </a>
+                                </div>
+                                <div class="col s10">
+                                    <h4 class="center truncate">
+                                        <div class="input-field col s12">
+                                            <input value.bind="subrecipe.title" type="text">
+                                        </div>
+                                    </h4>
+                                </div>
+                            </div>
     						<ul class="collection row">
-    							<li repeat.for="ingredient of subrecipe.ingredients" class="collection-item">
+    							<li repeat.for="ingredient of subrecipe.ingredients" class="collection-item valign-wrapper">
+                                    <div class="col s2">
+                                        <a class="btn-flat btn-floating waves-effect waves-red" click.trigger="removeIngredient(subrecipe.id, ingredient.id)">
+                                            <i class="material-icons red-text">delete</i>
+                                        </a>
+                                    </div>
                                     <div class="input-field col s2">
                                         <input value.bind="ingredient.quantity.value" type="number" class="right-align">
                                     </div>
@@ -40,7 +58,7 @@
                                             <option repeat.for="measureUnit of measureUnits" model.bind="measureUnit">${measureUnit.abbreviation}</option>
                                         </select>
                                     </div>
-                                    <div class="input-field col s8">
+                                    <div class="input-field col s6">
                                         <input value.bind="ingredient.name" type="text">
                                     </div>
     							</li>
@@ -48,7 +66,37 @@
                             <div class="row">
                                 <div class="col s12">
                                     <a class="btn-flat waves-effect waves-red red-text" click.trigger="addIngredient(subrecipe.id)">
-                                        <i class="material-icons left">add</i>Add
+                                        <i class="material-icons left">add</i>Add ingredient
+                                    </a>
+                                </div>
+                            </div>
+    					</section>
+                        <section>
+                            <div class="col s12 m6">
+                                <a class="btn-flat btn-large waves-effect waves-red red-text" click.trigger="addSubrecipe()">
+                                    <i class="material-icons left">add</i>Add subrecipe
+                                </a>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2>Steps</h2>
+                    <div class="row">
+    					<section repeat.for="subrecipe of subrecipes" class="col s12">
+    						<h4 if.bind="subrecipe.title" class="center truncate">${subrecipe.title}</h4>
+    						<ul class="collection row">
+    							<li repeat.for="step of subrecipe.steps" class="collection-item">
+                                    <div class="input-field col s12">
+                                        allo
+                                    </div>
+    							</li>
+    						</ul>
+                            <div class="row">
+                                <div class="col s12">
+                                    <a class="btn-flat waves-effect waves-red red-text" click.trigger="addStep(subrecipe.id)">
+                                        <i class="material-icons left">add</i>Add step
                                     </a>
                                 </div>
                             </div>

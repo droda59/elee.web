@@ -4,25 +4,11 @@ import {Router} from "aurelia-router";
 import {I18N} from "aurelia-i18n";
 import {QuickRecipe} from "app/quick-recipe/models/quick-recipe";
 import {Ingredient} from "app/shared/models/ingredient";
-
 import {MeasureUnit} from "app/shared/models/measure-units/measure-unit";
-import {Cup} from "app/shared/models/measure-units/cup";
-import {FluidOunce} from "app/shared/models/measure-units/fluid-ounce";
-import {Tablespoon} from "app/shared/models/measure-units/tablespoon";
-import {Teaspoon} from "app/shared/models/measure-units/teaspoon";
-import {Litre} from "app/shared/models/measure-units/litre";
-import {Decilitre} from "app/shared/models/measure-units/decilitre";
-import {Centilitre} from "app/shared/models/measure-units/centilitre";
-import {Millilitre} from "app/shared/models/measure-units/millilitre";
-import {Pound} from "app/shared/models/measure-units/pound";
-import {Ounce} from "app/shared/models/measure-units/ounce";
-import {Kilogram} from "app/shared/models/measure-units/kilogram";
-import {Gram} from "app/shared/models/measure-units/gram";
-import {Unit} from "app/shared/models/measure-units/unit";
-import {Pinch} from "app/shared/models/measure-units/pinch";
+import {MeasureUnitProvider} from "app/shared/measure-unit-provider";
 
-@inject(HttpClient, I18N, Router)
-export class QuickRecipeEditionSubrecipe {
+@inject(HttpClient, I18N, Router, MeasureUnitProvider)
+export class EditRecipePage {
     recipe: QuickRecipe;
     subrecipes: QuickRecipeSubrecipe[] = [];
     measureUnits: MeasureUnit[] = [];
@@ -30,25 +16,12 @@ export class QuickRecipeEditionSubrecipe {
     private _http: HttpClient;
     private _i18n: I18N;
 
-    constructor(http: HttpClient, i18n: I18N, router: Router) {
+    constructor(http: HttpClient, i18n: I18N, router: Router, measureUnitProvider: MeasureUnitProvider) {
         this._http = http;
         this._i18n = i18n;
 		this._router = router;
 
-        this.measureUnits.push(Millilitre.instance);
-        this.measureUnits.push(Centilitre.instance);
-        this.measureUnits.push(Decilitre.instance);
-        this.measureUnits.push(Litre.instance);
-        this.measureUnits.push(Teaspoon.instance);
-        this.measureUnits.push(Tablespoon.instance);
-        this.measureUnits.push(FluidOunce.instance);
-        this.measureUnits.push(Cup.instance);
-        this.measureUnits.push(Pound.instance);
-        this.measureUnits.push(Ounce.instance);
-        this.measureUnits.push(Gram.instance);
-        this.measureUnits.push(Kilogram.instance);
-        this.measureUnits.push(Unit.instance);
-        this.measureUnits.push(Pinch.instance);
+        this.measureUnits = measureUnitProvider.measureUnits;
     }
 
     activate(route, routeConfig) {
@@ -83,27 +56,60 @@ export class QuickRecipeEditionSubrecipe {
         return confirm(this._i18n.tr("edit.exitConfirmation"));
     }
 
+    addSubrecipe() {
+        var newSubrecipe = new QuickRecipeEditionSubrecipe();
+        newSubrecipe.id = Math.max.apply(Math, this.recipe.subrecipes.map(x => x.id)) + 1;
+
+        this.subrecipes.push(newSubrecipe);
+    }
+
+    removeSubrecipe(subrecipeId: number) {
+        var subrecipe = this.subrecipes.filter(subrecipe => subrecipeId === subrecipe.id)[0];
+
+        var index = this.subrecipes.indexOf(subrecipe);
+        if (index > -1) {
+            this.subrecipes.splice(index, 1);
+        }
+    }
+
     addIngredient(subrecipeId: number) {
         var subrecipe = this.subrecipes.filter(subrecipe => subrecipeId === subrecipe.id)[0];
 
-        subrecipe.ingredients.push(new Ingredient());
+        var newIngredient = new Ingredient();
+        newIngredient.id = Math.max.apply(Math, this.recipe.ingredients.map(x => x.id)) + 1;
+
+        subrecipe.ingredients.push(newIngredient);
+    }
+
+    removeIngredient(subrecipeId: number, ingredientId: number) {
+        var subrecipe = this.subrecipes.filter(subrecipe => subrecipeId === subrecipe.id)[0];
+        var ingredient = subrecipe.ingredients.filter(ingredient => ingredientId === ingredient.id)[0];
+
+        var index = subrecipe.ingredients.indexOf(ingredient);
+        if (index > -1) {
+            subrecipe.ingredients.splice(index, 1);
+        }
+    }
+
+    addStep(subrecipeId: number) {
+        var subrecipe = this.subrecipes.filter(subrecipe => subrecipeId === subrecipe.id)[0];
     }
 
     saveRecipe() {
-    this._http.createRequest(null)
-        .withUrl("http://localhost:5000/api/quickrecipe", this.recipe)
-        .withHeader("Content-Type", "application/json")
-        .asPut()
-        .send()
-        .then(data => {
-            this._router.navigateToRoute("quick-recipe", { "id": this.recipe.id }, undefined);
-        });
+        this._http.createRequest(null)
+            .withUrl("http://localhost:5000/api/quickrecipe", this.recipe)
+            .withHeader("Content-Type", "application/json")
+            .asPut()
+            .send()
+            .then(data => {
+                this._router.navigateToRoute("quick-recipe", { "id": this.recipe.id }, undefined);
+            });
     }
 }
 
 class QuickRecipeEditionSubrecipe {
     id: number;
     title: string;
-    steps: Step[];
-    ingredients: Ingredient[];
+    steps: Step[] = [];
+    ingredients: Ingredient[] = [];
 }
