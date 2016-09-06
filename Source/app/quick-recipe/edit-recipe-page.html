@@ -40,7 +40,7 @@
                         <h2>Subrecipes</h2>
                         <div class="row valign-wrapper" repeat.for="subrecipe of subrecipes" if.bind="subrecipe.id >= 0">
                             <div class="col s1">
-                                <a class="btn-flat btn-floating waves-effect waves-red" click.trigger="removeSubrecipe(subrecipe.id)">
+                                <a class="btn-flat btn-floating btn-delete waves-effect waves-red" click.trigger="removeSubrecipe(subrecipe.id)">
                                     <i class="material-icons red-text">delete</i>
                                 </a>
                             </div>
@@ -66,20 +66,23 @@
         						<ul class="collection row">
         							<li repeat.for="ingredient of subrecipe.ingredients" class="collection-item valign-wrapper">
                                         <div class="col s1">
-                                            <a class="btn-flat btn-floating waves-effect waves-red" click.trigger="removeIngredient(subrecipe.id, ingredient.id)">
+                                            <a class="btn-flat btn-floating btn-delete waves-effect waves-red" click.trigger="removeIngredient(subrecipe.id, ingredient.id)">
                                                 <i class="material-icons red-text">delete</i>
                                             </a>
                                         </div>
                                         <div class="input-field col s2">
-                                            <input value.bind="ingredient.quantity.value" type="number" step="0.1" class="right-align">
+                                            <input value.bind="ingredient.quantity.value" id="quantity" type="number" step="0.1" class="right-align">
+                                            <label for="quantity">Quantity</label>
                                         </div>
                                         <div class="input-field col s2">
-                                            <select md-select value.bind="ingredient.quantity.abbreviation">
+                                            <select id="unit" md-select value.bind="ingredient.quantity.abbreviation">
                                                 <option repeat.for="measureUnit of measureUnits" model.bind="measureUnit">${measureUnit.abbreviation}</option>
                                             </select>
+                                            <label class="active">Unit</label>
                                         </div>
                                         <div class="input-field col s7">
-                                            <input value.bind="ingredient.name" type="text">
+                                            <input value.bind="ingredient.name" id="ingredient" type="text">
+                                            <label for="ingredient">Ingredient</label>
                                         </div>
         							</li>
         						</ul>
@@ -99,7 +102,12 @@
         						<h4 if.bind="subrecipe.title" class="truncate">${subrecipe.title}</h4>
         						<ul class="collection row">
         							<li repeat.for="step of subrecipe.steps" class="collection-item">
-                                		<compose repeat.for="part of step.parts" model.bind="part" view-model="app/quick-recipe/components/edition-steps/step-${part.type}" containerless></compose>
+                                        <span repeat.for="part of step.parts">
+                                            <a class="btn-flat btn-floating btn-delete waves-effect waves-red" click.trigger="removeStepPart(subrecipe.id, step.id, part)">
+                                                <i class="material-icons red-text">delete</i>
+                                            </a>
+                                    		<compose model.bind="part" view-model="app/quick-recipe/components/edition-steps/step-${part.type}" containerless></compose>
+                                        </span>
         							</li>
         						</ul>
                                 <div class="row">

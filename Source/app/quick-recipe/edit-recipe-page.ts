@@ -64,13 +64,13 @@ export class EditRecipePage {
     }
 
     removeSubrecipe(subrecipeId: number): void {
-        var subrecipe = this.subrecipes.filter(subrecipe => subrecipeId === subrecipe.id)[0];
+        var subrecipe = this._findSubrecipe(subrecipeId);
 
         this._removeFromArray(this.subrecipes, subrecipe);
     }
 
     addIngredient(subrecipeId: number): void {
-        var subrecipe = this.subrecipes.filter(subrecipe => subrecipeId === subrecipe.id)[0];
+        var subrecipe = this._findSubrecipe(subrecipeId);
 
         var newIngredient = new Ingredient();
         newIngredient.id = Math.max.apply(Math, subrecipe.ingredients.map(x => x.id)) + 1;
@@ -79,14 +79,21 @@ export class EditRecipePage {
     }
 
     removeIngredient(subrecipeId: number, ingredientId: number): void {
-        var subrecipe = this.subrecipes.filter(subrecipe => subrecipeId === subrecipe.id)[0];
+        var subrecipe = this._findSubrecipe(subrecipeId);
         var ingredient = subrecipe.ingredients.filter(ingredient => ingredientId === ingredient.id)[0];
 
         this._removeFromArray(subrecipe.ingredients, ingredient);
     }
 
     addStep(subrecipeId: number): void {
-        var subrecipe = this.subrecipes.filter(subrecipe => subrecipeId === subrecipe.id)[0];
+        var subrecipe = this._findSubrecipe(subrecipeId);
+    }
+
+    removeStepPart(subrecipeId: number, stepId: number, part: Part): void {
+        var subrecipe = this._findSubrecipe(subrecipeId);
+        var step = subrecipe.steps.filter(step => stepId === step.id)[0];
+
+        this._removeFromArray(step.parts, part);
     }
 
     saveRecipe(): void {
@@ -98,6 +105,10 @@ export class EditRecipePage {
             .then(data => {
                 this._router.navigateToRoute("quick-recipe", { "id": this.recipe.id }, undefined);
             });
+    }
+
+    private _findSubrecipe(subrecipeId: number): Subrecipe {
+        return this.subrecipes.filter(subrecipe => subrecipeId === subrecipe.id)[0];
     }
 
     private _removeFromArray(array: any[], object: any): void {
