@@ -75,7 +75,7 @@
 									<span>${subrecipe.title}</span>
 									<span class="progression">${subrecipe.completedSteps}/${subrecipe.steps.length}</span>
 									<span class="timers" show.bind="subrecipe.timers.length">
-										<i class="material-icons">av_timer</i>
+										<i class="material-icons">alarm</i>
 										<span if.bind="subrecipe.timers.length > 0">${subrecipe.timers[0].remainingTime | timeFormat}</span>
 									</span>
 								</a>

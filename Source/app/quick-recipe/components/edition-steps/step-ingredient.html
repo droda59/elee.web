@@ -1,0 +1,13 @@
+<template>
+	<require from="app/shared/components/measurable-ingredient"></require>
+
+	<div class="input-field">
+		<i class="material-icons prefix">shopping_cart</i>
+		<select md-select value.bind="ingredient">
+			<option repeat.for="possibleIngredient of possibleIngredients" model.bind="possibleIngredient">
+				<measurable-ingredient containerless ingredient.bind="possibleIngredient"></measurable-ingredient>
+			</option>
+		</select>
+    	<label>Ingredient</label>
+	</div>
+</template>
