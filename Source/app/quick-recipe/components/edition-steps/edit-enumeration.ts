@@ -1,3 +1,4 @@
+import {autoinject} from "aurelia-framework";
 import {IngredientEnumerationPart} from "app/quick-recipe/models/quick-recipe";
 import {Ingredient} from "app/shared/models/ingredient";
 import {EditRecipePage} from "app/quick-recipe/edit-recipe-page";
@@ -16,7 +17,7 @@ export class StepEnumeration {
         this.ingredients = model.ingredients;
 
         var usedSubrecipes = this.ingredients.map(ingredient => ingredient.subrecipeId);
-        var subrecipe = this.parentelement.subrecipes.filter(subrecipe => usedSubrecipes.contains(subrecipe.id))[0];
+        var subrecipe = this.parentelement.subrecipes.filter(subrecipe => usedSubrecipes.indexOf(subrecipe.id) > -1)[0];
         this.possibleIngredients = subrecipe.ingredients;
     }
 

@@ -108,13 +108,18 @@ export class Step implements StepDto {
   isCompleted: boolean;
   isOnHold: boolean;
 
-  constructor(dto: StepDto) {
-    Object.assign(this, dto);
+    constructor();
+    constructor(dto: StepDto);
+    constructor(dto?: StepDto) {
+        Object.assign(this, dto);
 
-    this.parts = dto.parts.map(partDto => PartFactory.createPart(partDto, this));
-    this.isCompleted = false;
-    this.isOnHold = false;
-  }
+        if (dto) {
+            this.parts = dto.parts.map(partDto => PartFactory.createPart(partDto, this));
+        }
+        
+        this.isCompleted = false;
+        this.isOnHold = false;
+    }
 }
 interface StepDto {
   id: number;

@@ -2,7 +2,7 @@ import {autoinject} from "aurelia-framework";
 import {HttpClient} from "aurelia-http-client";
 import {Router} from "aurelia-router";
 import {I18N} from "aurelia-i18n";
-import {QuickRecipe, Subrecipe} from "app/quick-recipe/models/quick-recipe";
+import {QuickRecipe, Subrecipe, Step} from "app/quick-recipe/models/quick-recipe";
 import {Ingredient} from "app/shared/models/ingredient";
 import {MeasureUnit} from "app/shared/models/measure-units/measure-unit";
 import {MeasureUnitProvider} from "app/shared/measure-unit-provider";
@@ -79,6 +79,10 @@ export class EditRecipePage {
     }
 
     addStep(subrecipe: Subrecipe): void {
+        var newStep = new Step();
+        newStep.id = Math.max.apply(Math, subrecipe.steps.map(x => x.id)) + 1;
+
+        subrecipe.steps.push(newStep);
     }
 
     removeStepPart(step: Step, part: Part): void {

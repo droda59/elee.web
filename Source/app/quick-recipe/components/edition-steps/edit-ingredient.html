@@ -1,8 +1,7 @@
 <template>
 	<require from="app/shared/value-converters/quantity-human-format"></require>
 
-	<div class="valign-wrapper">
-		<i class="material-icons prefix">shopping_cart</i>
+	<div class="input-field">
 		<select md-select value.two-way="ingredient">
 			<option repeat.for="possibleIngredient of possibleIngredients" model.bind="possibleIngredient">
 				${possibleIngredient.quantity | quantityHumanFormat} ${possibleIngredient.name}

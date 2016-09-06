@@ -100,16 +100,14 @@
                         <div class="row">
         					<section repeat.for="subrecipe of subrecipes" class="col s12">
         						<h4 if.bind="subrecipe.title" class="truncate">${subrecipe.title}</h4>
-        						<ul class="collection row">
-        							<li repeat.for="step of subrecipe.steps" class="collection-item">
-                                        <span repeat.for="part of step.parts">
-                                            <a class="btn-flat btn-floating btn-delete waves-effect waves-red" click.trigger="removeStepPart(step, part)">
-                                                <i class="material-icons red-text">delete</i>
-                                            </a>
-                                    		<compose model.bind="part" view-model="app/quick-recipe/components/edition-steps/step-${part.type}" containerless></compose>
-                                        </span>
-        							</li>
-        						</ul>
+    							<div repeat.for="step of subrecipe.steps" class="row">
+                                    <span repeat.for="part of step.parts">
+                                        <a class="btn-flat btn-floating btn-delete waves-effect waves-red" click.trigger="removeStepPart(step, part)">
+                                            <i class="material-icons red-text">delete</i>
+                                        </a>
+                                		<compose model.bind="part" view-model="app/quick-recipe/components/edition-steps/edit-${part.type}" containerless></compose>
+                                    </span>
+    							</div>
                                 <div class="row">
                                     <div class="col s12">
                                         <a class="btn-flat waves-effect waves-red red-text" click.trigger="addStep(subrecipe)">
