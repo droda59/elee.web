@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="edit-recipe container">
         <div class="row">
             <div class="col hide-on-small-only m3 right">
                 <div md-pushpin>
@@ -99,9 +99,7 @@
         						<h4 if.bind="subrecipe.title" class="truncate">${subrecipe.title}</h4>
         						<ul class="collection row">
         							<li repeat.for="step of subrecipe.steps" class="collection-item">
-                                        <div class="input-field col s12">
-                                            allo
-                                        </div>
+                                		<compose repeat.for="part of step.parts" model.bind="part" view-model="app/quick-recipe/components/edition-steps/step-${part.type}" containerless></compose>
         							</li>
         						</ul>
                                 <div class="row">
