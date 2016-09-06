@@ -75,8 +75,8 @@
                                             <label for="quantity">Quantity</label>
                                         </div>
                                         <div class="input-field col s2">
-                                            <select id="unit" md-select value.bind="ingredient.quantity.abbreviation">
-                                                <option repeat.for="measureUnit of measureUnits" model.bind="measureUnit">${measureUnit.abbreviation}</option>
+                                            <select id="unit" md-select value.two-way="ingredient.quantity.abbreviation">
+                                                <option repeat.for="measureUnit of measureUnits" model.bind="measureUnit.abbreviation">${measureUnit.abbreviation}</option>
                                             </select>
                                             <label class="active">Unit</label>
                                         </div>

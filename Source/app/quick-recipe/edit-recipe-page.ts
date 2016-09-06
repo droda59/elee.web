@@ -2,7 +2,7 @@ import {autoinject} from "aurelia-framework";
 import {HttpClient} from "aurelia-http-client";
 import {Router} from "aurelia-router";
 import {I18N} from "aurelia-i18n";
-import {QuickRecipe} from "app/quick-recipe/models/quick-recipe";
+import {QuickRecipe, Subrecipe} from "app/quick-recipe/models/quick-recipe";
 import {Ingredient} from "app/shared/models/ingredient";
 import {MeasureUnit} from "app/shared/models/measure-units/measure-unit";
 import {MeasureUnitProvider} from "app/shared/measure-unit-provider";
