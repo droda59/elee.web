@@ -1,4 +1,4 @@
-import {inject} from "aurelia-framework";
+import {autoinject} from "aurelia-framework";
 import {HttpClient} from "aurelia-http-client";
 import {Router} from "aurelia-router";
 import {I18N} from "aurelia-i18n";
@@ -7,7 +7,7 @@ import {Ingredient} from "app/shared/models/ingredient";
 import {MeasureUnit} from "app/shared/models/measure-units/measure-unit";
 import {MeasureUnitProvider} from "app/shared/measure-unit-provider";
 
-@inject(HttpClient, I18N, Router, MeasureUnitProvider)
+@autoinject()
 export class EditRecipePage {
     recipe: QuickRecipe;
     subrecipes: QuickRecipeSubrecipe[] = [];
@@ -56,46 +56,40 @@ export class EditRecipePage {
         return confirm(this._i18n.tr("edit.exitConfirmation"));
     }
 
-    addSubrecipe() {
+    addSubrecipe(): void {
         var newSubrecipe = new QuickRecipeEditionSubrecipe();
-        newSubrecipe.id = Math.max.apply(Math, this.recipe.subrecipes.map(x => x.id)) + 1;
+        newSubrecipe.id = Math.max.apply(Math, this.subrecipes.map(x => x.id)) + 1;
 
         this.subrecipes.push(newSubrecipe);
     }
 
-    removeSubrecipe(subrecipeId: number) {
+    removeSubrecipe(subrecipeId: number): void {
         var subrecipe = this.subrecipes.filter(subrecipe => subrecipeId === subrecipe.id)[0];
 
-        var index = this.subrecipes.indexOf(subrecipe);
-        if (index > -1) {
-            this.subrecipes.splice(index, 1);
-        }
+        this._removeFromArray(this.subrecipes, subrecipe);
     }
 
-    addIngredient(subrecipeId: number) {
+    addIngredient(subrecipeId: number): void {
         var subrecipe = this.subrecipes.filter(subrecipe => subrecipeId === subrecipe.id)[0];
 
         var newIngredient = new Ingredient();
-        newIngredient.id = Math.max.apply(Math, this.recipe.ingredients.map(x => x.id)) + 1;
+        newIngredient.id = Math.max.apply(Math, subrecipe.ingredients.map(x => x.id)) + 1;
 
         subrecipe.ingredients.push(newIngredient);
     }
 
-    removeIngredient(subrecipeId: number, ingredientId: number) {
+    removeIngredient(subrecipeId: number, ingredientId: number): void {
         var subrecipe = this.subrecipes.filter(subrecipe => subrecipeId === subrecipe.id)[0];
         var ingredient = subrecipe.ingredients.filter(ingredient => ingredientId === ingredient.id)[0];
 
-        var index = subrecipe.ingredients.indexOf(ingredient);
-        if (index > -1) {
-            subrecipe.ingredients.splice(index, 1);
-        }
+        this._removeFromArray(subrecipe.ingredients, ingredient);
     }
 
-    addStep(subrecipeId: number) {
+    addStep(subrecipeId: number): void {
         var subrecipe = this.subrecipes.filter(subrecipe => subrecipeId === subrecipe.id)[0];
     }
 
-    saveRecipe() {
+    saveRecipe(): void {
         this._http.createRequest(null)
             .withUrl("http://localhost:5000/api/quickrecipe", this.recipe)
             .withHeader("Content-Type", "application/json")
@@ -104,6 +98,13 @@ export class EditRecipePage {
             .then(data => {
                 this._router.navigateToRoute("quick-recipe", { "id": this.recipe.id }, undefined);
             });
+    }
+
+    private _removeFromArray(array: any[], object: any): void {
+        var index = array.indexOf(object);
+        if (index > -1) {
+            array.splice(index, 1);
+        }
     }
 }
 
