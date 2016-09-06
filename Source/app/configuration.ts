@@ -40,7 +40,9 @@ export function configure(aurelia) {
       bridge
         .useRange()
         .useChip()
+        .usePushpin()
         .useSelect()
+        .useScrollSpy()
     });;
 
   aurelia.start().then(a => a.setRoot("app/main", document.body));
