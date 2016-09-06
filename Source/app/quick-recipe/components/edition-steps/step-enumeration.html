@@ -1,11 +1,16 @@
 <template>
-	<require from="app/shared/components/measurable-ingredient"></require>
-	
+	<i class="material-icons prefix">list</i>
 	<ul class="collection enumeration">
 		<li repeat.for="ingredient of ingredients" class="collection-item">
-			<input type="checkbox" id="${ingredient.id}" />
-			<label for="${ingredient.id}"></label>
-			<measurable-ingredient containerless ingredient.bind="ingredient"></measurable-ingredient>
+			<a class="btn-flat btn-floating btn-delete waves-effect waves-red" click.trigger="removeIngredient(ingredient)">
+				<i class="material-icons red-text">delete</i>
+			</a>
+			<select md-select value.two-way="ingredient">
+				<option repeat.for="possibleIngredient of possibleIngredients" model.bind="possibleIngredient">
+					${possibleIngredient.quantity | quantityHumanFormat} ${possibleIngredient.name}
+				</option>
+			</select>
+	    	<label class="active">Enumeration</label>
 		</li>
 	</ul>
 </template>
