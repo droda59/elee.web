@@ -1,13 +1,13 @@
 <template>
-	<require from="app/shared/components/measurable-ingredient"></require>
+	<require from="app/shared/value-converters/quantity-human-format"></require>
 
-	<div class="input-field">
+	<div class="valign-wrapper">
 		<i class="material-icons prefix">shopping_cart</i>
-		<select md-select value.bind="ingredient">
+		<select class="right-align" md-select value.two-way="ingredient">
 			<option repeat.for="possibleIngredient of possibleIngredients" model.bind="possibleIngredient">
-				<measurable-ingredient containerless ingredient.bind="possibleIngredient"></measurable-ingredient>
+				${possibleIngredient.quantity | quantityHumanFormat} ${possibleIngredient.name}
 			</option>
 		</select>
-    	<label>Ingredient</label>
+    	<label class="active">Ingredient</label>
 	</div>
 </template>
