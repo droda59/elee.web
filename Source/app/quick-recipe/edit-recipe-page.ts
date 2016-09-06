@@ -63,36 +63,25 @@ export class EditRecipePage {
         this.subrecipes.push(newSubrecipe);
     }
 
-    removeSubrecipe(subrecipeId: number): void {
-        var subrecipe = this._findSubrecipe(subrecipeId);
-
+    removeSubrecipe(subrecipe: Subrecipe): void {
         this._removeFromArray(this.subrecipes, subrecipe);
     }
 
-    addIngredient(subrecipeId: number): void {
-        var subrecipe = this._findSubrecipe(subrecipeId);
-
+    addIngredient(subrecipe: Subrecipe): void {
         var newIngredient = new Ingredient();
         newIngredient.id = Math.max.apply(Math, subrecipe.ingredients.map(x => x.id)) + 1;
 
         subrecipe.ingredients.push(newIngredient);
     }
 
-    removeIngredient(subrecipeId: number, ingredientId: number): void {
-        var subrecipe = this._findSubrecipe(subrecipeId);
-        var ingredient = subrecipe.ingredients.filter(ingredient => ingredientId === ingredient.id)[0];
-
+    removeIngredient(subrecipe: Subrecipe, ingredient: Ingredient): void {
         this._removeFromArray(subrecipe.ingredients, ingredient);
     }
 
-    addStep(subrecipeId: number): void {
-        var subrecipe = this._findSubrecipe(subrecipeId);
+    addStep(subrecipe: Subrecipe): void {
     }
 
-    removeStepPart(subrecipeId: number, stepId: number, part: Part): void {
-        var subrecipe = this._findSubrecipe(subrecipeId);
-        var step = subrecipe.steps.filter(step => stepId === step.id)[0];
-
+    removeStepPart(step: Step, part: Part): void {
         this._removeFromArray(step.parts, part);
     }
 
@@ -105,10 +94,6 @@ export class EditRecipePage {
             .then(data => {
                 this._router.navigateToRoute("quick-recipe", { "id": this.recipe.id }, undefined);
             });
-    }
-
-    private _findSubrecipe(subrecipeId: number): Subrecipe {
-        return this.subrecipes.filter(subrecipe => subrecipeId === subrecipe.id)[0];
     }
 
     private _removeFromArray(array: any[], object: any): void {

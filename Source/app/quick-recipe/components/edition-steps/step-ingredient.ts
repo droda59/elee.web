@@ -8,7 +8,6 @@ export class StepIngredient {
     ingredient: Ingredient;
     possibleIngredients: Ingredient[] = [];
     parentelement: EditRecipePage;
-    convertibleMeasureUnit: Quantity;
 
     constructor(parentelement: EditRecipePage){
         this.parentelement = parentelement;

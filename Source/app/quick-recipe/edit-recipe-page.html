@@ -40,7 +40,7 @@
                         <h2>Subrecipes</h2>
                         <div class="row valign-wrapper" repeat.for="subrecipe of subrecipes" if.bind="subrecipe.id >= 0">
                             <div class="col s1">
-                                <a class="btn-flat btn-floating btn-delete waves-effect waves-red" click.trigger="removeSubrecipe(subrecipe.id)">
+                                <a class="btn-flat btn-floating btn-delete waves-effect waves-red" click.trigger="removeSubrecipe(subrecipe)">
                                     <i class="material-icons red-text">delete</i>
                                 </a>
                             </div>
@@ -66,7 +66,7 @@
         						<ul class="collection row">
         							<li repeat.for="ingredient of subrecipe.ingredients" class="collection-item valign-wrapper">
                                         <div class="col s1">
-                                            <a class="btn-flat btn-floating btn-delete waves-effect waves-red" click.trigger="removeIngredient(subrecipe.id, ingredient.id)">
+                                            <a class="btn-flat btn-floating btn-delete waves-effect waves-red" click.trigger="removeIngredient(subrecipe, ingredient)">
                                                 <i class="material-icons red-text">delete</i>
                                             </a>
                                         </div>
@@ -87,7 +87,7 @@
         							</li>
         						</ul>
                                 <div class="row">
-                                    <a class="btn-flat waves-effect waves-red red-text" click.trigger="addIngredient(subrecipe.id)">
+                                    <a class="btn-flat waves-effect waves-red red-text" click.trigger="addIngredient(subrecipe)">
                                         <i class="material-icons left">add</i>Add ingredient
                                     </a>
                                 </div>
@@ -103,7 +103,7 @@
         						<ul class="collection row">
         							<li repeat.for="step of subrecipe.steps" class="collection-item">
                                         <span repeat.for="part of step.parts">
-                                            <a class="btn-flat btn-floating btn-delete waves-effect waves-red" click.trigger="removeStepPart(subrecipe.id, step.id, part)">
+                                            <a class="btn-flat btn-floating btn-delete waves-effect waves-red" click.trigger="removeStepPart(step, part)">
                                                 <i class="material-icons red-text">delete</i>
                                             </a>
                                     		<compose model.bind="part" view-model="app/quick-recipe/components/edition-steps/step-${part.type}" containerless></compose>
@@ -112,7 +112,7 @@
         						</ul>
                                 <div class="row">
                                     <div class="col s12">
-                                        <a class="btn-flat waves-effect waves-red red-text" click.trigger="addStep(subrecipe.id)">
+                                        <a class="btn-flat waves-effect waves-red red-text" click.trigger="addStep(subrecipe)">
                                             <i class="material-icons left">add</i>Add step
                                         </a>
                                     </div>
