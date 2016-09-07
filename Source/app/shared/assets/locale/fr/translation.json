@@ -166,5 +166,39 @@
             "wedLikeYourComments": "Nous aimerions avoir vos commentaires!",
             "writeComments": "Remplissez le questionnaire qui suit."
         }
+    },
+    "edit": {
+        "exitConfirmation": "Êtes-vous certain de vouloir quitter?",
+        "sendButton": "Sauvegarder",
+        "summary": {
+            "title": "Sommaire",
+            "recipeTitle": "Titre",
+            "recipeSummary": "Description",
+            "recipeNote": "Note"
+        },
+        "subrecipe": {
+            "title": "Sous-recettes",
+            "subrecipeTitle": "Titre",
+            "addButton": "Sous-recette"
+        },
+        "ingredient": {
+            "title": "Ingrédients",
+            "quantity": "Quantité",
+            "unit": "Unité",
+            "ingredient": "Ingrédient",
+            "addButton": "Ingrédient"
+        },
+        "step": {
+            "title": "Étapes",
+            "addButton": "Étape",
+            "deleteButton": "Supprimer",
+            "part": {
+                "text": "Texte",
+                "action": "Action",
+                "timer": "Temps",
+                "ingredient": "Ingrédient",
+                "enumeration": "Enumération"
+            }
+        }
     }
 }

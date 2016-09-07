@@ -13,7 +13,7 @@ export class AutoWidthInput {
 
     attached() {
         this._element.addEventListener("keyup", this._keypressCallback);
-        this._element.style.width = this._keypressCallback.call(this._element);
+        this._element.style.width = ((this._element.value.length + 1) * 9) + "px";
     }
 
     detached() {

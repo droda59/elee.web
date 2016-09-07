@@ -24,10 +24,6 @@ export class QuickRecipeHeader {
 		this._settingsManager = settingsManager;
 	}
 
-	attached(): void {
-	    $(".tooltipped").tooltip({ delay: 50 });
-	}
-
 	editSettings(): void {
 		this._dialogService
 			.open({ viewModel: SettingsModal, model: this._settingsManager.settings})

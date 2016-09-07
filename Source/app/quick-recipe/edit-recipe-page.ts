@@ -94,18 +94,18 @@ export class EditRecipePage {
     }
 
     addTextStepPart(step: Step): void {
-        var part = PartFactory.createPart(step, TextPart.type, <TextPartDto>{ value: " " });
+        var part = PartFactory.createPart(step, TextPart.type);
         step.parts.push(part);
     }
 
     addActionStepPart(step: Step): void {
-        var part = PartFactory.createPart(step, ActionPart.type, <ActionPartDto>{ value: " " });
+        var part = PartFactory.createPart(step, ActionPart.type);
         step.parts.push(part);
     }
 
     addTimerStepPart(step: Step): void {
         // TODO Put the last action
-        var part = PartFactory.createPart(step, TimerPart.type, <TimerPartDto>{ value: " " });
+        var part = PartFactory.createPart(step, TimerPart.type);
         step.parts.push(part);
     }
 
