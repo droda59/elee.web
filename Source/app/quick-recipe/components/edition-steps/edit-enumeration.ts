@@ -14,11 +14,14 @@ export class StepEnumeration {
     }
 
     activate(model: IngredientEnumerationPart) {
-        this.ingredients = model.ingredients;
+        this.ingredients = model.ingredients || [];
+        this.possibleIngredients = this.parentelement.subrecipes.selectMany(x => x.ingredients);
+    }
 
-        var usedSubrecipes = this.ingredients.map(ingredient => ingredient.subrecipeId);
-        var subrecipe = this.parentelement.subrecipes.filter(subrecipe => usedSubrecipes.indexOf(subrecipe.id) > -1)[0];
-        this.possibleIngredients = subrecipe.ingredients;
+    addIngredient(): void {
+        var newIngredient = new Ingredient();
+
+        this.ingredients.push(this.possibleIngredients[0]);
     }
 
     removeIngredient(ingredient: Ingredient): void {

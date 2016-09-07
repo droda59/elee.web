@@ -3,6 +3,8 @@ import {HttpClient} from "aurelia-http-client";
 import {Router} from "aurelia-router";
 import {I18N} from "aurelia-i18n";
 import {QuickRecipe, Subrecipe, Step} from "app/quick-recipe/models/quick-recipe";
+import {PartFactory, TextPart, ActionPart, TimerPart, IngredientPart, IngredientEnumerationPart}
+    from "app/quick-recipe/models/quick-recipe";
 import {Ingredient} from "app/shared/models/ingredient";
 import {MeasureUnit} from "app/shared/models/measure-units/measure-unit";
 import {MeasureUnitProvider} from "app/shared/measure-unit-provider";
@@ -70,6 +72,7 @@ export class EditRecipePage {
     addIngredient(subrecipe: Subrecipe): void {
         var newIngredient = new Ingredient();
         newIngredient.id = Math.max.apply(Math, subrecipe.ingredients.map(x => x.id)) + 1;
+        newIngredient.subrecipeId = subrecipe.id;
 
         subrecipe.ingredients.push(newIngredient);
     }
@@ -81,8 +84,38 @@ export class EditRecipePage {
     addStep(subrecipe: Subrecipe): void {
         var newStep = new Step();
         newStep.id = Math.max.apply(Math, subrecipe.steps.map(x => x.id)) + 1;
+        newStep.subrecipeId = subrecipe.id;
 
         subrecipe.steps.push(newStep);
+    }
+
+    removeStep(subrecipe: Subrecipe, step: Step): void {
+        this._removeFromArray(subrecipe.steps, step);
+    }
+
+    addTextStepPart(step: Step): void {
+        var part = PartFactory.createPart(step, TextPart.type, <TextPartDto>{ value: " " });
+        step.parts.push(part);
+    }
+
+    addActionStepPart(step: Step): void {
+        var part = PartFactory.createPart(step, ActionPart.type, <ActionPartDto>{ value: " " });
+        step.parts.push(part);
+    }
+
+    addTimerStepPart(step: Step): void {
+        var part = PartFactory.createPart(step, TimerPart.type, <TimerPartDto>{ value: " " });
+        step.parts.push(part);
+    }
+
+    addIngredientStepPart(subrecipe: Subrecipe, step: Step): void {
+        var part = PartFactory.createPart(step, IngredientPart.type);
+        step.parts.push(part);
+    }
+
+    addEnumerationStepPart(step: Step): void {
+        var part = PartFactory.createPart(step, IngredientEnumerationPart.type);
+        step.parts.push(part);
     }
 
     removeStepPart(step: Step, part: Part): void {

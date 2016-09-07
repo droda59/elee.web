@@ -16,16 +16,16 @@ class IngredientUnicityOverseer {
   }
 }
 
-class PartFactory {
-  static createPart(dto: PartDto, step: Step): Part {
-    switch (dto.type) {
-      case "ingredient": return new IngredientPart(<IngredientPartDto>dto, step);
-      case "text": return new TextPart(<TextPartDto>dto, step);
-      case "action": return new ActionPart(<ActionPartDto>dto, step);
-      case "timer": return new TimerPart(<TimerPartDto>dto, step);
-      case "enumeration": return new IngredientEnumerationPart(<IngredientEnumerationPartDto>dto, step);
+export class PartFactory {
+    static createPart(step: Step, type: string, dto: PartDto): Part {
+        switch (type) {
+            case IngredientPart.type: return new IngredientPart(step, <IngredientPartDto>dto);
+            case TextPart.type: return new TextPart(step, <TextPartDto>dto);
+            case ActionPart.type: return new ActionPart(step, <ActionPartDto>dto);
+            case TimerPart.type: return new TimerPart(step, <TimerPartDto>dto);
+            case IngredientEnumerationPart.type: return new IngredientEnumerationPart(step, <IngredientEnumerationPartDto>dto);
+        }
     }
-  }
 }
 
 export class QuickRecipe implements QuickRecipeDto {
@@ -114,9 +114,9 @@ export class Step implements StepDto {
         Object.assign(this, dto);
 
         if (dto) {
-            this.parts = dto.parts.map(partDto => PartFactory.createPart(partDto, this));
+            this.parts = dto.parts.map(partDto => PartFactory.createPart(this, partDto.type, partDto));
         }
-        
+
         this.isCompleted = false;
         this.isOnHold = false;
     }
@@ -128,78 +128,129 @@ interface StepDto {
 }
 
 export class Part implements PartDto {
-  type: string;
+  private _type: string;
   stepId: number;
 
-  constructor(dto: PartDto, step: Step) {
+  constructor(step: Step, dto: PartDto) {
     Object.assign(this, dto);
 
     this.stepId = step.id;
+  }
+
+  get type() {
+      return this._type;
+  }
+  protected set type(value: string) {
+      this._type = value;
   }
 }
 interface PartDto {
   type: string;
 }
 
-export class IngredientPart extends Part implements IngredientPartDto {
-  ingredient: Ingredient;
-
-  constructor(dto: IngredientPartDto, step: Step) {
-    super(dto, step);
-
-    this.ingredient = IngredientUnicityOverseer.getIngredient(dto.ingredient);
-  }
-}
-interface IngredientPartDto extends PartDto {
-  ingredient: IngredientDto;
-}
-
 export class TextPart extends Part implements TextPartDto {
-  value: string;
+    value: string;
 
-  constructor(dto: TextPartDto, step: Step) {
-    super(dto, step);
-  }
+    constructor(step: Step)
+    constructor(step: Step, dto: TextPartDto)
+    constructor(step: Step, dto?: TextPartDto) {
+        super(step, dto);
+
+        this.type = TextPart.type;
+    }
+
+    static get type() {
+        return "text";
+    }
 }
 interface TextPartDto extends PartDto {
-  value: string;
+    value: string;
 }
 
 export class ActionPart extends Part implements ActionPartDto {
-  value: string;
+    value: string;
 
-  constructor(dto: ActionPartDto, step: Step) {
-    super(dto, step);
-  }
+    constructor(step: Step)
+    constructor(step: Step, dto: ActionPartDto)
+    constructor(step: Step, dto?: ActionPartDto) {
+        super(step, dto);
+
+        this.type = ActionPart.type;
+    }
+
+    static get type() {
+        return "action";
+    }
 }
 interface ActionPartDto extends PartDto {
-  value: string;
+    value: string;
 }
 
 export class TimerPart extends Part implements TimerPartDto {
-  value: string;
-  action: string;
-  text: string;
+    value: string;
+    action: string;
+    text: string;
 
-  constructor(dto: TimerPartDto, step: Step) {
-    super(dto, step);
-  }
+    constructor(step: Step)
+    constructor(step: Step, dto: TimerPartDto)
+    constructor(step: Step, dto?: TimerPartDto) {
+        super(step, dto);
+
+        this.type = TimerPart.type;
+    }
+
+    static get type() {
+        return "timer";
+    }
 }
 interface TimerPartDto extends PartDto {
-  value: string;
-  action: string;
-  text: string;
+    value: string;
+    action: string;
+    text: string;
+}
+
+export class IngredientPart extends Part implements IngredientPartDto {
+    ingredient: Ingredient;
+
+    constructor(step: Step)
+    constructor(step: Step, dto: IngredientPartDto)
+    constructor(step: Step, dto?: IngredientPartDto) {
+        super(step, dto);
+
+        this.type = IngredientPart.type;
+
+        if (dto) {
+            this.ingredient = IngredientUnicityOverseer.getIngredient(dto.ingredient);
+        }
+    }
+
+    static get type() {
+        return "ingredient";
+    }
+}
+interface IngredientPartDto extends PartDto {
+    ingredient: IngredientDto;
 }
 
 export class IngredientEnumerationPart extends Part implements IngredientEnumerationPartDto {
-  ingredients: Ingredient[];
+    ingredients: Ingredient[];
 
-  constructor(dto: IngredientEnumerationPartDto, step: Step) {
-    super(dto, step);
+    constructor(step: Step)
+    constructor(step: Step, dto: IngredientEnumerationPartDto)
+    constructor(step: Step, dto?: IngredientEnumerationPartDto) {
+        super(step, dto);
 
-    this.ingredients = dto.ingredients.map(ingredient => IngredientUnicityOverseer.getIngredient(ingredient));
-  }
+        this.type = IngredientEnumerationPart.type;
+
+        if (dto) {
+            this.ingredients = dto.ingredients.map(ingredient => IngredientUnicityOverseer.getIngredient(ingredient));
+        }
+    }
+
+    static get type() {
+        return "enumeration";
+    }
 }
 interface IngredientEnumerationPartDto extends PartDto {
-  ingredients: IngredientDto[];
+    ingredients: IngredientDto[];
 }
