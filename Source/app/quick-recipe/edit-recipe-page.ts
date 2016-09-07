@@ -104,6 +104,7 @@ export class EditRecipePage {
     }
 
     addTimerStepPart(step: Step): void {
+        // TODO Put the last action
         var part = PartFactory.createPart(step, TimerPart.type, <TimerPartDto>{ value: " " });
         step.parts.push(part);
     }
@@ -118,8 +119,12 @@ export class EditRecipePage {
         step.parts.push(part);
     }
 
-    removeStepPart(step: Step, part: Part): void {
+    removeStepPart(subrecipe: Subrecipe, step: Step, part: Part): void {
         this._removeFromArray(step.parts, part);
+
+        if (!step.parts.length) {
+            this.removeStep(subrecipe, step);
+        }
     }
 
     saveRecipe(): void {
