@@ -40,9 +40,11 @@ export function configure(aurelia) {
       bridge
         .useRange()
         .useChip()
+        .useFab()
         .usePushpin()
         .useSelect()
         .useScrollSpy()
+        .useTooltip()
     });;
 
   aurelia.start().then(a => a.setRoot("app/main", document.body));
@@ -61,4 +63,8 @@ export function configure(aurelia) {
       });
     };
   }
+  
+    Array.prototype.selectMany = function (fn) {
+        return this.map(fn).reduce(function (x, y) { return x.concat(y); }, []);
+    };
 }

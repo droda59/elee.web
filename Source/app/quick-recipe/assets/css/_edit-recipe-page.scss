@@ -19,6 +19,17 @@
                 width: calc(100% - 2rem);
             }
         }
+
+        .fixed-action-btn {
+            position: relative;
+            right: inherit;
+            bottom: inherit;
+            display: inline-block;
+            padding: 0 0 0 30px;
+            &.active .btn-floating {
+                opacity: 0.3;
+            }
+        }
     }
 
     .btn-delete i {

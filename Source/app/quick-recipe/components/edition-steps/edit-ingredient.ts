@@ -15,8 +15,6 @@ export class StepIngredient {
 
     activate(model: IngredientPart) {
         this.ingredient = model.ingredient;
-
-        var subrecipe = this.parentelement.subrecipes.filter(subrecipe => this.ingredient.subrecipeId === subrecipe.id)[0];
-        this.possibleIngredients = subrecipe.ingredients;
+        this.possibleIngredients = this.parentelement.subrecipes.selectMany(x => x.ingredients);
     }
 }

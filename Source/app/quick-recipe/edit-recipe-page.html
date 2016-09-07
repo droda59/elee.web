@@ -107,6 +107,28 @@
                                         </a>
                                 		<compose model.bind="part" view-model="app/quick-recipe/components/edition-steps/edit-${part.type}" containerless></compose>
                                     </span>
+                                    <div class="fixed-action-btn">
+                                        <a class="btn-flat btn-floating btn-large">
+                                            <i class="large material-icons teal-text">queue</i>
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a class="btn-floating" md-tooltip="position: right; text: Text;" click.trigger="addTextStepPart(step)"><i class="material-icons">subject</i></a>
+                                            </li>
+                                            <li>
+                                                <a class="btn-floating" md-tooltip="position: right; text: Action;" click.trigger="addActionStepPart(step)"><i class="material-icons">accessibility</i></a>
+                                            </li>
+                                            <li>
+                                                <a class="btn-floating" md-tooltip="position: right; text: Timer;" click.trigger="addTimerStepPart(step)"><i class="material-icons">timer</i></a>
+                                            </li>
+                                            <li>
+                                                <a class="btn-floating" md-tooltip="position: right; text: Ingredient;" click.trigger="addIngredientStepPart(subrecipe, step)"><i class="material-icons">shopping_cart</i></a>
+                                            </li>
+                                            <li>
+                                                <a class="btn-floating" md-tooltip="position: right; text: Enumeration;" click.trigger="addEnumerationStepPart(step)"><i class="material-icons">list</i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
     							</div>
                                 <div class="row">
                                     <div class="col s12">
