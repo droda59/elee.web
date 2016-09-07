@@ -161,5 +161,39 @@
             "wedLikeYourComments": "We'd like to hear from you!",
             "writeComments": "Please complete the following form."
         }
+    },
+    "edit": {
+        "exitConfirmation": "Are you sure you want to leave?",
+        "sendButton": "Save",
+        "summary": {
+            "title": "Summary",
+            "recipeTitle": "Title",
+            "recipeSummary": "Summary",
+            "recipeNote": "Note"
+        },
+        "subrecipe": {
+            "title": "Subrecipes",
+            "subrecipeTitle": "Title",
+            "addButton": "Add subrecipe"
+        },
+        "ingredient": {
+            "title": "Ingredients",
+            "quantity": "Quantity",
+            "unit": "Unit",
+            "ingredient": "Ingredient",
+            "addButton": "Add ingredient"
+        },
+        "step": {
+            "title": "Steps",
+            "addButton": "Add step",
+            "deleteButton": "Delete",
+            "part": {
+                "text": "Text",
+                "action": "Action",
+                "timer": "Timer",
+                "ingredient": "Ingredient",
+                "enumeration": "Enumeration"
+            }
+        }
     }
 }
