@@ -1,5 +1,5 @@
 import {inject} from "aurelia-framework";
-import {HttpClient} from "aurelia-http-client";
+import {HttpClient} from "aurelia-fetch-client";
 
 @inject(HttpClient)
 export class CommentsForm {
@@ -10,21 +10,21 @@ export class CommentsForm {
   private _http: HttpClient;
 
   constructor(http: HttpClient) {
-    this._http = http.configure(x => {
-      x.withHeader("Content-Type", "application/json");
-    });
+    // this._http = http.configure(x => {
+    //   x.withHeader("Content-Type", "application/json");
+    // });
   }
 
   send() {
-    var data = {
-      email: this.contactEmail,
-      comments: this.comments
-    };
-
-    this._http
-      .post("api/comments", data)
-      .then(response => {
-        this.isSent = true;
-      });
+    // var data = {
+    //   email: this.contactEmail,
+    //   comments: this.comments
+    // };
+    //
+    // this._http
+    //   .post("api/comments", data)
+    //   .then(response => {
+    //     this.isSent = true;
+    //   });
   }
 }

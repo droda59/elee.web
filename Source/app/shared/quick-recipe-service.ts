@@ -1,43 +1,65 @@
-import {autoinject} from "aurelia-framework";
-import {HttpClient} from "aurelia-http-client";
+import {lazy} from "aurelia-framework";
+import {HttpClient} from "aurelia-fetch-client";
 import {QuickRecipe, QuickRecipeSearchResult} from "app/quick-recipe/models/quick-recipe";
 
-@autoinject()
+const fetch = !self.fetch ? System.import("isomorphic-fetch") : Promise.resolve(self.fetch);
+
 export class QuickRecipeService {
     private _httpClient: HttpClient;
 
-    constructor(httpClient: HttpClient) {
-        this._httpClient = httpClient;
+    constructor(@lazy(HttpClient) private getHttpClient: () => HttpClient) {
+        const http = this._httpClient = getHttpClient();
+        http.configure(config => {
+            config
+                .useStandardConfiguration()
+                .withDefaults({
+                    headers: {
+                        "Accept": "application/json",
+                        "X-Requested-With": "Fetch"
+                    }
+                })
+                .withBaseUrl("http://eleeapi.azurewebsites.net/");
+        });
     }
 
-    findRecipes(searchTerms: string): Promise<Array<QuickRecipeSearchResult>> {
-        return this._httpClient.createRequest(null)
-            .withUrl("http://eleeapi.azurewebsites.net/api/quickrecipe/search?query=" + searchTerms)
-            .withHeader("Accept", "application/json")
-            .asGet()
-            .send();
+    async findRecipes(searchTerms: string): Promise<Array<QuickRecipeSearchResult>> {
+        const response = await this._httpClient.fetch("api/quickrecipe/search?query=" + searchTerms);
+        var results = await response.json();
+
+        return results;
     }
 
-    getRecipesToReview(): Promise<Array<QuickRecipeSearchResult>> {
-        return this._httpClient
-            .get("http://eleeapi.azurewebsites.net/api/review/");
+    async getRecipesToReview(): Promise<Array<QuickRecipeSearchResult>> {
+        const response = await this._httpClient.fetch("api/review");
+        var results = await response.json();
+
+        return results;
     }
 
-    getRecipe(id: string): Promise<QuickRecipe> {
-        return this._httpClient
-            .get("http://eleeapi.azurewebsites.net/api/quickrecipe/" + id);
+    async getRecipe(id: string): Promise<QuickRecipe> {
+        const response = await this._httpClient.fetch("api/quickrecipe/" + id);
+        var results = await response.json();
+
+        return results;
     }
 
-    saveRecipe(quickRecipe: QuickRecipe): Promise<boolean> {
-        return this._http.createRequest(null)
-            .withUrl("http://eleeapi.azurewebsites.net/api/quickrecipe", quickRecipe)
-            .withHeader("Content-Type", "application/json")
-            .asPut()
-            .send();
+    async saveRecipe(quickRecipe: QuickRecipe): Promise<boolean> {
+        const response = await this._httpClient.fetch("api/api/quickrecipe", {
+            method: "put",
+            body: json(quickRecipe)
+        });
+        var results = await response.json();
+
+        return results;
     }
 
-    report(id: string): Promise<boolean> {
-		return this._httpClient
-            .put("http://eleeapi.azurewebsites.net/api/review/flag/" + id);
+    async report(id: string): Promise<boolean> {
+        const response = await this._httpClient.fetch("api/api/review/flag/" + id, {
+            method: "put",
+            body: json(quickRecipe)
+        });
+        var results = await response.json();
+
+        return results;
     }
 }

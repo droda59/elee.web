@@ -34,11 +34,9 @@ export class QuickRecipeHeader {
 			});
 	}
 
-	reportRecipe(): void {
-		this._service.report(this.recipeId)
-            .then(response => {
-                Materialize.toast(this._i18n.tr("quickRecipe.recipeFlagged"), 3000)
-            });
+	async reportRecipe(): void {
+		var response = await this._service.report(this.recipeId);
+        Materialize.toast(this._i18n.tr("quickRecipe.recipeFlagged"), 3000)
 	}
 
 	editRecipe(): void {

@@ -6,29 +6,27 @@ import {QuickRecipeService} from "app/shared/quick-recipe-service";
 
 @inject(Element, Router, I18N, EventAggregator, QuickRecipeService)
 export class Welcome extends BaseI18N {
-  private _router: Router;
-  private _service: QuickRecipeService;
+    private _router: Router;
+    private _service: QuickRecipeService;
 
-  searchTerms: string = "";
-  results: {}[] = undefined;
+    searchTerms: string = "";
+    results: {}[] = undefined;
 
-  constructor(element: Element, router: Router, i18n: I18N, ea: EventAggregator, service: QuickRecipeService) {
-    super(i18n, element, ea);
+    constructor(element: Element, router: Router, i18n: I18N, ea: EventAggregator, service: QuickRecipeService) {
+        super(i18n, element, ea);
 
-    this._service = service;
-    this._router = router;
-  }
+        this._service = service;
+        this._router = router;
+    }
 
-  searchRecipes(): void {
-    let searchContainer = $("#search-container")[0];
-    this._service.findRecipes(this.searchTerms)
-      .then(data => {
-        this.results = data.content.slice(0, 8);
+    async searchRecipes(): void {
+        var response = await this._service.findRecipes(this.searchTerms);
+        this.results = response.slice(0, 8);
+        let searchContainer = $("#search-container")[0];
         $("html, body").animate({ scrollTop: searchContainer.offsetTop + searchContainer.offsetHeight }, 500);
-      });
-  }
+    }
 
-  loadRecipe(id: string): void {
-    this._router.navigateToRoute("quick-recipe", { "id": id }, undefined);
-  }
+    loadRecipe(id: string): void {
+        this._router.navigateToRoute("quick-recipe", { "id": id }, undefined);
+    }
 }

@@ -40,7 +40,7 @@ export class QuickRecipePage {
     this._timerCoordinator.onTimerEnded = timer => { this.onTimerEnded(timer, this); };
   }
 
-  activate(route, routeConfig) {
+  async activate(route, routeConfig): Promise<void> {
     if ("Notification" in window) {
       if (Notification.permission !== "denied") {
         Notification.requestPermission();
@@ -54,30 +54,28 @@ export class QuickRecipePage {
         .open({ viewModel: HelpOverlay });
     }
 
-    return this._service.getRecipe(route.id)
-        .then(response => {
-            this.recipe = new QuickRecipe(response.content);
+    var response = await this._service.getRecipe(route.id);
+    this.recipe = new QuickRecipe(response);
 
-            moment.locale(this.recipe.language);
-            this._i18n.setLocale(this.recipe.language);
+    moment.locale(this.recipe.language);
+    this._i18n.setLocale(this.recipe.language);
 
-            routeConfig.navModel.title = this.recipe.title;
+    routeConfig.navModel.title = this.recipe.title;
 
-            (this.recipe.subrecipes || []).forEach(
-                (subrecipe) => {
-                    var quickRecipeSubrecipe = new QuickRecipeSubrecipe();
-                    quickRecipeSubrecipe.id = subrecipe.id;
-                    quickRecipeSubrecipe.title = subrecipe.title;
-                    quickRecipeSubrecipe.steps = this.recipe.steps.filter(step => step.subrecipeId === subrecipe.id);
-                    quickRecipeSubrecipe.ingredients = this.recipe.ingredients.filter(ingredient => ingredient.subrecipeId === subrecipe.id);
-                    quickRecipeSubrecipe.timers = [];
+    (this.recipe.subrecipes || []).forEach(
+        (subrecipe) => {
+            var quickRecipeSubrecipe = new QuickRecipeSubrecipe();
+            quickRecipeSubrecipe.id = subrecipe.id;
+            quickRecipeSubrecipe.title = subrecipe.title;
+            quickRecipeSubrecipe.steps = this.recipe.steps.filter(step => step.subrecipeId === subrecipe.id);
+            quickRecipeSubrecipe.ingredients = this.recipe.ingredients.filter(ingredient => ingredient.subrecipeId === subrecipe.id);
+            quickRecipeSubrecipe.timers = [];
 
-                    if (quickRecipeSubrecipe.steps.length || quickRecipeSubrecipe.ingredients.length) {
-                        this.subrecipes.push(quickRecipeSubrecipe);
-                    }
-                }
-            );
-        });
+            if (quickRecipeSubrecipe.steps.length || quickRecipeSubrecipe.ingredients.length) {
+                this.subrecipes.push(quickRecipeSubrecipe);
+            }
+        }
+    );
   }
 
   canDeactivate() {
