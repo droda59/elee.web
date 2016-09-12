@@ -29,50 +29,75 @@ export class PartFactory {
 }
 
 export class QuickRecipe implements QuickRecipeDto {
-  id: string;
-  language: string;
-  title: string;
-  originalUrl: string;
-  note: string;
-  smallImageUrl: string;
-  normalImageUrl: string;
-  largeImageUrl: string;
-  summary: string;
-  originalServings: string;
-  durations: Duration[];
-  subrecipes: Subrecipe[];
-  ingredients: Ingredient[];
-  steps: Step[];
+    id: string;
+    language: string;
+    title: string;
+    originalUrl: string;
+    note: string;
+    smallImageUrl: string;
+    normalImageUrl: string;
+    largeImageUrl: string;
+    summary: string;
+    originalServings: string;
+    durations: Duration[];
+    subrecipes: Subrecipe[];
+    ingredients: Ingredient[];
+    steps: Step[];
 
-  constructor(dto: QuickRecipeDto) {
-    Object.assign(this, dto);
+    constructor(dto: QuickRecipeDto) {
+        Object.assign(this, dto);
 
-    // Ensure we don't have ingredients leftover when switching recipe.
-    IngredientUnicityOverseer.initialize();
+        // Ensure we don't have ingredients leftover when switching recipe.
+        IngredientUnicityOverseer.initialize();
 
-    this.id = dto._id;
-    this.durations = dto.durations.map(durationDto => new Duration(durationDto));
-    this.subrecipes = dto.subrecipes.map(subrecipeDto => new Subrecipe(subrecipeDto));
-    this.ingredients = dto.ingredients.map(ingredientDto => IngredientUnicityOverseer.getIngredient(ingredientDto));
-    this.steps = dto.steps.map(stepDto => new Step(stepDto));
-  }
+        this.id = dto._id;
+        this.durations = dto.durations.map(durationDto => new Duration(durationDto));
+        this.subrecipes = dto.subrecipes.map(subrecipeDto => new Subrecipe(subrecipeDto));
+        this.ingredients = dto.ingredients.map(ingredientDto => IngredientUnicityOverseer.getIngredient(ingredientDto));
+        this.steps = dto.steps.map(stepDto => new Step(stepDto));
+    }
+}
+interface QuickRecipeDto {
+    _id: string;
+    language: string;
+    title: string;
+    originalUrl: string;
+    note: string;
+    smallImageUrl: string;
+    normalImageUrl: string;
+    largeImageUrl: string;
+    summary: string;
+    originalServings: string;
+    durations: DurationDto[];
+    subrecipes: SubrecipeDto[];
+    ingredients: IngredientDto[];
+    steps: StepDto[];
 }
 
-interface QuickRecipeDto {
-  _id: string;
-  language: string;
-  title: string;
-  originalUrl: string;
-  note: string;
-  smallImageUrl: string;
-  normalImageUrl: string;
-  largeImageUrl: string;
-  summary: string;
-  originalServings: string;
-  durations: DurationDto[];
-  subrecipes: SubrecipeDto[];
-  ingredients: IngredientDto[];
-  steps: StepDto[];
+export class QuickRecipeSearchResult implements QuickRecipeSearchResultDto {
+    id: string;
+    title: string;
+    smallImageUrl: string;
+    durations: Duration[];
+    ingredients: Ingredient[];
+
+    constructor(dto: QuickRecipeSearchResultDto) {
+        Object.assign(this, dto);
+
+        // Ensure we don't have ingredients leftover when switching recipe.
+        IngredientUnicityOverseer.initialize();
+
+        this.id = dto._id;
+        this.durations = dto.durations.map(durationDto => new Duration(durationDto));
+        this.ingredients = dto.ingredients.map(ingredientDto => IngredientUnicityOverseer.getIngredient(ingredientDto));
+    }
+}
+interface QuickRecipeSearchResultDto {
+    _id: string;
+    title: string;
+    smallImageUrl: string;
+    durations: DurationDto[];
+    ingredients: IngredientDto[];
 }
 
 export class Duration implements DurationDto {

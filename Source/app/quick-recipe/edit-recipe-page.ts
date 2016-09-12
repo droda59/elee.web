@@ -21,6 +21,7 @@ export class EditRecipePage {
     private _service: QuickRecipeService;
     private _i18n: I18N;
     private _toast: MdToastService;
+    private _router: Router;
     private _wasSaved: boolean = false;
 
     constructor(service: QuickRecipeService, i18n: I18N, router: Router, toast: MdToastService, measureUnitProvider: MeasureUnitProvider) {

@@ -27,6 +27,11 @@ export class Main {
             title: this._i18n.tr("comments.pageTitle")
         },
         {
+            route: "administration",
+            name: "administration",
+            moduleId: "app/quick-recipe/administration"
+        },
+        {
             route: "recipe/:id",
             name: "quick-recipe",
             moduleId: "app/quick-recipe/quick-recipe-page"
