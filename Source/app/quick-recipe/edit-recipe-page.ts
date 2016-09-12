@@ -1,8 +1,8 @@
 import {autoinject} from "aurelia-framework";
-import {HttpClient} from "aurelia-http-client";
 import {Router} from "aurelia-router";
 import {I18N} from "aurelia-i18n";
 import {MdToastService} from "aurelia-materialize-bridge";
+import {QuickRecipeService} from "app/shared/quick-recipe-service";
 import {QuickRecipe, Subrecipe, Step} from "app/quick-recipe/models/quick-recipe";
 import {PartFactory, TextPart, ActionPart, TimerPart, IngredientPart, IngredientEnumerationPart}
     from "app/quick-recipe/models/quick-recipe";
@@ -18,13 +18,13 @@ export class EditRecipePage {
     steps: Array<Step> = [];
     measureUnits: Array<MeasureUnit> = [];
 
-    private _http: HttpClient;
+    private _service: QuickRecipeService;
     private _i18n: I18N;
     private _toast: MdToastService;
     private _wasSaved: boolean = false;
 
-    constructor(http: HttpClient, i18n: I18N, router: Router, toast: MdToastService, measureUnitProvider: MeasureUnitProvider) {
-        this._http = http;
+    constructor(service: QuickRecipeService, i18n: I18N, router: Router, toast: MdToastService, measureUnitProvider: MeasureUnitProvider) {
+        this._service = service;
         this._i18n = i18n;
 		this._router = router;
         this._toast = toast;
@@ -33,8 +33,7 @@ export class EditRecipePage {
     }
 
     activate(route, routeConfig) {
-        return this._http
-            .get("http://eleeapi.azurewebsites.net/api/quickrecipe/" + route.id)
+        return this._service.getRecipe(route.id)
             .then(response => {
                 this.recipe = new QuickRecipe(response.content);
                 (this.recipe.subrecipes || []).forEach(
@@ -144,7 +143,7 @@ export class EditRecipePage {
     addEnumerationStepPart(step: Step): void {
         var part = PartFactory.createPart(step, IngredientEnumerationPart.type);
         part.ingredients = [];
-        
+
         step.parts.push(part);
     }
 
@@ -181,11 +180,7 @@ export class EditRecipePage {
         var jsonOutput = JSON.stringify(this.recipe);
 
         this._toast.show(this._i18n.tr("edit.saving"), 2000);
-        // this._http.createRequest(null)
-        //     .withUrl("http://localhost:5000/api/quickrecipe", this.recipe)
-        //     .withHeader("Content-Type", "application/json")
-        //     .asPut()
-        //     .send()
+        // this._service.saveRecipe(this.recipe)
         //     .then(data => {
             this._toast.show(this._i18n.tr("edit.saved"), 1000).then(() => {
                 this._wasSaved = true;

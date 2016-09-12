@@ -1,8 +1,8 @@
-import {inject} from "aurelia-framework";
+import {autoinject} from "aurelia-framework";
 import {DialogService} from "aurelia-dialog";
 import {CssAnimator} from "aurelia-animator-css";
-import {HttpClient} from "aurelia-http-client";
 import {I18N} from "aurelia-i18n";
+import {QuickRecipeService} from "app/shared/quick-recipe-service";
 import {QuickRecipe, Step, IngredientPart, IngredientEnumerationPart} from "app/quick-recipe/models/quick-recipe";
 import {HelpOverlay} from "app/quick-recipe/components/help-overlay";
 import {TimerCoordinator} from "app/quick-recipe/timer-coordinator";
@@ -11,7 +11,7 @@ import {Ingredient} from "app/shared/models/ingredient";
 import {Timer} from "app/shared/models/timer";
 import {QuickRecipeTimer} from "app/quick-recipe/models/quick-recipe-timer";
 
-@inject(HttpClient, I18N, TimerCoordinator, ScrollCoordinator, DialogService, CssAnimator)
+@autoinject()
 export class QuickRecipePage {
   recipe: QuickRecipe;
   subrecipes: QuickRecipeSubrecipe[] = [];
@@ -24,12 +24,12 @@ export class QuickRecipePage {
   private _scrollCoordinator: ScrollCoordinator;
   private _timerCoordinator: TimerCoordinator;
   private _dialogService: DialogService;
-  private _http: HttpClient;
+  private _service: QuickRecipeService;
   private _i18n: I18N;
   private _animator: CssAnimator;
 
-  constructor(http: HttpClient, i18n: I18N, timerCoordinator: TimerCoordinator, scrollCoordinator: ScrollCoordinator, dialogService: DialogService, animator: CssAnimator) {
-    this._http = http;
+  constructor(service: QuickRecipeService, i18n: I18N, timerCoordinator: TimerCoordinator, scrollCoordinator: ScrollCoordinator, dialogService: DialogService, animator: CssAnimator) {
+    this._service = service;
     this._i18n = i18n;
     this._scrollCoordinator = scrollCoordinator;
     this._dialogService = dialogService;
@@ -54,31 +54,30 @@ export class QuickRecipePage {
         .open({ viewModel: HelpOverlay });
     }
 
-    return this._http
-      .get("http://eleeapi.azurewebsites.net/api/quickrecipe/" + route.id)
-      .then(response => {
-        this.recipe = new QuickRecipe(response.content);
+    return this._service.getRecipe(route.id)
+        .then(response => {
+            this.recipe = new QuickRecipe(response.content);
 
-        moment.locale(this.recipe.language);
-        this._i18n.setLocale(this.recipe.language);
+            moment.locale(this.recipe.language);
+            this._i18n.setLocale(this.recipe.language);
 
-        routeConfig.navModel.title = this.recipe.title;
+            routeConfig.navModel.title = this.recipe.title;
 
-        (this.recipe.subrecipes || []).forEach(
-          (subrecipe) => {
-            var quickRecipeSubrecipe = new QuickRecipeSubrecipe();
-            quickRecipeSubrecipe.id = subrecipe.id;
-            quickRecipeSubrecipe.title = subrecipe.title;
-            quickRecipeSubrecipe.steps = this.recipe.steps.filter(step => step.subrecipeId === subrecipe.id);
-            quickRecipeSubrecipe.ingredients = this.recipe.ingredients.filter(ingredient => ingredient.subrecipeId === subrecipe.id);
-            quickRecipeSubrecipe.timers = [];
+            (this.recipe.subrecipes || []).forEach(
+                (subrecipe) => {
+                    var quickRecipeSubrecipe = new QuickRecipeSubrecipe();
+                    quickRecipeSubrecipe.id = subrecipe.id;
+                    quickRecipeSubrecipe.title = subrecipe.title;
+                    quickRecipeSubrecipe.steps = this.recipe.steps.filter(step => step.subrecipeId === subrecipe.id);
+                    quickRecipeSubrecipe.ingredients = this.recipe.ingredients.filter(ingredient => ingredient.subrecipeId === subrecipe.id);
+                    quickRecipeSubrecipe.timers = [];
 
-            if (quickRecipeSubrecipe.steps.length || quickRecipeSubrecipe.ingredients.length) {
-              this.subrecipes.push(quickRecipeSubrecipe);
-            }
-          }
-        );
-      });
+                    if (quickRecipeSubrecipe.steps.length || quickRecipeSubrecipe.ingredients.length) {
+                        this.subrecipes.push(quickRecipeSubrecipe);
+                    }
+                }
+            );
+        });
   }
 
   canDeactivate() {
