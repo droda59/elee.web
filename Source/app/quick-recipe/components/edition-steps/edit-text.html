@@ -2,7 +2,7 @@
 	<require from="app/shared/components/auto-width-input"></require>
 
 	<div class="input-field">
-		<input value.bind="value" id="text" type="text" autowidth>
-		<label for="text">${ 'edit.step.part.text' | t }</label>
+		<input value.bind="part.value" id="text-${part.id}" type="text" autowidth>
+		<label for="text-${part.id}">${ 'edit.step.part.text' | t }</label>
 	</div>
 </template>

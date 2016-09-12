@@ -5,8 +5,8 @@ import {EditRecipePage} from "app/quick-recipe/edit-recipe-page";
 
 @autoinject()
 export class StepEnumeration {
-    ingredients: Ingredient[];
-    possibleIngredients: Ingredient[] = [];
+    part: IngredientEnumerationPart;
+    possibleIngredients: Array<Ingredient> = [];
     parentelement: EditRecipePage;
 
     constructor(parentelement: EditRecipePage){
@@ -14,18 +14,18 @@ export class StepEnumeration {
     }
 
     activate(model: IngredientEnumerationPart) {
-        this.ingredients = model.ingredients || [];
-        this.possibleIngredients = this.parentelement.subrecipes.selectMany(x => x.ingredients);
+        this.part = model;
+
+        var step = this.parentelement.findStep(model.stepId);
+        this.possibleIngredients = this.parentelement.ingredients.filter(ingredient => step.subrecipeId < 0 ? true : ingredient.subrecipeId === step.subrecipeId);
     }
 
     addIngredient(): void {
-        var newIngredient = new Ingredient();
-
-        this.ingredients.push(this.possibleIngredients[0]);
+        this.part.ingredients.push(this.possibleIngredients[0]);
     }
 
     removeIngredient(ingredient: Ingredient): void {
-        this._removeFromArray(this.ingredients, ingredient);
+        this._removeFromArray(this.part.ingredients, ingredient);
     }
 
     private _removeFromArray(array: any[], object: any): void {

@@ -63,7 +63,7 @@ export function configure(aurelia) {
       });
     };
   }
-  
+
     Array.prototype.selectMany = function (fn) {
         return this.map(fn).reduce(function (x, y) { return x.concat(y); }, []);
     };

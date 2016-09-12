@@ -1,9 +1,9 @@
 import {ActionPart} from "app/quick-recipe/models/quick-recipe";
 
 export class StepAction {
-    action: string;
+    part: ActionPart;
 
     activate(model: ActionPart) {
-        this.action = model.value;
+        this.part = model;
     }
 }
