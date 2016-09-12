@@ -2,7 +2,7 @@
     <div class="administration container">
         <ul class="collection with-header">
             <li class="collection-header">
-                <h4>Recipes to review</h4>
+                <h4>${'administration.recipesToReview' | t}</h4>
             </li>
             <li repeat.for="recipe of recipes" class="collection-item avatar">
                 <img src.bind="recipe.smallImageUrl" alt="" class="circle">

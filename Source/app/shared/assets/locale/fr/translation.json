@@ -5,6 +5,10 @@
         "lang": "English",
         "links": "Liens"
     },
+    "administration": {
+        "pageTitle": "Administration",
+        "recipesToReview": "Recettes à réviser"
+    },
     "comments": {
         "pageTitle": "Commentaires",
         "yourMessage": "Votre message",

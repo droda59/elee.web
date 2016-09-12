@@ -1,6 +1,5 @@
 import {autoinject} from "aurelia-framework";
 import {Router} from "aurelia-router";
-import {I18N} from "aurelia-i18n";
 import {QuickRecipeService} from "app/shared/quick-recipe-service";
 import {QuickRecipe, QuickRecipeSearchResult} from "app/quick-recipe/models/quick-recipe";
 
@@ -9,12 +8,10 @@ export class Administration {
     recipes: Array<QuickRecipeSearchResult> = [];
 
     private _service: QuickRecipeService;
-    private _i18n: I18N;
     private _router: Router;
 
-    constructor(service: QuickRecipeService, i18n: I18N, router: Router) {
+    constructor(service: QuickRecipeService, router: Router) {
         this._service = service;
-        this._i18n = i18n;
 		this._router = router;
     }
 
