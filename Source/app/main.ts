@@ -29,7 +29,8 @@ export class Main {
         {
             route: "administration",
             name: "administration",
-            moduleId: "app/quick-recipe/administration"
+            moduleId: "app/quick-recipe/administration",
+            title: this._i18n.tr("administration.pageTitle")
         },
         {
             route: "recipe/:id",

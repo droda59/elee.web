@@ -5,6 +5,10 @@
         "lang": "French",
         "links": "Links"
     },
+    "administration": {
+        "pageTitle": "Administration",
+        "recipesToReview": "Recipes to review"
+    },
     "comments": {
         "pageTitle": "Comments",
         "yourMessage": "Your message",
