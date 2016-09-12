@@ -2,10 +2,8 @@
 	<require from="app/shared/value-converters/quantity-human-format"></require>
 
 	<div class="input-field">
-		<select md-select value.two-way="ingredient">
-			<option repeat.for="possibleIngredient of possibleIngredients" model.bind="possibleIngredient">
-				${possibleIngredient.quantity | quantityHumanFormat} ${possibleIngredient.name}
-			</option>
+		<select md-select value.two-way="part.ingredient">
+			<option repeat.for="possibleIngredient of possibleIngredients" model.bind="possibleIngredient">${possibleIngredient.quantity | quantityHumanFormat} ${possibleIngredient.name}</option>
 		</select>
     	<label class="active">${ 'edit.step.part.ingredient' | t }</label>
 	</div>

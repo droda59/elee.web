@@ -5,8 +5,8 @@ import {EditRecipePage} from "app/quick-recipe/edit-recipe-page";
 
 @autoinject()
 export class StepIngredient {
-    ingredient: Ingredient;
-    possibleIngredients: Ingredient[] = [];
+    part: IngredientPart;
+    possibleIngredients: Array<Ingredient> = [];
     parentelement: EditRecipePage;
 
     constructor(parentelement: EditRecipePage){
@@ -14,7 +14,9 @@ export class StepIngredient {
     }
 
     activate(model: IngredientPart) {
-        this.ingredient = model.ingredient;
-        this.possibleIngredients = this.parentelement.subrecipes.selectMany(x => x.ingredients);
+        this.part = model;
+
+        var step = this.parentelement.findStep(model.stepId);
+        this.possibleIngredients = this.parentelement.ingredients.filter(ingredient => step.subrecipeId < 0 ? true : ingredient.subrecipeId === step.subrecipeId);
     }
 }

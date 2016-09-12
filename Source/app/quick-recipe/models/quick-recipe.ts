@@ -40,7 +40,7 @@ export class QuickRecipe implements QuickRecipeDto {
   summary: string;
   originalServings: string;
   durations: Duration[];
-  subrecipes: SubRecipe[];
+  subrecipes: Subrecipe[];
   ingredients: Ingredient[];
   steps: Step[];
 
@@ -52,7 +52,7 @@ export class QuickRecipe implements QuickRecipeDto {
 
     this.id = dto._id;
     this.durations = dto.durations.map(durationDto => new Duration(durationDto));
-    this.subrecipes = dto.subrecipes.map(subrecipeDto => new SubRecipe(subrecipeDto));
+    this.subrecipes = dto.subrecipes.map(subrecipeDto => new Subrecipe(subrecipeDto));
     this.ingredients = dto.ingredients.map(ingredientDto => IngredientUnicityOverseer.getIngredient(ingredientDto));
     this.steps = dto.steps.map(stepDto => new Step(stepDto));
   }
@@ -70,7 +70,7 @@ interface QuickRecipeDto {
   summary: string;
   originalServings: string;
   durations: DurationDto[];
-  subrecipes: SubRecipeDto[];
+  subrecipes: SubrecipeDto[];
   ingredients: IngredientDto[];
   steps: StepDto[];
 }
@@ -88,25 +88,25 @@ interface DurationDto {
   time: string;
 }
 
-export class SubRecipe implements SubRecipeDto {
+export class Subrecipe implements SubrecipeDto {
   id: number;
   title: string;
 
-  constructor(dto: SubRecipeDto) {
+  constructor(dto: SubrecipeDto) {
     Object.assign(this, dto);
   }
 }
-interface SubRecipeDto {
+interface SubrecipeDto {
   id: number;
   title: string;
 }
 
 export class Step implements StepDto {
-  id: number;
-  subrecipeId: number;
-  parts: Part[];
-  isCompleted: boolean;
-  isOnHold: boolean;
+    id: number;
+    subrecipeId: number;
+    parts: Part[] = [];
+    isCompleted: boolean;
+    isOnHold: boolean;
 
     constructor();
     constructor(dto: StepDto);
@@ -122,9 +122,9 @@ export class Step implements StepDto {
     }
 }
 interface StepDto {
-  id: number;
-  subrecipeId: number;
-  parts: PartDto[];
+    id: number;
+    subrecipeId: number;
+    parts: PartDto[];
 }
 
 export class Part implements PartDto {

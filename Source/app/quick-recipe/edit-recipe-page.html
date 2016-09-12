@@ -21,16 +21,16 @@
                             </div>
                             <div class="row col s9">
                                 <div class="input-field col s12">
-                                    <input value.bind="recipe.title" id="title" type="text">
-                                    <label for="title">${ 'edit.summary.recipeTitle' | t }</label>
+                                    <input value.bind="recipe.title" id="recipeTitle" type="text">
+                                    <label for="recipeTitle">${ 'edit.summary.recipeTitle' | t }</label>
                                 </div>
                                 <div class="input-field col s12">
-                                    <textarea value.bind="recipe.summary" id="summary" class="materialize-textarea"></textarea>
-                                    <label for="summary">${ 'edit.summary.recipeSummary' | t }</label>
+                                    <textarea value.bind="recipe.summary" id="recipeSummary" class="materialize-textarea"></textarea>
+                                    <label for="recipeSummary">${ 'edit.summary.recipeSummary' | t }</label>
                                 </div>
                                 <div class="input-field col s12">
-                                    <input value.bind="recipe.note" id="note" type="text">
-                                    <label for="note">${ 'edit.summary.recipeNote' | t }</label>
+                                    <input value.bind="recipe.note" id="recipeNote" type="text">
+                                    <label for="recipeNote">${ 'edit.summary.recipeNote' | t }</label>
                                 </div>
                             </div>
                         </div>
@@ -45,8 +45,8 @@
                                 </a>
                             </div>
                             <div class="input-field col s11">
-                                <input value.bind="subrecipe.title" id="title" type="text">
-                                <label for="title">${ 'edit.subrecipe.subrecipeTitle' | t }</label>
+                                <input value.bind="subrecipe.title" id="subrecipeTitle-${subrecipe.id}" type="text">
+                                <label for="subrecipeTitle-${subrecipe.id}">${ 'edit.subrecipe.subrecipeTitle' | t }</label>
                             </div>
                         </div>
                         <div class="row">
@@ -71,18 +71,18 @@
                                             </a>
                                         </div>
                                         <div class="input-field col s2">
-                                            <input value.bind="ingredient.quantity.value" id="quantity" type="number" step="0.1" class="right-align">
-                                            <label for="quantity">${ 'edit.ingredient.quantity' | t }</label>
+                                            <input value.bind="ingredient.quantity.value" id="quantity-${ingredient.id}" type="number" step="0.1" class="right-align">
+                                            <label for="quantity-${ingredient.id}">${ 'edit.ingredient.quantity' | t }</label>
                                         </div>
                                         <div class="input-field col s2">
-                                            <select id="unit" md-select value.two-way="ingredient.quantity.abbreviation">
-                                                <option repeat.for="measureUnit of measureUnits" model.bind="measureUnit.abbreviation">${measureUnit.abbreviation}</option>
+                                            <select id="unit" md-select value.two-way="ingredient.quantity.unit">
+                                                <option repeat.for="measureUnit of measureUnits" model.bind="measureUnit">${measureUnit.abbreviation}</option>
                                             </select>
                                             <label class="active">${ 'edit.ingredient.unit' | t }</label>
                                         </div>
                                         <div class="input-field col s7">
-                                            <input value.bind="ingredient.name" id="ingredient" type="text">
-                                            <label for="ingredient">${ 'edit.ingredient.ingredient' | t }</label>
+                                            <input value.bind="ingredient.name" id="ingredient-${ingredient.id}" type="text">
+                                            <label for="ingredient-${ingredient.id}">${ 'edit.ingredient.ingredient' | t }</label>
                                         </div>
         							</li>
         						</ul>
@@ -144,7 +144,12 @@
                         </div>
                     </section>
 
-                    <button class="btn waves-effect waves-light" type="submit" name="action">${ 'edit.sendButton' | t }
+                    <a class="btn waves-effect waves-light" click.trigger="returnToRecipe()">
+                        ${ 'edit.backButton' | t }
+                        <i class="material-icons left">navigate_before</i>
+                    </a>
+                    <button class="btn waves-effect waves-light" type="submit" name="action">
+                        ${ 'edit.sendButton' | t }
                         <i class="material-icons right">send</i>
                     </button>
                 </form>

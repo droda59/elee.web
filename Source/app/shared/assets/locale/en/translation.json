@@ -164,7 +164,10 @@
     },
     "edit": {
         "exitConfirmation": "Are you sure you want to leave?",
+        "saving": "Saving recipe...",
+        "saved": "Recipe saved!",
         "sendButton": "Save",
+        "backButton": "Back",
         "summary": {
             "title": "Summary",
             "recipeTitle": "Title",

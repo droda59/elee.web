@@ -1,9 +1,9 @@
 import {TextPart} from "app/quick-recipe/models/quick-recipe";
 
 export class StepText {
-    value: string;
+    part: TextPart;
 
     activate(model: TextPart) {
-        this.value = model.value;
+        this.part = model;
     }
 }

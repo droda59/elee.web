@@ -169,7 +169,10 @@
     },
     "edit": {
         "exitConfirmation": "Êtes-vous certain de vouloir quitter?",
+        "saving": "Enregistrement...",
+        "saved": "Recette sauvegardée!",
         "sendButton": "Sauvegarder",
+        "backButton": "Retour",
         "summary": {
             "title": "Sommaire",
             "recipeTitle": "Titre",
