@@ -19,7 +19,7 @@ module.exports = {
                 "aurelia-dialog",
                 "aurelia-framework",
                 "aurelia-history-browser",
-                "aurelia-http-client",
+                "aurelia-fetch-client",
                 "aurelia-i18n",
                 "aurelia-loader-default",
                 "aurelia-logging-console",

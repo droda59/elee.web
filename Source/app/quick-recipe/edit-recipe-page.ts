@@ -33,29 +33,28 @@ export class EditRecipePage {
         this.measureUnits = measureUnitProvider.measureUnits;
     }
 
-    activate(route, routeConfig) {
-        return this._service.getRecipe(route.id)
-            .then(response => {
-                this.recipe = new QuickRecipe(response.content);
-                (this.recipe.subrecipes || []).forEach(
-                    (subrecipe) => {
-                        var quickRecipeSubrecipe = new QuickRecipeEditionSubrecipe();
-                        quickRecipeSubrecipe.id = subrecipe.id;
-                        quickRecipeSubrecipe.title = subrecipe.title;
-                        quickRecipeSubrecipe.steps = this.recipe.steps.filter(step => step.subrecipeId === subrecipe.id);
-                        quickRecipeSubrecipe.ingredients = this.recipe.ingredients.filter(ingredient => ingredient.subrecipeId === subrecipe.id);
+    async activate(route, routeConfig): Promise<void> {
+        var response = await this._service.getRecipe(route.id);
 
-                        if (quickRecipeSubrecipe.steps.length || quickRecipeSubrecipe.ingredients.length) {
-                            this.subrecipes.push(quickRecipeSubrecipe);
-                        }
-                    }
-                );
+        this.recipe = new QuickRecipe(response);
+        (this.recipe.subrecipes || []).forEach(
+            (subrecipe) => {
+                var quickRecipeSubrecipe = new QuickRecipeEditionSubrecipe();
+                quickRecipeSubrecipe.id = subrecipe.id;
+                quickRecipeSubrecipe.title = subrecipe.title;
+                quickRecipeSubrecipe.steps = this.recipe.steps.filter(step => step.subrecipeId === subrecipe.id);
+                quickRecipeSubrecipe.ingredients = this.recipe.ingredients.filter(ingredient => ingredient.subrecipeId === subrecipe.id);
 
-                this.ingredients = this.recipe.ingredients;
-                this.steps = this.recipe.steps;
+                if (quickRecipeSubrecipe.steps.length || quickRecipeSubrecipe.ingredients.length) {
+                    this.subrecipes.push(quickRecipeSubrecipe);
+                }
+            }
+        );
 
-                routeConfig.navModel.title = this.recipe.title;
-            });
+        this.ingredients = this.recipe.ingredients;
+        this.steps = this.recipe.steps;
+
+        routeConfig.navModel.title = this.recipe.title;
     }
 
     attached() {
