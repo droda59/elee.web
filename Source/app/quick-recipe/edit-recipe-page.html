@@ -38,7 +38,7 @@
 
                     <section id="subrecipes" class="section scrollspy">
                         <h2>${ 'edit.subrecipe.title' | t }</h2>
-                        <div class="row valign-wrapper" repeat.for="subrecipe of subrecipes" if.bind="subrecipe.id >= 0">
+                        <div class="row valign-wrapper" repeat.for="subrecipe of subrecipes" if.bind="subrecipe.id >= -1">
                             <div class="col s1">
                                 <a class="btn-flat btn-floating btn-delete waves-effect waves-red" click.trigger="removeSubrecipe(subrecipe)">
                                     <i class="material-icons red-text">delete</i>
@@ -59,7 +59,7 @@
                     <section id="ingredients" class="section scrollspy">
                         <h2>${ 'edit.ingredient.title' | t }</h2>
                         <div class="row">
-        					<section repeat.for="subrecipe of subrecipes" if.bind="subrecipe.id >= 0" class="col s12">
+        					<section repeat.for="subrecipe of subrecipes" if.bind="subrecipe.id >= -1" class="col s12">
                                 <div class="row">
                                     <h4 class="truncate">${subrecipe.title}</h4>
                                 </div>
