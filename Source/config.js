@@ -1,6 +1,14 @@
 System.config({
   defaultJSExtensions: true,
   transpiler: "traceur",
+  packages: {
+      "materialize-css": {
+          main: "bin/materialize.js",
+          map: {
+              "bin/materialize.css": "dist/app/style.css"
+          }
+      }
+  },
   paths: {
     "*": "dist/*",
     "github:*": "jspm_packages/github/*",
