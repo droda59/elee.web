@@ -1,7 +1,7 @@
 <template>
 	<ai-dialog id="help-overlay" class="au-animate">
 		<ai-dialog-body>
-            <div class="slider" materialize="slider">
+			<md-slider view-model.ref="slider" md-indicators="false">
                 <ul class="slides">
                     <li class="overlay-item-back-to-current">
                         <img src="dist/app/quick-recipe/assets/images/helpBackToCurrentStep.png" class="x-right y-bottom">
@@ -32,12 +32,12 @@
                         </div>
                     </li>
                 </ul>
-            </div>
+            </md-slider>
 		</ai-dialog-body>
 
 		<ai-dialog-footer>
-			<button click.trigger="previous()" class="waves-effect btn-flat"><i class="material-icons">keyboard_arrow_left</i></button>
-			<button click.trigger="next()" class="waves-effect btn-flat"><i class="material-icons">keyboard_arrow_right</i></button>
+			<button click.delegate="slider.prev()" class="waves-effect btn-flat"><i class="material-icons">keyboard_arrow_left</i></button>
+			<button click.delegate="slider.next()" class="waves-effect btn-flat"><i class="material-icons">keyboard_arrow_right</i></button>
             <button click.trigger="controller.ok()" class="modal-action modal-close waves-effect btn-flat" i18n="help.okButton">Ok</button>
 		</ai-dialog-footer>
 	</ai-dialog>

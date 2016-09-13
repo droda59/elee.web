@@ -2,6 +2,7 @@ import {bindable, autoinject} from "aurelia-framework";
 import {Router} from "aurelia-router";
 import {DialogService} from "aurelia-dialog";
 import {I18N} from "aurelia-i18n";
+import {MdToastService} from "aurelia-materialize-bridge";
 import {QuickRecipeService} from "app/shared/quick-recipe-service";
 import {SettingsManager} from "app/shared/settings-manager";
 import {SettingsModal} from "app/shared/components/settings-modal";
@@ -15,11 +16,13 @@ export class QuickRecipeHeader {
 	private _settingsManager: SettingsManager;
     private _service: QuickRecipeService;
 	private _i18n: I18N;
+	private _toast: MdToastService;
 
-	constructor(service: QuickRecipeService, dialogService: DialogService, settingsManager: SettingsManager, i18n: I18N, router: Router) {
+	constructor(service: QuickRecipeService, dialogService: DialogService, settingsManager: SettingsManager, i18n: I18N, router: Router, toast: MdToastService) {
 		this._service = service;
 		this._i18n = i18n;
 		this._router = router;
+		this._toast = toast;
 		this._dialogService = dialogService;
 		this._settingsManager = settingsManager;
 	}
@@ -37,7 +40,7 @@ export class QuickRecipeHeader {
 	reportRecipe(): void {
 		this._service.report(this.recipeId)
 			.then(response => {
-        		Materialize.toast(this._i18n.tr("quickRecipe.recipeFlagged"), 3000);
+				this._toast.show(this._i18n.tr("quickRecipe.recipeFlagged"), 3000);
 			});
 	}
 
