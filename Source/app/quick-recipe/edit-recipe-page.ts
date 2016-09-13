@@ -181,13 +181,13 @@ export class EditRecipePage {
         var jsonOutput = JSON.stringify(this.recipe);
 
         this._toast.show(this._i18n.tr("edit.saving"), 2000);
-        // this._service.saveRecipe(this.recipe)
-        //     .then(data => {
+        this._service.saveRecipe(this.recipe)
+            .then(data => {
             this._toast.show(this._i18n.tr("edit.saved"), 1000).then(() => {
                 this._wasSaved = true;
                 this.returnToRecipe();
             });
-        //     });
+        });
     }
 
     returnToRecipe() {
