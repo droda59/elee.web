@@ -1,15 +1,14 @@
-import {lazy} from "aurelia-framework";
-import {HttpClient} from "aurelia-fetch-client";
+import {autoinject} from "aurelia-framework";
+import {HttpClient, json} from "aurelia-fetch-client";
 import {QuickRecipe, QuickRecipeSearchResult} from "app/quick-recipe/models/quick-recipe";
+import "fetch";
 
-const fetch = !self.fetch ? System.import("isomorphic-fetch") : Promise.resolve(self.fetch);
-
+@autoinject()
 export class QuickRecipeService {
     private _httpClient: HttpClient;
 
-    constructor(@lazy(HttpClient) private getHttpClient: () => HttpClient) {
-        const http = this._httpClient = getHttpClient();
-        http.configure(config => {
+    constructor(httpClient: HttpClient) {
+        this._httpClient = httpClient.configure(config => {
             config
                 .useStandardConfiguration()
                 .withDefaults({
@@ -22,44 +21,32 @@ export class QuickRecipeService {
         });
     }
 
-    async findRecipes(searchTerms: string): Promise<Array<QuickRecipeSearchResult>> {
-        const response = await this._httpClient.fetch("api/quickrecipe/search?query=" + searchTerms);
-        var results = await response.json();
-
-        return results;
+    findRecipes(searchTerms: string): Promise<Array<QuickRecipeSearchResult>> {
+        return this._httpClient.fetch("api/quickrecipe/search?query=" + searchTerms)
+            .then(response => response.json());
     }
 
-    async getRecipesToReview(): Promise<Array<QuickRecipeSearchResult>> {
-        const response = await this._httpClient.fetch("api/review");
-        var results = await response.json();
-
-        return results;
+    getRecipesToReview(): Promise<Array<QuickRecipeSearchResult>> {
+        return this._httpClient.fetch("api/review")
+            .then(response => response.json());
     }
 
-    async getRecipe(id: string): Promise<QuickRecipe> {
-        const response = await this._httpClient.fetch("api/quickrecipe/" + id);
-        var results = await response.json();
-
-        return results;
+    getRecipe(id: string): Promise<QuickRecipe> {
+        return this._httpClient.fetch("api/quickrecipe/" + id)
+            .then(response => response.json());
     }
 
-    async saveRecipe(quickRecipe: QuickRecipe): Promise<boolean> {
-        const response = await this._httpClient.fetch("api/api/quickrecipe", {
+    saveRecipe(quickRecipe: QuickRecipe): Promise<boolean> {
+        return this._httpClient.fetch("api/api/quickrecipe", {
             method: "put",
             body: json(quickRecipe)
-        });
-        var results = await response.json();
-
-        return results;
+        }).then(response => response.json());
     }
 
-    async report(id: string): Promise<boolean> {
-        const response = await this._httpClient.fetch("api/api/review/flag/" + id, {
+    report(id: string): Promise<boolean> {
+        return this._httpClient.fetch("api/api/review/flag/" + id, {
             method: "put",
             body: json(quickRecipe)
-        });
-        var results = await response.json();
-
-        return results;
+        }).then(response => response.json());
     }
 }

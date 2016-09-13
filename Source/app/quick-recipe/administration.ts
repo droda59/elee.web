@@ -15,9 +15,11 @@ export class Administration {
 		this._router = router;
     }
 
-    async activate(route, routeConfig): Promise<void> {
-        var response = await this._service.getRecipesToReview();
-        this.recipes = response.map(content => new QuickRecipeSearchResult(content));
+    activate(route, routeConfig): Promise<void> {
+        this._service.getRecipesToReview()
+            .then(response => {
+                this.recipes = response.map(content => new QuickRecipeSearchResult(content));
+            });
     }
 
     editRecipe(recipeId: string) {

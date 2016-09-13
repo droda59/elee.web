@@ -19,11 +19,13 @@ export class Welcome extends BaseI18N {
         this._router = router;
     }
 
-    async searchRecipes(): void {
-        var response = await this._service.findRecipes(this.searchTerms);
-        this.results = response.slice(0, 8);
-        let searchContainer = $("#search-container")[0];
-        $("html, body").animate({ scrollTop: searchContainer.offsetTop + searchContainer.offsetHeight }, 500);
+    searchRecipes(): void {
+        this._service.findRecipes(this.searchTerms)
+            .then(response => {
+                this.results = response.slice(0, 8);
+                let searchContainer = $("#search-container")[0];
+                $("html, body").animate({ scrollTop: searchContainer.offsetTop + searchContainer.offsetHeight }, 500);
+            });
     }
 
     loadRecipe(id: string): void {
