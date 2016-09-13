@@ -47,13 +47,6 @@ export class QuickRecipePage {
       }
     }
 
-    var hasSeenHelp = localStorage.getItem("helpSeen");
-    if (!hasSeenHelp) {
-      localStorage.setItem("helpSeen", "true");
-      this._dialogService
-        .open({ viewModel: HelpOverlay });
-    }
-
     this._service.getRecipe(route.id)
         .then(response => {
             this.recipe = new QuickRecipe(response);
@@ -79,6 +72,15 @@ export class QuickRecipePage {
             );
         });
   }
+
+    attached() {
+        var hasSeenHelp = localStorage.getItem("helpSeen");
+        if (!hasSeenHelp) {
+            localStorage.setItem("helpSeen", "true");
+            this._dialogService
+                .open({ viewModel: HelpOverlay });
+        }
+    }
 
   canDeactivate() {
     if (this.isRecipeStarted && !this.isRecipeDone) {

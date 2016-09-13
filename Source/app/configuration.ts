@@ -5,7 +5,6 @@ export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
     .developmentLogging()
-    .globalResources("app/shared/aurelia-materialize")
     .plugin("aurelia-animator-css")
     .plugin("aurelia-dialog")
     .plugin("aurelia-i18n", (instance) => {
@@ -44,6 +43,7 @@ export function configure(aurelia) {
         .usePushpin()
         .useSelect()
         .useScrollSpy()
+        .useSlider()
         .useTooltip()
     });;
 

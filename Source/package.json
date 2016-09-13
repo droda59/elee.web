@@ -90,5 +90,8 @@
   },
   "dependencies": {
     "es6-module-loader": "^0.17.11"
+},
+  "map": {
+    "materialize.css": "dist/app/style.css"
   }
 }
