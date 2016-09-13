@@ -33,8 +33,8 @@ export class EditRecipePage {
         this.measureUnits = measureUnitProvider.measureUnits;
     }
 
-    activate(route, routeConfig){
-        this._service.getRecipe(route.id)
+    activate(route, routeConfig): Promise<void> {
+        return this._service.getRecipe(route.id)
             .then(response => {
                 this.recipe = new QuickRecipe(response);
                 (this.recipe.subrecipes || []).forEach(
