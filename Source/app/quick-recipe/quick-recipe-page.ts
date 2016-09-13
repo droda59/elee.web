@@ -40,14 +40,14 @@ export class QuickRecipePage {
     this._timerCoordinator.onTimerEnded = timer => { this.onTimerEnded(timer, this); };
   }
 
-  activate(route, routeConfig) {
+  activate(route, routeConfig): Promise<void>  {
     if ("Notification" in window) {
       if (Notification.permission !== "denied") {
         Notification.requestPermission();
       }
     }
 
-    this._service.getRecipe(route.id)
+    return this._service.getRecipe(route.id)
         .then(response => {
             this.recipe = new QuickRecipe(response);
 

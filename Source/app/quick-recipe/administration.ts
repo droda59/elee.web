@@ -16,7 +16,7 @@ export class Administration {
     }
 
     activate(route, routeConfig): Promise<void> {
-        this._service.getRecipesToReview()
+        return this._service.getRecipesToReview()
             .then(response => {
                 this.recipes = response.map(content => new QuickRecipeSearchResult(content));
             });
