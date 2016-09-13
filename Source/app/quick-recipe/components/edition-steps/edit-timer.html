@@ -2,7 +2,7 @@
 	<require from="app/shared/components/auto-width-input"></require>
 
 	<div class="input-field">
-		<input value.bind="part.value" id="timer-${part.id}" type="text" autowidth>
+		<input value.bind="part.value" id="timer-${part.id}" type="text" autowidth="calculate-width.bind: part.value">
 		<label for="timer-${part.id}">${ 'edit.step.part.timer' | t }</label>
 	</div>
 </template>
