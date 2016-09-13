@@ -8,9 +8,14 @@
                     <h1 i18n="home.slogan" class="s12 center">CookSimply</h1>
                 </div>
                 <div class="row">
-                    <div class="input-field center col s12 m8 offset-m2 l6 offset-l3">
-                        <i class="material-icons prefix">search</i>
-                        <input placeholder="Placeholder" t="[placeholder]home.search" type="text" value.bind="searchTerms">
+                    <div class="input-field center col s12 m6 offset-m2 l6 offset-l3 valign-wrapper">
+                        <!-- <i class="material-icons prefix">search</i> -->
+                        <input placeholder="Placeholder" i18n="[placeholder]home.search" type="text" value.bind="searchTerms">
+                        <div class="search-button">
+                            <a click.trigger="searchRecipes()">
+                                <i class="material-icons">search</i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </form>
