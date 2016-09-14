@@ -1,19 +1,21 @@
 System.config({
   defaultJSExtensions: true,
   transpiler: "traceur",
-  packages: {
-      "materialize-css": {
-          main: "bin/materialize.js",
-          map: {
-              "bin/materialize.css": "dist/app/style.css"
-          }
-      }
-  },
   paths: {
     "*": "dist/*",
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
   },
+
+  packages: {
+    "materialize-css": {
+      "main": "bin/materialize.js",
+      "map": {
+        "bin/materialize.css": "dist/app/style.css"
+      }
+    }
+  },
+
   map: {
     "animate.css": "npm:animate.css@3.5.2",
     "aurelia-animator-css": "npm:aurelia-animator-css@1.0.1",
@@ -21,6 +23,7 @@ System.config({
     "aurelia-bootstrapper": "npm:aurelia-bootstrapper@1.0.0",
     "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.0.0",
     "aurelia-dialog": "npm:aurelia-dialog@1.0.0-beta.3.0.0",
+    "aurelia-dragula": "npm:aurelia-dragula@1.2.5",
     "aurelia-event-aggregator": "npm:aurelia-event-aggregator@1.0.0",
     "aurelia-fetch-client": "npm:aurelia-fetch-client@1.0.0",
     "aurelia-framework": "npm:aurelia-framework@1.0.3",
@@ -156,6 +159,12 @@ System.config({
       "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.0.0",
       "aurelia-metadata": "npm:aurelia-metadata@1.0.0",
       "aurelia-pal": "npm:aurelia-pal@1.0.0",
+      "aurelia-templating": "npm:aurelia-templating@1.1.0"
+    },
+    "npm:aurelia-dragula@1.2.5": {
+      "aurelia-binding": "npm:aurelia-binding@1.0.4",
+      "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.0.0",
+      "aurelia-pal-browser": "npm:aurelia-pal-browser@1.0.0",
       "aurelia-templating": "npm:aurelia-templating@1.1.0"
     },
     "npm:aurelia-event-aggregator@1.0.0": {

@@ -16,7 +16,7 @@ export class StepEnumeration {
     activate(model: IngredientEnumerationPart) {
         this.part = model;
 
-        var step = this.parentelement.findStep(model.stepId);
+        var step = this.parentelement.findStep(this.part.stepId);
         this.possibleIngredients = this.parentelement.ingredients.filter(ingredient => step.subrecipeId < 0 ? true : ingredient.subrecipeId === step.subrecipeId);
     }
 

@@ -7,6 +7,7 @@ export function configure(aurelia) {
     .developmentLogging()
     .plugin("aurelia-animator-css")
     .plugin("aurelia-dialog")
+    .plugin("aurelia-dragula")
     .plugin("aurelia-i18n", (instance) => {
       instance.i18next.use(Backend);
       return instance.setup({
@@ -20,8 +21,7 @@ export function configure(aurelia) {
         fallbackLng: "fr",
         debug: false
       });
-    })
-    .plugin("aurelia-google-analytics", config => {
+    }).plugin("aurelia-google-analytics", config => {
       config.init("UA-73519104-1");
       config.attach({
         logging: {
@@ -45,6 +45,7 @@ export function configure(aurelia) {
         .useScrollSpy()
         .useSlider()
         .useTooltip()
+        .useInput()
     });;
 
   aurelia.start().then(a => a.setRoot("app/main", document.body));
