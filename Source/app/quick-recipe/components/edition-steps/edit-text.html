@@ -1,8 +1,5 @@
 <template>
 	<require from="app/shared/components/auto-width-input"></require>
 
-	<div class="input-field">
-		<input value.bind="part.value" id="text-${part.id}" type="text" autowidth="calculate-width.bind: part.value">
-		<label for="text-${part.id}">${ 'edit.step.part.text' | t }</label>
-	</div>
+	<md-input md-label="${ 'edit.step.part.text' | t }" md-type="text" md-value.bind="part.value" autowidth="calculate-width.bind: part.value"></md-input>
 </template>

@@ -2,6 +2,7 @@ import {autoinject} from "aurelia-framework";
 import {Router} from "aurelia-router";
 import {I18N} from "aurelia-i18n";
 import {MdToastService} from "aurelia-materialize-bridge";
+import {moveBefore, DIRECTION} from "aurelia-dragula";
 import {QuickRecipeService} from "app/shared/quick-recipe-service";
 import {QuickRecipe, Subrecipe, Step} from "app/quick-recipe/models/quick-recipe";
 import {PartFactory, TextPart, ActionPart, TimerPart, IngredientPart, IngredientEnumerationPart}
@@ -17,6 +18,7 @@ export class EditRecipePage {
     ingredients: Array<Ingredient> = [];
     steps: Array<Step> = [];
     measureUnits: Array<MeasureUnit> = [];
+    dragDirection: DIRECTION;
 
     private _service: QuickRecipeService;
     private _i18n: I18N;
@@ -30,6 +32,7 @@ export class EditRecipePage {
 		this._router = router;
         this._toast = toast;
 
+        this.dragDirection = DIRECTION.HORIZONTAL;
         this.measureUnits = measureUnitProvider.measureUnits;
     }
 
@@ -56,10 +59,6 @@ export class EditRecipePage {
 
                 routeConfig.navModel.title = this.recipe.title;
             });
-    }
-
-    attached() {
-        Materialize.updateTextFields();
     }
 
     canDeactivate() {
@@ -188,6 +187,19 @@ export class EditRecipePage {
                 this.returnToRecipe();
             });
         });
+    }
+
+    itemDropped(item, target, source, sibling) {
+        var itemId = source.dataset.index;
+        var siblingId = sibling ? sibling.dataset.index : null;
+
+        if (source.dataset.stepId !== target.dataset.stepId) {
+            return;
+        }
+
+        var step = this.steps.filter(x => x.id == source.dataset.stepId)[0];
+
+        moveBefore(step.parts, (part) => part === step.parts[itemId], (part) => part === step.parts[siblingId]);
     }
 
     returnToRecipe() {
