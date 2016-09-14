@@ -192,6 +192,7 @@
             "title": "Ingrédients",
             "quantity": "Quantité",
             "unit": "Unité",
+            "requirements": "Requis",
             "ingredient": "Ingrédient",
             "addButton": "Ingrédient"
         },

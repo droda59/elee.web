@@ -28,12 +28,15 @@
             bottom: inherit;
             display: inline-block;
             padding: 0;
-            &.active .btn-floating {
-                // opacity: 0.1;
-            }
         }
     }
 
+    .btn-flat {
+        &:hover {
+            background-color: rgba(0,0,0,0.1);
+            box-shadow: none;
+        }
+    }
     .btn-delete,
     .btn-drag {
         i {
@@ -42,7 +45,6 @@
 
         &:hover {
             opacity: 1;
-            background-color: rgba(38, 166, 154, 0.3);
 
             i {
                 opacity: 1;

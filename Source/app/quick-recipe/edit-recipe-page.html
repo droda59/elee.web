@@ -50,7 +50,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <a class="btn-flat btn-large waves-effect waves-red red-text" click.trigger="addSubrecipe()">
+                            <a class="btn-flat waves-effect waves-red red-text" click.trigger="addSubrecipe()">
                                 <i class="material-icons left">add</i>${ 'edit.subrecipe.addButton' | t }
                             </a>
                         </div>
@@ -64,25 +64,33 @@
                                     <h4 class="truncate">${subrecipe.title}</h4>
                                 </div>
         						<ul class="collection row">
-        							<li repeat.for="ingredient of subrecipe.ingredients" class="collection-item valign-wrapper">
-                                        <div class="col s1">
-                                            <a class="btn-flat btn-floating btn-delete waves-effect waves-red" click.trigger="removeIngredient(subrecipe, ingredient)">
-                                                <i class="material-icons red-text">delete</i>
-                                            </a>
-                                        </div>
-                                        <div class="input-field col s2">
-                                            <input value.bind="ingredient.quantity.value" id="quantity-${ingredient.id}" type="number" step="0.1" class="right-align">
-                                            <label for="quantity-${ingredient.id}">${ 'edit.ingredient.quantity' | t }</label>
-                                        </div>
-                                        <div class="input-field col s2">
-                                            <select md-select value.two-way="ingredient.quantity.unit">
-                                                <option repeat.for="measureUnit of measureUnits" model.bind="measureUnit">${measureUnit.abbreviation}</option>
-                                            </select>
-                                            <label class="active">${ 'edit.ingredient.unit' | t }</label>
-                                        </div>
-                                        <div class="input-field col s7">
-                                            <input value.bind="ingredient.name" id="ingredient-${ingredient.id}" type="text">
-                                            <label for="ingredient-${ingredient.id}">${ 'edit.ingredient.ingredient' | t }</label>
+        							<li repeat.for="ingredient of subrecipe.ingredients" class="collection-item row">
+                                        <div class="row">
+                                            <div class="valign-wrapper">
+                                                <div class="col s1">
+                                                    <a class="btn-flat btn-floating btn-delete waves-effect waves-red" click.trigger="removeIngredient(subrecipe, ingredient)">
+                                                        <i class="material-icons red-text">delete</i>
+                                                    </a>
+                                                </div>
+                                                <div class="input-field col s2">
+                                                    <input value.bind="ingredient.quantity.value" id="quantity-${ingredient.id}" type="number" step="0.1" class="right-align">
+                                                    <label for="quantity-${ingredient.id}">${ 'edit.ingredient.quantity' | t }</label>
+                                                </div>
+                                                <div class="input-field col s2">
+                                                    <select md-select value.two-way="ingredient.quantity.unit">
+                                                        <option repeat.for="measureUnit of measureUnits" model.bind="measureUnit">${measureUnit.abbreviation}</option>
+                                                    </select>
+                                                    <label class="active">${ 'edit.ingredient.unit' | t }</label>
+                                                </div>
+                                                <div class="input-field col s7">
+                                                    <input value.bind="ingredient.name" id="ingredient-${ingredient.id}" type="text">
+                                                    <label for="ingredient-${ingredient.id}">${ 'edit.ingredient.ingredient' | t }</label>
+                                                </div>
+                                            </div>
+                                            <div class="input-field col s7 offset-s5">
+                                                <input value.bind="ingredient.requirements" id="requirements-${ingredient.id}" type="text">
+                                                <label for="requirements-${ingredient.id}">${ 'edit.ingredient.requirements' | t }</label>
+                                            </div>
                                         </div>
         							</li>
         						</ul>
@@ -100,10 +108,12 @@
                         <div class="row">
                             <dragula-and-drop direction.bind="dragDirection" drop-fn.call="itemDropped(item, target, source, sibling, itemVM, siblingVM)"></dragula-and-drop>
         					<section repeat.for="subrecipe of subrecipes" class="col s12">
-        						<h4 if.bind="subrecipe.title" class="truncate">${subrecipe.title}</h4>
+                                <div class="row">
+                                    <h4 if.bind="subrecipe.title" class="truncate">${subrecipe.title}</h4>
+                                </div>
     							<div repeat.for="step of subrecipe.steps" class="row">
                                     <div class="fixed-action-btn">
-                                        <a class="btn-flat btn-floating btn-large">
+                                        <a class="btn-flat btn-floating">
                                             <i class="large material-icons teal-text">queue</i>
                                         </a>
                                         <ul>
