@@ -9,7 +9,6 @@ export class Welcome extends BaseI18N {
     private _router: Router;
     private _service: QuickRecipeService;
 
-    searchTerms: string = "";
     results: {}[] = undefined;
 
     constructor(element: Element, router: Router, i18n: I18N, ea: EventAggregator, service: QuickRecipeService) {
@@ -19,12 +18,10 @@ export class Welcome extends BaseI18N {
         this._router = router;
     }
 
-    searchRecipes(): void {
-        this._service.findRecipes(this.searchTerms)
+    searchRecipes(value: string): void {
+        this._service.findRecipes(value)
             .then(response => {
                 this.results = response.slice(0, 8);
-                let searchContainer = $("#search-container")[0];
-                $("html, body").animate({ scrollTop: searchContainer.offsetTop + searchContainer.offsetHeight }, 500);
             });
     }
 

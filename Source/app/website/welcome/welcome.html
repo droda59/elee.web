@@ -1,5 +1,6 @@
 <template>
     <require from="app/shared/components/advanced-search/advanced-search"></require>
+    <require from="app/shared/components/auto-complete-input"></require>
 
     <div id="welcome-container">
         <section id="search-container">
@@ -10,7 +11,7 @@
                 <div class="row">
                     <div class="input-field center col s12 m6 offset-m2 l6 offset-l3 valign-wrapper">
                         <!-- <i class="material-icons prefix">search</i> -->
-                        <input placeholder="Placeholder" i18n="[placeholder]home.search" type="text" value.bind="searchTerms">
+                        <input placeholder="Placeholder" i18n="[placeholder]home.search" type="text" auto-complete="callback.call: searchRecipes(value)">
                         <div class="search-button">
                             <a click.trigger="searchRecipes()">
                                 <i class="material-icons">search</i>
