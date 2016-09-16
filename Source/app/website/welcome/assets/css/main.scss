@@ -74,10 +74,26 @@
 				&:hover {
 					background-color: rgba(255, 255, 255, 0.5);
 				}
-				a {
+				span {
 					height: 3rem;
 					padding: 10px 20px;
 					display: block;
+				}
+			}
+
+			.autocomplete-content {
+				margin-top: -15px;
+				display: block;
+				opacity: 1;
+				position: static;
+
+				width: 100%;
+			    position: absolute;
+			    top: 0;
+			    margin-top: 56px;
+
+				.collection-item.avatar {
+					min-height: inherit;
 				}
 			}
 		}
