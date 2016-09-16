@@ -3,13 +3,14 @@ import {inject} from "aurelia-framework";
 import {I18N, BaseI18N} from "aurelia-i18n";
 import {EventAggregator} from "aurelia-event-aggregator";
 import {QuickRecipeService} from "app/shared/quick-recipe-service";
+import {QuickRecipeSearchResult} from "app/quick-recipe/models/quick-recipe";
 
 @inject(Element, Router, I18N, EventAggregator, QuickRecipeService)
 export class Welcome extends BaseI18N {
     private _router: Router;
     private _service: QuickRecipeService;
 
-    results: {}[] = undefined;
+    results: Array<QuickRecipeSearchResult> = [];
 
     constructor(element: Element, router: Router, i18n: I18N, ea: EventAggregator, service: QuickRecipeService) {
         super(i18n, element, ea);
@@ -19,10 +20,14 @@ export class Welcome extends BaseI18N {
     }
 
     searchRecipes(value: string): void {
-        this._service.findRecipes(value)
-            .then(response => {
-                this.results = response.slice(0, 8);
-            });
+        if (value && value.length >= 3) {
+            this._service.findRecipes(value)
+                .then(response => {
+                    this.results = response.slice(0, 8);
+                });
+        } else {
+            this.results = [];
+        }
     }
 
     loadRecipe(id: string): void {

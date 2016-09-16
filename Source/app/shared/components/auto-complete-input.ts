@@ -25,8 +25,14 @@ export class AutoCompleteInput {
     }
 
     valueChanged(newValue: string) {
-        if (this.callback && newValue.length >= this.minLength) {
-            this.callback({ value: newValue });
+        this.value = newValue;
+
+        if (this.callback) {
+            if (newValue.length >= this.minLength) {
+                this.callback({ value: newValue });
+            } else {
+                this.callback({ value: undefined });
+            }
         }
     }
 }
