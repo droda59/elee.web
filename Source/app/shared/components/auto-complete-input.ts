@@ -15,11 +15,17 @@ export class AutoCompleteInput {
     constructor(element: Element, bindingEngine: BindingEngine) {
         this._element = element;
 
-        bindingEngine.propertyObserver(this._element, "value").subscribe(this.valueChanged.bind(this));
+        if (this._element.tagName.toLowerCase() === "md-input") {
+            this._element = this._element.querySelector(".input-field");
+            bindingEngine.propertyObserver(this._element.parentElement.au["md-input"].viewModel, "mdValue")
+                .subscribe(this.valueChanged.bind(this));
+        } else {
+            bindingEngine.propertyObserver(this._element, "value").subscribe(this.valueChanged.bind(this));
+        }
     }
 
     attached() {
-        if (this._element.localName === "input") {
+        if (this._element.tagName.toLowerCase() === "input") {
             this.value = this._element.value;
         }
     }
@@ -27,9 +33,9 @@ export class AutoCompleteInput {
     valueChanged(newValue: string) {
         this.value = newValue;
 
-        if (this.callback) {
-            if (newValue.length >= this.minLength) {
-                this.callback({ value: newValue });
+        if (this.callback && this.value) {
+            if (this.value.length >= this.minLength) {
+                this.callback({ value: this.value });
             } else {
                 this.callback({ value: undefined });
             }

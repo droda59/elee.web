@@ -4,26 +4,23 @@
 
     <div id="welcome-container">
         <section id="search-container">
-            <form class="recipe-search white-text container" submit.delegate="searchRecipes()" novalidate>
+            <div class="recipe-search white-text container">
                 <div class="row">
                     <h1 i18n="home.slogan" class="s12 center">CookSimply</h1>
                 </div>
                 <div class="row">
-                    <div class="input-field center col s12 m6 offset-m2 l6 offset-l3 valign-wrapper">
-                        <input placeholder="Placeholder" i18n="[placeholder]home.search" type="text" auto-complete="callback.call: searchRecipes(value)">
-                        <div class="search-button">
-                            <span><i class="material-icons">search</i></span>
-                        </div>
-
-                        <ul class="collection autocomplete-content dropdown-content" show.bind="results.length">
-                            <li repeat.for="result of results" click.trigger="loadRecipe(result._id)" class="collection-item avatar valign-wrapper">
-                                <img src.bind="result.smallImageUrl" alt="" class="left circle">
-                                <span>${result.title}</span>
-                            </li>
-                        </ul>
+                    <div class="col s12 m6 offset-m2 l6 offset-l3">
+                        <md-input
+                            md-value.bind="selectedRecipe"
+                            md-autocomplete="values.bind: results;"
+                            md-placeholder="${'home.search' | t}"
+                            auto-complete="callback.call: searchRecipes(value)"
+                            type="text">
+                            <i md-prefix class="material-icons">search</i>
+                        </md-input>
                     </div>
                 </div>
-            </form>
+            </div>
         </section>
 
         <!--<section id="advanced-search" class="section container">
