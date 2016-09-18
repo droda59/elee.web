@@ -46,6 +46,7 @@ export function configure(aurelia) {
         .useSlider()
         .useTooltip()
         .useInput()
+        .useAutoComplete()
     });;
 
   aurelia.start().then(a => a.setRoot("app/main", document.body));
