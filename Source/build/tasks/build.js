@@ -24,7 +24,7 @@ gulp.task("build-ts", function () {
         .pipe(plumber())
         .pipe(changed(paths.sources, { extension: ".ts" }))
         .pipe(sourcemaps.init({ loadMaps: true }))
-        .pipe(typescript(typescriptCompiler))
+        .pipe(typescriptCompiler())
         .pipe(sourcemaps.write(".", { includeContent: false, sourceRoot: "/app" }))
         .pipe(gulp.dest(paths.outputApp));
 });
