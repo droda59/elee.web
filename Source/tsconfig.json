@@ -1,5 +1,4 @@
 {
-	"version": "1.8.10",
 	"compileOnSave": false,
 	"compilerOptions": {
 		"rootDir": "app/",
@@ -16,7 +15,8 @@
 		"./app/**/*.ts",
 		"./test/**/*.ts",
 		"./typings/**/*.d.ts",
-		"./jspm_packages/**/*.d.ts"],
+		"./jspm_packages/**/*.d.ts"
+	],
 	"exclude": [
 		"node_modules",
 		"dist",
@@ -24,7 +24,7 @@
 		"gulpfile.js",
 		"config.js",
 		"karma.conf.js"
-		],
+	],
 	"atom": {
 		"rewriteTsconfig": false
 	}
