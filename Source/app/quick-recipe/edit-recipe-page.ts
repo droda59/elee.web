@@ -102,8 +102,10 @@ export class EditRecipePage {
         newStep.id = Math.max.apply(Math, this.steps.map(x => x.id)) + 1;
         newStep.subrecipeId = subrecipe.id;
 
+        let lastSubrecipeStepIndex = this.steps.indexOf(subrecipe.steps[subrecipe.steps.length - 1]);
+        this.steps.splice(lastSubrecipeStepIndex + 1, 0, newStep);
+
         subrecipe.steps.push(newStep);
-        this.steps.push(newStep);
     }
 
     removeStep(subrecipe: Subrecipe, step: Step): void {
@@ -135,7 +137,11 @@ export class EditRecipePage {
 
     addIngredientStepPart(subrecipe: Subrecipe, step: Step): void {
         var part = PartFactory.createPart(step.id, IngredientPart.type);
-        part.ingredient = subrecipe.ingredients[0];
+        var subrecipeIngredients = subrecipe.ingredients;
+        if (subrecipe.id === -2) {
+            subrecipeIngredients = this.ingredients;
+        }
+        part.ingredient = subrecipeIngredients[0];
 
         step.parts.push(part);
     }
@@ -164,6 +170,7 @@ export class EditRecipePage {
 
         this.ingredients.forEach(ingredient => {
             ingredient.id = ingredientId++;
+            ingredient.quantity.abbreviation = ingredient.quantity.unit.abbreviation;
         });
         this.recipe.ingredients = this.ingredients;
 

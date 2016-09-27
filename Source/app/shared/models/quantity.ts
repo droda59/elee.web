@@ -30,7 +30,9 @@ export class Quantity implements QuantityDto {
 
     if (dto) {
       this.unit = MeasureUnitFactory.createUnit(dto.abbreviation);
-      this.formatUnit = MeasureUnitFactory.createUnit(dto.formatAbbreviation);
+      if (dto.formatAbbreviation) {
+          this.formatUnit = MeasureUnitFactory.createUnit(dto.formatAbbreviation);
+      }
     }
   }
 }

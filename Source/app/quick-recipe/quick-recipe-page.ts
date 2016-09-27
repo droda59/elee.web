@@ -300,9 +300,9 @@ export class QuickRecipePage {
 
     step.parts
       .filter(part => part instanceof IngredientEnumerationPart)
-      .map((part: IngredientEnumerationPart) => part.ingredients)
+      .selectMany((part: IngredientEnumerationPart) => part.ingredients)
       .forEach(enumeration => {
-        ingredients = ingredients.concat(enumeration);
+        ingredients = ingredients.concat(enumeration.ingredient);
       });
 
     ingredients.forEach(ingredient => {
