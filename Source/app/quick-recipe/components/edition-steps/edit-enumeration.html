@@ -3,14 +3,14 @@
 
 	<label class="active">${ 'edit.step.part.enumeration' | t }</label>
 	<ul class="collection">
-		<li repeat.for="ingredient of part.ingredients" class="collection-item row">
+		<li repeat.for="ingredientPart of part.ingredients" class="collection-item row">
 			<div class="col s1">
-				<a class="btn-flat btn-floating btn-delete waves-effect waves-red" click.trigger="removeIngredient(ingredient)">
+				<a class="btn-flat btn-floating btn-delete waves-effect waves-red" click.trigger="removeIngredient(ingredientPart)">
 					<i class="material-icons red-text">delete</i>
 				</a>
 			</div>
 			<div class="col s11">
-				<select md-select value.two-way="ingredient">
+				<select md-select value.two-way="ingredientPart.ingredient">
 					<option repeat.for="possibleIngredient of possibleIngredients" model.bind="possibleIngredient">${possibleIngredient.quantity | quantityHumanFormat} ${possibleIngredient.name}</option>
 				</select>
 			</div>

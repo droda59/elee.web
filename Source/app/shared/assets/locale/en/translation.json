@@ -170,6 +170,7 @@
         "exitConfirmation": "Are you sure you want to leave?",
         "saving": "Saving recipe...",
         "saved": "Recipe saved!",
+        "notsaved": "Error: recipe not saved...",
         "sendButton": "Save",
         "backButton": "Back",
         "summary": {

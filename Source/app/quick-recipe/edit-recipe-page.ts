@@ -112,14 +112,14 @@ export class EditRecipePage {
     }
 
     addTextStepPart(step: Step): void {
-        var part = PartFactory.createPart(step, TextPart.type);
+        var part = PartFactory.createPart(step.id, TextPart.type);
         part.value = "";
 
         step.parts.push(part);
     }
 
     addActionStepPart(step: Step): void {
-        var part = PartFactory.createPart(step, ActionPart.type);
+        var part = PartFactory.createPart(step.id, ActionPart.type);
         part.value = "";
 
         step.parts.push(part);
@@ -127,21 +127,21 @@ export class EditRecipePage {
 
     addTimerStepPart(step: Step): void {
         // TODO Put the last action
-        var part = PartFactory.createPart(step, TimerPart.type);
+        var part = PartFactory.createPart(step.id, TimerPart.type);
         part.timer = "";
 
         step.parts.push(part);
     }
 
     addIngredientStepPart(subrecipe: Subrecipe, step: Step): void {
-        var part = PartFactory.createPart(step, IngredientPart.type);
+        var part = PartFactory.createPart(step.id, IngredientPart.type);
         part.ingredient = subrecipe.ingredients[0];
 
         step.parts.push(part);
     }
 
     addEnumerationStepPart(step: Step): void {
-        var part = PartFactory.createPart(step, IngredientEnumerationPart.type);
+        var part = PartFactory.createPart(step.id, IngredientEnumerationPart.type);
         part.ingredients = [];
 
         step.parts.push(part);
@@ -169,6 +169,9 @@ export class EditRecipePage {
 
         this.steps.forEach(step => {
             step.id = stepId++;
+            step.parts.filter(part => part.type === IngredientEnumerationPart.type).forEach(part => {
+                part.ingredients = part.ingredients.selectMany(x => x.ingredient);
+            });
         });
         this.recipe.steps = this.steps;
 
@@ -180,13 +183,16 @@ export class EditRecipePage {
         var jsonOutput = JSON.stringify(this.recipe);
 
         this._toast.show(this._i18n.tr("edit.saving"), 2000);
-        this._service.saveRecipe(this.recipe)
+        this._service.saveRecipe(this.recipe.id, this.recipe)
             .then(data => {
-            this._toast.show(this._i18n.tr("edit.saved"), 1000).then(() => {
-                this._wasSaved = true;
-                this.returnToRecipe();
-            });
-        });
+                this._toast.show(this._i18n.tr("edit.saved"), 1000).then(() => {
+                    this._wasSaved = true;
+                    this.returnToRecipe();
+                });
+            }, data => {
+                this._toast.show(this._i18n.tr("edit.notsaved"), 1000);
+            }
+        );
     }
 
     itemDropped(item, target, source, sibling) {

@@ -36,8 +36,8 @@ export class QuickRecipeService {
             .then(response => response.json());
     }
 
-    saveRecipe(quickRecipe: QuickRecipe): Promise<boolean> {
-        return this._httpClient.fetch("api/quickrecipe", {
+    saveRecipe(id: string, quickRecipe: QuickRecipe): Promise<boolean> {
+        return this._httpClient.fetch("api/quickrecipe/" + id, {
             method: "put",
             body: json(quickRecipe)
         }).then(response => response.json());
@@ -45,8 +45,7 @@ export class QuickRecipeService {
 
     report(id: string): Promise<boolean> {
         return this._httpClient.fetch("api/review/flag/" + id, {
-            method: "put",
-            body: json(quickRecipe)
+            method: "put"
         }).then(response => response.json());
     }
 }

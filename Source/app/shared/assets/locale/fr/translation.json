@@ -175,6 +175,7 @@
         "exitConfirmation": "Êtes-vous certain de vouloir quitter?",
         "saving": "Enregistrement...",
         "saved": "Recette sauvegardée!",
+        "notsaved": "Erreur : recette non sauvegardée...",
         "sendButton": "Sauvegarder",
         "backButton": "Retour",
         "summary": {

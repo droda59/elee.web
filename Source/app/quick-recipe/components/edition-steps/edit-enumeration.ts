@@ -2,6 +2,7 @@ import {autoinject} from "aurelia-framework";
 import {IngredientEnumerationPart} from "app/quick-recipe/models/quick-recipe";
 import {Ingredient} from "app/shared/models/ingredient";
 import {EditRecipePage} from "app/quick-recipe/edit-recipe-page";
+import {PartFactory, IngredientPart} from "app/quick-recipe/models/quick-recipe";
 
 @autoinject()
 export class StepEnumeration {
@@ -21,7 +22,10 @@ export class StepEnumeration {
     }
 
     addIngredient(): void {
-        this.part.ingredients.push(this.possibleIngredients[0]);
+        var part = PartFactory.createPart(this.part.stepId, IngredientPart.type);
+        part.ingredient = this.possibleIngredients[0];
+
+        this.part.ingredients.push(part);
     }
 
     removeIngredient(ingredient: Ingredient): void {
