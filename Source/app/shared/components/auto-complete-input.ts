@@ -6,7 +6,7 @@ import {BindingEngine} from "aurelia-binding";
 @inject(Element, BindingEngine)
 @customAttribute("auto-complete")
 export class AutoCompleteInput {
-    @bindable callback: (value: string) => void;
+    @bindable callback: (value: string|undefined) => void;
     @bindable minLength: number = 3;
     @bindable value: string = "";
 
