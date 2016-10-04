@@ -47,7 +47,7 @@ export class Welcome extends BaseI18N {
 		if (this._fullResults.length) {
 			var selected = this._fullResults.filter(x => x.title === newValue)[0];
 			if (selected) {
-				this.loadRecipe(selected._id);
+				this.loadRecipe(selected.id);
 			}
 		}
 	}
