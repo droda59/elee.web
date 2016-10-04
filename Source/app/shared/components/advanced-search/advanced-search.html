@@ -5,18 +5,14 @@
 			<div class="col s12 m6">
 				<h2 i18n="home.advancedSearch.ingredients">Ingredients</h2>
 				<div md-chips="data.bind: ingredients"></div>
-				<!--<div>Value:
-					<span repeat.for="ingredient of ingredients">
-            ${ingredient.tag}</span>
-				</div>-->
 			</div>
 			<div class="col s12 m6">
 
 				<h2 i18n="home.advancedSearch.timeRequired">Time Required</h2>
-				<md-range md-value.bind="time"></md-range>
-				<!--<div>
-					Value: ${time}
-				</div>-->
+				<md-range md-min="5" md-value.bind="time"></md-range>
+				<div>
+					Temps maximal : ${time} minutes
+				</div>
 			</div>
 		</div>
 	</div>
