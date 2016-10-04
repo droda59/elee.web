@@ -68,6 +68,11 @@
             "more": "More",
             "noResult": "No result to display"
         },
+		"advancedSearch": {
+			"title": "Advanced Search",
+			"ingredients": "Ingredients",
+			"timeRequired": "Time required"
+		},
         "steps": {
             "step1Title": "1 - Pick a recipe",
             "step1Description": "Find a recipe you'd like",
