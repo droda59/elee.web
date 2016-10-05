@@ -30,7 +30,7 @@ export class Welcome extends BaseI18N {
 		if (value && value.length >= 3) {
 			this._service.findRecipes(value)
 				.then(response => {
-					this._fullResults = response.slice(0, 8);
+					this._fullResults = response.slice(0, 8) as Array<QuickRecipeSearchResult>;
 					this.results = this._toObject(this._fullResults, x => x.title, x => x.smallImageUrl);
 				});
 		} else {
@@ -47,7 +47,7 @@ export class Welcome extends BaseI18N {
 		if (this._fullResults.length) {
 			var selected = this._fullResults.filter(x => x.title === newValue)[0];
 			if (selected) {
-				this.loadRecipe(selected.id);
+				this.loadRecipe(selected._id);
 			}
 		}
 	}
