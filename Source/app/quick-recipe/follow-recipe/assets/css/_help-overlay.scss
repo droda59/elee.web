@@ -1,0 +1,54 @@
+@import "../../../../shared/assets/css/variables";
+
+#help-overlay {
+    ai-dialog-body {
+        max-height: none;
+    }
+
+    .slider {
+        width: 850px;
+
+        .slides img {
+            &.x-right {
+                background-position-x: right;
+            }
+            &.x-left {
+                background-position-x: left;
+            }
+            &.y-bottom {
+                background-position-y: bottom;
+            }
+            &.y-top {
+                background-position-y: top;
+            }
+        }
+        .slides li .caption.bottom {
+            top: initial;
+            bottom: 15%;
+        }
+    }
+
+    @media #{$small-and-down} {
+        .slider,
+        .slides {
+            height: 100% !important;
+        }
+        .slider .slides li .caption {
+            left: 10%;
+            top: 10%;
+            width: 80%;
+        }
+        .overlay-item-back-to-current img {
+            background-image: url("/dist/app/quick-recipe/assets/images/helpBackToCurrentStepMobile.png") !important;
+        }
+        .overlay-item-complete-step img {
+            background-image: url("/dist/app/quick-recipe/assets/images/helpCompleteStepMobile.png") !important;
+        }
+        .overlay-item-timers img {
+            background-image: url("/dist/app/quick-recipe/assets/images/helpTimersMobile.png") !important;
+        }
+        .overlay-item-settings img {
+            background-image: url("/dist/app/quick-recipe/assets/images/helpSettingsMobile.png") !important;
+        }
+    }
+}

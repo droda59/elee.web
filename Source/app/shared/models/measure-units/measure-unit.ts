@@ -1,7 +1,7 @@
-export class MeasureUnit {
+export abstract class MeasureUnit {
   protected static _instance: MeasureUnit;
 
-  constructor(private _abbreviation: string, private _type: string, private _system: string, private _isShortUnit?: boolean) { }
+  constructor(private _abbreviation: string, private _type?: string, private _system?: string, private _isShortUnit?: boolean) { }
 
   abstract getConversionRate(targetUnit: string): number;
   abstract roundValue(value: number): number;

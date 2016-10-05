@@ -19,7 +19,7 @@ export class QuantityHumanFormatValueConverter {
     var quantityValue = this.getHumanizedValue(quantity);
 
     if (quantity.format && useFormat) {
-      quantityValue = String.format(quantity.format, quantityValue);
+      quantityValue = quantity.format.format(quantityValue);
     }
 
     return quantityValue + " " + quantityUnit;

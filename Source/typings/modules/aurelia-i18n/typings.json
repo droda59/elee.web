@@ -4,7 +4,6 @@
     "src": "https://raw.githubusercontent.com/aurelia/i18n/master/typings.json",
     "raw": "github:aurelia/i18n",
     "main": "dist/aurelia-i18n.d.ts",
-    "global": false,
     "name": "aurelia-i18n",
     "type": "typings"
   }

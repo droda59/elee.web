@@ -1,0 +1,172 @@
+<template>
+    <div class="edit-recipe container">
+        <div class="row">
+            <div class="col hide-on-small-only m3 right">
+                <div md-pushpin>
+                    <ul class="section table-of-contents">
+                        <li><a href="#summary">${ 'edit.summary.title' | t }</a></li>
+                        <li><a href="#subrecipes">${ 'edit.subrecipe.title' | t }</a></li>
+                        <li><a href="#ingredients">${ 'edit.ingredient.title' | t }</a></li>
+                        <li><a href="#steps">${ 'edit.step.title' | t }</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col s12 m9" md-scrollspy="target: .scrollspy">
+                <form submit.delegate="saveRecipe()" role="form">
+                    <section id="summary" class="section scrollspy">
+                        <h2>${ 'edit.summary.title' | t }</h2>
+                        <div class="row valign-wrapper">
+                            <div class="col s3">
+                                <img src.bind="recipe.smallImageUrl" alt="" class="responsive-img">
+                            </div>
+                            <div class="row col s9">
+                                <div class="input-field col s12">
+                                    <input value.bind="recipe.title" id="recipeTitle" type="text">
+                                    <label for="recipeTitle">${ 'edit.summary.recipeTitle' | t }</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <textarea value.bind="recipe.summary" id="recipeSummary" class="materialize-textarea"></textarea>
+                                    <label for="recipeSummary">${ 'edit.summary.recipeSummary' | t }</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <input value.bind="recipe.note" id="recipeNote" type="text">
+                                    <label for="recipeNote">${ 'edit.summary.recipeNote' | t }</label>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="subrecipes" class="section scrollspy">
+                        <h2>${ 'edit.subrecipe.title' | t }</h2>
+                        <div class="row valign-wrapper" repeat.for="subrecipe of subrecipes" if.bind="subrecipe.id >= -1">
+                            <div class="col s1">
+                                <a class="btn-flat btn-floating btn-delete waves-effect waves-red" click.trigger="removeSubrecipe(subrecipe)">
+                                    <i class="material-icons red-text">delete</i>
+                                </a>
+                            </div>
+                            <div class="input-field col s11">
+                                <input value.bind="subrecipe.title" id="subrecipeTitle-${subrecipe.id}" type="text">
+                                <label for="subrecipeTitle-${subrecipe.id}">${ 'edit.subrecipe.subrecipeTitle' | t }</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <a class="btn-flat waves-effect waves-red red-text" click.trigger="addSubrecipe()">
+                                <i class="material-icons left">add</i>${ 'edit.subrecipe.addButton' | t }
+                            </a>
+                        </div>
+                    </section>
+
+                    <section id="ingredients" class="section scrollspy">
+                        <h2>${ 'edit.ingredient.title' | t }</h2>
+                        <div class="row">
+        					<section repeat.for="subrecipe of subrecipes" if.bind="subrecipe.id >= -1" class="col s12">
+                                <div class="row">
+                                    <h4 class="truncate">${subrecipe.title}</h4>
+                                </div>
+        						<ul class="collection row">
+        							<li repeat.for="ingredient of subrecipe.ingredients" class="collection-item row">
+                                        <div class="row">
+                                            <div class="valign-wrapper">
+                                                <div class="col s1">
+                                                    <a class="btn-flat btn-floating btn-delete waves-effect waves-red" click.trigger="removeIngredient(subrecipe, ingredient)">
+                                                        <i class="material-icons red-text">delete</i>
+                                                    </a>
+                                                </div>
+                                                <div class="input-field col s2">
+                                                    <input value.bind="ingredient.quantity.value" id="quantity-${ingredient.id}" type="number" step="0.1" class="right-align">
+                                                    <label for="quantity-${ingredient.id}">${ 'edit.ingredient.quantity' | t }</label>
+                                                </div>
+                                                <div class="input-field col s2">
+                                                    <select md-select value.two-way="ingredient.quantity.unit">
+                                                        <option repeat.for="measureUnit of measureUnits" model.bind="measureUnit">${measureUnit.abbreviation}</option>
+                                                    </select>
+                                                    <label class="active">${ 'edit.ingredient.unit' | t }</label>
+                                                </div>
+                                                <div class="input-field col s7">
+                                                    <input value.bind="ingredient.name" id="ingredient-${ingredient.id}" type="text">
+                                                    <label for="ingredient-${ingredient.id}">${ 'edit.ingredient.ingredient' | t }</label>
+                                                </div>
+                                            </div>
+                                            <div class="input-field col s7 offset-s5">
+                                                <input value.bind="ingredient.requirements" id="requirements-${ingredient.id}" type="text">
+                                                <label for="requirements-${ingredient.id}">${ 'edit.ingredient.requirements' | t }</label>
+                                            </div>
+                                        </div>
+        							</li>
+        						</ul>
+                                <div class="row">
+                                    <a class="btn-flat waves-effect waves-red red-text" click.trigger="addIngredient(subrecipe)">
+                                        <i class="material-icons left">add</i>${ 'edit.ingredient.addButton' | t }
+                                    </a>
+                                </div>
+        					</section>
+                        </div>
+                    </section>
+
+                    <section id="steps" class="section scrollspy">
+                        <h2>${ 'edit.step.title' | t }</h2>
+                        <div class="row">
+                            <dragula-and-drop direction.bind="dragDirection" drop-fn.call="itemDropped(item, target, source, sibling, itemVM, siblingVM)"></dragula-and-drop>
+        					<section repeat.for="subrecipe of subrecipes" class="col s12">
+                                <div class="row">
+                                    <h4 if.bind="subrecipe.title" class="truncate">${subrecipe.title}</h4>
+                                </div>
+    							<div repeat.for="step of subrecipe.steps" class="row">
+                                    <div class="fixed-action-btn">
+                                        <a class="btn-flat btn-floating">
+                                            <i class="large material-icons teal-text">queue</i>
+                                        </a>
+                                        <ul>
+                                            <li>
+                                                <a class="btn-floating red" md-tooltip="position: right; text: ${ 'edit.step.deleteButton' | t };" click.trigger="removeStep(subrecipe, step)"><i class="material-icons">delete</i></a>
+                                            </li>
+                                            <li>
+                                                <a class="btn-floating" md-tooltip="position: right; text: ${ 'edit.step.part.text' | t };" click.trigger="addTextStepPart(step)"><i class="material-icons">subject</i></a>
+                                            </li>
+                                            <li>
+                                                <a class="btn-floating" md-tooltip="position: right; text: ${ 'edit.step.part.action' | t };" click.trigger="addActionStepPart(step)"><i class="material-icons">accessibility</i></a>
+                                            </li>
+                                            <li>
+                                                <a class="btn-floating" md-tooltip="position: right; text: ${ 'edit.step.part.timer' | t };" click.trigger="addTimerStepPart(step)"><i class="material-icons">timer</i></a>
+                                            </li>
+                                            <li>
+                                                <a class="btn-floating" md-tooltip="position: right; text: ${ 'edit.step.part.ingredient' | t };" click.trigger="addIngredientStepPart(subrecipe, step)"><i class="material-icons">shopping_cart</i></a>
+                                            </li>
+                                            <li>
+                                                <a class="btn-floating" md-tooltip="position: right; text: ${ 'edit.step.part.enumeration' | t };" click.trigger="addEnumerationStepPart(step)"><i class="material-icons">list</i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <span class="drop-target" data-step-id.one-time="step.id">
+                                        <span repeat.for="part of step.parts" data-step-id.one-time="step.id" data-index.bind="$index" class="drag-source">
+                                            <a class="btn-flat btn-floating btn-delete waves-effect waves-red" click.trigger="removeStepPart(subrecipe, step, part)">
+                                                <i class="material-icons red-text">delete</i>
+                                            </a>
+                                    		<compose model.bind="part" view-model="app/quick-recipe/edit-recipe/components/edit-${part.type}" containerless></compose>
+                                        </span>
+                                    </span>
+    							</div>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <a class="btn-flat waves-effect waves-red red-text" click.trigger="addStep(subrecipe)">
+                                            <i class="material-icons left">add</i>${ 'edit.step.addButton' | t }
+                                        </a>
+                                    </div>
+                                </div>
+        					</section>
+                        </div>
+                    </section>
+
+                    <a class="btn waves-effect waves-light" click.trigger="returnToRecipe()">
+                        ${ 'edit.backButton' | t }
+                        <i class="material-icons left">navigate_before</i>
+                    </a>
+                    <button class="btn waves-effect waves-light" type="submit" name="action">
+                        ${ 'edit.sendButton' | t }
+                        <i class="material-icons right">send</i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>

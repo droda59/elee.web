@@ -1,0 +1,58 @@
+.E133 .edit-recipe {
+    #steps {
+        md-input,
+        .md-input {
+            display: inline-block;
+        }
+        .input-field {
+            .prefix {
+                width: 1rem;
+                font-size: 1rem;
+                top: 25%;
+                opacity: 0.5;
+            }
+
+            .prefix ~ input,
+            .prefix ~ textarea,
+            .prefix ~ label,
+            .prefix ~ .validate ~ label,
+            .prefix ~ .autocomplete-content {
+                margin-left: 2rem;
+                width: calc(100% - 2rem);
+            }
+        }
+
+        .fixed-action-btn {
+            position: relative;
+            right: inherit;
+            bottom: inherit;
+            display: inline-block;
+            padding: 0;
+        }
+    }
+
+    .btn-flat {
+        &:hover {
+            background-color: rgba(0,0,0,0.1);
+            box-shadow: none;
+        }
+    }
+    .btn-delete,
+    .btn-drag {
+        i {
+            opacity: 0.1;
+        }
+
+        &:hover {
+            opacity: 1;
+
+            i {
+                opacity: 1;
+            }
+        }
+    }
+
+    .select-wrapper + label {
+        top: 0.8rem;
+    }
+}

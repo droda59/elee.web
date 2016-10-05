@@ -1,0 +1,15 @@
+<template bindable="url, title" containerless>
+	<div class="row">
+		<div class="col s6 m4 left">
+			<span class="grey-text text-lighten-3">©2016 - Elee.menu</span>
+		</div>
+  		<div class="col s6 m8 right">
+			<span class="right">
+    			<a href.bind="url" target="_blank" class="grey-text text-lighten-4">
+					<small i18n="quickRecipe.originalRecipe">originalRecipe</small>
+					<span class="hide-on-small-only">${title}</span>
+				</a>
+			</span>
+  		</div>
+	</div>
+</template>
