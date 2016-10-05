@@ -35,7 +35,7 @@ export class Main {
         {
             route: "recipe/:id",
             name: "quick-recipe",
-            moduleId: "app/quick-recipe/quick-recipe-page"
+            moduleId: "app/quick-recipe/follow-recipe/index"
         },
         {
             route: "recipe/:id/edit",
