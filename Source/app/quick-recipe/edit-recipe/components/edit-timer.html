@@ -1,0 +1,5 @@
+<template>
+	<require from="app/shared/custom-attributes/auto-width-input"></require>
+
+	<md-input md-label="${ 'edit.step.part.timer' | t }" md-type="text" md-value.bind="part.value" autowidth="calculate-width.bind: part.value"></md-input>
+</template>

@@ -26,7 +26,7 @@ export class Quantity implements QuantityDto {
   constructor();
   constructor(dto: QuantityDto);
   constructor(dto?: QuantityDto) {
-    Object.assign(this, dto);
+    (<any>Object).assign(this, dto);
 
     if (dto) {
       this.unit = MeasureUnitFactory.createUnit(dto.abbreviation);

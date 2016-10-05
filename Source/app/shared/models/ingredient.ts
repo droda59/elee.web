@@ -12,7 +12,7 @@ export class Ingredient implements IngredientDto {
   constructor();
   constructor(dto: IngredientDto);
   constructor(dto?: IngredientDto) {
-    Object.assign(this, dto);
+    (<any>Object).assign(this, dto);
 
     if (dto) {
       this.quantity = new Quantity(dto.quantity);

@@ -29,7 +29,7 @@ export class Main {
         {
             route: "administration",
             name: "administration",
-            moduleId: "app/quick-recipe/administration",
+            moduleId: "app/quick-recipe/administration/index",
             title: this._i18n.tr("administration.pageTitle")
         },
         {
@@ -40,7 +40,7 @@ export class Main {
         {
             route: "recipe/:id/edit",
             name: "edit",
-            moduleId: "app/quick-recipe/edit-recipe-page"
+            moduleId: "app/quick-recipe/edit-recipe/index"
         }
         ]);
 

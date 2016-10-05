@@ -47,26 +47,44 @@ export function configure(aurelia) {
         .useTooltip()
         .useInput()
         .useAutoComplete()
-    });;
+    });
 
-  aurelia.start().then(a => a.setRoot("app/main", document.body));
+    aurelia.start().then(a => a.setRoot("app/main", document.body));
 
-  moment.relativeTimeThreshold("s", 60);
-  moment.relativeTimeThreshold("m", 60);
-  moment.relativeTimeThreshold("h", 24);
-  moment.relativeTimeThreshold("d", 28);
-  moment.relativeTimeThreshold("M", 12);
+    moment.relativeTimeThreshold("s", 60);
+    moment.relativeTimeThreshold("m", 60);
+    moment.relativeTimeThreshold("h", 24);
+    moment.relativeTimeThreshold("d", 28);
+    moment.relativeTimeThreshold("M", 12);
 
-  if (!String.format) {
-    String.format = function (format) {
-      var args = Array.prototype.slice.call(arguments, 1);
-      return format.replace(/{(\d+)}/g, function (match, number) {
-        return typeof args[number] !== "undefined" ? args[number] : match;
-      });
+    String.prototype.format = function(format) {
+        var args = Array.prototype.slice.call(arguments, 1);
+        return format.replace(/{(\d+)}/g, (match, number) => {
+            return typeof args[number] !== "undefined" ? args[number] : match;
+        });
     };
-  }
 
-    Array.prototype.selectMany = function (fn) {
-        return this.map(fn).reduce(function (x, y) { return x.concat(y); }, []);
+    Array.prototype.selectMany = function(fn): Array<any> {
+        return this.map(fn).reduce((x, y) => {
+            return x.concat(y);
+        }, []);
     };
+
+    Array.prototype.removeFromArray = function(object: any): void {
+        var index = this.indexOf(object);
+        if (index > -1) {
+            this.splice(index, 1);
+        }
+    }
+}
+
+declare global {
+    interface String {
+        format(format): string;
+    }
+
+    interface Array<T> {
+        selectMany(fn): Array<any>;
+        removeFromArray(object): void;
+    }
 }

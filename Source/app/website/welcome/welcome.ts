@@ -1,9 +1,9 @@
-import { Router } from "aurelia-router";
-import { inject, bindable } from "aurelia-framework";
-import { I18N, BaseI18N } from "aurelia-i18n";
-import { EventAggregator } from "aurelia-event-aggregator";
-import { QuickRecipeService } from "app/shared/quick-recipe-service";
-import { QuickRecipeSearchResult } from "app/quick-recipe/models/quick-recipe";
+import {Router} from "aurelia-router";
+import {inject, bindable} from "aurelia-framework";
+import {I18N, BaseI18N} from "aurelia-i18n";
+import {EventAggregator} from "aurelia-event-aggregator";
+import {QuickRecipeService} from "app/quick-recipe/shared/quick-recipe-service";
+import {QuickRecipeSearchResult} from "app/quick-recipe/shared/models/quick-recipe-search-result";
 
 @inject(Element, Router, I18N, EventAggregator, QuickRecipeService)
 export class Welcome extends BaseI18N {
@@ -12,7 +12,7 @@ export class Welcome extends BaseI18N {
 	private _fullResults: Array<QuickRecipeSearchResult> = [];
 
 	@bindable selectedRecipe: string;
-	results: undefined;
+	results: any = undefined;
 	ingredients: Array<Object> = [];
 
 	constructor(element: Element, router: Router, i18n: I18N, ea: EventAggregator, service: QuickRecipeService) {
