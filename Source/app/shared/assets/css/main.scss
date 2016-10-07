@@ -3,8 +3,10 @@
 @import "core";
 
 // Core elements importation
-.E133 {
-    html,
+html.E133 {
+    height: 100%;
+    font-family: $font-raleway;
+
     body, h1, h2, h3, button {
         height: 100%;
         font-family: $font-raleway;
