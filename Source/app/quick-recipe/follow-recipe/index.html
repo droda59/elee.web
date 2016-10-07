@@ -1,19 +1,25 @@
 <template>
-	<require from="app/quick-recipe/follow-recipe/components/quick-recipe-header"></require>
+	<!-- <require from="app/quick-recipe/follow-recipe/components/quick-recipe-header"></require> -->
 	<require from="app/quick-recipe/follow-recipe/components/quick-recipe-step"></require>
-	<require from="app/quick-recipe/follow-recipe/components/quick-recipe-footer.html"></require>
+	<!-- <require from="app/quick-recipe/follow-recipe/components/quick-recipe-footer.html"></require> -->
 	<require from="app/shared/components/measurable-ingredient"></require>
 	<!-- <require from="shared/components/comments-form"></require> -->
 	<require from="app/shared/value-converters/duration-format"></require>
 	<require from="app/shared/value-converters/time-format"></require>
 
+	<div class="quick-recipe-background" style="background-image: url('dist/app/quick-recipe/follow-recipe/assets/images/backgrounds/${backgroundPicture}');"></div>
 	<div class="quick-recipe">
-		<header class="row z-depth-1">
-			<quick-recipe-header containerless recipe-id.bind="recipe.id"></quick-recipe-header>
+		<header class="row">
+			<h3 class="valign-wrapper center-align">
+				<a href="#" class="white-text">
+					<i class="material-icons">menu</i>
+				</a>
+			</h3>
+			<!-- <quick-recipe-header containerless recipe-id.bind="recipe.id"></quick-recipe-header> -->
 		</header>
 
 		<main class="row">
-			<div id="ingredients" class="hide-on-small-only col m3">
+			<!-- <div id="ingredients" class="hide-on-small-only col m3">
 				<div class="panel card hoverable">
 					<div class="card-image">
 						<img src.bind="recipe.normalImageUrl">
@@ -35,40 +41,37 @@
 						</section>
 					</div>
 				</div>
-			</div>
+			</div> -->
 
-			<div id="instructions" class="col s12 m9 offset-m3">
-				<section id="presentation-section" if.bind="!isRecipeDone && !isRecipeStarted" class="card-panel animated fadeInDownBig">
+			<h1 class="recipe-title">${recipe.title}</h1>
+
+			<div id="instructions" class="white-text center-align">
+				<section id="presentation-section" if.bind="!isRecipeDone && !isRecipeStarted" class="card-panel animated fadeInDownBig black-text">
 					<div class="container">
 						<div class="row">
-							<h3>${recipe.title}</h3>
-							<div class="row">
-								<div>
-									<span i18n="quickRecipe.servings">Servings</span>${recipe.originalServings}
-								</div>
-							</div>
+							<span i18n="quickRecipe.servings">Servings</span>${recipe.originalServings}
+						</div>
 
-							<div class="row">
-								<ul>
-									<li repeat.for="duration of recipe.durations">
-										${duration.title}: ${duration.time | durationFormat}
-									</li>
-								</ul>
-							</div>
+						<div class="row">
+							<ul>
+								<li repeat.for="duration of recipe.durations">
+									${duration.title}: ${duration.time | durationFormat}
+								</li>
+							</ul>
+						</div>
 
-							<div class="row" if.bind="recipe.note">
-								<p><span i18n="quickRecipe.note">Note</span>${recipe.note}</p>
-							</div>
+						<div class="row" if.bind="recipe.note">
+							<p><span i18n="quickRecipe.note">Note</span>${recipe.note}</p>
+						</div>
 
-							<div class="row center" show.bind="!isRecipeStarted" >
-								<a class="btn btn-large waves-effect waves-light" click.trigger="startRecipe()" i18n="quickRecipe.start">Start</a>
-							</div>
+						<div class="row center" show.bind="!isRecipeStarted" >
+							<a class="btn btn-large waves-effect waves-light" click.delegate="startRecipe()" i18n="quickRecipe.start">Start</a>
 						</div>
 					</div>
 				</section>
 
 				<section id="recipe-content" show.bind="isRecipeStarted && !isRecipeDone" class="au-animate">
-					<nav class="navbar col m9 z-depth-1">
+					<!-- <nav class="navbar col m9 z-depth-1">
 						<ul class="subrecipe-titles">
 							<li repeat.for="subrecipe of subrecipes" class="subrecipe-title ${$parent.activeSubrecipeId === subrecipe.id ? 'active' : ''}">
 								<a click.trigger="goToSubrecipe(subrecipe.id)">
@@ -81,9 +84,15 @@
 								</a>
 							</li>
 						</ul>
-					</nav>
+					</nav> -->
 
-					<div repeat.for="subrecipe of subrecipes" if.bind="subrecipe.steps.length" class="subrecipe">
+					<quick-recipe-step
+						id="currentStep"
+						step.bind="currentStep"
+						class="step ${currentStep.isCompleted ? 'complete' : ''} ${currentStep.isOnHold ? 'onHold' : ''}">
+					</quick-recipe-step>
+
+					<!-- <div repeat.for="subrecipe of subrecipes" if.bind="subrecipe.steps.length" class="subrecipe">
 						<div id="subrecipe-title-${subrecipe.id}" class="subrecipe-title valign-wrapper center">
 							<h1 class="title">${subrecipe.title}</h1>
 						</div>
@@ -96,7 +105,7 @@
 								class="step ${step.isCompleted ? 'complete' : ''} ${step.isOnHold ? 'onHold' : ''}">
 							</quick-recipe-step>
 						</div>
-					</div>
+					</div> -->
 
 					<span class="navigation-pills" show.bind="isRecipeStarted">
 						<btn class="previous-button waves-light btn ${isNavigationFirstStep ? 'disabled' : ''}" click.delegate="goToPreviousStep()">
@@ -105,17 +114,20 @@
                         <btn class="current-button waves-light btn" click.delegate="goToCurrentStep()">
                             <i class="material-icons">home</i>
                         </btn>
+                        <btn class="waves-light btn" click.delegate="completeStep()">
+							<i class="material-icons">done</i>
+						</btn>
                         <btn class="next-button waves-light btn ${isNavigationLastStep ? 'disabled' : ''}" click.delegate="goToNextStep()">
                             <i class="material-icons">keyboard_arrow_down</i>
 						</btn>
 					</span>
 
-					<span class="step-actions" show.bind="isRecipeStarted">
-                        <btn class="waves-light btn ${!isCurrentStepActive ? 'disabled' : ''}" click.delegate="completeStep()">
+					<!-- <span class="step-actions" show.bind="isRecipeStarted">
+                        <btn class="waves-light btn" click.delegate="completeStep()">
                             <span if.bind="isCurrentLastStep" i18n="quickRecipe.finish">Finish</span>
 							<i if.bind="!isCurrentLastStep" class="material-icons">done</i>
 						</btn>
-					</span>
+					</span> -->
 				</section>
 
 				<section id="comments-section" if.bind="isRecipeDone" class="section">
@@ -139,8 +151,25 @@
 			</div>
 		</main>
 
-		<footer class="row page-footer fixed">
-			<quick-recipe-footer url.one-time="recipe.originalUrl" title.one-time="recipe.title"></quick-recipe-footer>
+		<footer>
+			<div class="subrecipe-titles">
+				<span repeat.for="subrecipe of subrecipes" style="flex-grow: ${subrecipe.steps.length};" class="subrecipe-title ${$parent.activeSubrecipeId === subrecipe.id ? 'active' : ''}">
+					<a click.trigger="goToSubrecipe(subrecipe.id)">
+						<span>${subrecipe.title}</span>
+						<span class="progression">${subrecipe.completedSteps}/${subrecipe.steps.length}</span>
+						<span class="timers" show.bind="subrecipe.timers.length">
+							<i class="material-icons">alarm</i>
+							<span if.bind="subrecipe.timers.length > 0">${subrecipe.timers[0].remainingTime | timeFormat}</span>
+						</span>
+					</a>
+					<div class="progression-steps">
+						<span repeat.for="step of subrecipe.steps" class="progression-step ${subrecipe.completedSteps > $index ? 'done' : ''}">
+							<div class="content"></div>
+						</span>
+					</div>
+				</span>
+			</div>
+			<!-- <quick-recipe-footer url.one-time="recipe.originalUrl" title.one-time="recipe.title"></quick-recipe-footer> -->
 		</footer>
 	</div>
 </template>

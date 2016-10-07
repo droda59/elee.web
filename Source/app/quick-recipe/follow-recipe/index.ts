@@ -7,6 +7,7 @@ import {QuickRecipe, Step, IngredientPart, IngredientEnumerationPart} from "app/
 import {HelpOverlay} from "app/quick-recipe/follow-recipe/components/help-overlay";
 import {TimerCoordinator} from "app/quick-recipe/follow-recipe/timer-coordinator";
 import {ScrollCoordinator} from "app/quick-recipe/follow-recipe/scroll-coordinator";
+import {BackgroundPicker} from "app/quick-recipe/follow-recipe/background-picker";
 import {QuickRecipeTimer} from "app/quick-recipe/follow-recipe/models/quick-recipe-timer";
 import {Ingredient} from "app/shared/models/ingredient";
 import {Timer} from "app/shared/models/timer";
@@ -15,9 +16,11 @@ import {Timer} from "app/shared/models/timer";
 export class QuickRecipePage {
   recipe: QuickRecipe;
   subrecipes: QuickRecipeSubrecipe[] = [];
+  currentStep: Step;
 
   isRecipeStarted: boolean;
   isRecipeDone: boolean;
+  backgroundPicture: string;
 
   private _currentStepId: number = undefined;
   private _navigationStepId: number = undefined;
@@ -27,51 +30,54 @@ export class QuickRecipePage {
   private _service: QuickRecipeService;
   private _i18n: I18N;
   private _animator: CssAnimator;
+  private _backgroundPicker: BackgroundPicker;
 
-  constructor(service: QuickRecipeService, i18n: I18N, timerCoordinator: TimerCoordinator, scrollCoordinator: ScrollCoordinator, dialogService: DialogService, animator: CssAnimator) {
+  constructor(service: QuickRecipeService, i18n: I18N, timerCoordinator: TimerCoordinator, scrollCoordinator: ScrollCoordinator, dialogService: DialogService, animator: CssAnimator, backgroundPicker: BackgroundPicker) {
     this._service = service;
     this._i18n = i18n;
     this._scrollCoordinator = scrollCoordinator;
     this._dialogService = dialogService;
     this._animator = animator;
     this._timerCoordinator = timerCoordinator;
+    this._backgroundPicker = backgroundPicker;
 
     this._timerCoordinator.onTimerStarted = timer => { this.onTimerStarted(timer, this); };
     this._timerCoordinator.onTimerEnded = timer => { this.onTimerEnded(timer, this); };
   }
 
-  activate(route, routeConfig): Promise<void>  {
-    if ("Notification" in window) {
-      if (Notification.permission !== "denied") {
-        Notification.requestPermission();
-      }
-    }
+    activate(route, routeConfig): Promise<void>  {
+        if ("Notification" in window) {
+            if (Notification.permission !== "denied") {
+                Notification.requestPermission();
+            }
+        }
 
-    return this._service.getRecipe(route.id)
-        .then(response => {
-            this.recipe = new QuickRecipe(response);
+        return this._service.getRecipe(route.id)
+            .then(response => {
+                this.recipe = new QuickRecipe(response);
+                this.backgroundPicture = this._backgroundPicker.findPicture(this.recipe.title);
 
-            moment.locale(this.recipe.language);
-            this._i18n.setLocale(this.recipe.language);
+                moment.locale(this.recipe.language);
+                this._i18n.setLocale(this.recipe.language);
 
-            routeConfig.navModel.title = this.recipe.title;
+                routeConfig.navModel.title = this.recipe.title;
 
-            (this.recipe.subrecipes || []).forEach(
-                (subrecipe) => {
-                    var quickRecipeSubrecipe = new QuickRecipeSubrecipe();
-                    quickRecipeSubrecipe.id = subrecipe.id;
-                    quickRecipeSubrecipe.title = subrecipe.title;
-                    quickRecipeSubrecipe.steps = this.recipe.steps.filter(step => step.subrecipeId === subrecipe.id);
-                    quickRecipeSubrecipe.ingredients = this.recipe.ingredients.filter(ingredient => ingredient.subrecipeId === subrecipe.id);
-                    quickRecipeSubrecipe.timers = [];
+                (this.recipe.subrecipes || []).forEach(
+                    (subrecipe) => {
+                        var quickRecipeSubrecipe = new QuickRecipeSubrecipe();
+                        quickRecipeSubrecipe.id = subrecipe.id;
+                        quickRecipeSubrecipe.title = subrecipe.title;
+                        quickRecipeSubrecipe.steps = this.recipe.steps.filter(step => step.subrecipeId === subrecipe.id);
+                        quickRecipeSubrecipe.ingredients = this.recipe.ingredients.filter(ingredient => ingredient.subrecipeId === subrecipe.id);
+                        quickRecipeSubrecipe.timers = [];
 
-                    if (quickRecipeSubrecipe.steps.length || quickRecipeSubrecipe.ingredients.length) {
-                        this.subrecipes.push(quickRecipeSubrecipe);
+                        if (quickRecipeSubrecipe.steps.length || quickRecipeSubrecipe.ingredients.length) {
+                            this.subrecipes.push(quickRecipeSubrecipe);
+                        }
                     }
-                }
-            );
-        });
-  }
+                );
+            });
+    }
 
     attached() {
         var hasSeenHelp = localStorage.getItem("helpSeen");
@@ -93,9 +99,11 @@ export class QuickRecipePage {
   }
 
   startRecipe(): void {
-    var that = this;
+      var that = this;
     this._scrollCoordinator.createScrollController();
     this._currentStepId = this.getNextUncompletedStepId();
+    this.currentStep = this.recipe.steps.filter(step => step.id === this._currentStepId)[0];
+
     this._navigationStepId = this._currentStepId;
     this.goToCurrentStep();
 
@@ -103,9 +111,8 @@ export class QuickRecipePage {
     var animationClassName = "fadeOutUpBig";
     var animationEnd = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
     element.addClass(animationClassName).one(animationEnd, function () {
-      element.removeClass(animationClassName);
-
-    		that.isRecipeStarted = true;
+        element.removeClass(animationClassName);
+		that.isRecipeStarted = true;
     });
   }
 
@@ -128,6 +135,8 @@ export class QuickRecipePage {
     }
 
     this._currentStepId = this.getNextUncompletedStepId();
+    this.currentStep = this.recipe.steps.filter(step => step.id === this._currentStepId)[0];
+
     this.goToCurrentStep();
   }
 
@@ -147,6 +156,8 @@ export class QuickRecipePage {
     this.decorateStepIngredients(this.getCurrentStep(), "");
 
     this._currentStepId = nextStepId;
+    this.currentStep = this.recipe.steps.filter(step => step.id === this._currentStepId)[0];
+
     this._navigationStepId = this._currentStepId;
     this.goToStepId(this._currentStepId);
   }
@@ -160,6 +171,8 @@ export class QuickRecipePage {
     this.decorateStepIngredients(this.getStep(this._navigationStepId), "");
 
     this._navigationStepId--;
+    this._currentStepId = this._navigationStepId;
+    this.currentStep = this.recipe.steps.filter(step => step.id === this._currentStepId)[0];
 
     this.goToStepId(this._navigationStepId);
   }
@@ -173,6 +186,8 @@ export class QuickRecipePage {
     this.decorateStepIngredients(this.getStep(this._navigationStepId), "");
 
     this._navigationStepId++;
+    this._currentStepId = this._navigationStepId;
+    this.currentStep = this.recipe.steps.filter(step => step.id === this._currentStepId)[0];
 
     this.goToStepId(this._navigationStepId);
   }
@@ -195,12 +210,13 @@ export class QuickRecipePage {
   }
 
   get isCurrentStepActive(): boolean {
-    var currentStep = document.getElementById("step-" + this._currentStepId);
-    if (!currentStep) {
-      return false;
-    }
-
-    return currentStep.classList.contains("active");
+      return true;
+    // var currentStep = document.getElementById("step-" + this._currentStepId);
+    // if (!currentStep) {
+    //   return false;
+    // }
+    //
+    // return currentStep.classList.contains("active");
   }
 
   get isCurrentLastStep(): boolean {
@@ -253,35 +269,35 @@ export class QuickRecipePage {
   }
 
   private goToStepId(stepId: number): void {
-    var element = document.getElementById("step-" + stepId);
-    var navHeight = 65;
-    var top = Math.max(0, element.offsetTop - ((window.innerHeight - navHeight - element.offsetHeight) / 2) + 32);
-    this._scrollCoordinator.scrollTo(top);
+    // var element = document.getElementById("step-" + stepId);
+    // var navHeight = 65;
+    // var top = Math.max(0, element.offsetTop - ((window.innerHeight - navHeight - element.offsetHeight) / 2) + 32);
+    // this._scrollCoordinator.scrollTo(top);
 
     var targetStep = this.recipe.steps[stepId];
     this.decorateStepIngredients(targetStep, "current");
   }
 
   private triggerSubrecipeChangeAnimation(currentStepId: number, nextStepId: number): void {
-    var subrecipeIdBefore = this.recipe.steps[currentStepId].subrecipeId;
-    var subrecipeIdAfter = this.recipe.steps[nextStepId].subrecipeId;
-
-    if (subrecipeIdBefore != subrecipeIdAfter) {
-      var subrecipeTitleElement = document.getElementById("subrecipe-title-" + subrecipeIdAfter);
-      this._animator.animate(subrecipeTitleElement, "subrecipe-title-animation");
-
-      var element = $("#subrecipe-title-" + subrecipeIdAfter + " h1");
-
-      var animationClassName = "fadeInDown";
-      if (subrecipeIdBefore < subrecipeIdAfter) {
-        animationClassName = "fadeInUp";
-      }
-
-      var animationEnd = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
-      element.addClass("animated " + animationClassName).one(animationEnd, function () {
-        element.removeClass("animated " + animationClassName);
-      });
-    }
+    // var subrecipeIdBefore = this.recipe.steps[currentStepId].subrecipeId;
+    // var subrecipeIdAfter = this.recipe.steps[nextStepId].subrecipeId;
+    //
+    // if (subrecipeIdBefore != subrecipeIdAfter) {
+    //   var subrecipeTitleElement = document.getElementById("subrecipe-title-" + subrecipeIdAfter);
+    //   this._animator.animate(subrecipeTitleElement, "subrecipe-title-animation");
+    //
+    //   var element = $("#subrecipe-title-" + subrecipeIdAfter + " h1");
+    //
+    //   var animationClassName = "fadeInDown";
+    //   if (subrecipeIdBefore < subrecipeIdAfter) {
+    //     animationClassName = "fadeInUp";
+    //   }
+    //
+    //   var animationEnd = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
+    //   element.addClass("animated " + animationClassName).one(animationEnd, function () {
+    //     element.removeClass("animated " + animationClassName);
+    //   });
+    // }
   }
 
   private getCurrentStep(): Step {
