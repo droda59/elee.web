@@ -28,7 +28,7 @@ gulp.task("export:copy", function () {
         "config.js",
         "favicon.ico",
         paths.outputApp + "style.css",
-        paths.outputApp + "**/*.+(json|png|jpg)",
+        paths.outputApp + "**/*.+(json|png|jpg|jpeg)",
         paths.outputApp + "**/Material*.+(eot|svg|woff|woff2|ttf)",
         "jspm_packages/system.js",
         "jspm_packages/system.js.map",

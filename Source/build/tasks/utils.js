@@ -11,7 +11,7 @@ gulp.task("minify-css", function () {
 });
 
 gulp.task("images", function () {
-    return gulp.src(paths.outputApp + "**/assets/images/*")
+    return gulp.src(paths.outputApp + "**/assets/images/**/*")
         .pipe(imagemin())
         .pipe(gulp.dest(paths.outputApp));
 });
