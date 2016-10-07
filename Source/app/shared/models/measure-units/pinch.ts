@@ -2,7 +2,7 @@ import {MeasureUnit} from "app/shared/models/measure-units/measure-unit";
 
 export class Pinch extends MeasureUnit {
   constructor() {
-    super("pinch");
+    super("pinch", "");
   }
 
   static get instance(): Pinch {
