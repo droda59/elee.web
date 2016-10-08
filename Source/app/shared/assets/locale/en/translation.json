@@ -9,6 +9,12 @@
         "pageTitle": "Administration",
         "recipesToReview": "Recipes to review"
     },
+    "backgrounds": {
+        "pageTitle": "Recipe backgrounds",
+        "fileName": "File name",
+        "tags": "Tags",
+        "saveButton": "Save"
+    },
     "comments": {
         "pageTitle": "Comments",
         "yourMessage": "Your message",

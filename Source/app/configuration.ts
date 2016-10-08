@@ -1,4 +1,5 @@
 import * as Backend from "i18next-xhr-backend";
+import {HttpClient} from "aurelia-fetch-client";
 import "materialize-css"; // ONLY when using the "npm" option above
 
 export function configure(aurelia) {
@@ -49,6 +50,21 @@ export function configure(aurelia) {
         .useAutoComplete()
     });
 
+    let recipeHttpService = new HttpClient();
+    recipeHttpService.configure(config => {
+        config
+            .useStandardConfiguration()
+            .withDefaults({
+                headers: {
+                    "Accept": "application/json",
+                    "X-Requested-With": "Fetch"
+                }
+            })
+            .withBaseUrl("http://eleeapi.azurewebsites.net/");
+    });
+
+    aurelia.container.registerInstance("RecipeClient", recipeHttpService);
+
     aurelia.start().then(a => a.setRoot("app/main", document.body));
 
     moment.relativeTimeThreshold("s", 60);
@@ -62,6 +78,11 @@ export function configure(aurelia) {
         return format.replace(/{(\d+)}/g, (match, number) => {
             return typeof args[number] !== "undefined" ? args[number] : match;
         });
+    };
+
+    String.prototype.replaceAll = function(search, replacement) {
+        var target = this;
+        return target.split(search).join(replacement);
     };
 
     Array.prototype.selectMany = function(fn): Array<any> {
@@ -81,6 +102,7 @@ export function configure(aurelia) {
 declare global {
     interface String {
         format(format): string;
+        replaceAll(search, replacement): string;
     }
 
     interface Array<T> {

@@ -1,25 +1,15 @@
-import {autoinject} from "aurelia-framework";
+import {inject} from "aurelia-framework";
 import {HttpClient, json} from "aurelia-fetch-client";
 import {QuickRecipe} from "app/quick-recipe/shared/models/quick-recipe";
 import {QuickRecipeSearchResult} from "app/quick-recipe/shared/models/quick-recipe-search-result";
 import "fetch";
 
-@autoinject()
+@inject("RecipeClient")
 export class QuickRecipeService {
     private _httpClient: HttpClient;
 
     constructor(httpClient: HttpClient) {
-        this._httpClient = httpClient.configure(config => {
-            config
-                .useStandardConfiguration()
-                .withDefaults({
-                    headers: {
-                        "Accept": "application/json",
-                        "X-Requested-With": "Fetch"
-                    }
-                })
-                .withBaseUrl("http://eleeapi.azurewebsites.net/");
-        });
+        this._httpClient = httpClient;
     }
 
     findRecipes(searchTerms: string): Promise<Array<QuickRecipeSearchResult>> {

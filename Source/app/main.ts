@@ -33,6 +33,12 @@ export class Main {
             title: this._i18n.tr("administration.pageTitle")
         },
         {
+            route: "administration/backgrounds",
+            name: "backgrounds",
+            moduleId: "app/quick-recipe/backgrounds/index",
+            title: this._i18n.tr("backgrounds.pageTitle")
+        },
+        {
             route: "recipe/:id",
             name: "quick-recipe",
             moduleId: "app/quick-recipe/follow-recipe/index"

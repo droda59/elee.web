@@ -9,6 +9,12 @@
 		"pageTitle": "Administration",
 		"recipesToReview": "Recettes à réviser"
 	},
+    "backgrounds": {
+        "pageTitle": "Arrière-plans de recettes",
+        "fileName": "Nom de fichier",
+        "tags": "Tags",
+        "saveButton": "Enregistrer"
+    },
 	"comments": {
 		"pageTitle": "Commentaires",
 		"yourMessage": "Votre message",
