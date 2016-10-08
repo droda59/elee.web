@@ -55,7 +55,10 @@ export class QuickRecipePage {
         return this._service.getRecipe(route.id)
             .then(response => {
                 this.recipe = new QuickRecipe(response);
-                this.backgroundPicture = this._backgroundPicker.findPicture(this.recipe.title);
+                
+                this._backgroundPicker.findPicture(this.recipe.title).then(backgroundPicture => {
+                    this.backgroundPicture = backgroundPicture;
+                })
 
                 moment.locale(this.recipe.language);
                 this._i18n.setLocale(this.recipe.language);
