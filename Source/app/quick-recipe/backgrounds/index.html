@@ -5,20 +5,16 @@
                 <form submit.delegate="saveBackgrounds()" role="form">
                     <section id="backgrounds" class="section">
                         <h2>${ 'backgrounds.pageTitle' | t }</h2>
-                        <div class="row">
-                            <div repeat.for="backgroundDefinition of backgroundDefinitions" class="col s4">
-                                <div class="card">
-                                    <div class="card-image">
-                                        <img src="dist/app/quick-recipe/follow-recipe/assets/images/backgrounds/${backgroundDefinition.fileName}" alt="">
-                                    </div>
-                                    <div class="card-content">
-                                        <div class="input-field">
-                                            <div md-chips="data.bind: backgroundDefinition.tagQualifiers;"></div>
-                                        </div>
-                                    </div>
-                                    <div class="card-action">
-                                        <input value.bind="backgroundDefinition.fileName" id="filename-$index" type="text">
-                                    </div>
+                        <div repeat.for="backgroundDefinition of backgroundDefinitions" class="row valign-wrapper">
+                            <div class="col s6">
+                                <img src="dist/app/quick-recipe/follow-recipe/assets/images/backgrounds/${backgroundDefinition.fileName}" alt="" class="responsive-img">
+                            </div>
+                            <div class="row col s6">
+                                <div class="input-field">
+                                    <input value.bind="backgroundDefinition.fileName" id="filename-$index" type="text">
+                                </div>
+                                <div class="input-field">
+                                    <div md-chips="data.bind: backgroundDefinition.tagQualifiers;"></div>
                                 </div>
                             </div>
                         </div>
