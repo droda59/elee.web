@@ -7,6 +7,106 @@
     @import "animations";
     @import "../../../../shared/assets/css/variables";
 
+    .sidenav {
+        font-family: "Lato", sans-serif;
+
+        .side-nav {
+            width: 300px;
+            a {
+                color: rgba(0,0,0,0.87);
+                display: block;
+                font-size: 14px;
+                font-weight: 500;
+                height: 48px;
+                line-height: 48px;
+                padding: 0 32px;
+                width: 100%;
+            }
+            li > a > i {
+                float: left;
+                line-height: 48px;
+                margin: 0 32px 0 0;
+                width: 24px;
+                color: rgba(0,0,0,0.54);
+            }
+            li > a:hover {
+                width: 100%;
+            }
+            .subheader {
+                cursor: initial;
+                pointer-events: none;
+                color: rgba(0,0,0,0.54);
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 48px;
+            }
+
+            .choice .input-field {
+                padding: 1rem;
+                display: block;
+                margin-top: 0;
+                line-height: 48px;
+            }
+            .choice label.btn > div {
+                line-height: initial;
+            }
+
+            .ingredient-item {
+                display: block;
+
+                &.done {
+                    text-decoration: line-through;
+                    opacity: 0.6;
+                }
+                &.current {
+                    font-weight: 600;
+                }
+            }
+        }
+        // .card {
+        //     border-radius: 0 0 2px 2px;
+        //
+        //     &:first-of-type {
+        //         margin-top: 0;
+        //     }
+        //
+        //     .card-title {
+        //         padding: 20px;
+        //         display: block;
+        //     }
+        //     .card-content{
+        //         padding: 0;
+        //
+        //         .secondary-content {
+        //             color: indianred;
+        //             height: initial;
+        //             line-height: initial;
+        //             padding: 0;
+        //
+        //             &:hover {
+        //                 width: inherit;
+        //             }
+        //         }
+        //     }
+
+            // .collapsible {
+            //     border-top: 1px solid #ddd;
+            //     border-right: 1px solid #ddd;
+            //     border-left: 1px solid #ddd;
+            //     margin: .5rem 0 1rem;
+            //     box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+            //
+            //     .collapsible-header {
+            //         padding: 0 1rem;
+            //     }
+            //     .collapsible-header,
+            //     .collapsible-body {
+            //         border-bottom: 1px solid #ddd;
+            //     }
+            // }
+        // }
+    }
+
     .quick-recipe-background {
         background-size: cover;
         height: 100vh;
@@ -27,6 +127,7 @@
         left: 0;
         right: 0;
         background-color: rgba(0, 0, 0, 0.5);
+        font-family: "Lato", sans-serif;
 
         header {
             a {
@@ -108,6 +209,8 @@
                 text-transform: uppercase;
                 color: white;
                 height: initial;
+                font-family: "Suranna", serif;
+                font-size: 3.8rem;
             }
 
             .collection-item {
@@ -330,10 +433,11 @@
                         display: block;
                         position: relative;
 
-                        // .enumeration {
-                        //     margin: 1rem 2rem 1rem 3rem;
+                        .enumeration {
+                            margin: 1.3rem 0;
                         //
-                        //     .collection-item {
+                            .collection-item {
+                                padding: 3px 0;
                         //         [type="checkbox"] + label {
                         //             // margin-left: 2rem;
                         //             height: 1.5rem;
@@ -342,18 +446,20 @@
                         //         [type="checkbox"]:not(.filled-in) + label:after {
                         //             transform: none;
                         //         }
-                        //         .emphasis {
-                        //             font-size: 1.5em;
-                        //         }
-                        //     }
-                        // }
+                                .emphasis {
+                                    font-weight: 400;
+                                    font-size: initial;
+                                }
+                            }
+                        }
 
                         .emphasis {
-                            font-size: 2em;
+                            font-weight: 600;
+                            font-size: 1.8rem;
                         }
 
                         .technical {
-                            font-size: 2em;
+                            font-size: 1.8rem;
                             line-height: 3rem;
                         }
 

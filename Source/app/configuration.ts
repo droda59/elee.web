@@ -40,10 +40,12 @@ export function configure(aurelia) {
       bridge
         .useRange()
         .useChip()
+        .useCollapsible()
         .useFab()
         .usePushpin()
         .useSelect()
         .useScrollSpy()
+        .useSidenav()
         .useSlider()
         .useTooltip()
         .useInput()

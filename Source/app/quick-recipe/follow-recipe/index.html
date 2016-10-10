@@ -3,15 +3,120 @@
 	<require from="app/quick-recipe/follow-recipe/components/quick-recipe-step"></require>
 	<!-- <require from="app/quick-recipe/follow-recipe/components/quick-recipe-footer.html"></require> -->
 	<require from="app/shared/components/measurable-ingredient"></require>
+	<require from="app/shared/components/settings-modal"></require>
 	<!-- <require from="shared/components/comments-form"></require> -->
 	<require from="app/shared/value-converters/duration-format"></require>
 	<require from="app/shared/value-converters/time-format"></require>
 
 	<div class="quick-recipe-background" style="background-image: url('dist/app/quick-recipe/follow-recipe/assets/images/backgrounds/${backgroundPicture}');"></div>
+	<md-sidenav view-model.ref="sideNav" class="sidenav">
+		<ul class="side-nav" style="transform: translateX(0px);">
+			<li>
+				<div class="userView">
+              		<a class="brand-logo" href="#"><i class="material-icons small">home</i>E133.menu</a>
+	            </div>
+			</li>
+
+			<li><div class="divider"></div></li>
+			<li><a class="subheader">${'quickRecipe.ingredientsSideTitle' | t}</a></li>
+
+			<li>
+				<ul md-collapsible>
+					<li repeat.for="subrecipe of subrecipes" if.bind="subrecipe.ingredients.length" class="collection-item">
+						<div class="collapsible-header">${subrecipe.title}</div>
+						<div class="collapsible-body">
+							<p>
+								<span repeat.for="ingredient of subrecipe.ingredients" class="ingredient-item ${ingredient.state}">
+									<measurable-ingredient containerless ingredient.bind="ingredient"></measurable-ingredient>
+									<small if.bind="ingredient.replacements" repeat.for="replacement of ingredient.replacements">
+										<span i18n="quickRecipe.ingredientReplacementConjunction">Or</span>
+										<measurable-ingredient containerless ingredient.bind="replacement"></measurable-ingredient>
+									</small>
+								</span>
+							</p>
+						</div>
+					</li>
+				</ul>
+			</li>
+
+			<li><div class="divider"></div></li>
+
+			<li><a class="subheader">${'quickRecipe.settings' | t}</a></li>
+			<!-- <div class="card">
+				<div class="card-content">
+					<span class="card-title">
+						<a class="brand-logo" href="#"><i class="material-icons small">home</i>E133.menu</a>
+					</span>
+				</div>
+			</div> -->
+			<li>
+				<settings-modal selectedVolumeDisplay="settingsManager.settings.selectedVolumeDisplay" selectedWeightDisplay.bind="settingsManager.settings.selectedWeightDisplay"></settings-modal>
+			</li>
+
+			<li><div class="divider"></div></li>
+
+			<li><a class="subheader">${'quickRecipe.actions' | t}</a></li>
+			<li>
+				<a click.delegate="reportRecipe()" class="secondary-content"><i class="material-icons">report_problem</i>${'quickRecipe.reportProblem' | t}</a>
+			</li>
+			<li>
+				<a click.delegate="editRecipe()" class="secondary-content"><i class="material-icons">mode_edit</i>${'quickRecipe.edit' | t}</a>
+			</li>
+			<!-- <ul id="slide-out" class="side-nav" style="transform: translateX(0px);">
+          <li><div class="userView">
+            <img class="background" src="images/office.jpg">
+            <a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
+            <a href="#!name"><span class="white-text name">John Doe</span></a>
+            <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+          </div></li>
+          <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+          <li><a href="#!">Second Link</a></li>
+          <li><div class="divider"></div></li>
+          <li><a class="subheader">Subheader</a></li>
+          <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+        </ul> -->
+		</ul>
+		<!-- <div class="card">
+			<div class="card-content">
+				<span class="card-title">${'quickRecipe.settings' | t}</span>
+				<settings-modal settings.bind="settingsManager.settings"></settings-modal>
+				<ul md-collapsible>
+					<li>
+						<div class="collapsible-header"><i class="mdi-image-filter-drama"></i>First</div>
+						<div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+					</li>
+					<li>
+						<div class="collapsible-header"><i class="mdi-maps-place"></i>Second</div>
+						<div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+					</li>
+				</ul>
+			</div>
+		</div> -->
+		<!-- <li><div class="divider"></div></li>
+		<div class="card">
+			<div class="card-content">
+				<span class="card-title">${'quickRecipe.actions' | t}</span>
+				<ul class="collection">
+					<li class="collection-item">
+						<div>
+							${'quickRecipe.reportProblem' | t}
+							<a click.delegate="reportRecipe()" class="secondary-content"><i class="material-icons">report_problem</i></a>
+						</div>
+					</li>
+					<li class="collection-item">
+						<div>
+							${'quickRecipe.edit' | t}
+							<a click.delegate="editRecipe()" class="secondary-content"><i class="material-icons">mode_edit</i></a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>-->
+	</md-sidenav>
 	<div class="quick-recipe">
 		<header class="row">
 			<h3 class="valign-wrapper center-align">
-				<a href="#" class="white-text">
+				<a md-sidenav-collapse="ref.bind: sideNav;" class="white-text">
 					<i class="material-icons">menu</i>
 				</a>
 			</h3>

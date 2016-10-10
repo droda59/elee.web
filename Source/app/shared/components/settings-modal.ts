@@ -1,6 +1,7 @@
-import {inject} from "aurelia-framework";
+import {autoinject, bindable} from "aurelia-framework";
 import {DialogController} from "aurelia-dialog";
 import {I18N} from "aurelia-i18n";
+import {SettingsManager} from "app/shared/settings-manager";
 import {Ingredient} from "app/shared/models/ingredient";
 import {Quantity} from "app/shared/models/quantity";
 import {Settings} from "app/shared/models/settings";
@@ -8,28 +9,55 @@ import {QuantityConverter} from "app/shared/quantity-converter";
 import {Millilitre} from "app/shared/models/measure-units/millilitre";
 import {Gram} from "app/shared/models/measure-units/gram";
 
-@inject(DialogController, QuantityConverter, I18N)
+@autoinject()
 export class SettingsModal {
   private _i18n: I18N;
+  private _settingsManager: SettingsManager;
 
-  settings: Settings;
+  // @bindable settings: Settings;
   controller: DialogController;
   quantityConverter: QuantityConverter;
 
   volumeDisplays: {}[] = [];
   weightDisplays: {}[] = [];
+  @bindable selectedVolumeDisplay: string = "";
+  @bindable selectedWeightDisplay: string = "";
 
-  constructor(controller: DialogController, quantityConverter: QuantityConverter, i18n: I18N) {
+  constructor(controller: DialogController, quantityConverter: QuantityConverter, i18n: I18N, settingsManager: SettingsManager) {
     this.controller = controller;
     this.quantityConverter = quantityConverter;
     this._i18n = i18n;
+    this._settingsManager = settingsManager;
   }
 
-  activate(settings: Settings) {
-    this.settings = new Settings();
+  selectedVolumeDisplayChanged() {
+    var settings = new Settings();
 
-    this.settings.selectedVolumeDisplay = settings.selectedVolumeDisplay;
-    this.settings.selectedWeightDisplay = settings.selectedWeightDisplay;
+    settings.selectedVolumeDisplay = this.selectedVolumeDisplay;
+    settings.selectedWeightDisplay = this._settingsManager.settings.selectedWeightDisplay;
+
+    this._settingsManager.save(settings);
+  }
+
+  selectedWeightDisplayChanged() {
+    var settings = new Settings();
+
+    settings.selectedVolumeDisplay = this._settingsManager.settings.selectedVolumeDisplay;
+    settings.selectedWeightDisplay = this.selectedWeightDisplay;
+
+    this._settingsManager.save(settings);
+  }
+
+  bind() {
+      this.selectedVolumeDisplay = this._settingsManager.settings.selectedVolumeDisplay;
+      this.selectedWeightDisplay = this._settingsManager.settings.selectedWeightDisplay;
+  }
+
+  attached() {
+    // this.settings = new Settings();
+    //
+    // this.selectedVolumeDisplay = this.settings.selectedVolumeDisplay;
+    // this.selectedWeightDisplay = this.settings.selectedWeightDisplay;
 
     var ingredient1 = new Ingredient();
     ingredient1.name = this._i18n.tr("settings.examples.water");
