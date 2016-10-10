@@ -2,7 +2,7 @@
 	<require from="app/shared/value-converters/time-format"></require>
 
 	<span class="timer emphasis">
-		<a click.trigger="startTimer()" class="${timer.remainingTime === timer.originalTime ? 'btn' : 'btn-flat'}">
+		<a click.delegate="startTimer()" class="white-text ${timer.remainingTime === timer.originalTime ? 'btn' : 'btn-flat'}">
 			<i class="material-icons left">alarm</i>
 			<span if.bind="timer.remainingTime === timer.originalTime">${timer.text}</span>
 			<span if.bind="timer.remainingTime !== timer.originalTime">${timer.remainingTime | timeFormat}</span>

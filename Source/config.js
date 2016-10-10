@@ -58,7 +58,6 @@ System.config({
     "jquery": "npm:jquery@2.2.4",
     "materialize-css": "npm:materialize-css@0.97.7",
     "moment": "npm:moment@2.15.1",
-    "scrollmagic": "npm:scrollmagic@2.0.5",
     "text": "github:systemjs/plugin-text@0.0.4",
     "traceur": "github:jmcriffey/bower-traceur@0.0.93",
     "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.93",
