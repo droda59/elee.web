@@ -1,7 +1,9 @@
 import {autoinject} from "aurelia-framework";
+import {Router} from "aurelia-router";
 import {DialogService} from "aurelia-dialog";
 import {CssAnimator} from "aurelia-animator-css";
 import {I18N} from "aurelia-i18n";
+import {MdToastService} from "aurelia-materialize-bridge";
 import {QuickRecipeService} from "app/quick-recipe/shared/quick-recipe-service";
 import {QuickRecipe, Step, IngredientPart, IngredientEnumerationPart} from "app/quick-recipe/shared/models/quick-recipe";
 import {HelpOverlay} from "app/quick-recipe/follow-recipe/components/help-overlay";
@@ -11,6 +13,7 @@ import {BackgroundPicker} from "app/quick-recipe/follow-recipe/background-picker
 import {QuickRecipeTimer} from "app/quick-recipe/follow-recipe/models/quick-recipe-timer";
 import {Ingredient} from "app/shared/models/ingredient";
 import {Timer} from "app/shared/models/timer";
+import {SettingsManager} from "app/shared/settings-manager";
 
 @autoinject()
 export class QuickRecipePage {
@@ -31,8 +34,11 @@ export class QuickRecipePage {
   private _i18n: I18N;
   private _animator: CssAnimator;
   private _backgroundPicker: BackgroundPicker;
+  private _toast: MdToastService;
+  private _router: Router;
+  settingsManager: SettingsManager;
 
-  constructor(service: QuickRecipeService, i18n: I18N, timerCoordinator: TimerCoordinator, scrollCoordinator: ScrollCoordinator, dialogService: DialogService, animator: CssAnimator, backgroundPicker: BackgroundPicker) {
+  constructor(service: QuickRecipeService, router: Router, i18n: I18N, timerCoordinator: TimerCoordinator, scrollCoordinator: ScrollCoordinator, dialogService: DialogService, animator: CssAnimator, backgroundPicker: BackgroundPicker, toast: MdToastService, settingsManager: SettingsManager) {
     this._service = service;
     this._i18n = i18n;
     this._scrollCoordinator = scrollCoordinator;
@@ -40,6 +46,9 @@ export class QuickRecipePage {
     this._animator = animator;
     this._timerCoordinator = timerCoordinator;
     this._backgroundPicker = backgroundPicker;
+    this._toast = toast;
+    this._router = router;
+    this.settingsManager = settingsManager;
 
     this._timerCoordinator.onTimerStarted = timer => { this.onTimerStarted(timer, this); };
     this._timerCoordinator.onTimerEnded = timer => { this.onTimerEnded(timer, this); };
@@ -55,7 +64,7 @@ export class QuickRecipePage {
         return this._service.getRecipe(route.id)
             .then(response => {
                 this.recipe = new QuickRecipe(response);
-                
+
                 this._backgroundPicker.findPicture(this.recipe.title).then(backgroundPicture => {
                     this.backgroundPicture = backgroundPicture;
                 })
@@ -202,6 +211,17 @@ export class QuickRecipePage {
     this._navigationStepId = this._currentStepId;
 
     this.goToStepId(this._currentStepId);
+  }
+
+  reportRecipe(): void {
+      this._service.report(this.recipeId)
+          .then(response => {
+              this._toast.show(this._i18n.tr("quickRecipe.recipeFlagged"), 3000);
+          });
+  }
+
+  editRecipe(): void {
+      this._router.navigateToRoute("edit", { "id": this.recipe.id }, undefined);
   }
 
   get activeSubrecipeId(): number {
