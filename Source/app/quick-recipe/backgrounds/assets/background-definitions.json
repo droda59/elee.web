@@ -1,36 +1,247 @@
 [
-    {
-        "fileName": "berries.jpg",
-        "qualifiers": ["baies", "framboise", "framboises"]
-    }, {
-        "fileName": "photo-1443146517630-ac1e04dfed9a.jpeg",
-        "qualifiers": ["baies", "framboise", "framboises"]
-    }, {
-        "fileName": "photo-1457296795659-6f458be7a874.jpeg",
-        "qualifiers": ["cupcakes", "cupcake", "gâteaux", "gâteau", "crémage", "chocolat", "vanille"]
-    }, {
-        "fileName": "photo-1461595520627-42e3c83019bc.jpeg",
-        "qualifiers": ["thé"]
-    }, {
-        "fileName": "photo-1463569643904-4fbae71ed917.jpeg",
-        "qualifiers": ["generic", "pain", "soupe", "oeufs", "oeuf"]
-    }, {
-        "fileName": "photo-1466065478348-0b967011f8e0.jpeg",
-        "qualifiers": ["baies", "framboise", "framboises", "bleuets", "blueuet"]
-    }, {
-        "fileName": "photo-1467189386127-c4e5e31ee213.jpeg",
-        "qualifiers": ["gâteau", "bleuets", "bleuet", "chocolat", "menthe", "lime", "latte", "café"]
-    }, {
-        "fileName": "photo-1467630144534-da2b634ce269.jpeg",
-        "qualifiers": ["muffins", "muffin", "chocolat", "tarte"]
-    }, {
-        "fileName": "photo-1470338745628-171cf53de3a8.jpeg",
-        "qualifiers": ["menthe"]
-    }, {
-        "fileName": "photo-1473256599800-b48c7c88cd7e.jpeg",
-        "qualifiers": ["gâteau", "crémage", "glaçage", "citrons", "citron"]
-    }, {
-        "fileName": "photo-1474625342403-1b8a2c0f7215.jpeg",
-        "qualifiers": ["cupcakes", "cupcake", "gâteaux", "gâteau", "chocolat", "bonbons"]
-    }
+  {
+    "fileName": "berries.jpg",
+    "qualifiers": [
+      "baies",
+      "framboise",
+      "framboises",
+      "fruits"
+    ]
+  },
+  {
+    "fileName": "photo-1443146517630-ac1e04dfed9a.jpeg",
+    "qualifiers": [
+      "baies",
+      "framboise",
+      "framboises",
+      "fruits"
+    ]
+  },
+  {
+    "fileName": "photo-1457296795659-6f458be7a874.jpeg",
+    "qualifiers": [
+      "cupcakes",
+      "cupcake",
+      "gâteaux",
+      "gâteau",
+      "crémage",
+      "chocolat",
+      "vanille"
+    ]
+  },
+  {
+    "fileName": "photo-1461595520627-42e3c83019bc.jpeg",
+    "qualifiers": [
+      "thé"
+    ]
+  },
+  {
+    "fileName": "photo-1463569643904-4fbae71ed917.jpeg",
+    "qualifiers": [
+      "generic",
+      "pain",
+      "soupe",
+      "oeufs",
+      "oeuf"
+    ]
+  },
+  {
+    "fileName": "photo-1466065478348-0b967011f8e0.jpeg",
+    "qualifiers": [
+      "baies",
+      "framboise",
+      "framboises",
+      "bleuets",
+      "blueuet",
+      "fruits"
+    ]
+  },
+  {
+    "fileName": "photo-1467189386127-c4e5e31ee213.jpeg",
+    "qualifiers": [
+      "gâteau",
+      "bleuets",
+      "bleuet",
+      "chocolat",
+      "menthe",
+      "lime",
+      "latte",
+      "café"
+    ]
+  },
+  {
+    "fileName": "photo-1467630144534-da2b634ce269.jpeg",
+    "qualifiers": [
+      "muffins",
+      "muffin",
+      "chocolat",
+      "tarte"
+    ]
+  },
+  {
+    "fileName": "photo-1470338745628-171cf53de3a8.jpeg",
+    "qualifiers": [
+      "menthe",
+      "cocktail"
+    ]
+  },
+  {
+    "fileName": "photo-1473256599800-b48c7c88cd7e.jpeg",
+    "qualifiers": [
+      "gâteau",
+      "crémage",
+      "glaçage",
+      "citrons",
+      "citron"
+    ]
+  },
+  {
+    "fileName": "photo-1474625342403-1b8a2c0f7215.jpeg",
+    "qualifiers": [
+      "cupcakes",
+      "cupcake",
+      "gâteaux",
+      "gâteau",
+      "chocolat",
+      "bonbons"
+    ]
+  },
+  {
+    "fileName": "photo-1468465236047-6aac20937e92.jpeg",
+    "qualifiers": [
+      "cocktail",
+      "ananas"
+    ]
+  },
+  {
+    "fileName": "photo-1464454709131-ffd692591ee5.jpeg",
+    "qualifiers": [
+      "fraise",
+      "fraises",
+      "fruits"
+    ]
+  },
+  {
+    "fileName": "photo-1464306208223-e0b4495a5553.jpeg",
+    "qualifiers": [
+      "generic",
+      "pommes",
+      "pomme",
+      "cerise",
+      "cerises"
+    ]
+  },
+  {
+    "fileName": "photo-1464305795204-6f5bbfc7fb81.jpeg",
+    "qualifiers": [
+      "tarte",
+      "tartes",
+      "fraise",
+      "fraises",
+      "mûre",
+      "mûres"
+    ]
+  },
+  {
+    "fileName": "photo-1463123081488-789f998ac9c4.jpeg",
+    "qualifiers": [
+      "agrume",
+      "agrumes",
+      "citron",
+      "citrons",
+      "lime",
+      "limes"
+    ]
+  },
+  {
+    "fileName": "photo-1460400355256-e87506dcec4f.jpeg",
+    "qualifiers": [
+      "fraise",
+      "fraises",
+      "fruits"
+    ]
+  },
+  {
+    "fileName": "photo-1447078806655-40579c2520d6.jpeg",
+    "qualifiers": [
+      "generic",
+      "poire",
+      "poires"
+    ]
+  },
+  {
+    "fileName": "photo-1438907046657-4ae137eb8c5e.jpeg",
+    "qualifiers": [
+      "framboise",
+      "framboises",
+      "mûre",
+      "mûres",
+      "bleuet",
+      "bleuets",
+      "fruits",
+      "baies"
+    ]
+  },
+  {
+    "fileName": "photo-1438216983993-cdcd7dea84ce.jpeg",
+    "qualifiers": [
+      "ananas"
+    ]
+  },
+  {
+    "fileName": "photo-1436564989038-18b9958df72b.jpeg",
+    "qualifiers": [
+      "citron",
+      "citrons",
+      "lime",
+      "limes",
+      "galette",
+      "galettes"
+    ]
+  },
+  {
+    "fileName": "photo-1430933964450-0aefb85717c8.jpeg",
+    "qualifiers": [
+      "champignon",
+      "champignons"
+    ]
+  },
+  {
+    "fileName": "photo-1422207109431-97544339f995.jpeg",
+    "qualifiers": [
+      "café"
+    ]
+  },
+  {
+    "fileName": "photo-1474221550179-c492fb337327.jpeg",
+    "qualifiers": [
+      "generic"
+    ]
+  },
+  {
+    "fileName": "photo-1469547371150-47620ed0c5ea.jpeg",
+    "qualifiers": [
+      "bleuet",
+      "bleuets",
+      "fruits"
+    ]
+  },
+  {
+    "fileName": "photo-1468777675496-5782faaea55b.jpeg",
+    "qualifiers": [
+      "salade",
+      "légumes",
+      "tomates",
+      "maïs",
+      "carottes"
+    ]
+  },
+  {
+    "fileName": "photo-1460400408855-36abd76648b9.jpeg",
+    "qualifiers": [
+      "bleuet",
+      "bleuets",
+      "fruits"
+    ]
+  }
 ]
