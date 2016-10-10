@@ -1,0 +1,63 @@
+<template>
+    <require from="app/quick-recipe/follow-recipe/components/settings-panel"></require>
+	<require from="app/shared/components/measurable-ingredient"></require>
+
+    <h3 class="row center-align">
+        <a md-sidenav-collapse="ref.bind: sidenav;" class="col s12 white-text">
+            <i class="material-icons">menu</i>
+        </a>
+    </h3>
+
+	<md-sidenav view-model.ref="sidenav">
+		<ul class="side-nav" style="transform: translateX(0px);">
+			<li>
+				<div class="userView">
+					<a class="brand-logo" href="#"><i class="material-icons small">home</i>E133.menu</a>
+				</div>
+			</li>
+
+			<li><div class="divider"></div></li>
+			<li><a class="subheader">${'quickRecipe.ingredientsSideTitle' | t}</a></li>
+
+			<li>
+				<ul md-collapsible>
+					<li repeat.for="subrecipe of subrecipes & oneTime" if.bind="subrecipe.ingredients.length" class="collection-item">
+						<div class="collapsible-header">${subrecipe.title}</div>
+						<div class="collapsible-body">
+							<p>
+								<span repeat.for="ingredient of subrecipe.ingredients & oneTime" class="ingredient-item ${ingredient.state}">
+									<measurable-ingredient containerless ingredient.bind="ingredient"></measurable-ingredient>
+									<small if.bind="ingredient.replacements" repeat.for="replacement of ingredient.replacements & oneTime">
+										<span>${'quickRecipe.ingredientReplacementConjunction' | t}</span>
+										<measurable-ingredient containerless ingredient.bind="replacement"></measurable-ingredient>
+									</small>
+								</span>
+							</p>
+						</div>
+					</li>
+				</ul>
+			</li>
+
+			<li><div class="divider"></div></li>
+
+			<li><a class="subheader">${'quickRecipe.settings' | t}</a></li>
+			<li>
+				<settings-panel selectedVolumeDisplay="selectedVolumeDisplay" selectedWeightDisplay.bind="selectedWeightDisplay"></settings-panel>
+			</li>
+
+			<li><div class="divider"></div></li>
+
+			<li><a class="subheader">${'quickRecipe.actions' | t}</a></li>
+			<li class="action">
+				<a click.delegate="reportRecipe()" class="secondary-content">
+                    <i class="material-icons">report_problem</i>${'quickRecipe.reportProblem' | t}
+                </a>
+			</li>
+			<li class="action">
+				<a click.delegate="editRecipe()" class="secondary-content">
+                    <i class="material-icons">mode_edit</i>${'quickRecipe.edit' | t}
+                </a>
+			</li>
+		</ul>
+	</md-sidenav>
+</template>

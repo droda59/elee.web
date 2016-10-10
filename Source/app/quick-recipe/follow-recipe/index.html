@@ -1,160 +1,22 @@
 <template>
-	<!-- <require from="app/quick-recipe/follow-recipe/components/quick-recipe-header"></require> -->
 	<require from="app/quick-recipe/follow-recipe/components/quick-recipe-step"></require>
-	<!-- <require from="app/quick-recipe/follow-recipe/components/quick-recipe-footer.html"></require> -->
+	<require from="app/quick-recipe/follow-recipe/components/side-nav"></require>
+	<require from="app/quick-recipe/follow-recipe/components/recipe-progression.html"></require>
 	<require from="app/shared/components/measurable-ingredient"></require>
-	<require from="app/shared/components/settings-modal"></require>
 	<!-- <require from="shared/components/comments-form"></require> -->
 	<require from="app/shared/value-converters/duration-format"></require>
-	<require from="app/shared/value-converters/time-format"></require>
 
 	<div class="quick-recipe-background" style="background-image: url('dist/app/quick-recipe/follow-recipe/assets/images/backgrounds/${backgroundPicture}');"></div>
-	<md-sidenav view-model.ref="sideNav" class="sidenav">
-		<ul class="side-nav" style="transform: translateX(0px);">
-			<li>
-				<div class="userView">
-              		<a class="brand-logo" href="#"><i class="material-icons small">home</i>E133.menu</a>
-	            </div>
-			</li>
 
-			<li><div class="divider"></div></li>
-			<li><a class="subheader">${'quickRecipe.ingredientsSideTitle' | t}</a></li>
-
-			<li>
-				<ul md-collapsible>
-					<li repeat.for="subrecipe of subrecipes" if.bind="subrecipe.ingredients.length" class="collection-item">
-						<div class="collapsible-header">${subrecipe.title}</div>
-						<div class="collapsible-body">
-							<p>
-								<span repeat.for="ingredient of subrecipe.ingredients" class="ingredient-item ${ingredient.state}">
-									<measurable-ingredient containerless ingredient.bind="ingredient"></measurable-ingredient>
-									<small if.bind="ingredient.replacements" repeat.for="replacement of ingredient.replacements">
-										<span i18n="quickRecipe.ingredientReplacementConjunction">Or</span>
-										<measurable-ingredient containerless ingredient.bind="replacement"></measurable-ingredient>
-									</small>
-								</span>
-							</p>
-						</div>
-					</li>
-				</ul>
-			</li>
-
-			<li><div class="divider"></div></li>
-
-			<li><a class="subheader">${'quickRecipe.settings' | t}</a></li>
-			<!-- <div class="card">
-				<div class="card-content">
-					<span class="card-title">
-						<a class="brand-logo" href="#"><i class="material-icons small">home</i>E133.menu</a>
-					</span>
-				</div>
-			</div> -->
-			<li>
-				<settings-modal selectedVolumeDisplay="settingsManager.settings.selectedVolumeDisplay" selectedWeightDisplay.bind="settingsManager.settings.selectedWeightDisplay"></settings-modal>
-			</li>
-
-			<li><div class="divider"></div></li>
-
-			<li><a class="subheader">${'quickRecipe.actions' | t}</a></li>
-			<li>
-				<a click.delegate="reportRecipe()" class="secondary-content"><i class="material-icons">report_problem</i>${'quickRecipe.reportProblem' | t}</a>
-			</li>
-			<li>
-				<a click.delegate="editRecipe()" class="secondary-content"><i class="material-icons">mode_edit</i>${'quickRecipe.edit' | t}</a>
-			</li>
-			<!-- <ul id="slide-out" class="side-nav" style="transform: translateX(0px);">
-          <li><div class="userView">
-            <img class="background" src="images/office.jpg">
-            <a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
-            <a href="#!name"><span class="white-text name">John Doe</span></a>
-            <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
-          </div></li>
-          <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-          <li><a href="#!">Second Link</a></li>
-          <li><div class="divider"></div></li>
-          <li><a class="subheader">Subheader</a></li>
-          <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-        </ul> -->
-		</ul>
-		<!-- <div class="card">
-			<div class="card-content">
-				<span class="card-title">${'quickRecipe.settings' | t}</span>
-				<settings-modal settings.bind="settingsManager.settings"></settings-modal>
-				<ul md-collapsible>
-					<li>
-						<div class="collapsible-header"><i class="mdi-image-filter-drama"></i>First</div>
-						<div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-					</li>
-					<li>
-						<div class="collapsible-header"><i class="mdi-maps-place"></i>Second</div>
-						<div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-					</li>
-				</ul>
-			</div>
-		</div> -->
-		<!-- <li><div class="divider"></div></li>
-		<div class="card">
-			<div class="card-content">
-				<span class="card-title">${'quickRecipe.actions' | t}</span>
-				<ul class="collection">
-					<li class="collection-item">
-						<div>
-							${'quickRecipe.reportProblem' | t}
-							<a click.delegate="reportRecipe()" class="secondary-content"><i class="material-icons">report_problem</i></a>
-						</div>
-					</li>
-					<li class="collection-item">
-						<div>
-							${'quickRecipe.edit' | t}
-							<a click.delegate="editRecipe()" class="secondary-content"><i class="material-icons">mode_edit</i></a>
-						</div>
-					</li>
-				</ul>
-			</div>
-		</div>-->
-	</md-sidenav>
 	<div class="quick-recipe">
-		<header class="row">
-			<h3 class="valign-wrapper center-align">
-				<a md-sidenav-collapse="ref.bind: sideNav;" class="white-text">
-					<i class="material-icons">menu</i>
-				</a>
-			</h3>
-			<!-- <quick-recipe-header containerless recipe-id.bind="recipe.id"></quick-recipe-header> -->
-		</header>
-
 		<main class="row">
-			<!-- <div id="ingredients" class="hide-on-small-only col m3">
-				<div class="panel card hoverable">
-					<div class="card-image">
-						<img src.bind="recipe.normalImageUrl">
-						<div class="after"></div>
-						<span class="card-title" i18n="quickRecipe.ingredientsSideTitle">Ingredients</span>
-					</div>
-					<div class="card-content">
-						<section repeat.for="subrecipe of subrecipes" if.bind="subrecipe.ingredients.length" class="section">
-							<h4 if.bind="subrecipe.title" class="center truncate">${subrecipe.title}</h4>
-							<ul class="collection">
-								<li repeat.for="ingredient of subrecipe.ingredients" class="collection-item ingredient-item ${ingredient.state}">
-									<measurable-ingredient containerless ingredient.bind="ingredient"></measurable-ingredient>
-									<small if.bind="ingredient.replacements" repeat.for="replacement of ingredient.replacements">
-										<div i18n="quickRecipe.ingredientReplacementConjunction">Or</div>
-										<measurable-ingredient containerless ingredient.bind="replacement"></measurable-ingredient>
-									</small>
-								</li>
-							</ul>
-						</section>
-					</div>
-				</div>
-			</div> -->
-
 			<h1 class="recipe-title">${recipe.title}</h1>
 
 			<div id="instructions" class="white-text center-align">
 				<section id="presentation-section" if.bind="!isRecipeDone && !isRecipeStarted" class="card-panel animated fadeInDownBig black-text">
 					<div class="container">
 						<div class="row">
-							<span i18n="quickRecipe.servings">Servings</span>${recipe.originalServings}
+							<span>${'quickRecipe.servings' | t}</span>${recipe.originalServings}
 						</div>
 
 						<div class="row">
@@ -166,51 +28,21 @@
 						</div>
 
 						<div class="row" if.bind="recipe.note">
-							<p><span i18n="quickRecipe.note">Note</span>${recipe.note}</p>
+							<p><span>${'quickRecipe.note' | t}</span>${recipe.note}</p>
 						</div>
 
 						<div class="row center" show.bind="!isRecipeStarted" >
-							<a class="btn btn-large waves-effect waves-light" click.delegate="startRecipe()" i18n="quickRecipe.start">Start</a>
+							<a class="btn btn-large waves-effect waves-light" click.delegate="startRecipe()">${'quickRecipe.start' | t}</a>
 						</div>
 					</div>
 				</section>
 
 				<section id="recipe-content" show.bind="isRecipeStarted && !isRecipeDone" class="au-animate">
-					<!-- <nav class="navbar col m9 z-depth-1">
-						<ul class="subrecipe-titles">
-							<li repeat.for="subrecipe of subrecipes" class="subrecipe-title ${$parent.activeSubrecipeId === subrecipe.id ? 'active' : ''}">
-								<a click.trigger="goToSubrecipe(subrecipe.id)">
-									<span>${subrecipe.title}</span>
-									<span class="progression">${subrecipe.completedSteps}/${subrecipe.steps.length}</span>
-									<span class="timers" show.bind="subrecipe.timers.length">
-										<i class="material-icons">alarm</i>
-										<span if.bind="subrecipe.timers.length > 0">${subrecipe.timers[0].remainingTime | timeFormat}</span>
-									</span>
-								</a>
-							</li>
-						</ul>
-					</nav> -->
-
 					<quick-recipe-step
 						id="currentStep"
-						step.bind="currentStep"
+						step.one-way="currentStep"
 						class="step ${currentStep.isCompleted ? 'complete' : ''} ${currentStep.isOnHold ? 'onHold' : ''}">
 					</quick-recipe-step>
-
-					<!-- <div repeat.for="subrecipe of subrecipes" if.bind="subrecipe.steps.length" class="subrecipe">
-						<div id="subrecipe-title-${subrecipe.id}" class="subrecipe-title valign-wrapper center">
-							<h1 class="title">${subrecipe.title}</h1>
-						</div>
-
-						<div class="steps">
-							<quick-recipe-step
-								id="step-${step.id}"
-								repeat.for="step of subrecipe.steps"
-								step.bind="step"
-								class="step ${step.isCompleted ? 'complete' : ''} ${step.isOnHold ? 'onHold' : ''}">
-							</quick-recipe-step>
-						</div>
-					</div> -->
 
 					<span class="navigation-pills" show.bind="isRecipeStarted">
 						<btn class="previous-button waves-light btn ${isNavigationFirstStep ? 'disabled' : ''}" click.delegate="goToPreviousStep()">
@@ -226,27 +58,20 @@
                             <i class="material-icons">keyboard_arrow_down</i>
 						</btn>
 					</span>
-
-					<!-- <span class="step-actions" show.bind="isRecipeStarted">
-                        <btn class="waves-light btn" click.delegate="completeStep()">
-                            <span if.bind="isCurrentLastStep" i18n="quickRecipe.finish">Finish</span>
-							<i if.bind="!isCurrentLastStep" class="material-icons">done</i>
-						</btn>
-					</span> -->
 				</section>
 
 				<section id="comments-section" if.bind="isRecipeDone" class="section">
 					<div class="row center">
 						<hgroup>
-							<h3 i18n="quickRecipe.comments.didYouLikeExperience">DidYouLikeExperience</h3>
-							<h4 i18n="quickRecipe.comments.wedLikeYourComments">WeLikeToHear</h4>
+							<h3>${'quickRecipe.comments.didYouLikeExperience' | t}</h3>
+							<h4>${'quickRecipe.comments.wedLikeYourComments' | t}</h4>
 						</hgroup>
-						<p i18n="quickRecipe.comments.writeComments">WriteComments</p>
+						<p>${'quickRecipe.comments.writeComments' | t}</p>
 					</div>
 
 					<div class="row center">
-						<a href="#typeform" class="btn btn-large btn-success waves-effect waves-light" i18n="comments.sendButton">
-							Send
+						<a href="#typeform" class="btn btn-large btn-success waves-effect waves-light">
+							${'comments.sendButton' | t}
 							<i class="material-icons right">send</i>
 						</a>
 					</div>
@@ -256,25 +81,12 @@
 			</div>
 		</main>
 
+		<header>
+			<side-nav subrecipes.one-time="subrecipes" recipe-id.one-time="recipe.id" containerless></side-nav>
+		</header>
+
 		<footer>
-			<div class="subrecipe-titles">
-				<span repeat.for="subrecipe of subrecipes" style="flex-grow: ${subrecipe.steps.length};" class="subrecipe-title ${$parent.activeSubrecipeId === subrecipe.id ? 'active' : ''}">
-					<a click.trigger="goToSubrecipe(subrecipe.id)">
-						<span>${subrecipe.title}</span>
-						<span class="progression">${subrecipe.completedSteps}/${subrecipe.steps.length}</span>
-						<span class="timers" show.bind="subrecipe.timers.length">
-							<i class="material-icons">alarm</i>
-							<span if.bind="subrecipe.timers.length > 0">${subrecipe.timers[0].remainingTime | timeFormat}</span>
-						</span>
-					</a>
-					<div class="progression-steps">
-						<span repeat.for="step of subrecipe.steps" class="progression-step ${subrecipe.completedSteps > $index ? 'done' : ''}">
-							<div class="content"></div>
-						</span>
-					</div>
-				</span>
-			</div>
-			<!-- <quick-recipe-footer url.one-time="recipe.originalUrl" title.one-time="recipe.title"></quick-recipe-footer> -->
+			<recipe-progression activeSubrecipeId.bind="activeSubrecipeId" subrecipes.one-time="subrecipes" containerless></recipe-progression>
 		</footer>
 	</div>
 </template>

@@ -1,0 +1,44 @@
+@import "settings-panel";
+
+md-sidenav li a:hover {
+    display: inherit;
+}
+.side-nav {
+    font-family: "Lato", sans-serif;
+    width: 300px;
+
+    .subheader {
+        cursor: initial;
+        pointer-events: none;
+        color: rgba(0,0,0,0.54);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 48px;
+    }
+
+    a {
+        height: 48px;
+        line-height: 48px;
+        padding: 0 32px;
+        width: 100%;
+    }
+
+    .action .material-icons {
+        float: left;
+        line-height: 48px;
+        margin: 0 32px 0 0;
+        color: rgba(0,0,0,0.54);
+    }
+
+    .ingredient-item {
+        display: block;
+
+        &.done {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+        &.current {
+            font-weight: 600;
+        }
+    }
+}

@@ -77,7 +77,6 @@
       "jquery": "npm:jquery@2.2.4",
       "materialize-css": "npm:materialize-css@^0.97.7",
       "moment": "npm:moment@^2.13.0",
-      "scrollmagic": "npm:scrollmagic@^2.0.5",
       "text": "github:systemjs/plugin-text@^0.0.4"
     },
     "devDependencies": {

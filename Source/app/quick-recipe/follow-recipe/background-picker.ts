@@ -11,7 +11,7 @@ export class BackgroundPicker {
     constructor(backgroundService: RecipeBackgroundService) {
         this._backgroundService = backgroundService;
 
-        this._genericPictures.push("photo-1463569643904-4fbae71ed917");
+        this._genericPictures.push("photo-1463569643904-4fbae71ed917.jpeg");
     }
 
     findPicture(title: string): Promise<string> {
