@@ -10,42 +10,35 @@ export class BackgroundPicker {
 
     constructor(backgroundService: RecipeBackgroundService) {
         this._backgroundService = backgroundService;
-
-        this._genericPictures.push("photo-1463569643904-4fbae71ed917.jpeg");
     }
 
     findPicture(title: string): Promise<string> {
         return this._backgroundService.getBackgrounds()
             .then(response => {
                 response.map(content => this._pictureQualifiers[content.fileName] = content.qualifiers);
+
+                for (var key in this._pictureQualifiers) {
+                    if (this._pictureQualifiers[key].indexOf("generic") >= 0) {
+                        this._genericPictures.push(key);
+                    }
+                }
             })
             .then(() => this._selectBackgroundPicture(title));
     }
 
     private _selectBackgroundPicture(title: string): string {
         const words: Array<string> = title.toLowerCase().split(" ");
-        var matches: PictureToMatchMap = {};
+        var matchPossibilities: Array<string> = [];
 
         // For each picture, compare the words in the recipe title to get a weight
         for (var key in this._pictureQualifiers) {
-            matches[key] = 0;
             words.forEach(word => {
                 // Skip the article words
                 if (word.length > 3 && this._pictureQualifiers[key].indexOf(word) >= 0) {
-                    matches[key]++;
-                }
-            });
-        }
-
-        // Every time a word is found, add this picture in the array
-        // TODO Put the push(key) in the preceding loop
-        var matchPossibilities: Array<string> = [];
-        for (var key in matches) {
-            if (matches[key] > 0) {
-                for (var i = 0; i < matches[key]; i++) {
+                    // Every time a word is found, add this picture in the array
                     matchPossibilities.push(key);
                 }
-            }
+            });
         }
 
         // If no match was found, pick a generic picture
@@ -67,8 +60,4 @@ export class BackgroundPicker {
 
 interface PictureToQualifiersMap {
     [picture: string]: Array<string>;
-}
-
-interface PictureToMatchMap {
-    [picture: string]: number;
 }
