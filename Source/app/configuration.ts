@@ -50,6 +50,7 @@ export function configure(aurelia) {
         .useTooltip()
         .useInput()
         .useAutoComplete()
+        .useTabs()
     });
 
     let recipeHttpService = new HttpClient();
