@@ -27,7 +27,7 @@ export class Main {
             title: this._i18n.tr("comments.pageTitle")
         },
         {
-            route: "administration",
+            route: "administration/recipes",
             name: "administration",
             moduleId: "app/quick-recipe/administration/index",
             title: this._i18n.tr("administration.pageTitle")

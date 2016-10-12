@@ -231,9 +231,9 @@ export class QuickRecipePage {
     var timerStepSubrecipe = this.subrecipes.filter(subrecipe => subrecipe.id == timerStep.subrecipeId)[0];
     timerStepSubrecipe.timers.push(timer);
 
-    that.recipe.steps
-      .filter(step => step.subrecipeId === timerStep.subrecipeId && step.id > timer.stepId)
-      .forEach(postStep => { postStep.isOnHold = true; });
+    // that.recipe.steps
+    //   .filter(step => step.subrecipeId === timerStep.subrecipeId && step.id > timer.stepId)
+    //   .forEach(postStep => { postStep.isOnHold = true; });
   }
 
   private onTimerEnded(timer: QuickRecipeTimer, that: QuickRecipePage): void {
@@ -243,9 +243,9 @@ export class QuickRecipePage {
     var index = timerStepSubrecipe.timers.indexOf(timer);
     timerStepSubrecipe.timers.splice(index, 1);
 
-    that.recipe.steps
-      .filter(step => step.subrecipeId === timerStep.subrecipeId && step.id > timer.stepId)
-      .forEach(postStep => { postStep.isOnHold = false; });
+    // that.recipe.steps
+    //   .filter(step => step.subrecipeId === timerStep.subrecipeId && step.id > timer.stepId)
+    //   .forEach(postStep => { postStep.isOnHold = false; });
   }
 
   private getNextUncompletedStepId(): number {
