@@ -53,6 +53,14 @@
 				left: 2%;
 				color: white;
 			}
+			.input-field button {
+				width: 50px;
+			    padding: 4px 0;
+
+				&:hover {
+					background-color: rgba(255, 255, 255, 0.25);
+				}
+			}
 			input {
 				text-align: center;
 				text-transform: uppercase;
@@ -61,24 +69,25 @@
 				background-color: rgba(255, 255, 255, 0.25);
 			    border-bottom: 1px solid rgba(255, 255, 255, 0.6);
 			    padding: 4px 0;
+				width: calc(100% - 54px);
 			}
 
-			.autocomplete-content {
-				margin-top: 2px;
-				display: block;
-				opacity: 1;
-			    width: calc(100% - 3rem);
-
-				li img {
-				    height: 40px;
-					width: 40px;
-				    margin: 5px 15px;
-				}
-				span.highlight {
-				    font-weight: bolder;
-				    text-decoration: underline;
-				}
-			}
+			// .autocomplete-content {
+			// 	margin-top: 2px;
+			// 	display: block;
+			// 	opacity: 1;
+			//     width: calc(100% - 3rem);
+			//
+			// 	li img {
+			// 	    height: 40px;
+			// 		width: 40px;
+			// 	    margin: 5px 15px;
+			// 	}
+			// 	span.highlight {
+			// 	    font-weight: bolder;
+			// 	    text-decoration: underline;
+			// 	}
+			// }
 		}
 	}
 

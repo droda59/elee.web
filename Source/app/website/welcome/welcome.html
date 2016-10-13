@@ -1,10 +1,29 @@
 <template>
 	<require from="app/shared/components/advanced-search/advanced-search"></require>
-	<require from="app/shared/custom-attributes/auto-complete-input"></require>
+	<!-- <require from="app/shared/custom-attributes/auto-complete-input"></require> -->
 
 	<div id="welcome-container">
 		<section id="search-container">
-			<div class="recipe-search white-text container">
+			<form class="recipe-search white-text container" submit.delegate="searchRecipes()" novalidate>
+				<div class="row">
+					<h1 i18n="home.slogan" class="s12 center">CookSimply</h1>
+				</div>
+				<div class="row">
+					<div class="input-field center col s12 m8 offset-m2 l6 offset-l3">
+						<input placeholder="Placeholder" t="[placeholder]home.search" type="text" value.bind="searchTerms">
+						<button type="submit" click.delegate="searchRecipes()" class="btn">
+							<i class="material-icons">search</i>
+						</button>
+					</div>
+				</div>
+				<div class="col s12 m6 offset-m2 l6 offset-l3 center">
+					${ 'home.advancedSearch.title' | t}
+				</div>
+				<!--<div id="advanced-search" class="col s12 m6 offset-m2 l6 offset-l3">
+					<advanced-search containerless time.bind="20" ingredients.bind="ingredients"></advanced-search>
+				</div>-->
+			</form>
+			<!-- <div class="recipe-search white-text container">
 				<div class="row">
 					<h1 i18n="home.slogan" class="s12 center">CookSimply</h1>
 				</div>
@@ -15,23 +34,17 @@
 							<i md-prefix class="material-icons">search</i>
 						</md-input>
 					</div>
-					<div class="col s12 m6 offset-m2 l6 offset-l3 center">
-						${ 'home.advancedSearch.title' | t}
-					</div>
-					<!--<div id="advanced-search" class="col s12 m6 offset-m2 l6 offset-l3">
-						<advanced-search containerless time.bind="20" ingredients.bind="ingredients"></advanced-search>
-					</div>-->
 				</div>
-			</div>
+			</div> -->
 		</section>
 
-		<!-- <section id="results-container" class="section container" show.bind="results">
+		<section id="results-container" class="section container" show.bind="results">
             <div class="row center underline-title">
                 <h3 class="title" i18n="home.results.title">Results</h3>
                 <hr />
             </div>
 
-            <div class="row" show.bind="results.length > 0">
+            <div class="row" show.bind="results.length">
                 <div class="row">
                     <div class="col s12 m6 l3" repeat.for="result of results">
                         <div class="card small sticky-action">
@@ -63,7 +76,7 @@
             <div class="row" show.bind="results.length === 0" i18n="home.results.noResult">
                 NoResult
             </div>
-        </section> -->
+        </section>
 
 		<section id="description-container" class="section">
 			<div class="row">

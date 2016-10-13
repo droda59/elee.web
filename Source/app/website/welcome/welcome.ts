@@ -9,11 +9,12 @@ import {QuickRecipeSearchResult} from "app/quick-recipe/shared/models/quick-reci
 export class Welcome extends BaseI18N {
 	private _router: Router;
 	private _service: QuickRecipeService;
-	private _fullResults: Array<QuickRecipeSearchResult> = [];
+	// private _fullResults: Array<QuickRecipeSearchResult> = [];
 
-	@bindable selectedRecipe: string;
-	results: any = undefined;
+	// @bindable selectedRecipe: string;
+	results: Array<QuickRecipeSearchResult> = undefined;
 	ingredients: Array<Object> = [];
+	searchTerms: string;
 
 	constructor(element: Element, router: Router, i18n: I18N, ea: EventAggregator, service: QuickRecipeService) {
 		super(i18n, element, ea);
@@ -26,16 +27,18 @@ export class Welcome extends BaseI18N {
 		this.ingredients.push(...defaultIngredients);
 	}
 
-	searchRecipes(value: string): void {
-		if (value && value.length >= 3) {
-			this._service.findRecipes(value)
+	searchRecipes(): void {
+		if (this.searchTerms && this.searchTerms.length >= 3) {
+			let searchContainer = $("#search-container")[0];
+			this._service.findRecipes(this.searchTerms)
 				.then(response => {
-					this._fullResults = response.slice(0, 8) as Array<QuickRecipeSearchResult>;
-					this.results = this._toObject(this._fullResults, x => x.title, x => x.smallImageUrl);
+					this.results = response.slice(0, 8) as Array<QuickRecipeSearchResult>;
+					$("html, body").animate({ scrollTop: searchContainer.offsetTop + searchContainer.offsetHeight }, 500);
+					// this.results = this._toObject(this._fullResults, x => x.title, x => x.smallImageUrl);
 				});
 		} else {
 			this.results = undefined;
-			this._fullResults = [];
+			// this._fullResults = [];
 		}
 	}
 
@@ -43,21 +46,21 @@ export class Welcome extends BaseI18N {
 		this._router.navigateToRoute("quick-recipe", { "id": id }, undefined);
 	}
 
-	selectedRecipeChanged(newValue: string) {
-		if (this._fullResults.length) {
-			var selected = this._fullResults.filter(x => x.title === newValue)[0];
-			if (selected) {
-				this.loadRecipe(selected._id);
-			}
-		}
-	}
+	// selectedRecipeChanged(newValue: string) {
+	// 	if (this._fullResults.length) {
+	// 		var selected = this._fullResults.filter(x => x.title === newValue)[0];
+	// 		if (selected) {
+	// 			this.loadRecipe(selected._id);
+	// 		}
+	// 	}
+	// }
 
-	private _toObject(arr, titleCallback, sourceCallback) {
-		var rv = {};
-		arr.forEach(x =>
-			rv[titleCallback(x)] = sourceCallback(x)
-		);
-
-		return rv;
-	}
+	// private _toObject(arr, titleCallback, sourceCallback) {
+	// 	var rv = {};
+	// 	arr.forEach(x =>
+	// 		rv[titleCallback(x)] = sourceCallback(x)
+	// 	);
+	//
+	// 	return rv;
+	// }
 }
