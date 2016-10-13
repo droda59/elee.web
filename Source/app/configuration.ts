@@ -7,6 +7,7 @@ export function configure(aurelia) {
     .standardConfiguration()
     .developmentLogging()
     .plugin("aurelia-animator-css")
+    .plugin("aurelia-ui-virtualization")
     .plugin("aurelia-dialog")
     .plugin("aurelia-dragula")
     .plugin("aurelia-i18n", (instance) => {
