@@ -27,6 +27,7 @@ module.exports = {
                 "aurelia-templating-binding",
                 "aurelia-templating-resources",
                 "aurelia-templating-router",
+                "aurelia-ui-virtualization",
                 "aurelia-google-analytics",
                 "aurelia-materialize-bridge"
             ],
