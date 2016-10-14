@@ -7,7 +7,8 @@
 	},
 	"administration": {
 		"pageTitle": "Administration",
-		"recipesToReview": "Recettes à réviser"
+		"recipesToReview": "Recettes à réviser",
+        "reviewedRecipes": "Recettes révisées"
 	},
     "backgrounds": {
         "pageTitle": "Arrière-plans de recettes",

@@ -18,7 +18,12 @@ export class QuickRecipeService {
     }
 
     getRecipesToReview(): Promise<Array<QuickRecipeSearchResult>> {
-        return this._httpClient.fetch("api/review")
+        return this._httpClient.fetch("api/quickrecipe/search/review?reviewed=false")
+            .then(response => response.json());
+    }
+
+    getReviewedRecipes(): Promise<Array<QuickRecipeSearchResult>> {
+        return this._httpClient.fetch("api/quickrecipe/search/review?reviewed=true")
             .then(response => response.json());
     }
 

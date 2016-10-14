@@ -1,0 +1,36 @@
+.E133 .administration {
+    span.badge {
+        font-weight: 300;
+        font-size: 0.8rem;
+        color: #fff;
+        background-color: #26a69a;
+        border-radius: 2px;
+    }
+    
+    .tabs .tab .collection {
+        margin: 0;
+        height: 48px;
+        line-height: 48px;
+
+        .collection-item {
+            padding: 0;
+            background-color: #fff;
+            color: #ee6e73;
+            top: 27%;
+            position: absolute;
+        }
+    }
+
+    .container .collection .collection-item {
+        .title {
+            width: 100%;
+            color: #26a69a;
+        }
+        .secondary-content {
+            float: none;
+            position: relative;
+            top: 0;
+            right: 0;
+        }
+    }
+}

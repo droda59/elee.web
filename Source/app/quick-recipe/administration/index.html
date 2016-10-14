@@ -1,16 +1,52 @@
 <template>
-    <div class="administration container">
-        <ul class="collection with-header">
-            <li class="collection-header">
-                <h4>${'administration.recipesToReview' | t}</h4>
+    <div class="administration">
+        <ul md-tabs class="z-depth-1">
+            <li>
+                <div class="collection">
+                    <a class="collection-item active" href="#recipes-to-review">
+                        ${'administration.recipesToReview' | t}
+                        <span show.bind="recipesToReview.length" class="badge">${recipesToReview.length}</span>
+                    </a>
+                </div>
             </li>
-            <li virtual-repeat.for="recipe of recipes" class="collection-item avatar">
-                <img src.bind="recipe.smallImageUrl" alt="" class="circle">
-                <span class="title">${recipe.title}</span>
-                <a href="#!" class="secondary-content" click.delegate="editRecipe(recipe.id)">
-                    <i class="material-icons">mode_edit</i>
-                </a>
+            <li>
+                <div class="collection">
+                    <a class="collection-item active" href="#recipes-recipes">
+                        ${'administration.reviewedRecipes' | t}
+                        <span show.bind="reviewedRecipes.length" class="badge">${reviewedRecipes.length}</span>
+                    </a>
+                </div>
             </li>
         </ul>
+        <div class="container">
+            <div id="recipes-to-review">
+                <ul class="collection with-header">
+                    <li class="collection-header">
+                        <h4>${'administration.recipesToReview' | t}</h4>
+                    </li>
+                    <li virtual-repeat.for="recipe of recipesToReview" class="collection-item avatar valign-wrapper">
+                        <img src.bind="recipe.smallImageUrl" alt="" class="circle">
+                        <a route-href="route: quick-recipe; params.bind: { id: recipe.id }" class="title">${recipe.title}</span>
+                        <a route-href="route: edit; params.bind: { id: recipe.id }" class="secondary-content">
+                            <i class="material-icons">mode_edit</i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div id="reviewed-recipes">
+                <ul class="collection with-header">
+                    <li class="collection-header">
+                        <h4>${'administration.reviewedRecipes' | t}</h4>
+                    </li>
+                    <li virtual-repeat.for="recipe of reviewedRecipes" class="collection-item avatar valign-wrapper">
+                        <img src.bind="recipe.smallImageUrl" alt="" class="circle">
+                        <span class="title">${recipe.title}</span>
+                        <a route-href="route: edit; params.bind: { id: recipe.id }" class="secondary-content">
+                            <i class="material-icons">mode_edit</i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </template>
