@@ -12,6 +12,7 @@
                             <div class="row col s6">
                                 <div class="input-field">
                                     <input value.bind="backgroundDefinition.fileName" id="filename-$index" type="text">
+                                    <label for="filename-$index" class="active">${ 'backgrounds.fileName' | t }</label>
                                 </div>
                                 <div class="input-field">
                                     <div md-chips="data.bind: backgroundDefinition.tagQualifiers;"></div>
