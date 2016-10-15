@@ -1,4 +1,5 @@
 import {Ingredient, IngredientDto} from "app/shared/models/ingredient";
+import {Quantity, QuantityDto} from "app/shared/models/quantity";
 import {PartFactory} from "app/quick-recipe/shared/part-factory";
 
 export class QuickRecipe implements QuickRecipeDto {
@@ -197,6 +198,32 @@ export class IngredientPart extends Part implements IngredientPartDto {
     }
 }
 export interface IngredientPartDto extends PartDto {
+    ingredient: IngredientDto;
+}
+
+export class QuantityOfIngredientPart extends Part implements QuantityOfIngredientPartDto {
+    quantity: Quantity;
+    ingredient: Ingredient;
+
+    constructor(stepId: number)
+    constructor(stepId: number, dto: QuantityOfIngredientPartDto)
+    constructor(stepId: number, dto?: QuantityOfIngredientPartDto) {
+        super(stepId, dto);
+
+        this.type = QuantityOfIngredientPart.type;
+
+        if (dto) {
+            this.quantity = new Quantity(dto.quantity);
+            this.ingredient = IngredientUnicityOverseer.getIngredient(dto.ingredient);
+        }
+    }
+
+    static get type() {
+        return "quantity";
+    }
+}
+export interface QuantityOfIngredientPartDto extends PartDto {
+    quantity: QuantityDto;
     ingredient: IngredientDto;
 }
 
