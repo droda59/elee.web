@@ -28,6 +28,14 @@
             bottom: inherit;
             display: inline-block;
             padding: 0;
+
+            ul {
+                bottom: 35px;
+
+                li {
+                    margin-bottom: 10px;
+                }
+            }
         }
     }
 
