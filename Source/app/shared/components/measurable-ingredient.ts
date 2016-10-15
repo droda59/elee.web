@@ -10,6 +10,7 @@ import {SettingsManager} from "app/shared/settings-manager";
 @inject(I18N, ObserverLocator, QuantityConverter, SettingsManager)
 export class MeasurableIngredient {
   @bindable ingredient: Ingredient = null;
+  @bindable quantity: Quantity = null;
   @bindable unit: string = null;
 
   showBoth: boolean;
@@ -18,7 +19,6 @@ export class MeasurableIngredient {
   convertibleMeasureUnit: Quantity;
   offConvertibleMeasureUnit: Quantity;
 
-  private _quantity: Quantity;
   private _i18n: I18N;
   private _quantityConverter: QuantityConverter;
   private _settingsManager: SettingsManager;
@@ -42,19 +42,19 @@ export class MeasurableIngredient {
   }
 
   bind() {
-    this._quantity = this.ingredient.quantity;
+    this.quantity = this.quantity || this.ingredient.quantity;
 
     this.ingredientName = this.ingredient.name.toLowerCase();
 
     // TODO This is a display concern. Move to value-converter if possible
-    this.nextWord = " " + (this._quantity.unit.type !== undefined
+    this.nextWord = " " + (this.quantity.unit.type !== undefined
       ? TextUtils.isVowel(this.ingredientName[0])
         ? this._i18n.tr("quantities.nextWordVowel")
         : this._i18n.tr("quantities.nextWordConsonant") + " "
       : "");
 
-    this._isVolumeUnit = this._quantity.unit.type === "volume";
-    this._isWeightUnit = this._quantity.unit.type === "weight";
+    this._isVolumeUnit = this.quantity.unit.type === "volume";
+    this._isWeightUnit = this.quantity.unit.type === "weight";
 
     var selectedDisplay = this.getSelectedDisplay();
     this.calculateConvertibleMeasureUnits(selectedDisplay);
@@ -81,11 +81,11 @@ export class MeasurableIngredient {
 
   private calculateConvertibleMeasureUnits(selectedDisplay: string): void {
     if (selectedDisplay === "both") {
-      this.convertibleMeasureUnit = this._quantityConverter.getBestConvertibleMeasureUnit(this._quantity, "metricShort");
-      this.offConvertibleMeasureUnit = this._quantityConverter.getBestConvertibleMeasureUnit(this._quantity, "imperialShort");
+      this.convertibleMeasureUnit = this._quantityConverter.getBestConvertibleMeasureUnit(this.quantity, "metricShort");
+      this.offConvertibleMeasureUnit = this._quantityConverter.getBestConvertibleMeasureUnit(this.quantity, "imperialShort");
       this.showBoth = this.offConvertibleMeasureUnit.unit !== this.convertibleMeasureUnit.unit;
     } else {
-      this.convertibleMeasureUnit = this._quantityConverter.getBestConvertibleMeasureUnit(this._quantity, selectedDisplay);
+      this.convertibleMeasureUnit = this._quantityConverter.getBestConvertibleMeasureUnit(this.quantity, selectedDisplay);
       this.showBoth = false;
     }
   }

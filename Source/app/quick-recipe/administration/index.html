@@ -40,7 +40,7 @@
                     </li>
                     <li virtual-repeat.for="recipe of reviewedRecipes" class="collection-item avatar valign-wrapper">
                         <img src.bind="recipe.smallImageUrl" alt="" class="circle">
-                        <span class="title">${recipe.title}</span>
+                        <a route-href="route: quick-recipe; params.bind: { id: recipe.id }" class="title">${recipe.title}</span>
                         <a route-href="route: edit; params.bind: { id: recipe.id }" class="secondary-content">
                             <i class="material-icons">mode_edit</i>
                         </a>

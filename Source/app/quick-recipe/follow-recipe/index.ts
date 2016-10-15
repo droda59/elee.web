@@ -3,7 +3,7 @@ import {DialogService} from "aurelia-dialog";
 import {CssAnimator} from "aurelia-animator-css";
 import {I18N} from "aurelia-i18n";
 import {QuickRecipeService} from "app/quick-recipe/shared/quick-recipe-service";
-import {QuickRecipe, Step, IngredientPart, IngredientEnumerationPart} from "app/quick-recipe/shared/models/quick-recipe";
+import {QuickRecipe, Step, IngredientPart, QuantityOfIngredientPart, IngredientEnumerationPart} from "app/quick-recipe/shared/models/quick-recipe";
 import {HelpOverlay} from "app/quick-recipe/follow-recipe/components/help-overlay";
 import {TimerCoordinator} from "app/quick-recipe/follow-recipe/timer-coordinator";
 import {BackgroundPicker} from "app/quick-recipe/follow-recipe/background-picker";
@@ -307,6 +307,10 @@ export class QuickRecipePage {
       step.parts
         .filter(part => part instanceof IngredientPart)
         .map((part: IngredientPart) => part.ingredient);
+
+      step.parts
+        .filter(part => part instanceof QuantityOfIngredientPart)
+        .forEach((part: QuantityOfIngredientPart) => ingredients.push(part.ingredient));
 
     step.parts
       .filter(part => part instanceof IngredientEnumerationPart)

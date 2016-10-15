@@ -118,22 +118,25 @@
                                         </a>
                                         <ul>
                                             <li>
-                                                <a class="btn-floating red" md-tooltip="position: right; text: ${ 'edit.step.deleteButton' | t };" click.trigger="removeStep(subrecipe, step)"><i class="material-icons">delete</i></a>
+                                                <a class="btn-floating red" md-tooltip="position: right; text: Supprimer;" click.trigger="removeStep(subrecipe, step)"><i class="material-icons">delete</i></a>
                                             </li>
                                             <li>
-                                                <a class="btn-floating" md-tooltip="position: right; text: ${ 'edit.step.part.text' | t };" click.trigger="addTextStepPart(step)"><i class="material-icons">subject</i></a>
+                                                <a class="btn-floating" md-tooltip="position: right; text: Texte;" click.trigger="addTextStepPart(step)"><i class="material-icons">subject</i></a>
                                             </li>
                                             <li>
-                                                <a class="btn-floating" md-tooltip="position: right; text: ${ 'edit.step.part.action' | t };" click.trigger="addActionStepPart(step)"><i class="material-icons">accessibility</i></a>
+                                                <a class="btn-floating" md-tooltip="position: right; text: Action;" click.trigger="addActionStepPart(step)"><i class="material-icons">accessibility</i></a>
                                             </li>
                                             <li>
-                                                <a class="btn-floating" md-tooltip="position: right; text: ${ 'edit.step.part.timer' | t };" click.trigger="addTimerStepPart(step)"><i class="material-icons">timer</i></a>
+                                                <a class="btn-floating" md-tooltip="position: right; text: Temps;" click.trigger="addTimerStepPart(step)"><i class="material-icons">timer</i></a>
                                             </li>
                                             <li>
-                                                <a class="btn-floating" md-tooltip="position: right; text: ${ 'edit.step.part.ingredient' | t };" click.trigger="addIngredientStepPart(subrecipe, step)"><i class="material-icons">shopping_cart</i></a>
+                                                <a class="btn-floating" md-tooltip="position: right; text: Ingrédient;" click.trigger="addIngredientStepPart(subrecipe, step)"><i class="material-icons">shopping_cart</i></a>
                                             </li>
                                             <li>
-                                                <a class="btn-floating" md-tooltip="position: right; text: ${ 'edit.step.part.enumeration' | t };" click.trigger="addEnumerationStepPart(step)"><i class="material-icons">list</i></a>
+                                                <a class="btn-floating" md-tooltip="position: right; text: Quantité d'ingrédient;" click.trigger="addQuantityOfIngredientStepPart(subrecipe, step)"><i class="material-icons">donut_small</i></a>
+                                            </li>
+                                            <li>
+                                                <a class="btn-floating" md-tooltip="position: right; text: Énumération;" click.trigger="addEnumerationStepPart(step)"><i class="material-icons">list</i></a>
                                             </li>
                                         </ul>
                                     </div>
