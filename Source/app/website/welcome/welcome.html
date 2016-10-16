@@ -16,12 +16,14 @@
 						</button>
 					</div>
 				</div>
-				<div class="col s12 m6 offset-m2 l6 offset-l3 center">
-					${ 'home.advancedSearch.title' | t}
+				<div class="row advanced-search-container">
+					<div class="col s12 m6 offset-m2 l6 offset-l3 center">
+						<i class="material-icons icon">expand_more</i> ${ 'home.advancedSearch.title' | t} <i class="material-icons icon">expand_more</i>
+					</div>
+					<div id="advanced-search" class="col s12 m6 offset-m2 l6 offset-l3">
+						<advanced-search containerless time.bind="20" ingredients.bind="ingredients"></advanced-search>
+					</div>
 				</div>
-				<!--<div id="advanced-search" class="col s12 m6 offset-m2 l6 offset-l3">
-					<advanced-search containerless time.bind="20" ingredients.bind="ingredients"></advanced-search>
-				</div>-->
 			</form>
 			<!-- <div class="recipe-search white-text container">
 				<div class="row">
@@ -39,44 +41,44 @@
 		</section>
 
 		<section id="results-container" class="section container" show.bind="results">
-            <div class="row center underline-title">
-                <h3 class="title" i18n="home.results.title">Results</h3>
-                <hr />
-            </div>
+			<div class="row center underline-title">
+				<h3 class="title" i18n="home.results.title">Results</h3>
+				<hr />
+			</div>
 
-            <div class="row" show.bind="results.length">
-                <div class="row">
-                    <div class="col s12 m6 l3" repeat.for="result of results">
-                        <div class="card small sticky-action">
-                            <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator" src.bind="result.smallImageUrl">
-                            </div>
-                            <div class="card-content">
-                                <span class="card-title truncate activator grey-text text-darken-4">${result.title}</span>
-                            </div>
-                            <div class="card-action">
-                                <a href="#" click.trigger="loadRecipe(result._id)" i18n="home.cookItNowButton">CookItNow</a>
-                            </div>
-                            <div class="card-reveal">
-                                <span class="card-title grey-text text-darken-4">${result.title}<i class="material-icons right">close</i></span>
-                                <p>Here is some more information about this product that is only revealed once clicked on.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+			<div class="row" show.bind="results.length">
+				<div class="row">
+					<div class="col s12 m6 l3" repeat.for="result of results">
+						<div class="card small sticky-action">
+							<div class="card-image waves-effect waves-block waves-light">
+								<img class="activator" src.bind="result.smallImageUrl">
+							</div>
+							<div class="card-content">
+								<span class="card-title truncate activator grey-text text-darken-4">${result.title}</span>
+							</div>
+							<div class="card-action">
+								<a href="#" click.trigger="loadRecipe(result._id)" i18n="home.cookItNowButton">CookItNow</a>
+							</div>
+							<div class="card-reveal">
+								<span class="card-title grey-text text-darken-4">${result.title}<i class="material-icons right">close</i></span>
+								<p>Here is some more information about this product that is only revealed once clicked on.</p>
+							</div>
+						</div>
+					</div>
+				</div>
 
-                <div class="row center">
-                    <button class="btn btn-large waves-effect waves-light" type="submit" name="action" i18n="home.results.more">
+				<div class="row center">
+					<button class="btn btn-large waves-effect waves-light" type="submit" name="action" i18n="home.results.more">
                         More
                         <i class="material-icons right">search</i>
                     </button>
-                </div>
-            </div>
+				</div>
+			</div>
 
-            <div class="row" show.bind="results.length === 0" i18n="home.results.noResult">
-                NoResult
-            </div>
-        </section>
+			<div class="row" show.bind="results.length === 0" i18n="home.results.noResult">
+				NoResult
+			</div>
+		</section>
 
 		<section id="description-container" class="section">
 			<div class="row">
