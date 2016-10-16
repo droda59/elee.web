@@ -19,6 +19,6 @@ gulp.task("watch-html", ["serve"], function () {
 });
 
 gulp.task("watch-sass", ["serve"], function () {
-    gulp.watch([paths.styles], { interval: 2000 }, ["build-sass"])
+    gulp.watch([paths.styles], { interval: 2000 }, ["build-sass", browserSync.stream])
         .on("change", reportChange);
 });
