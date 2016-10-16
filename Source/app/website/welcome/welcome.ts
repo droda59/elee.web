@@ -5,10 +5,8 @@ import {EventAggregator} from "aurelia-event-aggregator";
 import {QuickRecipeService} from "app/quick-recipe/shared/quick-recipe-service";
 import {QuickRecipeSearchResult} from "app/quick-recipe/shared/models/quick-recipe-search-result";
 
-@inject(Element, Router, I18N, EventAggregator, QuickRecipeService)
+@inject(Router, QuickRecipeService, Element, I18N, EventAggregator)
 export class Welcome extends BaseI18N {
-	private _router: Router;
-	private _service: QuickRecipeService;
 	// private _fullResults: Array<QuickRecipeSearchResult> = [];
 
 	// @bindable selectedRecipe: string;
@@ -16,15 +14,15 @@ export class Welcome extends BaseI18N {
 	ingredients: Array<Object> = [];
 	searchTerms: string;
 
-	constructor(element: Element, router: Router, i18n: I18N, ea: EventAggregator, service: QuickRecipeService) {
+	constructor(private _router: Router,
+				private _service: QuickRecipeService,
+				element: Element, 
+				i18n: I18N,
+				ea: EventAggregator) {
 		super(i18n, element, ea);
 
-		this._service = service;
-		this._router = router;
-
-		let defaultIngredients = [{ tag: "patate"}, {tag: "oignon"}, { tag: "vin" }];
-
-		this.ingredients.push(...defaultIngredients);
+		// let defaultIngredients = [{ tag: "patate"}, {tag: "oignon"}, { tag: "vin" }];
+		// this.ingredients.push(...defaultIngredients);
 	}
 
 	searchRecipes(): void {
