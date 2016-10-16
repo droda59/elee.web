@@ -1,18 +1,15 @@
 <template>
 	<div class="container advanced-search">
-		<h1>${'home.advancedSearch.title' | t}</h1>
 		<ul md-tabs class="z-depth-1">
 			<li><a class="active" href="#tab1"><i class="material-icons icon">kitchen</i> ${'home.advancedSearch.ingredients' | t}</a></li>
 			<li><a href="#tab2"><i class="material-icons icon">alarm</i> ${'home.advancedSearch.timeRequired' | t}</a></li>
 		</ul>
-		<div id="tab1" class="z-depth-1">
+		<div id="tab1" class="z-depth-1 ingredients">
 			<div md-chips="data.bind: ingredients"></div>
 		</div>
-		<div id="tab2" class="z-depth-1">
+		<div id="tab2" class="z-depth-1 required-time">
 			<md-range md-min="5" md-value.bind="time"></md-range>
-			<div>
-				Temps maximal : ${time} minutes
-			</div>
+			<p class="maximum-time">Temps maximal : ${time} minutes</p>
 		</div>	
 	</div>
 </template>

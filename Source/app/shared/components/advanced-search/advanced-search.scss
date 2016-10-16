@@ -1,5 +1,6 @@
 .advanced-search {
-	background: white;
+
+	background-color: rgba(white, 0.65);
 
     h1 {
 		font-size: 1.8em;
@@ -10,27 +11,61 @@
 	}
 
 	.tabs {
+		background-color: rgba(white, 0.7);
+
 		.tab {
+			opacity: 1;
 			a {
-				color: #8cbeb2;
+				color: black;
+				i {
+					vertical-align: middle;
+				}
 			}
 		}
 
 		.indicator {
-			background-color: #8cbeb2;;
+			background-color: black;
 		}
 	}
 
-	.chip {
-		border-radius: 0;
-		margin: 3px;
-		background: #8cbeb2;
-		color: white;
+	.ingredients {
+		.chip {
+			border-radius: 0;
+			margin: 3px;
+			background: rgba(black, 0.8);
+			font-weight: bold;
+			color: white;
+		}
+
+		.chips {
+			padding: 0 5px;
+			.input {
+				width: 120px!important;
+			}
+		}
 	}
 
-	.chips {
-		.input {
-			width: 120px!important;
+	.required-time {
+		color: black;
+
+		.range-field {
+			margin: 0;
+
+			input,
+			input[type=range] {
+				padding: 0 !important;
+				margin: 0;
+			}
+
+			.thumb {
+				background: rgba(black, 0.8);
+			}
+		}
+
+		p {
+			padding: 0 5px;
+			margin: 0;
+			font-weight: bold;
 		}
 	}
 }
