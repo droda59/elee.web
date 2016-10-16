@@ -1,5 +1,5 @@
 .advanced-search {
-
+	height: 125px;
 	background-color: rgba(white, 0.65);
 
     h1 {
@@ -10,11 +10,15 @@
 		font-size: 1.5em;
 	}
 
+	.z-depth-1 {
+		box-shadow: none;
+	}
+
 	.tabs {
 		background-color: rgba(white, 0.7);
 
 		.tab {
-			opacity: 1;
+
 			a {
 				color: black;
 				i {
@@ -41,6 +45,10 @@
 			padding: 0 5px;
 			.input {
 				width: 120px!important;
+				padding: 5px !important;
+				height: 20px;
+				background-color: rgba(0, 0, 0, 0.5) !important;
+				font-weight: normal;
 			}
 		}
 	}
@@ -61,11 +69,12 @@
 				background: rgba(black, 0.8);
 			}
 		}
+	}
 
-		p {
-			padding: 0 5px;
-			margin: 0;
-			font-weight: bold;
-		}
+	p {
+		padding: 0 5px;
+		margin: 0;
+		font-weight: bold;
+		color: black;
 	}
 }
