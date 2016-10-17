@@ -14,26 +14,24 @@
 
 			<div id="instructions" class="white-text center-align">
 				<section id="presentation-section" if.bind="!isRecipeDone && !isRecipeStarted" class="card-panel animated fadeInDownBig black-text">
-					<div class="container">
-						<div class="row">
-							<span>${'quickRecipe.servings' | t}</span>${recipe.originalServings}
-						</div>
+					<div class="row">
+						<span>${'quickRecipe.servings' | t}</span>${recipe.originalServings}
+					</div>
 
-						<div class="row">
-							<ul>
-								<li repeat.for="duration of recipe.durations">
-									${duration.title}: ${duration.time | durationFormat}
-								</li>
-							</ul>
-						</div>
+					<div class="row">
+						<ul>
+							<li repeat.for="duration of recipe.durations">
+								${duration.title}: ${duration.time | durationFormat}
+							</li>
+						</ul>
+					</div>
 
-						<div class="row" if.bind="recipe.note">
-							<p><span>${'quickRecipe.note' | t}</span>${recipe.note}</p>
-						</div>
+					<div class="row" if.bind="recipe.note">
+						<p><span>${'quickRecipe.note' | t}</span>${recipe.note}</p>
+					</div>
 
-						<div class="row center" show.bind="!isRecipeStarted" >
-							<a class="btn btn-large waves-effect waves-light" click.delegate="startRecipe()">${'quickRecipe.start' | t}</a>
-						</div>
+					<div class="row center" show.bind="!isRecipeStarted" >
+						<a class="btn btn-large waves-effect waves-light" click.delegate="startRecipe()">${'quickRecipe.start' | t}</a>
 					</div>
 				</section>
 

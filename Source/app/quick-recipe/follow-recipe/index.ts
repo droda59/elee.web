@@ -3,7 +3,7 @@ import {DialogService} from "aurelia-dialog";
 import {CssAnimator} from "aurelia-animator-css";
 import {I18N} from "aurelia-i18n";
 import {QuickRecipeService} from "app/quick-recipe/shared/quick-recipe-service";
-import {QuickRecipe, Step, IngredientPart, QuantityOfIngredientPart, IngredientEnumerationPart} from "app/quick-recipe/shared/models/quick-recipe";
+import {QuickRecipe, Step, IngredientPart, QuantityOfIngredientPart, EnumerationPart} from "app/quick-recipe/shared/models/quick-recipe";
 import {HelpOverlay} from "app/quick-recipe/follow-recipe/components/help-overlay";
 import {TimerCoordinator} from "app/quick-recipe/follow-recipe/timer-coordinator";
 import {BackgroundPicker} from "app/quick-recipe/follow-recipe/background-picker";
@@ -302,22 +302,28 @@ export class QuickRecipePage {
     return this.recipe.steps[stepId];
   }
 
-  private decorateStepIngredients(step: Step, state: string): void {
-    var ingredients: Ingredient[] =
-      step.parts
-        .filter(part => part instanceof IngredientPart)
-        .map((part: IngredientPart) => part.ingredient);
+    private decorateStepIngredients(step: Step, state: string): void {
+        var ingredients: Ingredient[] = [];
 
-      step.parts
-        .filter(part => part instanceof QuantityOfIngredientPart)
-        .forEach((part: QuantityOfIngredientPart) => ingredients.push(part.ingredient));
+        step.parts
+            .filter(part => part instanceof IngredientPart)
+            .forEach((part: IngredientPart) => ingredients.push(part.ingredient));
 
-    step.parts
-      .filter(part => part instanceof IngredientEnumerationPart)
-      .selectMany((part: IngredientEnumerationPart) => part.ingredients)
-      .forEach(enumeration => {
-        ingredients = ingredients.concat(enumeration.ingredient);
-      });
+        step.parts
+            .filter(part => part instanceof QuantityOfIngredientPart)
+            .forEach((part: QuantityOfIngredientPart) => ingredients.push(part.ingredient));
+
+        const enumerationParts = step.parts
+            .filter(part => part instanceof EnumerationPart)
+            .selectMany((part: EnumerationPart) => part.parts);
+
+        enumerationParts
+            .filter(part => part instanceof IngredientPart)
+            .forEach((part: IngredientPart) => ingredients.push(part.ingredient));
+
+        enumerationParts
+            .filter(part => part instanceof QuantityOfIngredientPart)
+            .forEach((part: QuantityOfIngredientPart) => ingredients.push(part.ingredient));
 
     ingredients.forEach(ingredient => {
       if (ingredient.state !== "done") {
