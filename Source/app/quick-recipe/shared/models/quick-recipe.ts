@@ -227,23 +227,18 @@ export interface QuantityOfIngredientPartDto extends PartDto {
     ingredient: IngredientDto;
 }
 
-export class IngredientEnumerationPart extends Part implements IngredientEnumerationPartDto {
-    ingredients: IngredientPart[];
+export class EnumerationPart extends Part implements EnumerationPartDto {
+    parts: Part[];
 
     constructor(stepId: number)
-    constructor(stepId: number, dto: IngredientEnumerationPartDto)
-    constructor(stepId: number, dto?: IngredientEnumerationPartDto) {
+    constructor(stepId: number, dto: EnumerationPartDto)
+    constructor(stepId: number, dto?: EnumerationPartDto) {
         super(stepId, dto);
 
-        this.type = IngredientEnumerationPart.type;
+        this.type = EnumerationPart.type;
 
         if (dto) {
-            this.ingredients = dto.ingredients.map(ingredient => {
-                var part = PartFactory.createPart(stepId, IngredientPart.type);
-                part.ingredient = ingredient;
-
-                return new IngredientPart(stepId, part);
-            });
+            this.parts = dto.parts.map(part => PartFactory.createPart(stepId, part.type, part));
         }
     }
 
@@ -251,8 +246,8 @@ export class IngredientEnumerationPart extends Part implements IngredientEnumera
         return "enumeration";
     }
 }
-export interface IngredientEnumerationPartDto extends PartDto {
-    ingredients: IngredientPartDto[];
+export interface EnumerationPartDto extends PartDto {
+    parts: PartDto[];
 }
 
 class IngredientUnicityOverseer {

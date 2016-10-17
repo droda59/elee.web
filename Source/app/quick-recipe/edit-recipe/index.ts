@@ -9,7 +9,7 @@ import {MeasureUnit} from "app/shared/models/measure-units/measure-unit";
 import {QuickRecipeService} from "app/quick-recipe/shared/quick-recipe-service";
 import {PartFactory} from "app/quick-recipe/shared/part-factory";
 import {QuickRecipe, Subrecipe, Step} from "app/quick-recipe/shared/models/quick-recipe";
-import {Part, TextPart, ActionPart, TimerPart, IngredientPart, QuantityOfIngredientPart, IngredientEnumerationPart}
+import {Part, TextPart, ActionPart, TimerPart, IngredientPart, QuantityOfIngredientPart, EnumerationPart}
     from "app/quick-recipe/shared/models/quick-recipe";
 import {EditionSubrecipe} from "app/quick-recipe/edit-recipe/models/edition-subrecipe";
 
@@ -162,8 +162,8 @@ export class EditRecipePage {
     }
 
     addEnumerationStepPart(step: Step): void {
-        var part = PartFactory.createPart(step.id, IngredientEnumerationPart.type);
-        part.ingredients = [];
+        var part = PartFactory.createPart(step.id, EnumerationPart.type);
+        part.parts = [];
 
         step.parts.push(part);
     }
@@ -191,9 +191,6 @@ export class EditRecipePage {
 
         this.steps.forEach(step => {
             step.id = stepId++;
-            step.parts.filter(part => part.type === IngredientEnumerationPart.type).forEach((part: IngredientEnumerationPart) => {
-                part.ingredients = part.ingredients.selectMany(x => x.ingredient);
-            });
         });
         this.recipe.steps = this.steps;
 

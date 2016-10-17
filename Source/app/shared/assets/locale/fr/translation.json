@@ -210,6 +210,12 @@
 			"ingredient": "Ingrédient",
 			"addButton": "Ingrédient"
 		},
+        "text": {
+            "addButton": "Texte"
+        },
+        "quantity": {
+            "addButton": "Quantité"
+        },
 		"step": {
 			"title": "Étapes",
 			"addButton": "Étape",

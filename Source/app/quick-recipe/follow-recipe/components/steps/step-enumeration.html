@@ -1,11 +1,7 @@
 <template>
-	<require from="app/shared/components/measurable-ingredient"></require>
-
 	<ul class="collection enumeration">
-		<li repeat.for="ingredientPart of ingredients" class="collection-item">
-			<!-- <input type="checkbox" id="${ingredientPart.ingredient.id}" /> -->
-			<!-- <label for="${ingredientPart.ingredient.id}"></label> -->
-			<measurable-ingredient containerless ingredient.bind="ingredientPart.ingredient"></measurable-ingredient>
+		<li repeat.for="part of parts" class="collection-item">
+			<compose model.bind="part" view-model="app/quick-recipe/follow-recipe/components/steps/step-${part.type}" containerless></compose>
 		</li>
 	</ul>
 </template>

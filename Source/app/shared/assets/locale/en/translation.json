@@ -203,7 +203,13 @@
             "unit": "Unit",
             "requirements": "Requirements",
             "ingredient": "Ingredient",
-            "addButton": "Add ingredient"
+            "addButton": "Ingredient"
+        },
+        "text": {
+            "addButton": "Text"
+        },
+        "quantity": {
+            "addButton": "Quantity"
         },
         "step": {
             "title": "Steps",
