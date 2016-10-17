@@ -1,0 +1,9 @@
+{
+    "api": "http://eleeapidev.azurewebsites.net/",
+    "development": {
+        "api": "http://eleeapidev.azurewebsites.net/"
+    },
+    "production": {
+        "api": "http://eleeapi.azurewebsites.net/"
+    }
+}

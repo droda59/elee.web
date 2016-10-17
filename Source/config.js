@@ -21,6 +21,7 @@ System.config({
     "aurelia-animator-css": "npm:aurelia-animator-css@1.0.1",
     "aurelia-binding": "npm:aurelia-binding@1.0.9",
     "aurelia-bootstrapper": "npm:aurelia-bootstrapper@1.0.1",
+    "aurelia-configuration": "npm:aurelia-configuration@1.0.11",
     "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.0.0",
     "aurelia-dialog": "npm:aurelia-dialog@1.0.0-beta.3.0.1",
     "aurelia-dragula": "npm:aurelia-dragula@1.2.6",
@@ -150,6 +151,13 @@ System.config({
       "aurelia-templating-binding": "npm:aurelia-templating-binding@1.0.0",
       "aurelia-templating-resources": "npm:aurelia-templating-resources@1.1.1",
       "aurelia-templating-router": "npm:aurelia-templating-router@1.0.0"
+    },
+    "npm:aurelia-configuration@1.0.11": {
+      "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.0.0",
+      "aurelia-loader": "npm:aurelia-loader@1.0.0",
+      "aurelia-loader-default": "npm:aurelia-loader-default@1.0.0",
+      "aurelia-path": "npm:aurelia-path@1.1.1",
+      "deep-extend": "npm:deep-extend@0.4.1"
     },
     "npm:aurelia-dependency-injection@1.0.0": {
       "aurelia-metadata": "npm:aurelia-metadata@1.0.2",
@@ -332,6 +340,9 @@ System.config({
       "systemjs-json": "github:systemjs/plugin-json@0.1.2"
     },
     "npm:core-util-is@1.0.2": {
+      "buffer": "github:jspm/nodelibs-buffer@0.1.0"
+    },
+    "npm:deep-extend@0.4.1": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0"
     },
     "npm:graceful-readlink@1.0.1": {
