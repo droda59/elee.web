@@ -1,9 +1,9 @@
-import {autoinject} from "aurelia-framework";
+import {inject, NewInstance} from "aurelia-framework";
 import {HttpClient} from "aurelia-fetch-client";
 import {BackgroundDefinitionDto} from "app/quick-recipe/backgrounds/models/background-definition";
 import "fetch";
 
-@autoinject()
+@inject(NewInstance.of(HttpClient))
 export class RecipeBackgroundService {
     private _httpClient: HttpClient;
 

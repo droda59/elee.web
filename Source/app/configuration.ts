@@ -8,6 +8,13 @@ export function configure(aurelia) {
     .developmentLogging()
     .plugin("aurelia-animator-css")
     .plugin("aurelia-ui-virtualization")
+    .plugin("aurelia-configuration", config => {
+        config.setDirectory("app/shared/config");
+        config.setEnvironments({
+            development: ["localhost", "eleedev.azurewebsites.net"],
+            production: ["elee.menu"]
+        });
+    })
     .plugin("aurelia-dialog")
     .plugin("aurelia-dragula")
     .plugin("aurelia-i18n", (instance) => {
@@ -53,21 +60,6 @@ export function configure(aurelia) {
         .useAutoComplete()
         .useTabs()
     });
-
-    let recipeHttpService = new HttpClient();
-    recipeHttpService.configure(config => {
-        config
-            .useStandardConfiguration()
-            .withDefaults({
-                headers: {
-                    "Accept": "application/json",
-                    "X-Requested-With": "Fetch"
-                }
-            })
-            .withBaseUrl("http://eleeapi.azurewebsites.net/");
-    });
-
-    aurelia.container.registerInstance("RecipeClient", recipeHttpService);
 
     aurelia.start().then(a => a.setRoot("app/main", document.body));
 

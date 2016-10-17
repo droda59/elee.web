@@ -16,6 +16,7 @@ module.exports = {
             includes: [
                 "aurelia-animator-css",
                 "aurelia-bootstrapper",
+                "aurelia-configuration",
                 "aurelia-dialog",
                 "aurelia-framework",
                 "aurelia-history-browser",
