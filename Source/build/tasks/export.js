@@ -10,7 +10,7 @@ gulp.task("export", function (callback) {
     return runSequence(
         ["clean", "export:clean"],
         "build",
-        ["bundle", "minify-css"],
+        ["bundle", "minify-css"/*, "images"*/],
         "export:copy",
         callback
     );
@@ -37,7 +37,7 @@ gulp.task("export:copy", function () {
         "jspm_packages/github/systemjs/plugin-text@**.js",
         "jspm_packages/github/systemjs/plugin-text@**/text.js",
         "jspm_packages/npm/jquery@**/dist/jquery.min.js",
-        "jspm_packages/npm/materialize-css@**/dist/js/materialize.min.js",
+        "jspm_packages/npm/materialize-css@**/bin/materialize.js",
         "jspm_packages/npm/moment@**/moment.js",
         "jspm_packages/npm/moment@**/locale/fr.js",
     ].concat(getBundles()), { base: "." })

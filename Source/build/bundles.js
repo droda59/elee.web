@@ -9,7 +9,8 @@ module.exports = {
             ],
             options: {
                 inject: true,
-                minify: true
+                minify: true,
+                rev: true
             }
         },
         "dist/aurelia-bundle": {
@@ -22,6 +23,7 @@ module.exports = {
                 "aurelia-history-browser",
                 "aurelia-fetch-client",
                 "aurelia-i18n",
+                "i18next-xhr-backend",
                 "aurelia-loader-default",
                 "aurelia-logging-console",
                 "aurelia-router",
