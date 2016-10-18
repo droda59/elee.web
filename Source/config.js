@@ -413,7 +413,7 @@ System.config({
     }
   },
   bundles: {
-    "aurelia-bundle-4d5330f655.js": [
+    "aurelia-bundle-eae86a8563.js": [
       "github:jspm/nodelibs-buffer@0.1.0.js",
       "github:jspm/nodelibs-buffer@0.1.0/index.js",
       "github:jspm/nodelibs-process@0.1.2.js",
@@ -608,6 +608,10 @@ System.config({
       "npm:buffer@3.6.0/index.js",
       "npm:deep-extend@0.4.1.js",
       "npm:deep-extend@0.4.1/lib/deep-extend.js",
+      "npm:i18next-xhr-backend@0.6.0.js",
+      "npm:i18next-xhr-backend@0.6.0/dist/commonjs/index.js",
+      "npm:i18next-xhr-backend@0.6.0/dist/commonjs/utils.js",
+      "npm:i18next-xhr-backend@0.6.0/index.js",
       "npm:i18next@3.4.3.js",
       "npm:i18next@3.4.3/dist/commonjs/BackendConnector.js",
       "npm:i18next@3.4.3/dist/commonjs/CacheConnector.js",
@@ -632,7 +636,7 @@ System.config({
       "npm:process@0.11.9.js",
       "npm:process@0.11.9/browser.js"
     ],
-    "app-bundle.js": [
+    "app-bundle-083d9aa900.js": [
       "app/configuration.js",
       "app/main.html!github:systemjs/plugin-text@0.0.4.js",
       "app/main.js",
