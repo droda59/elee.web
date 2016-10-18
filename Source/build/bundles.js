@@ -19,6 +19,7 @@ module.exports = {
                 "aurelia-bootstrapper",
                 "aurelia-configuration",
                 "aurelia-dialog",
+                "aurelia-dragula",
                 "aurelia-framework",
                 "aurelia-history-browser",
                 "aurelia-fetch-client",
