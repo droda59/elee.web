@@ -1,7 +1,7 @@
 <template>
 	<require from="app/quick-recipe/follow-recipe/components/quick-recipe-step"></require>
 	<require from="app/quick-recipe/follow-recipe/components/side-nav"></require>
-	<require from="app/quick-recipe/follow-recipe/components/recipe-progression.html"></require>
+	<require from="app/quick-recipe/follow-recipe/components/recipe-progression"></require>
 	<require from="app/shared/components/measurable-ingredient"></require>
 	<!-- <require from="shared/components/comments-form"></require> -->
 	<require from="app/shared/value-converters/duration-format"></require>
@@ -35,7 +35,7 @@
 					</div>
 				</section>
 
-				<section id="recipe-content" show.bind="isRecipeStarted && !isRecipeDone" class="au-animate">
+				<section id="recipe-content" if.bind="isRecipeStarted && !isRecipeDone" class="au-animate">
 					<quick-recipe-step
 						id="currentStep"
 						step.one-way="currentStep"
@@ -83,8 +83,8 @@
 			<side-nav subrecipes.one-time="subrecipes" recipe-id.one-time="recipe.id" containerless></side-nav>
 		</header>
 
-		<footer>
-			<recipe-progression activeSubrecipeId.bind="activeSubrecipeId" subrecipes.one-time="subrecipes" containerless></recipe-progression>
+		<footer if.bind="isRecipeStarted && !isRecipeDone" class="au-animate">
+			<recipe-progression subrecipes.one-time="subrecipes" containerless></recipe-progression>
 		</footer>
 	</div>
 </template>
