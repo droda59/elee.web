@@ -11,6 +11,10 @@ export class RecipeProgression {
         this._parentElement = parentElement;
     }
 
+    goToSubrecipe(subrecipeId: number): void {
+        this._parentElement.goToSubrecipe(subrecipeId);
+    }
+
     get activeSubrecipeId(): number {
         return this._parentElement.activeSubrecipeId;
     }
