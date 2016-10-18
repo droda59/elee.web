@@ -5,6 +5,7 @@
                 <div md-pushpin>
                     <ul class="section table-of-contents">
                         <li><a href="#summary">${ 'edit.summary.title' | t }</a></li>
+                        <li><a href="#durations">${ 'edit.durations.title' | t }</a></li>
                         <li><a href="#subrecipes">${ 'edit.subrecipe.title' | t }</a></li>
                         <li><a href="#ingredients">${ 'edit.ingredient.title' | t }</a></li>
                         <li><a href="#steps">${ 'edit.step.title' | t }</a></li>
@@ -33,6 +34,30 @@
                                     <label for="recipeNote">${ 'edit.summary.recipeNote' | t }</label>
                                 </div>
                             </div>
+                        </div>
+                    </section>
+
+                    <section id="durations" class="section scrollspy">
+                        <h2>${ 'edit.durations.title' | t }</h2>
+                        <div class="row valign-wrapper" repeat.for="duration of recipe.durations">
+                            <div class="col s1">
+                                <a class="btn-flat btn-floating btn-delete waves-effect waves-red" click.trigger="removeDuration(duration)">
+                                    <i class="material-icons red-text">delete</i>
+                                </a>
+                            </div>
+                            <div class="input-field col s6">
+                                <input value.bind="duration.title" id="durationTitle-${duration.title}" type="text">
+                                <label for="durationTitle-${duration.title}">${ 'edit.durations.durationTitle' | t }</label>
+                            </div>
+                            <div class="input-field col s5">
+                                <input value.bind="duration.time" id="durationTime-${duration.title}" type="text">
+                                <label for="durationTime-${duration.title}">${ 'edit.durations.durationTime' | t }</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <a class="btn-flat waves-effect waves-red red-text" click.trigger="addDuration()">
+                                <i class="material-icons left">add</i>${ 'edit.durations.addButton' | t }
+                            </a>
                         </div>
                     </section>
 
