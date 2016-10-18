@@ -20,7 +20,7 @@ export function configure(aurelia) {
       instance.i18next.use(Backend);
       return instance.setup({
         backend: {
-          loadPath: "/dist/app/shared/assets/locale/{{lng}}/{{ns}}.json"
+          loadPath: "/dist/app/shared/assets/locales/{{lng}}.json"
         },
         lng: "fr",
         attributes: ["t", "i18n"],
