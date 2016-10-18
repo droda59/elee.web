@@ -22,9 +22,7 @@ setlocal enabledelayedexpansion
 
 SET ARTIFACTS=%~dp0%..\artifacts
 
-IF NOT DEFINED DEPLOYMENT_SOURCE (
-  SET DEPLOYMENT_SOURCE=.\Source
-)
+SET DEPLOYMENT_SOURCE=%~dp0%.\Source
 
 IF NOT DEFINED DEPLOYMENT_TARGET (
   SET DEPLOYMENT_TARGET=%ARTIFACTS%\wwwroot
@@ -65,7 +63,7 @@ SET MSBUILD_PATH=%ProgramFiles(x86)%\MSBuild\14.0\Bin\MSBuild.exe
 :: Deployment
 :: ----------
 
-echo Handling .NET Web Application deployment.
+echo Handling Web Application deployment.
 
 IF !ERRORLEVEL! NEQ 0 goto error
 
@@ -101,6 +99,7 @@ IF DEFINED KUDU_SELECT_NODE_VERSION_CMD (
 )
 
 echo Handling npm and gulp
+echo Deployment Source at "%DEPLOYMENT_SOURCE%"
 
 :: 5.A Install npm packages
 IF EXIST "%DEPLOYMENT_SOURCE%\package.json" (
