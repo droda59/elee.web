@@ -1,4 +1,5 @@
 import {autoinject} from "aurelia-framework";
+import {Quantity} from "app/shared/models/quantity";
 import {Ingredient} from "app/shared/models/ingredient";
 import {EditRecipePage} from "app/quick-recipe/edit-recipe/index";
 import {IngredientPart, EnumerationPart, QuantityOfIngredientPart, TextPart} from "app/quick-recipe/shared/models/quick-recipe";
@@ -37,7 +38,7 @@ export class StepEnumeration {
     addQuantityOfIngredient(): void {
         var part = PartFactory.createPart(this.part.stepId, QuantityOfIngredientPart.type);
         part.ingredient = this.possibleIngredients[0];
-        part.quantity = this.possibleIngredients[0].quantity;
+        part.quantity = new Quantity(this.possibleIngredients[0].quantity);
 
         this.part.parts.push(part);
     }
