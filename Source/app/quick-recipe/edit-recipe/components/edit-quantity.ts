@@ -11,21 +11,21 @@ export class StepQuantityOfIngredient {
     part: QuantityOfIngredientPart;
     possibleIngredients: Array<Ingredient> = [];
     measureUnits: Array<MeasureUnit> = [];
-    parentelement: EditRecipePage;
 
+    private _parentElement: EditRecipePage;
     private _converter: QuantityHumanFormatValueConverter;
 
-    constructor(parentelement: EditRecipePage, converter: QuantityHumanFormatValueConverter, measureUnitProvider: MeasureUnitProvider){
+    constructor(parentElement: EditRecipePage, converter: QuantityHumanFormatValueConverter, measureUnitProvider: MeasureUnitProvider){
         this._converter = converter;
-        this.parentelement = parentelement;
+        this._parentElement = parentElement;
         this.measureUnits = measureUnitProvider.measureUnits;
     }
 
     activate(model: QuantityOfIngredientPart) {
         this.part = model;
 
-        var step = this.parentelement.findStep(this.part.stepId);
-        this.possibleIngredients = this.parentelement.ingredients.filter(ingredient => step.subrecipeId < 0 ? true : ingredient.subrecipeId === step.subrecipeId);
+        var step = this._parentElement.findStep(this.part.stepId);
+        this.possibleIngredients = this._parentElement.ingredients.filter(ingredient => step.subrecipeId < 0 ? true : ingredient.subrecipeId === step.subrecipeId);
     }
 
     getDisplayName(ingredient: Ingredient) {

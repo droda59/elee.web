@@ -1,9 +1,9 @@
 .E133 {
+    @import "../../../../shared/assets/css/variables";
     @import "side-nav";
     @import "recipe-progression";
     @import "help-overlay";
     @import "animations";
-    @import "../../../../shared/assets/css/variables";
 
     .quick-recipe-background {
         background-size: cover;
@@ -152,25 +152,44 @@
         }
 
         @media #{$small-and-down} {
-            main #instructions #recipe-content {
-                .step {
-                    padding: 4rem 1rem;
+            header {
+                h3 {
+                    margin: 0;
+                }
+            }
 
-                    .enumeration {
-                        margin: 1rem 0 1rem 1rem;
+            main {
+                .recipe-title {
+                    top: 8%;
+                    bottom: inherit;
+                    font-size: 2.2rem;
+                }
 
-                        .collection-item {
-                            padding: 10px 0;
+                #instructions {
+                    left: 5%;
+                    width: 90%;
+                    height: 60%;
+                    top: 30%;
+
+                    #recipe-content {
+                        .step {
+                            padding: 4rem 4rem 1rem 1rem;
+
                             .emphasis {
                                 font-size: 1.3em;
                             }
+                            .technical {
+                                font-size: 1.2em;
+                            }
                         }
-                    }
-                    .emphasis {
-                        font-size: 1.5em;
-                    }
-                    .technical {
-                        font-size: 1.5em;
+
+                        .navigation-pills {
+                                width: 40px;
+
+                            .btn {
+                                display: inline-block;
+                            }
+                        }
                     }
                 }
             }
