@@ -7,7 +7,8 @@ var paths = require("../paths");
 
 gulp.task("minify-css", function () {
     return gulp.src(paths.outputApp + "style.css")
-        .pipe(cleanCSS());
+        .pipe(cleanCSS())
+        .pipe(gulp.dest(paths.outputApp));
 });
 
 gulp.task("images", function () {
