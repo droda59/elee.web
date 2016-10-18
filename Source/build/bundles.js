@@ -20,11 +20,11 @@ module.exports = {
                 "aurelia-configuration",
                 "aurelia-dialog",
                 "aurelia-dragula",
+                "aurelia-dragula/**/*.css!text",
                 "aurelia-framework",
                 "aurelia-history-browser",
                 "aurelia-fetch-client",
                 "aurelia-i18n",
-                "i18next-xhr-backend",
                 "aurelia-loader-default",
                 "aurelia-logging-console",
                 "aurelia-router",
@@ -33,7 +33,11 @@ module.exports = {
                 "aurelia-templating-router",
                 "aurelia-ui-virtualization",
                 "aurelia-google-analytics",
-                "aurelia-materialize-bridge"
+                "aurelia-materialize-bridge",
+                "aurelia-materialize-bridge/**/*.html!text",
+                "aurelia-materialize-bridge/**/*.css!text",
+                "i18next-xhr-backend",
+                "fetch"
             ],
             options: {
                 inject: true,
