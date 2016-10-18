@@ -11,10 +11,6 @@
 			</div>
 			<div class="col s11">
 				<compose model.bind="part" view-model="app/quick-recipe/edit-recipe/components/edit-${part.type}" containerless></compose>
-				<!--
-				<select md-select value.two-way="part.ingredient">
-					<option repeat.for="possibleIngredient of possibleIngredients" model.bind="possibleIngredient">${possibleIngredient.quantity | quantityHumanFormat} ${possibleIngredient.name}</option>
-				</select> -->
 			</div>
 		</li>
 		<div class="row">

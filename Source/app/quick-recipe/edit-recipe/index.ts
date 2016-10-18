@@ -9,7 +9,7 @@ import {Ingredient} from "app/shared/models/ingredient";
 import {MeasureUnit} from "app/shared/models/measure-units/measure-unit";
 import {QuickRecipeService} from "app/quick-recipe/shared/quick-recipe-service";
 import {PartFactory} from "app/quick-recipe/shared/part-factory";
-import {QuickRecipe, Subrecipe, Step} from "app/quick-recipe/shared/models/quick-recipe";
+import {QuickRecipe, Duration, Subrecipe, Step} from "app/quick-recipe/shared/models/quick-recipe";
 import {Part, TextPart, ActionPart, TimerPart, IngredientPart, QuantityOfIngredientPart, EnumerationPart}
     from "app/quick-recipe/shared/models/quick-recipe";
 import {EditionSubrecipe} from "app/quick-recipe/edit-recipe/models/edition-subrecipe";
@@ -70,6 +70,16 @@ export class EditRecipePage {
         } else {
             return confirm(this._i18n.tr("edit.exitConfirmation"));
         }
+    }
+
+    addDuration(): void {
+        var newDuration = new Duration();
+
+        this.recipe.durations.push(newDuration);
+    }
+
+    removeDuration(duration: Duration): void {
+        this.recipe.durations.removeFromArray(duration);
     }
 
     addSubrecipe(): void {
