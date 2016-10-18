@@ -10,7 +10,7 @@ gulp.task("export", function (callback) {
     return runSequence(
         ["clean", "export:clean"],
         "build",
-        ["bundle", "minify-css", "images"],
+        ["bundle", "minify-css"],
         "export:copy",
         callback
     );
