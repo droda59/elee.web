@@ -6,29 +6,29 @@
                     <li class="overlay-item-back-to-current">
                         <img src="dist/app/quick-recipe/follow-recipe/assets/images/helpBackToCurrentStep.png" class="x-right y-bottom">
                         <div class="caption left-align">
-                            <h3 i18n="help.backToCurrentStepTitle"></h3>
-                            <h5 class="light grey-text text-lighten-3" i18n="help.backToCurrentStepDescription"></h5>
+                            <h3>${'help.backToCurrentStepTitle' | t}</h3>
+                            <h5 class="light grey-text text-lighten-3">${'help.backToCurrentStepDescription' | t}</h5>
                         </div>
                     </li>
                     <li class="overlay-item-complete-step">
                         <img src="dist/app/quick-recipe/follow-recipe/assets/images/helpCompleteStep.png" class="x-right y-bottom">
                         <div class="caption center-align">
-                            <h3 i18n="help.completeStepTitle"></h3>
-                            <h5 class="light grey-text text-lighten-3" i18n="help.completeStepDescription"></h5>
+                            <h3>${'help.completeStepTitle' | t}</h3>
+                            <h5 class="light grey-text text-lighten-3">${'help.completeStepDescription' | t}</h5>
                         </div>
                     </li>
                     <li class="overlay-item-timers">
                         <img src="dist/app/quick-recipe/follow-recipe/assets/images/helpTimers.png" class="x-right y-top">
                         <div class="caption left-align bottom">
-                            <h3 i18n="help.timersTitle"></h3>
-                            <h5 class="light grey-text text-lighten-3" i18n="help.timersDescription"></h5>
+                            <h3>${'help.timersTitle' | t}</h3>
+                            <h5 class="light grey-text text-lighten-3">${'help.timersDescription' | t}</h5>
                         </div>
                     </li>
                     <li class="overlay-item-settings">
                         <img src="dist/app/quick-recipe/follow-recipe/assets/images/helpSettings.png" class="x-right y-top">
                         <div class="caption center-align bottom">
-                            <h3 i18n="help.settingsTitle"></h3>
-                            <h5 class="light grey-text text-lighten-3" i18n="help.settingsDescription"></h5>
+                            <h3>${'help.settingsTitle' | t}</h3>
+                            <h5 class="light grey-text text-lighten-3">${'help.settingsDescription' | t}</h5>
                         </div>
                     </li>
                 </ul>
@@ -38,7 +38,7 @@
 		<ai-dialog-footer>
 			<button click.delegate="slider.prev()" class="waves-effect btn-flat"><i class="material-icons">keyboard_arrow_left</i></button>
 			<button click.delegate="slider.next()" class="waves-effect btn-flat"><i class="material-icons">keyboard_arrow_right</i></button>
-            <button click.trigger="controller.ok()" class="modal-action modal-close waves-effect btn-flat" i18n="help.okButton">Ok</button>
+            <button click.trigger="controller.ok()" class="modal-action modal-close waves-effect btn-flat">${'help.okButton' | t}</button>
 		</ai-dialog-footer>
 	</ai-dialog>
 </template>
