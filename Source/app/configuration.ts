@@ -69,9 +69,9 @@ export function configure(aurelia) {
     moment.relativeTimeThreshold("d", 28);
     moment.relativeTimeThreshold("M", 12);
 
-    String.prototype.format = function(format) {
-        var args = Array.prototype.slice.call(arguments, 1);
-        return format.replace(/{(\d+)}/g, (match, number) => {
+    String.prototype.format = function() {
+        var args = arguments;
+        return this.replace(/{(\d+)}/g, (match, number) => {
             return typeof args[number] !== "undefined" ? args[number] : match;
         });
     };
@@ -97,7 +97,7 @@ export function configure(aurelia) {
 
 declare global {
     interface String {
-        format(format): string;
+        format(): string;
         replaceAll(search, replacement): string;
     }
 
