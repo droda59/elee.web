@@ -112,7 +112,7 @@ IF EXIST "%DEPLOYMENT_SOURCE%\package.json" (
 :: 5.B Install jspm packages
 IF EXIST "%DEPLOYMENT_SOURCE%\package.json" (
   pushd "%DEPLOYMENT_SOURCE%"
-  call :ExecuteCmd .\node_modules\.bin\jspm install
+  call :ExecuteCmd .\node_modules\jspm\jspm.js install
   IF !ERRORLEVEL! NEQ 0 goto error
   popd
 )
@@ -120,7 +120,7 @@ IF EXIST "%DEPLOYMENT_SOURCE%\package.json" (
 :: 6. Run gulp transformations
 IF EXIST "%DEPLOYMENT_SOURCE%\gulpfile.js" (
   pushd "%DEPLOYMENT_SOURCE%"
-  call :ExecuteCmd .\node_modules\.bin\gulp export
+  call :ExecuteCmd .\node_modules\gulp\bin\gulp.js export
   IF !ERRORLEVEL! NEQ 0 goto error
   popd
 )
