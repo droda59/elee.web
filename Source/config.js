@@ -413,7 +413,7 @@ System.config({
     }
   },
   bundles: {
-    "aurelia-bundle-eae86a8563.js": [
+    "aurelia-bundle-48f9df6974.js": [
       "github:jspm/nodelibs-buffer@0.1.0.js",
       "github:jspm/nodelibs-buffer@0.1.0/index.js",
       "github:jspm/nodelibs-process@0.1.2.js",
@@ -447,6 +447,15 @@ System.config({
       "npm:aurelia-dialog@1.0.0-beta.3.0.1/dialog-service.js",
       "npm:aurelia-dialog@1.0.0-beta.3.0.1/lifecycle.js",
       "npm:aurelia-dialog@1.0.0-beta.3.0.1/renderer.js",
+      "npm:aurelia-dragula@1.2.6.js",
+      "npm:aurelia-dragula@1.2.6/classes.js",
+      "npm:aurelia-dragula@1.2.6/dragula.js",
+      "npm:aurelia-dragula@1.2.6/emitter.js",
+      "npm:aurelia-dragula@1.2.6/index.js",
+      "npm:aurelia-dragula@1.2.6/move-before.js",
+      "npm:aurelia-dragula@1.2.6/options.js",
+      "npm:aurelia-dragula@1.2.6/touchy.js",
+      "npm:aurelia-dragula@1.2.6/util.js",
       "npm:aurelia-event-aggregator@1.0.0.js",
       "npm:aurelia-event-aggregator@1.0.0/aurelia-event-aggregator.js",
       "npm:aurelia-fetch-client@1.0.1.js",
