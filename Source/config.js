@@ -8,7 +8,7 @@ System.config({
   },
   packages: {
     "materialize-css": {
-      "main": "bin/materialize.js",
+      "main": "dist/js/materialize.min.js",
       "map": {
         "bin/materialize.css": "dist/app/style.css"
       }
