@@ -2,7 +2,7 @@
     <require from="app/website/components/page-header/page-header"></require>
     <require from="app/website/components/page-footer/page-footer"></require>
 
-    <nav id="page-header">
+    <nav id="page-header" class="${router.currentInstruction.config.name}">
         <page-header containerless></page-header>
     </nav>
     <router-view></router-view>
