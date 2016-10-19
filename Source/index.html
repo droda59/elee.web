@@ -21,24 +21,53 @@
 
 <body aurelia-app="app/configuration">
     <div class="splash center-align">
-        <h1>elee.menu</h1>
-        <h4>cook smarter</h4>
+        <div class="row">
+            <div class="col s12">
+                <h1>elee.menu</h1>
+            </div>
+        </div>
+		<section id="description-container" class="section">
+			<div class="row">
+				<div class="col s12 m6 offset-m3 center">
+					<p class="light center flow-text">elee.menu vous guide pas-à-pas à travers chaque étape de vos recettes, et permet de vous éviter les erreurs fréquentes lorsque vous préparer vos festins</p>
+				</div>
+			</div>
+		</section>
 
         <div class="row">
-            <div class="div col s4 offset-s4">
-                <div class="progress">
-                    <div class="indeterminate"></div>
-                </div>
+            <div class="progress col s12 m8 offset-m2">
+                <div class="indeterminate"></div>
             </div>
         </div>
 
-        <h5>with <span class="purple-text darken-2">Aurelia</span></h5>
+        <section id="how-it-works-container" class="section grey lighten-4">
+			<div class="container row short">
+				<div class="col s12 m4">
+					<div class="center promo">
+						<p class="promo-caption">1- Choisissez une recette</p>
+						<p class="light center">Rechercher une recette dont vous avez le goût</p>
+					</div>
+				</div>
+				<div class="col s12 m4">
+					<div class="center promo">
+						<p class="promo-caption">2- Cuisinez-la</p>
+						<p class="light center">Suivez la recette en utilisant l'application</p>
+					</div>
+				</div>
+				<div class="col s12 m4">
+					<div class="center promo">
+						<p class="promo-caption">3- Appréciez</p>
+						<p class="light center">Appréciez votre repas; vous le méritez!</p>
+					</div>
+				</div>
+			</div>
+		</section>
     </div>
 
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en,Intl.~locale.fr"></script>
     <script src="jspm_packages/system.js"></script>
     <script src="config.js"></script>
-    <script src="jspm_packages/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+    <script src="jspm_packages/npm/jquery@3.1.1/dist/jquery.min.js"></script>
     <script src="jspm_packages/npm/moment@2.15.1/moment.js"></script>
     <script src="jspm_packages/npm/moment@2.15.1/locale/fr.js"></script>
     <script>

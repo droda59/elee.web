@@ -1,12 +1,11 @@
 <template>
 	<require from="app/shared/components/advanced-search/advanced-search"></require>
-	<!-- <require from="app/shared/custom-attributes/auto-complete-input"></require> -->
 
 	<div id="welcome-container">
 		<section id="search-container">
 			<form class="recipe-search white-text container" submit.delegate="searchRecipes()" novalidate>
 				<div class="row">
-					<h1 i18n="home.slogan" class="s12 center">CookSimply</h1>
+					<h1 class="s12 center">${'home.slogan' | t}</h1>
 				</div>
 				<div class="row">
 					<div class="input-field center col s12 m8 offset-m2 l6 offset-l3">
@@ -25,24 +24,11 @@
 					</div>
 				</div>
 			</form>
-			<!-- <div class="recipe-search white-text container">
-				<div class="row">
-					<h1 i18n="home.slogan" class="s12 center">CookSimply</h1>
-				</div>
-				<div class="row">
-					<div class="col s12 m6 offset-m2 l6 offset-l3">
-						<md-input md-value.bind="selectedRecipe" md-autocomplete="values.bind: results;" md-placeholder="${'home.search' | t}" auto-complete="callback.call: searchRecipes(value)"
-							type="text">
-							<i md-prefix class="material-icons">search</i>
-						</md-input>
-					</div>
-				</div>
-			</div> -->
 		</section>
 
 		<section id="results-container" class="section container" show.bind="results">
 			<div class="row center underline-title">
-				<h3 class="title" i18n="home.results.title">Results</h3>
+				<h3 class="title">${'home.results.title' | t}</h3>
 				<hr />
 			</div>
 
@@ -57,7 +43,7 @@
 								<span class="card-title truncate activator grey-text text-darken-4">${result.title}</span>
 							</div>
 							<div class="card-action">
-								<a href="#" click.trigger="loadRecipe(result._id)" i18n="home.cookItNowButton">CookItNow</a>
+								<a href="#" click.trigger="loadRecipe(result._id)">${'home.cookItNowButton' | t}</a>
 							</div>
 							<div class="card-reveal">
 								<span class="card-title grey-text text-darken-4">${result.title}<i class="material-icons right">close</i></span>
@@ -68,44 +54,44 @@
 				</div>
 
 				<div class="row center">
-					<button class="btn btn-large waves-effect waves-light" type="submit" name="action" i18n="home.results.more">
-                        More
+					<button class="btn btn-large waves-effect waves-light" type="submit" name="action">
+                        ${'home.results.more' | t}
                         <i class="material-icons right">search</i>
                     </button>
 				</div>
 			</div>
 
-			<div class="row" show.bind="results.length === 0" i18n="home.results.noResult">
-				NoResult
+			<div class="row" show.bind="results.length === 0">
+				${'home.results.noResult' | t}
 			</div>
 		</section>
 
 		<section id="description-container" class="section">
-			<div class="row">
+			<div class="row short">
 				<div class="col s12 m6 offset-m3 center promo">
-					<p class="light center" i18n="home.mainDescription">MainDescription</p>
+					<p class="light center">${'home.mainDescription' | t}</p>
 				</div>
 			</div>
 		</section>
 
 		<section id="how-it-works-container" class="section">
-			<div class="container row">
+			<div class="container row short">
 				<div class="col s12 m4">
 					<div class="center promo">
-						<p class="promo-caption" i18n="home.steps.step1Title">Step1Title</p>
-						<p class="light center" i18n="home.steps.step1Description">Step1Description</p>
+						<p class="promo-caption">${'home.steps.step1Title' | t}</p>
+						<p class="light center">${'home.steps.step1Description' | t}</p>
 					</div>
 				</div>
 				<div class="col s12 m4">
 					<div class="center promo">
-						<p class="promo-caption" i18n="home.steps.step2Title">Step2Title</p>
-						<p class="light center" i18n="home.steps.step2Description">Step2Description</p>
+						<p class="promo-caption">${'home.steps.step2Title' | t}</p>
+						<p class="light center">${'home.steps.step2Description' | t}</p>
 					</div>
 				</div>
 				<div class="col s12 m4">
 					<div class="center promo">
-						<p class="promo-caption" i18n="home.steps.step3Title">Step3Title</p>
-						<p class="light center" i18n="home.steps.step3Description">Step3Description</p>
+						<p class="promo-caption">${'home.steps.step3Title' | t}</p>
+						<p class="light center">${'home.steps.step3Description' | t}</p>
 					</div>
 				</div>
 			</div>
@@ -113,36 +99,36 @@
 
 		<section id="features-container">
 			<div class="container">
-				<div class="row">
+				<div class="row short">
 					<div class="col s12 m3">
 						<div class="center promo">
 							<i class="material-icons icon">devices</i>
-							<p class="promo-caption" i18n="home.features.feature1Title">Title</p>
-							<p class="light center" i18n="home.features.feature1Description">Description</p>
+							<p class="promo-caption">${'home.features.feature1Title' | t}</p>
+							<p class="light center">${'home.features.feature1Description' | t}</p>
 						</div>
 					</div>
 
 					<div class="col s12 m3">
 						<div class="center promo">
 							<i class="material-icons icon">cloud</i>
-							<p class="promo-caption" i18n="home.features.feature2Title">Title</p>
-							<p class="light center" i18n="home.features.feature2Description">Description</p>
+							<p class="promo-caption">${'home.features.feature2Title' | t}</p>
+							<p class="light center">${'home.features.feature2Description' | t}</p>
 						</div>
 					</div>
 
 					<div class="col s12 m3">
 						<div class="center promo">
 							<i class="material-icons icon">shopping_cart</i>
-							<p class="promo-caption" i18n="home.features.feature3Title">Title</p>
-							<p class="light center" i18n="home.features.feature3Description">Description</p>
+							<p class="promo-caption">${'home.features.feature3Title' | t}</p>
+							<p class="light center">${'home.features.feature3Description' | t}</p>
 						</div>
 					</div>
 
 					<div class="col s12 m3">
 						<div class="center promo">
 							<i class="material-icons icon">alarm</i>
-							<p class="promo-caption" i18n="home.features.feature4Title">Title</p>
-							<p class="light center" i18n="home.features.feature4Description">Description</p>
+							<p class="promo-caption">${'home.features.feature4Title' | t}</p>
+							<p class="light center">${'home.features.feature4Description' | t}</p>
 						</div>
 					</div>
 				</div>
@@ -151,21 +137,21 @@
 
 		<section id="moar-to-come-container">
 			<div class="row center underline-title">
-				<h3 class="title" i18n="home.moar.title">Moar</h3>
+				<h3 class="title">${'home.moar.title' | t}</h3>
 				<hr />
 			</div>
 			<div class="row description">
 				<div class="col s12 m6 offset-m3">
 					<div class="row">
-						<p class="light" i18n="home.moar.description">Description</p>
+						<p class="light">${'home.moar.description' | t}</p>
 						<ul class="collection">
-							<li class="collection-item" i18n="home.moar.nextFeatures1">Feature</li>
-							<li class="collection-item" i18n="home.moar.nextFeatures2">Feature</li>
-							<li class="collection-item" i18n="home.moar.nextFeatures3">Feature</li>
-							<li class="collection-item" i18n="home.moar.nextFeatures4">Feature</li>
-							<li class="collection-item" i18n="home.moar.nextFeatures5">Feature</li>
+							<li class="collection-item">${'home.moar.nextFeatures1' | t}</li>
+							<li class="collection-item">${'home.moar.nextFeatures2' | t}</li>
+							<li class="collection-item">${'home.moar.nextFeatures3' | t}</li>
+							<li class="collection-item">${'home.moar.nextFeatures4' | t}</li>
+							<li class="collection-item">${'home.moar.nextFeatures5' | t}</li>
 						</ul>
-						<p class="light" i18n="home.moar.keepUpToDate">KeepUpToDate</p>
+						<p class="light">${'home.moar.keepUpToDate' | t}</p>
 					</div>
 				</div>
 			</div>

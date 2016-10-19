@@ -9,7 +9,8 @@ module.exports = {
             ],
             options: {
                 inject: true,
-                minify: true
+                minify: true,
+                rev: true
             }
         },
         "dist/aurelia-bundle": {
@@ -18,6 +19,8 @@ module.exports = {
                 "aurelia-bootstrapper",
                 "aurelia-configuration",
                 "aurelia-dialog",
+                "aurelia-dragula",
+                "aurelia-dragula/**/*.css!text",
                 "aurelia-framework",
                 "aurelia-history-browser",
                 "aurelia-fetch-client",
@@ -30,7 +33,11 @@ module.exports = {
                 "aurelia-templating-router",
                 "aurelia-ui-virtualization",
                 "aurelia-google-analytics",
-                "aurelia-materialize-bridge"
+                "aurelia-materialize-bridge",
+                "aurelia-materialize-bridge/**/*.html!text",
+                "aurelia-materialize-bridge/**/*.css!text",
+                "i18next-xhr-backend",
+                "fetch"
             ],
             options: {
                 inject: true,

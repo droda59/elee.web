@@ -21,9 +21,9 @@ export class QuickRecipePage {
   isRecipeStarted: boolean;
   isRecipeDone: boolean;
   backgroundPicture: string;
+  navigationStepId: number = undefined;
 
   private _currentStepId: number = undefined;
-  private _navigationStepId: number = undefined;
   private _timerCoordinator: TimerCoordinator;
   private _dialogService: DialogService;
   private _service: QuickRecipeService;
@@ -100,7 +100,7 @@ export class QuickRecipePage {
     this._currentStepId = this.getNextUncompletedStepId();
     this.currentStep = this.recipe.steps.filter(step => step.id === this._currentStepId)[0];
 
-    this._navigationStepId = this._currentStepId;
+    this.navigationStepId = this._currentStepId;
     this.goToCurrentStep();
 
     var element = $("#presentation-section");
@@ -153,7 +153,7 @@ export class QuickRecipePage {
     this._currentStepId = nextStepId;
     this.currentStep = this.recipe.steps.filter(step => step.id === this._currentStepId)[0];
 
-    this._navigationStepId = this._currentStepId;
+    this.navigationStepId = this._currentStepId;
     this.goToStepId(this._currentStepId);
   }
 
@@ -162,14 +162,14 @@ export class QuickRecipePage {
       return;
     }
 
-    this.triggerSubrecipeChangeAnimation(this._navigationStepId, this._navigationStepId - 1);
-    this.decorateStepIngredients(this.getStep(this._navigationStepId), "");
+    this.triggerSubrecipeChangeAnimation(this.navigationStepId, this.navigationStepId - 1);
+    this.decorateStepIngredients(this.getStep(this.navigationStepId), "");
 
-    this._navigationStepId--;
-    this._currentStepId = this._navigationStepId;
+    this.navigationStepId--;
+    this._currentStepId = this.navigationStepId;
     this.currentStep = this.recipe.steps.filter(step => step.id === this._currentStepId)[0];
 
-    this.goToStepId(this._navigationStepId);
+    this.goToStepId(this.navigationStepId);
   }
 
   goToNextStep(): void {
@@ -177,31 +177,35 @@ export class QuickRecipePage {
       return;
     }
 
-    this.triggerSubrecipeChangeAnimation(this._navigationStepId, this._navigationStepId + 1);
-    this.decorateStepIngredients(this.getStep(this._navigationStepId), "");
+    this.triggerSubrecipeChangeAnimation(this.navigationStepId, this.navigationStepId + 1);
+    this.decorateStepIngredients(this.getStep(this.navigationStepId), "");
 
-    this._navigationStepId++;
-    this._currentStepId = this._navigationStepId;
+    this.navigationStepId++;
+    this._currentStepId = this.navigationStepId;
     this.currentStep = this.recipe.steps.filter(step => step.id === this._currentStepId)[0];
 
-    this.goToStepId(this._navigationStepId);
+    this.goToStepId(this.navigationStepId);
   }
 
   goToCurrentStep(): void {
-    this.triggerSubrecipeChangeAnimation(this._navigationStepId, this._currentStepId);
-    this.decorateStepIngredients(this.getStep(this._navigationStepId), "");
+    this.triggerSubrecipeChangeAnimation(this.navigationStepId, this._currentStepId);
+    this.decorateStepIngredients(this.getStep(this.navigationStepId), "");
 
-    this._navigationStepId = this._currentStepId;
+    this.navigationStepId = this._currentStepId;
 
     this.goToStepId(this._currentStepId);
   }
 
+  getStep(stepId: number): Step {
+      return this.recipe.steps[stepId];
+  }
+
   get activeSubrecipeId(): number {
-    if (!this._navigationStepId) {
+    if (!this.navigationStepId) {
       return -2;
     }
 
-    return this.getStep(this._navigationStepId).subrecipeId;
+    return this.getStep(this.navigationStepId).subrecipeId;
   }
 
   get isCurrentStepActive(): boolean {
@@ -219,11 +223,11 @@ export class QuickRecipePage {
   }
 
   get isNavigationFirstStep(): boolean {
-    return this._navigationStepId <= 0;
+    return this.navigationStepId <= 0;
   }
 
   get isNavigationLastStep(): boolean {
-    return this._navigationStepId == this.recipe.steps.length - 1;
+    return this.navigationStepId == this.recipe.steps.length - 1;
   }
 
   private onTimerStarted(timer: QuickRecipeTimer, that: QuickRecipePage): void {
@@ -296,10 +300,6 @@ export class QuickRecipePage {
 
   private getCurrentStep(): Step {
     return this.getStep(this._currentStepId);
-  }
-
-  private getStep(stepId: number): Step {
-    return this.recipe.steps[stepId];
   }
 
     private decorateStepIngredients(step: Step, state: string): void {

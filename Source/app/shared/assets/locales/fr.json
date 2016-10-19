@@ -202,6 +202,12 @@
 			"subrecipeTitle": "Titre",
 			"addButton": "Sous-recette"
 		},
+        "durations": {
+            "title": "Durées",
+            "durationTitle": "Titre",
+            "durationTime": "Temps",
+            "addButton": "Durée"
+        },
 		"ingredient": {
 			"title": "Ingrédients",
 			"quantity": "Quantité",

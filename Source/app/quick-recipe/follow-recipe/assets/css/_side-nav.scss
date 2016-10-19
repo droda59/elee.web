@@ -40,5 +40,8 @@ md-sidenav li a:hover {
         &.current {
             font-weight: 600;
         }
+        &:before {
+            content: "-";
+        }
     }
 }

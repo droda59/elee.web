@@ -8,20 +8,20 @@ import {QuantityHumanFormatValueConverter} from "app/shared/value-converters/qua
 export class StepIngredient {
     part: IngredientPart;
     possibleIngredients: Array<Ingredient> = [];
-    parentelement: EditRecipePage;
 
+    private _parentElement: EditRecipePage;
     private _converter: QuantityHumanFormatValueConverter;
 
-    constructor(parentelement: EditRecipePage, converter: QuantityHumanFormatValueConverter){
-        this.parentelement = parentelement;
+    constructor(parentElement: EditRecipePage, converter: QuantityHumanFormatValueConverter){
+        this._parentElement = parentElement;
         this._converter = converter;
     }
 
     activate(model: IngredientPart) {
         this.part = model;
 
-        var step = this.parentelement.findStep(this.part.stepId);
-        this.possibleIngredients = this.parentelement.ingredients.filter(ingredient => step.subrecipeId < 0 ? true : ingredient.subrecipeId === step.subrecipeId);
+        var step = this._parentElement.findStep(this.part.stepId);
+        this.possibleIngredients = this._parentElement.ingredients.filter(ingredient => step.subrecipeId < 0 ? true : ingredient.subrecipeId === step.subrecipeId);
     }
 
     getDisplayName(ingredient: Ingredient) {

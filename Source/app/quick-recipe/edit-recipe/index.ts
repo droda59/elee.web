@@ -4,11 +4,12 @@ import {I18N} from "aurelia-i18n";
 import {MdToastService} from "aurelia-materialize-bridge";
 import {moveBefore, DIRECTION} from "aurelia-dragula";
 import {MeasureUnitProvider} from "app/shared/measure-unit-provider";
+import {Quantity} from "app/shared/models/quantity";
 import {Ingredient} from "app/shared/models/ingredient";
 import {MeasureUnit} from "app/shared/models/measure-units/measure-unit";
 import {QuickRecipeService} from "app/quick-recipe/shared/quick-recipe-service";
 import {PartFactory} from "app/quick-recipe/shared/part-factory";
-import {QuickRecipe, Subrecipe, Step} from "app/quick-recipe/shared/models/quick-recipe";
+import {QuickRecipe, Duration, Subrecipe, Step} from "app/quick-recipe/shared/models/quick-recipe";
 import {Part, TextPart, ActionPart, TimerPart, IngredientPart, QuantityOfIngredientPart, EnumerationPart}
     from "app/quick-recipe/shared/models/quick-recipe";
 import {EditionSubrecipe} from "app/quick-recipe/edit-recipe/models/edition-subrecipe";
@@ -69,6 +70,16 @@ export class EditRecipePage {
         } else {
             return confirm(this._i18n.tr("edit.exitConfirmation"));
         }
+    }
+
+    addDuration(): void {
+        var newDuration = new Duration();
+
+        this.recipe.durations.push(newDuration);
+    }
+
+    removeDuration(duration: Duration): void {
+        this.recipe.durations.removeFromArray(duration);
     }
 
     addSubrecipe(): void {
@@ -156,7 +167,7 @@ export class EditRecipePage {
         }
 
         part.ingredient = subrecipeIngredients[0];
-        part.quantity = subrecipeIngredients[0].quantity;
+        part.quantity = new Quantity(subrecipeIngredients[0].quantity);
 
         step.parts.push(part);
     }

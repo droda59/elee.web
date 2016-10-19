@@ -3,22 +3,22 @@
 		<div class="row">
 			<div class="input-field col s8 offset-s2">
 				<textarea value.bind="comments" id="comments" rows="6" minlength="5"></textarea>
-				<label for="comments" class="" i18n="comments.yourMessage">YourMessage</label>
+				<label for="comments">${'comments.yourMessage' | t}</label>
 			</div>
 		</div>
 		<div class="row">
-			<p class="center" i18n="comments.emailForUpdates">EmailForUpdates</p>
+			<p class="center">${'comments.emailForUpdates' | t}</p>
 			<div class="input-field col s8 offset-s2">
 				<input value.bind="contactEmail" id="contactEmail" type="email">
-				<label for="contactEmail" class="" i18n="comments.email">YourEmail</label>
+				<label for="contactEmail">${'comments.email' | t}</label>
 			</div>
 		</div>
 		<div class="row" if.bind="isSent">
-			<p i18n="comments.thankYouMessage">ThankYou</p>
+			<p>${'comments.thankYouMessage' | t}</p>
 		</div>
 		<div class="row center">
-			<button id="send-message" class="btn btn-large btn-success waves-effect waves-light" i18n="comments.sendButton">
-				Send
+			<button id="send-message" class="btn btn-large btn-success waves-effect waves-light">
+				${'comments.sendButton' | t}
 				<i class="material-icons right">send</i>
 			</button>
 		</div>
