@@ -15,11 +15,15 @@ export class BackgroundPicker {
     findPicture(title: string): Promise<string> {
         return this._backgroundService.getBackgrounds()
             .then(response => {
-                response.map(content => this._pictureQualifiers[content.fileName] = content.qualifiers);
+                if (!this._pictureQualifiers.length) {
+                    response.map(content => this._pictureQualifiers[content.fileName] = content.qualifiers);
+                }
 
-                for (var key in this._pictureQualifiers) {
-                    if (this._pictureQualifiers[key].indexOf("generic") >= 0) {
-                        this._genericPictures.push(key);
+                if (!this._genericPictures.length) {
+                    for (var key in this._pictureQualifiers) {
+                        if (this._pictureQualifiers[key].indexOf("generic") >= 0) {
+                            this._genericPictures.push(key);
+                        }
                     }
                 }
             })
@@ -27,15 +31,14 @@ export class BackgroundPicker {
     }
 
     private _selectBackgroundPicture(title: string): string {
-        const words: Array<string> = title.toLowerCase().split(" ");
+        var recipeTitle = title.toLowerCase();
         var matchPossibilities: Array<string> = [];
 
-        // For each picture, compare the words in the recipe title to get a weight
+        // For each picture, compare the qualifiers in the recipe title to get a weight
         for (var key in this._pictureQualifiers) {
-            words.forEach(word => {
-                // Skip the article words
-                if (word.length > 3 && this._pictureQualifiers[key].indexOf(word) >= 0) {
-                    // Every time a word is found, add this picture in the array
+            this._pictureQualifiers[key].forEach(qualifier => {
+                if (recipeTitle.indexOf(qualifier) >= 0) {
+                    // Every time a qualifier is found, add this picture in the array
                     matchPossibilities.push(key);
                 }
             });
