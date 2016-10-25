@@ -8,6 +8,7 @@ export class Welcome {
 	results: Array<QuickRecipeSearchResult> = undefined;
 	ingredients: Array<Object> = [];
 	searchTerms: string;
+	maximumTime: number = 0;
 
 	constructor(private _router: Router,
 				private _service: QuickRecipeService) {
@@ -16,7 +17,14 @@ export class Welcome {
 	searchRecipes(): void {
 		if (this.searchTerms && this.searchTerms.length >= 3) {
 			let searchContainer = $("#search-container")[0];
-			this._service.findRecipes(this.searchTerms)
+			let ingredientsConcat: string = "";
+			console.log(`${JSON.stringify(this.ingredients)}`);
+
+			for(let i = 0; i < this.ingredients.length; i++) {
+				ingredientsConcat += this.ingredients[i].tag + (i < this.ingredients.length) ? ",":"";
+			}
+
+			this._service.findRecipesAdvanced(this.searchTerms, ingredientsConcat, this.maximumTime)
 				.then(response => {
 					this.results = response.slice(0, 8) as Array<QuickRecipeSearchResult>;
 					$("html, body").animate({ scrollTop: searchContainer.offsetTop + searchContainer.offsetHeight }, 500);
