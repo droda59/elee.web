@@ -6,6 +6,7 @@ System.config({
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
   },
+
   packages: {
     "materialize-css": {
       "main": "dist/js/materialize.min.js",
@@ -14,6 +15,7 @@ System.config({
       }
     }
   },
+
   map: {
     "animate.css": "npm:animate.css@3.5.2",
     "aurelia-animator-css": "npm:aurelia-animator-css@1.0.1",
