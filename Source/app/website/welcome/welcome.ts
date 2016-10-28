@@ -17,21 +17,22 @@ export class Welcome {
 	searchRecipes(): void {
 		if (this.searchTerms && this.searchTerms.length >= 3) {
 			let searchContainer = $("#search-container")[0];
-			console.log(`${JSON.stringify(this.ingredients)}`);
+			// console.log(`${JSON.stringify(this.ingredients)}`);
 
-			let ingredientsConcat: string = "";
-			if (this.ingredients.length > 0) {
-				for (let i = 0; i < this.ingredients.length; i++) {
-					ingredientsConcat += this.ingredients[i].tag;
+			// let ingredientsConcat: string = "";
+			// if (this.ingredients.length > 0) {
+			// 	for (let i = 0; i < this.ingredients.length; i++) {
+			// 		ingredientsConcat += this.ingredients[i].tag;
 
-					if(i < this.ingredients.length - 1) {
-						ingredientsConcat += ",";
-					}
-					console.log(`Include Ingredient : ${this.ingredients[i].tag}`);
-				}
-			}
+			// 		if (i < this.ingredients.length - 1) {
+			// 			ingredientsConcat += ",";
+			// 		}
+			// 		console.log(`Include Ingredient : ${this.ingredients[i].tag}`);
+			// 	}
+			// }
 
-			this._service.findRecipesAdvanced(this.searchTerms, ingredientsConcat, this.maximumTime)
+			// this._service.findRecipesAdvanced(this.searchTerms, ingredientsConcat, this.maximumTime)
+			this._service.findRecipes(this.searchTerms)
 				.then(response => {
 					this.results = response.slice(0, 8) as Array<QuickRecipeSearchResult>;
 					$("html, body").animate({ scrollTop: searchContainer.offsetTop + searchContainer.offsetHeight }, 500);
