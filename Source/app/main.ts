@@ -26,27 +26,27 @@ export class Main {
             nav: true,
             title: this._i18n.tr("comments.pageTitle")
         },
-        {
-            route: "administration/recipes",
-            name: "administration",
-            moduleId: "app/quick-recipe/administration/index",
-            title: this._i18n.tr("administration.pageTitle")
-        },
-        {
-            route: "administration/backgrounds",
-            name: "backgrounds",
-            moduleId: "app/quick-recipe/backgrounds/index",
-            title: this._i18n.tr("backgrounds.pageTitle")
-        },
+        // {
+        //     route: "administration/recipes",
+        //     name: "administration",
+        //     moduleId: "app/quick-recipe/administration/index",
+        //     title: this._i18n.tr("administration.pageTitle")
+        // },
+        // {
+        //     route: "administration/backgrounds",
+        //     name: "backgrounds",
+        //     moduleId: "app/quick-recipe/backgrounds/index",
+        //     title: this._i18n.tr("backgrounds.pageTitle")
+        // },
         {
             route: "recipe/:id",
             name: "quick-recipe",
             moduleId: "app/quick-recipe/follow-recipe/index"
-        },
-        {
-            route: "recipe/:id/edit",
-            name: "edit",
-            moduleId: "app/quick-recipe/edit-recipe/index"
+        // },
+        // {
+        //     route: "recipe/:id/edit",
+        //     name: "edit",
+        //     moduleId: "app/quick-recipe/edit-recipe/index"
         }
         ]);
 
