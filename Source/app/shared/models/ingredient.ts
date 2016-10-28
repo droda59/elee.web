@@ -6,7 +6,7 @@ export class Ingredient implements IngredientDto {
   name: string;
   quantity: Quantity;
   requirements: string;
-  replacements: Ingredient[];
+  replacement: Ingredient[];
   state: string;
 
   constructor();
@@ -16,7 +16,7 @@ export class Ingredient implements IngredientDto {
 
     if (dto) {
       this.quantity = new Quantity(dto.quantity);
-      this.replacements = (dto.replacements || []).map(replacementDto => new Ingredient(replacementDto));
+      this.replacement = (dto.replacement ? new Ingredient(dto.replacement) : undefined);
     }
 
     this.state = "";
@@ -28,5 +28,5 @@ export interface IngredientDto {
   name: string;
   quantity: QuantityDto;
   requirements: string;
-  replacements: IngredientDto[];
+  replacement: IngredientDto[];
 }

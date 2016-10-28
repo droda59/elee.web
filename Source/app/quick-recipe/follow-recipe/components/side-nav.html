@@ -27,9 +27,9 @@
 							<p>
 								<span repeat.for="ingredient of subrecipe.ingredients & oneTime" class="ingredient-item ${ingredient.state}">
 									<measurable-ingredient containerless ingredient.bind="ingredient"></measurable-ingredient>
-									<small if.bind="ingredient.replacements" repeat.for="replacement of ingredient.replacements & oneTime">
+									<small if.bind="ingredient.replacement">
 										<span>${'quickRecipe.ingredientReplacementConjunction' | t}</span>
-										<measurable-ingredient containerless ingredient.bind="replacement"></measurable-ingredient>
+										<measurable-ingredient containerless ingredient.bind="ingredient.replacement"></measurable-ingredient>
 									</small>
 								</span>
 							</p>
