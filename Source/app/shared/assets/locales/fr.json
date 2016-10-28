@@ -215,7 +215,8 @@
 			"unit": "Unité",
 			"requirements": "Requis",
 			"ingredient": "Ingrédient",
-			"addButton": "Ingrédient"
+			"addButton": "Ingrédient",
+			"format": "Format"
 		},
         "text": {
             "addButton": "Texte"
