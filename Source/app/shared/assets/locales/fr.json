@@ -195,7 +195,8 @@
 			"title": "Sommaire",
 			"recipeTitle": "Titre",
 			"recipeSummary": "Description",
-			"recipeNote": "Note"
+			"recipeNote": "Note",
+			"originalLink": "Lien original"
 		},
 		"subrecipe": {
 			"title": "Sous-recettes",

@@ -16,6 +16,10 @@
                 <form submit.delegate="saveRecipe()" role="form">
                     <section id="summary" class="section scrollspy">
                         <h2>${ 'edit.summary.title' | t }</h2>
+                        <div class="row">
+                            <label class="col s2">${ 'edit.summary.originalLink' | t }</label>
+                            <a class="col s10 truncate" href.bind="recipe.originalUrl" target="_blank">${ recipe.originalUrl }</a>
+                        </div>
                         <div class="row valign-wrapper">
                             <div class="col s3">
                                 <img src.bind="recipe.smallImageUrl" alt="" class="responsive-img">
