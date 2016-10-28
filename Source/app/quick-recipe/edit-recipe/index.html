@@ -29,10 +29,10 @@
                                     <input value.bind="recipe.title" id="recipeTitle" type="text">
                                     <label for="recipeTitle">${ 'edit.summary.recipeTitle' | t }</label>
                                 </div>
-                                <div class="input-field col s12">
+                                <!-- <div class="input-field col s12">
                                     <textarea value.bind="recipe.summary" id="recipeSummary" class="materialize-textarea"></textarea>
                                     <label for="recipeSummary">${ 'edit.summary.recipeSummary' | t }</label>
-                                </div>
+                                </div> -->
                                 <div class="input-field col s12">
                                     <input value.bind="recipe.note" id="recipeNote" type="text">
                                     <label for="recipeNote">${ 'edit.summary.recipeNote' | t }</label>
@@ -119,6 +119,10 @@
                                             <div class="input-field col s7 offset-s5">
                                                 <input value.bind="ingredient.requirements" id="requirements-${ingredient.id}" type="text">
                                                 <label for="requirements-${ingredient.id}">${ 'edit.ingredient.requirements' | t }</label>
+                                            </div>
+                                            <div class="input-field col s7 offset-s5">
+                                                <input value.bind="ingredient.quantity.format" id="format-${ingredient.id}" type="text">
+                                                <label for="format-${ingredient.id}">${ 'edit.ingredient.format' | t }</label>
                                             </div>
                                         </div>
         							</li>
