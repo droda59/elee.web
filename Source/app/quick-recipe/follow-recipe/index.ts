@@ -84,8 +84,8 @@ export class QuickRecipePage {
         var hasSeenHelp = localStorage.getItem("helpSeen");
         if (!hasSeenHelp) {
             localStorage.setItem("helpSeen", "true");
-            this._dialogService
-                .open({ viewModel: HelpOverlay });
+            // this._dialogService
+            //     .open({ viewModel: HelpOverlay });
         }
     }
 
