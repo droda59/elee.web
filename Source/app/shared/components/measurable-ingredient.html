@@ -2,19 +2,13 @@
 	<require from="app/shared/value-converters/quantity-human-format"></require>
 
 	<span class="ingredient">
-		<span class="emphasis">
-			${convertibleMeasureUnit | quantityHumanFormat}
-		</span>
-
-		<span if.bind="showBoth">
+		<span class="emphasis" innerhtml.bind="convertibleMeasureUnit | quantityHumanFormat">
+		</span><span if.bind="showBoth">
 			(
 			<span class="emphasis">
 				${offConvertibleMeasureUnit | quantityHumanFormat: false}
 			</span>
 			)
-		</span>
-
-		<span>${nextWord} </span>
-		<span class="emphasis">${ingredientName} <span if.bind="requirements" class="requirements">(${ingredient.requirements})</span></span>
+		</span><span innerhtml.bind="nextWord"></span><span class="emphasis">${ingredientName} <span if.bind="requirements" class="requirements">(${ingredient.requirements})</span></span>
 	</span>
 </template>

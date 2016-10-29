@@ -47,10 +47,10 @@ export class MeasurableIngredient {
     this.ingredientName = this.ingredient.name.toLowerCase();
 
     // TODO This is a display concern. Move to value-converter if possible
-    this.nextWord = " " + (this.quantity.unit.type !== undefined
+    this.nextWord = "&nbsp;" + (this.quantity.unit.type !== undefined
       ? TextUtils.isVowel(this.ingredientName[0])
         ? this._i18n.tr("quantities.nextWordVowel")
-        : this._i18n.tr("quantities.nextWordConsonant") + " "
+        : this._i18n.tr("quantities.nextWordConsonant") + "&nbsp;"
       : "");
 
     this._isVolumeUnit = this.quantity.unit.type === "volume";

@@ -22,7 +22,7 @@ export class QuantityHumanFormatValueConverter {
       quantityValue = quantity.format.format(quantityValue);
     }
 
-    return quantityValue + " " + quantityUnit;
+    return quantityValue + (quantityUnit ? "&nbsp;" + quantityUnit : "");
   }
 
   private getHumanizedValue(quantity: Quantity): string {
@@ -50,7 +50,7 @@ export class QuantityHumanFormatValueConverter {
     var integerText = integer.toString();
 
     var text = (integer > 0 ? integerText : "")
-      + (integer > 0 && decimal > 0 ? " " : "")
+      + (integer > 0 && decimal > 0 ? "&nbsp;" : "")
       + (decimal > 0 ? decimalText : "");
 
     return text;
