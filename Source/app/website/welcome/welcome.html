@@ -1,6 +1,8 @@
 <template>
 	<require from="app/shared/components/advanced-search/advanced-search"></require>
 
+	<loading-overlay title="${'home.loading' | t & oneTime}"></loading-overlay>
+
 	<div id="welcome-container">
 		<section id="search-container">
 			<form class="recipe-search white-text container" submit.delegate="searchRecipes()" novalidate>

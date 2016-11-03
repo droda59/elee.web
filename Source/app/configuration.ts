@@ -5,6 +5,7 @@ import "materialize-css"; // ONLY when using the "npm" option above
 export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
+    .globalResources("app/shared/components/loading-overlay")
     .plugin("aurelia-animator-css")
     .plugin("aurelia-ui-virtualization")
     .plugin("aurelia-configuration", config => {
