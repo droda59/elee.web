@@ -11,7 +11,7 @@ export class QuantityHumanFormatValueConverter {
   }
 
   toView(quantity: Quantity, useFormat: boolean = true) {
-    if (quantity.value === 0) {
+    if (quantity.value === 0 && !quantity.format) {
       return "";
     }
 
@@ -19,7 +19,7 @@ export class QuantityHumanFormatValueConverter {
     var quantityValue = this.getHumanizedValue(quantity);
 
     if (quantity.format && useFormat) {
-      quantityValue = quantity.format.format(quantityValue);
+      quantityValue = quantity.format.format(quantity.value ? quantityValue : "");
     }
 
     return quantityValue + (quantityUnit ? "&nbsp;" + quantityUnit : "");
