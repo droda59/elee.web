@@ -3,7 +3,7 @@
 
 	<span class="input-field md-input" autowidth="calculate-width.bind: getDisplayName(part.ingredient)">
 		<select md-select value.two-way="part.ingredient">
-			<option repeat.for="possibleIngredient of possibleIngredients" model.bind="possibleIngredient">${getDisplayName(possibleIngredient)}</option>
+			<option repeat.for="possibleIngredient of possibleIngredients" model.bind="possibleIngredient" innerhtml.one-time="getDisplayName(possibleIngredient)"></option>
 		</select>
     	<label class="active">${ 'edit.step.part.ingredient' | t }</label>
 	</span>
