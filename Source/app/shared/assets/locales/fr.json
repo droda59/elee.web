@@ -107,12 +107,11 @@
 		"moar": {
 			"title": "Plus à venir!",
 			"description": "Gardez en tête que ceci n'est qu'une démo limitée, pour voir comment vos commentaires peuvent améliorer l'application'. Beaucoup plus de choses suivront, telles que : ",
-			"nextFeatures1": "Design du site",
-			"nextFeatures2": "Recherche parmi toutes les recettes des grands sites populaires",
-			"nextFeatures3": "Recettes anglaises",
-			"nextFeatures4": "Sauvegarde et édition de recette dans son compte personnel",
-			"nextFeatures5": "Suggestions de recettes selon vos préférences et habiletés",
-			"keepUpToDate": "Restez informé!"
+			"nextFeatures1": "Recherche parmi toutes les recettes des grands sites populaires",
+			"nextFeatures2": "Recettes anglaises",
+			"nextFeatures3": "Sauvegarde et édition de recette dans son compte personnel",
+			"nextFeatures4": "Suggestions de recettes selon vos préférences et habiletés",
+			"keepUpToDate": "Demeurez informé!"
 		}
 	},
 	"about": {
