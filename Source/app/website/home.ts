@@ -19,13 +19,13 @@ export class Home {
         moduleId: "app/website/welcome/welcome",
         nav: true,
         title: this.i18n.tr("home.pageTitle")
-    //   },
-    //   {
-    //     route: "about",
-    //     name: "about",
-    //     moduleId: "app/website/about/about",
-    //     nav: true,
-    //     title: this.i18n.tr("about.pageTitle")
+      },
+      {
+        route: "about",
+        name: "about",
+        moduleId: "app/website/about/about",
+        nav: true,
+        title: this.i18n.tr("about.pageTitle")
       }
     ]);
 
