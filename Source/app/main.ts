@@ -58,7 +58,7 @@ export class Main {
             });
         }
 
-        config.title = "E133";
+        config.title = "elee.menu";
         config.map(routes);
 
         this.router = router;

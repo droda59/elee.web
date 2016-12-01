@@ -331,6 +331,19 @@ $grey: (
   "darken-4":   #212121
 );
 
+$cardinal: (
+  "base":       #BD1E2B,
+  "lighten-5":  #E3A6AA,
+  "lighten-4":  #EE8C93,
+  "lighten-3":  #E6757E,
+  "lighten-2":  #DB5762,
+  "lighten-1":  #D83B48,
+  "darken-1":   #A21A26,
+  "darken-2":   #911822,
+  "darken-3":   #7A151E,
+  "darken-4":   #63131A,
+);
+
 $shades: (
   "black":        #000000,
   "white":        #FFFFFF,
@@ -358,7 +371,8 @@ $colors: (
   "brown": $brown,
   "blue-grey": $blue-grey,
   "grey": $grey,
-  "shades": $shades
+  "shades": $shades,
+  "cardinal": $cardinal
 );
 
 
@@ -409,4 +423,3 @@ $colors: (
   @warn "Unknown `#{name}` in $colors.";
   @return null;
 }
-

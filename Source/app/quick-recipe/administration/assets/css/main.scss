@@ -19,8 +19,8 @@
         padding: 0;
         font-weight: 600;
         line-height: 1.5;
-    } 
-    .about-img { 
+    }
+    .about-img {
         border-radius: 8px;
         height: auto;
         max-width: 140px;
@@ -47,10 +47,10 @@
         font-weight: 300;
         font-size: 0.8rem;
         color: #fff;
-        background-color: #26a69a;
+        background-color: #BD1E2B;
         border-radius: 2px;
     }
-    
+
     .tabs .tab .collection {
         margin: 0;
         height: 48px;
@@ -66,10 +66,11 @@
     }
 
     .container .collection .collection-item {
-        padding: 10px 0; 
+        padding: 10px 0;
         .title {
             width: 100%;
-            color: #26a69a;
+            color: inherit;
+            margin-left: 80px;
         }
         .secondary-content {
             float: none;

@@ -60,6 +60,6 @@ gulp.task("build-sass", function () {
 });
 
 gulp.task("copy-files", function () {
-    return gulp.src(paths.app + "**/*.{json,png,jpg,jpeg,svg,woff,woff2,ttf}")
+    return gulp.src(paths.app + "**/*.{ico,json,png,jpg,jpeg,svg,woff,woff2,ttf}")
         .pipe(gulp.dest(paths.outputApp));
 });

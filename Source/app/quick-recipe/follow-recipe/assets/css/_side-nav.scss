@@ -22,6 +22,19 @@ md-sidenav li a:hover {
         padding: 0 32px;
         width: 100%;
     }
+    .brand-logo {
+        padding-top: 0;
+    }
+    .brand-logo a {
+        display: inline-block;
+        height: inherit;
+        line-height: inherit;
+    }
+    .brand-logo img {
+        height: auto;
+        width: 100%;
+        padding: 10px 0 0;
+    }
 
     .action .material-icons {
         float: left;
