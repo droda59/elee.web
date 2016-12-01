@@ -27,6 +27,8 @@ gulp.task("export:copy", function () {
         "web.config",
         "config.js",
         "favicon.ico",
+        "favicon-16x16.png",
+        "favicon-32x32.png",
         paths.outputApp + "style.css",
         paths.outputApp + "**/*.+(json|png|jpg|jpeg)",
         paths.outputApp + "**/Material*.+(eot|svg|woff|woff2|ttf)",
