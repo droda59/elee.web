@@ -15,10 +15,46 @@
             padding: 0 20px;
         }
     }
+}
 
-    .technos-showcase {
-        img {
-            width: 200px;
+.team-wrapper {
+    margin-bottom: 25px;
+    width: 100%;
+    @media all and (min-width: 522px) {
+        width: calc(50% - 10px);
+        margin-right: 20px;
+        &:nth-child(2n) {
+            margin-right: 0;
         }
+    }
+    float: left;
+}
+
+.about-name {
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.about-img {
+    border-radius: 8px;
+    height: auto;
+    max-width: 140px;
+}
+
+.about-desc {
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+
+.about-intro {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
+    h2 {
+        font-size: 36px;
     }
 }
