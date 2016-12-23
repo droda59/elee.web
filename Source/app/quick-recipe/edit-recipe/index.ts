@@ -40,7 +40,7 @@ export class EditRecipePage {
     }
 
     activate(route, routeConfig): Promise<void> {
-        return this._service.getRecipe(route.id)
+        return this._service.getRecipe(route.uniqueName)
             .then(response => {
                 this.recipe = new QuickRecipe(response);
                 (this.recipe.subrecipes || []).forEach(
@@ -239,8 +239,12 @@ export class EditRecipePage {
     }
 
     returnToRecipe() {
-        this._router.navigateToRoute("quick-recipe", { "id": this.recipe.id }, undefined);
+        this._router.navigateToRoute("quick-recipe", { "uniqueName": this.recipe.uniqueName }, undefined);
     }
+
+	returnToRecipes() {
+		this._router.navigateToRoute("administration");
+	}
 
     findStep(stepId: number): Step {
         return this.steps.filter(step => step.id === stepId)[0];

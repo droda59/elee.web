@@ -52,7 +52,7 @@ export class Main {
             });
 
             routes.push({
-                route: "recipe/:id/edit",
+                route: "recipe/:uniqueName/edit",
                 name: "edit",
                 moduleId: "app/quick-recipe/edit-recipe/index"
             });

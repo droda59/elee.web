@@ -65,7 +65,7 @@
 		}
 	},
 	"home": {
-		"loading": "Recherche en cours", 
+		"loading": "Recherche en cours",
 		"pageTitle": "Bienvenue",
 		"slogan": "cuisinez simplement",
 		"mainDescription": "elee.menu vous guide pas-à-pas à travers chaque étape de vos recettes, et permet de vous éviter les erreurs fréquentes lorsque vous préparer vos festins",
@@ -186,6 +186,7 @@
 	},
 	"edit": {
 		"exitConfirmation": "Êtes-vous certain de vouloir quitter?",
+		"backToRecipes": "Retour aux recettes",
 		"saving": "Enregistrement...",
 		"saved": "Recette sauvegardée!",
 		"notsaved": "Erreur : recette non sauvegardée...",

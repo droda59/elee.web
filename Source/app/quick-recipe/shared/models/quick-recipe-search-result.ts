@@ -7,6 +7,7 @@ export class QuickRecipeSearchResult implements QuickRecipeSearchResultDto {
     title: string;
     smallImageUrl: string;
     durations: Duration[];
+	uniqueName: string;
     ingredients: Ingredient[];
 
     constructor(dto: QuickRecipeSearchResultDto) {
@@ -22,5 +23,6 @@ interface QuickRecipeSearchResultDto {
     title: string;
     smallImageUrl: string;
     durations: DurationDto[];
+	uniqueName: string;
     ingredients: IngredientDto[];
 }
