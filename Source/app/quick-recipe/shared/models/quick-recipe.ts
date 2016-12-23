@@ -7,7 +7,7 @@ export class QuickRecipe implements QuickRecipeDto {
     id: string;
     language: string;
     title: string;
-	uniqueName: string;
+    uniqueName: string;
     originalUrl: string;
     note: string;
     smallImageUrl: string;
@@ -37,7 +37,7 @@ interface QuickRecipeDto {
     _id: string;
     language: string;
     title: string;
-	uniqueName: string;
+    uniqueName: string;
     originalUrl: string;
     note: string;
     smallImageUrl: string;

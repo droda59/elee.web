@@ -21,7 +21,7 @@ export class StepIngredient {
         this.part = model;
 
         var step = this._parentElement.findStep(this.part.stepId);
-        this.possibleIngredients = this._parentElement.ingredients.filter(ingredient => step.subrecipeId < 0 ? true : ingredient.subrecipeId === step.subrecipeId);
+        this.possibleIngredients = this._parentElement.ingredients.filter(ingredient => ingredient.subrecipeId < 0 || step.subrecipeId < 0 ? true : ingredient.subrecipeId === step.subrecipeId);
     }
 
     getDisplayName(ingredient: Ingredient) {

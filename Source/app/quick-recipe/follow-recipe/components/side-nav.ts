@@ -13,7 +13,7 @@ export class SideNav {
     private _toast: MdToastService;
     private _router: Router;
 
-    @bindable recipeId: string = "";
+    @bindable uniqueName: string = "";
     @bindable subrecipes: Array<QuickRecipeSubrecipe> = [];
 
     selectedVolumeDisplay: string;
@@ -30,13 +30,13 @@ export class SideNav {
     }
 
     reportRecipe(): void {
-        this._service.report(this.recipeId)
+        this._service.report(this.uniqueName)
             .then(response => {
                 this._toast.show(this._i18n.tr("quickRecipe.recipeFlagged"), 3000);
             });
     }
 
     editRecipe(): void {
-        this._router.navigateToRoute("edit", { "id": this.recipeId }, undefined);
+        this._router.navigateToRoute("edit", { "uniqueName": this.uniqueName }, undefined);
     }
 }

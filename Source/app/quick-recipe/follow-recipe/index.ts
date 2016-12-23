@@ -22,6 +22,7 @@ export class QuickRecipePage {
   isRecipeDone: boolean;
   backgroundPicture: string;
   navigationStepId: number = undefined;
+  originalServings: string;
 
   private _currentStepId: number = undefined;
   private _timerCoordinator: TimerCoordinator;
@@ -53,6 +54,7 @@ export class QuickRecipePage {
         return this._service.getRecipe(route.uniqueName)
             .then(response => {
                 this.recipe = new QuickRecipe(response);
+                this.originalServings = this.recipe.originalServings;
 
                 this._backgroundPicker.findPicture(this.recipe.title).then(backgroundPicture => {
                     this.backgroundPicture = backgroundPicture;

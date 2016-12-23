@@ -239,7 +239,7 @@ export class EditRecipePage {
     }
 
     returnToRecipe() {
-        this._router.navigateToRoute("quick-recipe", { "uniqueName": this.recipe.uniqueName }, undefined);
+        this._router.navigateToRoute("quick-recipe", { "id": this.recipe.uniqueName }, undefined);
     }
 
 	returnToRecipes() {
