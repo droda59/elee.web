@@ -50,7 +50,7 @@ export class QuickRecipePage {
             }
         }
 
-        return this._service.getRecipe(route.id)
+        return this._service.getRecipe(route.uniqueName)
             .then(response => {
                 this.recipe = new QuickRecipe(response);
 
