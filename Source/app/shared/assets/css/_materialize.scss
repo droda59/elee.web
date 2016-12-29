@@ -47,6 +47,19 @@
 		z-index: 998;
 	}
 
+	.input-field {
+		&.inline {
+			display: inline-block;
+			vertical-align: middle;
+			margin-left: 5px;
+
+			input,
+			.select-dropdown {
+				margin-bottom: 1rem;
+			}
+		}
+	}
+
 	.collection,
 	.collection .collection-item {
 		border: none;

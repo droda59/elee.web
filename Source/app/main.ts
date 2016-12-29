@@ -30,7 +30,7 @@ export class Main {
                 title: this._i18n.tr("comments.pageTitle")
             },
             {
-                route: "recipe/:id",
+                route: "recipe/:uniqueName",
                 name: "quick-recipe",
                 moduleId: "app/quick-recipe/follow-recipe/index"
             }
@@ -52,7 +52,7 @@ export class Main {
             });
 
             routes.push({
-                route: "recipe/:id/edit",
+                route: "recipe/:uniqueName/edit",
                 name: "edit",
                 moduleId: "app/quick-recipe/edit-recipe/index"
             });

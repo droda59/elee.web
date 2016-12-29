@@ -15,7 +15,17 @@
 			<div id="instructions" class="white-text center-align">
 				<section id="presentation-section" if.bind="!isRecipeDone && !isRecipeStarted" class="card-panel animated fadeInDownBig black-text">
 					<div class="row">
-						<span>${'quickRecipe.servings' | t}</span>${recipe.originalServings}
+						<span>${'quickRecipe.servings' | t}</span>${originalServings}
+						<!-- <div class="col s12 m8 offset-m2 l6 offset-l3">
+							${ 'quickRecipe.servings' | t }
+							<div class="input-field inline">
+								<input value.bind="originalServings" id="recipeServings" type="text">
+							</div>
+				        </div>
+
+						<div class="col s12 m8 offset-m2 l6 offset-l3" if.bind="recipe.originalServings !== originalServings">
+							${ 'quickRecipe.servingsChanged' | t }
+				        </div> -->
 					</div>
 
 					<div class="row">
@@ -80,7 +90,7 @@
 		</main>
 
 		<header>
-			<side-nav subrecipes.one-time="subrecipes" recipe-id.one-time="recipe.id" containerless></side-nav>
+			<side-nav subrecipes.one-time="subrecipes" unique-name.one-time="recipe.uniqueName" containerless></side-nav>
 		</header>
 
 		<footer if.bind="isRecipeStarted && !isRecipeDone" class="au-animate">

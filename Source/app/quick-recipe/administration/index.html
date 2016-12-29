@@ -26,8 +26,8 @@
                     </li>
                     <li virtual-repeat.for="recipe of recipesToReview" class="collection-item avatar valign-wrapper">
                         <img src.bind="recipe.smallImageUrl" alt="" class="circle">
-                        <a route-href="route: quick-recipe; params.bind: { id: recipe.id }" class="title">${recipe.title}</span>
-                        <a route-href="route: edit; params.bind: { id: recipe.id }" class="secondary-content">
+                        <a route-href="route: quick-recipe; params.bind: { uniqueName: recipe.uniqueName }" class="title">${recipe.title}</span>
+                        <a route-href="route: edit; params.bind: { uniqueName: recipe.uniqueName }" class="secondary-content">
                             <i class="material-icons">mode_edit</i>
                         </a>
                     </li>
@@ -40,8 +40,8 @@
                     </li>
                     <li virtual-repeat.for="recipe of reviewedRecipes" class="collection-item avatar valign-wrapper">
                         <img src.bind="recipe.smallImageUrl" alt="" class="circle">
-                        <a route-href="route: quick-recipe; params.bind: { id: recipe.id }" class="title">${recipe.title}</span>
-                        <a route-href="route: edit; params.bind: { id: recipe.id }" class="secondary-content">
+                        <a route-href="route: quick-recipe; params.bind: { uniqueName: recipe.uniqueName }" class="title">${recipe.title}</span>
+                        <a route-href="route: edit; params.bind: { uniqueName: recipe.uniqueName }" class="secondary-content">
                             <i class="material-icons">mode_edit</i>
                         </a>
                     </li>

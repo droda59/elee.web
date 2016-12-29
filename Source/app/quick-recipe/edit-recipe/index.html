@@ -10,6 +10,10 @@
                         <li><a href="#ingredients">${ 'edit.ingredient.title' | t }</a></li>
                         <li><a href="#steps">${ 'edit.step.title' | t }</a></li>
                     </ul>
+					<a class="btn waves-effect waves-light" click.trigger="returnToRecipes()">
+                        ${ 'edit.backToRecipes' | t }
+                        <i class="material-icons left">navigate_before</i>
+                    </a>
                 </div>
             </div>
             <div class="col s12 m9" md-scrollspy="target: .scrollspy">

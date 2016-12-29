@@ -17,19 +17,6 @@ export class Welcome {
 	searchRecipes(): void {
 		if (this.searchTerms && this.searchTerms.length >= 3) {
 			let searchContainer = $("#search-container")[0];
-			// console.log(`${JSON.stringify(this.ingredients)}`);
-
-			// let ingredientsConcat: string = "";
-			// if (this.ingredients.length > 0) {
-			// 	for (let i = 0; i < this.ingredients.length; i++) {
-			// 		ingredientsConcat += this.ingredients[i].tag;
-
-			// 		if (i < this.ingredients.length - 1) {
-			// 			ingredientsConcat += ",";
-			// 		}
-			// 		console.log(`Include Ingredient : ${this.ingredients[i].tag}`);
-			// 	}
-			// }
 
 			// this._service.findRecipesAdvanced(this.searchTerms, ingredientsConcat, this.maximumTime)
 			this._service.findRecipes(this.searchTerms)
@@ -42,12 +29,12 @@ export class Welcome {
 		}
 	}
 
-	trackRecipe(id: string): void {
-		alert();
+	trackRecipe(item) {
+		ga('send', 'event', 'Recipe', 'click', item);
 	}
 
-	loadRecipe(id: string): void {
-		this._router.navigateToRoute("quick-recipe", { "id": id }, undefined);
+	loadRecipe(uniqueName: string): void {
+		this._router.navigateToRoute("quick-recipe", { "uniqueName": uniqueName }, undefined);
 	}
 }
 
