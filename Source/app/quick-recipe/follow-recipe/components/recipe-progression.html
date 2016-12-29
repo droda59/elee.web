@@ -2,7 +2,7 @@
 	<require from="app/shared/value-converters/time-format"></require>
 
 	<div class="recipe-progression">
-		<span repeat.for="subrecipe of subrecipes & oneTime" style="flex-grow: ${subrecipe.steps.length};" class="subrecipe-title ${$parent.activeSubrecipeId === subrecipe.id ? 'active' : ''}">
+		<span repeat.for="subrecipe of subrecipes & oneTime" if.bind="subrecipe.steps.length" style="flex-grow: ${subrecipe.steps.length};" class="subrecipe-title ${$parent.activeSubrecipeId === subrecipe.id ? 'active' : ''}">
 			<a click.delegate="goToSubrecipe(subrecipe.id)">
 				<span>${subrecipe.title}</span>
 				<span class="progression">${subrecipe.completedSteps}/${subrecipe.steps.length}</span>
