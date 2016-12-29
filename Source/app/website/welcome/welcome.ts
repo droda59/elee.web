@@ -42,6 +42,10 @@ export class Welcome {
 		}
 	}
 
+	trackRecipe(id: string): void {
+		alert();
+	}
+
 	loadRecipe(id: string): void {
 		this._router.navigateToRoute("quick-recipe", { "id": id }, undefined);
 	}
