@@ -193,3 +193,12 @@
 		}
 	}
 }
+
+// dirty hack
+.featured__thumb--link {
+	display: block;
+}
+
+.featured__thumb--link:hover {
+	opacity: .7;
+}
