@@ -29,8 +29,9 @@ export class Welcome {
 		}
 	}
 
-	trackRecipe(): void {
+	trackRecipe(name: string): void {
 		ga('send', 'event', 'Recipe', 'click', 'vedette');
+		window.location.href = name;
 	}
 
 	loadRecipe(uniqueName: string): void {
