@@ -1,10 +1,8 @@
 {
 	"nav": {
 		"welcome": "",
-		"comments": "Commentaires",
-		"about": "À propos",
-		"lang": "English",
-		"links": "Liens"
+		"contact": "Contact",
+		"about": "À propos"
 	},
 	"administration": {
 		"pageTitle": "Administration",
@@ -17,8 +15,8 @@
         "tags": "Tags",
         "saveButton": "Enregistrer"
     },
-	"comments": {
-		"pageTitle": "Commentaires",
+	"contact": {
+		"pageTitle": "Contactez-nous",
 		"yourMessage": "Votre message",
 		"emailForUpdates": "Inscrivez votre adresse de courriel si vous aimeriez recevoir des mises à jour.",
 		"email": "Votre adresse de courriel",

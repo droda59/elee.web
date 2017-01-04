@@ -1,0 +1,37 @@
+@import "../../../../shared/assets/css/variables";
+
+.E133 #contact-container {
+    a {
+        color: $link-color;
+    }
+
+    .container {
+        .row {
+            padding: 0 20px;
+        }
+    }
+
+    .contact-header-container {
+        background-image: url(/dist/app/website/comments/assets/images/garlic.jpg);
+        background-size: cover;
+        height: 450px;
+        position: relative;
+
+        h1 {
+            padding: 160px 0 0 0;
+            margin: 0;
+            text-align: center;
+        }
+    }
+
+    .contact-intro {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 0 20px;
+
+        h2 {
+            font-size: 36px;
+        }
+    }
+}
