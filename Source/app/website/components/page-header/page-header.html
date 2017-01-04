@@ -1,7 +1,8 @@
-<template>
+<template bindable="router">
     <div class="nav-wrapper container">
         <div class="col s12">
-            <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+            <a md-sidenav-collapse="ref.bind: sideNavLeft;" class="button-collapse"><i class="material-icons">menu</i></a>
+
             <ul class="right hide-on-med-and-down">
                 <li repeat.for="row of router.navigation" class="item ${row.isActive ? 'active' : ''}">
                     <a href.one-time="row.href">${'nav.' + row.config.name | t}</a>
@@ -9,13 +10,16 @@
                 <li><a href="https://www.facebook.com/eleemenu/" target="_blank">Facebook</a></li>
                 <li><a href="https://twitter.com/eleemenu" target="_blank">Twitter</a></li>
             </ul>
-            <ul class="side-nav" id="mobile-menu">>
-                <li repeat.for="row of router.navigation" class="item ${row.isActive ? 'active' : ''}">
-                    <a href.one-time="row.href">${'nav.' + row.config.name | t}</a>
-                </li>
-                <li><a href="fb://page/1745012672451697">Facebook</a></li>
-                <li><a href="twitter://user?user_id=747608306567495680">Twitter</a></li>
-            </ul>
+
+            <md-sidenav view-model.ref="sideNavLeft">
+                <ul>
+                    <li repeat.for="row of router.navigation" class="item ${row.isActive ? 'active' : ''}">
+                        <a href.one-time="row.href">${'nav.' + row.config.name | t}</a>
+                    </li>
+                    <li><a href="fb://page/1745012672451697">Facebook</a></li>
+                    <li><a href="twitter://user?user_id=747608306567495680">Twitter</a></li>
+                </ul>
+            </md-sidenav>
         </div>
     </div>
 </template>

@@ -1,11 +1,8 @@
 <template>
-    <require from="app/website/components/page-header/page-header"></require>
-    <require from="app/website/components/page-footer/page-footer"></require>
+    <require from="app/website/components/page-header/page-header.html"></require>
 
     <nav id="page-header" class="${router.currentInstruction.config.name}">
-        <page-header containerless></page-header>
+        <page-header router.bind="router" containerless></page-header>
     </nav>
     <router-view></router-view>
-
-    <!-- <page-footer containerless></page-footer> -->
 </template>
