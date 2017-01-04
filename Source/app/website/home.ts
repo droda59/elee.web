@@ -25,7 +25,16 @@ export class Home {
         name: "about",
         moduleId: "app/website/about/about",
         nav: true,
+        href: "#/home/about/"
         title: this.i18n.tr("about.pageTitle")
+      },
+      {
+        route: "comments",
+        name: "comments",
+        moduleId: "app/website/comments/comments",
+        nav: true,
+        href: "#/home/comments/"
+        title: this.i18n.tr("comments.pageTitle")
       }
     ]);
 

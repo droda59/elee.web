@@ -23,13 +23,6 @@ export class Main {
                 nav: false
             },
             {
-                route: "typeform",
-                name: "typeform",
-                moduleId: "app/shared/components/typeform",
-                nav: true,
-                title: this._i18n.tr("comments.pageTitle")
-            },
-            {
                 route: "recipe/:uniqueName",
                 name: "quick-recipe",
                 moduleId: "app/quick-recipe/follow-recipe/index"
