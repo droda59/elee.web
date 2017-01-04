@@ -3,7 +3,6 @@
 	<require from="app/quick-recipe/follow-recipe/components/side-nav"></require>
 	<require from="app/quick-recipe/follow-recipe/components/recipe-progression"></require>
 	<require from="app/shared/components/measurable-ingredient"></require>
-	<!-- <require from="shared/components/comments-form"></require> -->
 	<require from="app/shared/value-converters/duration-format"></require>
 
 	<div class="quick-recipe-background" style="background-image: url('dist/app/quick-recipe/follow-recipe/assets/images/backgrounds/${backgroundPicture}');"></div>
@@ -78,13 +77,11 @@
 					</div>
 
 					<div class="row center">
-						<a href="#typeform" class="btn btn-large btn-success waves-effect waves-light">
+						<a href="#/home/contact" class="btn btn-large btn-success waves-effect waves-light">
 							${'comments.sendButton' | t}
 							<i class="material-icons right">send</i>
 						</a>
 					</div>
-
-					<!-- <comments-form containerless></comments-form> -->
 				</section>
 			</div>
 		</main>
