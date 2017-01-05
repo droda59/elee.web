@@ -5,10 +5,8 @@ import {I18N} from "aurelia-i18n";
 @inject(I18N)
 export class Home {
   router: Router;
-  i18n: I18N;
 
-  constructor(i18n: I18N) {
-    this.i18n = i18n;
+  constructor(private i18n: I18N) {
   }
 
   configureRouter(config: RouterConfiguration, router: Router) {
