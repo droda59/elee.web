@@ -4,14 +4,11 @@ import { ContactForm } from "app/quick-recipe/shared/models/contact-form";
 
 @autoinject()
 export class ContactPage {
-    private _contactService: ContactService;
-
     email: string;
     name: string;
     message: string;
 
-    constructor(contactService: ContactService) {
-        this._contactService = contactService;
+    constructor(private contactService: ContactService) {
     }
 
     send() {

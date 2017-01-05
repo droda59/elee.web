@@ -11,7 +11,7 @@ export class Welcome {
 	maximumTime: number = 0;
 
 	constructor(private _router: Router,
-		private _service: QuickRecipeService) {
+				private _service: QuickRecipeService) {
 	}
 
 	searchRecipes(): void {

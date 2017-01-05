@@ -7,13 +7,8 @@ import {I18N} from "aurelia-i18n";
 export class Main {
     router: Router;
 
-    private _i18n: I18N;
-    private _configuration: Configure;
-
-    constructor(i18n: I18N, configuration: Configure) {
-        this._i18n = i18n;
-        this._configuration = configuration;
-    }
+    constructor(private i18n: I18N,
+				private configuration: Configure) { }
 
     configureRouter(config: RouterConfiguration, router: Router) {
         let routes = [
@@ -29,19 +24,19 @@ export class Main {
             }
         ];
 
-        if (this._configuration.is("development")) {
+        if (this.configuration.is("development")) {
             routes.push({
                 route: "administration/recipes",
                 name: "administration",
                 moduleId: "app/quick-recipe/administration/index",
-                title: this._i18n.tr("administration.pageTitle")
+                title: this.i18n.tr("administration.pageTitle")
             });
 
             routes.push({
                 route: "administration/backgrounds",
                 name: "backgrounds",
                 moduleId: "app/quick-recipe/backgrounds/index",
-                title: this._i18n.tr("backgrounds.pageTitle")
+                title: this.i18n.tr("backgrounds.pageTitle")
             });
 
             routes.push({

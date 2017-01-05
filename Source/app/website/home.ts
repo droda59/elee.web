@@ -6,8 +6,7 @@ import {I18N} from "aurelia-i18n";
 export class Home {
   router: Router;
 
-  constructor(private i18n: I18N) {
-  }
+  constructor(private i18n: I18N) { }
 
   configureRouter(config: RouterConfiguration, router: Router) {
     config.map([
