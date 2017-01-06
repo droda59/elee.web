@@ -1,5 +1,5 @@
 import {bindable} from "aurelia-framework";
-import {Step, IngredientPart, QuantityOfIngredientPart, EnumerationPart} from "app/quick-recipe/shared/models/quick-recipe";
+import {Step, IngredientPart, QuantityOfIngredientPart, EnumerationPart} from "app/quick-recipe/models/quick-recipe";
 
 export class QuickRecipeStep {
     @bindable step: Step = null;

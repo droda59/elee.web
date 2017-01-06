@@ -35,15 +35,15 @@ export class Main {
             routes.push({
                 route: "administration/recipes",
                 name: "administration",
-                moduleId: "app/quick-recipe/administration/index",
-                title: this._i18n.tr("administration.pageTitle")
+                moduleId: "app/administration/recipes/index",
+                title: this._i18n.tr("administration.recipes.pageTitle")
             });
 
             routes.push({
                 route: "administration/backgrounds",
-                name: "backgrounds",
-                moduleId: "app/quick-recipe/backgrounds/index",
-                title: this._i18n.tr("backgrounds.pageTitle")
+                name: "admin-backgrounds",
+                moduleId: "app/administration/backgrounds/index",
+                title: this._i18n.tr("administration.backgrounds.pageTitle")
             });
 
             routes.push({

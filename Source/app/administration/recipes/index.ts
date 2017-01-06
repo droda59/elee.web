@@ -1,6 +1,6 @@
 import {autoinject} from "aurelia-framework";
-import {QuickRecipeService} from "app/quick-recipe/shared/quick-recipe-service";
-import {QuickRecipeSearchResult} from "app/quick-recipe/shared/models/quick-recipe-search-result";
+import {QuickRecipeService} from "app/quick-recipe/quick-recipe-service";
+import {QuickRecipeSearchResult} from "app/quick-recipe/models/quick-recipe-search-result";
 
 @autoinject()
 export class Administration {

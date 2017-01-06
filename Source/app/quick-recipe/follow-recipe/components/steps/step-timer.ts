@@ -1,5 +1,5 @@
 import {inject} from "aurelia-framework";
-import {TimerPart} from "app/quick-recipe/shared/models/quick-recipe";
+import {TimerPart} from "app/quick-recipe/models/quick-recipe";
 import {TimerCoordinator} from "app/quick-recipe/follow-recipe/timer-coordinator";
 import {QuickRecipeTimer} from "app/quick-recipe/follow-recipe/models/quick-recipe-timer";
 

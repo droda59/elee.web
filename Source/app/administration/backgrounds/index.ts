@@ -1,6 +1,6 @@
 import {autoinject} from "aurelia-framework";
-import {RecipeBackgroundService} from "app/quick-recipe/shared/recipe-background-service";
-import {BackgroundDefinition} from "app/quick-recipe/backgrounds/models/background-definition";
+import {RecipeBackgroundService} from "app/quick-recipe/recipe-background-service";
+import {BackgroundDefinition} from "app/administration/backgrounds/models/background-definition";
 
 @autoinject()
 export class BackgroundAdministration {

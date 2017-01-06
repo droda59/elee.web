@@ -1,4 +1,4 @@
-import {TimerPart} from "app/quick-recipe/shared/models/quick-recipe";
+import {TimerPart} from "app/quick-recipe/models/quick-recipe";
 
 export class StepTimer {
     part: TimerPart;

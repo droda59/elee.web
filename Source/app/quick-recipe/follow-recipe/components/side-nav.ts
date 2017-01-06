@@ -2,7 +2,7 @@ import {autoinject, bindable} from "aurelia-framework";
 import {Router} from "aurelia-router";
 import {I18N} from "aurelia-i18n";
 import {MdToastService} from "aurelia-materialize-bridge";
-import {QuickRecipeService} from "app/quick-recipe/shared/quick-recipe-service";
+import {QuickRecipeService} from "app/quick-recipe/quick-recipe-service";
 import {QuickRecipeSubrecipe} from "app/quick-recipe/follow-recipe/models/quick-recipe-subrecipe";
 import {SettingsManager} from "app/shared/settings-manager";
 

@@ -7,11 +7,11 @@ import {MeasureUnitProvider} from "app/shared/measure-unit-provider";
 import {Quantity} from "app/shared/models/quantity";
 import {Ingredient} from "app/shared/models/ingredient";
 import {MeasureUnit} from "app/shared/models/measure-units/measure-unit";
-import {QuickRecipeService} from "app/quick-recipe/shared/quick-recipe-service";
-import {PartFactory} from "app/quick-recipe/shared/part-factory";
-import {QuickRecipe, Duration, Subrecipe, Step} from "app/quick-recipe/shared/models/quick-recipe";
+import {QuickRecipeService} from "app/quick-recipe/quick-recipe-service";
+import {PartFactory} from "app/quick-recipe/part-factory";
+import {QuickRecipe, Duration, Subrecipe, Step} from "app/quick-recipe/models/quick-recipe";
 import {Part, TextPart, ActionPart, TimerPart, IngredientPart, QuantityOfIngredientPart, EnumerationPart}
-    from "app/quick-recipe/shared/models/quick-recipe";
+    from "app/quick-recipe/models/quick-recipe";
 import {EditionSubrecipe} from "app/quick-recipe/edit-recipe/models/edition-subrecipe";
 
 @autoinject()

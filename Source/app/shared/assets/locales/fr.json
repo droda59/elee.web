@@ -5,19 +5,20 @@
 		"about": "À propos"
 	},
 	"administration": {
-		"pageTitle": "Administration",
-		"recipesToReview": "Recettes à réviser",
-        "reviewedRecipes": "Recettes révisées",
+	    "backgrounds": {
+	        "pageTitle": "Arrière-plans de recettes",
+	        "fileName": "Nom de fichier",
+	        "saveButton": "Enregistrer"
+	    },
 		"contact": {
 	        "pageTitle": "Commentaires"
+		},
+		"recipes": {
+			"pageTitle": "Administration",
+			"recipesToReview": "Recettes à réviser",
+	        "reviewedRecipes": "Recettes révisées"
 		}
 	},
-    "backgrounds": {
-        "pageTitle": "Arrière-plans de recettes",
-        "fileName": "Nom de fichier",
-        "tags": "Tags",
-        "saveButton": "Enregistrer"
-    },
 	"contact": {
 		"pageTitle": "Contactez-nous",
 		"yourMessage": "Votre message",

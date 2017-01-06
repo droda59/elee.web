@@ -1,4 +1,4 @@
-import {QuantityOfIngredientPart} from "app/quick-recipe/shared/models/quick-recipe";
+import {QuantityOfIngredientPart} from "app/quick-recipe/models/quick-recipe";
 import {Ingredient} from "app/shared/models/ingredient";
 import {Quantity} from "app/shared/models/quantity";
 

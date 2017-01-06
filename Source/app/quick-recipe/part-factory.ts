@@ -1,5 +1,5 @@
-import {Part, TextPart, ActionPart, TimerPart, IngredientPart, QuantityOfIngredientPart, EnumerationPart} from "app/quick-recipe/shared/models/quick-recipe";
-import {PartDto, TextPartDto, ActionPartDto, TimerPartDto, IngredientPartDto, QuantityOfIngredientPartDto, EnumerationPart} from "app/quick-recipe/shared/models/quick-recipe";
+import {Part, TextPart, ActionPart, TimerPart, IngredientPart, QuantityOfIngredientPart, EnumerationPart} from "app/quick-recipe/models/quick-recipe";
+import {PartDto, TextPartDto, ActionPartDto, TimerPartDto, IngredientPartDto, QuantityOfIngredientPartDto, EnumerationPart} from "app/quick-recipe/models/quick-recipe";
 
 export class PartFactory {
     static createPart(stepId: number, type: string);

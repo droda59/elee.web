@@ -1,6 +1,6 @@
 import { autoinject } from "aurelia-framework";
-import { ContactService } from "app/quick-recipe/shared/contact-service";
-import { ContactForm } from "app/quick-recipe/shared/models/contact-form";
+import { ContactService } from "app/shared/contact-service";
+import { ContactForm } from "app/website/models/contact-form";
 
 @autoinject()
 export class AdminContactPage {

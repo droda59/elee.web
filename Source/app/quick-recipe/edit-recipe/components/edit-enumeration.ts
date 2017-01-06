@@ -2,8 +2,8 @@ import {autoinject} from "aurelia-framework";
 import {Quantity} from "app/shared/models/quantity";
 import {Ingredient} from "app/shared/models/ingredient";
 import {EditRecipePage} from "app/quick-recipe/edit-recipe/index";
-import {IngredientPart, EnumerationPart, QuantityOfIngredientPart, TextPart} from "app/quick-recipe/shared/models/quick-recipe";
-import {PartFactory} from "app/quick-recipe/shared/part-factory";
+import {IngredientPart, EnumerationPart, QuantityOfIngredientPart, TextPart} from "app/quick-recipe/models/quick-recipe";
+import {PartFactory} from "app/quick-recipe/part-factory";
 
 @autoinject()
 export class StepEnumeration {
