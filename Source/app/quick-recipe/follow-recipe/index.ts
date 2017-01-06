@@ -32,7 +32,12 @@ export class QuickRecipePage {
   private _animator: CssAnimator;
   private _backgroundPicker: BackgroundPicker;
 
-  constructor(service: QuickRecipeService, i18n: I18N, timerCoordinator: TimerCoordinator, dialogService: DialogService, animator: CssAnimator, backgroundPicker: BackgroundPicker) {
+  constructor(service: QuickRecipeService,
+							i18n: I18N,
+							timerCoordinator: TimerCoordinator,
+							dialogService: DialogService,
+							animator: CssAnimator,
+							backgroundPicker: BackgroundPicker) {
     this._service = service;
     this._i18n = i18n;
     this._dialogService = dialogService;

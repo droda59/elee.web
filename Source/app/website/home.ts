@@ -6,7 +6,7 @@ import {I18N} from "aurelia-i18n";
 export class Home {
   router: Router;
 
-  constructor(private i18n: I18N) { }
+  constructor(private _i18n: I18N) { }
 
   configureRouter(config: RouterConfiguration, router: Router) {
     config.map([
@@ -15,7 +15,7 @@ export class Home {
         name: "welcome",
         moduleId: "app/website/welcome/welcome",
         nav: true,
-        title: this.i18n.tr("home.pageTitle")
+        title: this._i18n.tr("home.pageTitle")
       },
       {
         route: "about",
@@ -23,7 +23,7 @@ export class Home {
         moduleId: "app/website/about/about",
         nav: true,
         href: "#/home/about/",
-        title: this.i18n.tr("about.pageTitle")
+        title: this._i18n.tr("about.pageTitle")
       },
       {
         route: "contact",
@@ -31,7 +31,7 @@ export class Home {
         moduleId: "app/website/contact/contact",
         nav: true,
         href: "#/home/contact/",
-        title: this.i18n.tr("contact.pageTitle")
+        title: this._i18n.tr("contact.pageTitle")
       }
     ]);
 

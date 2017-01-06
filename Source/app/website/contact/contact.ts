@@ -8,8 +8,7 @@ export class ContactPage {
     name: string;
     message: string;
 
-    constructor(private contactService: ContactService) {
-    }
+    constructor(private _contactService: ContactService) { }
 
     send() {
         let contactForm: ContactForm = { email: this.email, name: this.name, message: this.message};
