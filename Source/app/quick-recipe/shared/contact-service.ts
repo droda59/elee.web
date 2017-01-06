@@ -33,9 +33,15 @@ export class ContactService {
 		});
 	}
 
+	get(): Promise<Array<ContactForm>> {
+		return this._httpClient.fetch("api/contactform", {
+			method: "get"
+		}).then(response => response.json());
+	}
+
 	send(contactForm: ContactForm): Promise<boolean> {
-		return this._httpClient.fetch("api/contact", {
-			method: "put",
+		return this._httpClient.fetch("api/contactform", {
+			method: "post",
 			body: json(contactForm)
 		}).then(response => response.json());
 	}

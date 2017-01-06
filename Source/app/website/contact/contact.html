@@ -1,5 +1,5 @@
 <template>
-	<loading-overlay title="${'home.loading' | t & oneTime}"></loading-overlay>
+	<loading-overlay title="${'contact.sending' | t & oneTime}"></loading-overlay>
 
     <div id="contact-container">
         <div class="contact-header-container">
@@ -12,7 +12,19 @@
                 <p class="light center">L'équipe d'elee.menu travaille d'arrache-pied afin de vous offrir une expérience des plus agréable lors de la réalisation de vos recettes préférées.</p>
                 <p class="light center">Nous apprécions vous entendre et avoir vos commentaires!</p>
 
-            	<form submit.delegate="send()" role="form">
+				<ul>
+					<li repeat.for="form of forms">
+	            		<div class="row">
+	            			<div class="col s12 m6">${form.name}</div>
+	            			<div class="col s12 m6">${form.email}</div>
+	            		</div>
+	            		<div class="row">
+	                        <div class="col s12">${form.message}</div>
+	            		</div>
+					</li>
+				</ul>
+
+            	<form submit.delegate="send()" role="form" show.bind="!sent">
             		<div class="row">
             			<div class="input-field col s12 m6">
                             <i class="material-icons prefix">account_circle</i>
@@ -37,12 +49,17 @@
             			<p>${'contact.thankYouMessage' | t}</p>
             		</div>
             		<div class="row center">
-            			<button id="send-message" class="btn btn-large btn-success waves-effect waves-light">
+            			<button id="send-message" class="btn btn-large btn-success waves-effect waves-light ${sending ? 'disabled' : ''}">
             				${'contact.sendButton' | t}
             				<i class="material-icons right">send</i>
             			</button>
             		</div>
             	</form>
+
+				<div class="row" show.bind="sent">
+					<h4>${'contact.messageSent' | t}</h3>
+					<h5>${'contact.thankYouMessage' | t}</h3>
+				</div>
             </div>
         </div>
     </div>
