@@ -11,13 +11,7 @@ export class ContactPage {
     sending: boolean = false;
     sent: boolean = false;
 
-    // forms: Array<ContactForm> = [];
-
     constructor(private _contactService: ContactService) { }
-
-    // activate(): Promise<Array<ContactForm>> {
-    //     return this._refreshContactForms();
-    // }
 
     send() {
         let contactForm: ContactForm = { email: this.email, name: this.name, message: this.message};
@@ -27,15 +21,6 @@ export class ContactPage {
             .then(() => {
                 this.sending = false;
                 this.sent = true;
-
-                // this._refreshContactForms();
             });
     }
-
-    // private _refreshContactForms() {
-    //     return this._contactService.get()
-    //         .then(response => {
-    //             this.forms = response.map(form => form as ContactForm);
-    //         });
-    // }
 }

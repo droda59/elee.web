@@ -26,6 +26,13 @@ export class Main {
 
         if (this._configuration.is("development")) {
             routes.push({
+                route: "administration/contact",
+                name: "admin-contact",
+                moduleId: "app/administration/contact/index",
+                title: this._i18n.tr("administration.contact.pageTitle")
+            });
+
+            routes.push({
                 route: "administration/recipes",
                 name: "administration",
                 moduleId: "app/quick-recipe/administration/index",
