@@ -5,6 +5,7 @@ import {I18N} from "aurelia-i18n";
 @inject(I18N)
 export class Home {
   router: Router;
+	isHomepage: boolean;
 
   constructor(private _i18n: I18N) { }
 
@@ -37,4 +38,12 @@ export class Home {
 
     this.router = router;
   }
+
+	get isHomePageActive(): boolean {
+		return this.getCurrentPageName === "welcome";
+	}
+
+	get getCurrentPageName(): string {
+		return this.router.currentInstruction.config.name;
+	}
 }

@@ -1,8 +1,8 @@
-<template bindable="router">
+<template bindable="router, isHomepage">
     <div class="nav-wrapper container">
         <div class="col s12">
             <a md-sidenav-collapse="ref.bind: sideNavLeft;" class="button-collapse"><i class="material-icons">menu</i></a>
-			<a if.bind="router.currentInstruction.config.name != 'welcome'" id="logo-container" href="#" class="brand-logo">
+			<a if.bind="!isHomepage" id="logo-container" href="#" class="brand-logo">
 				<img src="/dist/app/shared/assets/images/transparent_file_white.png">
 			</a>
             <ul class="right hide-on-med-and-down">
