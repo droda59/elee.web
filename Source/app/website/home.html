@@ -1,8 +1,8 @@
 <template>
     <require from="app/website/components/page-header/page-header.html"></require>
 
-    <nav id="page-header" class="${router.currentInstruction.config.name}">
-        <page-header router.bind="router" is-homepage.bind="isHomePageActive" containerless></page-header>
+    <nav id="page-header" class="${getCurrentPageName()}">
+        <page-header router.bind="router" containerless></page-header>
     </nav>
     <router-view></router-view>
 </template>
