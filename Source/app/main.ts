@@ -30,6 +30,11 @@ export class Main {
                 title: this._i18n.tr("comments.pageTitle")
             },
             {
+                route: "about/",
+                name: "about",
+                moduleId: "app/website/about/about"
+            },
+            {
                 route: "recipe/:uniqueName",
                 name: "quick-recipe",
                 moduleId: "app/quick-recipe/follow-recipe/index"

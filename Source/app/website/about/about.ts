@@ -15,5 +15,6 @@ export class About extends BaseI18N {
 
 	activate(route, routeConfig) {
 		// Nothin' yet
+		
 	}
 }
