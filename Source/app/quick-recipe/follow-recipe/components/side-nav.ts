@@ -25,8 +25,8 @@ export class SideNav {
         this._i18n = i18n;
         this._toast = toast;
 
-        this.selectedVolumeDisplay: settingsManager.settings.selectedVolumeDisplay;
-        this.selectedWeightDisplay: settingsManager.settings.selectedWeightDisplay;
+        this.selectedVolumeDisplay = settingsManager.settings.selectedVolumeDisplay;
+        this.selectedWeightDisplay = settingsManager.settings.selectedWeightDisplay;
     }
 
     reportRecipe(): void {

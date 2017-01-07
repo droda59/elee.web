@@ -5,14 +5,16 @@ export class ContactForm implements ContactFormDto {
     date: Date;
 
     constructor(dto: ContactFormDto) {
-        (<any>Object).assign(this, dto);
+        if (dto) {
+            (<any>Object).assign(this, dto);
 
-        this.date = new Date(dto.date);
+            this.date = new Date(dto.date);
+        }
     }
 }
 interface ContactFormDto {
     name: string;
     email: string;
     message: string;
-    date: string;
+    date: Date;
 }

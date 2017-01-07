@@ -58,6 +58,10 @@
 				margin-bottom: 1rem;
 			}
 		}
+
+		.prefix ~ label[data-error] {
+		    width: calc(100% - 3rem);
+		}
 	}
 
 	.collection,

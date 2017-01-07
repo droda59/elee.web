@@ -1,26 +1,41 @@
-import { autoinject } from "aurelia-framework";
-import { ContactService } from "app/quick-recipe/shared/contact-service";
-import { ContactForm } from "app/quick-recipe/shared/models/contact-form";
+import { inject, NewInstance } from "aurelia-framework";
+import { ValidationController, ValidationRules, ValidateResult } from "aurelia-validation";
+import { ContactService } from "app/shared/contact-service";
+import { ContactForm } from "app/website/models/contact-form";
 
-@autoinject()
+@inject(ContactService, NewInstance.of(ValidationController))
 export class ContactPage {
-    email: string;
-    name: string;
-    message: string;
+    errors: Array<ValidateResult> = [];
+
+    contactForm: ContactForm = new ContactForm();
 
     sending: boolean = false;
     sent: boolean = false;
 
-    constructor(private _contactService: ContactService) { }
+    constructor(private _contactService: ContactService, private _controller: ValidationController) {
+        ValidationRules
+            .ensure(x => x.name).required()
+            .ensure(x => x.email).required().email()
+            .ensure(x => x.message).required()
+            .on(this.contactForm);
+    }
 
     send() {
-        let contactForm: ContactForm = { email: this.email, name: this.name, message: this.message};
-
-        this.sending = true;
-        this._contactService.send(contactForm)
-            .then(() => {
-                this.sending = false;
-                this.sent = true;
-            });
+        this._controller.validate().then(errors => {
+            this.errors = errors;
+            const errorResults = this.errors.results.filter(x => !x.valid);
+            if (!errorResults.length) {
+                try {
+                    this.sending = true;
+                    this._contactService.send(this.contactForm)
+                        .then(() => {
+                            this.sending = false;
+                            this.sent = true;
+                        });
+                } catch (e) {
+                    this.errors.results.push({error: { message: e.statusText }});
+                }
+            }
+        });
     }
 }

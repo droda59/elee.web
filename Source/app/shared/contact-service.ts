@@ -2,7 +2,7 @@ import { inject, NewInstance } from "aurelia-framework";
 import { HttpClient, json } from "aurelia-fetch-client";
 import { Configure } from "aurelia-configuration";
 import { EventAggregator } from "aurelia-event-aggregator";
-import { ContactForm } from "app/quick-recipe/models/contact-form";
+import { ContactForm } from "app/website/models/contact-form";
 import "fetch";
 
 @inject(NewInstance.of(HttpClient), Configure, EventAggregator)
