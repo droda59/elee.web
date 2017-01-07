@@ -1,4 +1,8 @@
 {
+	"validations": {
+		"email": "Le courriel n'est pas valide.",
+		"required": "Le champ est requis."	
+	},
 	"nav": {
 		"welcome": "",
 		"contact": "Contact",
