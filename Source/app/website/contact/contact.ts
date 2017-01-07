@@ -1,10 +1,12 @@
-import { inject, NewInstance } from "aurelia-framework";
-import { ValidationController, ValidationRules, ValidateResult } from "aurelia-validation";
+import { autoinject, inject, NewInstance } from "aurelia-framework";
+import { ValidationControllerFactory, ValidationController, ValidationRules, ValidateResult } from "aurelia-validation";
 import { ContactService } from "app/shared/contact-service";
 import { ContactForm } from "app/website/models/contact-form";
 
-@inject(ContactService, NewInstance.of(ValidationController))
+@autoinject()
 export class ContactPage {
+    private _controller: ValidationController;
+
     errors: Array<ValidateResult> = [];
 
     contactForm: ContactForm = new ContactForm();
@@ -12,7 +14,9 @@ export class ContactPage {
     sending: boolean = false;
     sent: boolean = false;
 
-    constructor(private _contactService: ContactService, private _controller: ValidationController) {
+    constructor(private _contactService: ContactService, controllerFactory: ValidationControllerFactory) {
+        this._controller = controllerFactory.createForCurrentScope();
+
         ValidationRules
             .ensure(x => x.name).required()
             .ensure(x => x.email).required().email()
@@ -22,8 +26,8 @@ export class ContactPage {
 
     send() {
         this._controller.validate().then(errors => {
-            this.errors = errors;
-            const errorResults = this.errors.results.filter(x => !x.valid);
+            this.errors = errors.results;
+            const errorResults = this.errors.filter(x => !x.valid);
             if (!errorResults.length) {
                 try {
                     this.sending = true;
@@ -33,7 +37,7 @@ export class ContactPage {
                             this.sent = true;
                         });
                 } catch (e) {
-                    this.errors.results.push({error: { message: e.statusText }});
+                    this.errors.push({ message: e.statusText });
                 }
             }
         });

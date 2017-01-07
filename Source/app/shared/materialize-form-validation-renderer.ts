@@ -1,40 +1,44 @@
-import { inject } from "aurelia-dependency-injection";
-import { validationRenderer } from "aurelia-validation";
+import { validationRenderer, RenderInstruction, ValidateResult } from "aurelia-validation";
 
 @validationRenderer
-@inject(Element)
 export class MaterializeFormValidationRenderer {
-    render(instruction) {
-        for (let {result, elements} of instruction.unrender) {
-            if (result.valid) {
-                elements.forEach(target => {
-                    if (target.labels.length) {
-                        const label = target.labels[0];
-                        label.dataset.error = "";
-                    }
-
-                    const field = target;
-                    field.classList.remove("invalid");
-                    field.classList.add("valid");
-                });
+    render(instruction: RenderInstruction) {
+        for (let { result, elements } of instruction.unrender) {
+            for (let target of elements) {
+                this.remove(target, result);
             }
         }
 
-        for (let {result, elements} of instruction.render) {
-            // TODO Create an error div instead of filtering type
-            if (!result.valid && result.rule.messageKey !== "required") {
-                const message = result.message;
-                elements.forEach(target => {
-                    if (message && target.labels.length) {
-                        const label = target.labels[0];
-                        label.dataset.error = message;
-                    }
-
-                    const field = target;
-                    field.classList.add("invalid");
-                    field.classList.remove("valid");
-                });
+        for (let { result, elements } of instruction.render) {
+            for (let target of elements) {
+                this.add(target, result);
             }
+        }
+    }
+
+    add(target: Element, result: ValidateResult) {
+        if (result.valid) {
+            return;
+        }
+
+        const message = document.createElement("div");
+        message.className = "validation-message";
+        message.textContent = result.message;
+        message.id = `validation-message-${result.id}`;
+
+        target.parentNode.appendChild(message);
+        target.classList.add("invalid");
+    }
+
+    remove(target: Element, result: ValidateResult) {
+        if (result.valid) {
+            return;
+        }
+
+        const message = target.parentNode.querySelector(`#validation-message-${result.id}`);
+        if (message) {
+            target.parentNode.removeChild(message);
+            target.classList.remove("invalid");
         }
     }
 }

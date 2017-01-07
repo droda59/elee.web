@@ -12,23 +12,23 @@
                 <p class="light center">L'équipe d'elee.menu travaille d'arrache-pied afin de vous offrir une expérience des plus agréable lors de la réalisation de vos recettes préférées.</p>
                 <p class="light center">Nous apprécions vous entendre et avoir vos commentaires!</p>
 
-            	<form submit.delegate="send()" role="form" show.bind="!sent" validation-errors.bind="errors" validation-renderer="materialize-form">
+            	<form submit.delegate="send()" role="form" show.bind="!sent" validation-renderer="materialize-form">
             		<div class="row">
             			<div class="input-field col s12 m6">
                             <i class="material-icons prefix">account_circle</i>
-            				<input value.bind="contactForm.name & validate" id="name" type="text" required>
+            				<input value.bind="contactForm.name & validate" id="name" type="text">
             				<label for="name">${'contact.name' | t} *</label>
             			</div>
             			<div class="input-field col s12 m6">
                             <i class="material-icons prefix">email</i>
-            				<input value.bind="contactForm.email & validate" id="email" type="email" required>
+            				<input value.bind="contactForm.email & validate" id="email" type="email">
             				<label for="email">${'contact.email' | t} *</label>
             			</div>
             		</div>
             		<div class="row">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">mode_edit</i>
-                            <textarea value.bind="contactForm.message & validate" id="message" class="materialize-textarea" rows="6" required></textarea>
+                            <textarea value.bind="contactForm.message & validate" id="message" class="materialize-textarea" rows="6"></textarea>
                             <label for="message">${'contact.yourMessage' | t} *</label>
                         </div>
             		</div>
