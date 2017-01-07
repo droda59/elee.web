@@ -1,4 +1,4 @@
-import {Duration, DurationDto} from "app/quick-recipe/shared/models/quick-recipe";
+import {Duration, DurationDto} from "app/quick-recipe/models/quick-recipe";
 import {Ingredient, IngredientDto} from "app/shared/models/ingredient";
 
 export class QuickRecipeSearchResult implements QuickRecipeSearchResultDto {

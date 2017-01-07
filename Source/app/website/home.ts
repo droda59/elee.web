@@ -1,27 +1,37 @@
-import {inject} from "aurelia-framework";
-import {Router, RouterConfiguration} from "aurelia-router";
-import {I18N} from "aurelia-i18n";
+import { autoinject } from "aurelia-framework";
+import { Router, RouterConfiguration } from "aurelia-router";
+import { I18N } from "aurelia-i18n";
 
-@inject(I18N)
+@autoinject
 export class Home {
-  router: Router;
-  i18n: I18N;
+	router: Router;
+	isHomepage: boolean;
 
-  constructor(i18n: I18N) {
-    this.i18n = i18n;
-  }
+	constructor(private _i18n: I18N) { }
 
-  configureRouter(config: RouterConfiguration, router: Router) {
-    config.map([
-      {
-        route: ["", "welcome"],
-        name: "welcome",
-        moduleId: "app/website/welcome/welcome",
-        nav: true,
-        title: this.i18n.tr("home.pageTitle")
-      }
-    ]);
+	configureRouter(config: RouterConfiguration, router: Router) {
+		config.map([
+			{
+				route: ["", "welcome"],
+				name: "welcome",
+				moduleId: "app/website/welcome/welcome",
+				nav: true,
+				title: this._i18n.tr("home.pageTitle")
+			},
+			{
+				route: "contact",
+				name: "contact",
+				moduleId: "app/website/contact/contact",
+				nav: true,
+				href: "#/home/contact/",
+				title: this._i18n.tr("contact.pageTitle")
+			}
+		]);
 
-    this.router = router;
-  }
+		this.router = router;
+	}
+
+	getCurrentPageName(): string {
+		return this.router.currentInstruction.config.name;
+	}
 }

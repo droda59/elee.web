@@ -1,3 +1,7 @@
 .navbar-fixed {
 	position: fixed;
 }
+
+nav ul li.active {
+	background-color: transparent;
+}

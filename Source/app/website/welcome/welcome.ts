@@ -1,7 +1,7 @@
 import { Router } from "aurelia-router";
 import { autoinject } from "aurelia-framework";
-import { QuickRecipeService } from "app/quick-recipe/shared/quick-recipe-service";
-import { QuickRecipeSearchResult } from "app/quick-recipe/shared/models/quick-recipe-search-result";
+import { QuickRecipeService } from "app/quick-recipe/quick-recipe-service";
+import { QuickRecipeSearchResult } from "app/quick-recipe/models/quick-recipe-search-result";
 
 @autoinject()
 export class Welcome {
@@ -11,7 +11,7 @@ export class Welcome {
 	maximumTime: number = 0;
 
 	constructor(private _router: Router,
-		private _service: QuickRecipeService) {
+				private _service: QuickRecipeService) {
 	}
 
 	searchRecipes(): void {

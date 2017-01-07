@@ -2,8 +2,8 @@ import { inject, NewInstance } from "aurelia-framework";
 import { HttpClient, json } from "aurelia-fetch-client";
 import { Configure } from "aurelia-configuration";
 import { EventAggregator } from "aurelia-event-aggregator";
-import { QuickRecipe } from "app/quick-recipe/shared/models/quick-recipe";
-import { QuickRecipeSearchResult } from "app/quick-recipe/shared/models/quick-recipe-search-result";
+import { QuickRecipe } from "app/quick-recipe/models/quick-recipe";
+import { QuickRecipeSearchResult } from "app/quick-recipe/models/quick-recipe-search-result";
 import "fetch";
 
 @inject(NewInstance.of(HttpClient), Configure, EventAggregator)

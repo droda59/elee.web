@@ -1,0 +1,23 @@
+<template>
+    <div class="read-contacts container">
+        <div class="row">
+            <div class="col s12">
+                <section class="section">
+                    <h2>${ 'administration.contact.pageTitle' | t }</h2>
+
+                    <ul class="collection">
+                        <li virtual-repeat.for="form of forms" class="collection-item avatar">
+                            <i class="material-icons circle">comment</i>
+                            <span class="title">${form.name} <small>(${form.email})</small></span>
+                            <p>
+                                ${form.date} <br>
+                                ${form.message}
+                            </p>
+                            <a href="#!" class="secondary-content"><i class="material-icons">new_releases</i></a>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+</template>

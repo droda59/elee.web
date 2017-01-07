@@ -1,5 +1,6 @@
 import * as Backend from "i18next-xhr-backend";
 import {HttpClient} from "aurelia-fetch-client";
+import { MaterializeFormValidationRenderer } from "app/shared/materialize-form-validation-renderer";
 import "materialize-css"; // ONLY when using the "npm" option above
 
 export function configure(aurelia) {
@@ -17,6 +18,7 @@ export function configure(aurelia) {
     })
     .plugin("aurelia-dialog")
     .plugin("aurelia-dragula")
+    .plugin("aurelia-validation")
     .plugin("aurelia-i18n", (instance) => {
       instance.i18next.use(Backend);
       return instance.setup({
@@ -60,6 +62,10 @@ export function configure(aurelia) {
         .useAutoComplete()
         .useTabs()
     });
+
+    aurelia.container.registerHandler(
+        'materialize-form',
+        container => container.get(MaterializeFormValidationRenderer));
 
     aurelia.start().then(a => a.setRoot("app/main", document.body));
 

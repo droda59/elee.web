@@ -39,10 +39,10 @@ gulp.task("build-sass", function () {
     var appSass = gulp.src([
         paths.app + "shared/assets/css/main.scss",
         paths.app + "shared/components/advanced-search/advanced-search.scss",
-        paths.app + "website/components/page-footer/page-footer.scss",
         paths.app + "website/components/page-header/page-header.scss",
         paths.app + "website/welcome/assets/css/main.scss",
         paths.app + "website/about/assets/css/main.scss",
+        paths.app + "website/contact/assets/css/main.scss",
         paths.app + "quick-recipe/administration/assets/css/main.scss",
         paths.app + "quick-recipe/backgrounds/assets/css/main.scss",
         paths.app + "quick-recipe/edit-recipe/assets/css/main.scss",

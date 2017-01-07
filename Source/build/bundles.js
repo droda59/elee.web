@@ -32,6 +32,7 @@ module.exports = {
                 "aurelia-templating-resources",
                 "aurelia-templating-router",
                 "aurelia-ui-virtualization",
+                "aurelia-validation",
                 "aurelia-google-analytics",
                 "aurelia-materialize-bridge",
                 "aurelia-materialize-bridge/**/*.html!text",

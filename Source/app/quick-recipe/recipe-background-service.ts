@@ -1,6 +1,6 @@
 import {inject, NewInstance} from "aurelia-framework";
 import {HttpClient} from "aurelia-fetch-client";
-import {BackgroundDefinitionDto} from "app/quick-recipe/backgrounds/models/background-definition";
+import {BackgroundDefinitionDto} from "app/administration/backgrounds/models/background-definition";
 import "fetch";
 
 @inject(NewInstance.of(HttpClient))
@@ -15,7 +15,7 @@ export class RecipeBackgroundService {
     }
 
     getBackgrounds(): Promise<Array<BackgroundDefinitionDto>> {
-        return this._httpClient.fetch("dist/app/quick-recipe/backgrounds/assets/background-definitions.json")
+        return this._httpClient.fetch("dist/app/administration/backgrounds/assets/background-definitions.json")
             .then(response => response.json());
     }
 

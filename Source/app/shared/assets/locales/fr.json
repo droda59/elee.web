@@ -1,28 +1,37 @@
 {
+	"validations": {
+		"email": "Le courriel n'est pas valide.",
+		"required": "Le champ est requis."	
+	},
 	"nav": {
+		"welcome": "",
 		"contact": "Contact",
-		"about": "À propos",
-		"lang": "English",
-		"links": "Liens"
+		"about": "À propos"
 	},
 	"administration": {
-		"pageTitle": "Administration",
-		"recipesToReview": "Recettes à réviser",
-        "reviewedRecipes": "Recettes révisées"
+	    "backgrounds": {
+	        "pageTitle": "Arrière-plans de recettes",
+	        "fileName": "Nom de fichier",
+	        "saveButton": "Enregistrer"
+	    },
+		"contact": {
+	        "pageTitle": "Commentaires"
+		},
+		"recipes": {
+			"pageTitle": "Administration",
+			"recipesToReview": "Recettes à réviser",
+	        "reviewedRecipes": "Recettes révisées"
+		}
 	},
-    "backgrounds": {
-        "pageTitle": "Arrière-plans de recettes",
-        "fileName": "Nom de fichier",
-        "tags": "Tags",
-        "saveButton": "Enregistrer"
-    },
-	"comments": {
-		"pageTitle": "Commentaires",
+	"contact": {
+		"pageTitle": "Contactez-nous",
 		"yourMessage": "Votre message",
-		"emailForUpdates": "Inscrivez votre adresse de courriel si vous aimeriez recevoir des mises à jour.",
 		"email": "Votre adresse de courriel",
+		"name": "Votre nom",
 		"thankYouMessage": "Merci pour vos commentaires, ils sont très importants pour nous!",
-		"sendButton": "Envoyer"
+		"sendButton": "Envoyer",
+		"sending": "Envoi en cours...",
+		"messageSent": "Votre message a été envoyé"
 	},
 	"help": {
 		"okButton": "J'ai compris",
@@ -68,7 +77,7 @@
 		"loading": "Recherche en cours",
 		"pageTitle": "Bienvenue",
 		"slogan": "cuisinez simplement",
-		"mainDescription": "elee.menu vous guide pas-à-pas à travers chaque étape de vos recettes, et permet de vous éviter les erreurs fréquentes lorsque vous préparer vos festins",
+		"mainDescription": "elee.menu vous guide pas-à-pas à travers chaque étape de vos recettes, et permet de vous éviter les erreurs fréquentes lorsque vous préparez vos festins",
 		"search": "Rechercher",
 		"cookItNowButton": "Cuisinez!",
 		"results": {

@@ -1,6 +1,6 @@
 import {Ingredient, IngredientDto} from "app/shared/models/ingredient";
 import {Quantity, QuantityDto} from "app/shared/models/quantity";
-import {PartFactory} from "app/quick-recipe/shared/part-factory";
+import {PartFactory} from "app/quick-recipe/part-factory";
 
 export class QuickRecipe implements QuickRecipeDto {
     _id: string;

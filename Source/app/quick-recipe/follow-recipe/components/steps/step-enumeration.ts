@@ -1,4 +1,4 @@
-import {Part, EnumerationPart} from "app/quick-recipe/shared/models/quick-recipe";
+import {Part, EnumerationPart} from "app/quick-recipe/models/quick-recipe";
 
 export class StepEnumeration {
   parts: Part[];
