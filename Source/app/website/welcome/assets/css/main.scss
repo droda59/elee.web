@@ -107,6 +107,39 @@
 		}
 	}
 
+	#featured-container {
+		padding:28px 0;
+
+		.featured__content {
+			margin-top:30px;
+		}
+		.featured__thumb--link {
+			display: block;
+			font-size:18px;
+
+			&:hover {
+				opacity: .7;
+			}
+
+			.featured__thumb {
+				overflow:hidden;
+				padding-bottom:56.7%;
+				position:relative;
+
+				img {
+					width:100%;
+					height:auto;
+					position:absolute;
+					top:0;
+					left:0;
+				}
+			}
+			.featured__title {
+				font-size:inherit;
+			}
+		}
+	}
+
 	#description-container {
 		padding: 3rem 2rem;
 		background: #efefef;
@@ -175,13 +208,4 @@
 			line-height: 1.5rem;
 		}
 	}
-}
-
-// dirty hack
-.featured__thumb--link {
-	display: block;
-}
-
-.featured__thumb--link:hover {
-	opacity: .7;
 }

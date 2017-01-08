@@ -4,7 +4,9 @@ export class ContactForm implements ContactFormDto {
     message: string;
     date: Date;
 
-    constructor(dto: ContactFormDto) {
+    constructor();
+    constructor(dto: ContactFormDto);
+    constructor(dto?: ContactFormDto) {
         if (dto) {
             (<any>Object).assign(this, dto);
 

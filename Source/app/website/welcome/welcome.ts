@@ -10,8 +10,32 @@ export class Welcome {
 	searchTerms: string;
 	maximumTime: number = 0;
 
+	featuredRecipes: Array<QuickRecipeSearchResult> = [];
+
 	constructor(private _router: Router,
 				private _service: QuickRecipeService) {
+	}
+
+	activate(): Promise<Array<QuickRecipeSearchResult>> {
+		var featuredPromises = [];
+		// Recettes Noel
+		// featuredPromises.push(this._service.getRecipe("ricardocuisine-parfaite-pate-brisee"));
+		// featuredPromises.push(this._service.getRecipe("ricardocuisine-sucre-creme-(le-meilleur)"));
+		// featuredPromises.push(this._service.getRecipe("ricardocuisine-dinde-farcie-porc-aux-champignons"));
+
+		// Recettes santé
+		featuredPromises.push(this._service.getRecipe("ricardocuisine-soupe-lorge-aux-legumineuses"));
+		featuredPromises.push(this._service.getRecipe("ricardocuisine-pain-aux-bananes-son"));
+		featuredPromises.push(this._service.getRecipe("ricardocuisine-pates-aux-legumes-aux-crevettes"));
+
+		// Recettes hiver
+		// featuredPromises.push(this._service.getRecipe("ricardocuisine-chili-con-carne"));
+		// featuredPromises.push(this._service.getRecipe("ricardocuisine-chocolat-chaud-orange-cannelle"));
+		// featuredPromises.push(this._service.getRecipe("ricardocuisine-soupe-loignon-(la-meilleure)"));
+
+		Promise.all(featuredPromises).then(values => {
+			this.featuredRecipes = values.map(x => new QuickRecipeSearchResult(x));
+		});
 	}
 
 	searchRecipes(): void {
@@ -29,9 +53,9 @@ export class Welcome {
 		}
 	}
 
-	trackRecipe(name: string): void {
+	goToFeatured(uniqueName: string): void {
 		ga('send', 'event', 'Recipe', 'click', 'vedette');
-		window.location.href = name;
+		this.loadRecipe(uniqueName);
 	}
 
 	loadRecipe(uniqueName: string): void {

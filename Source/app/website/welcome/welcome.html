@@ -73,32 +73,16 @@
 			</div>
 		</section>
 
-		<section id="featured" style="background:#000;text-align:center;color:white;padding:28px 0;">
-			<h3 style="padding:0;margin:0;font-size:32px;">Recettes en Vedette</h3>
-			<div class="row short center" style="margin:0;margin-top:30px;">
+		<section id="featured-container" class="black white-text center-align">
+			<h3 class="title">Recettes en Vedette</h3>
+			<div class="row short center" class="featured__content">
 				<div class="col m8 offset-m2">
-					<div class="col s6 m4">
-						<a href="/#/recipe/ricardocuisine-parfaite-pate-brisee" click.delegate="trackRecipe('/#/recipe/ricardocuisine-parfaite-pate-brisee')" style="color:white;font-size:18px;text-align: center;" class="featured__thumb--link">
-							<div class="featured__thumb" style="overflow:hidden;padding-bottom:56.7%;position:relative;">
-								<img src="https://images.ricardocuisine.com/services/recipes/260x351_4124.jpg" alt="" style="width:100%;height:auto;position:absolute;top:0;left:0;">
+					<div class="col s6 m4" repeat.for="featured of featuredRecipes">
+						<a click.delegate="goToFeatured(featured.uniqueName)" class="white-text center-align featured__thumb--link">
+							<div class="featured__thumb">
+								<img src.bind="featured.smallImageUrl" alt="">
 							</div>
-							<h4 style="font-size:inherit;">Parfaite pâte brisée</h4>
-						</a>
-					</div>
-					<div class="col s6 m4">
-						<a href="/#/recipe/ricardocuisine-sucre-creme-(le-meilleur)" click.delegate="trackRecipe('/#/recipe/ricardocuisine-sucre-creme-(le-meilleur)')" style="color:white;font-size:18px;text-align: center;" class="featured__thumb--link">
-							<div class="featured__thumb" style="overflow:hidden;padding-bottom:56.7%;position:relative;">
-								<img src="https://images.ricardocuisine.com/services/recipes/260x351_4683.jpg" alt="" style="width:100%;height:auto;position:absolute;top:0;left:0;">
-							</div>
-							<h4 style="font-size:inherit;">Sucre à la crème (le meilleur)</h4>
-						</a>
-					</div>
-					<div class="col s6 m4">
-						<a href="/#/recipe/ricardocuisine-dinde-farcie-porc-aux-champignons" click.delegate="trackRecipe('/#/recipe/ricardocuisine-dinde-farcie-porc-aux-champignons')" style="color:white;font-size:18px;text-align: center;" class="featured__thumb--link">
-							<div class="featured__thumb" style="overflow:hidden;padding-bottom:56.7%;position:relative;">
-								<img src="https://images.ricardocuisine.com/services/recipes/260x351_216850818565f2b1154936.jpg" alt="" style="width:100%;height:auto;position:absolute;top:0;left:0;">
-							</div>
-							<h4 style="font-size:inherit;">Dinde farcie au porc et aux champignons</h4>
+							<h4 class="featured__title">${featured.title}</h4>
 						</a>
 					</div>
 				</div>

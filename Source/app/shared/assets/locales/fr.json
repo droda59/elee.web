@@ -1,7 +1,7 @@
 {
 	"validations": {
 		"email": "Le courriel n'est pas valide.",
-		"required": "Le champ est requis."	
+		"required": "Le champ est requis."
 	},
 	"nav": {
 		"welcome": "",
@@ -190,8 +190,7 @@
 		"finish": "Terminer",
 		"comments": {
 			"didYouLikeExperience": "Avez-vous aimé votre expérience?",
-			"wedLikeYourComments": "Nous aimerions avoir vos commentaires!",
-			"writeComments": "Remplissez le questionnaire qui suit."
+			"wedLikeYourComments": "Nous aimerions avoir vos commentaires!"
 		}
 	},
 	"edit": {
