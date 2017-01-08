@@ -69,18 +69,18 @@
 
 				<section id="comments-section" if.bind="isRecipeDone" class="section">
 					<div class="row center">
-						<hgroup>
-							<h3>${'quickRecipe.comments.didYouLikeExperience' | t}</h3>
-							<h4>${'quickRecipe.comments.wedLikeYourComments' | t}</h4>
-						</hgroup>
-						<p>${'quickRecipe.comments.writeComments' | t}</p>
-					</div>
-
-					<div class="row center">
-						<a href="#/home/contact" class="btn btn-large btn-success waves-effect waves-light">
-							${'comments.sendButton' | t}
-							<i class="material-icons right">send</i>
-						</a>
+						<div class="row">
+							<hgroup>
+								<h4>${'quickRecipe.comments.didYouLikeExperience' | t}</h4>
+								<h5>${'quickRecipe.comments.wedLikeYourComments' | t}</h5>
+							</hgroup>
+						</div>
+						<div class="row center">
+							<a href="#/home/contact" class="btn btn-large btn-success waves-effect waves-light">
+								${'contact.pageTitle' | t}
+								<i class="material-icons right">comments</i>
+							</a>
+						</div>
 					</div>
 				</section>
 			</div>
