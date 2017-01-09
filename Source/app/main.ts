@@ -14,21 +14,24 @@ export class Main {
     configureRouter(config: RouterConfiguration, router: Router) {
         let routes = [
             {
-                route: ["", "home"],
-                moduleId: "app/website/home",
-                nav: false
-            },
-            {
-                route: "typeform",
-                name: "typeform",
-                moduleId: "app/shared/components/typeform",
+                route: ["", "welcome"],
+                moduleId: "app/website/welcome/welcome",
+                title: this._i18n.tr("home.pageTitle"),
                 nav: true,
-                title: this._i18n.tr("comments.pageTitle")
             },
             {
                 route: "about/",
                 name: "about",
-                moduleId: "app/website/about/about"
+                moduleId: "app/website/about/about",
+                title: this._i18n.tr("about.pageTitle"),
+                nav: true,
+            },
+            {
+                route: "contact/",
+                name: "contact",
+                moduleId: "app/website/contact/contact",
+                title: this._i18n.tr("contact.pageTitle"),
+                nav: true,
             },
             {
                 route: "recipe/:uniqueName",

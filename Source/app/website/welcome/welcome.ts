@@ -5,15 +5,15 @@ import { QuickRecipeSearchResult } from "app/quick-recipe/models/quick-recipe-se
 
 @autoinject()
 export class Welcome {
+	router: Router;
 	results: Array<QuickRecipeSearchResult> = undefined;
 	ingredients: Array<SearchIngredient> = [];
 	searchTerms: string;
 	maximumTime: number = 0;
-
 	featuredRecipes: Array<QuickRecipeSearchResult> = [];
 
-	constructor(private _router: Router,
-				private _service: QuickRecipeService) {
+	constructor(private _service: QuickRecipeService, router: Router) {
+		this.router = router;
 	}
 
 	activate(): Promise<Array<QuickRecipeSearchResult>> {
@@ -59,7 +59,11 @@ export class Welcome {
 	}
 
 	loadRecipe(uniqueName: string): void {
-		this._router.navigateToRoute("quick-recipe", { "uniqueName": uniqueName }, undefined);
+		this.router.navigateToRoute("quick-recipe", { "uniqueName": uniqueName }, undefined);
+	}
+
+	getCurrentPageName(): string {
+		return this.router.currentInstruction.config.name;
 	}
 }
 
