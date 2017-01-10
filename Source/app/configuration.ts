@@ -8,6 +8,7 @@ export function configure(aurelia) {
     .standardConfiguration()
     .globalResources("app/shared/components/loading-overlay")
     .plugin("aurelia-animator-css")
+    .plugin("aurelia-infinite-scroll");
     .plugin("aurelia-ui-virtualization")
     .plugin("aurelia-configuration", config => {
         config.setDirectory("app/shared/config");
