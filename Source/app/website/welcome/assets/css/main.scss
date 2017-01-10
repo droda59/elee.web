@@ -34,17 +34,6 @@
 		}
 	}
 
-	.recette-featured-link {
-		display: block;
-		&:hover {
-			opacity: .8;
-		}
-		h3 {
-			font-size: 18px;
-			color: #fff;
-		}
-	}
-
 	#search-container {
 		background-image: url("/dist/app/website/welcome/assets/images/teaser_bg.jpg");
 		background-size: cover;
@@ -110,18 +99,19 @@
 	#featured-container {
 		padding:28px 0;
 
-		.featured__content {
-			margin-top:30px;
-		}
-		.featured__thumb--link {
-			display: block;
-			font-size:18px;
-
-			&:hover {
-				opacity: .7;
+		.featured {
+			&__content {
+				margin-top:30px;
 			}
+			&__thumb--link {
+				display: block;
+				font-size:18px;
 
-			.featured__thumb {
+				&:hover {
+					opacity: .7;
+				}
+			}
+			&__thumb {
 				overflow:hidden;
 				padding-bottom:56.7%;
 				position:relative;
@@ -134,58 +124,9 @@
 					left:0;
 				}
 			}
-			.featured__title {
+			&__title {
 				font-size:inherit;
 			}
-		}
-	}
-
-	#description-container {
-		padding: 3rem 2rem;
-		background: #efefef;
-	}
-
-	#how-it-works-container {
-		padding: 3rem 0;
-	}
-
-	#features-container {
-		padding: 5rem 3rem 4rem;
-		background: #efefef;
-		color: #2d2d2d;
-
-		.icon {
-			color: #DB5762;
-			font-size: 5rem;
-		}
-		.promo-caption {
-			font-weight: 600;
-			font-size: 1.2rem;
-		}
-		.light {
-			color: #707070;
-		}
-	}
-
-	#moar-to-come-container {
-		background: white;
-		color: #2d2d2d;
-
-		.description {
-			position: relative;
-
-			.image {
-				height: 100%;
-				position: absolute;
-
-				img {
-					height: 100%;
-				}
-			}
-		}
-
-		.light {
-			color: #707070;
 		}
 	}
 
@@ -200,12 +141,6 @@
 			.title + hr {
 				width: 50%;
 			}
-		}
-	}
-
-	@media #{$medium-and-down} {
-		.promo p {
-			line-height: 1.5rem;
 		}
 	}
 }

@@ -1,0 +1,99 @@
+<template>
+    <require from="app/website/components/page-header/page-header.html"></require>
+
+    <nav id="page-header" class="${getCurrentPageName()}">
+        <page-header router.bind="router" containerless></page-header>
+    </nav>
+
+	<div id="how-it-works">
+		<section id="description-container" class="section">
+			<div class="row short">
+				<div class="col s12 m6 offset-m3 center promo">
+					<p class="light center">${'how-it-works.mainDescription' | t}</p>
+				</div>
+			</div>
+		</section>
+
+		<section id="how-it-works-container" class="section">
+			<div class="container row short">
+				<div class="col s12 m4">
+					<div class="center promo">
+						<p class="promo-caption">${'how-it-works.steps.step1Title' | t}</p>
+						<p class="light center">${'how-it-works.steps.step1Description' | t}</p>
+					</div>
+				</div>
+				<div class="col s12 m4">
+					<div class="center promo">
+						<p class="promo-caption">${'how-it-works.steps.step2Title' | t}</p>
+						<p class="light center">${'how-it-works.steps.step2Description' | t}</p>
+					</div>
+				</div>
+				<div class="col s12 m4">
+					<div class="center promo">
+						<p class="promo-caption">${'how-it-works.steps.step3Title' | t}</p>
+						<p class="light center">${'how-it-works.steps.step3Description' | t}</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="features-container">
+			<div class="container">
+				<div class="row short">
+					<div class="col s12 m3">
+						<div class="center promo">
+							<i class="material-icons icon">devices</i>
+							<p class="promo-caption">${'how-it-works.features.feature1Title' | t}</p>
+							<p class="light center">${'how-it-works.features.feature1Description' | t}</p>
+						</div>
+					</div>
+
+					<div class="col s12 m3">
+						<div class="center promo">
+							<i class="material-icons icon">cloud</i>
+							<p class="promo-caption">${'how-it-works.features.feature2Title' | t}</p>
+							<p class="light center">${'how-it-works.features.feature2Description' | t}</p>
+						</div>
+					</div>
+
+					<div class="col s12 m3">
+						<div class="center promo">
+							<i class="material-icons icon">shopping_cart</i>
+							<p class="promo-caption">${'how-it-works.features.feature3Title' | t}</p>
+							<p class="light center">${'how-it-works.features.feature3Description' | t}</p>
+						</div>
+					</div>
+
+					<div class="col s12 m3">
+						<div class="center promo">
+							<i class="material-icons icon">alarm</i>
+							<p class="promo-caption">${'how-it-works.features.feature4Title' | t}</p>
+							<p class="light center">${'how-it-works.features.feature4Description' | t}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="moar-to-come-container">
+			<div class="row center underline-title">
+				<h3 class="title">${'how-it-works.moar.title' | t}</h3>
+				<hr />
+			</div>
+			<div class="row description">
+				<div class="col s12 m6 offset-m3">
+					<div class="row">
+						<p class="light">${'how-it-works.moar.description' | t}</p>
+						<ul class="collection">
+							<li class="collection-item">${'how-it-works.moar.nextFeatures1' | t}</li>
+							<li class="collection-item">${'how-it-works.moar.nextFeatures2' | t}</li>
+							<li class="collection-item">${'how-it-works.moar.nextFeatures3' | t}</li>
+							<li class="collection-item">${'how-it-works.moar.nextFeatures4' | t}</li>
+						</ul>
+						<p class="light">${'how-it-works.moar.keepUpToDate' | t}</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</template>

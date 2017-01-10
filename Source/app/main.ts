@@ -20,14 +20,21 @@ export class Main {
                 nav: true,
             },
             {
-                route: "about/",
+                route: "how-it-works",
+                name: "how-it-works",
+                moduleId: "app/website/how-it-works/how-it-works",
+                title: this._i18n.tr("how-it-works.pageTitle"),
+                nav: true,
+            },
+            {
+                route: "about",
                 name: "about",
                 moduleId: "app/website/about/about",
                 title: this._i18n.tr("about.pageTitle"),
                 nav: true,
             },
             {
-                route: "contact/",
+                route: "contact",
                 name: "contact",
                 moduleId: "app/website/contact/contact",
                 title: this._i18n.tr("contact.pageTitle"),

@@ -1,0 +1,58 @@
+@import "../../../../shared/assets/css/variables";
+
+.E133 #how-it-works {
+	#description-container {
+		padding: 3rem 2rem;
+		background: #efefef;
+	}
+
+	#how-it-works-container {
+		padding: 3rem 0;
+	}
+
+	#features-container {
+		padding: 5rem 3rem 4rem;
+		background: #efefef;
+		color: #2d2d2d;
+
+		.icon {
+			color: #DB5762;
+			font-size: 5rem;
+		}
+		.promo-caption {
+			font-weight: 600;
+			font-size: 1.2rem;
+		}
+		.light {
+			color: #707070;
+		}
+	}
+
+	#moar-to-come-container {
+		background: white;
+		color: #2d2d2d;
+
+		.description {
+			position: relative;
+
+			.image {
+				height: 100%;
+				position: absolute;
+
+				img {
+					height: 100%;
+				}
+			}
+		}
+
+		.light {
+			color: #707070;
+		}
+	}
+
+	@media #{$medium-and-down} {
+		.promo p {
+			line-height: 1.5rem;
+		}
+	}
+}
