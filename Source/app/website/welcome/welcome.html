@@ -1,21 +1,21 @@
 <template>
-    <require from="app/website/components/page-header/page-header.html"></require>
+	<require from="app/website/components/page-header/page-header"></require>
 	<!--<require from="app/shared/components/advanced-search/advanced-search"></require>-->
 
-    <nav id="page-header" class="${getCurrentPageName()}">
-        <page-header router.bind="router" containerless></page-header>
-    </nav>
+	<nav id="page-header" class="${getCurrentPageName()}">
+		<page-header></page-header>
+	</nav>
 
 	<loading-overlay title="${'home.loading' | t & oneTime}"></loading-overlay>
 
 	<div id="welcome-container">
 		<section id="search-container">
 			<form class="recipe-search white-text container" submit.delegate="searchRecipes()" novalidate>
-		        <div class="row">
-		            <div class="col s12 m4 offset-m4">
-		                <img class="brand-logo" src="/dist/app/shared/assets/images/transparent_file_white.png">
-		            </div>
-		        </div>
+				<div class="row">
+					<div class="col s12 m4 offset-m4">
+						<img class="brand-logo" src="/dist/app/shared/assets/images/transparent_file_white.png">
+					</div>
+				</div>
 				<div class="row">
 					<h1 class="s12 center">${'home.slogan' | t}</h1>
 				</div>

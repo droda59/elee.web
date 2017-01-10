@@ -1,10 +1,10 @@
 <template>
-    <require from="app/website/components/page-header/page-header.html"></require>
+    <require from="app/website/components/page-header/page-header"></require>
 
     <nav id="page-header" class="${getCurrentPageName()}">
         <page-header router.bind="router" containerless></page-header>
     </nav>
-	
+
 	<loading-overlay title="${'contact.sending' | t & oneTime}"></loading-overlay>
 
     <div id="contact-container">
