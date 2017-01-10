@@ -13,7 +13,7 @@ export function configure(aurelia) {
 		.plugin("aurelia-configuration", config => {
 			config.setDirectory("app/shared/config");
 			config.setEnvironments({
-				development: ["localhost", "eleedev.azurewebsites.net"],
+				development: ["localhost", "eleemenudev.azurewebsites.net"],
 				production: ["elee.menu"]
 			});
 		})
