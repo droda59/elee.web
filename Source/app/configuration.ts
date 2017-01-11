@@ -120,6 +120,7 @@ declare global {
 
 	interface Array<T> {
 		selectMany(fn): Array<any>;
+		unique(param): Array<any>;
 		removeFromArray(object): void;
 	}
 }
