@@ -6,7 +6,8 @@
 	"nav": {
 		"welcome": "",
 		"contact": "Contact",
-		"about": "À propos"
+		"about": "À propos",
+		"how-it-works": "Fonctionnalités"
 	},
 	"administration": {
 	    "backgrounds": {

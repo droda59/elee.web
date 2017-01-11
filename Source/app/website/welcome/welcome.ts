@@ -6,7 +6,7 @@ import { QuickRecipeSearchResult } from "app/quick-recipe/models/quick-recipe-se
 @autoinject()
 export class Welcome {
 	private _skip: number = 0;
-	private _take: number = 10;
+	private _take: number = 12;
 
 	router: Router;
 	results: Array<QuickRecipeSearchResult> = undefined;
@@ -59,13 +59,16 @@ export class Welcome {
 	getPagedRecipes(): void {
 		this._service.getPaged(this._skip, this._take)
 			.then(response => {
-				this.otherRecipes = this.otherRecipes.contat(response);
-				this._skip += 10;
+				const previousCount = this.otherRecipes.length;
+				this.otherRecipes = this.otherRecipes.concat(response).unique("_id");
+				const afterCount = this.otherRecipes.length;
+
+				this._skip += afterCount - previousCount;
 			});
 	}
 
 	goToFeatured(uniqueName: string): void {
-		ga('send', 'event', 'Recipe', 'click', 'vedette');
+		ga("send", "event", "Recipe", "click", "vedette");
 		this.loadRecipe(uniqueName);
 	}
 

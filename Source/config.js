@@ -32,6 +32,7 @@ System.config({
     "aurelia-history": "npm:aurelia-history@1.0.0",
     "aurelia-history-browser": "npm:aurelia-history-browser@1.0.0",
     "aurelia-i18n": "npm:aurelia-i18n@1.2.3",
+    "aurelia-infinite-scroll": "npm:aurelia-infinite-scroll@0.2.2",
     "aurelia-loader": "npm:aurelia-loader@1.0.0",
     "aurelia-loader-default": "npm:aurelia-loader-default@1.0.0",
     "aurelia-logging": "npm:aurelia-logging@1.2.0",
@@ -206,6 +207,9 @@ System.config({
       "aurelia-templating-resources": "npm:aurelia-templating-resources@1.2.0",
       "i18next": "npm:i18next@3.5.2",
       "intl": "npm:intl@1.2.5"
+    },
+    "npm:aurelia-infinite-scroll@0.2.2": {
+      "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.2.1"
     },
     "npm:aurelia-loader-default@1.0.0": {
       "aurelia-loader": "npm:aurelia-loader@1.0.0",

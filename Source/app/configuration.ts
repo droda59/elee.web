@@ -6,9 +6,10 @@ import "materialize-css"; // ONLY when using the "npm" option above
 export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
+    // .developmentLogging()
     .globalResources("app/shared/components/loading-overlay")
     .plugin("aurelia-animator-css")
-    .plugin("aurelia-infinite-scroll");
+    .plugin("aurelia-infinite-scroll")
     .plugin("aurelia-ui-virtualization")
     .plugin("aurelia-configuration", config => {
         config.setDirectory("app/shared/config");
@@ -100,6 +101,14 @@ export function configure(aurelia) {
             this.splice(index, 1);
         }
     }
+
+    Array.prototype.unique = function(param): Array<any> {
+        return this.filter((item, pos, array) => {
+            return array.map(x => {
+                return x[param];
+            }).indexOf(item[param]) === pos;
+        });
+    };
 }
 
 declare global {
