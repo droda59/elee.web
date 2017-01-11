@@ -15,4 +15,14 @@
 			height: 50px;
 		}
 	}
+
+	/* TODO: Find a better way! */
+	#adminDropdown {
+    	width: 150px !important;
+    	top: 60px !important;
+	}
+
+	#adminDropdown a {
+		line-height: normal;
+	}
 }

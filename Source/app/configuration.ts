@@ -1,9 +1,10 @@
 import * as Backend from "i18next-xhr-backend";
-import {HttpClient} from "aurelia-fetch-client";
+import { HttpClient } from "aurelia-fetch-client";
 import { MaterializeFormValidationRenderer } from "app/shared/materialize-form-validation-renderer";
 import "materialize-css"; // ONLY when using the "npm" option above
 
 export function configure(aurelia) {
+<<<<<<< HEAD
   aurelia.use
     .standardConfiguration()
     // .developmentLogging()
@@ -14,7 +15,7 @@ export function configure(aurelia) {
     .plugin("aurelia-configuration", config => {
         config.setDirectory("app/shared/config");
         config.setEnvironments({
-            development: ["localhost", "eleedev.azurewebsites.net"],
+            development: ["localhost", "eleemenudev.azurewebsites.net"],
             production: ["elee.menu"]
         });
     })
@@ -65,35 +66,35 @@ export function configure(aurelia) {
         .useTabs()
     });
 
-    aurelia.container.registerHandler(
-        'materialize-form',
-        container => container.get(MaterializeFormValidationRenderer));
+	aurelia.container.registerHandler(
+		"materialize-form",
+		container => container.get(MaterializeFormValidationRenderer));
 
-    aurelia.start().then(a => a.setRoot("app/main", document.body));
+	aurelia.start().then(a => a.setRoot("app/main", document.body));
 
-    moment.relativeTimeThreshold("s", 60);
-    moment.relativeTimeThreshold("m", 60);
-    moment.relativeTimeThreshold("h", 24);
-    moment.relativeTimeThreshold("d", 28);
-    moment.relativeTimeThreshold("M", 12);
+	moment.relativeTimeThreshold("s", 60);
+	moment.relativeTimeThreshold("m", 60);
+	moment.relativeTimeThreshold("h", 24);
+	moment.relativeTimeThreshold("d", 28);
+	moment.relativeTimeThreshold("M", 12);
 
-    String.prototype.format = function() {
-        var args = arguments;
-        return this.replace(/{(\d+)}/g, (match, number) => {
-            return typeof args[number] !== "undefined" ? args[number] : match;
-        });
-    };
+	String.prototype.format = function () {
+		var args = arguments;
+		return this.replace(/{(\d+)}/g, (match, number) => {
+			return typeof args[number] !== "undefined" ? args[number] : match;
+		});
+	};
 
-    String.prototype.replaceAll = function(search, replacement) {
-        var target = this;
-        return target.split(search).join(replacement);
-    };
+	String.prototype.replaceAll = function (search, replacement) {
+		var target = this;
+		return target.split(search).join(replacement);
+	};
 
-    Array.prototype.selectMany = function(fn): Array<any> {
-        return this.map(fn).reduce((x, y) => {
-            return x.concat(y);
-        }, []);
-    };
+	Array.prototype.selectMany = function (fn): Array<any> {
+		return this.map(fn).reduce((x, y) => {
+			return x.concat(y);
+		}, []);
+	};
 
     Array.prototype.removeFromArray = function(object: any): void {
         var index = this.indexOf(object);
@@ -112,13 +113,13 @@ export function configure(aurelia) {
 }
 
 declare global {
-    interface String {
-        format(): string;
-        replaceAll(search, replacement): string;
-    }
+	interface String {
+		format(): string;
+		replaceAll(search, replacement): string;
+	}
 
-    interface Array<T> {
-        selectMany(fn): Array<any>;
-        removeFromArray(object): void;
-    }
+	interface Array<T> {
+		selectMany(fn): Array<any>;
+		removeFromArray(object): void;
+	}
 }
