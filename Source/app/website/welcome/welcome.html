@@ -69,7 +69,7 @@
 		</section>
 
 		<section id="featured-container" class="black white-text center-align">
-			<h3 class="title">Recettes en Vedette</h3>
+			<h3 class="title">${'home.featuredTitle' | t}</h3>
 			<div class="row short center" class="featured__content">
 				<div class="col m8 offset-m2">
 					<div class="col s6 m4" repeat.for="featured of featuredRecipes">
@@ -87,7 +87,7 @@
         <section id="other-recipes-container" class="section container">
             <div infinite-scroll="callback.call: getPagedRecipes()">
     			<div class="row center underline-title">
-    				<h3 class="title">These other recipes might interest you</h3>
+    				<h3 class="title">${'home.otherRecipes' | t}</h3>
     				<hr />
     			</div>
 
