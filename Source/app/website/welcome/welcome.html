@@ -6,8 +6,6 @@
 		<page-header></page-header>
 	</nav>
 
-	<loading-overlay title="${'home.loading' | t & oneTime}"></loading-overlay>
-
 	<div id="welcome-container">
 		<section id="search-container">
 			<form class="recipe-search white-text container" submit.delegate="searchRecipes()" novalidate>
@@ -114,6 +112,8 @@
     				</div>
     			</div>
             </div>
+
+			<loading is-loading.bind="loadingPaged"></loading>
         </section>
 	</div>
 </template>

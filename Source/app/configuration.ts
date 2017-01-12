@@ -4,11 +4,11 @@ import { MaterializeFormValidationRenderer } from "app/shared/materialize-form-v
 import "materialize-css"; // ONLY when using the "npm" option above
 
 export function configure(aurelia) {
-<<<<<<< HEAD
   aurelia.use
     .standardConfiguration()
     // .developmentLogging()
     .globalResources("app/shared/components/loading-overlay")
+    .globalResources("app/shared/components/loading.html")
     .plugin("aurelia-animator-css")
     .plugin("aurelia-infinite-scroll")
     .plugin("aurelia-ui-virtualization")

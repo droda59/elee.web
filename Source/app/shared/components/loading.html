@@ -1,4 +1,4 @@
-<template>
+<template bindable="isLoading, displayText" containerless>
     <div if.bind="isLoading" class="loading-container valign-wrapper au-animate">
         <h5 class="title" if.bind="displayText">${displayText}</h5>
         <div class="spinner">

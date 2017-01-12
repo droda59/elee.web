@@ -4,12 +4,12 @@ import {EventAggregator, Subscription} from "aurelia-event-aggregator";
 @autoinject()
 @containerless()
 export class LoadingOverlay {
-    @bindable title: string = "Chargement";
+    @bindable displayText: string = "Chargement";
 
     private _eventAggregator: EventAggregator;
     private _events: EventsMap = {};
 
-    isActive: boolean = false;
+    isLoading: boolean = false;
 
     constructor(eventAggregator: EventAggregator) {
         this._eventAggregator = eventAggregator;
@@ -17,11 +17,11 @@ export class LoadingOverlay {
 
     attached() {
         this._events["service.request"] = this._eventAggregator.subscribe("service.request", response => {
-            this.isActive = true;
+            this.isLoading = true;
         });
 
         this._events["service.response"] = this._eventAggregator.subscribe("service.response", response => {
-            this.isActive = false;
+            this.isLoading = false;
         });
     }
 
