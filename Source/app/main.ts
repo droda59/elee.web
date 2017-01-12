@@ -2,27 +2,14 @@ import { inject } from "aurelia-framework";
 import { Router, RouterConfiguration } from "aurelia-router";
 import { Configure } from "aurelia-configuration";
 import { I18N } from "aurelia-i18n";
-import { EventAggregator } from "aurelia-event-aggregator";
 import { CustomValidationMessages } from "app/shared/custom-validation-messages";
 
-@inject(I18N, Configure, EventAggregator, CustomValidationMessages)
+@inject(I18N, Configure, CustomValidationMessages)
 export class Main {
 	router: Router;
-	navEvent: any;
 
 	constructor(private _i18n: I18N,
-				private _configuration: Configure,
-				private _eventAggregator: EventAggregator) { }
-
-	activate() {
-		this.navEvent = this._eventAggregator.subscribe('router:navigation:complete', response => {
-			hj('stateChange', location.href);
-		});
-	}
-
-	deactivate() {
-		this.navEvent.dispose();
-	}
+				private _configuration: Configure) { }
 
 	configureRouter(config: RouterConfiguration, router: Router) {
 		let routes = [
