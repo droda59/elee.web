@@ -18,6 +18,7 @@ System.config({
 
   map: {
     "animate.css": "npm:animate.css@3.5.2",
+    "aos": "npm:aos@2.1.1",
     "aurelia-animator-css": "npm:aurelia-animator-css@1.0.1",
     "aurelia-binding": "npm:aurelia-binding@1.1.1",
     "aurelia-bootstrapper": "npm:aurelia-bootstrapper@1.0.1",
@@ -120,6 +121,12 @@ System.config({
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "module": "github:jspm/nodelibs-module@0.1.0",
       "path": "github:jspm/nodelibs-path@0.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:aos@2.1.1": {
+      "classlist-polyfill": "npm:classlist-polyfill@1.0.3",
+      "lodash.debounce": "npm:lodash.debounce@4.0.8",
+      "lodash.throttle": "npm:lodash.throttle@4.1.1",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:assert@1.4.1": {
@@ -374,6 +381,12 @@ System.config({
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
     "npm:intl@1.2.5": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:lodash.debounce@4.0.8": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:lodash.throttle@4.1.1": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:materialize-css@0.97.7": {

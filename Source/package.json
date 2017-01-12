@@ -41,6 +41,7 @@
   "jspm": {
     "dependencies": {
       "animate.css": "npm:animate.css@^3.5.1",
+      "aos": "npm:aos@^2.1.1",
       "aurelia-animator-css": "npm:aurelia-animator-css@^1.0.0",
       "aurelia-binding": "npm:aurelia-binding@^1.0.0",
       "aurelia-bootstrapper": "npm:aurelia-bootstrapper@^1.0.0",

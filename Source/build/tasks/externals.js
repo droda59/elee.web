@@ -3,10 +3,17 @@ var flatten = require("gulp-flatten");
 var paths = require("../paths");
 
 gulp.task("copy-externals", [
+    "copy-externals:aos",
     "copy-externals:materialize-css",
     "copy-externals:materialize-font",
     "copy-externals:animate.css"
 ]);
+
+gulp.task("copy-externals:aos", function () {
+    return gulp.src("jspm_packages/npm/aos@**/dist/*.css")
+        .pipe(flatten())
+        .pipe(gulp.dest(paths.app + "shared/assets/css/externals/aos"));
+});
 
 gulp.task("copy-externals:materialize-css", function () {
     return gulp.src("node_modules/materialize-css/sass/components/**/*.scss")

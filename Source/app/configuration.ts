@@ -2,6 +2,7 @@ import * as Backend from "i18next-xhr-backend";
 import { HttpClient } from "aurelia-fetch-client";
 import { MaterializeFormValidationRenderer } from "app/shared/materialize-form-validation-renderer";
 import "materialize-css"; // ONLY when using the "npm" option above
+import * as AOS from "aos";
 
 export function configure(aurelia) {
   aurelia.use
@@ -77,6 +78,8 @@ export function configure(aurelia) {
 	moment.relativeTimeThreshold("h", 24);
 	moment.relativeTimeThreshold("d", 28);
 	moment.relativeTimeThreshold("M", 12);
+
+    AOS.init();
 
 	String.prototype.format = function () {
 		var args = arguments;
