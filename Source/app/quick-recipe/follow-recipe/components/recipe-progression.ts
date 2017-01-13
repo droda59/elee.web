@@ -1,5 +1,6 @@
 import {autoinject, bindable} from "aurelia-framework";
 import {QuickRecipePage} from "app/quick-recipe/follow-recipe/index";
+import {QuickRecipeSubrecipe} from "app/quick-recipe/follow-recipe/models/quick-recipe-subrecipe";
 
 @autoinject()
 export class RecipeProgression {

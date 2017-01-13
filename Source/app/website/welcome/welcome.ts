@@ -15,7 +15,7 @@ export class Welcome {
 	featuredRecipes: Array<QuickRecipeSearchResult> = [];
 	searchTerms: string;
 	maximumTime: number = 0;
-	loadingPaged: boolean: false;
+	loadingPaged: boolean = false;
 
 	constructor(private _service: QuickRecipeService, router: Router) {
 		this.router = router;

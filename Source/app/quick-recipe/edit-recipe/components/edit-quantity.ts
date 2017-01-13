@@ -1,6 +1,7 @@
 import {autoinject} from "aurelia-framework";
 import {MeasureUnitProvider} from "app/shared/measure-unit-provider";
 import {Ingredient} from "app/shared/models/ingredient";
+import {MeasureUnit} from "app/shared/models/measure-units/measure-unit";
 import {Quantity} from "app/shared/models/quantity";
 import {QuantityHumanFormatValueConverter} from "app/shared/value-converters/quantity-human-format";
 import {QuantityOfIngredientPart} from "app/quick-recipe/models/quick-recipe";

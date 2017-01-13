@@ -16,7 +16,7 @@ export class Ingredient implements IngredientDto {
 
     if (dto) {
       this.quantity = new Quantity(dto.quantity);
-      this.replacement = (dto.replacement ? new Ingredient(dto.replacement) : undefined);
+      this.replacement = (dto.replacement && dto.replacement.length ? dto.replacement.map(x => new Ingredient(x)) : undefined);
     }
 
     this.state = "";

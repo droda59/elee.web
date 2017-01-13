@@ -27,7 +27,7 @@ export class LoadingOverlay {
 
     detached() {
         for (var event in this._events) {
-            this._events[event].dispose();
+            (this._events[event] as Subscription).dispose();
         };
 
         this._events = {};
