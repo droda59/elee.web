@@ -1,11 +1,17 @@
 <template>
-    <require from="app/website/components/page-header/page-header.html"></require>
+    <require from="app/website/components/page-header/page-header"></require>
 
     <nav id="page-header" class="${getCurrentPageName()}">
-        <page-header router.bind="router" containerless></page-header>
+        <page-header router.bind="router"></page-header>
     </nav>
 
-	<div id="how-it-works">
+    <div id="how-it-works-container" class="website-page">
+        <div class="website-page__banner">
+            <div class="container">
+                <h1 class="white-text">${'how-it-works.pageTitle' | t}</h1>
+            </div>
+        </div>
+
 		<section id="description-container" class="section">
 			<div class="row short">
 				<div class="col s12 m6 offset-m3 center promo">
@@ -14,7 +20,7 @@
 			</div>
 		</section>
 
-		<section id="how-it-works-container" class="section">
+		<section id="steps-container" class="section">
 			<div class="container row short">
 				<div class="col s12 m4">
 					<div class="center promo">

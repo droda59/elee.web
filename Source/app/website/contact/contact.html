@@ -2,13 +2,13 @@
     <require from="app/website/components/page-header/page-header"></require>
 
     <nav id="page-header" class="${getCurrentPageName()}">
-        <page-header router.bind="router" containerless></page-header>
+        <page-header router.bind="router"></page-header>
     </nav>
 
 	<loading-overlay title="${'contact.sending' | t & oneTime}"></loading-overlay>
 
-    <div id="contact-container">
-        <div class="contact-header-container">
+    <div id="contact-container" class="website-page">
+        <div class="website-page__banner">
             <div class="container">
                 <h1 class="white-text">Contactez-nous</h1>
             </div>

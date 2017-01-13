@@ -39,13 +39,6 @@ html.E133 {
         margin: 0 auto;
     }
 
-    .promo-caption {
-        font-size: 1.7rem;
-        font-weight: 500;
-        margin-top: 5px;
-        margin-bottom: 0;
-    }
-
     .light {
         font-weight: 300;
     }
@@ -54,28 +47,8 @@ html.E133 {
         color: #fff;
     }
 
-    @media #{$medium-and-down} {
-        .parallax-container .section {
-            position: absolute;
-            top: 40%;
-        }
-        #index-banner .section {
-            top: 10%;
-        }
-    }
-
-    @media #{$small-and-down} {
-        #index-banner .section {
-            top: 0;
-        }
-    }
-
     .icon-block {
         padding: 0 15px;
-    }
-
-    footer.page-footer {
-        margin: 0;
     }
 
     .collection {
@@ -86,6 +59,20 @@ html.E133 {
         vertical-align: middle;
         line-height: 3rem;
         color: white;
+    }
+
+    .website-page {
+        &__banner {
+            background-size: cover;
+            height: 450px;
+            position: relative;
+
+            h1 {
+                padding: 160px 0 0 0;
+                margin: 0;
+                text-align: center;
+            }
+        }
     }
 
     // Global elements importation

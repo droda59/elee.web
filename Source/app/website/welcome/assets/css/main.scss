@@ -35,10 +35,9 @@
 	}
 
 	#search-container {
-		background-image: url("/dist/app/website/welcome/assets/images/teaser_bg.jpg");
-		background-size: cover;
-		height: 450px;
-		position: relative;
+		.website-page_banner {
+			background-image: url("/dist/app/website/welcome/assets/images/teaser_bg.jpg");
+		}
 
 		.btn {
 			border: 2px white solid;

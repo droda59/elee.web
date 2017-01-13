@@ -1,17 +1,8 @@
 @import "../../../../shared/assets/css/variables";
 
 .E133 #about-container {
-    .about-header-container {
+    .website-page__banner {
         background-image: url(/dist/app/website/about/assets/images/plate.jpg);
-        background-size: cover;
-        height: 450px;
-        position: relative;
-
-        h1 {
-            padding: 160px 0 0 0;
-            margin: 0;
-            text-align: center;
-        }
     }
 
     .about-intro {
@@ -33,7 +24,7 @@
 
         .team-member {
             margin-bottom: 0;
-            
+
             &__image {
                 border-radius: 8px;
                 height: auto;

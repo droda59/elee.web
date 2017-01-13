@@ -1,12 +1,44 @@
 @import "../../../../shared/assets/css/variables";
 
-.E133 #how-it-works {
+.E133 #how-it-works-container {
+    .website-page__banner {
+        background-image: url(/dist/app/website/about/assets/images/plate.jpg);
+    }
+
+	.promo-caption {
+		font-size: 1.7rem;
+		font-weight: 500;
+		margin-top: 5px;
+		margin-bottom: 0;
+	}
+
+	.underline-title {
+		margin: 50px auto;
+
+		.title {
+			font-size: 2rem;
+			font-weight: 600;
+			margin: 50px auto 0;
+		}
+
+		.title + hr {
+			width: 10%;
+			margin: 20px auto 0;
+			border: none;
+			background-color: black;
+			height: 3px;
+		}
+		.title + hr {
+			width: 10%;
+		}
+	}
+
 	#description-container {
 		padding: 3rem 2rem;
 		background: #efefef;
 	}
 
-	#how-it-works-container {
+	#steps-container {
 		padding: 3rem 0;
 	}
 

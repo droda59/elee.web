@@ -5,22 +5,13 @@
         color: $link-color;
     }
 
+    .website-page__banner {
+        background-image: url(/dist/app/website/contact/assets/images/garlic.jpg);
+    }
+
     .container {
         .row {
             padding: 0 20px;
-        }
-    }
-
-    .contact-header-container {
-        background-image: url(/dist/app/website/contact/assets/images/garlic.jpg);
-        background-size: cover;
-        height: 450px;
-        position: relative;
-
-        h1 {
-            padding: 160px 0 0 0;
-            margin: 0;
-            text-align: center;
         }
     }
 
