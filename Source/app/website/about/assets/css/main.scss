@@ -1,21 +1,12 @@
 @import "../../../../shared/assets/css/variables";
 
 .E133 #about-container {
-    a {
-        color: $link-color;
-    }
-
-    .container {
-        .row {
-            padding: 0 20px;
-        }
-    }
-
     .about-header-container {
         background-image: url(/dist/app/website/about/assets/images/plate.jpg);
         background-size: cover;
         height: 450px;
         position: relative;
+
         h1 {
             padding: 160px 0 0 0;
             margin: 0;
@@ -28,40 +19,36 @@
         max-width: 600px;
         margin: 0 auto;
         padding: 0 20px;
+    }
 
-        h2 {
-            font-size: 36px;
-        }
+    .team-members {
+        .team-member {
+            padding: 4rem 18%;
+            margin: 1rem 0;
 
-        .team-wrapper {
-            margin-bottom: 25px;
-            width: 100%;
-            @media all and (min-width: 522px) {
-                width: calc(50% - 10px);
-                margin-right: 20px;
-                &:nth-child(2n) {
-                    margin-right: 0;
-                }
+            &__image {
+                border-radius: 8px;
+                height: auto;
+                max-width: 220px;
             }
-            float: left;
 
-            .about-name {
-                margin: 0;
-                padding: 0;
+            &__name {
+                margin-bottom: 1em;
                 font-weight: 600;
                 line-height: 1.5;
             }
 
-            .about-img {
-                border-radius: 8px;
-                height: auto;
-                max-width: 140px;
+            &__title {
+                line-height: 1.5;
             }
 
-            .about-desc {
+            &__description {
+                font-weight: 300;
                 line-height: 1.5;
-                margin: 0;
-                padding: 0;
+            }
+
+            &:nth-child(odd) {
+                background-color: rgba(0, 0, 0, 0.1);
             }
         }
     }

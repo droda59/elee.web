@@ -124,7 +124,29 @@
 		}
 	},
 	"about": {
-		"pageTitle": "À propos de elee.menu"
+		"pageTitle": "À propos de elee.menu",
+		"teamPresentation": "L'équipe",
+		"teamMarketing": "L'équipe d'elee.menu travaille d'arrache-pied afin de vous offrir une expérience des plus agréable lors de la réalisation de vos recettes préférées",
+		"max": {
+			"name": "Maxime Gaudreault Proulx",
+			"title": "Co-fondateur de elee.menu, directeur technologique, développeur FullStack",
+			"description": "Gamer, joueur de guitare, mangeur de beignes (bien qu'il essaie de résister, sans grand succès), éleveur d'enfants. Prend le transport en commun et va au gym. Passionné de technologies web modernes. Et de beignes."
+		},
+		"dom": {
+			"name": "Dominique Ruest",
+			"title": "Co-fondateur de elee.menu, directeur de produit",
+			"description": ""
+		},
+		"marc-andre": {
+			"name": "Marc-André Roy",
+			"title": "Développeur FullStack, spécialiste infrastructure",
+			"description": ""
+		},
+		"francis": {
+			"name": "Francis Thibault",
+			"title": "Développeur FrontEnd, spécialiste SEO",
+			"description": ""
+		}
 	},
 	"quantities": {
 		"ml": "ml",
