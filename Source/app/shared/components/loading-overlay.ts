@@ -4,7 +4,7 @@ import {EventAggregator, Subscription} from "aurelia-event-aggregator";
 @autoinject()
 @containerless()
 export class LoadingOverlay {
-    @bindable displayText: string = "Chargement";
+    @bindable displayText: string = "";
 
     private _eventAggregator: EventAggregator;
     private _events: EventsMap = {};

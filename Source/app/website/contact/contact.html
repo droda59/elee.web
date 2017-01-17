@@ -5,7 +5,7 @@
         <page-header router.bind="router"></page-header>
     </nav>
 
-	<loading-overlay title="${'contact.sending' | t & oneTime}"></loading-overlay>
+	<loading if.bind="sending" is-loading.bind="sending" display-text="${'contact.sending' | t & oneTime}" class="loading-overlay-container"></loading>
 
     <div id="contact-container" class="website-page">
         <div class="website-page__banner">

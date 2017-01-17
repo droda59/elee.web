@@ -1,10 +1,3 @@
 <template>
-    <div if.bind="isLoading" class="loading-container valign-wrapper au-animate">
-        <h5 class="title" if.bind="displayText">${displayText}</h5>
-        <div class="spinner">
-          <div class="bounce1"></div>
-          <div class="bounce2"></div>
-          <div class="bounce3"></div>
-        </div>
-    </div>
+    <loading if.bind="isLoading" is-loading.bind="isLoading" display-text.bind="displayText" class="loading-overlay-container"></loading>
 </template>
