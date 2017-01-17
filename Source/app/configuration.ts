@@ -1,4 +1,5 @@
 import * as Backend from "i18next-xhr-backend";
+import * as moment from "moment";
 import { HttpClient } from "aurelia-fetch-client";
 import { MaterializeFormValidationRenderer } from "app/shared/materialize-form-validation-renderer";
 import "materialize-css"; // ONLY when using the "npm" option above
@@ -126,4 +127,8 @@ declare global {
 		unique(param): Array<any>;
 		removeFromArray(object): void;
 	}
+
+    interface Math {
+        trunc(x: number): number;
+    }
 }
