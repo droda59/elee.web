@@ -4,6 +4,6 @@
         "api": "http://eleeapidev.azurewebsites.net/"
     },
     "production": {
-        "api": "http://eleeapi.azurewebsites.net/"
+        "api": "https://api.elee.menu/"
     }
 }
