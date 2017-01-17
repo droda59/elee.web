@@ -9,8 +9,10 @@ import "fetch";
 @inject(NewInstance.of(HttpClient), Configure, EventAggregator)
 export class QuickRecipeService {
 	private _httpClient: HttpClient;
+	private _isAdmin: boolean;
 
 	constructor(httpClient: HttpClient, configure: Configure, eventAggregator: EventAggregator) {
+		this._isAdmin = configure.is("development");
 		this._httpClient = httpClient.configure(config => {
 			config
 				.useStandardConfiguration()
@@ -65,7 +67,10 @@ export class QuickRecipeService {
 	saveRecipe(uniqueName: string, quickRecipe: QuickRecipe): Promise<boolean> {
 		return this._httpClient.fetch(`api/quickrecipe/${uniqueName}`, {
 			method: "put",
-			body: json(quickRecipe)
+			body: json(quickRecipe),
+			headers: {
+				"X-Admin": this._isAdmin
+			}
 		}).then(response => response.json());
 	}
 
@@ -76,7 +81,11 @@ export class QuickRecipeService {
 	}
 
 	private _getReviewedRecipes(reviewed: boolean): Promise<Array<QuickRecipeSearchResult>> {
-		return this._httpClient.fetch(`api/quickrecipe/search/review?reviewed=${reviewed}`)
+		return this._httpClient.fetch(`api/quickrecipe/search/review?reviewed=${reviewed}`, {
+				headers: {
+					"X-Admin": this._isAdmin
+				}
+			})
 			.then(response => response.json());
 	}
 }

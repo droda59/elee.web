@@ -8,8 +8,10 @@ import "fetch";
 @inject(NewInstance.of(HttpClient), Configure, EventAggregator)
 export class ContactService {
 	private _httpClient: HttpClient;
+	private _isAdmin: boolean;
 
 	constructor(httpClient: HttpClient, configure: Configure, eventAggregator: EventAggregator) {
+		this._isAdmin = configure.is("development");
 		this._httpClient = httpClient.configure(config => {
 			config
 				.useStandardConfiguration()
@@ -35,7 +37,10 @@ export class ContactService {
 
 	get(): Promise<Array<ContactForm>> {
 		return this._httpClient.fetch("api/contactform", {
-			method: "get"
+			method: "get",
+			headers: {
+				"X-Admin": this._isAdmin
+			}
 		}).then(response => response.json());
 	}
 
