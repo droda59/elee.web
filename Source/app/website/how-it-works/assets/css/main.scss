@@ -5,13 +5,6 @@
         background-image: url(/dist/app/website/about/assets/images/plate.jpg);
     }
 
-	.promo-caption {
-		font-size: 1.7rem;
-		font-weight: 500;
-		margin-top: 5px;
-		margin-bottom: 0;
-	}
-
 	.underline-title {
 		margin: 50px auto;
 
@@ -35,34 +28,39 @@
 
 	#description-container {
 		padding: 3rem 2rem;
-		background: #efefef;
-	}
-
-	#steps-container {
-		padding: 3rem 0;
 	}
 
 	#features-container {
-		padding: 5rem 3rem 4rem;
-		background: #efefef;
+		padding: 0 2rem;
+        margin-bottom: 4rem;
 		color: #2d2d2d;
 
-		.icon {
-			color: #DB5762;
-			font-size: 5rem;
-		}
-		.promo-caption {
-			font-weight: 600;
-			font-size: 1.2rem;
-		}
-		.light {
-			color: #707070;
-		}
+        .feature {
+            margin: 4rem 0;
+            padding: 2rem 0;
+
+    		&__title {
+    			font-weight: 600;
+
+                &__icon {
+        			color: #DB5762;
+                }
+    		}
+
+    		&__description {
+    			color: #707070;
+    		}
+
+            &:first-child {
+                margin-top: 2rem;
+            }
+        }
 	}
 
 	#moar-to-come-container {
-		background: white;
+		background: #efefef;
 		color: #2d2d2d;
+		padding: 1rem;
 
 		.description {
 			position: relative;
@@ -80,6 +78,10 @@
 		.light {
 			color: #707070;
 		}
+
+        .collection .collection-item {
+            background-color: transparent;
+        }
 	}
 
 	@media #{$medium-and-down} {

@@ -9,20 +9,20 @@
         background-image: url(/dist/app/website/contact/assets/images/garlic.jpg);
     }
 
+	#description-container {
+		padding: 3rem 2rem;
+	}
+
     .container {
         .row {
             padding: 0 20px;
         }
     }
 
-    .contact-intro {
+    .contact-form {
         width: 100%;
         max-width: 600px;
         margin: 0 auto;
         padding: 0 20px;
-
-        h2 {
-            font-size: 36px;
-        }
     }
 }

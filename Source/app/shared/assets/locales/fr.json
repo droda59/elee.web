@@ -27,14 +27,6 @@
 	"how-it-works": {
 		"pageTitle": "Comment ça marche",
 		"mainDescription": "elee.menu vous guide pas-à-pas à travers chaque étape de vos recettes, et permet de vous éviter les erreurs fréquentes lorsque vous préparez vos festins",
-		"steps": {
-			"step1Title": "1- Choisissez une recette",
-			"step1Description": "Rechercher une recette dont vous avez le goût",
-			"step2Title": "2- Réalisez-la",
-			"step2Description": "Suivez la recette en utilisant l'application",
-			"step3Title": "3- Appréciez",
-			"step3Description": "Appréciez votre repas; vous le méritez!"
-		},
 		"features": {
 			"feature1Title": "Multi-platforme",
 			"feature1Description": "elee.menu est conçu pour être utilisé sur toutes les plateformes, pour que vous puissiez suivre vos recettes sur l'appareil de votre choix, où bon vous semble.",
@@ -57,6 +49,8 @@
 	},
 	"contact": {
 		"pageTitle": "Contactez-nous",
+		"work": "L'équipe d'elee.menu travaille d'arrache-pied afin de vous offrir une expérience des plus agréable lors de la réalisation de vos recettes préférées",
+		"likeToHear": "Nous apprécions vous entendre et avoir vos commentaires!",
 		"yourMessage": "Votre message",
 		"email": "Votre adresse de courriel",
 		"name": "Votre nom",
