@@ -47,7 +47,6 @@ export class Welcome {
 		if (this.searchTerms && this.searchTerms.length >= 3) {
 			let searchContainer = $("#search-container")[0];
 
-			// this._service.findRecipesAdvanced(this.searchTerms, ingredientsConcat, this.maximumTime)
 			this._service.findRecipes(this.searchTerms)
 				.then(response => {
 					this.results = response.slice(0, 8) as Array<QuickRecipeSearchResult>;
@@ -79,16 +78,26 @@ export class Welcome {
 		}
 	}
 
-	goToFeatured(uniqueName: string): void {
-		ga("send", "event", "Recipe", "click", "vedette");
-		this.loadRecipe(uniqueName);
+	goToResult(uniqueName: string): void {
+		ga("send", "event", "Recipe", "click", "search");
+		this._loadRecipe(uniqueName);
 	}
 
-	loadRecipe(uniqueName: string): void {
-		this.router.navigateToRoute("quick-recipe", { "uniqueName": uniqueName }, undefined);
+	goToFeatured(uniqueName: string): void {
+		ga("send", "event", "Recipe", "click", "vedette");
+		this._loadRecipe(uniqueName);
+	}
+
+	goToOther(uniqueName: string): void {
+		ga("send", "event", "Recipe", "click", "other");
+		this._loadRecipe(uniqueName);
 	}
 
 	getCurrentPageName(): string {
 		return this.router.currentInstruction.config.name;
+	}
+
+	private _loadRecipe(uniqueName: string): void {
+		this.router.navigateToRoute("quick-recipe", { "uniqueName": uniqueName }, undefined);
 	}
 }

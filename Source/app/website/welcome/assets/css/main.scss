@@ -34,11 +34,50 @@
 		}
 	}
 
-	#search-container {
-		.website-page_banner {
-			background-image: url("/dist/app/website/welcome/assets/images/teaser_bg.jpg");
+	.result {
+		&[data-aos]:nth-child(4n+1) {
+			transition-delay: 0;
 		}
+		&[data-aos]:nth-child(4n+2) {
+			transition-delay: 50ms;
+		}
+		&[data-aos]:nth-child(4n+3) {
+			transition-delay: 100ms;
+		}
+		&[data-aos]:nth-child(4n+4) {
+			transition-delay: 150ms;
+		}
+		&__thumb {
+			overflow:hidden;
+			padding-bottom:56.7%;
+			position:relative;
 
+			img {
+				width:100%;
+				height:auto;
+				position:absolute;
+				top:0;
+				left:0;
+			}
+			&--link {
+				display: block;
+				font-size:18px;
+
+				&:hover {
+					opacity: .7;
+				}
+			}
+		}
+		&__title {
+			font-size:inherit;
+		}
+	}
+
+	.website-page__banner {
+		background-image: url("/dist/app/website/welcome/assets/images/teaser_bg.jpg");
+	}
+
+	#search-container {
 		.btn {
 			border: 2px white solid;
 			background-color: transparent;
@@ -74,73 +113,27 @@
 				width: calc(100% - 70px);
 			}
 		}
-
-		.advanced-search-container {
-			padding: 0 0 5px 0;
-			font-weight: bold;
-
-			i {
-				vertical-align: middle;
-			}
-		}
 	}
 
 	#results-container {
-		.card {
-			border-radius: 0;
-
-			.card-content .card-title {
-				line-height: normal;
-			}
+		.result {
+		    margin: 1.5rem 0;
 		}
 	}
 
 	#featured-container {
 		padding:28px 0;
 
-		.featured {
+		.result {
 			&__content {
 				margin-top:30px;
-			}
-			&__thumb--link {
-				display: block;
-				font-size:18px;
-
-				&:hover {
-					opacity: .7;
-				}
-			}
-			&__thumb {
-				overflow:hidden;
-				padding-bottom:56.7%;
-				position:relative;
-
-				img {
-					width:100%;
-					height:auto;
-					position:absolute;
-					top:0;
-					left:0;
-				}
-			}
-			&__title {
-				font-size:inherit;
 			}
 		}
 	}
 
 	#other-recipes-container {
-		.other-result[data-aos]:nth-child(4n+1) {
-      		transition-delay: 0;
-		}
-		.other-result[data-aos]:nth-child(4n+2) {
-      		transition-delay: 50ms;
-		}
-		.other-result[data-aos]:nth-child(4n+3) {
-      		transition-delay: 100ms;
-		}
-		.other-result[data-aos]:nth-child(4n+4) {
-      		transition-delay: 150ms;
+		.result {
+		    margin: 1.5rem 0;
 		}
 	}
 
