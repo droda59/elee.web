@@ -1,5 +1,6 @@
 <template>
 	<require from="app/website/components/page-header/page-header"></require>
+	<require from="app/website/welcome/components/recipe-result"></require>
 
 	<nav id="page-header" class="${getCurrentPageName()}">
 		<page-header></page-header>
@@ -34,18 +35,11 @@
 			</div>
 
 			<div class="row" show.bind="results.length">
-				<div class="result hoverable col s12 m6 l3" repeat.for="result of results"
-					data-aos="fade-up"
-					data-aos-offset="-100"
-					data-aos-anchor-placement="top-center"
-					data-aos-once="true">
-					<a click.delegate="goToResult(result.uniqueName)" class="black-text center-align result__thumb--link">
-						<div class="result__thumb">
-							<img src.bind="result.smallImageUrl" alt="">
-						</div>
-						<h4 class="result__title">${result.title}</h4>
-					</a>
-				</div>
+				<recipe-result repeat.for="result of results"
+				 	result.bind="result"
+					index.bind="$index"
+					click.call="goToResult(result.uniqueName)"
+					containerless></recipe-result>
 			</div>
 
 			<div class="row" show.bind="results.length === 0">
@@ -79,21 +73,11 @@
     			</div>
 
     			<div class="row">
-					<!-- <div repeat.for="result of otherRecipes"> -->
-						<div repeat.for="result of otherRecipes" class="result hoverable col s12 m6 l3"
-							data-aos="fade-up"
-							data-aos-offset="-100"
-							data-aos-anchor-placement="top-center"
-							data-aos-once="true">
-							<a click.delegate="goToOther(result.uniqueName)" class="black-text center-align result__thumb--link">
-								<div class="result__thumb">
-									<img src.bind="result.smallImageUrl" alt="">
-								</div>
-								<h4 class="result__title">${result.title}</h4>
-							</a>
-						</div>
-						<!-- <div if.bind="$index % 4 === 3" class="divider hide-on-small-only col m12"></div> -->
-					<!-- </div> -->
+					<recipe-result repeat.for="result of otherRecipes"
+						result.bind="result"
+						index.bind="$index"
+						click.call="goToOther(result.uniqueName)"
+						containerless></recipe-result>
     			</div>
             </div>
 
