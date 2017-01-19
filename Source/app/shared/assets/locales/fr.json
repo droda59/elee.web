@@ -128,17 +128,17 @@
 		"dom": {
 			"name": "Dominique Ruest",
 			"title": "Co-fondateur de elee.menu, directeur de produit",
-			"description": ""
+			"description": "Passionné par la recherche de solutions simples aux problèmes complexes, au travail comme dans les loisirs. Adepte d'escalade, pour ne pas dire complètement accro. Que ce soit en grimpant ou en écrivant des lignes de code, la recherche de la simplicité et du meilleur chemin font partie du quotidien."
 		},
 		"marc-andre": {
 			"name": "Marc-André Roy",
 			"title": "Développeur FullStack, spécialiste infrastructure",
-			"description": ""
+			"description": "Adepte de technologies derniers cris, habille de ses mains, papa, aime la bonne bouffe et les bières de microbrasserie!"
 		},
 		"francis": {
 			"name": "Francis Thibault",
 			"title": "Développeur FrontEnd, spécialiste SEO",
-			"description": ""
+			"description": "Passionné de nouvelles technologies et de musique (ne lui demandez pas d'en jouer cependant) ce père de famille aime bien gamer de temps en temps et faire des jeux de mots digne de tout bon papa."
 		}
 	},
 	"quantities": {
