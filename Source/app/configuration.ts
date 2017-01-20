@@ -56,6 +56,8 @@ export function configure(aurelia) {
         .useRange()
         .useChip()
         .useCollapsible()
+        .useDropdown()
+        .useDropdownFix()
         .useFab()
         .usePushpin()
         .useSelect()
