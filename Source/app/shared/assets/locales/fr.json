@@ -108,6 +108,7 @@
 		"search": "Rechercher",
 		"featuredTitle": "Cette semaine, elee.menu vous propose",
 		"otherRecipes": "Ces recettes pourraient aussi vous intéresser",
+		"noMorePages": "Il n'y a pas d'autres recettes pour le moment.",
 		"results": {
 			"title": "Résultats",
 			"noResult": "Aucun résultat à afficher"

@@ -7,7 +7,6 @@ import { QuickRecipeSearchResult } from "app/quick-recipe/models/quick-recipe-se
 export class Welcome {
 	private _skip: number = 0;
 	private _take: number = 12;
-	private _noMorePages: boolean = false;
 
 	router: Router;
 	results: Array<QuickRecipeSearchResult> = undefined;
@@ -16,6 +15,7 @@ export class Welcome {
 	searchTerms: string;
 	maximumTime: number = 0;
 	loadingPaged: boolean = false;
+	noMorePages: boolean = false;
 
 	constructor(private _service: QuickRecipeService, router: Router) {
 		this.router = router;
@@ -58,13 +58,13 @@ export class Welcome {
 	}
 
 	getPagedRecipes(): void {
-		if (!this._noMorePages) {
+		if (!this.noMorePages) {
 			this.loadingPaged = true;
 
 			this._service.getPaged(this._skip, this._take)
 				.then(response => {
 					if (!response.length) {
-						this._noMorePages = true;
+						this.noMorePages = true;
 					} else {
 						const previousCount = this.otherRecipes.length;
 						this.otherRecipes = this.otherRecipes.concat(response).unique("_id");

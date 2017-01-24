@@ -82,6 +82,12 @@
             </div>
 
 			<loading is-loading.bind="loadingPaged" class="loading-container"></loading>
+
+			<div class="row" show.bind="noMorePages">
+				<div class="col s12 center">
+					<h5>${'home.noMorePages' | t}</h5>
+				</div>
+			</div>
         </section>
 	</div>
 </template>
