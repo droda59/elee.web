@@ -28,14 +28,16 @@
 		"pageTitle": "Comment ça marche",
 		"mainDescription": "elee.menu vous guide pas-à-pas à travers chaque étape de vos recettes, et permet de vous éviter les erreurs fréquentes lorsque vous préparez vos festins",
 		"features": {
-			"feature1Title": "Multi-platforme",
-			"feature1Description": "elee.menu est conçu pour être utilisé sur toutes les plateformes, pour que vous puissiez suivre vos recettes sur l'appareil de votre choix, où bon vous semble.",
-			"feature2Title": "Choix de recette",
-			"feature2Description": "Les recettes sont prises des grands sites culinaires populaires et reformattées pour en simplifier le suivi.",
-			"feature3Title": "Ingrédients",
-			"feature3Description": "Les quantités des ingrédients sont indiquées directement dans les étapes de la recette, dans l'unité de mesure que vous préférez.",
-			"feature4Title": "Chronomètres",
-			"feature4Description": "Lorsqu'un temps est requis, vous pouvez activer un chronomètre directement dans l'étape, ou en ajouter un manuellement, selon vos besoins."
+			"feature1Title": "L'information nécessaire",
+			"feature1Description": "elee.menu est conçu efficacement, pour que vous puissiez avoir toute l'information dont vous avez besoin, là devant vos yeux.",
+			"feature2Title": "Ingrédients",
+			"feature2Description": "Les quantités des ingrédients sont indiquées directement dans les étapes de la recette, dans l'unité de mesure que vous préférez.",
+			"feature3Title": "Chronomètres",
+			"feature3Description": "Lorsqu'un temps est requis, vous pouvez activer un chronomètre directement dans l'étape, ou en ajouter un manuellement, selon vos besoins.",
+			"feature4Title": "Choix de recette",
+			"feature4Description": "Les recettes sont prises des grands sites culinaires populaires et reformattées pour en simplifier le suivi.",
+			"feature5Title": "Multi-platforme",
+			"feature5Description": "elee.menu est conçu pour être utilisé sur toutes les plateformes, pour que vous puissiez suivre vos recettes sur l'appareil de votre choix, où bon vous semble."
 		},
 		"moar": {
 			"title": "Plus à venir!",
