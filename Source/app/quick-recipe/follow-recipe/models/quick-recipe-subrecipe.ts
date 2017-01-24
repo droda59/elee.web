@@ -1,4 +1,5 @@
 import { Ingredient } from "app/shared/models/ingredient";
+import { Step } from "app/quick-recipe/models/quick-recipe";
 import { QuickRecipeTimer } from "app/quick-recipe/follow-recipe/models/quick-recipe-timer";
 
 export class QuickRecipeSubrecipe {

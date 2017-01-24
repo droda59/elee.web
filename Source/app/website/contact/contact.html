@@ -2,22 +2,29 @@
     <require from="app/website/components/page-header/page-header"></require>
 
     <nav id="page-header" class="${getCurrentPageName()}">
-        <page-header router.bind="router" containerless></page-header>
+        <page-header router.bind="router"></page-header>
     </nav>
 
-	<loading-overlay title="${'contact.sending' | t & oneTime}"></loading-overlay>
+	<loading if.bind="sending" is-loading.bind="sending" display-text="${'contact.sending' | t & oneTime}" class="loading-overlay-container"></loading>
 
-    <div id="contact-container">
-        <div class="contact-header-container">
+    <div id="contact-container" class="website-page">
+        <div class="website-page__banner">
             <div class="container">
                 <h1 class="white-text">Contactez-nous</h1>
             </div>
         </div>
-        <div class="contact-intro">
-            <div class="row">
-                <p class="light center">L'équipe d'elee.menu travaille d'arrache-pied afin de vous offrir une expérience des plus agréable lors de la réalisation de vos recettes préférées.</p>
-                <p class="light center">Nous apprécions vous entendre et avoir vos commentaires!</p>
 
+		<section id="description-container" class="section">
+			<div class="row short">
+				<div class="col s12 m6 offset-m3 center promo">
+					<p class="light center">${'contact.work' | t}</p>
+					<p class="light center">${'contact.likeToHear' | t}</p>
+				</div>
+			</div>
+		</section>
+
+        <div class="contact-form">
+            <div class="row">
             	<form submit.delegate="send()" role="form" show.bind="!sent" validation-renderer="materialize-form">
             		<div class="row">
             			<div class="input-field col s12 m6">

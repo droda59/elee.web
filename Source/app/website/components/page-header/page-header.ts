@@ -1,20 +1,19 @@
 import { Router } from "aurelia-router";
-import { autoinject } from "aurelia-framework";
+import { autoinject, containerless } from "aurelia-framework";
 import { Configure } from "aurelia-configuration";
 import { I18N } from "aurelia-i18n";
 
 @autoinject()
+@containerless()
 export class PageHeader {
 	router: Router;
+	isAdmin: boolean;
 
-	constructor(private _configuration: Configure,
-				private _i18n: I18N,
+	constructor(private _i18n: I18N,
+				configuration: Configure,
 				router: Router) {
 		this.router = router;
-	}
-
-	isAdmin(): boolean {
-		return this._configuration.is("development");
+		this.isAdmin = configuration.is("development");
 	}
 
 	isHomepage(): boolean {

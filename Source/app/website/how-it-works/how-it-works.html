@@ -1,0 +1,118 @@
+<template>
+    <require from="app/website/components/page-header/page-header"></require>
+
+    <nav id="page-header" class="${getCurrentPageName()}">
+        <page-header router.bind="router"></page-header>
+    </nav>
+
+    <div id="how-it-works-container" class="website-page">
+        <div class="website-page__banner">
+            <div class="container">
+                <h1 class="white-text">${'how-it-works.pageTitle' | t}</h1>
+            </div>
+        </div>
+
+		<section id="description-container" class="section">
+			<div class="row short">
+				<div class="col s12 m6 offset-m3 center promo">
+					<p class="light center">${'how-it-works.mainDescription' | t}</p>
+				</div>
+			</div>
+		</section>
+
+		<section id="features-container">
+            <div class="row feature right-align"
+                data-aos="fade-left"
+                data-aos-offset="100"
+                data-aos-duration="600"
+                data-aos-anchor-placement="top-right"
+                data-aos-once="true">
+                <div class="col s12 m5 offset-m1">
+					<h2 class="feature__title center">
+                        <i class="material-icons feature__title__icon">devices</i>
+                        ${'how-it-works.features.feature1Title' | t}
+                    </h2>
+					<p class="feature__description light center">${'how-it-works.features.feature1Description' | t}</p>
+                </div>
+                <div class="col s12 m4 right">
+                    <img src="/dist/app/website/about/assets/images/dro.png" alt="${'about.max.name' | t}" class="feature__image">
+                </div>
+            </div>
+
+            <div class="row feature left-align"
+                data-aos="fade-right"
+                data-aos-offset="100"
+                data-aos-duration="600"
+                data-aos-anchor-placement="top-left"
+                data-aos-once="true">
+                <div class="col s12 m4">
+                    <img src="/dist/app/website/about/assets/images/dro.png" alt="${'about.max.name' | t}" class="feature__image">
+                </div>
+                <div class="col s12 m5 offset-m1">
+					<h2 class="feature__title center">
+                        <i class="material-icons feature__title__icon">cloud</i>
+                        ${'how-it-works.features.feature2Title' | t}
+                    </h2>
+					<p class="feature__description light center">${'how-it-works.features.feature2Description' | t}</p>
+                </div>
+            </div>
+
+            <div class="row feature right-align"
+                data-aos="fade-left"
+                data-aos-offset="100"
+                data-aos-duration="600"
+                data-aos-anchor-placement="top-right"
+                data-aos-once="true">
+                <div class="col s12 m5 offset-m1">
+					<h2 class="feature__title center">
+                        <i class="material-icons feature__title__icon">shopping_cart</i>
+                        ${'how-it-works.features.feature3Title' | t}
+                    </h2>
+					<p class="feature__description light center">${'how-it-works.features.feature3Description' | t}</p>
+                </div>
+                <div class="col s12 m4 right">
+                    <img src="/dist/app/website/about/assets/images/dro.png" alt="${'about.max.name' | t}" class="feature__image">
+                </div>
+            </div>
+
+            <div class="row feature left-align"
+                data-aos="fade-right"
+                data-aos-offset="100"
+                data-aos-duration="600"
+                data-aos-anchor-placement="top-left"
+                data-aos-once="true">
+                <div class="col s12 m4">
+                    <img src="/dist/app/website/about/assets/images/dro.png" alt="${'about.max.name' | t}" class="feature__image">
+                </div>
+                <div class="col s12 m5 offset-m1">
+					<h2 class="feature__title center">
+                        <i class="material-icons feature__title__icon">alarm</i>
+                        ${'how-it-works.features.feature4Title' | t}
+                    </h2>
+					<p class="feature__description light center">${'how-it-works.features.feature4Description' | t}</p>
+                </div>
+            </div>
+		</section>
+
+		<section id="moar-to-come-container">
+			<div class="row center underline-title">
+				<h3 class="title">${'how-it-works.moar.title' | t}</h3>
+				<hr />
+			</div>
+			<div class="row description">
+				<div class="col s12 m6 offset-m3">
+					<div class="row">
+						<p class="light">${'how-it-works.moar.description' | t}</p>
+						<ul class="collection">
+							<li class="collection-item">${'how-it-works.moar.nextFeatures1' | t}</li>
+							<li class="collection-item">${'how-it-works.moar.nextFeatures2' | t}</li>
+							<li class="collection-item">${'how-it-works.moar.nextFeatures3' | t}</li>
+							<li class="collection-item">${'how-it-works.moar.nextFeatures4' | t}</li>
+						</ul>
+						<p class="light">${'how-it-works.moar.keepUpToDate' | t}</p>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</template>

@@ -1,0 +1,92 @@
+@import "../../../../shared/assets/css/variables";
+
+.E133 #how-it-works-container {
+    .website-page__banner {
+        background-image: url(/dist/app/website/about/assets/images/plate.jpg);
+    }
+
+	.underline-title {
+		margin: 50px auto;
+
+		.title {
+			font-size: 2rem;
+			font-weight: 600;
+			margin: 50px auto 0;
+		}
+
+		.title + hr {
+			width: 10%;
+			margin: 20px auto 0;
+			border: none;
+			background-color: black;
+			height: 3px;
+		}
+		.title + hr {
+			width: 10%;
+		}
+	}
+
+	#description-container {
+		padding: 3rem 2rem;
+	}
+
+	#features-container {
+		padding: 0 2rem;
+        margin-bottom: 4rem;
+		color: #2d2d2d;
+
+        .feature {
+            margin: 4rem 0;
+            padding: 2rem 0;
+
+    		&__title {
+    			font-weight: 600;
+
+                &__icon {
+        			color: #DB5762;
+                }
+    		}
+
+    		&__description {
+    			color: #707070;
+    		}
+
+            &:first-child {
+                margin-top: 2rem;
+            }
+        }
+	}
+
+	#moar-to-come-container {
+		background: #efefef;
+		color: #2d2d2d;
+		padding: 1rem;
+
+		.description {
+			position: relative;
+
+			.image {
+				height: 100%;
+				position: absolute;
+
+				img {
+					height: 100%;
+				}
+			}
+		}
+
+		.light {
+			color: #707070;
+		}
+
+        .collection .collection-item {
+            background-color: transparent;
+        }
+	}
+
+	@media #{$medium-and-down} {
+		.promo p {
+			line-height: 1.5rem;
+		}
+	}
+}

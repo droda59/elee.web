@@ -6,17 +6,30 @@
 				<a if.bind="!isHomepage()" id="logo-container" href="#" class="brand-logo">
 					<img src="/dist/app/shared/assets/images/transparent_file_white.png">
 				</a>
-				<ul class="right hide-on-med-and-down">
-					<li repeat.for="row of router.navigation" if.bind="row.config.name" class="item ${row.isActive ? 'active' : ''}">
+				<ul class="navigation right hide-on-med-and-down">
+					<li repeat.for="row of router.navigation" if.bind="row.config.name" class="navigation__route ${row.isActive ? 'active' : ''}">
 						<a href.one-time="row.href">${'nav.' + row.config.name | t}</a>
 					</li>
-					<li><a href="https://www.facebook.com/eleemenu/" target="_blank">Facebook</a></li>
-					<li><a href="https://twitter.com/eleemenu" target="_blank">Twitter</a></li>
+					<li class="navigation__route">
+						<a href="https://www.facebook.com/eleemenu/" target="_blank" class="logo-link">
+							<img src="/dist/app/shared/assets/images/facebook-logo.png" alt="facebook">
+						</a>
+					</li>
+					<li class="navigation__route">
+						<a href="https://twitter.com/eleemenu" target="_blank" class="logo-link">
+							<img src="/dist/app/shared/assets/images/twitter-logo.png" alt="twitter">
+						</a>
+					</li>
 					<!-- Dropdown Trigger -->
-					<li if.bind="isAdmin()">
-						<a md-dropdown="activates: adminDropdown; below-origin: true;" class="dropdown-button" href="#!">
+					<li if.bind="isAdmin" class="navigation__route">
+						<a md-dropdown="activates: admin-dropdown; below-origin: true; hover: true; constrain-width: false;" class="dropdown-button" href="#">
 							Admin <i class="material-icons right">arrow_drop_down</i>
 						</a>
+						<ul id="admin-dropdown" class="dropdown-content">
+							<li><a href="#/administration/contact">Commentaires</a></li>
+							<li><a href="#/administration/recipes">Recettes</a></li>
+							<li><a href="#/administration/backgrounds">Backgrounds</a></li>
+						</ul>
 					</li>
 				</ul>
 			</md-navbar>
@@ -25,15 +38,14 @@
 					<li repeat.for="row of router.navigation" if.bind="row.config.name" class="item ${row.isActive ? 'active' : ''}">
 						<a href.one-time="row.href">${'nav.' + row.config.name | t}</a>
 					</li>
-					<li><a href="fb://page/1745012672451697">Facebook</a></li>
-					<li><a href="twitter://user?user_id=747608306567495680">Twitter</a></li>
+					<li>
+						<a href="fb://page/1745012672451697">Facebook</a>
+					</li>
+					<li>
+						<a href="twitter://user?user_id=747608306567495680">Twitter</a>
+					</li>
 				</ul>
 			</md-sidenav>
 		</div>
 	</div>
-	<ul id="adminDropdown" class="dropdown-content">
-		<li><a href="#/administration/contact">Commentaires</a></li>
-		<li><a href="#/administration/recipes">Recettes</a></li>
-		<li><a href="#/administration/backgrounds">Backgrounds</a></li>
-	</ul>
 </template>

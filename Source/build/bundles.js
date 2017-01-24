@@ -15,6 +15,7 @@ module.exports = {
         },
         "dist/aurelia-bundle": {
             includes: [
+                "aos",
                 "aurelia-animator-css",
                 "aurelia-bootstrapper",
                 "aurelia-configuration",
@@ -25,6 +26,7 @@ module.exports = {
                 "aurelia-history-browser",
                 "aurelia-fetch-client",
                 "aurelia-i18n",
+                "aurelia-infinite-scroll",
                 "aurelia-loader-default",
                 "aurelia-logging-console",
                 "aurelia-router",

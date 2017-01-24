@@ -18,6 +18,7 @@ System.config({
 
   map: {
     "animate.css": "npm:animate.css@3.5.2",
+    "aos": "npm:aos@2.1.1",
     "aurelia-animator-css": "npm:aurelia-animator-css@1.0.1",
     "aurelia-binding": "npm:aurelia-binding@1.1.1",
     "aurelia-bootstrapper": "npm:aurelia-bootstrapper@1.0.1",
@@ -32,6 +33,7 @@ System.config({
     "aurelia-history": "npm:aurelia-history@1.0.0",
     "aurelia-history-browser": "npm:aurelia-history-browser@1.0.0",
     "aurelia-i18n": "npm:aurelia-i18n@1.2.3",
+    "aurelia-infinite-scroll": "npm:aurelia-infinite-scroll@0.2.2",
     "aurelia-loader": "npm:aurelia-loader@1.0.0",
     "aurelia-loader-default": "npm:aurelia-loader-default@1.0.0",
     "aurelia-logging": "npm:aurelia-logging@1.2.0",
@@ -121,6 +123,12 @@ System.config({
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
+    "npm:aos@2.1.1": {
+      "classlist-polyfill": "npm:classlist-polyfill@1.0.3",
+      "lodash.debounce": "npm:lodash.debounce@4.0.8",
+      "lodash.throttle": "npm:lodash.throttle@4.1.1",
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
     "npm:assert@1.4.1": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
@@ -206,6 +214,9 @@ System.config({
       "aurelia-templating-resources": "npm:aurelia-templating-resources@1.2.0",
       "i18next": "npm:i18next@3.5.2",
       "intl": "npm:intl@1.2.5"
+    },
+    "npm:aurelia-infinite-scroll@0.2.2": {
+      "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.2.1"
     },
     "npm:aurelia-loader-default@1.0.0": {
       "aurelia-loader": "npm:aurelia-loader@1.0.0",
@@ -370,6 +381,12 @@ System.config({
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
     "npm:intl@1.2.5": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:lodash.debounce@4.0.8": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:lodash.throttle@4.1.1": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:materialize-css@0.97.7": {

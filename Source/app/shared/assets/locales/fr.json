@@ -6,7 +6,8 @@
 	"nav": {
 		"welcome": "",
 		"contact": "Contact",
-		"about": "À propos"
+		"about": "À propos",
+		"how-it-works": "Fonctionnalités"
 	},
 	"administration": {
 	    "backgrounds": {
@@ -23,8 +24,33 @@
 	        "reviewedRecipes": "Recettes révisées"
 		}
 	},
+	"how-it-works": {
+		"pageTitle": "Comment ça marche",
+		"mainDescription": "elee.menu vous guide pas-à-pas à travers chaque étape de vos recettes, et permet de vous éviter les erreurs fréquentes lorsque vous préparez vos festins",
+		"features": {
+			"feature1Title": "Multi-platforme",
+			"feature1Description": "elee.menu est conçu pour être utilisé sur toutes les plateformes, pour que vous puissiez suivre vos recettes sur l'appareil de votre choix, où bon vous semble.",
+			"feature2Title": "Choix de recette",
+			"feature2Description": "Les recettes sont prises des grands sites culinaires populaires et reformattées pour en simplifier le suivi.",
+			"feature3Title": "Ingrédients",
+			"feature3Description": "Les quantités des ingrédients sont indiquées directement dans les étapes de la recette, dans l'unité de mesure que vous préférez.",
+			"feature4Title": "Chronomètres",
+			"feature4Description": "Lorsqu'un temps est requis, vous pouvez activer un chronomètre directement dans l'étape, ou en ajouter un manuellement, selon vos besoins."
+		},
+		"moar": {
+			"title": "Plus à venir!",
+			"description": "Gardez en tête que ceci n'est qu'une démo limitée, pour voir comment vos commentaires peuvent améliorer l'application'. Beaucoup plus de choses suivront, telles que : ",
+			"nextFeatures1": "Recherche parmi toutes les recettes des grands sites populaires",
+			"nextFeatures2": "Recettes anglaises",
+			"nextFeatures3": "Sauvegarde et édition de recette dans son compte personnel",
+			"nextFeatures4": "Suggestions de recettes selon vos préférences et habiletés",
+			"keepUpToDate": "Demeurez informé!"
+		}
+	},
 	"contact": {
 		"pageTitle": "Contactez-nous",
+		"work": "L'équipe d'elee.menu travaille d'arrache-pied afin de vous offrir une expérience des plus agréable lors de la réalisation de vos recettes préférées",
+		"likeToHear": "Nous apprécions vous entendre et avoir vos commentaires!",
 		"yourMessage": "Votre message",
 		"email": "Votre adresse de courriel",
 		"name": "Votre nom",
@@ -77,64 +103,43 @@
 		"loading": "Recherche en cours",
 		"pageTitle": "Bienvenue",
 		"slogan": "cuisinez simplement",
-		"mainDescription": "elee.menu vous guide pas-à-pas à travers chaque étape de vos recettes, et permet de vous éviter les erreurs fréquentes lorsque vous préparez vos festins",
 		"search": "Rechercher",
-		"cookItNowButton": "Cuisinez!",
+		"featuredTitle": "Cette semaine, elee.menu vous propose",
+		"otherRecipes": "Ces recettes pourraient aussi vous intéresser",
 		"results": {
 			"title": "Résultats",
-			"more": "Plus",
 			"noResult": "Aucun résultat à afficher"
 		},
 		"advancedSearch": {
 			"title": "Recherche Avancée",
 			"ingredients": "Ingredients",
 			"timeRequired": "Temps requis"
-		},
-		"steps": {
-			"step1Title": "1- Choisissez une recette",
-			"step1Description": "Rechercher une recette dont vous avez le goût",
-			"step2Title": "2- Réalisez-la",
-			"step2Description": "Suivez la recette en utilisant l'application",
-			"step3Title": "3- Appréciez",
-			"step3Description": "Appréciez votre repas; vous le méritez!"
-		},
-		"categories": {
-			"title": "Catégories populaires",
-			"browseAll": "Voir toutes",
-			"viewAll": "Voir toutes"
-		},
-		"features": {
-			"feature1Title": "Multi-platforme",
-			"feature1Description": "elee.menu est conçu pour être utilisé sur toutes les plateformes, pour que vous puissiez suivre vos recettes sur l'appareil de votre choix, où bon vous semble.",
-			"feature2Title": "Choix de recette",
-			"feature2Description": "Les recettes sont prises des grands sites culinaires populaires et reformattées pour en simplifier le suivi.",
-			"feature3Title": "Ingrédients",
-			"feature3Description": "Les quantités des ingrédients sont indiquées directement dans les étapes de la recette, dans l'unité de mesure que vous préférez.",
-			"feature4Title": "Chronomètres",
-			"feature4Description": "Lorsqu'un temps est requis, vous pouvez activer un chronomètre directement dans l'étape, ou en ajouter un manuellement, selon vos besoins."
-		},
-		"moar": {
-			"title": "Plus à venir!",
-			"description": "Gardez en tête que ceci n'est qu'une démo limitée, pour voir comment vos commentaires peuvent améliorer l'application'. Beaucoup plus de choses suivront, telles que : ",
-			"nextFeatures1": "Recherche parmi toutes les recettes des grands sites populaires",
-			"nextFeatures2": "Recettes anglaises",
-			"nextFeatures3": "Sauvegarde et édition de recette dans son compte personnel",
-			"nextFeatures4": "Suggestions de recettes selon vos préférences et habiletés",
-			"keepUpToDate": "Demeurez informé!"
 		}
 	},
 	"about": {
 		"pageTitle": "À propos de elee.menu",
-		"title": "À propos de elee.menu",
-		"whoWeAre": "Qui sommes-nous?",
-		"whoWeAreText": "Nous sommes deux web développeur passionés qui ont aussi un intérêt marqué pour la cuisine. ",
-		"ourTechnologies": "Les technologies que nous utilisons",
-		"ourTechnologiesText": "Voici une liste des technologies que nous utilisons pour construire Elee.menu.",
-		"bizsparkThanks": "Merci beaucoup Microsoft BizSpark!",
-		"bizsparkThanksText": "Merci à Microsoft qui nous fournit des crédits Azure ainsi que des outils gratuit pour 3 ans via leur programme BizSpark.",
-		"manyMore": "Et plusieurs autres...",
-		"aboutMax": "Développeur FullStack et fondateur de Elee.menu.",
-		"aboutMARoy": "Développeur FullStack passionné par le développement FrontEnd."
+		"teamPresentation": "L'équipe",
+		"teamMarketing": "L'équipe d'elee.menu travaille d'arrache-pied afin de vous offrir une expérience des plus agréable lors de la réalisation de vos recettes préférées",
+		"max": {
+			"name": "Maxime Gaudreault Proulx",
+			"title": "Co-fondateur de elee.menu, directeur technologique, développeur FullStack",
+			"description": "Gamer, joueur de guitare, mangeur de beignes (bien qu'il essaie de résister, sans grand succès), éleveur d'enfants. Prend le transport en commun et va au gym. Passionné de technologies web modernes. Et de beignes."
+		},
+		"dom": {
+			"name": "Dominique Ruest",
+			"title": "Co-fondateur de elee.menu, directeur de produit",
+			"description": "Passionné par la recherche de solutions simples aux problèmes complexes, au travail comme dans les loisirs. Adepte d'escalade, pour ne pas dire complètement accro. Que ce soit en grimpant ou en écrivant des lignes de code, la recherche de la simplicité et du meilleur chemin font partie du quotidien."
+		},
+		"marc-andre": {
+			"name": "Marc-André Roy",
+			"title": "Développeur FullStack, spécialiste infrastructure",
+			"description": "Adepte de technologies derniers cris, habille de ses mains, papa, aime la bonne bouffe et les bières de microbrasserie!"
+		},
+		"francis": {
+			"name": "Francis Thibault",
+			"title": "Développeur FrontEnd, spécialiste SEO",
+			"description": "Passionné de nouvelles technologies et de musique (ne lui demandez pas d'en jouer cependant) ce père de famille aime bien gamer de temps en temps et faire des jeux de mots digne de tout bon papa."
+		}
 	},
 	"quantities": {
 		"ml": "ml",

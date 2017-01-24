@@ -42,6 +42,7 @@ gulp.task("build-sass", function () {
         paths.app + "website/components/page-header/page-header.scss",
         paths.app + "website/welcome/assets/css/main.scss",
         paths.app + "website/about/assets/css/main.scss",
+        paths.app + "website/how-it-works/assets/css/main.scss",
         paths.app + "website/contact/assets/css/main.scss",
         paths.app + "quick-recipe/administration/assets/css/main.scss",
         paths.app + "quick-recipe/backgrounds/assets/css/main.scss",

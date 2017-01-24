@@ -1,11 +1,28 @@
-.loading-container {
+.loading-overlay-container {
     position: fixed;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    z-index: 10000;
+    height: 100%;
+}
+
+.loading-container {
+    position: relative;
+    z-index: 3;
+}
+
+.loading-container,
+.loading-overlay-container {
     top: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.6);
     width: 100%;
-    height: 100%;
-    z-index: 3;
+    
+    .loading-animation {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
 
     &.au-enter-active {
         -webkit-animation: fadeIn 0.25s ease-in-out;
@@ -23,80 +40,47 @@
         width: 100%;
         position: absolute;
         top: 55%;
-        color: #fff;
     }
 }
 
 .spinner {
-  margin: 100px auto;
-  width: 40px;
-  height: 40px;
-  position: relative;
-  text-align: center;
-
-  -webkit-animation: sk-rotate 2.0s infinite linear;
-  animation: sk-rotate 2.0s infinite linear;
+    margin: 40px auto;
+    width: 70px;
+    text-align: center;
 }
 
-.dot1, .dot2 {
-  width: 60%;
-  height: 60%;
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  background-color: #fff;
-  border-radius: 100%;
+.spinner > div {
+    width: 18px;
+    height: 18px;
+    background-color: #D83B48;
 
-  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
-  animation: sk-bounce 2.0s infinite ease-in-out;
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
 }
 
-.dot2 {
-  top: auto;
-  bottom: 0;
-  -webkit-animation-delay: -1.0s;
-  animation-delay: -1.0s;
+.spinner .bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
 }
 
-@-webkit-keyframes sk-rotate { 100% { -webkit-transform: rotate(360deg) }}
-@keyframes sk-rotate { 100% { transform: rotate(360deg); -webkit-transform: rotate(360deg) }}
-
-@-webkit-keyframes sk-bounce {
-  0%, 100% { -webkit-transform: scale(0.0) }
-  50% { -webkit-transform: scale(1.0) }
+.spinner .bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
 }
 
-@keyframes sk-bounce {
-  0%, 100% {
-    transform: scale(0.0);
-    -webkit-transform: scale(0.0);
-  } 50% {
-    transform: scale(1.0);
-    -webkit-transform: scale(1.0);
-  }
+@-webkit-keyframes sk-bouncedelay {
+    0%, 80%, 100% { -webkit-transform: scale(0) }
+    40% { -webkit-transform: scale(1.0) }
 }
 
-@-webkit-keyframes fadeIn {
-    0%   { opacity: 0; }
-    100% { opacity: 1; }
-}
-@-moz-keyframes fadeIn {
-    0%   { opacity: 0; }
-    100% { opacity: 1; }
-}
-@keyframes fadeIn {
-    0%   { opacity: 0; }
-    100% { opacity: 1; }
-}
-@-webkit-keyframes fadeOut {
-    0%   { opacity: 1; }
-    100% { opacity: 0; }
-}
-@-moz-keyframes fadeOut {
-    0%   { opacity: 1; }
-    100% { opacity: 0; }
-}
-@keyframes fadeOut {
-    0%   { opacity: 1; }
-    100% { opacity: 0; }
+@keyframes sk-bouncedelay {
+    0%, 80%, 100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    } 40% {
+        -webkit-transform: scale(1.0);
+        transform: scale(1.0);
+    }
 }

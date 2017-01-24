@@ -41,6 +41,7 @@
   "jspm": {
     "dependencies": {
       "animate.css": "npm:animate.css@^3.5.1",
+      "aos": "npm:aos@^2.1.1",
       "aurelia-animator-css": "npm:aurelia-animator-css@^1.0.0",
       "aurelia-binding": "npm:aurelia-binding@^1.0.0",
       "aurelia-bootstrapper": "npm:aurelia-bootstrapper@^1.0.0",
@@ -55,6 +56,7 @@
       "aurelia-history": "npm:aurelia-history@^1.0.0",
       "aurelia-history-browser": "npm:aurelia-history-browser@^1.0.0",
       "aurelia-i18n": "npm:aurelia-i18n@^1.0.0",
+      "aurelia-infinite-scroll": "npm:aurelia-infinite-scroll@^0.2.2",
       "aurelia-loader": "npm:aurelia-loader@^1.0.0",
       "aurelia-loader-default": "npm:aurelia-loader-default@^1.0.0",
       "aurelia-logging": "npm:aurelia-logging@^1.0.0",

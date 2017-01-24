@@ -2,38 +2,96 @@
     <require from="app/website/components/page-header/page-header"></require>
 
     <nav id="page-header" class="${getCurrentPageName()}">
-        <page-header router.bind="router" containerless></page-header>
+        <page-header router.bind="router"></page-header>
     </nav>
 
-    <div id="about-container">
-        <div class="about-header-container">
+    <div id="about-container" class="website-page">
+        <div class="website-page__banner">
             <div class="container">
-                <h1 class="white-text">À propos</h1>
+                <h1 class="white-text">${'about.pageTitle' | t}</h1>
             </div>
         </div>
+
+		<section id="description-container" class="section">
+			<div class="row short">
+				<div class="col s12 m6 offset-m3 center promo">
+					<p class="light center">${'about.teamMarketing' | t}</p>
+				</div>
+			</div>
+		</section>
+
         <div class="about-intro">
             <div class="row">
-                <p class="light center">L'équipe d'elee.menu travaille d'arrache-pied afin de vous offrir une expérience des plus agréable lors de la réalisation de vos recettes préférées.</p>
-                <h2 class="light center">L'équipe</h2>
-                <div class="team-wrapper">
-                    <img src="/dist/app/website/about/assets/images/dro.png" alt="Maxime Gaudreault Proulx" class="about-img">
-                    <p class="about-name">Maxime Gaudreault Proulx</p>
-                    <p class="about-desc">Co-fondateur de elee.menu, directeur technologique, développeur FullStack.</p>
+                <h2 class="section-title light center">${'about.teamPresentation' | t}</h2>
+            </div>
+        </div>
+        <div class="team-members">
+            <div class="team-member-container">
+                <div class="row team-member left-align"
+                    data-aos="fade-right"
+                    data-aos-offset="100"
+                    data-aos-duration="600"
+                    data-aos-anchor-placement="top-left"
+                    data-aos-once="true">
+                    <div class="col s12 m4">
+                        <img src="/dist/app/website/about/assets/images/dro.png" alt="${'about.max.name' | t}" class="team-member__image">
+                    </div>
+                    <div class="col s12 m8">
+                        <h5 class="team-member__name">${'about.max.name' | t}</h5>
+                        <p class="team-member__title">${'about.max.title' | t}</p>
+                        <p class="team-member__description">${'about.max.description' | t}</p>
+                    </div>
                 </div>
-                <div class="team-wrapper">
-                    <img src="/dist/app/website/about/assets/images/dom.jpg" alt="Dominique Ruest" class="about-img">
-                    <p class="about-name">Dominique Ruest</p>
-                    <p class="about-desc">Co-fondateur de elee.menu, directeur de produit.</p>
+            </div>
+            <div class="team-member-container">
+                <div class="row team-member right-align"
+                    data-aos="fade-left"
+                    data-aos-offset="200"
+                    data-aos-duration="600"
+                    data-aos-anchor-placement="top-right"
+                    data-aos-once="true">
+                    <div class="col s12 m8">
+                        <h5 class="team-member__name">${'about.dom.name' | t}</h5>
+                        <p class="team-member__title">${'about.dom.title' | t}</p>
+                        <p class="team-member__description">${'about.dom.description' | t}</p>
+                    </div>
+                    <div class="col s12 m4">
+                        <img src="/dist/app/website/about/assets/images/dom.jpg" alt="${'about.dom.name' | t}" class="team-member__image">
+                    </div>
                 </div>
-                <div class="team-wrapper">
-                    <img src="/dist/app/website/about/assets/images/maroy.jpg" alt="Marc-André Roy" class="about-img">
-                    <p class="about-name">Marc-André Roy</p>
-                    <p class="about-desc">Développeur FullStack passionné par le développement FrontEnd.</p>
+            </div>
+            <div class="team-member-container">
+                <div class="row team-member left-align"
+                    data-aos="fade-right"
+                    data-aos-offset="200"
+                    data-aos-duration="600"
+                    data-aos-anchor-placement="top-left"
+                    data-aos-once="true">
+                    <div class="col s12 m4">
+                        <img src="/dist/app/website/about/assets/images/maroy.jpg" alt="${'about.marc-andre.name' | t}" class="team-member__image">
+                    </div>
+                    <div class="col s12 m8">
+                        <h5 class="team-member__name">${'about.marc-andre.name' | t}</h5>
+                        <p class="team-member__title">${'about.marc-andre.title' | t}</p>
+                        <p class="team-member__description">${'about.marc-andre.description' | t}</p>
+                    </div>
                 </div>
-                <div class="team-wrapper">
-                    <img src="/dist/app/website/about/assets/images/francis-thibault.png" alt="Francis Thibault" class="about-img">
-                    <p class="about-name">Francis Thibault</p>
-                    <p class="about-desc">Développeur FrontEnd, créateur de magie.</p>
+            </div>
+            <div class="team-member-container">
+                <div class="row team-member right-align"
+                    data-aos="fade-left"
+                    data-aos-offset="200"
+                    data-aos-duration="600"
+                    data-aos-anchor-placement="top-right"
+                    data-aos-once="true">
+                    <div class="col s12 m8">
+                        <h5 class="team-member__name">${'about.francis.name' | t}</h5>
+                        <p class="team-member__title">${'about.francis.title' | t}</p>
+                        <p class="team-member__description">${'about.francis.description' | t}</p>
+                    </div>
+                    <div class="col s12 m4">
+                        <img src="/dist/app/website/about/assets/images/francis-thibault.png" alt="${'about.francis.name' | t}" class="team-member__image">
+                    </div>
                 </div>
             </div>
         </div>
