@@ -39,6 +39,7 @@ gulp.task("export:copy", function () {
         "jspm_packages/github/systemjs/plugin-text@**.js",
         "jspm_packages/github/systemjs/plugin-text@**/text.js",
         "jspm_packages/npm/aurelia-dragula@**/dragula-and-drop.js",
+        "jspm_packages/npm/aurelia-infinite-scroll@**/infinite-scroll.js",
         "jspm_packages/npm/jquery@**/dist/jquery.min.js",
         "jspm_packages/npm/materialize-css@**/dist/js/materialize.min.js",
         "jspm_packages/npm/moment@**/moment.js",

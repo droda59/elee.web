@@ -40,8 +40,7 @@ module.exports = {
                 "aurelia-materialize-bridge/**/*.html!text",
                 "aurelia-materialize-bridge/**/*.css!text",
                 "i18next-xhr-backend",
-                "fetch",
-                "moment"
+                "fetch"
             ],
             options: {
                 inject: true,
