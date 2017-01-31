@@ -26,17 +26,18 @@ html.E133 {
 
     .splash-wrapper {
         height: 100vh;
+
+        .brand-logo {
+            position: absolute;
+            height: auto;
+            width: 40%;
+            top: 8rem;
+            left: 30%;
+        }
     }
 
     .row.short {
         margin-bottom: 0;
-    }
-
-    .brand-logo {
-        width: 70%;
-        padding-top: 1rem;
-        display: block;
-        margin: 0 auto;
     }
 
     .light {
@@ -72,6 +73,23 @@ html.E133 {
                 margin: 0;
                 text-align: center;
                 text-transform: uppercase;
+            }
+        }
+    }
+
+	@media #{$small-and-down} {
+        .splash-wrapper {
+            .brand-logo {
+                width: 80%;
+                left: 10%;
+            }
+        }
+
+        .website-page {
+            &__banner {
+                h1 {
+                    padding: 70% 0 0 0;
+                }
             }
         }
     }

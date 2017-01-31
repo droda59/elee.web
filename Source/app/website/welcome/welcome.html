@@ -10,8 +10,8 @@
 		<section id="search-container" class="website-page__banner">
 			<form class="recipe-search white-text container" submit.delegate="searchRecipes()" novalidate>
 				<div class="row">
-					<div class="col s12 m4 offset-m4">
-						<img class="brand-logo" src="/dist/app/shared/assets/images/transparent_file_white.png">
+					<div class="col s8 offset-s2 m6 offset-m3 l4 offset-l4 brand-logo">
+						<img src="/dist/app/shared/assets/images/transparent_file_white.png">
 					</div>
 				</div>
 				<div class="row">
@@ -52,8 +52,8 @@
 				<h3 class="title">${'home.featuredTitle' | t}</h3>
 			</div>
 			<div class="row center" class="result__content">
-				<div class="col m8 offset-m2">
-					<div class="result col s6 m4" repeat.for="result of featuredRecipes">
+				<div class="col m12 l8 offset-l2">
+					<div class="result col s12 m4" repeat.for="result of featuredRecipes">
 						<a click.delegate="goToFeatured(result.uniqueName)" class="white-text center-align result__thumb--link">
 							<div class="result__thumb">
 								<img src.bind="result.smallImageUrl" alt="">
