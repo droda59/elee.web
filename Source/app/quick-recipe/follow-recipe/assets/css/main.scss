@@ -39,15 +39,28 @@
 
             .recipe-title {
                 bottom: 65%;
-                width: 80%;
-                left: 10%;
+                width: 100%;
+                // left: 10%;
                 position: absolute;
-                text-align: center;
-                text-transform: uppercase;
-                color: white;
-                height: initial;
-                font-family: "Suranna", serif;
-                font-size: 3.8rem;
+
+                h1 {
+                    // text-align: center;
+                    text-transform: uppercase;
+                    // color: white;
+                    height: initial;
+                    font-family: "Suranna", serif;
+                    font-size: 3.8rem;
+                }
+
+                &.started {
+                    bottom: 80%;
+                    transition: all 0.2s ease-in-out;
+
+                    h1 {
+                        font-size: 2.2rem;
+                        transition: all 0.2s ease-in-out;
+                    }
+                }
             }
 
             #instructions {
@@ -114,11 +127,6 @@
                             .collection-item {
                                 padding: 3px 0;
                                 background-color: transparent;
-
-                                .emphasis {
-                                    font-weight: 400;
-                                    font-size: initial;
-                                }
                             }
                         }
 

@@ -2,55 +2,49 @@
     display: flex;
     position: fixed;
     width: 100%;
-    height: 34px;
     bottom: 0;
 
-    .subrecipe-title {
-        display: inline-block;
-        height: inherit;
-        position: relative;
+    &__subrecipe {
+        &__title {
+            padding-left: 10px;
 
-        a {
-            left: 10px;
-            position: absolute;
-            top: 0;
-            color: rgba(255, 255, 255, 0.5);
+            a {
+                transition: color 200ms ease-in-out;
+                color: rgba(255, 255, 255, 0.33);
+
+                &:hover {
+                    color: rgba(255, 255, 255, 0.66);
+                }
+                &.active {
+                    color: rgba(255, 255, 255, 1);
+                }
+            }
         }
 
-        .progression-steps {
-            line-height: 5px;
-            position: absolute;
-            width: 100%;
-            bottom: 0;
-            padding-right: 1px;
+        &__steps {
             display: flex;
 
-            .progression-step {
+            &__step {
                 flex-grow: 1;
-                height: 5px;
-                background-color: rgba(255, 255, 255, 0.3);
+                transition: color 500ms ease-in-out;
+                color: rgba(255, 255, 255, 0.33);
 
                 .content {
-                    height: 100%;
-                    background-color: rgba(255, 255, 255, 0.5);
-                    width: 0;
-                }
-                &.done .content {
                     width: 100%;
-                    transition: width 500ms ease-in-out;
-                }
-            }
-        }
 
-        &.active {
-            a {
-                color: rgba(255, 255, 255, 1);
-            }
-            .progression-steps {
-                .progression-step {
-                    .content {
-                        background-color: rgba(255, 255, 255, 1);
+                    &:after {
+                        content: "\00B7";
+                        text-align: center;
+                        display: block;
+                        font-size: 2rem;
                     }
+                }
+                &.done {
+                    color: rgba(255, 255, 255, 0.1);
+                }
+                &.active,
+                &:hover {
+                    color: rgba(255, 255, 255, 1);
                 }
             }
         }

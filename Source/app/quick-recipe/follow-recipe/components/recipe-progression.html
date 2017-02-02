@@ -2,17 +2,19 @@
 	<require from="app/shared/value-converters/time-format"></require>
 
 	<div class="recipe-progression">
-		<span repeat.for="subrecipe of subrecipes & oneTime" if.bind="subrecipe.steps.length" style="flex-grow: ${subrecipe.steps.length};" class="subrecipe-title ${$parent.activeSubrecipeId === subrecipe.id ? 'active' : ''}">
-			<a click.delegate="goToSubrecipe(subrecipe.id)">
-				<span>${subrecipe.title}</span>
-				<span class="progression">${subrecipe.completedSteps}/${subrecipe.steps.length}</span>
-				<span class="timers" show.bind="subrecipe.timers.length">
-					<i class="material-icons">alarm</i>
-					<span if.bind="subrecipe.timers.length > 0">${subrecipe.timers[0].remainingTime | timeFormat}</span>
-				</span>
-			</a>
-			<div class="progression-steps">
-				<span repeat.for="step of subrecipe.steps & oneTime" class="progression-step ${subrecipe.completedSteps > $index ? 'done' : ''}">
+		<span repeat.for="subrecipe of subrecipes & oneTime" if.bind="subrecipe.steps.length" style="flex-grow: ${subrecipe.steps.length};" class="recipe-progression__subrecipe">
+			<div class="recipe-progression__subrecipe__title">
+				<a click.delegate="goToSubrecipe(subrecipe.id)" class="${$this.activeSubrecipeId === subrecipe.id ? 'active' : ''}">
+					<span>${subrecipe.title}</span>
+					<span class="progression">${subrecipe.completedSteps}/${subrecipe.steps.length}</span>
+					<span class="timers" show.bind="subrecipe.timers.length">
+						<i class="material-icons">alarm</i>
+						<span if.bind="subrecipe.timers.length > 0">${subrecipe.timers[0].remainingTime | timeFormat}</span>
+					</span>
+				</a>
+			</div>
+			<div class="recipe-progression__subrecipe__steps">
+				<span repeat.for="step of subrecipe.steps & oneTime" class="recipe-progression__subrecipe__steps__step ${$this.currentStepId === step.id ? 'active' : ''} ${subrecipe.completedSteps > $index ? 'done' : ''}">
 					<div class="content"></div>
 				</span>
 			</div>

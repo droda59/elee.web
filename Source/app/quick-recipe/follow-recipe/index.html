@@ -9,7 +9,9 @@
 
 	<div class="quick-recipe">
 		<main class="row">
-			<h1 class="recipe-title">${recipe.title}</h1>
+			<div class="recipe-title ${isRecipeStarted ? 'started' : ''}">
+				<h1 class="container title white-text center-align">${recipe.title}</h1>
+			</div>
 
 			<div id="instructions" class="white-text center-align">
 				<section id="presentation-section" if.bind="!isRecipeDone && !isRecipeStarted" class="card-panel animated fadeInDownBig black-text">

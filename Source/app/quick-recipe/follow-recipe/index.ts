@@ -102,22 +102,22 @@ export class QuickRecipePage {
     }
   }
 
-  startRecipe(): void {
-      var that = this;
-    this._currentStepId = this.getNextUncompletedStepId();
-    this.currentStep = this.recipe.steps.filter(step => step.id === this._currentStepId)[0];
+    startRecipe(): void {
+        var that = this;
+        this.isRecipeStarted = true;
+        this._currentStepId = this.getNextUncompletedStepId();
+        this.currentStep = this.recipe.steps.filter(step => step.id === this._currentStepId)[0];
 
-    this.navigationStepId = this._currentStepId;
-    this.goToCurrentStep();
+        this.navigationStepId = this._currentStepId;
+        this.goToCurrentStep();
 
-    var element = $("#presentation-section");
-    var animationClassName = "fadeOutUpBig";
-    var animationEnd = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
-    element.addClass(animationClassName).one(animationEnd, function () {
-        element.removeClass(animationClassName);
-		that.isRecipeStarted = true;
-    });
-  }
+        var element = $("#presentation-section");
+        var animationClassName = "fadeOutUpBig";
+        var animationEnd = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
+        element.addClass(animationClassName).one(animationEnd, function () {
+            element.removeClass(animationClassName);
+        });
+    }
 
   completeStep(): void {
     if (!this.isCurrentStepActive) {

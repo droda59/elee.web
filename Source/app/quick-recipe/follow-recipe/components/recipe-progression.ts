@@ -19,4 +19,8 @@ export class RecipeProgression {
     get activeSubrecipeId(): number {
         return this._parentElement.activeSubrecipeId;
     }
+
+    get currentStepId(): number {
+        return this._parentElement.currentStep.id;
+    }
 }
