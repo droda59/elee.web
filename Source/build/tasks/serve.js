@@ -2,15 +2,17 @@ var gulp = require("gulp");
 var browserSync = require("browser-sync");
 
 gulp.task("serve", ["build"], function (done) {
-    browserSync.init({
-        open: false,
-        port: 9000,
-        server: {
-            baseDir: ['.'],
-            middleware: function(req, res, next) {
-                res.setHeader('Access-Control-Allow-Origin', '*');
-                next();
-            }
-        }
-    }, done);
+	browserSync.init({
+		open: false,
+		port: 9000,
+		server: {
+			baseDir: ['.'],
+			middleware: function (req, res, next) {
+				res.setHeader('Access-Control-Allow-Origin', '*');
+				next();
+			}
+		},
+		// httpModule: 'http2',
+		// https: true
+	}, done);
 });

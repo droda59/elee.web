@@ -7,7 +7,7 @@ import * as AOS from "aos";
 export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
-    // .developmentLogging()
+    .developmentLogging()
     .globalResources("app/shared/components/loading-overlay")
     .globalResources("app/shared/components/loading.html")
     .plugin("aurelia-animator-css")
