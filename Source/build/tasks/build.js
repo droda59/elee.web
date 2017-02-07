@@ -14,53 +14,41 @@ gulp.task("build", ["build-ts", "build-html", "build-sass", "copy-files"]);
 
 var typescriptCompiler = typescriptCompiler || null;
 gulp.task("build-ts", function () {
-    if (!typescriptCompiler) {
-        typescriptCompiler = typescript.createProject("tsconfig.json", {
-            "typescript": require("typescript")
-        });
-    }
+	if (!typescriptCompiler) {
+		typescriptCompiler = typescript.createProject("tsconfig.json", {
+			"typescript": require("typescript")
+		});
+	}
 
-    return gulp.src(paths.sources)
-        .pipe(plumber())
-        .pipe(changed(paths.sources, { extension: ".ts" }))
-        .pipe(sourcemaps.init({ loadMaps: true }))
-        .pipe(typescriptCompiler())
-        .pipe(sourcemaps.write(".", { includeContent: false, sourceRoot: "/app" }))
-        .pipe(gulp.dest(paths.outputApp));
+	return gulp.src(paths.sources)
+		.pipe(plumber())
+		.pipe(changed(paths.sources, { extension: ".ts" }))
+		.pipe(sourcemaps.init({ loadMaps: true }))
+		.pipe(typescriptCompiler())
+		.pipe(sourcemaps.write(".", { includeContent: false, sourceRoot: "/app" }))
+		.pipe(gulp.dest(paths.outputApp));
 });
 
 gulp.task("build-html", function () {
-    return gulp.src(paths.views)
-        .pipe(changed(paths.views, { extension: ".html" }))
-        .pipe(gulp.dest(paths.outputApp));
+	return gulp.src(paths.views)
+		.pipe(changed(paths.views, { extension: ".html" }))
+		.pipe(gulp.dest(paths.outputApp));
 });
 
 gulp.task("build-sass", function () {
-    var appSass = gulp.src([
-        paths.app + "shared/assets/css/main.scss",
-        paths.app + "shared/components/advanced-search/advanced-search.scss",
-        paths.app + "website/components/page-header/page-header.scss",
-        paths.app + "website/welcome/assets/css/main.scss",
-        paths.app + "website/about/assets/css/main.scss",
-        paths.app + "website/how-it-works/assets/css/main.scss",
-        paths.app + "website/contact/assets/css/main.scss",
-        paths.app + "quick-recipe/administration/assets/css/main.scss",
-        paths.app + "quick-recipe/backgrounds/assets/css/main.scss",
-        paths.app + "quick-recipe/edit-recipe/assets/css/main.scss",
-        paths.app + "quick-recipe/follow-recipe/assets/css/main.scss",
-    ])
-        .pipe(changed(paths.styles, { extension: ".scss" }))
-        .pipe(sass())
+	var appSass = gulp.src(paths.app + "**/*.scss")
+		.pipe(changed(paths.styles, { extension: ".scss" }))
+		.pipe(sass())
 
-    var externals = gulp.src(paths.app + "**/*.css");
+	var externals = gulp.src(paths.app + "**/*.css");
 
-    return es.concat(appSass, externals)
-        .pipe(concat("style.css"))
-        .pipe(gulp.dest(paths.outputApp))
-        .pipe(browserSync.reload({ stream: true }));
+	return es.concat(appSass, externals)
+		.pipe(concat("style.css"))
+		.pipe(gulp.dest(paths.outputApp))
+		.pipe(browserSync.reload({ stream: true }));
 });
 
 gulp.task("copy-files", function () {
-    return gulp.src(paths.app + "**/*.{ico,json,png,jpg,jpeg,svg,woff,woff2,ttf}")
-        .pipe(gulp.dest(paths.outputApp));
+	return gulp.src(paths.app + "**/*.{ico,json,png,jpg,jpeg,svg,woff,woff2,ttf}")
+		.pipe(gulp.dest(paths.outputApp));
 });
