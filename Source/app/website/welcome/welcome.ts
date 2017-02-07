@@ -5,9 +5,6 @@ import { QuickRecipeSearchResult } from "app/quick-recipe/models/quick-recipe-se
 
 @autoinject()
 export class Welcome {
-	private _skip: number = 0;
-	private _take: number = 12;
-
 	router: Router;
 	results: Array<QuickRecipeSearchResult> = undefined;
 	otherRecipes: Array<QuickRecipeSearchResult> = [];
@@ -16,6 +13,9 @@ export class Welcome {
 	maximumTime: number = 0;
 	loadingPaged: boolean = false;
 	noMorePages: boolean = false;
+
+	private _skip: number = 0;
+	private _take: number = 12;
 
 	constructor(private _service: QuickRecipeService, router: Router) {
 		this.router = router;

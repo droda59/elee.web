@@ -1,6 +1,20 @@
 {
 	"extends": "tslint:latest",
 	"rules": {
-		"quotemark": [true, "double"]
+		"quotemark": [
+			true,
+			"double"
+		],
+		"indent": [
+			true,
+			"tabs"
+		],
+		"ordered-imports": [
+			true,
+			{
+				"import-sources-order": "any",
+				"named-imports-order": "any"
+			}
+		]
 	}
 }

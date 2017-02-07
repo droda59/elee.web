@@ -9,7 +9,7 @@ export class Main {
 	router: Router;
 
 	constructor(private _i18n: I18N,
-		private _configuration: Configure) { }
+		           private _configuration: Configure) { }
 
 	configureRouter(config: RouterConfiguration, router: Router) {
 		let routes = [

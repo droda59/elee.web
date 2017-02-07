@@ -1,12 +1,22 @@
-import { bindable } from "aurelia-framework";
+import { bindable, autoinject } from "aurelia-framework";
 import { QuickRecipeSearchResult } from "app/quick-recipe/models/quick-recipe-search-result";
+import { RecipePreview } from "./recipe-preview/recipe-preview";
 
+@autoinject
 export class RecipeResult {
-    @bindable index: number;
-    @bindable result: QuickRecipeSearchResult;
-    @bindable click;
+	@bindable public index: number;
+	@bindable public result: QuickRecipeSearchResult;
+	@bindable public click;
 
-    goToRecipe() {
-        this.click({result: this.result});
-    }
+	constructor(private _preview: RecipePreview) {
+
+	}
+
+	public goToRecipe() {
+		this.click({ result: this.result });
+	}
+
+	public openPreview() {
+		this._preview.openPreview(this.result);
+	}
 }
