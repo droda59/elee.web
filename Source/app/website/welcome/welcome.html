@@ -1,11 +1,13 @@
 <template>
 	<require from="app/website/components/page-header/page-header"></require>
 	<require from="app/website/welcome/components/recipe-result"></require>
-	<require from="app/website/welcome/components/recipe-preview"></require>
+	<require from="app/website/welcome/components/recipe-preview/recipe-preview"></require>
 
 	<nav id="page-header" class="${getCurrentPageName()}">
 		<page-header></page-header>
 	</nav>
+
+	<recipe-preview></recipe-preview>
 
 	<div id="welcome-container" class="website-page">
 		<section id="search-container" class="website-page__banner">
