@@ -1,0 +1,43 @@
+<template bindable="subrecipes">
+	<require from="app/shared/value-converters/time-format"></require>
+
+	<span class="navigation-pills timers-nav-pills">
+		<btn md-sidenav-collapse="ref.bind: timersnav;" class="current-button waves-light btn">
+			<i class="material-icons black-text">timer</i>
+		</btn>
+	</span>
+
+	<md-sidenav view-model.ref="timersnav" md-edge="right">
+		<ul class="side-nav" style="transform: translateX(0px);">
+			<li>
+				<div class="side-nav__brand-logo">
+					<img class="" src="/dist/app/shared/assets/images/transparent_file.png">
+				</div>
+			</li>
+
+			<li><div class="divider"></div></li>
+			<li><h5 class="side-nav__header center-align">${'quickRecipe.timersSideTitle' | t}</h5></li>
+
+			<li>
+				<ul md-collapsible>
+					<li><div class="divider container"></div></li>
+					<template repeat.for="subrecipe of subrecipes & oneTime">
+						<li if.bind="subrecipe.timers.length" class="collection-item">
+							<div class="collapsible-header center-align">${subrecipe.title}</div>
+							<div class="collapsible-body">
+	                            <ul>
+	                                <li repeat.for="timer of subrecipe.timers" class="action">
+	                                    <a class="secondary-content">
+	                                        <i class="material-icons">alarm</i>${timer.action} : ${timer.remainingTime | timeFormat}
+	                                    </a>
+	                                </li>
+	                            </ul>
+							</div>
+						</li>
+						<li if.bind="subrecipe.timers.length"><div class="divider container"></div></li>
+					</template>
+				</ul>
+			</li>
+		</ul>
+	</md-sidenav>
+</template>

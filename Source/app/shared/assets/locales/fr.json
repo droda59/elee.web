@@ -190,6 +190,7 @@
 		"timerDescription": "Description",
 		"timerDuration": "Durée (hh:mm:ss)",
 		"timerEnded": "Le temps est écoulé",
+		"timersSideTitle": "Chronomètres",
 		"ingredientsSideTitle": "Ingredients",
 		"ingredientReplacementConjunction": "ou",
 		"servings": "Portions : ",

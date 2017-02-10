@@ -1,6 +1,7 @@
 <template>
 	<require from="app/quick-recipe/follow-recipe/components/quick-recipe-step"></require>
 	<require from="app/quick-recipe/follow-recipe/components/menu-nav"></require>
+	<require from="app/quick-recipe/follow-recipe/components/timers-nav.html"></require>
 	<require from="app/quick-recipe/follow-recipe/components/ingredients-nav.html"></require>
 	<require from="app/quick-recipe/follow-recipe/components/recipe-progression"></require>
 	<require from="app/shared/value-converters/duration-format"></require>
@@ -80,6 +81,7 @@
 		<header>
 			<menu-nav unique-name.one-time="recipe.uniqueName"></menu-nav>
 			<ingredients-nav subrecipes.one-time="subrecipes"></ingredients-nav>
+			<timers-nav subrecipes.one-time="subrecipes"></timers-nav>
 		</header>
 
 		<footer if.bind="isRecipeStarted && !isRecipeDone" class="au-animate">
