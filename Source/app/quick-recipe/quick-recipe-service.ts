@@ -1,17 +1,17 @@
 import { inject, NewInstance } from "aurelia-framework";
 import { HttpClient, json } from "aurelia-fetch-client";
 import { Configure } from "aurelia-configuration";
-import { EventAggregator } from "aurelia-event-aggregator";
+import { ServiceEventInterceptor } from "app/shared/service-event-interceptor";
 import { QuickRecipe } from "app/quick-recipe/models/quick-recipe";
 import { QuickRecipeSearchResult } from "app/quick-recipe/models/quick-recipe-search-result";
 import "fetch";
 
-@inject(NewInstance.of(HttpClient), Configure, EventAggregator)
+@inject(NewInstance.of(HttpClient), Configure, ServiceEventInterceptor)
 export class QuickRecipeService {
 	private _httpClient: HttpClient;
 	private _isAdmin: boolean;
 
-	constructor(httpClient: HttpClient, configure: Configure, eventAggregator: EventAggregator) {
+	constructor(httpClient: HttpClient, configure: Configure, interceptor: ServiceEventInterceptor) {
 		this._isAdmin = configure.is("development");
 		this._httpClient = httpClient.configure(config => {
 			config
@@ -22,16 +22,7 @@ export class QuickRecipeService {
 						"X-Requested-With": "Fetch"
 					}
 				})
-				.withInterceptor({
-		            request(request) {
-						eventAggregator.publish("service.request");
-		                return request;
-		            },
-		            response(response) {
-						eventAggregator.publish("service.response");
-		                return response;
-		            }
-		        })
+				.withInterceptor(interceptor)
 				.withBaseUrl(configure.get("api"));
 		});
 	}
