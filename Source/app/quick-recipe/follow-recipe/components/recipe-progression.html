@@ -1,16 +1,16 @@
 <template>
 	<div class="recipe-progression">
-		<span repeat.for="subrecipe of subrecipes & oneTime" if.bind="subrecipe.steps.length" style="flex-grow: ${subrecipe.steps.length};" class="recipe-progression__subrecipe">
+		<span repeat.for="subrecipe of subrecipes & oneTime" with.bind="subrecipe" if.bind="steps.length" style="flex-grow: ${steps.length};" class="recipe-progression__subrecipe">
 			<div class="recipe-progression__subrecipe__title">
-				<a click.delegate="goToSubrecipe(subrecipe.id)" class="${$this.activeSubrecipeId === subrecipe.id ? 'active' : ''} ${$this.currentStep.subrecipeId > subrecipe.id ? 'done' : ''}">
-					<span>${subrecipe.title}</span>
-					<span class="progression">${subrecipe.completedSteps}/${subrecipe.steps.length}</span>
+				<a click.delegate="goToSubrecipe(id)" class="${$this.activeSubrecipeId === id ? 'active' : ''} ${$this.currentStep.subrecipeId > id ? 'done' : ''}">
+					<span>${title}</span>
+					<span class="progression">${completedSteps}/${steps.length}</span>
 				</a>
 			</div>
 			<div class="recipe-progression__subrecipe__steps">
-				<span repeat.for="step of subrecipe.steps & oneTime" class="recipe-progression__subrecipe__steps__step ${$this.currentStep.id === step.id ? 'active' : ''} ${subrecipe.completedSteps > $index ? 'done' : ''}">
+				<a repeat.for="step of steps & oneTime" click.delegate="goToStep(step.id)" class="recipe-progression__subrecipe__steps__step ${$this.currentStep.id === step.id ? 'active' : ''} ${$this.currentStep.id > step.id ? 'done' : ''}">
 					<div class="content"></div>
-				</span>
+				</a>
 			</div>
 		</span>
 	</div>

@@ -6,6 +6,7 @@ import {QuickRecipeSubrecipe} from "app/quick-recipe/follow-recipe/models/quick-
 @autoinject()
 export class RecipeProgression {
     @bindable subrecipes: QuickRecipeSubrecipe[] = [];
+    @bindable click;
 
     private _parentElement: QuickRecipePage;
 
@@ -15,6 +16,10 @@ export class RecipeProgression {
 
     goToSubrecipe(subrecipeId: number): void {
         this._parentElement.goToSubrecipe(subrecipeId);
+    }
+
+    goToStep(stepId: number): void {
+        this.click({stepId: stepId});
     }
 
     get activeSubrecipeId(): number {

@@ -142,6 +142,16 @@ export class QuickRecipePage {
         this.goToCurrentStep();
     }
 
+    goToStep(stepId: number): void {
+        this.decorateStepIngredients(this.getStep(this.navigationStepId), "");
+
+        this.navigationStepId = stepId;
+        this._currentStepId = this.navigationStepId;
+        this.currentStep = this.recipe.steps.filter(step => step.id === this._currentStepId)[0];
+
+        this.goToStepId(this.navigationStepId);
+    }
+
     goToSubrecipe(subrecipeId: number): void {
         var subrecipeSteps = this.subrecipes.filter(subrecipe => subrecipe.id == subrecipeId)[0].steps;
         var uncompletedSubrecipeSteps = subrecipeSteps.filter(step => !step.isCompleted && !step.isOnHold);

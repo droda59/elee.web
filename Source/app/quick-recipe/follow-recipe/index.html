@@ -85,7 +85,7 @@
 		</header>
 
 		<footer if.bind="isRecipeStarted && !isRecipeDone" class="au-animate">
-			<recipe-progression subrecipes.one-time="subrecipes" containerless></recipe-progression>
+			<recipe-progression subrecipes.one-time="subrecipes" click.call="goToStep(stepId)" containerless></recipe-progression>
 		</footer>
 	</div>
 </template>
