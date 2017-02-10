@@ -64,53 +64,31 @@
             }
 
             #instructions {
-                /*height: 40%;*/
-                top: 35%;
+                height: 40%;
+                top: 30%;
                 width: 50%;
                 left: 25%;
                 position: absolute;
-                overflow: hidden;
-                overflow-y: auto;
 
                 #presentation-section {
                     background-color: rgba(255, 255, 255, 0.8);
                     overflow-y: inherit;
+                    position: absolute;
+                    top: 20%;
                 }
 
                 #recipe-content {
-                    height: 100%;
-
                     .btn {
-                        background-color: rgba(255, 255, 255, 0.2);
+                        background-color: rgba(255, 255, 255, 0.1);
 
-                        &.disabled,
-                        &:disabled {
-                            background-color: rgba(255, 255, 255, 0.075) !important;
-                        }
                         &:hover {
-                            background-color: rgba(255, 255, 255, 0.4);
+                            background-color: rgba(255, 255, 255, 0.25);
                         }
-                    }
 
-                    .navigation-pills {
-                        z-index: 1;
-                        position: fixed;
-                        top: 40%;
-                        right: 0;
-                        width: 80px;
-                        margin: 0 10px;
-
-                        .btn {
-                            display: block;
-                            margin: 2px 0;
-                            padding: 0 1rem;
-
-                            &:first-of-type {
-                                border-radius: 20px 20px 0 0;
-                            }
-                            &:last-of-type {
-                                border-radius: 0 0 20px 20px;
-                            }
+                        &.complete-step {
+                            position: absolute;
+                            top: 40%;
+                            right: -20%;
                         }
                     }
 
@@ -188,14 +166,6 @@
                             }
                             .technical {
                                 font-size: 1.2em;
-                            }
-                        }
-
-                        .navigation-pills {
-                            width: 40px;
-
-                            .btn {
-                                display: inline-block;
                             }
                         }
                     }

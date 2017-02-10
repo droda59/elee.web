@@ -3,7 +3,6 @@
 	<require from="app/quick-recipe/follow-recipe/components/menu-nav"></require>
 	<require from="app/quick-recipe/follow-recipe/components/ingredients-nav.html"></require>
 	<require from="app/quick-recipe/follow-recipe/components/recipe-progression"></require>
-	<require from="app/shared/components/measurable-ingredient"></require>
 	<require from="app/shared/value-converters/duration-format"></require>
 
 	<div class="quick-recipe-background" style="background-image: url('dist/app/quick-recipe/follow-recipe/assets/images/backgrounds/${backgroundPicture}');"></div>
@@ -14,8 +13,8 @@
 				<h1 class="container title white-text center-align">${recipe.title}</h1>
 			</div>
 
-			<div id="instructions" class="white-text center-align">
-				<section id="presentation-section" if.bind="!isRecipeDone && !isRecipeStarted" class="card-panel animated fadeInDownBig black-text">
+			<div id="instructions" class="white-text valign-wrapper">
+				<section id="presentation-section" if.bind="!isRecipeDone && !isRecipeStarted" class="card-panel animated fadeInDownBig black-text center-align">
 					<div class="row">
 						<span>${'quickRecipe.servings' | t}</span>${originalServings}
 						<!-- <div class="col s12 m8 offset-m2 l6 offset-l3">
@@ -47,30 +46,19 @@
 					</div>
 				</section>
 
-				<section id="recipe-content" if.bind="isRecipeStarted && !isRecipeDone" class="au-animate">
+				<section id="recipe-content" if.bind="isRecipeStarted && !isRecipeDone" class="valign row center-align au-animate">
 					<quick-recipe-step
 						id="currentStep"
 						step.bind="currentStep"
 						class="step ${currentStep.isCompleted ? 'complete' : ''} ${currentStep.isOnHold ? 'onHold' : ''}">
 					</quick-recipe-step>
 
-					<span class="navigation-pills">
-						<btn class="previous-button waves-light btn ${isNavigationFirstStep ? 'disabled' : ''}" click.delegate="goToPreviousStep()">
-							<i class="material-icons">keyboard_arrow_up</i>
-						</btn>
-                        <btn class="current-button waves-light btn" click.delegate="goToCurrentStep()">
-                            <i class="material-icons">home</i>
-                        </btn>
-                        <btn class="waves-light btn" click.delegate="completeStep()">
-							<i class="material-icons">done</i>
-						</btn>
-                        <btn class="next-button waves-light btn ${isNavigationLastStep ? 'disabled' : ''}" click.delegate="goToNextStep()">
-                            <i class="material-icons">keyboard_arrow_down</i>
-						</btn>
-					</span>
+					<button click.delegate="completeStep()" class="complete-step btn btn-floating btn-large" md-waves="color: green;">
+						<i class="material-icons">check</i>
+					</button>
 				</section>
 
-				<section id="comments-section" if.bind="isRecipeDone" class="section">
+				<section id="comments-section" if.bind="isRecipeDone" class="section row center-align">
 					<div class="row center">
 						<div class="row">
 							<hgroup>

@@ -67,6 +67,7 @@ export function configure(aurelia) {
         .useInput()
         .useAutoComplete()
         .useTabs()
+        .useWaves()
     });
 
 	aurelia.container.registerHandler(

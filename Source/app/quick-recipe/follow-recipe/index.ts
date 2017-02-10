@@ -154,7 +154,7 @@ export class QuickRecipePage {
         }
         var nextStepId = step.id;
 
-        this.triggerSubrecipeChangeAnimation(this._currentStepId, nextStepId);
+        // this.triggerSubrecipeChangeAnimation(this._currentStepId, nextStepId);
         this.decorateStepIngredients(this.getCurrentStep(), "");
 
         this._currentStepId = nextStepId;
@@ -164,38 +164,38 @@ export class QuickRecipePage {
         this.goToStepId(this._currentStepId);
     }
 
-    goToPreviousStep(): void {
-        if (this.isNavigationFirstStep) {
-            return;
-        }
+    // goToPreviousStep(): void {
+    //     if (this.isNavigationFirstStep) {
+    //         return;
+    //     }
+    //
+    //     this.triggerSubrecipeChangeAnimation(this.navigationStepId, this.navigationStepId - 1);
+    //     this.decorateStepIngredients(this.getStep(this.navigationStepId), "");
+    //
+    //     this.navigationStepId--;
+    //     this._currentStepId = this.navigationStepId;
+    //     this.currentStep = this.recipe.steps.filter(step => step.id === this._currentStepId)[0];
+    //
+    //     this.goToStepId(this.navigationStepId);
+    // }
 
-        this.triggerSubrecipeChangeAnimation(this.navigationStepId, this.navigationStepId - 1);
-        this.decorateStepIngredients(this.getStep(this.navigationStepId), "");
-
-        this.navigationStepId--;
-        this._currentStepId = this.navigationStepId;
-        this.currentStep = this.recipe.steps.filter(step => step.id === this._currentStepId)[0];
-
-        this.goToStepId(this.navigationStepId);
-    }
-
-    goToNextStep(): void {
-        if (this.isNavigationLastStep) {
-            return;
-        }
-
-        this.triggerSubrecipeChangeAnimation(this.navigationStepId, this.navigationStepId + 1);
-        this.decorateStepIngredients(this.getStep(this.navigationStepId), "");
-
-        this.navigationStepId++;
-        this._currentStepId = this.navigationStepId;
-        this.currentStep = this.recipe.steps.filter(step => step.id === this._currentStepId)[0];
-
-        this.goToStepId(this.navigationStepId);
-    }
+    // goToNextStep(): void {
+    //     if (this.isNavigationLastStep) {
+    //         return;
+    //     }
+    //
+    //     this.triggerSubrecipeChangeAnimation(this.navigationStepId, this.navigationStepId + 1);
+    //     this.decorateStepIngredients(this.getStep(this.navigationStepId), "");
+    //
+    //     this.navigationStepId++;
+    //     this._currentStepId = this.navigationStepId;
+    //     this.currentStep = this.recipe.steps.filter(step => step.id === this._currentStepId)[0];
+    //
+    //     this.goToStepId(this.navigationStepId);
+    // }
 
     goToCurrentStep(): void {
-        this.triggerSubrecipeChangeAnimation(this.navigationStepId, this._currentStepId);
+        // this.triggerSubrecipeChangeAnimation(this.navigationStepId, this._currentStepId);
         this.decorateStepIngredients(this.getStep(this.navigationStepId), "");
 
         this.navigationStepId = this._currentStepId;
@@ -283,7 +283,7 @@ export class QuickRecipePage {
         this.decorateStepIngredients(targetStep, "current");
     }
 
-    private triggerSubrecipeChangeAnimation(currentStepId: number, nextStepId: number): void {
+    // private triggerSubrecipeChangeAnimation(currentStepId: number, nextStepId: number): void {
         // var subrecipeIdBefore = this.recipe.steps[currentStepId].subrecipeId;
         // var subrecipeIdAfter = this.recipe.steps[nextStepId].subrecipeId;
         //
@@ -303,7 +303,7 @@ export class QuickRecipePage {
         //     element.removeClass("animated " + animationClassName);
         //   });
         // }
-    }
+    // }
 
     private getCurrentStep(): Step {
         return this.getStep(this._currentStepId);
