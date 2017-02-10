@@ -1,0 +1,45 @@
+<template bindable="subrecipes">
+	<require from="app/shared/components/measurable-ingredient"></require>
+
+	<span class="navigation-pills ingredients-nav-pills">
+		<btn md-sidenav-collapse="ref.bind: ingredientsnav;" class="current-button waves-light btn">
+			<i class="material-icons black-text">shopping_cart</i>
+		</btn>
+	</span>
+
+	<md-sidenav view-model.ref="ingredientsnav">
+		<ul class="side-nav" style="transform: translateX(0px);">
+			<li>
+				<div class="side-nav__brand-logo">
+					<img class="" src="/dist/app/shared/assets/images/transparent_file.png">
+				</div>
+			</li>
+
+			<li><div class="divider"></div></li>
+			<li><h5 class="side-nav__header center-align">${'quickRecipe.ingredientsSideTitle' | t}</h5></li>
+
+			<li>
+				<ul md-collapsible>
+					<li><div class="divider container"></div></li>
+					<template repeat.for="subrecipe of subrecipes & oneTime">
+						<li if.bind="subrecipe.ingredients.length" class="collection-item">
+							<div class="collapsible-header center-align">${subrecipe.title}</div>
+							<div class="collapsible-body">
+								<p>
+									<span repeat.for="ingredient of subrecipe.ingredients & oneTime" class="ingredient-item ${ingredient.state}">
+										<measurable-ingredient containerless ingredient.bind="ingredient"></measurable-ingredient>
+										<small if.bind="ingredient.replacement">
+											<span>${'quickRecipe.ingredientReplacementConjunction' | t}</span>
+											<measurable-ingredient containerless ingredient.bind="ingredient.replacement"></measurable-ingredient>
+										</small>
+									</span>
+								</p>
+							</div>
+						</li>
+						<li if.bind="subrecipe.ingredients.length"><div class="divider container"></div></li>
+					</template>
+				</ul>
+			</li>
+		</ul>
+	</md-sidenav>
+</template>

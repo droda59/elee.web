@@ -21,6 +21,9 @@ export class SettingsPanel {
     constructor(i18n: I18N, settingsManager: SettingsManager) {
         this._i18n = i18n;
         this._settingsManager = settingsManager;
+
+        this.selectedVolumeDisplay = this._settingsManager.settings.selectedVolumeDisplay;
+        this.selectedWeightDisplay = this._settingsManager.settings.selectedWeightDisplay;
     }
 
     selectedVolumeDisplayChanged() {

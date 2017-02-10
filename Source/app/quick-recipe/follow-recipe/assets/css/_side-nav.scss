@@ -1,20 +1,53 @@
 @import "settings-panel";
 
+.ingredients-nav-pills {
+    z-index: 999;
+    position: fixed;
+    left: 0;
+    margin: 0;
+    height: 100%;
+    top: 0;
+    width: 2px;
+    background-color: white;
+    border-radius: 0 100% 100% 0;
+    transition: width .2s ease-out;
+
+    &:hover {
+        width: 8px;
+
+        .btn {
+            padding: 0 1rem;
+
+            i {
+                font-size: 1.3rem;
+            }
+        }
+    }
+
+    .btn {
+        padding: 0 0.5rem;
+        border-radius: 0 100px 100px 0;
+        top: 40%;
+        position: absolute;
+        height: 8rem;
+        background-color: white;
+
+        i {
+            margin-top: 3rem;
+            font-size: 1rem;
+            transition: font-size .2s ease-out;
+        }
+    }
+}
+
 md-sidenav li a:hover {
     display: inherit;
 }
 .side-nav {
     font-family: "Lato", sans-serif;
     width: 300px;
-
-    .subheader {
-        cursor: initial;
-        pointer-events: none;
-        color: rgba(0,0,0,0.54);
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 48px;
-    }
+    height: 100%;
+    z-index: 1000;
 
     a {
         height: 48px;
@@ -22,18 +55,22 @@ md-sidenav li a:hover {
         padding: 0 32px;
         width: 100%;
     }
-    .brand-logo {
-        padding-top: 0;
+
+    &__brand-logo {
+        padding: 0 32px;
+
+        img {
+            height: auto;
+            width: 100%;
+            padding: 10px 0 0;
+        }
     }
-    .brand-logo a {
-        display: inline-block;
-        height: inherit;
-        line-height: inherit;
-    }
-    .brand-logo img {
-        height: auto;
+    &__header {
+        height: 48px;
+        line-height: 48px;
+        padding: 0 32px;
         width: 100%;
-        padding: 10px 0 0;
+        text-transform: uppercase;
     }
 
     .action .material-icons {

@@ -52,31 +52,31 @@ interface QuickRecipeDto {
 }
 
 export class Duration implements DurationDto {
-  title: string;
-  time: string;
+    title: string;
+    time: string;
 
-  constructor(dto: DurationDto) {
-    (<any>Object).assign(this, dto);
-  }
+    constructor(dto: DurationDto) {
+        (<any>Object).assign(this, dto);
+    }
 }
 export interface DurationDto {
-  title: string;
-  time: string;
+    title: string;
+    time: string;
 }
 
 export class Subrecipe implements SubrecipeDto {
-  id: number;
-  title: string;
+    id: number;
+    title: string;
 
-  constructor();
-  constructor(dto: SubrecipeDto);
-  constructor(dto?: SubrecipeDto) {
-    (<any>Object).assign(this, dto);
-  }
+    constructor();
+    constructor(dto: SubrecipeDto);
+    constructor(dto?: SubrecipeDto) {
+        (<any>Object).assign(this, dto);
+    }
 }
 interface SubrecipeDto {
-  id: number;
-  title: string;
+    id: number;
+    title: string;
 }
 
 export class Step implements StepDto {
@@ -106,17 +106,17 @@ interface StepDto {
 }
 
 export class Part implements PartDto {
-  type: string;
-  stepId: number;
+    type: string;
+    stepId: number;
 
-  constructor(stepId: number, dto: PartDto) {
-    (<any>Object).assign(this, dto);
+    constructor(stepId: number, dto: PartDto) {
+        (<any>Object).assign(this, dto);
 
-    this.stepId = stepId;
-  }
+        this.stepId = stepId;
+    }
 }
 export interface PartDto {
-  type: string;
+    type: string;
 }
 
 export class TextPart extends Part implements TextPartDto {

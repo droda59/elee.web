@@ -1,4 +1,5 @@
 import {autoinject, bindable} from "aurelia-framework";
+import {Step} from "app/quick-recipe/models/quick-recipe";
 import {QuickRecipePage} from "app/quick-recipe/follow-recipe/index";
 import {QuickRecipeSubrecipe} from "app/quick-recipe/follow-recipe/models/quick-recipe-subrecipe";
 
@@ -20,7 +21,7 @@ export class RecipeProgression {
         return this._parentElement.activeSubrecipeId;
     }
 
-    get currentStepId(): number {
-        return this._parentElement.currentStep.id;
+    get currentStep(): Step {
+        return this._parentElement.currentStep;
     }
 }

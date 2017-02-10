@@ -1,38 +1,37 @@
 <template>
 	<require from="app/shared/components/measurable-ingredient"></require>
 
-	<ul md-collapsible>
-		<li class="collection-item">
-			<div class="collapsible-header">${'settings.volumeMeasureUnits' | t}</div>
-			<div class="collapsible-body">
-				<div class="row measure-unit-selection">
-					<span repeat.for="volumeDisplay of volumeDisplays & oneTime" class="input-field">
-						<div>${'settings.volumeDisplays.' + volumeDisplay.name | t}</div>
-						<input name="volume-units" type="radio" id="volume-units-${volumeDisplay.name}" value.one-time="volumeDisplay.name" checked.bind="$parent.selectedVolumeDisplay" />
-						<label class="z-depth-1 col s12 waves-effect sample" for="volume-units-${volumeDisplay.name}">
-							<div repeat.for="example of volumeDisplay.examples & oneTime">
-								<measurable-ingredient unit.one-time="$parent.volumeDisplay.name" ingredient.one-time="example" containerless></measurable-ingredient>
-							</div>
-						</label>
-					</span>
-				</div>
+	<li class="collection-item">
+		<div class="collapsible-header center-align">${'settings.volumeMeasureUnits' | t}</div>
+		<div class="collapsible-body">
+			<div class="row measure-unit-selection">
+				<span repeat.for="volumeDisplay of volumeDisplays & oneTime" class="input-field">
+					<div>${'settings.volumeDisplays.' + volumeDisplay.name | t}</div>
+					<input name="volume-units" type="radio" id="volume-units-${volumeDisplay.name}" value.one-time="volumeDisplay.name" checked.bind="selectedVolumeDisplay" />
+					<label class="z-depth-1 col s12 waves-effect sample" for="volume-units-${volumeDisplay.name}">
+						<div repeat.for="example of volumeDisplay.examples & oneTime">
+							<measurable-ingredient unit.one-time="$parent.volumeDisplay.name" ingredient.one-time="example" containerless></measurable-ingredient>
+						</div>
+					</label>
+				</span>
 			</div>
-		</li>
-		<li class="collection-item">
-			<div class="collapsible-header">${'settings.weightMeasureUnits' | t}</div>
-			<div class="collapsible-body">
-				<div class="row measure-unit-selection">
-					<span repeat.for="weightDisplay of weightDisplays & oneTime" class="input-field">
-						<div>${'settings.weightDisplays.' + weightDisplay.name | t}</div>
-						<input name="weight-units" type="radio" id="weight-units-${weightDisplay.name}" value.one-time="weightDisplay.name" checked.bind="$parent.selectedWeightDisplay" />
-						<label class="z-depth-1 col s12 waves-effect sample" for="weight-units-${weightDisplay.name}">
-							<div repeat.for="example of weightDisplay.examples & oneTime">
-								<measurable-ingredient unit.one-time="$parent.weightDisplay.name" ingredient.one-time="example" containerless></measurable-ingredient>
-							</div>
-						</label>
-					</span>
-				</div>
+		</div>
+	</li>
+	<li><div class="divider container"></div></li>
+	<li class="collection-item">
+		<div class="collapsible-header center-align">${'settings.weightMeasureUnits' | t}</div>
+		<div class="collapsible-body">
+			<div class="row measure-unit-selection">
+				<span repeat.for="weightDisplay of weightDisplays & oneTime" class="input-field">
+					<div>${'settings.weightDisplays.' + weightDisplay.name | t}</div>
+					<input name="weight-units" type="radio" id="weight-units-${weightDisplay.name}" value.one-time="weightDisplay.name" checked.bind="selectedWeightDisplay" />
+					<label class="z-depth-1 col s12 waves-effect sample" for="weight-units-${weightDisplay.name}">
+						<div repeat.for="example of weightDisplay.examples & oneTime">
+							<measurable-ingredient unit.one-time="$parent.weightDisplay.name" ingredient.one-time="example" containerless></measurable-ingredient>
+						</div>
+					</label>
+				</span>
 			</div>
-		</li>
-	</ul>
+		</div>
+	</li>
 </template>

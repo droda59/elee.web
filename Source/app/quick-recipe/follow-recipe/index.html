@@ -1,6 +1,7 @@
 <template>
 	<require from="app/quick-recipe/follow-recipe/components/quick-recipe-step"></require>
-	<require from="app/quick-recipe/follow-recipe/components/side-nav"></require>
+	<require from="app/quick-recipe/follow-recipe/components/menu-nav"></require>
+	<require from="app/quick-recipe/follow-recipe/components/ingredients-nav.html"></require>
 	<require from="app/quick-recipe/follow-recipe/components/recipe-progression"></require>
 	<require from="app/shared/components/measurable-ingredient"></require>
 	<require from="app/shared/value-converters/duration-format"></require>
@@ -49,11 +50,11 @@
 				<section id="recipe-content" if.bind="isRecipeStarted && !isRecipeDone" class="au-animate">
 					<quick-recipe-step
 						id="currentStep"
-						step.one-way="currentStep"
+						step.bind="currentStep"
 						class="step ${currentStep.isCompleted ? 'complete' : ''} ${currentStep.isOnHold ? 'onHold' : ''}">
 					</quick-recipe-step>
 
-					<span class="navigation-pills" show.bind="isRecipeStarted">
+					<span class="navigation-pills">
 						<btn class="previous-button waves-light btn ${isNavigationFirstStep ? 'disabled' : ''}" click.delegate="goToPreviousStep()">
 							<i class="material-icons">keyboard_arrow_up</i>
 						</btn>
@@ -89,7 +90,8 @@
 		</main>
 
 		<header>
-			<side-nav subrecipes.one-time="subrecipes" unique-name.one-time="recipe.uniqueName" containerless></side-nav>
+			<menu-nav unique-name.one-time="recipe.uniqueName"></menu-nav>
+			<ingredients-nav subrecipes.one-time="subrecipes"></ingredients-nav>
 		</header>
 
 		<footer if.bind="isRecipeStarted && !isRecipeDone" class="au-animate">
