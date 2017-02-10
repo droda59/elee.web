@@ -27,7 +27,7 @@
 							<div class="collapsible-body">
 	                            <ul>
 	                                <li repeat.for="timer of subrecipe.timers" class="action">
-	                                    <a class="secondary-content">
+	                                    <a click.delegate="goToStep(timer.stepId)" class="secondary-content">
 	                                        <i class="material-icons">alarm</i>${timer.action} : ${timer.remainingTime | timeFormat}
 	                                    </a>
 	                                </li>
