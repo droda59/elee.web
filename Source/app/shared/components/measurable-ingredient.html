@@ -1,13 +1,17 @@
 <template>
 	<require from="app/shared/value-converters/quantity-human-format"></require>
+	<require from="app/shared/value-converters/lowercase"></require>
+	<require from="app/shared/components/next-word"></require>
 
-	<span class="ingredient">
-		<span class="emphasis" innerhtml.bind="convertibleMeasureUnit | quantityHumanFormat">
-		</span><span if.bind="showBoth">
-			(
-			<span class="emphasis" innerhtml.bind="offConvertibleMeasureUnit | quantityHumanFormat: false">
-			</span>
-			)
-		</span><span innerhtml.bind="nextWord"></span><span class="emphasis">${ingredientName} <span if.bind="requirements" class="requirements">(${ingredient.requirements})</span></span>
+	<span class="ingredient"><!--
+	 --><span class="emphasis" innerhtml.bind="convertibleMeasureUnit | quantityHumanFormat"></span><!--
+	 --><span if.bind="showBoth">
+				(
+				<span class="emphasis" innerhtml.bind="offConvertibleMeasureUnit | quantityHumanFormat: false">
+				</span>
+				)
+			</span><!--
+	 --><next-word quantity.one-time="quantity" ingredient-name.one-time="ingredient.name"></next-word><!--
+	 --><span class="emphasis">${ingredient.name | lowercase} <span if.bind="requirements" class="requirements">(${ingredient.requirements})</span></span>
 	</span>
 </template>
