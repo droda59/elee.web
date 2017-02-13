@@ -8,8 +8,7 @@ import * as AOS from "aos";
 export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
-    .globalResources("app/shared/components/loading-overlay")
-    .globalResources("app/shared/components/loading.html")
+    .feature("app/resources")
     .plugin("aurelia-animator-css")
     .plugin("aurelia-infinite-scroll")
     .plugin("aurelia-configuration", config => {

@@ -2,7 +2,7 @@ import {autoinject} from "aurelia-framework";
 import {IngredientPart} from "app/quick-recipe/models/quick-recipe";
 import {Ingredient} from "app/shared/models/ingredient";
 import {EditRecipePage} from "app/quick-recipe/edit-recipe/index";
-import {QuantityHumanFormatValueConverter} from "app/shared/value-converters/quantity-human-format";
+import {QuantityHumanFormatValueConverter} from "app/resources/value-converters/quantity-human-format";
 
 @autoinject()
 export class StepIngredient {
@@ -25,6 +25,7 @@ export class StepIngredient {
     }
 
     getDisplayName(ingredient: Ingredient) {
+        // TODO Check if we can use this in view
         return `${this._converter.toView(ingredient.quantity)} ${ingredient.name}`;
     }
 }

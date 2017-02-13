@@ -1,6 +1,4 @@
 <template bindable="subrecipes">
-	<require from="app/shared/value-converters/time-format"></require>
-
 	<span class="navigation-pills timers-nav-pills">
 		<btn md-sidenav-collapse="ref.bind: timersnav;" class="current-button waves-light btn">
 			<i class="material-icons black-text">timer</i>
@@ -28,7 +26,7 @@
 	                            <ul>
 	                                <li repeat.for="timer of subrecipe.timers" class="action">
 	                                    <a click.delegate="goToStep(timer.stepId)" class="secondary-content">
-	                                        <i class="material-icons">alarm</i>${timer.action} : ${timer.remainingTime | timeFormat}
+	                                        <i class="material-icons">alarm</i>${timer.action} : ${timer.remainingTime | time}
 	                                    </a>
 	                                </li>
 	                            </ul>

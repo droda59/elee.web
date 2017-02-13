@@ -4,7 +4,6 @@
 	<require from="app/quick-recipe/follow-recipe/components/timers-nav"></require>
 	<require from="app/quick-recipe/follow-recipe/components/ingredients-nav.html"></require>
 	<require from="app/quick-recipe/follow-recipe/components/recipe-progression"></require>
-	<require from="app/shared/value-converters/duration-format"></require>
 
 	<div class="quick-recipe-background" style="background-image: url('dist/app/quick-recipe/follow-recipe/assets/images/backgrounds/${backgroundPicture}');"></div>
 
@@ -33,7 +32,7 @@
 					<div class="row">
 						<ul>
 							<li repeat.for="duration of recipe.durations">
-								${duration.title}: ${duration.time | durationFormat}
+								${duration.title}: ${duration.time | duration}
 							</li>
 						</ul>
 					</div>

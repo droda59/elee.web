@@ -1,6 +1,4 @@
 <template>
-	<require from="app/shared/custom-attributes/auto-width-input"></require>
-
 	<span class="input-field md-input" autowidth="calculate-width.bind: getDisplayName(part.ingredient)">
 		<select md-select value.two-way="part.ingredient">
 			<option repeat.for="possibleIngredient of possibleIngredients" model.bind="possibleIngredient" innerhtml.one-time="getDisplayName(possibleIngredient)"></option>
