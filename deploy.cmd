@@ -123,7 +123,7 @@ IF EXIST "%DEPLOYMENT_SOURCE%\package.json" (
 IF EXIST "%DEPLOYMENT_SOURCE%\gulpfile.js" (
   echo Building app for production
   pushd "%DEPLOYMENT_SOURCE%"
-  call :ExecuteCmd .\node_modules\.bin\gulp export
+  call :ExecuteCmd .\node_modules\.bin\gulp export --env prod
   IF !ERRORLEVEL! NEQ 0 goto error
   popd
 )

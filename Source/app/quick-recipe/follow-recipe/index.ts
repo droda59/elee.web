@@ -1,5 +1,5 @@
 import {autoinject} from "aurelia-framework";
-import {DialogService} from "aurelia-dialog";
+// import {DialogService} from "aurelia-dialog";
 import {CssAnimator} from "aurelia-animator-css";
 import {I18N} from "aurelia-i18n";
 import {QuickRecipeService} from "app/quick-recipe/quick-recipe-service";
@@ -26,7 +26,7 @@ export class QuickRecipePage {
 
     private _currentStepId: number = undefined;
     private _timerCoordinator: TimerCoordinator;
-    private _dialogService: DialogService;
+    // private _dialogService: DialogService;
     private _service: QuickRecipeService;
     private _i18n: I18N;
     private _animator: CssAnimator;
@@ -35,12 +35,12 @@ export class QuickRecipePage {
     constructor(service: QuickRecipeService,
                 i18n: I18N,
                 timerCoordinator: TimerCoordinator,
-                dialogService: DialogService,
+                // dialogService: DialogService,
                 animator: CssAnimator,
                 backgroundPicker: BackgroundPicker) {
         this._service = service;
         this._i18n = i18n;
-        this._dialogService = dialogService;
+        // this._dialogService = dialogService;
         this._animator = animator;
         this._timerCoordinator = timerCoordinator;
         this._backgroundPicker = backgroundPicker;

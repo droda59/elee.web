@@ -1,18 +1,17 @@
 import * as Backend from "i18next-xhr-backend";
 import { HttpClient } from "aurelia-fetch-client";
 import { MaterializeFormValidationRenderer } from "app/shared/materialize-form-validation-renderer";
+import environment from "app/environment";
 import "materialize-css"; // ONLY when using the "npm" option above
 import * as AOS from "aos";
 
 export function configure(aurelia) {
   aurelia.use
     .standardConfiguration()
-    .developmentLogging()
     .globalResources("app/shared/components/loading-overlay")
     .globalResources("app/shared/components/loading.html")
     .plugin("aurelia-animator-css")
     .plugin("aurelia-infinite-scroll")
-    .plugin("aurelia-ui-virtualization")
     .plugin("aurelia-configuration", config => {
         config.setDirectory("app/shared/config");
         config.setEnvironments({
@@ -20,8 +19,7 @@ export function configure(aurelia) {
             production: ["elee.menu"]
         });
     })
-    .plugin("aurelia-dialog")
-    .plugin("aurelia-dragula")
+    // .plugin("aurelia-dialog")
     .plugin("aurelia-validation")
     .plugin("aurelia-i18n", (instance) => {
       instance.i18next.use(Backend);
@@ -69,6 +67,13 @@ export function configure(aurelia) {
         .useTabs()
         .useWaves()
     });
+
+    if (environment.debug) {
+        aurelia.use
+            .developmentLogging()
+            .plugin("aurelia-ui-virtualization")
+            .plugin("aurelia-dragula");
+    }
 
 	aurelia.container.registerHandler(
 		"materialize-form",

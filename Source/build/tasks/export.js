@@ -5,6 +5,34 @@ var del = require("del");
 var runSequence = require("run-sequence");
 var paths = require("../paths");
 var bundles = require("../bundles");
+var args = require("../args");
+
+var exports = [
+    "index.html",
+    "web.config",
+    "config.js",
+    "favicon.ico",
+    "favicon-16x16.png",
+    "favicon-32x32.png",
+    paths.outputApp + "style.css",
+    paths.outputApp + "**/*.+(json|png|jpg|jpeg)",
+    paths.outputApp + "**/Material*.+(eot|svg|woff|woff2|ttf)",
+    "jspm_packages/system.js",
+    "jspm_packages/system.js.map",
+    "jspm_packages/system-polyfills.js",
+    "jspm_packages/system-csp-production.js",
+    "jspm_packages/github/systemjs/plugin-text@**.js",
+    "jspm_packages/github/systemjs/plugin-text@**/text.js",
+    "jspm_packages/npm/aurelia-infinite-scroll@**/infinite-scroll.js",
+    "jspm_packages/npm/jquery@**/dist/jquery.min.js",
+    "jspm_packages/npm/materialize-css@**/dist/js/materialize.min.js",
+    "jspm_packages/npm/moment@**/moment.js",
+    "jspm_packages/npm/moment@**/locale/fr.js",
+];
+
+if (args.env === "dev") {
+    exports.push("jspm_packages/npm/aurelia-dragula@**/dragula-and-drop.js");
+}
 
 gulp.task("export", function (callback) {
     return runSequence(
@@ -22,29 +50,7 @@ gulp.task("export:clean", function () {
 });
 
 gulp.task("export:copy", function () {
-    return gulp.src([
-        "index.html",
-        "web.config",
-        "config.js",
-        "favicon.ico",
-        "favicon-16x16.png",
-        "favicon-32x32.png",
-        paths.outputApp + "style.css",
-        paths.outputApp + "**/*.+(json|png|jpg|jpeg)",
-        paths.outputApp + "**/Material*.+(eot|svg|woff|woff2|ttf)",
-        "jspm_packages/system.js",
-        "jspm_packages/system.js.map",
-        "jspm_packages/system-polyfills.js",
-        "jspm_packages/system-csp-production.js",
-        "jspm_packages/github/systemjs/plugin-text@**.js",
-        "jspm_packages/github/systemjs/plugin-text@**/text.js",
-        "jspm_packages/npm/aurelia-dragula@**/dragula-and-drop.js",
-        "jspm_packages/npm/aurelia-infinite-scroll@**/infinite-scroll.js",
-        "jspm_packages/npm/jquery@**/dist/jquery.min.js",
-        "jspm_packages/npm/materialize-css@**/dist/js/materialize.min.js",
-        "jspm_packages/npm/moment@**/moment.js",
-        "jspm_packages/npm/moment@**/locale/fr.js",
-    ].concat(getBundles()), { base: "." })
+    return gulp.src(exports.concat(getBundles()), { base: "." })
         .pipe(gulp.dest(paths.export))
 });
 

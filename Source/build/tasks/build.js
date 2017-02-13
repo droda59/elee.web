@@ -1,6 +1,8 @@
 var gulp = require("gulp");
 var typescript = require("gulp-typescript");
 var sourcemaps = require("gulp-sourcemaps");
+var runSequence = require("run-sequence");
+var rename = require("gulp-rename");
 var changed = require("gulp-changed");
 var sass = require("gulp-sass");
 var concat = require("gulp-concat");
@@ -8,9 +10,16 @@ var plumber = require("gulp-plumber");
 var es = require("event-stream");
 var browserSync = require("browser-sync");
 var paths = require("../paths");
+var args = require("../args");
 
 gulp.task("default", ["build"]);
-gulp.task("build", ["build-ts", "build-html", "build-sass", "copy-files"]);
+gulp.task("build", function (callback) {
+    return runSequence(
+        ["copy-environment", "copy-files"],
+        ["build-ts", "build-html", "build-sass"],
+        callback
+    );
+});
 
 var typescriptCompiler = typescriptCompiler || null;
 gulp.task("build-ts", function () {
@@ -58,6 +67,12 @@ gulp.task("build-sass", function () {
         .pipe(concat("style.css"))
         .pipe(gulp.dest(paths.outputApp))
         .pipe(browserSync.reload({ stream: true }));
+});
+
+gulp.task("copy-environment", function () {
+    return gulp.src(`environments/${args.env}.ts`)
+        .pipe(rename("environment.ts"))
+        .pipe(gulp.dest(paths.app));
 });
 
 gulp.task("copy-files", function () {
