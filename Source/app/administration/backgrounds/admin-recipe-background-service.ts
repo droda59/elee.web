@@ -4,7 +4,7 @@ import {BackgroundDefinitionDto} from "app/quick-recipe/models/background-defini
 import "fetch";
 
 @inject(NewInstance.of(HttpClient))
-export class RecipeBackgroundService {
+export class AdminRecipeBackgroundService {
     private _httpClient: HttpClient;
 
     constructor(httpClient: HttpClient) {
@@ -14,8 +14,11 @@ export class RecipeBackgroundService {
         });
     }
 
-    getBackgrounds(): Promise<Array<BackgroundDefinitionDto>> {
-        return this._httpClient.fetch("dist/app/quick-recipe/assets/background-definitions.json")
-            .then(response => response.json());
+    generateDefinitions(backgrounds: Array<BackgroundDefinitionDto>): string {
+        var backgroundDefinitions = backgrounds.map(background =>
+            <BackgroundDefinitionDto>{ fileName: background.fileName, qualifiers: background.qualifiers }
+        );
+
+        return JSON.stringify(backgroundDefinitions, null, 2);
     }
 }

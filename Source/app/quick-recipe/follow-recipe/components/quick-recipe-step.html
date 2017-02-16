@@ -1,5 +1,0 @@
-<template>
-	<div class="${isTechnicalStep ? 'technical' : ''}">
-		<compose repeat.for="part of step.parts" model.bind="part" view-model="app/quick-recipe/follow-recipe/components/steps/step-${part.type}" containerless></compose>
-	</div>
-</template>

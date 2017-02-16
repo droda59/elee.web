@@ -1,0 +1,90 @@
+<template>
+	<require from="app/quick-recipe/components/quick-recipe-step"></require>
+	<require from="app/quick-recipe/components/menu-nav"></require>
+	<require from="app/quick-recipe/components/timers-nav"></require>
+	<require from="app/quick-recipe/components/ingredients-nav.html"></require>
+	<require from="app/quick-recipe/components/recipe-progression"></require>
+
+	<div class="quick-recipe-background" style="background-image: url('dist/app/quick-recipe/assets/images/backgrounds/${backgroundPicture}');"></div>
+
+	<div class="quick-recipe">
+		<main class="row">
+			<div class="recipe-title ${isRecipeStarted ? 'started' : ''}">
+				<h1 class="container title white-text center-align">${recipe.title}</h1>
+			</div>
+
+			<div id="instructions" class="white-text valign-wrapper">
+				<section id="presentation-section" if.bind="!isRecipeDone && !isRecipeStarted" class="card-panel animated fadeInDownBig black-text center-align">
+					<div class="row">
+						<span>${'quickRecipe.servings' | t}</span>${originalServings}
+						<!-- <div class="col s12 m8 offset-m2 l6 offset-l3">
+							${ 'quickRecipe.servings' | t }
+							<div class="input-field inline">
+								<input value.bind="originalServings" id="recipeServings" type="text">
+							</div>
+				        </div>
+
+						<div class="col s12 m8 offset-m2 l6 offset-l3" if.bind="recipe.originalServings !== originalServings">
+							${ 'quickRecipe.servingsChanged' | t }
+				        </div> -->
+					</div>
+
+					<div class="row">
+						<ul>
+							<li repeat.for="duration of recipe.durations">
+								${duration.title}: ${duration.time | duration}
+							</li>
+						</ul>
+					</div>
+
+					<div class="row" if.bind="recipe.note">
+						<p><span>${'quickRecipe.note' | t}</span>${recipe.note}</p>
+					</div>
+
+					<div class="row center" show.bind="!isRecipeStarted" >
+						<a class="btn btn-large waves-effect waves-light" click.delegate="startRecipe()">${'quickRecipe.start' | t}</a>
+					</div>
+				</section>
+
+				<section id="recipe-content" if.bind="isRecipeStarted && !isRecipeDone" class="valign row center-align au-animate">
+					<quick-recipe-step
+						id="currentStep"
+						step.bind="currentStep"
+						class="step ${currentStep.isCompleted ? 'complete' : ''} ${currentStep.isOnHold ? 'onHold' : ''}">
+					</quick-recipe-step>
+
+					<button click.delegate="completeStep()" class="complete-step btn btn-floating btn-large" md-waves="color: green;">
+						<i class="material-icons">check</i>
+					</button>
+				</section>
+
+				<section id="comments-section" if.bind="isRecipeDone" class="section row center-align">
+					<div class="row center">
+						<div class="row">
+							<hgroup>
+								<h4>${'quickRecipe.comments.didYouLikeExperience' | t}</h4>
+								<h5>${'quickRecipe.comments.wedLikeYourComments' | t}</h5>
+							</hgroup>
+						</div>
+						<div class="row center">
+							<a href="#/contact" class="btn btn-large btn-success waves-effect waves-light">
+								${'contact.pageTitle' | t}
+								<i class="material-icons right">comments</i>
+							</a>
+						</div>
+					</div>
+				</section>
+			</div>
+		</main>
+
+		<header>
+			<menu-nav unique-name.one-time="recipe.uniqueName"></menu-nav>
+			<ingredients-nav subrecipes.one-time="subrecipes"></ingredients-nav>
+			<timers-nav subrecipes.one-time="subrecipes" click.call="goToStep(stepId)"></timers-nav>
+		</header>
+
+		<footer if.bind="isRecipeStarted && !isRecipeDone" class="au-animate">
+			<recipe-progression subrecipes.one-time="subrecipes" click.call="goToStep(stepId)" containerless></recipe-progression>
+		</footer>
+	</div>
+</template>

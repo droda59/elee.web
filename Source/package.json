@@ -48,7 +48,6 @@
       "aurelia-bootstrapper": "npm:aurelia-bootstrapper@^1.0.0",
       "aurelia-configuration": "npm:aurelia-configuration@1.0.11",
       "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.2.1",
-      "aurelia-dialog": "npm:aurelia-dialog@^1.0.0-beta.3.0.0",
       "aurelia-dragula": "npm:aurelia-dragula@1.2.6",
       "aurelia-event-aggregator": "npm:aurelia-event-aggregator@^1.0.0",
       "aurelia-fetch-client": "npm:aurelia-fetch-client@^1.0.0",

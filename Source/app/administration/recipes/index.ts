@@ -1,5 +1,5 @@
 import {autoinject} from "aurelia-framework";
-import {QuickRecipeService} from "app/quick-recipe/quick-recipe-service";
+import {AdminQuickRecipeService} from "app/administration/recipes/admin-quick-recipe-service";
 import {QuickRecipeSearchResult} from "app/quick-recipe/models/quick-recipe-search-result";
 
 @autoinject()
@@ -7,9 +7,9 @@ export class Administration {
     recipesToReview: Array<QuickRecipeSearchResult> = [];
     reviewedRecipes: Array<QuickRecipeSearchResult> = [];
 
-    private _service: QuickRecipeService;
+    private _service: AdminQuickRecipeService;
 
-    constructor(service: QuickRecipeService) {
+    constructor(service: AdminQuickRecipeService) {
         this._service = service;
     }
 

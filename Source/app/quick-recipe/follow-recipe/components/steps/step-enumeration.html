@@ -1,7 +1,0 @@
-<template>
-	<ul class="collection enumeration">
-		<li repeat.for="part of parts" class="collection-item">
-			<compose model.bind="part" view-model="app/quick-recipe/follow-recipe/components/steps/step-${part.type}" containerless></compose>
-		</li>
-	</ul>
-</template>

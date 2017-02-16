@@ -1,14 +1,19 @@
 import { autoinject } from "aurelia-framework";
-import { ContactService } from "app/shared/contact-service";
-import { ContactForm } from "app/website/models/contact-form";
+import { AdminContactService } from "app/administration/contact/admin-contact-service";
+import { ContactForm } from "app/website/contact/models/contact-form";
 
 @autoinject()
 export class AdminContactPage {
     forms: Array<ContactForm> = [];
 
-    constructor(private _contactService: ContactService) { }
+    private _contactService: AdminContactService
+
+    constructor(contactService: AdminContactService) {
+        this._contactService = contactService;
+    }
 
     activate(): Promise<Array<ContactForm>> {
+        // TODO Make a value converter for the sort
         return this._contactService.get()
             .then(response => {
                 this.forms = response

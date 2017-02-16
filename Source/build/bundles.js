@@ -26,8 +26,6 @@ var includes = [
     "fetch"
 ];
 
-// includes.push("aurelia-dialog");
-
 if (args.env === "dev") {
     includes.push("aurelia-dragula");
     includes.push("aurelia-dragula/**/*.css!text");

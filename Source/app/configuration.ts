@@ -18,7 +18,6 @@ export function configure(aurelia) {
             production: ["elee.menu"]
         });
     })
-    // .plugin("aurelia-dialog")
     .plugin("aurelia-validation")
     .plugin("aurelia-i18n", (instance) => {
       instance.i18next.use(Backend);
@@ -70,8 +69,7 @@ export function configure(aurelia) {
     if (environment.debug) {
         aurelia.use
             .developmentLogging()
-            .plugin("aurelia-ui-virtualization")
-            .plugin("aurelia-dragula");
+            .feature("app/administration");
     }
 
 	aurelia.container.registerHandler(

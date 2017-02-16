@@ -1,6 +1,7 @@
 import {autoinject} from "aurelia-framework";
+import {AdminRecipeBackgroundService} from "app/administration/backgrounds/admin-recipe-background-service";
 import {RecipeBackgroundService} from "app/quick-recipe/recipe-background-service";
-import {BackgroundDefinition} from "app/administration/backgrounds/models/background-definition";
+import {BackgroundDefinition} from "app/quick-recipe/models/background-definition";
 
 @autoinject()
 export class BackgroundAdministration {
@@ -8,8 +9,10 @@ export class BackgroundAdministration {
     jsonOutput: string;
 
     private _recipeBackgroundService: RecipeBackgroundService;
+    private _adminRecipeBackgroundService: AdminRecipeBackgroundService;
 
-    constructor(recipeBackgroundService: RecipeBackgroundService) {
+    constructor(adminRecipeBackgroundService: AdminRecipeBackgroundService, recipeBackgroundService: RecipeBackgroundService) {
+        this._adminRecipeBackgroundService = adminRecipeBackgroundService;
         this._recipeBackgroundService = recipeBackgroundService;
     }
 
@@ -21,12 +24,12 @@ export class BackgroundAdministration {
             });
     }
 
-    saveBackgrounds() {
+    generateDefinitions() {
         this.backgroundDefinitions.forEach(backgroundDefinition => {
             backgroundDefinition.qualifiers = backgroundDefinition.tagQualifiers.map(tagQualifier => tagQualifier.tag);
         });
 
-        this.jsonOutput = this._syntaxHighlight(this._recipeBackgroundService.saveBackgrounds(this.backgroundDefinitions));
+        this.jsonOutput = this._syntaxHighlight(this._adminRecipeBackgroundService.generateDefinitions(this.backgroundDefinitions));
     }
 
     private _syntaxHighlight(json) {

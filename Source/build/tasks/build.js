@@ -9,8 +9,46 @@ var concat = require("gulp-concat");
 var plumber = require("gulp-plumber");
 var es = require("event-stream");
 var browserSync = require("browser-sync");
+var path = require("path");
 var paths = require("../paths");
 var args = require("../args");
+
+var sassSources = [
+    `${paths.app}shared/**/assets/css/main.scss`,
+    `${paths.app}website/components/page-header/page-header.scss`,
+    `${paths.app}website/**/assets/css/main.scss`,
+    `${paths.app}quick-recipe/**/assets/css/main.scss`
+];
+
+var htmlSources = [
+    `${paths.app}*.html`,
+    `${paths.app}resources/*.html`,
+    `${paths.app}resources/**/*.html`,
+    `${paths.app}shared/*.html`,
+    `${paths.app}shared/**/*.html`,
+    `${paths.app}website/*.html`,
+    `${paths.app}website/**/*.html`,
+    `${paths.app}quick-recipe/*.html`,
+    `${paths.app}quick-recipe/**/*.html`
+];
+
+var appSources = [
+    `${paths.app}*.ts`,
+    `${paths.app}resources/*.ts`,
+    `${paths.app}resources/**/*.ts`,
+    `${paths.app}shared/*.ts`,
+    `${paths.app}shared/**/*.ts`,
+    `${paths.app}website/*.ts`,
+    `${paths.app}website/**/*.ts`,
+    `${paths.app}quick-recipe/*.ts`,
+    `${paths.app}quick-recipe/**/*.ts`
+];
+
+if (args.env === "dev") {
+    sassSources.push(`${paths.app}administration/**/assets/css/main.scss`);
+    htmlSources.push(`${paths.app}administration/**/*.html`);
+    appSources.push(`${paths.app}administration/**/*.ts`);
+}
 
 gulp.task("default", ["build"]);
 gulp.task("build", function (callback) {
@@ -29,35 +67,23 @@ gulp.task("build-ts", function () {
         });
     }
 
-    return gulp.src(paths.sources)
+    return gulp.src(appSources, {base : "."})
         .pipe(plumber())
         .pipe(changed(paths.sources, { extension: ".ts" }))
         .pipe(sourcemaps.init({ loadMaps: true }))
         .pipe(typescriptCompiler())
         .pipe(sourcemaps.write(".", { includeContent: false, sourceRoot: "/app" }))
-        .pipe(gulp.dest(paths.outputApp));
+        .pipe(gulp.dest(paths.output));
 });
 
 gulp.task("build-html", function () {
-    return gulp.src(paths.views)
+    return gulp.src(htmlSources, {base : "."})
         .pipe(changed(paths.views, { extension: ".html" }))
-        .pipe(gulp.dest(paths.outputApp));
+        .pipe(gulp.dest(paths.output));
 });
 
 gulp.task("build-sass", function () {
-    var appSass = gulp.src([
-        paths.app + "shared/assets/css/main.scss",
-        paths.app + "shared/components/advanced-search/advanced-search.scss",
-        paths.app + "website/components/page-header/page-header.scss",
-        paths.app + "website/welcome/assets/css/main.scss",
-        paths.app + "website/about/assets/css/main.scss",
-        paths.app + "website/how-it-works/assets/css/main.scss",
-        paths.app + "website/contact/assets/css/main.scss",
-        paths.app + "quick-recipe/administration/assets/css/main.scss",
-        paths.app + "quick-recipe/backgrounds/assets/css/main.scss",
-        paths.app + "quick-recipe/edit-recipe/assets/css/main.scss",
-        paths.app + "quick-recipe/follow-recipe/assets/css/main.scss",
-    ])
+    var appSass = gulp.src(sassSources, {base : "."})
         .pipe(changed(paths.styles, { extension: ".scss" }))
         .pipe(sass())
 

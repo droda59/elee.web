@@ -1,8 +1,8 @@
 import { autoinject, inject, NewInstance } from "aurelia-framework";
 import { Router } from "aurelia-router";
 import { ValidationControllerFactory, ValidationController, ValidationRules, ValidateResult } from "aurelia-validation";
-import { ContactService } from "app/shared/contact-service";
-import { ContactForm } from "app/website/models/contact-form";
+import { ContactService } from "app/website/contact/contact-service";
+import { ContactForm } from "app/website/contact/models/contact-form";
 
 @autoinject()
 export class ContactPage {

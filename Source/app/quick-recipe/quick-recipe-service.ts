@@ -9,10 +9,8 @@ import "fetch";
 @inject(NewInstance.of(HttpClient), Configure, ServiceEventInterceptor)
 export class QuickRecipeService {
 	private _httpClient: HttpClient;
-	private _isAdmin: boolean;
 
 	constructor(httpClient: HttpClient, configure: Configure, interceptor: ServiceEventInterceptor) {
-		this._isAdmin = configure.is("development");
 		this._httpClient = httpClient.configure(config => {
 			config
 				.useStandardConfiguration()
@@ -32,18 +30,10 @@ export class QuickRecipeService {
 			.then(response => response.json());
 	}
 
-	findRecipesAdvanced(searchTerms: string, ingredients: string, maximumTime: number): Promise<Array<QuickRecipeSearchResult>> {
-		return this._httpClient.fetch(`api/quickrecipe/search?query=${searchTerms}&includedIngredients=${ingredients}&maximumTime=PT${maximumTime}M`)
-			.then(response => response.json());
-	}
-
-	getRecipesToReview(): Promise<Array<QuickRecipeSearchResult>> {
-		return this._getReviewedRecipes(false);
-	}
-
-	getReviewedRecipes(): Promise<Array<QuickRecipeSearchResult>> {
-		return this._getReviewedRecipes(true);
-	}
+	// findRecipesAdvanced(searchTerms: string, ingredients: string, maximumTime: number): Promise<Array<QuickRecipeSearchResult>> {
+	// 	return this._httpClient.fetch(`api/quickrecipe/search?query=${searchTerms}&includedIngredients=${ingredients}&maximumTime=PT${maximumTime}M`)
+	// 		.then(response => response.json());
+	// }
 
 	getPaged(skip: number, take: number): Promise<Array<QuickRecipeSearchResult>> {
 		return this._httpClient.fetch(`api/quickrecipe/search/paged?skip=${skip}&take=${take}`)
@@ -55,28 +45,9 @@ export class QuickRecipeService {
 			.then(response => response.json());
 	}
 
-	saveRecipe(uniqueName: string, quickRecipe: QuickRecipe): Promise<boolean> {
-		return this._httpClient.fetch(`api/quickrecipe/${uniqueName}`, {
-			method: "put",
-			body: json(quickRecipe),
-			headers: {
-				"X-Admin": this._isAdmin
-			}
-		}).then(response => response.json());
-	}
-
 	report(uniqueName: string): Promise<boolean> {
 		return this._httpClient.fetch(`api/review/flag/${uniqueName}`, {
 			method: "put"
 		}).then(response => response.json());
-	}
-
-	private _getReviewedRecipes(reviewed: boolean): Promise<Array<QuickRecipeSearchResult>> {
-		return this._httpClient.fetch(`api/quickrecipe/search/review?reviewed=${reviewed}`, {
-				headers: {
-					"X-Admin": this._isAdmin
-				}
-			})
-			.then(response => response.json());
 	}
 }

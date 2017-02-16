@@ -1,0 +1,175 @@
+.E133 {
+    @import "../../../shared/assets/css/variables";
+    @import "side-nav";
+    @import "recipe-progression";
+    @import "animations";
+
+    .quick-recipe-background {
+        background-size: cover;
+        height: 100vh;
+        -webkit-filter: blur(5px);
+        -moz-filter: blur(5px);
+        -o-filter: blur(5px);
+        -ms-filter: blur(5px);
+        filter: blur(10px);
+        position: fixed;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        margin: 0 -20px;
+    }
+
+    .quick-recipe {
+        font-family: "Lato", sans-serif;
+
+        header {
+            position: absolute;
+            width: 100%;
+        }
+
+        main {
+            background-color: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            left: 0;
+            right: 0;
+
+            height: 100vh;
+            margin-bottom: 0;
+
+            .recipe-title {
+                bottom: 65%;
+                width: 100%;
+                // left: 10%;
+                position: absolute;
+
+                h1 {
+                    // text-align: center;
+                    text-transform: uppercase;
+                    // color: white;
+                    height: initial;
+                    font-family: "Suranna", serif;
+                    font-size: 3.8rem;
+                }
+
+                &.started {
+                    bottom: 80%;
+                    transition: all 0.2s ease-in-out;
+
+                    h1 {
+                        font-size: 2.2rem;
+                        transition: all 0.2s ease-in-out;
+                    }
+                }
+            }
+
+            #instructions {
+                height: 40%;
+                top: 30%;
+                width: 50%;
+                left: 25%;
+                position: absolute;
+
+                #presentation-section {
+                    background-color: rgba(255, 255, 255, 0.8);
+                    overflow-y: inherit;
+                    position: absolute;
+                    top: 20%;
+                }
+
+                #recipe-content {
+                    .btn {
+                        background-color: rgba(255, 255, 255, 0.1);
+
+                        &:hover {
+                            background-color: rgba(255, 255, 255, 0.25);
+                        }
+
+                        &.complete-step {
+                            position: absolute;
+                            top: 40%;
+                            right: -20%;
+                        }
+                    }
+
+                    .step {
+                        height: 100%;
+                        font-size: 1em;
+                        transition: opacity 0.2s ease-in-out, font-size 0.1s ease-in-out;
+                        display: block;
+                        position: relative;
+
+                        .enumeration {
+                            margin: 1.3rem 0;
+
+                            .collection-item {
+                                padding: 3px 0;
+                                background-color: transparent;
+                            }
+                        }
+
+                        .emphasis {
+                            font-weight: 600;
+                            font-size: 1.8rem;
+                        }
+
+                        .technical {
+                            font-size: 1.8rem;
+                        }
+
+                        .timer {
+                            a {
+                                font-size: 1rem;
+                            }
+                            .btn {
+                                padding: 0 1rem;
+                                margin: 0 1rem;
+                            }
+                        }
+                        &.active {
+                            opacity: 1;
+                        }
+                        &.complete {
+                            text-decoration: line-through;
+                        }
+                    }
+                }
+            }
+        }
+
+        @media #{$small-and-down} {
+            header {
+                h3 {
+                    margin: 0;
+                }
+            }
+
+            main {
+                .recipe-title {
+                    top: 8%;
+                    bottom: inherit;
+                    font-size: 2.2rem;
+                }
+
+                #instructions {
+                    left: 5%;
+                    width: 90%;
+                    height: 60%;
+                    top: 30%;
+
+                    #recipe-content {
+                        .step {
+                            padding: 4rem 4rem 1rem 1rem;
+
+                            .emphasis {
+                                font-size: 1.3em;
+                            }
+                            .technical {
+                                font-size: 1.2em;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
