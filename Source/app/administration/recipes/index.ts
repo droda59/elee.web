@@ -3,7 +3,7 @@ import {AdminQuickRecipeService} from "app/administration/recipes/admin-quick-re
 import {QuickRecipeSearchResult} from "app/quick-recipe/models/quick-recipe-search-result";
 
 @autoinject()
-export class Administration {
+export class RecipeAdministration {
     recipesToReview: Array<QuickRecipeSearchResult> = [];
     reviewedRecipes: Array<QuickRecipeSearchResult> = [];
 

@@ -46,7 +46,9 @@ var appSources = [
 
 if (args.env === "dev") {
     sassSources.push(`${paths.app}administration/**/assets/css/main.scss`);
+    htmlSources.push(`${paths.app}administration/*.html`);
     htmlSources.push(`${paths.app}administration/**/*.html`);
+    appSources.push(`${paths.app}administration/*.ts`);
     appSources.push(`${paths.app}administration/**/*.ts`);
 }
 
@@ -70,9 +72,9 @@ gulp.task("build-ts", function () {
     return gulp.src(appSources, {base : "."})
         .pipe(plumber())
         .pipe(changed(paths.sources, { extension: ".ts" }))
-        .pipe(sourcemaps.init({ loadMaps: true }))
+        // .pipe(sourcemaps.init({ loadMaps: true }))
         .pipe(typescriptCompiler())
-        .pipe(sourcemaps.write(".", { includeContent: false, sourceRoot: "/app" }))
+        // .pipe(sourcemaps.write(".", { includeContent: false, sourceRoot: "/app" }))
         .pipe(gulp.dest(paths.output));
 });
 

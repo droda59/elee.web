@@ -5,6 +5,7 @@
 	},
 	"nav": {
 		"welcome": "",
+		"administration": "Administration",
 		"contact": "Contact",
 		"about": "À propos",
 		"how-it-works": "Fonctionnalités"
@@ -19,7 +20,7 @@
 	        "pageTitle": "Commentaires"
 		},
 		"recipes": {
-			"pageTitle": "Administration",
+			"pageTitle": "Recettes",
 			"recipesToReview": "Recettes à réviser",
 	        "reviewedRecipes": "Recettes révisées"
 		}

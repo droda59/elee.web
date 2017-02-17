@@ -20,17 +20,6 @@
 							<img src="/dist/app/shared/assets/images/twitter-logo.png" alt="twitter">
 						</a>
 					</li>
-					<!-- Dropdown Trigger -->
-					<li if.bind="isAdmin" class="navigation__route">
-						<a md-dropdown="activates: admin-dropdown; below-origin: true; hover: true; constrain-width: false;" class="dropdown-button" href="#">
-							Admin <i class="material-icons right">arrow_drop_down</i>
-						</a>
-						<ul id="admin-dropdown" class="dropdown-content">
-							<li><a href="#/administration/contact">Commentaires</a></li>
-							<li><a href="#/administration/recipes">Recettes</a></li>
-							<li><a href="#/administration/backgrounds">Backgrounds</a></li>
-						</ul>
-					</li>
 				</ul>
 			</md-navbar>
 			<md-sidenav view-model.ref="sideNavLeft">

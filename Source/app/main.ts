@@ -1,10 +1,11 @@
-import { inject } from "aurelia-framework";
+import { inject, inlineView } from "aurelia-framework";
 import { Router, RouterConfiguration } from "aurelia-router";
 import { Configure } from "aurelia-configuration";
 import { I18N } from "aurelia-i18n";
 import { CustomValidationMessages } from "app/shared/custom-validation-messages";
 
 @inject(I18N, Configure, CustomValidationMessages)
+@inlineView("<template><router-view></router-view></template>")
 export class Main {
 	router: Router;
 
