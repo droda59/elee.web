@@ -6,7 +6,7 @@
                     <h2>${ 'administration.contact.pageTitle' | t }</h2>
 
                     <ul class="collection">
-                        <li virtual-repeat.for="form of forms" class="collection-item avatar">
+                        <li virtual-repeat.for="form of forms | orderBy:'date':'desc'" class="collection-item avatar">
                             <i class="material-icons circle">comment</i>
                             <span class="title">${form.name} <small>(${form.email})</small></span>
                             <p>

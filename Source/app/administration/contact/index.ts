@@ -13,12 +13,10 @@ export class AdminContactPage {
     }
 
     activate(): Promise<Array<ContactForm>> {
-        // TODO Make a value converter for the sort
         return this._contactService.get()
             .then(response => {
                 this.forms = response
-                    .map(form => new ContactForm(form))
-                    .sort((o1, o2) => o2.date - o1.date);
+                    .map(form => new ContactForm(form));
             });
     }
 }
