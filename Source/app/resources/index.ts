@@ -9,6 +9,7 @@ export function configure(config: FrameworkConfiguration) {
     var valueConverters = [
         "app/resources/value-converters/duration",
         "app/resources/value-converters/lowercase",
+        "app/resources/value-converters/order-by",
         "app/resources/value-converters/quantity-human-format",
         "app/resources/value-converters/time",
         "app/resources/value-converters/uppercase-first-letter"

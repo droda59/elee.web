@@ -8,7 +8,7 @@
 				</a>
 				<ul class="navigation right hide-on-med-and-down">
 					<li repeat.for="row of router.navigation" if.bind="row.config.name" class="navigation__route ${row.isActive ? 'active' : ''}">
-						<a href.one-time="row.href">${'nav.' + row.config.name | t}</a>
+						<a route-href="route.one-time: row.config.route">${'nav.' + row.config.name | t}</a>
 					</li>
 					<li class="navigation__route">
 						<a href="https://www.facebook.com/eleemenu/" target="_blank" class="logo-link">
@@ -25,7 +25,7 @@
 			<md-sidenav view-model.ref="sideNavLeft">
 				<ul>
 					<li repeat.for="row of router.navigation" if.bind="row.config.name" class="item ${row.isActive ? 'active' : ''}">
-						<a href.one-time="row.href">${'nav.' + row.config.name | t}</a>
+						<a route-href="route.one-time: row.config.route">${'nav.' + row.config.name | t}</a>
 					</li>
 					<li>
 						<a href="fb://page/1745012672451697">Facebook</a>

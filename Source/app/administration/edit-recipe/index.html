@@ -10,7 +10,7 @@
                         <li><a href="#ingredients">${ 'edit.ingredient.title' | t }</a></li>
                         <li><a href="#steps">${ 'edit.step.title' | t }</a></li>
                     </ul>
-					<a class="btn waves-effect waves-light" click.trigger="returnToRecipes()">
+					<a class="btn waves-effect waves-light" route-href="route: admin-recipes">
                         ${ 'edit.backToRecipes' | t }
                         <i class="material-icons left">navigate_before</i>
                     </a>
@@ -197,7 +197,7 @@
                         </div>
                     </section>
 
-                    <a class="btn waves-effect waves-light" click.trigger="returnToRecipe()">
+                    <a class="btn waves-effect waves-light" route-href="route: quick-recipe; params.bind: { uniqueName: recipe.uniqueName }">
                         ${ 'edit.backButton' | t }
                         <i class="material-icons left">navigate_before</i>
                     </a>

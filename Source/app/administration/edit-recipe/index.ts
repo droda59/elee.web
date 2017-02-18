@@ -245,10 +245,6 @@ export class EditRecipePage {
         this._router.navigateToRoute("quick-recipe", { "id": this.recipe.uniqueName }, undefined);
     }
 
-	returnToRecipes() {
-		this._router.navigateToRoute("administration");
-	}
-
     findStep(stepId: number): Step {
         return this.steps.filter(step => step.id === stepId)[0];
     }

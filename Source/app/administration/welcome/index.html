@@ -4,11 +4,11 @@
             <div repeat.for="row of router.navigation" with.one-time="row" class="col s12 m6 l4">
                 <div class="card ${$index === 2 ? 'blue' : $index === 1 ? 'deep-orange' : $index === 0 ? 'teal' : ''}">
                     <div class="card-content white-text">
-                        <a href.one-time="href"><h4 class="light white-text">${ title }</h4></a>
+                        <a route-href="route.one-time: config.route"><h4 class="light white-text">${ title }</h4></a>
                     </div>
                     <div class="card-tabs">
                         <div class="card-content blue lighten-5">
-                            <a href.one-time="href">Go</a>
+                            <a route-href="route.one-time: config.route">Go</a>
                         </div>
                     </div>
                 </div>

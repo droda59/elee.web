@@ -38,7 +38,6 @@
 				<recipe-result repeat.for="result of results"
 				 	result.bind="result"
 					index.bind="$index"
-					click.call="goToResult(result.uniqueName)"
 					containerless></recipe-result>
 			</div>
 
@@ -54,7 +53,7 @@
 			<div class="row center" class="result__content">
 				<div class="col m12 l8 offset-l2">
 					<div class="result col s12 m4" repeat.for="result of featuredRecipes">
-						<a click.delegate="goToFeatured(result.uniqueName)" class="white-text center-align result__thumb--link">
+						<a route-href="route: quick-recipe; params.bind: { uniqueName: result.uniqueName }" class="white-text center-align result__thumb--link">
 							<div class="result__thumb">
 								<img src.bind="result.smallImageUrl" alt="">
 							</div>
@@ -76,7 +75,6 @@
 					<recipe-result repeat.for="result of otherRecipes"
 						result.bind="result"
 						index.bind="$index"
-						click.call="goToOther(result.uniqueName)"
 						containerless></recipe-result>
     			</div>
             </div>

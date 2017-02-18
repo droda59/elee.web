@@ -15,6 +15,7 @@ export class QuantityHumanFormatValueConverter {
       return "";
     }
 
+    // TODO See if we can take this out in the view
     var quantityUnit = this._i18n.tr("quantities." + quantity.unit.abbreviation, { "count": quantity.value });
     var quantityValue = this.getHumanizedValue(quantity);
 

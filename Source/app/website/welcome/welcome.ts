@@ -78,26 +78,26 @@ export class Welcome {
 		}
 	}
 
-	goToResult(uniqueName: string): void {
-		ga("send", "event", "Recipe", "click", "search");
-		this._loadRecipe(uniqueName);
-	}
-
-	goToFeatured(uniqueName: string): void {
-		ga("send", "event", "Recipe", "click", "vedette");
-		this._loadRecipe(uniqueName);
-	}
-
-	goToOther(uniqueName: string): void {
-		ga("send", "event", "Recipe", "click", "other");
-		this._loadRecipe(uniqueName);
-	}
+	// goToResult(uniqueName: string): void {
+	// 	ga("send", "event", "Recipe", "click", "search");
+	// 	this._loadRecipe(uniqueName);
+	// }
+	//
+	// goToFeatured(uniqueName: string): void {
+	// 	ga("send", "event", "Recipe", "click", "vedette");
+	// 	this._loadRecipe(uniqueName);
+	// }
+	//
+	// goToOther(uniqueName: string): void {
+	// 	ga("send", "event", "Recipe", "click", "other");
+	// 	this._loadRecipe(uniqueName);
+	// }
 
 	getCurrentPageName(): string {
 		return this.router.currentInstruction.config.name;
 	}
-
-	private _loadRecipe(uniqueName: string): void {
-		this.router.navigateToRoute("quick-recipe", { "uniqueName": uniqueName }, undefined);
-	}
+	//
+	// private _loadRecipe(uniqueName: string): void {
+	// 	this.router.navigateToRoute("quick-recipe", { "uniqueName": uniqueName }, undefined);
+	// }
 }

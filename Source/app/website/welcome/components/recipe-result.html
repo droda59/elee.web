@@ -7,7 +7,7 @@
         data-aos-offset="-100"
         data-aos-anchor-placement="top-center"
         data-aos-once="true">
-        <a click.delegate="goToRecipe()" class="black-text center-align result__thumb--link">
+        <a route-href="route: quick-recipe; params.bind: { uniqueName: result.uniqueName }" class="black-text center-align result__thumb--link">
             <div class="result__thumb">
                 <img src.bind="result.smallImageUrl" alt="">
             </div>

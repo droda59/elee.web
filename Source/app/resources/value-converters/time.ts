@@ -1,4 +1,4 @@
-export class TimeFormatValueConverter {
+export class TimeValueConverter {
     toView(value: number) {
         var hours = Math.floor(value / 3600);
         var minutes = Math.floor((value - (hours * 3600)) / 60);
