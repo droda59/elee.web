@@ -1,28 +1,15 @@
-import { inject, NewInstance } from "aurelia-framework";
+import { inject } from "aurelia-framework";
 import { HttpClient, json } from "aurelia-fetch-client";
-import { Configure } from "aurelia-configuration";
-import { ServiceEventInterceptor } from "app/shared/service-event-interceptor";
 import { QuickRecipe } from "app/quick-recipe/models/quick-recipe";
 import { QuickRecipeSearchResult } from "app/quick-recipe/models/quick-recipe-search-result";
 import "fetch";
 
-@inject(NewInstance.of(HttpClient), Configure, ServiceEventInterceptor)
+@inject("admin-api-service")
 export class AdminQuickRecipeService {
 	private _httpClient: HttpClient;
 
-	constructor(httpClient: HttpClient, configure: Configure) {
-		this._httpClient = httpClient.configure(config => {
-			config
-				.useStandardConfiguration()
-				.withDefaults({
-					headers: {
-						"Accept": "application/json",
-						"X-Requested-With": "Fetch",
-                        "X-Admin": configure.is("development")
-					}
-				})
-				.withBaseUrl(configure.get("api"));
-		});
+	constructor(httpClient: HttpClient) {
+		this._httpClient = httpClient;
 	}
 
 	saveRecipe(uniqueName: string, quickRecipe: QuickRecipe): Promise<boolean> {

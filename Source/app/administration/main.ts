@@ -21,21 +21,21 @@ export class Administration {
         		moduleId: "app/administration/welcome/index"
         	},
             {
-        		route: "contact",
+        		route: "admin-contact",
         		name: "admin-contact",
         		moduleId: "app/administration/contact/index",
         		title: this._i18n.tr("administration.contact.pageTitle"),
                 nav: true
         	},
             {
-        		route: "backgrounds",
+        		route: "admin-backgrounds",
         		name: "admin-backgrounds",
         		moduleId: "app/administration/backgrounds/index",
         		title: this._i18n.tr("administration.backgrounds.pageTitle"),
                 nav: true
         	},
             {
-        		route: "recipes",
+        		route: "admin-recipes",
         		name: "admin-recipes",
         		moduleId: "app/administration/recipes/index",
         		title: this._i18n.tr("administration.recipes.pageTitle"),
